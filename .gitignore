@@ -38,3 +38,6 @@ build/
 # Swift Package Manager
 Package.resolved
 .swiftpm
+
+# FVM Version Cache
+.fvm/
