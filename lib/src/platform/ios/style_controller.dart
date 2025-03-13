@@ -110,6 +110,16 @@ class StyleControllerIos implements StyleController {
   }
 
   @override
+  Future<void> updateLayer(StyleLayer layer) async {
+    final ffiLayer = _ffiStyle.layerWithIdentifier_(layer.id.toNSString());
+    if (ffiLayer == null) {
+      throw Exception('Layer "${layer.id}" does not exist.');
+    }
+    ffiLayer.setProperties(layer.paint);
+    ffiLayer.setProperties(layer.layout);
+  }
+
+  @override
   Future<void> addSource(Source source) async {
     final MLNSource ffiSource;
     switch (source) {

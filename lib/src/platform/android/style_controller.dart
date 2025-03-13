@@ -81,6 +81,11 @@ class StyleControllerAndroid implements StyleController {
   }
 
   @override
+  Future<void> updateLayer(StyleLayer layer) async {
+    throw UnimplementedError('updateLayer is not implemented on android.');
+  }
+
+  @override
   Future<void> addSource(Source source) async {
     final jniId = source.id.toJString();
     final jni.Source jniSource;

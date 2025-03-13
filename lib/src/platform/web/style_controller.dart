@@ -22,6 +22,11 @@ class StyleControllerWeb implements StyleController {
   }
 
   @override
+  Future<void> updateLayer(StyleLayer layer) async {
+    throw UnimplementedError('updateLayer is not implemented on web.');
+  }
+
+  @override
   Future<void> removeImage(String id) async => _map.removeImage(id);
 
   @override
