@@ -35,11 +35,7 @@ import UIKit
   @objc public static func addImageToStyle(
     target: NSObject, field: String, expression: NSExpression
   ) {
-    do {
-      target.setValue(expression, forKey: field)
-    } catch {
-      print("Couldn't set expression in Helpers.setExpression()")
-    }
+    target.setValue(expression, forKey: field)
   }
 
   @objc public static func setExpression(
@@ -50,6 +46,29 @@ import UIKit
       try target.setValue(expression, forKey: field)
     } catch {
       print("Couldn't set expression in Helpers.setExpression()")
+    }
+  }
+
+  @objc public static func setFilter(
+    target: NSObject, filter: String,
+  ) -> String? {
+    do {
+      let filter = try JSONSerialization.jsonObject(
+        with: filter.data(using: .utf8)!,
+        options: .fragmentsAllowed
+      )
+      if filter is NSNull {
+        return nil
+      }
+      let predicate = try NSPredicate(mglJSONObject: filter)
+      if let target = target as? MLNVectorStyleLayer {
+        target.predicate = predicate
+      } else {
+        return "Layer '\(target)' does not support filters"
+      }
+      return nil
+    } catch {
+      return "Couldn't set filter in Helpers.setFilter()"
     }
   }
 

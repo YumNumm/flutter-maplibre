@@ -219,6 +219,11 @@ extension MLNStyleLayerExt on MLNStyleLayer {
         (this as MLNSymbolStyleLayer).textTranslation = expression;
       case 'text-translate-anchor':
         (this as MLNSymbolStyleLayer).textTranslationAnchor = expression;
+      case 'filter':
+        Helpers.setFilterWithTarget_filter_(
+          this,
+          rawValue.toNSString(),
+        );
       default:
         Helpers.setExpressionWithTarget_field_expression_(
           this,
