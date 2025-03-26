@@ -50,7 +50,7 @@ import UIKit
   }
 
   @objc public static func setFilter(
-    target: NSObject, filter: String,
+    target: NSObject, filter: String
   ) -> String? {
     do {
       let filter = try JSONSerialization.jsonObject(
