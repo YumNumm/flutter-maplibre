@@ -110,7 +110,17 @@ class StyleControllerIos implements StyleController {
     if (layer.maxZoom case final double maxZoom) {
       ffiStyleLayer.maximumZoomLevel = maxZoom;
     }
-    _ffiStyle.addLayer_(ffiStyleLayer);
+    if (belowLayerId != null) {
+      final belowLayer = _ffiStyle.layerWithIdentifier_(
+        belowLayerId.toNSString(),
+      );
+      if (belowLayer == null) {
+        throw Exception('Layer "$belowLayerId" does not exist.');
+      }
+      _ffiStyle.insertLayer_belowLayer_(ffiStyleLayer, belowLayer);
+    } else {
+      _ffiStyle.addLayer_(ffiStyleLayer);
+    }
   }
 
   @override
