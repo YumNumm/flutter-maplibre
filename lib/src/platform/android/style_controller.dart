@@ -53,9 +53,21 @@ class StyleControllerAndroid implements StyleController {
         ),
     };
 
+    _applyProperties(jLayer, layer, arena);
+    jLayer.releasedBy(arena);
+
+    // add to style
+    if (belowLayerId == null) {
+      _jniStyle.addLayer(jLayer);
+    } else {
+      _jniStyle.addLayerBelow(jLayer, belowLayerId.toJString());
+    }
+  });
+
+  void _applyProperties(jni.Layer layer, StyleLayer styleLayer, Arena arena) {
     // paint and layout properties
-    final layoutEntries = layer.layout.entries.toList(growable: false);
-    final paintEntries = layer.paint.entries.toList(growable: false);
+    final layoutEntries = styleLayer.layout.entries.toList(growable: false);
+    final paintEntries = styleLayer.paint.entries.toList(growable: false);
     final props = JArray(
       jni.PropertyValue.nullableType(JObject.nullableType),
       layoutEntries.length + paintEntries.length,
@@ -76,21 +88,40 @@ class StyleControllerAndroid implements StyleController {
         T: JObject.type,
       );
     }
-    jLayer.releasedBy(arena);
-    jLayer.setProperties(props);
-
-    // add to style
-    if (belowLayerId == null) {
-      _jniStyle.addLayer(jLayer);
-    } else {
-      _jniStyle.addLayerBelow(jLayer, belowLayerId.toJString());
-    }
-  });
+    layer.setProperties(props);
+  }
 
   @override
-  Future<void> updateLayer(StyleLayer layer) async {
-    throw UnimplementedError('updateLayer is not implemented on android.');
-  }
+  Future<void> updateLayer(StyleLayer layer, {String? sourceLayer}) async =>
+      using((arena) {
+        final jLayer = _jniStyle.getLayer(layer.id.toJString());
+        if (jLayer == null) {
+          throw Exception('Layer "${layer.id}" does not exist.');
+        }
+        _applyProperties(jLayer, layer, arena);
+
+        final sourceLayerId = sourceLayer?.toJString();
+        switch (layer) {
+          case jni.FillLayer():
+            (layer as jni.FillLayer).setSourceLayer(sourceLayerId);
+          case jni.CircleLayer():
+            (layer as jni.CircleLayer).setSourceLayer(sourceLayerId);
+          case jni.BackgroundLayer():
+            break;
+          case FillExtrusionStyleLayer():
+            (layer as jni.FillExtrusionLayer).setSourceLayer(sourceLayerId);
+          case HeatmapStyleLayer():
+            (layer as jni.HeatmapLayer).setSourceLayer(sourceLayerId);
+          case HillshadeStyleLayer():
+            break;
+          case LineStyleLayer():
+            (layer as jni.LineLayer).setSourceLayer(sourceLayerId);
+          case RasterStyleLayer():
+            (layer as jni.RasterLayer).setSourceLayer(sourceLayerId);
+          case SymbolStyleLayer():
+            (layer as jni.SymbolLayer).setSourceLayer(sourceLayerId);
+        }
+      });
 
   @override
   Future<void> addSource(Source source) async {

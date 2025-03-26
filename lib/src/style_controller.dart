@@ -20,7 +20,7 @@ abstract interface class StyleController {
   Future<void> addLayer(StyleLayer layer, {String? belowLayerId, String? sourceLayer});
 
   /// Update the layer with the given ID.
-  Future<void> updateLayer(StyleLayer layer);
+  Future<void> updateLayer(StyleLayer layer, {String? sourceLayer});
 
   /// Update the data of a GeoJSON source.
   Future<void> updateGeoJsonSource({required String id, required String data});

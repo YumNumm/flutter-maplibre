@@ -114,13 +114,31 @@ class StyleControllerIos implements StyleController {
   }
 
   @override
-  Future<void> updateLayer(StyleLayer layer) async {
+  Future<void> updateLayer(StyleLayer layer, {String? sourceLayer}) async {
     final ffiLayer = _ffiStyle.layerWithIdentifier_(layer.id.toNSString());
     if (ffiLayer == null) {
       throw Exception('Layer "${layer.id}" does not exist.');
     }
     ffiLayer.setProperties(layer.paint);
     ffiLayer.setProperties(layer.layout);
+
+    switch (ffiLayer) {
+      case MLNFillStyleLayer():
+        ffiLayer.sourceLayerIdentifier = sourceLayer?.toNSString();
+      case MLNCircleStyleLayer():
+        ffiLayer.sourceLayerIdentifier = sourceLayer?.toNSString();
+      case MLNFillExtrusionStyleLayer():
+        ffiLayer.sourceLayerIdentifier = sourceLayer?.toNSString();
+      case MLNHeatmapStyleLayer():
+        ffiLayer.sourceLayerIdentifier = sourceLayer?.toNSString();
+      case MLNLineStyleLayer():
+        ffiLayer.sourceLayerIdentifier = sourceLayer?.toNSString();
+      case MLNSymbolStyleLayer():
+        ffiLayer.sourceLayerIdentifier = sourceLayer?.toNSString();
+      case MLNRasterStyleLayer():
+      case MLNHillshadeStyleLayer():
+        break;
+    }
   }
 
   @override

@@ -22,7 +22,7 @@ class StyleControllerWeb implements StyleController {
   }
 
   @override
-  Future<void> updateLayer(StyleLayer layer) async {
+  Future<void> updateLayer(StyleLayer layer, {String? sourceLayer}) async {
     throw UnimplementedError('updateLayer is not implemented on web.');
   }
 
@@ -65,7 +65,11 @@ class StyleControllerWeb implements StyleController {
   }
 
   @override
-  Future<void> addLayer(StyleLayer layer, {String? belowLayerId, String? sourceLayer}) async {
+  Future<void> addLayer(
+    StyleLayer layer, {
+    String? belowLayerId,
+    String? sourceLayer,
+  }) async {
     switch (layer) {
       case FillStyleLayer():
         _map.addLayer(
