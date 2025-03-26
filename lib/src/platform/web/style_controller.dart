@@ -65,7 +65,7 @@ class StyleControllerWeb implements StyleController {
   }
 
   @override
-  Future<void> addLayer(StyleLayer layer, {String? belowLayerId}) async {
+  Future<void> addLayer(StyleLayer layer, {String? belowLayerId, String? sourceLayer}) async {
     switch (layer) {
       case FillStyleLayer():
         _map.addLayer(
@@ -78,6 +78,7 @@ class StyleControllerWeb implements StyleController {
           ),
           belowLayerId,
         );
+
       case CircleStyleLayer():
         _map.addLayer(
           interop.LayerSpecification(

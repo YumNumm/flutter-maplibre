@@ -17,7 +17,7 @@ abstract interface class StyleController {
   /// resulting in the new layer appearing visually beneath the existing layer.
   /// If this argument is not specified, the layer will be appended to the end
   /// of the layers array and appear visually above all other layers.
-  Future<void> addLayer(StyleLayer layer, {String? belowLayerId});
+  Future<void> addLayer(StyleLayer layer, {String? belowLayerId, String? sourceLayer});
 
   /// Update the layer with the given ID.
   Future<void> updateLayer(StyleLayer layer);

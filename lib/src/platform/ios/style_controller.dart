@@ -24,7 +24,11 @@ class StyleControllerIos implements StyleController {
   }
 
   @override
-  Future<void> addLayer(StyleLayer layer, {String? belowLayerId}) async {
+  Future<void> addLayer(
+    StyleLayer layer, {
+    String? belowLayerId,
+    String? sourceLayer,
+  }) async {
     MLNStyleLayer? ffiStyleLayer;
     switch (layer) {
       case BackgroundStyleLayer():
@@ -44,52 +48,52 @@ class StyleControllerIos implements StyleController {
         switch (layer) {
           case FillStyleLayer():
             ffiStyleLayer =
-                MLNFillStyleLayer.new1()..initWithIdentifier_source_(
-                  layer.id.toNSString(),
-                  ffiSource,
-                );
+                MLNFillStyleLayer.new1()
+                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
+                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
           case CircleStyleLayer():
             ffiStyleLayer =
-                MLNCircleStyleLayer.new1()..initWithIdentifier_source_(
-                  layer.id.toNSString(),
-                  ffiSource,
-                );
+                MLNCircleStyleLayer.new1()
+                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
+                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
           case FillExtrusionStyleLayer():
             ffiStyleLayer =
-                MLNFillExtrusionStyleLayer.new1()..initWithIdentifier_source_(
-                  layer.id.toNSString(),
-                  ffiSource,
-                );
+                MLNFillExtrusionStyleLayer.new1()
+                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
+                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
           case HeatmapStyleLayer():
             ffiStyleLayer =
-                MLNHeatmapStyleLayer.new1()..initWithIdentifier_source_(
-                  layer.id.toNSString(),
-                  ffiSource,
-                );
+                MLNHeatmapStyleLayer.new1()
+                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
+                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
           case HillshadeStyleLayer():
             ffiStyleLayer =
                 MLNHillshadeStyleLayer.new1()..initWithIdentifier_source_(
                   layer.id.toNSString(),
                   ffiSource,
                 );
+            if (sourceLayer != null) {
+              throw UnimplementedError('Source layer is not supported on iOS.');
+            }
           case LineStyleLayer():
             ffiStyleLayer =
-                MLNLineStyleLayer.new1()..initWithIdentifier_source_(
-                  layer.id.toNSString(),
-                  ffiSource,
-                );
+                MLNLineStyleLayer.new1()
+                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
+                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
           case RasterStyleLayer():
             ffiStyleLayer =
                 MLNRasterStyleLayer.new1()..initWithIdentifier_source_(
                   layer.id.toNSString(),
                   ffiSource,
                 );
+            if (sourceLayer != null) {
+              throw UnimplementedError('Source layer is not supported on iOS.');
+            }
           case SymbolStyleLayer():
             ffiStyleLayer =
-                MLNSymbolStyleLayer.new1()..initWithIdentifier_source_(
-                  layer.id.toNSString(),
-                  ffiSource,
-                );
+                MLNSymbolStyleLayer.new1()
+                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
+                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
         }
     }
 
