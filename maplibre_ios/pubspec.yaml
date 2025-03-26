@@ -59,6 +59,9 @@ ffigen:
       - 'NSAttributedString'
       - 'MLNShapeSource'
       - 'MLNImageSource'
+      - 'MLNMapViewDelegate'
+      - 'MLNLocationManager'
+      - 'MLNLocationManagerDelegate'
       - 'MLNShape'
       - 'MLNRasterDEMSource'
       - 'MLNOfflineStorage'
@@ -77,12 +80,13 @@ ffigen:
       'MLNVectorTileSource': 'MapLibre'
       'MLNOfflinePack': 'MapLibre'
       'MLNOfflineRegion': 'MapLibre'
+      'MLNLocationManager': 'MapLibre'
   headers:
     entry-points:
       - 'ios/maplibre_ios/Sources/maplibre_ios/MapLibreRegistry.h'
       # using the MapLibre.h file doesn't seem to work
       # TODO find a better solution for the entry points
-      #- 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MapLibre.h'
+      - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MapLibre.h'
       - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNMapView.h'
       - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNMapProjection.h'
       - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNStyle.h'
@@ -103,6 +107,7 @@ ffigen:
       - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNSymbolStyleLayer.h'
       - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNVectorStyleLayer.h'
       - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNAttributionInfo.h'
+      - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNLocationManager.h'
       - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/NSExpression+MLNAdditions.h'
       - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNOfflineStorage.h'
       - 'temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNOfflinePack.h'

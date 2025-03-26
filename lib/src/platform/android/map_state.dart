@@ -473,6 +473,11 @@ final class MapLibreMapStateAndroid extends MapLibreMapStateNative {
   }
 
   @override
+  Future<void> disableLocation() async {
+    _locationComponent.setLocationComponentEnabled(false);
+  }
+
+  @override
   Future<void> trackLocation({
     bool trackLocation = true,
     BearingTrackMode trackBearing = BearingTrackMode.gps,

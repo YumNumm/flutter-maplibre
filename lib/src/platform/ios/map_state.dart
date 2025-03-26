@@ -85,6 +85,12 @@ final class MapLibreMapStateIos extends MapLibreMapStateNative
     bool pulse = true,
   }) async {
     _mapView.showsUserLocation = true;
+    _mapView.showsUserHeadingIndicator = compassAnimation;
+  }
+
+  @override
+  Future<void> disableLocation() async {
+    _mapView.showsUserLocation = false;
   }
 
   @override
@@ -156,7 +162,6 @@ final class MapLibreMapStateIos extends MapLibreMapStateNative
     // We need to refresh the cached style for when the style reloads.
     style?.dispose();
     final styleCtrl = style = StyleControllerIos._(_mapView.style!, _hostApi);
-
     widget.onEvent?.call(MapEventStyleLoaded(styleCtrl));
     widget.onStyleLoaded?.call(styleCtrl);
     layerManager = LayerManager(styleCtrl, widget.layers);

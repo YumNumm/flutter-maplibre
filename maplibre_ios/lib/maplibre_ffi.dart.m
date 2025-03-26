@@ -1,6 +1,7 @@
 #include <stdint.h>
 #import <Foundation/Foundation.h>
 #import "../ios/maplibre_ios/Sources/maplibre_ios/MapLibreRegistry.h"
+#import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MapLibre.h"
 #import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNMapView.h"
 #import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNMapProjection.h"
 #import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNStyle.h"
@@ -21,6 +22,7 @@
 #import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNSymbolStyleLayer.h"
 #import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNVectorStyleLayer.h"
 #import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNAttributionInfo.h"
+#import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNLocationManager.h"
 #import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/NSExpression+MLNAdditions.h"
 #import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNOfflineStorage.h"
 #import "../temp/MapLibre.dynamic.xcframework/MapLibre.xcframework/ios-arm64_x86_64-simulator/MapLibre.framework/Headers/MLNOfflinePack.h"

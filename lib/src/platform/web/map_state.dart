@@ -418,6 +418,11 @@ final class MapLibreMapStateWeb extends MapLibreMapState {
   }
 
   @override
+  Future<void> disableLocation() async {
+    debugPrint("Can't disable the user location on web.");
+  }
+
+  @override
   Future<void> trackLocation({
     bool trackLocation = true,
     BearingTrackMode trackBearing = BearingTrackMode.gps,

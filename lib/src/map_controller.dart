@@ -129,6 +129,9 @@ abstract interface class MapController {
     bool pulse = true,
   });
 
+  /// Hide the user location on the map
+  Future<void> disableLocation();
+
   /// Track the user location on the map
   ///
   /// Set [trackLocation] to false if only the bearing should get tracked
