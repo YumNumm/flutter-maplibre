@@ -41,14 +41,8 @@ import UIKit
   @objc public static func setExpression(
     target: NSObject, field: String, expression: NSExpression
   ) {
-    do {
-      // https://developer.apple.com/documentation/objectivec/nsobject/1418139-setvalue
-      try target.setValue(expression, forKey: field)
-    } catch {
-      print("Couldn't set expression in Helpers.setExpression()")
-    }
+    target.setValue(expression, forKey: field)
   }
-
   @objc public static func setFilter(
     target: NSObject, filter: String
   ) -> String? {
@@ -60,7 +54,7 @@ import UIKit
       if filter is NSNull {
         return nil
       }
-      let predicate = try NSPredicate(mglJSONObject: filter)
+      let predicate = NSPredicate(mglJSONObject: filter)
       if let target = target as? MLNVectorStyleLayer {
         target.predicate = predicate
       } else {
@@ -79,7 +73,7 @@ import UIKit
     do {
       // can't create an Expression using the default method if the data is a hex string
       if propertyName.contains("color"), expression.first == "#" {
-        var color = UIColor(hexString: expression)
+        let color = UIColor(hexString: expression)
         return NSExpression(forConstantValue: color)
       }
       if expression.starts(with: "[") {
@@ -115,5 +109,19 @@ import UIKit
       print("Couldn't parse Expression: " + expression)
     }
     return nil
+  }
+
+  @objc public static func altitudeForZoomLevel(
+    zoomLevel: Double,
+    mapView: MLNMapView
+  ) -> Double {
+    return MLNAltitudeForZoomLevel(zoomLevel, mapView.camera.pitch, mapView.camera.centerCoordinate.latitude, mapView.frame.size)
+  }
+
+  @objc public static func zoomLevelForAltitude(
+    altitude: Double,
+    mapView: MLNMapView
+  ) -> Double {
+    return MLNZoomLevelForAltitude(altitude, mapView.camera.pitch, mapView.camera.centerCoordinate.latitude, mapView.frame.size)
   }
 }

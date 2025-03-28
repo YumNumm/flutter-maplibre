@@ -169,6 +169,8 @@ external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_10lndml(
       awaitWaiter,
 );
 
+final class __CFDictionary extends ffi.Opaque {}
+
 final class CGPoint extends ffi.Struct {
   @ffi.Double()
   external double x;
@@ -183,6 +185,14 @@ final class CGSize extends ffi.Struct {
 
   @ffi.Double()
   external double height;
+}
+
+final class CGVector extends ffi.Struct {
+  @ffi.Double()
+  external double dx;
+
+  @ffi.Double()
+  external double dy;
 }
 
 final class CGRect extends ffi.Struct {
@@ -5353,437 +5363,8 @@ late final _sel_setFilterWithTarget_filter_ =
     objc.registerName("setFilterWithTarget:filter:");
 late final _sel_parseExpressionWithPropertyName_expression_ =
     objc.registerName("parseExpressionWithPropertyName:expression:");
-
-/// Helpers
-class Helpers extends objc.NSObject {
-  Helpers._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [Helpers] that points to the same underlying object as [other].
-  Helpers.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [Helpers] that wraps the given raw object pointer.
-  Helpers.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [Helpers].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_Helpers);
-  }
-
-  /// addImageToStyleWithTarget:field:expression:
-  static void addImageToStyleWithTarget_field_expression_(
-      objc.NSObject target, objc.NSString field, NSExpression expression) {
-    _objc_msgSend_r8gdi7(
-        _class_Helpers,
-        _sel_addImageToStyleWithTarget_field_expression_,
-        target.ref.pointer,
-        field.ref.pointer,
-        expression.ref.pointer);
-  }
-
-  /// setExpressionWithTarget:field:expression:
-  static void setExpressionWithTarget_field_expression_(
-      objc.NSObject target, objc.NSString field, NSExpression expression) {
-    _objc_msgSend_r8gdi7(
-        _class_Helpers,
-        _sel_setExpressionWithTarget_field_expression_,
-        target.ref.pointer,
-        field.ref.pointer,
-        expression.ref.pointer);
-  }
-
-  /// setFilterWithTarget:filter:
-  static objc.NSString? setFilterWithTarget_filter_(
-      objc.NSObject target, objc.NSString filter) {
-    final _ret = _objc_msgSend_15qeuct(
-        _class_Helpers,
-        _sel_setFilterWithTarget_filter_,
-        target.ref.pointer,
-        filter.ref.pointer);
-    return _ret.address == 0
-        ? null
-        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// parseExpressionWithPropertyName:expression:
-  static NSExpression? parseExpressionWithPropertyName_expression_(
-      objc.NSString propertyName, objc.NSString expression) {
-    final _ret = _objc_msgSend_15qeuct(
-        _class_Helpers,
-        _sel_parseExpressionWithPropertyName_expression_,
-        propertyName.ref.pointer,
-        expression.ref.pointer);
-    return _ret.address == 0
-        ? null
-        : NSExpression.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// init
-  Helpers init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return Helpers.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// new
-  static Helpers new1() {
-    final _ret = _objc_msgSend_151sglz(_class_Helpers, _sel_new);
-    return Helpers.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static Helpers allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_Helpers, _sel_allocWithZone_, zone);
-    return Helpers.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// alloc
-  static Helpers alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_Helpers, _sel_alloc);
-    return Helpers.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// self
-  Helpers self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return Helpers.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// retain
-  Helpers retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return Helpers.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// autorelease
-  Helpers autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return Helpers.castFromPointer(_ret, retain: true, release: true);
-  }
-}
-
-late final _class_MapLibreRegistry =
-    objc.getClass("maplibre_ios.MapLibreRegistry");
-late final _sel_getMapWithViewId_ = objc.registerName("getMapWithViewId:");
-final _objc_msgSend_1ya1kjn = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>, ffi.Int64)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, int)>();
-late final _sel_activity = objc.registerName("activity");
-late final _sel_setActivity_ = objc.registerName("setActivity:");
-late final _sel_context = objc.registerName("context");
-late final _sel_setContext_ = objc.registerName("setContext:");
-
-/// MapLibreRegistry
-class MapLibreRegistry extends objc.NSObject {
-  MapLibreRegistry._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MapLibreRegistry] that points to the same underlying object as [other].
-  MapLibreRegistry.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MapLibreRegistry] that wraps the given raw object pointer.
-  MapLibreRegistry.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MapLibreRegistry].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MapLibreRegistry);
-  }
-
-  /// getMapWithViewId:
-  static objc.ObjCObjectBase? getMapWithViewId_(int viewId) {
-    final _ret = _objc_msgSend_1ya1kjn(
-        _class_MapLibreRegistry, _sel_getMapWithViewId_, viewId);
-    return _ret.address == 0
-        ? null
-        : objc.ObjCObjectBase(_ret, retain: true, release: true);
-  }
-
-  /// activity
-  static objc.ObjCObjectBase? getActivity() {
-    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_activity);
-    return _ret.address == 0
-        ? null
-        : objc.ObjCObjectBase(_ret, retain: true, release: true);
-  }
-
-  /// setActivity:
-  static void setActivity(objc.ObjCObjectBase? value) {
-    _objc_msgSend_xtuoz7(_class_MapLibreRegistry, _sel_setActivity_,
-        value?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// context
-  static objc.ObjCObjectBase? getContext() {
-    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_context);
-    return _ret.address == 0
-        ? null
-        : objc.ObjCObjectBase(_ret, retain: true, release: true);
-  }
-
-  /// setContext:
-  static void setContext(objc.ObjCObjectBase? value) {
-    _objc_msgSend_xtuoz7(_class_MapLibreRegistry, _sel_setContext_,
-        value?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// init
-  MapLibreRegistry init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// new
-  static MapLibreRegistry new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_new);
-    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MapLibreRegistry allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret = _objc_msgSend_1cwp428(
-        _class_MapLibreRegistry, _sel_allocWithZone_, zone);
-    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// alloc
-  static MapLibreRegistry alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_alloc);
-    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// self
-  MapLibreRegistry self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// retain
-  MapLibreRegistry retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// autorelease
-  MapLibreRegistry autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
-  }
-}
-
-/// WARNING: MLNBackendResource is a stub. To generate bindings for this class, include
-/// MLNBackendResource in your config's objc-interfaces list.
-///
-/// MLNBackendResource
-class MLNBackendResource extends objc.NSObject {
-  MLNBackendResource._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNBackendResource] that points to the same underlying object as [other].
-  MLNBackendResource.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNBackendResource] that wraps the given raw object pointer.
-  MLNBackendResource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-}
-
-final class CGContext extends ffi.Opaque {}
-
-final class CGColor extends ffi.Opaque {}
-
-final class CGColorSpace extends ffi.Opaque {}
-
-final class CGImage extends ffi.Opaque {}
-
-final class CGPath extends ffi.Opaque {}
-
-final class CGLayer extends ffi.Opaque {}
-
-final class __CGEvent extends ffi.Opaque {}
-
-/// Options for enabling debugging features in an ``MLNMapView`` instance.
-enum MLNMapDebugMaskOptions {
-  /// Edges of tile boundaries are shown as thick, red lines to help diagnose
-  /// tile clipping issues.
-  MLNMapDebugTileBoundariesMask(2),
-
-  /// Each tile shows its tile coordinate (x/y/z) in the upper-left corner.
-  MLNMapDebugTileInfoMask(4),
-
-  /// Each tile shows a timestamp indicating when it was loaded.
-  MLNMapDebugTimestampsMask(8),
-
-  /// Edges of glyphs and symbols are shown as faint, green lines to help
-  /// diagnose collision and label placement issues.
-  MLNMapDebugCollisionBoxesMask(16),
-
-  /// Each drawing operation is replaced by a translucent fill. Overlapping
-  /// drawing operations appear more prominent to help diagnose overdrawing.
-  /// > Note: This option does nothing in Release builds of the SDK.
-  MLNMapDebugOverdrawVisualizationMask(32),
-
-  /// The stencil buffer is shown instead of the color buffer.
-  /// > Note: This option does nothing in Release builds of the SDK.
-  MLNMapDebugStencilBufferMask(64),
-
-  /// The depth buffer is shown instead of the color buffer.
-  /// > Note: This option does nothing in Release builds of the SDK.
-  MLNMapDebugDepthBufferMask(128);
-
-  final int value;
-  const MLNMapDebugMaskOptions(this.value);
-
-  static MLNMapDebugMaskOptions fromValue(int value) => switch (value) {
-        2 => MLNMapDebugTileBoundariesMask,
-        4 => MLNMapDebugTileInfoMask,
-        8 => MLNMapDebugTimestampsMask,
-        16 => MLNMapDebugCollisionBoxesMask,
-        32 => MLNMapDebugOverdrawVisualizationMask,
-        64 => MLNMapDebugStencilBufferMask,
-        128 => MLNMapDebugDepthBufferMask,
-        _ => throw ArgumentError(
-            "Unknown value for MLNMapDebugMaskOptions: $value"),
-      };
-}
-
-/// A structure containing information about a transition.
-final class MLNTransition extends ffi.Struct {
-  /// The amount of time the animation should take, not including the delay.
-  @ffi.Double()
-  external double duration;
-
-  /// The amount of time in seconds to wait before beginning the animation.
-  @ffi.Double()
-  external double delay;
-}
-
-/// Constants indicating the visibility of different map ornaments.
-enum MLNOrnamentVisibility {
-  /// A constant indicating that the ornament adapts to the current map state.
-  MLNOrnamentVisibilityAdaptive(0),
-
-  /// A constant indicating that the ornament is always hidden.
-  MLNOrnamentVisibilityHidden(1),
-
-  /// A constant indicating that the ornament is always visible.
-  MLNOrnamentVisibilityVisible(2);
-
-  final int value;
-  const MLNOrnamentVisibility(this.value);
-
-  static MLNOrnamentVisibility fromValue(int value) => switch (value) {
-        0 => MLNOrnamentVisibilityAdaptive,
-        1 => MLNOrnamentVisibilityHidden,
-        2 => MLNOrnamentVisibilityVisible,
-        _ => throw ArgumentError(
-            "Unknown value for MLNOrnamentVisibility: $value"),
-      };
-}
-
-/// WARNING: MLNCompassButton is a stub. To generate bindings for this class, include
-/// MLNCompassButton in your config's objc-interfaces list.
-///
-/// A specialized view that displays the current compass heading for its associated map.
-class MLNCompassButton extends objc.ObjCObjectBase {
-  MLNCompassButton._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNCompassButton] that points to the same underlying object as [other].
-  MLNCompassButton.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNCompassButton] that wraps the given raw object pointer.
-  MLNCompassButton.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-}
-
-final class CLLocationCoordinate2D extends ffi.Struct {
-  @ffi.Double()
-  external double latitude;
-
-  @ffi.Double()
-  external double longitude;
-}
-
-/// A rectangular area as measured on a two-dimensional map projection.
-final class MLNCoordinateBounds extends ffi.Struct {
-  /// Coordinate at the southwest corner.
-  external CLLocationCoordinate2D sw;
-
-  /// Coordinate at the northeast corner.
-  external CLLocationCoordinate2D ne;
-}
-
-/// A quadrilateral area as measured on a two-dimensional map projection.
-/// ``MLNCoordinateQuad`` differs from ``MLNCoordinateQuad`` in that it allows
-/// representation of non-axis aligned bounds and non-rectangular quadrilaterals.
-/// The coordinates are described in counter clockwise order from top left.
-final class MLNCoordinateQuad extends ffi.Struct {
-  /// Coordinate at the top left corner.
-  external CLLocationCoordinate2D topLeft;
-
-  /// Coordinate at the bottom left corner.
-  external CLLocationCoordinate2D bottomLeft;
-
-  /// Coordinate at the bottom right corner.
-  external CLLocationCoordinate2D bottomRight;
-
-  /// Coordinate at the top right corner.
-  external CLLocationCoordinate2D topRight;
-}
-
-late final _class_MLNMapCamera = objc.getClass("MapLibre.MLNMapCamera");
-late final _sel_centerCoordinate = objc.registerName("centerCoordinate");
-final _objc_msgSend_18o5nok = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            CLLocationCoordinate2D Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        CLLocationCoordinate2D Function(
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-final _objc_msgSend_18o5nokStret = objc.msgSendStretPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(
-                ffi.Pointer<CLLocationCoordinate2D>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        void Function(ffi.Pointer<CLLocationCoordinate2D>,
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-late final _sel_setCenterCoordinate_ =
-    objc.registerName("setCenterCoordinate:");
-final _objc_msgSend_1zv0am = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>, CLLocationCoordinate2D)>>()
-    .asFunction<
-        void Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, CLLocationCoordinate2D)>();
-late final _sel_heading = objc.registerName("heading");
+late final _class_MLNMapView = objc.getClass("MapLibre.MLNMapView");
+late final _sel_latitude = objc.registerName("latitude");
 final _objc_msgSend_1ukqyt8 = objc.msgSendPointer
     .cast<
         ffi.NativeFunction<
@@ -5800,7 +5381,7 @@ final _objc_msgSend_1ukqyt8Fpret = objc.msgSendFpretPointer
     .asFunction<
         double Function(
             ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-late final _sel_setHeading_ = objc.registerName("setHeading:");
+late final _sel_setLatitude_ = objc.registerName("setLatitude:");
 final _objc_msgSend_hwm8nu = objc.msgSendPointer
     .cast<
         ffi.NativeFunction<
@@ -5809,378 +5390,18 @@ final _objc_msgSend_hwm8nu = objc.msgSendPointer
     .asFunction<
         void Function(ffi.Pointer<objc.ObjCObject>,
             ffi.Pointer<objc.ObjCSelector>, double)>();
-late final _sel_pitch = objc.registerName("pitch");
-late final _sel_setPitch_ = objc.registerName("setPitch:");
-late final _sel_altitude = objc.registerName("altitude");
-late final _sel_setAltitude_ = objc.registerName("setAltitude:");
-late final _sel_viewingDistance = objc.registerName("viewingDistance");
-late final _sel_setViewingDistance_ = objc.registerName("setViewingDistance:");
-late final _sel_camera = objc.registerName("camera");
-late final _sel_cameraLookingAtCenterCoordinate_fromEyeCoordinate_eyeAltitude_ =
-    objc.registerName(
-        "cameraLookingAtCenterCoordinate:fromEyeCoordinate:eyeAltitude:");
-final _objc_msgSend_2d68z4 = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                CLLocationCoordinate2D,
-                CLLocationCoordinate2D,
-                ffi.Double)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            CLLocationCoordinate2D,
-            CLLocationCoordinate2D,
-            double)>();
-late final _sel_cameraLookingAtCenterCoordinate_acrossDistance_pitch_heading_ =
-    objc.registerName(
-        "cameraLookingAtCenterCoordinate:acrossDistance:pitch:heading:");
-final _objc_msgSend_x3m0f9 = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                CLLocationCoordinate2D,
-                ffi.Double,
-                ffi.Double,
-                ffi.Double)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            CLLocationCoordinate2D,
-            double,
-            double,
-            double)>();
-late final _sel_cameraLookingAtCenterCoordinate_altitude_pitch_heading_ = objc
-    .registerName("cameraLookingAtCenterCoordinate:altitude:pitch:heading:");
-late final _sel_cameraLookingAtCenterCoordinate_fromDistance_pitch_heading_ =
-    objc.registerName(
-        "cameraLookingAtCenterCoordinate:fromDistance:pitch:heading:");
-late final _sel_isEqualToMapCamera_ = objc.registerName("isEqualToMapCamera:");
-
-/// An ``MLNMapCamera`` object represents a viewpoint from which the user observes
-/// some point on an ``MLNMapView``.
-///
-/// #### Related examples
-/// - <doc:BlockingGesturesExample>: learn how to use the
-/// ``MLNMapViewDelegate/mapView:shouldChangeFromCamera:toCamera:`` method of ``MLNMapViewDelegate`` to
-/// restrict panning.
-/// - *TODO:* Camera animation, learn how to create a camera that rotates
-/// around a central point.
-class MLNMapCamera extends objc.NSObject {
-  MLNMapCamera._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNMapCamera] that points to the same underlying object as [other].
-  MLNMapCamera.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNMapCamera] that wraps the given raw object pointer.
-  MLNMapCamera.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MLNMapCamera].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNMapCamera);
-  }
-
-  /// Coordinate at the center of the map view.
-  CLLocationCoordinate2D get centerCoordinate {
-    final _ptr = pkg_ffi.calloc<CLLocationCoordinate2D>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_18o5nokStret(
-            _ptr, this.ref.pointer, _sel_centerCoordinate)
-        : _ptr.ref =
-            _objc_msgSend_18o5nok(this.ref.pointer, _sel_centerCoordinate);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<CLLocationCoordinate2D>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<CLLocationCoordinate2D>(_finalizable);
-  }
-
-  /// Coordinate at the center of the map view.
-  set centerCoordinate(CLLocationCoordinate2D value) {
-    _objc_msgSend_1zv0am(this.ref.pointer, _sel_setCenterCoordinate_, value);
-  }
-
-  /// Heading measured in degrees clockwise from true north.
-  double get heading {
-    return objc.useMsgSendVariants
-        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_heading)
-        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_heading);
-  }
-
-  /// Heading measured in degrees clockwise from true north.
-  set heading(double value) {
-    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setHeading_, value);
-  }
-
-  /// Pitch toward the horizon measured in degrees, with 0 degrees resulting in a
-  /// two-dimensional map.
-  double get pitch {
-    return objc.useMsgSendVariants
-        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_pitch)
-        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_pitch);
-  }
-
-  /// Pitch toward the horizon measured in degrees, with 0 degrees resulting in a
-  /// two-dimensional map.
-  set pitch(double value) {
-    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setPitch_, value);
-  }
-
-  /// The altitude (measured in meters) above the map at which the camera is
-  /// situated.
-  ///
-  /// The altitude is the distance from the viewpoint to the map, perpendicular to
-  /// the map plane. This property does not account for physical elevation.
-  ///
-  /// This property’s value may be less than that of the ``viewingDistance`` property.
-  /// Setting this property automatically updates the ``viewingDistance`` property
-  /// based on the ``pitch`` property’s current value.
-  double get altitude {
-    return objc.useMsgSendVariants
-        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_altitude)
-        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_altitude);
-  }
-
-  /// The altitude (measured in meters) above the map at which the camera is
-  /// situated.
-  ///
-  /// The altitude is the distance from the viewpoint to the map, perpendicular to
-  /// the map plane. This property does not account for physical elevation.
-  ///
-  /// This property’s value may be less than that of the ``viewingDistance`` property.
-  /// Setting this property automatically updates the ``viewingDistance`` property
-  /// based on the ``pitch`` property’s current value.
-  set altitude(double value) {
-    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setAltitude_, value);
-  }
-
-  /// The straight-line distance from the viewpoint to the ``centerCoordinate``.
-  ///
-  /// Setting this property automatically updates the ``altitude`` property based on
-  /// the ``pitch`` property’s current value.
-  double get viewingDistance {
-    return objc.useMsgSendVariants
-        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_viewingDistance)
-        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_viewingDistance);
-  }
-
-  /// The straight-line distance from the viewpoint to the ``centerCoordinate``.
-  ///
-  /// Setting this property automatically updates the ``altitude`` property based on
-  /// the ``pitch`` property’s current value.
-  set viewingDistance(double value) {
-    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setViewingDistance_, value);
-  }
-
-  /// Returns a new camera with all properties set to 0.
-  static MLNMapCamera camera() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNMapCamera, _sel_camera);
-    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Returns a new camera based on information about the camera’s viewpoint
-  /// and focus point.
-  ///
-  /// @param centerCoordinate The geographic coordinate on which the map should be
-  /// centered.
-  /// @param eyeCoordinate The geometric coordinate at which the camera should be
-  /// situated.
-  /// @param eyeAltitude The altitude (measured in meters) above the map at which the
-  /// camera should be situated. The altitude may be less than the distance from
-  /// the camera’s viewpoint to the camera’s focus point.
-  static MLNMapCamera
-      cameraLookingAtCenterCoordinate_fromEyeCoordinate_eyeAltitude_(
-          CLLocationCoordinate2D centerCoordinate,
-          CLLocationCoordinate2D eyeCoordinate,
-          double eyeAltitude) {
-    final _ret = _objc_msgSend_2d68z4(
-        _class_MLNMapCamera,
-        _sel_cameraLookingAtCenterCoordinate_fromEyeCoordinate_eyeAltitude_,
-        centerCoordinate,
-        eyeCoordinate,
-        eyeAltitude);
-    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Returns a new camera with the given distance, pitch, and heading.
-  ///
-  /// This method interprets the distance as a straight-line distance from the
-  /// viewpoint to the center coordinate. To specify the altitude of the viewpoint,
-  /// use the ``cameraLookingAtCenterCoordinate:altitude:pitch:heading:`` method.
-  ///
-  /// @param centerCoordinate The geographic coordinate on which the map should be
-  /// centered.
-  /// @param distance The straight-line distance from the viewpoint to the
-  /// ``centerCoordinate``.
-  /// @param pitch The viewing angle of the camera, measured in degrees. A value of
-  /// `0` results in a camera pointed straight down at the map. Angles greater
-  /// than `0` result in a camera angled toward the horizon.
-  /// @param heading The camera’s heading, measured in degrees clockwise from true
-  /// north. A value of `0` means that the top edge of the map view corresponds to
-  /// true north. The value `90` means the top of the map is pointing due east.
-  /// The value `180` means the top of the map points due south, and so on.
-  static MLNMapCamera
-      cameraLookingAtCenterCoordinate_acrossDistance_pitch_heading_(
-          CLLocationCoordinate2D centerCoordinate,
-          double distance,
-          double pitch,
-          double heading) {
-    final _ret = _objc_msgSend_x3m0f9(
-        _class_MLNMapCamera,
-        _sel_cameraLookingAtCenterCoordinate_acrossDistance_pitch_heading_,
-        centerCoordinate,
-        distance,
-        pitch,
-        heading);
-    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Returns a new camera with the given altitude, pitch, and heading.
-  ///
-  /// @param centerCoordinate The geographic coordinate on which the map should be
-  /// centered.
-  /// @param altitude The altitude (measured in meters) above the map at which the
-  /// camera should be situated. The altitude may be less than the distance from
-  /// the camera’s viewpoint to the camera’s focus point.
-  /// @param pitch The viewing angle of the camera, measured in degrees. A value of
-  /// `0` results in a camera pointed straight down at the map. Angles greater
-  /// than `0` result in a camera angled toward the horizon.
-  /// @param heading The camera’s heading, measured in degrees clockwise from true
-  /// north. A value of `0` means that the top edge of the map view corresponds to
-  /// true north. The value `90` means the top of the map is pointing due east.
-  /// The value `180` means the top of the map points due south, and so on.
-  static MLNMapCamera cameraLookingAtCenterCoordinate_altitude_pitch_heading_(
-      CLLocationCoordinate2D centerCoordinate,
-      double altitude,
-      double pitch,
-      double heading) {
-    final _ret = _objc_msgSend_x3m0f9(
-        _class_MLNMapCamera,
-        _sel_cameraLookingAtCenterCoordinate_altitude_pitch_heading_,
-        centerCoordinate,
-        altitude,
-        pitch,
-        heading);
-    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// > This initializer incorrectly interprets the `distance` parameter. To
-  /// specify the straight-line distance from the viewpoint to ``centerCoordinate``,
-  /// use the ``cameraLookingAtCenterCoordinate:acrossDistance:pitch:heading:``
-  /// method. To specify the altitude of the viewpoint, use the
-  /// ``cameraLookingAtCenterCoordinate:altitude:pitch:heading:`` method, which has
-  /// the same behavior as this initializer.
-  static MLNMapCamera
-      cameraLookingAtCenterCoordinate_fromDistance_pitch_heading_(
-          CLLocationCoordinate2D centerCoordinate,
-          double distance,
-          double pitch,
-          double heading) {
-    final _ret = _objc_msgSend_x3m0f9(
-        _class_MLNMapCamera,
-        _sel_cameraLookingAtCenterCoordinate_fromDistance_pitch_heading_,
-        centerCoordinate,
-        distance,
-        pitch,
-        heading);
-    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Returns a Boolean value indicating whether the given camera is functionally
-  /// equivalent to the receiver.
-  ///
-  /// Unlike `isEqual:`, this method returns `YES` if the difference between the
-  /// coordinates, altitudes, pitches, or headings of the two camera objects is
-  /// negligible.
-  ///
-  /// @param otherCamera The camera with which to compare the receiver.
-  /// @return A Boolean value indicating whether the two cameras are functionally
-  /// equivalent.
-  bool isEqualToMapCamera_(MLNMapCamera otherCamera) {
-    return _objc_msgSend_19nvye5(
-        this.ref.pointer, _sel_isEqualToMapCamera_, otherCamera.ref.pointer);
-  }
-
-  /// init
-  MLNMapCamera init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// new
-  static MLNMapCamera new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNMapCamera, _sel_new);
-    return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MLNMapCamera allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_MLNMapCamera, _sel_allocWithZone_, zone);
-    return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// alloc
-  static MLNMapCamera alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNMapCamera, _sel_alloc);
-    return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// self
-  MLNMapCamera self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// retain
-  MLNMapCamera retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// autorelease
-  MLNMapCamera autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// supportsSecureCoding
-  static bool getSupportsSecureCoding() {
-    return _objc_msgSend_91o635(_class_MLNMapCamera, _sel_supportsSecureCoding);
-  }
-
-  /// encodeWithCoder:
-  void encodeWithCoder_(objc.NSCoder coder) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_encodeWithCoder_, coder.ref.pointer);
-  }
-
-  /// initWithCoder:
-  MLNMapCamera? initWithCoder_(objc.NSCoder coder) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
-        _sel_initWithCoder_, coder.ref.pointer);
-    return _ret.address == 0
-        ? null
-        : MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
-  }
-}
-
-late final _class_MLNStyleLayer = objc.getClass("MLNStyleLayer");
-late final _sel_identifier = objc.registerName("identifier");
-late final _sel_isVisible = objc.registerName("isVisible");
-late final _sel_setVisible_ = objc.registerName("setVisible:");
+late final _sel_longitude = objc.registerName("longitude");
+late final _sel_setLongitude_ = objc.registerName("setLongitude:");
+late final _sel_zoomLevel = objc.registerName("zoomLevel");
+late final _sel_setZoomLevel_ = objc.registerName("setZoomLevel:");
+late final _sel_minimumZoomLevel = objc.registerName("minimumZoomLevel");
+late final _sel_setMinimumZoomLevel_ =
+    objc.registerName("setMinimumZoomLevel:");
+late final _sel_maximumZoomLevel = objc.registerName("maximumZoomLevel");
+late final _sel_setMaximumZoomLevel_ =
+    objc.registerName("setMaximumZoomLevel:");
+late final _sel_allowsZooming = objc.registerName("allowsZooming");
+late final _sel_setAllowsZooming_ = objc.registerName("setAllowsZooming:");
 final _objc_msgSend_1s56lr9 = objc.msgSendPointer
     .cast<
         ffi.NativeFunction<
@@ -6189,7 +5410,373 @@ final _objc_msgSend_1s56lr9 = objc.msgSendPointer
     .asFunction<
         void Function(ffi.Pointer<objc.ObjCObject>,
             ffi.Pointer<objc.ObjCSelector>, bool)>();
-late final _sel_maximumZoomLevel = objc.registerName("maximumZoomLevel");
+late final _sel_allowsScrolling = objc.registerName("allowsScrolling");
+late final _sel_setAllowsScrolling_ = objc.registerName("setAllowsScrolling:");
+late final _sel_allowsRotating = objc.registerName("allowsRotating");
+late final _sel_setAllowsRotating_ = objc.registerName("setAllowsRotating:");
+late final _sel_allowsTilting = objc.registerName("allowsTilting");
+late final _sel_setAllowsTilting_ = objc.registerName("setAllowsTilting:");
+late final _sel_showsUserLocation = objc.registerName("showsUserLocation");
+late final _sel_setShowsUserLocation_ =
+    objc.registerName("setShowsUserLocation:");
+late final _sel_showsHeading = objc.registerName("showsHeading");
+late final _sel_setShowsHeading_ = objc.registerName("setShowsHeading:");
+late final _sel_showsScale = objc.registerName("showsScale");
+late final _sel_setShowsScale_ = objc.registerName("setShowsScale:");
+
+/// IBAdditions
+extension IBAdditions on MLNMapView {
+  /// latitude
+  double get latitude {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_latitude)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_latitude);
+  }
+
+  /// setLatitude:
+  set latitude(double value) {
+    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setLatitude_, value);
+  }
+
+  /// longitude
+  double get longitude {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_longitude)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_longitude);
+  }
+
+  /// setLongitude:
+  set longitude(double value) {
+    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setLongitude_, value);
+  }
+
+  /// zoomLevel
+  double get zoomLevel {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_zoomLevel)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_zoomLevel);
+  }
+
+  /// setZoomLevel:
+  set zoomLevel(double value) {
+    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setZoomLevel_, value);
+  }
+
+  /// minimumZoomLevel
+  double get minimumZoomLevel {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_minimumZoomLevel)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_minimumZoomLevel);
+  }
+
+  /// setMinimumZoomLevel:
+  set minimumZoomLevel(double value) {
+    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setMinimumZoomLevel_, value);
+  }
+
+  /// maximumZoomLevel
+  double get maximumZoomLevel {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_maximumZoomLevel)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_maximumZoomLevel);
+  }
+
+  /// setMaximumZoomLevel:
+  set maximumZoomLevel(double value) {
+    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setMaximumZoomLevel_, value);
+  }
+
+  /// allowsZooming
+  bool get allowsZooming {
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_allowsZooming);
+  }
+
+  /// setAllowsZooming:
+  set allowsZooming(bool value) {
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setAllowsZooming_, value);
+  }
+
+  /// allowsScrolling
+  bool get allowsScrolling {
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_allowsScrolling);
+  }
+
+  /// setAllowsScrolling:
+  set allowsScrolling(bool value) {
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setAllowsScrolling_, value);
+  }
+
+  /// allowsRotating
+  bool get allowsRotating {
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_allowsRotating);
+  }
+
+  /// setAllowsRotating:
+  set allowsRotating(bool value) {
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setAllowsRotating_, value);
+  }
+
+  /// allowsTilting
+  bool get allowsTilting {
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_allowsTilting);
+  }
+
+  /// setAllowsTilting:
+  set allowsTilting(bool value) {
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setAllowsTilting_, value);
+  }
+
+  /// showsUserLocation
+  bool get showsUserLocation {
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_showsUserLocation);
+  }
+
+  /// setShowsUserLocation:
+  set showsUserLocation(bool value) {
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setShowsUserLocation_, value);
+  }
+
+  /// showsHeading
+  bool get showsHeading {
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_showsHeading);
+  }
+
+  /// setShowsHeading:
+  set showsHeading(bool value) {
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setShowsHeading_, value);
+  }
+
+  /// showsScale
+  bool get showsScale {
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_showsScale);
+  }
+
+  /// setShowsScale:
+  set showsScale(bool value) {
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setShowsScale_, value);
+  }
+}
+
+late final _sel_initWithFrame_ = objc.registerName("initWithFrame:");
+final _objc_msgSend_15yz4e6 = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>, CGRect)>>()
+    .asFunction<
+        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>, CGRect)>();
+late final _sel_initWithFrame_styleURL_ =
+    objc.registerName("initWithFrame:styleURL:");
+final _objc_msgSend_gxusyk = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                CGRect,
+                ffi.Pointer<objc.ObjCObject>)>>()
+    .asFunction<
+        ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGRect,
+            ffi.Pointer<objc.ObjCObject>)>();
+late final _sel_delegate = objc.registerName("delegate");
+late final _sel_setDelegate_ = objc.registerName("setDelegate:");
+late final _class_MLNStyle = objc.getClass("MLNStyle");
+late final _sel_predefinedStyles = objc.registerName("predefinedStyles");
+
+/// WARNING: MLNDefaultStyle is a stub. To generate bindings for this class, include
+/// MLNDefaultStyle in your config's objc-interfaces list.
+///
+/// The ``MLNDefaultStyle`` defines the predefined vendor style
+class MLNDefaultStyle extends objc.NSObject {
+  MLNDefaultStyle._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNDefaultStyle] that points to the same underlying object as [other].
+  MLNDefaultStyle.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNDefaultStyle] that wraps the given raw object pointer.
+  MLNDefaultStyle.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+}
+
+late final _sel_defaultStyle = objc.registerName("defaultStyle");
+late final _sel_defaultStyleURL = objc.registerName("defaultStyleURL");
+late final _sel_predefinedStyle_ = objc.registerName("predefinedStyle:");
+late final _sel_name = objc.registerName("name");
+late final _sel_sources = objc.registerName("sources");
+late final _sel_setSources_ = objc.registerName("setSources:");
+
+/// A structure containing information about a transition.
+final class MLNTransition extends ffi.Struct {
+  /// The amount of time the animation should take, not including the delay.
+  @ffi.Double()
+  external double duration;
+
+  /// The amount of time in seconds to wait before beginning the animation.
+  @ffi.Double()
+  external double delay;
+}
+
+late final _sel_transition = objc.registerName("transition");
+final _objc_msgSend_1i0p3hy = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            MLNTransition Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>)>>()
+    .asFunction<
+        MLNTransition Function(
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
+final _objc_msgSend_1i0p3hyStret = objc.msgSendStretPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(
+                ffi.Pointer<MLNTransition>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>)>>()
+    .asFunction<
+        void Function(ffi.Pointer<MLNTransition>, ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>)>();
+late final _sel_setTransition_ = objc.registerName("setTransition:");
+final _objc_msgSend_z7lywk = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>, MLNTransition)>>()
+    .asFunction<
+        void Function(ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>, MLNTransition)>();
+late final _sel_performsPlacementTransitions =
+    objc.registerName("performsPlacementTransitions");
+late final _sel_setPerformsPlacementTransitions_ =
+    objc.registerName("setPerformsPlacementTransitions:");
+late final _class_MLNSource = objc.getClass("MLNSource");
+late final _sel_initWithIdentifier_ = objc.registerName("initWithIdentifier:");
+late final _sel_identifier = objc.registerName("identifier");
+late final _sel_setIdentifier_ = objc.registerName("setIdentifier:");
+
+/// MLNSource
+class MLNSource extends objc.NSObject {
+  MLNSource._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNSource] that points to the same underlying object as [other].
+  MLNSource.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNSource] that wraps the given raw object pointer.
+  MLNSource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNSource].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNSource);
+  }
+
+  /// init
+  MLNSource init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MLNSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_, identifier.ref.pointer);
+    return MLNSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// A string that uniquely identifies the source in the style to which it is added.
+  objc.NSString get identifier {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_identifier);
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// A string that uniquely identifies the source in the style to which it is added.
+  set identifier(objc.NSString value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setIdentifier_, value.ref.pointer);
+  }
+
+  /// new
+  static MLNSource new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNSource, _sel_new);
+    return MLNSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret =
+        _objc_msgSend_1cwp428(_class_MLNSource, _sel_allocWithZone_, zone);
+    return MLNSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNSource alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNSource, _sel_alloc);
+    return MLNSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MLNSource self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNSource retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNSource autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNSource.castFromPointer(_ret, retain: true, release: true);
+  }
+}
+
+late final _sel_sourceWithIdentifier_ =
+    objc.registerName("sourceWithIdentifier:");
+late final _sel_addSource_ = objc.registerName("addSource:");
+late final _sel_removeSource_ = objc.registerName("removeSource:");
+late final _sel_removeSource_error_ = objc.registerName("removeSource:error:");
+final _objc_msgSend_l9p60w = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Bool Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<ffi.Pointer<objc.ObjCObject>>)>>()
+    .asFunction<
+        bool Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>)>();
+late final _sel_layers = objc.registerName("layers");
+late final _sel_setLayers_ = objc.registerName("setLayers:");
+late final _class_MLNStyleLayer = objc.getClass("MLNStyleLayer");
+late final _sel_isVisible = objc.registerName("isVisible");
+late final _sel_setVisible_ = objc.registerName("setVisible:");
 final _objc_msgSend_2cgrxl = objc.msgSendPointer
     .cast<
         ffi.NativeFunction<
@@ -6206,8 +5793,6 @@ final _objc_msgSend_2cgrxlFpret = objc.msgSendFpretPointer
     .asFunction<
         double Function(
             ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-late final _sel_setMaximumZoomLevel_ =
-    objc.registerName("setMaximumZoomLevel:");
 final _objc_msgSend_v5hmet = objc.msgSendPointer
     .cast<
         ffi.NativeFunction<
@@ -6216,9 +5801,6 @@ final _objc_msgSend_v5hmet = objc.msgSendPointer
     .asFunction<
         void Function(ffi.Pointer<objc.ObjCObject>,
             ffi.Pointer<objc.ObjCSelector>, double)>();
-late final _sel_minimumZoomLevel = objc.registerName("minimumZoomLevel");
-late final _sel_setMinimumZoomLevel_ =
-    objc.registerName("setMinimumZoomLevel:");
 
 /// ``MLNStyleLayer`` is an abstract base class for style layers. A style layer
 /// manages the layout and appearance of content at a specific z-index in a style.
@@ -6353,182 +5935,6 @@ class MLNStyleLayer extends objc.NSObject {
   }
 }
 
-/// WARNING: MLNDefaultStyle is a stub. To generate bindings for this class, include
-/// MLNDefaultStyle in your config's objc-interfaces list.
-///
-/// The ``MLNDefaultStyle`` defines the predefined vendor style
-class MLNDefaultStyle extends objc.NSObject {
-  MLNDefaultStyle._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNDefaultStyle] that points to the same underlying object as [other].
-  MLNDefaultStyle.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNDefaultStyle] that wraps the given raw object pointer.
-  MLNDefaultStyle.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-}
-
-late final _class_MLNStyle = objc.getClass("MLNStyle");
-late final _sel_predefinedStyles = objc.registerName("predefinedStyles");
-late final _sel_defaultStyle = objc.registerName("defaultStyle");
-late final _sel_defaultStyleURL = objc.registerName("defaultStyleURL");
-late final _sel_predefinedStyle_ = objc.registerName("predefinedStyle:");
-late final _sel_name = objc.registerName("name");
-late final _sel_sources = objc.registerName("sources");
-late final _sel_setSources_ = objc.registerName("setSources:");
-late final _sel_transition = objc.registerName("transition");
-final _objc_msgSend_1i0p3hy = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            MLNTransition Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        MLNTransition Function(
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-final _objc_msgSend_1i0p3hyStret = objc.msgSendStretPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(
-                ffi.Pointer<MLNTransition>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        void Function(ffi.Pointer<MLNTransition>, ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>)>();
-late final _sel_setTransition_ = objc.registerName("setTransition:");
-final _objc_msgSend_z7lywk = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>, MLNTransition)>>()
-    .asFunction<
-        void Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, MLNTransition)>();
-late final _sel_performsPlacementTransitions =
-    objc.registerName("performsPlacementTransitions");
-late final _sel_setPerformsPlacementTransitions_ =
-    objc.registerName("setPerformsPlacementTransitions:");
-late final _class_MLNSource = objc.getClass("MLNSource");
-late final _sel_initWithIdentifier_ = objc.registerName("initWithIdentifier:");
-late final _sel_setIdentifier_ = objc.registerName("setIdentifier:");
-
-/// MLNSource
-class MLNSource extends objc.NSObject {
-  MLNSource._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNSource] that points to the same underlying object as [other].
-  MLNSource.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNSource] that wraps the given raw object pointer.
-  MLNSource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MLNSource].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNSource);
-  }
-
-  /// init
-  MLNSource init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// Returns a source initialized with an identifier.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @return An initialized source.
-  MLNSource initWithIdentifier_(objc.NSString identifier) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_, identifier.ref.pointer);
-    return MLNSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// A string that uniquely identifies the source in the style to which it is added.
-  objc.NSString get identifier {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_identifier);
-    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// A string that uniquely identifies the source in the style to which it is added.
-  set identifier(objc.NSString value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setIdentifier_, value.ref.pointer);
-  }
-
-  /// new
-  static MLNSource new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNSource, _sel_new);
-    return MLNSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MLNSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_MLNSource, _sel_allocWithZone_, zone);
-    return MLNSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// alloc
-  static MLNSource alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNSource, _sel_alloc);
-    return MLNSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// self
-  MLNSource self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNSource.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// retain
-  MLNSource retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNSource.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// autorelease
-  MLNSource autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNSource.castFromPointer(_ret, retain: true, release: true);
-  }
-}
-
-late final _sel_sourceWithIdentifier_ =
-    objc.registerName("sourceWithIdentifier:");
-late final _sel_addSource_ = objc.registerName("addSource:");
-late final _sel_removeSource_ = objc.registerName("removeSource:");
-late final _sel_removeSource_error_ = objc.registerName("removeSource:error:");
-final _objc_msgSend_l9p60w = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Bool Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<ffi.Pointer<objc.ObjCObject>>)>>()
-    .asFunction<
-        bool Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>)>();
-late final _sel_layers = objc.registerName("layers");
-late final _sel_setLayers_ = objc.registerName("setLayers:");
 late final _sel_layerWithIdentifier_ =
     objc.registerName("layerWithIdentifier:");
 late final _sel_addLayer_ = objc.registerName("addLayer:");
@@ -7252,8 +6658,6 @@ late final _sel_addRepresentation_ = objc.registerName("addRepresentation:");
 late final _sel_removeRepresentation_ =
     objc.registerName("removeRepresentation:");
 late final _sel_isValid = objc.registerName("isValid");
-late final _sel_delegate = objc.registerName("delegate");
-late final _sel_setDelegate_ = objc.registerName("setDelegate:");
 late final _sel_imageTypes = objc.registerName("imageTypes");
 late final _sel_imageUnfilteredTypes =
     objc.registerName("imageUnfilteredTypes");
@@ -7320,6 +6724,9 @@ late final _sel_accessibilityDescription =
     objc.registerName("accessibilityDescription");
 late final _sel_setAccessibilityDescription_ =
     objc.registerName("setAccessibilityDescription:");
+
+final class CGImage extends ffi.Opaque {}
+
 late final _sel_initWithCGImage_size_ =
     objc.registerName("initWithCGImage:size:");
 final _objc_msgSend_lvz2zr = objc.msgSendPointer
@@ -9079,11 +8486,22 @@ late final _sel_removeImageForName_ = objc.registerName("removeImageForName:");
 /// WARNING: MLNLight is a stub. To generate bindings for this class, include
 /// MLNLight in your config's objc-interfaces list.
 ///
-/// MLNLight
-class MLNLight extends objc.ObjCObjectBase {
+/// An ``MLNLight`` object represents the light source for extruded geometries in
+/// ``MLNLight``.
+///
+/// ### Example
+/// ```swift
+/// ```
+///
+/// #### Related examples
+/// See the <a
+/// href="https://docs.mapbox.com/ios/maps/examples/light-example/">Adjust light of
+/// 3D buildings</a> to learn how to create and modify the light source for 3D
+/// geometries.
+class MLNLight extends objc.NSObject {
   MLNLight._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
-      : super(pointer, retain: retain, release: release);
+      : super.castFromPointer(pointer, retain: retain, release: release);
 
   /// Constructs a [MLNLight] that points to the same underlying object as [other].
   MLNLight.castFrom(objc.ObjCObjectBase other)
@@ -9100,19 +8518,7 @@ late final _sel_setLight_ = objc.registerName("setLight:");
 late final _sel_localizeLabelsIntoLocale_ =
     objc.registerName("localizeLabelsIntoLocale:");
 
-/// The proxy object for the current map style.
-///
-/// MLNStyle provides a set of convenience methods for changing default styles included
-/// with MapLibre.
-///
-/// It is also possible to directly manipulate the current map style
-/// via ``MLNMapView/style`` by updating the style's data sources or layers.
-///
-/// > Note: Wait until the map style has finished loading before modifying a map's
-/// style via any of the ``MLNStyle`` instance methods below. You can use the
-/// ``MLNMapViewDelegate/mapView:didFinishLoadingStyle:`` or
-/// ``MLNMapViewDelegate/mapViewDidFinishLoadingMap:`` methods as indicators
-/// that it's safe to modify the map's style.
+/// MLNStyle
 class MLNStyle extends objc.NSObject {
   MLNStyle._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
@@ -9489,156 +8895,6 @@ class MLNStyle extends objc.NSObject {
   }
 }
 
-/// The vertical alignment of an annotation within a map view. Used with
-/// ``MLNMapView/userLocationVerticalAlignment``.
-enum MLNAnnotationVerticalAlignment {
-  /// Aligns the annotation vertically in the center of the map view.
-  MLNAnnotationVerticalAlignmentCenter(0),
-
-  /// Aligns the annotation vertically at the top of the map view.
-  MLNAnnotationVerticalAlignmentTop(1),
-
-  /// Aligns the annotation vertically at the bottom of the map view.
-  MLNAnnotationVerticalAlignmentBottom(2);
-
-  final int value;
-  const MLNAnnotationVerticalAlignment(this.value);
-
-  static MLNAnnotationVerticalAlignment fromValue(int value) => switch (value) {
-        0 => MLNAnnotationVerticalAlignmentCenter,
-        1 => MLNAnnotationVerticalAlignmentTop,
-        2 => MLNAnnotationVerticalAlignmentBottom,
-        _ => throw ArgumentError(
-            "Unknown value for MLNAnnotationVerticalAlignment: $value"),
-      };
-}
-
-/// The position of scale bar, compass, logo and attribution in a map view. Used with
-/// ``MLNMapView/scaleBarPosition``,
-/// ``MLNMapView/compassViewPosition``,
-/// ``MLNMapView/logoViewPosition``,
-/// ``MLNMapView/attributionButtonPosition``.
-enum MLNOrnamentPosition {
-  /// Place the ornament in the top left of the map view.
-  MLNOrnamentPositionTopLeft(0),
-
-  /// Place the ornament in the top right of the map view.
-  MLNOrnamentPositionTopRight(1),
-
-  /// Place the ornament in the bottom left of the map view.
-  MLNOrnamentPositionBottomLeft(2),
-
-  /// Place the ornament in the bottom right of the map view.
-  MLNOrnamentPositionBottomRight(3);
-
-  final int value;
-  const MLNOrnamentPosition(this.value);
-
-  static MLNOrnamentPosition fromValue(int value) => switch (value) {
-        0 => MLNOrnamentPositionTopLeft,
-        1 => MLNOrnamentPositionTopRight,
-        2 => MLNOrnamentPositionBottomLeft,
-        3 => MLNOrnamentPositionBottomRight,
-        _ =>
-          throw ArgumentError("Unknown value for MLNOrnamentPosition: $value"),
-      };
-}
-
-/// The mode used to track the user location on the map. Used with
-/// ``MLNMapView/userTrackingMode``.
-///
-/// #### Related examples
-/// - TODO: Switch between user tracking modes</a> example to learn how to toggle modes and
-/// how each mode behaves.
-enum MLNUserTrackingMode {
-  /// The map does not follow the user location.
-  MLNUserTrackingModeNone(0),
-
-  /// The map follows the user location. This tracking mode falls back
-  /// to ``MLNUserTrackingMode/MLNUserTrackingModeNone`` if the user pans the map view.
-  MLNUserTrackingModeFollow(1),
-
-  /// The map follows the user location and rotates when the heading changes.
-  /// The default user location annotation displays a fan-shaped indicator with
-  /// the current heading. The heading indicator represents the direction the
-  /// device is facing, which is sized according to the reported accuracy.
-  ///
-  /// This tracking mode is disabled if the user pans the map view, but
-  /// remains enabled if the user zooms in. If the user rotates the map
-  /// view, this tracking mode will fall back to ``MLNUserTrackingModeFollow``.
-  MLNUserTrackingModeFollowWithHeading(2),
-
-  /// The map follows the user location and rotates when the course changes.
-  /// Course represents the direction in which the device is traveling.
-  /// The default user location annotation shows a puck-shaped indicator
-  /// that rotates as the course changes.
-  ///
-  /// This tracking mode is disabled if the user pans the map view, but
-  /// remains enabled if the user zooms in. If the user rotates the map view,
-  /// this tracking mode will fall back to ``MLNUserTrackingModeFollow``.
-  MLNUserTrackingModeFollowWithCourse(3);
-
-  final int value;
-  const MLNUserTrackingMode(this.value);
-
-  static MLNUserTrackingMode fromValue(int value) => switch (value) {
-        0 => MLNUserTrackingModeNone,
-        1 => MLNUserTrackingModeFollow,
-        2 => MLNUserTrackingModeFollowWithHeading,
-        3 => MLNUserTrackingModeFollowWithCourse,
-        _ =>
-          throw ArgumentError("Unknown value for MLNUserTrackingMode: $value"),
-      };
-}
-
-enum MLNPanScrollingMode {
-  /// The map allows the user to only scroll horizontally.
-  MLNPanScrollingModeHorizontal(0),
-
-  /// The map allows the user to only scroll vertically.
-  MLNPanScrollingModeVertical(1),
-
-  /// The map allows the user to scroll both horizontally and vertically.
-  MLNPanScrollingModeDefault(2);
-
-  final int value;
-  const MLNPanScrollingMode(this.value);
-
-  static MLNPanScrollingMode fromValue(int value) => switch (value) {
-        0 => MLNPanScrollingModeHorizontal,
-        1 => MLNPanScrollingModeVertical,
-        2 => MLNPanScrollingModeDefault,
-        _ =>
-          throw ArgumentError("Unknown value for MLNPanScrollingMode: $value"),
-      };
-}
-
-late final _class_MLNMapView = objc.getClass("MapLibre.MLNMapView");
-late final _sel_initWithFrame_ = objc.registerName("initWithFrame:");
-final _objc_msgSend_15yz4e6 = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>, CGRect)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, CGRect)>();
-late final _sel_initWithFrame_styleURL_ =
-    objc.registerName("initWithFrame:styleURL:");
-final _objc_msgSend_gxusyk = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                CGRect,
-                ffi.Pointer<objc.ObjCObject>)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            CGRect,
-            ffi.Pointer<objc.ObjCObject>)>();
 late final _sel_style = objc.registerName("style");
 ffi.Pointer<objc.ObjCObject> _ObjCBlock_MLNStyle_ffiVoid_fnPtrTrampoline(
         ffi.Pointer<objc.ObjCBlockImpl> block, ffi.Pointer<ffi.Void> arg0) =>
@@ -9740,8 +8996,6 @@ late final _sel_automaticallyAdjustsContentInset =
     objc.registerName("automaticallyAdjustsContentInset");
 late final _sel_setAutomaticallyAdjustsContentInset_ =
     objc.registerName("setAutomaticallyAdjustsContentInset:");
-late final _sel_showsScale = objc.registerName("showsScale");
-late final _sel_setShowsScale_ = objc.registerName("setShowsScale:");
 
 /// WARNING: MLNScaleBar is a stub. To generate bindings for this class, include
 /// MLNScaleBar in your config's objc-interfaces list.
@@ -9771,6 +9025,38 @@ late final _sel_scaleBarUsesMetricSystem =
     objc.registerName("scaleBarUsesMetricSystem");
 late final _sel_setScaleBarUsesMetricSystem_ =
     objc.registerName("setScaleBarUsesMetricSystem:");
+
+/// The position of scale bar, compass, logo and attribution in a map view. Used with
+/// ``MLNMapView/scaleBarPosition``,
+/// ``MLNMapView/compassViewPosition``,
+/// ``MLNMapView/logoViewPosition``,
+/// ``MLNMapView/attributionButtonPosition``.
+enum MLNOrnamentPosition {
+  /// Place the ornament in the top left of the map view.
+  MLNOrnamentPositionTopLeft(0),
+
+  /// Place the ornament in the top right of the map view.
+  MLNOrnamentPositionTopRight(1),
+
+  /// Place the ornament in the bottom left of the map view.
+  MLNOrnamentPositionBottomLeft(2),
+
+  /// Place the ornament in the bottom right of the map view.
+  MLNOrnamentPositionBottomRight(3);
+
+  final int value;
+  const MLNOrnamentPosition(this.value);
+
+  static MLNOrnamentPosition fromValue(int value) => switch (value) {
+        0 => MLNOrnamentPositionTopLeft,
+        1 => MLNOrnamentPositionTopRight,
+        2 => MLNOrnamentPositionBottomLeft,
+        3 => MLNOrnamentPositionBottomRight,
+        _ =>
+          throw ArgumentError("Unknown value for MLNOrnamentPosition: $value"),
+      };
+}
+
 late final _sel_scaleBarPosition = objc.registerName("scaleBarPosition");
 final _objc_msgSend_1c31cvt = objc.msgSendPointer
     .cast<
@@ -9810,6 +9096,26 @@ final _objc_msgSend_1uwdhlkStret = objc.msgSendStretPointer
         void Function(ffi.Pointer<CGPoint>, ffi.Pointer<objc.ObjCObject>,
             ffi.Pointer<objc.ObjCSelector>)>();
 late final _sel_setScaleBarMargins_ = objc.registerName("setScaleBarMargins:");
+
+/// WARNING: MLNCompassButton is a stub. To generate bindings for this class, include
+/// MLNCompassButton in your config's objc-interfaces list.
+///
+/// A specialized view that displays the current compass heading for its associated map.
+class MLNCompassButton extends objc.ObjCObjectBase {
+  MLNCompassButton._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNCompassButton] that points to the same underlying object as [other].
+  MLNCompassButton.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNCompassButton] that wraps the given raw object pointer.
+  MLNCompassButton.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+}
+
 late final _sel_compassView = objc.registerName("compassView");
 late final _sel_compassViewPosition = objc.registerName("compassViewPosition");
 late final _sel_setCompassViewPosition_ =
@@ -9868,9 +9174,6 @@ late final _sel_setTileCacheEnabled_ =
     objc.registerName("setTileCacheEnabled:");
 late final _sel_locationManager = objc.registerName("locationManager");
 late final _sel_setLocationManager_ = objc.registerName("setLocationManager:");
-late final _sel_showsUserLocation = objc.registerName("showsUserLocation");
-late final _sel_setShowsUserLocation_ =
-    objc.registerName("setShowsUserLocation:");
 late final _sel_shouldRequestAuthorizationToUseLocationServices =
     objc.registerName("shouldRequestAuthorizationToUseLocationServices");
 late final _sel_setShouldRequestAuthorizationToUseLocationServices_ =
@@ -9881,11 +9184,18 @@ late final _sel_isUserLocationVisible =
 /// WARNING: MLNUserLocation is a stub. To generate bindings for this class, include
 /// MLNUserLocation in your config's objc-interfaces list.
 ///
-/// MLNUserLocation
-class MLNUserLocation extends objc.ObjCObjectBase {
+/// The MLNUserLocation class defines a specific type of annotation that identifies
+/// the user’s current location. You do not create instances of this class
+/// directly. Instead, you retrieve an existing ``MLNUserLocation`` object from the
+/// `userLocation` property of the map view displayed in your application.
+///
+/// #### Related examples
+/// TODO: Customize the user location annotation,learn how to overide the
+/// default user location annotation.
+class MLNUserLocation extends objc.NSObject {
   MLNUserLocation._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
-      : super(pointer, retain: retain, release: release);
+      : super.castFromPointer(pointer, retain: retain, release: release);
 
   /// Constructs a [MLNUserLocation] that points to the same underlying object as [other].
   MLNUserLocation.castFrom(objc.ObjCObjectBase other)
@@ -9898,6 +9208,54 @@ class MLNUserLocation extends objc.ObjCObjectBase {
 }
 
 late final _sel_userLocation = objc.registerName("userLocation");
+
+/// The mode used to track the user location on the map. Used with
+/// ``MLNMapView/userTrackingMode``.
+///
+/// #### Related examples
+/// - TODO: Switch between user tracking modes</a> example to learn how to toggle modes and
+/// how each mode behaves.
+enum MLNUserTrackingMode {
+  /// The map does not follow the user location.
+  MLNUserTrackingModeNone(0),
+
+  /// The map follows the user location. This tracking mode falls back
+  /// to ``MLNUserTrackingMode/MLNUserTrackingModeNone`` if the user pans the map view.
+  MLNUserTrackingModeFollow(1),
+
+  /// The map follows the user location and rotates when the heading changes.
+  /// The default user location annotation displays a fan-shaped indicator with
+  /// the current heading. The heading indicator represents the direction the
+  /// device is facing, which is sized according to the reported accuracy.
+  ///
+  /// This tracking mode is disabled if the user pans the map view, but
+  /// remains enabled if the user zooms in. If the user rotates the map
+  /// view, this tracking mode will fall back to ``MLNUserTrackingModeFollow``.
+  MLNUserTrackingModeFollowWithHeading(2),
+
+  /// The map follows the user location and rotates when the course changes.
+  /// Course represents the direction in which the device is traveling.
+  /// The default user location annotation shows a puck-shaped indicator
+  /// that rotates as the course changes.
+  ///
+  /// This tracking mode is disabled if the user pans the map view, but
+  /// remains enabled if the user zooms in. If the user rotates the map view,
+  /// this tracking mode will fall back to ``MLNUserTrackingModeFollow``.
+  MLNUserTrackingModeFollowWithCourse(3);
+
+  final int value;
+  const MLNUserTrackingMode(this.value);
+
+  static MLNUserTrackingMode fromValue(int value) => switch (value) {
+        0 => MLNUserTrackingModeNone,
+        1 => MLNUserTrackingModeFollow,
+        2 => MLNUserTrackingModeFollowWithHeading,
+        3 => MLNUserTrackingModeFollowWithCourse,
+        _ =>
+          throw ArgumentError("Unknown value for MLNUserTrackingMode: $value"),
+      };
+}
+
 late final _sel_userTrackingMode = objc.registerName("userTrackingMode");
 final _objc_msgSend_1swtepj = objc.msgSendPointer
     .cast<
@@ -9945,6 +9303,31 @@ final _objc_msgSend_1iu40ms = objc.msgSendPointer
             int,
             bool,
             ffi.Pointer<objc.ObjCBlockImpl>)>();
+
+/// The vertical alignment of an annotation within a map view. Used with
+/// ``MLNMapView/userLocationVerticalAlignment``.
+enum MLNAnnotationVerticalAlignment {
+  /// Aligns the annotation vertically in the center of the map view.
+  MLNAnnotationVerticalAlignmentCenter(0),
+
+  /// Aligns the annotation vertically at the top of the map view.
+  MLNAnnotationVerticalAlignmentTop(1),
+
+  /// Aligns the annotation vertically at the bottom of the map view.
+  MLNAnnotationVerticalAlignmentBottom(2);
+
+  final int value;
+  const MLNAnnotationVerticalAlignment(this.value);
+
+  static MLNAnnotationVerticalAlignment fromValue(int value) => switch (value) {
+        0 => MLNAnnotationVerticalAlignmentCenter,
+        1 => MLNAnnotationVerticalAlignmentTop,
+        2 => MLNAnnotationVerticalAlignmentBottom,
+        _ => throw ArgumentError(
+            "Unknown value for MLNAnnotationVerticalAlignment: $value"),
+      };
+}
+
 late final _sel_userLocationVerticalAlignment =
     objc.registerName("userLocationVerticalAlignment");
 final _objc_msgSend_1m9zum6 = objc.msgSendPointer
@@ -9987,9 +9370,44 @@ late final _sel_displayHeadingCalibration =
     objc.registerName("displayHeadingCalibration");
 late final _sel_setDisplayHeadingCalibration_ =
     objc.registerName("setDisplayHeadingCalibration:");
+
+final class CLLocationCoordinate2D extends ffi.Struct {
+  @ffi.Double()
+  external double latitude;
+
+  @ffi.Double()
+  external double longitude;
+}
+
 late final _sel_targetCoordinate = objc.registerName("targetCoordinate");
+final _objc_msgSend_18o5nok = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            CLLocationCoordinate2D Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>)>>()
+    .asFunction<
+        CLLocationCoordinate2D Function(
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
+final _objc_msgSend_18o5nokStret = objc.msgSendStretPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(
+                ffi.Pointer<CLLocationCoordinate2D>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>)>>()
+    .asFunction<
+        void Function(ffi.Pointer<CLLocationCoordinate2D>,
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
 late final _sel_setTargetCoordinate_ =
     objc.registerName("setTargetCoordinate:");
+final _objc_msgSend_1zv0am = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>, CLLocationCoordinate2D)>>()
+    .asFunction<
+        void Function(ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>, CLLocationCoordinate2D)>();
 late final _sel_setTargetCoordinate_animated_ =
     objc.registerName("setTargetCoordinate:animated:");
 final _objc_msgSend_o7hjv2 = objc.msgSendPointer
@@ -10025,6 +9443,29 @@ late final _sel_isZoomEnabled = objc.registerName("isZoomEnabled");
 late final _sel_setZoomEnabled_ = objc.registerName("setZoomEnabled:");
 late final _sel_isScrollEnabled = objc.registerName("isScrollEnabled");
 late final _sel_setScrollEnabled_ = objc.registerName("setScrollEnabled:");
+
+enum MLNPanScrollingMode {
+  /// The map allows the user to only scroll horizontally.
+  MLNPanScrollingModeHorizontal(0),
+
+  /// The map allows the user to only scroll vertically.
+  MLNPanScrollingModeVertical(1),
+
+  /// The map allows the user to scroll both horizontally and vertically.
+  MLNPanScrollingModeDefault(2);
+
+  final int value;
+  const MLNPanScrollingMode(this.value);
+
+  static MLNPanScrollingMode fromValue(int value) => switch (value) {
+        0 => MLNPanScrollingModeHorizontal,
+        1 => MLNPanScrollingModeVertical,
+        2 => MLNPanScrollingModeDefault,
+        _ =>
+          throw ArgumentError("Unknown value for MLNPanScrollingMode: $value"),
+      };
+}
+
 late final _sel_panScrollingMode = objc.registerName("panScrollingMode");
 final _objc_msgSend_1vb5jwj = objc.msgSendPointer
     .cast<
@@ -10059,6 +9500,9 @@ late final _sel_setHapticFeedbackEnabled_ =
 late final _sel_decelerationRate = objc.registerName("decelerationRate");
 late final _sel_setDecelerationRate_ =
     objc.registerName("setDecelerationRate:");
+late final _sel_centerCoordinate = objc.registerName("centerCoordinate");
+late final _sel_setCenterCoordinate_ =
+    objc.registerName("setCenterCoordinate:");
 late final _sel_setCenterCoordinate_animated_ =
     objc.registerName("setCenterCoordinate:animated:");
 late final _sel_setCenterCoordinate_zoomLevel_animated_ =
@@ -10122,8 +9566,6 @@ final _objc_msgSend_d9pvdp = objc.msgSendPointer
             double,
             bool,
             ffi.Pointer<objc.ObjCBlockImpl>)>();
-late final _sel_zoomLevel = objc.registerName("zoomLevel");
-late final _sel_setZoomLevel_ = objc.registerName("setZoomLevel:");
 late final _sel_setZoomLevel_animated_ =
     objc.registerName("setZoomLevel:animated:");
 final _objc_msgSend_ghxo7e = objc.msgSendPointer
@@ -10134,6 +9576,16 @@ final _objc_msgSend_ghxo7e = objc.msgSendPointer
     .asFunction<
         void Function(ffi.Pointer<objc.ObjCObject>,
             ffi.Pointer<objc.ObjCSelector>, double, bool)>();
+
+/// A rectangular area as measured on a two-dimensional map projection.
+final class MLNCoordinateBounds extends ffi.Struct {
+  /// Coordinate at the southwest corner.
+  external CLLocationCoordinate2D sw;
+
+  /// Coordinate at the northeast corner.
+  external CLLocationCoordinate2D ne;
+}
+
 late final _sel_maximumScreenBounds = objc.registerName("maximumScreenBounds");
 final _objc_msgSend_ygoa6a = objc.msgSendPointer
     .cast<
@@ -10249,6 +9701,26 @@ final _objc_msgSend_4v7863 = objc.msgSendPointer
             int,
             ffi.Pointer<objc.ObjCObject>,
             bool)>();
+
+/// WARNING: CAMediaTimingFunction is a stub. To generate bindings for this class, include
+/// CAMediaTimingFunction in your config's objc-interfaces list.
+///
+/// CAMediaTimingFunction
+class CAMediaTimingFunction extends objc.NSObject {
+  CAMediaTimingFunction._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [CAMediaTimingFunction] that points to the same underlying object as [other].
+  CAMediaTimingFunction.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [CAMediaTimingFunction] that wraps the given raw object pointer.
+  CAMediaTimingFunction.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+}
+
 late final _sel_setVisibleCoordinates_count_edgePadding_direction_duration_animationTimingFunction_completionHandler_ =
     objc.registerName(
         "setVisibleCoordinates:count:edgePadding:direction:duration:animationTimingFunction:completionHandler:");
@@ -10330,6 +9802,377 @@ final _objc_msgSend_1imhooq = objc.msgSendPointer
             ffi.Pointer<objc.ObjCObject>,
             bool,
             ffi.Pointer<objc.ObjCBlockImpl>)>();
+late final _class_MLNMapCamera = objc.getClass("MapLibre.MLNMapCamera");
+late final _sel_heading = objc.registerName("heading");
+late final _sel_setHeading_ = objc.registerName("setHeading:");
+late final _sel_pitch = objc.registerName("pitch");
+late final _sel_setPitch_ = objc.registerName("setPitch:");
+late final _sel_altitude = objc.registerName("altitude");
+late final _sel_setAltitude_ = objc.registerName("setAltitude:");
+late final _sel_viewingDistance = objc.registerName("viewingDistance");
+late final _sel_setViewingDistance_ = objc.registerName("setViewingDistance:");
+late final _sel_camera = objc.registerName("camera");
+late final _sel_cameraLookingAtCenterCoordinate_fromEyeCoordinate_eyeAltitude_ =
+    objc.registerName(
+        "cameraLookingAtCenterCoordinate:fromEyeCoordinate:eyeAltitude:");
+final _objc_msgSend_2d68z4 = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                CLLocationCoordinate2D,
+                CLLocationCoordinate2D,
+                ffi.Double)>>()
+    .asFunction<
+        ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CLLocationCoordinate2D,
+            CLLocationCoordinate2D,
+            double)>();
+late final _sel_cameraLookingAtCenterCoordinate_acrossDistance_pitch_heading_ =
+    objc.registerName(
+        "cameraLookingAtCenterCoordinate:acrossDistance:pitch:heading:");
+final _objc_msgSend_x3m0f9 = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                CLLocationCoordinate2D,
+                ffi.Double,
+                ffi.Double,
+                ffi.Double)>>()
+    .asFunction<
+        ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CLLocationCoordinate2D,
+            double,
+            double,
+            double)>();
+late final _sel_cameraLookingAtCenterCoordinate_altitude_pitch_heading_ = objc
+    .registerName("cameraLookingAtCenterCoordinate:altitude:pitch:heading:");
+late final _sel_cameraLookingAtCenterCoordinate_fromDistance_pitch_heading_ =
+    objc.registerName(
+        "cameraLookingAtCenterCoordinate:fromDistance:pitch:heading:");
+late final _sel_isEqualToMapCamera_ = objc.registerName("isEqualToMapCamera:");
+
+/// An ``MLNMapCamera`` object represents a viewpoint from which the user observes
+/// some point on an ``MLNMapView``.
+///
+/// #### Related examples
+/// - <doc:BlockingGesturesExample>: learn how to use the
+/// ``MLNMapViewDelegate/mapView:shouldChangeFromCamera:toCamera:`` method of ``MLNMapViewDelegate`` to
+/// restrict panning.
+/// - *TODO:* Camera animation, learn how to create a camera that rotates
+/// around a central point.
+class MLNMapCamera extends objc.NSObject {
+  MLNMapCamera._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNMapCamera] that points to the same underlying object as [other].
+  MLNMapCamera.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNMapCamera] that wraps the given raw object pointer.
+  MLNMapCamera.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNMapCamera].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNMapCamera);
+  }
+
+  /// Coordinate at the center of the map view.
+  CLLocationCoordinate2D get centerCoordinate {
+    final _ptr = pkg_ffi.calloc<CLLocationCoordinate2D>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_18o5nokStret(
+            _ptr, this.ref.pointer, _sel_centerCoordinate)
+        : _ptr.ref =
+            _objc_msgSend_18o5nok(this.ref.pointer, _sel_centerCoordinate);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+        ffi.sizeOf<CLLocationCoordinate2D>(),
+        finalizer: pkg_ffi.calloc.nativeFree);
+    return ffi.Struct.create<CLLocationCoordinate2D>(_finalizable);
+  }
+
+  /// Coordinate at the center of the map view.
+  set centerCoordinate(CLLocationCoordinate2D value) {
+    _objc_msgSend_1zv0am(this.ref.pointer, _sel_setCenterCoordinate_, value);
+  }
+
+  /// Heading measured in degrees clockwise from true north.
+  double get heading {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_heading)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_heading);
+  }
+
+  /// Heading measured in degrees clockwise from true north.
+  set heading(double value) {
+    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setHeading_, value);
+  }
+
+  /// Pitch toward the horizon measured in degrees, with 0 degrees resulting in a
+  /// two-dimensional map.
+  double get pitch {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_pitch)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_pitch);
+  }
+
+  /// Pitch toward the horizon measured in degrees, with 0 degrees resulting in a
+  /// two-dimensional map.
+  set pitch(double value) {
+    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setPitch_, value);
+  }
+
+  /// The altitude (measured in meters) above the map at which the camera is
+  /// situated.
+  ///
+  /// The altitude is the distance from the viewpoint to the map, perpendicular to
+  /// the map plane. This property does not account for physical elevation.
+  ///
+  /// This property’s value may be less than that of the ``viewingDistance`` property.
+  /// Setting this property automatically updates the ``viewingDistance`` property
+  /// based on the ``pitch`` property’s current value.
+  double get altitude {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_altitude)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_altitude);
+  }
+
+  /// The altitude (measured in meters) above the map at which the camera is
+  /// situated.
+  ///
+  /// The altitude is the distance from the viewpoint to the map, perpendicular to
+  /// the map plane. This property does not account for physical elevation.
+  ///
+  /// This property’s value may be less than that of the ``viewingDistance`` property.
+  /// Setting this property automatically updates the ``viewingDistance`` property
+  /// based on the ``pitch`` property’s current value.
+  set altitude(double value) {
+    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setAltitude_, value);
+  }
+
+  /// The straight-line distance from the viewpoint to the ``centerCoordinate``.
+  ///
+  /// Setting this property automatically updates the ``altitude`` property based on
+  /// the ``pitch`` property’s current value.
+  double get viewingDistance {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_viewingDistance)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_viewingDistance);
+  }
+
+  /// The straight-line distance from the viewpoint to the ``centerCoordinate``.
+  ///
+  /// Setting this property automatically updates the ``altitude`` property based on
+  /// the ``pitch`` property’s current value.
+  set viewingDistance(double value) {
+    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setViewingDistance_, value);
+  }
+
+  /// Returns a new camera with all properties set to 0.
+  static MLNMapCamera camera() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNMapCamera, _sel_camera);
+    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a new camera based on information about the camera’s viewpoint
+  /// and focus point.
+  ///
+  /// @param centerCoordinate The geographic coordinate on which the map should be
+  /// centered.
+  /// @param eyeCoordinate The geometric coordinate at which the camera should be
+  /// situated.
+  /// @param eyeAltitude The altitude (measured in meters) above the map at which the
+  /// camera should be situated. The altitude may be less than the distance from
+  /// the camera’s viewpoint to the camera’s focus point.
+  static MLNMapCamera
+      cameraLookingAtCenterCoordinate_fromEyeCoordinate_eyeAltitude_(
+          CLLocationCoordinate2D centerCoordinate,
+          CLLocationCoordinate2D eyeCoordinate,
+          double eyeAltitude) {
+    final _ret = _objc_msgSend_2d68z4(
+        _class_MLNMapCamera,
+        _sel_cameraLookingAtCenterCoordinate_fromEyeCoordinate_eyeAltitude_,
+        centerCoordinate,
+        eyeCoordinate,
+        eyeAltitude);
+    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a new camera with the given distance, pitch, and heading.
+  ///
+  /// This method interprets the distance as a straight-line distance from the
+  /// viewpoint to the center coordinate. To specify the altitude of the viewpoint,
+  /// use the ``cameraLookingAtCenterCoordinate:altitude:pitch:heading:`` method.
+  ///
+  /// @param centerCoordinate The geographic coordinate on which the map should be
+  /// centered.
+  /// @param distance The straight-line distance from the viewpoint to the
+  /// ``centerCoordinate``.
+  /// @param pitch The viewing angle of the camera, measured in degrees. A value of
+  /// `0` results in a camera pointed straight down at the map. Angles greater
+  /// than `0` result in a camera angled toward the horizon.
+  /// @param heading The camera’s heading, measured in degrees clockwise from true
+  /// north. A value of `0` means that the top edge of the map view corresponds to
+  /// true north. The value `90` means the top of the map is pointing due east.
+  /// The value `180` means the top of the map points due south, and so on.
+  static MLNMapCamera
+      cameraLookingAtCenterCoordinate_acrossDistance_pitch_heading_(
+          CLLocationCoordinate2D centerCoordinate,
+          double distance,
+          double pitch,
+          double heading) {
+    final _ret = _objc_msgSend_x3m0f9(
+        _class_MLNMapCamera,
+        _sel_cameraLookingAtCenterCoordinate_acrossDistance_pitch_heading_,
+        centerCoordinate,
+        distance,
+        pitch,
+        heading);
+    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a new camera with the given altitude, pitch, and heading.
+  ///
+  /// @param centerCoordinate The geographic coordinate on which the map should be
+  /// centered.
+  /// @param altitude The altitude (measured in meters) above the map at which the
+  /// camera should be situated. The altitude may be less than the distance from
+  /// the camera’s viewpoint to the camera’s focus point.
+  /// @param pitch The viewing angle of the camera, measured in degrees. A value of
+  /// `0` results in a camera pointed straight down at the map. Angles greater
+  /// than `0` result in a camera angled toward the horizon.
+  /// @param heading The camera’s heading, measured in degrees clockwise from true
+  /// north. A value of `0` means that the top edge of the map view corresponds to
+  /// true north. The value `90` means the top of the map is pointing due east.
+  /// The value `180` means the top of the map points due south, and so on.
+  static MLNMapCamera cameraLookingAtCenterCoordinate_altitude_pitch_heading_(
+      CLLocationCoordinate2D centerCoordinate,
+      double altitude,
+      double pitch,
+      double heading) {
+    final _ret = _objc_msgSend_x3m0f9(
+        _class_MLNMapCamera,
+        _sel_cameraLookingAtCenterCoordinate_altitude_pitch_heading_,
+        centerCoordinate,
+        altitude,
+        pitch,
+        heading);
+    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// > This initializer incorrectly interprets the `distance` parameter. To
+  /// specify the straight-line distance from the viewpoint to ``centerCoordinate``,
+  /// use the ``cameraLookingAtCenterCoordinate:acrossDistance:pitch:heading:``
+  /// method. To specify the altitude of the viewpoint, use the
+  /// ``cameraLookingAtCenterCoordinate:altitude:pitch:heading:`` method, which has
+  /// the same behavior as this initializer.
+  static MLNMapCamera
+      cameraLookingAtCenterCoordinate_fromDistance_pitch_heading_(
+          CLLocationCoordinate2D centerCoordinate,
+          double distance,
+          double pitch,
+          double heading) {
+    final _ret = _objc_msgSend_x3m0f9(
+        _class_MLNMapCamera,
+        _sel_cameraLookingAtCenterCoordinate_fromDistance_pitch_heading_,
+        centerCoordinate,
+        distance,
+        pitch,
+        heading);
+    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a Boolean value indicating whether the given camera is functionally
+  /// equivalent to the receiver.
+  ///
+  /// Unlike `isEqual:`, this method returns `YES` if the difference between the
+  /// coordinates, altitudes, pitches, or headings of the two camera objects is
+  /// negligible.
+  ///
+  /// @param otherCamera The camera with which to compare the receiver.
+  /// @return A Boolean value indicating whether the two cameras are functionally
+  /// equivalent.
+  bool isEqualToMapCamera_(MLNMapCamera otherCamera) {
+    return _objc_msgSend_19nvye5(
+        this.ref.pointer, _sel_isEqualToMapCamera_, otherCamera.ref.pointer);
+  }
+
+  /// init
+  MLNMapCamera init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// new
+  static MLNMapCamera new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNMapCamera, _sel_new);
+    return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNMapCamera allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret =
+        _objc_msgSend_1cwp428(_class_MLNMapCamera, _sel_allocWithZone_, zone);
+    return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNMapCamera alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNMapCamera, _sel_alloc);
+    return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MLNMapCamera self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNMapCamera retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNMapCamera autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// supportsSecureCoding
+  static bool getSupportsSecureCoding() {
+    return _objc_msgSend_91o635(_class_MLNMapCamera, _sel_supportsSecureCoding);
+  }
+
+  /// encodeWithCoder:
+  void encodeWithCoder_(objc.NSCoder coder) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_encodeWithCoder_, coder.ref.pointer);
+  }
+
+  /// initWithCoder:
+  MLNMapCamera? initWithCoder_(objc.NSCoder coder) {
+    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
+        _sel_initWithCoder_, coder.ref.pointer);
+    return _ret.address == 0
+        ? null
+        : MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
+  }
+}
+
 late final _sel_setCamera_ = objc.registerName("setCamera:");
 late final _sel_setCamera_animated_ = objc.registerName("setCamera:animated:");
 late final _sel_setCamera_withDuration_animationTimingFunction_ =
@@ -10639,7 +10482,35 @@ extension ObjCBlock_CLLocationCoordinate2D_ffiVoid_CallExtension
                   ffi.Pointer<ffi.Void>)>()(ref.pointer, arg0);
 }
 
-/// MLNShape
+/// ``MLNShape`` is an abstract class that represents a shape or annotation. Shapes
+/// constitute the content of a map — not only the overlays atop the map, but also
+/// the content that forms the base map.
+///
+/// Create instances of ``MLNPointAnnotation``, ``MLNPointAnnotation``, ``MLNPointAnnotation``,
+/// ``MLNMultiPolyline``, ``MLNMultiPolyline``, ``MLNMultiPolyline``, or ``MLNMultiPolyline`` in
+/// order to use ``MLNShape``'s methods. Do not create instances of ``MLNShape``
+/// directly, and do not create your own subclasses of this class. The shape
+/// classes correspond to the
+/// <a href="https://tools.ietf.org/html/rfc7946#section-3.1">Geometry</a> object
+/// types in the GeoJSON standard, but some have nonstandard names for backwards
+/// compatibility.
+///
+/// Although you do not create instances of this class directly, you can use its
+/// ``MLNShape/shapeWithData:encoding:error:`` factory method to create one of the
+/// concrete subclasses of ``MLNShape`` noted above from GeoJSON data. To access a
+/// shape’s attributes, use the corresponding ``MLNFeature`` class instead.
+///
+/// You can add shapes to the map by adding them to an ``MLNShapeSource`` object.
+/// Configure the appearance of an ``MLNShapeSource``’s or ``MLNShapeSource``’s
+/// shapes collectively using a concrete instance of ``MLNVectorStyleLayer``.
+/// Alternatively, you can add some kinds of shapes directly to a map view as
+/// annotations or overlays.
+///
+/// You can filter the features in a ``MLNVectorStyleLayer`` or vary their layout or
+/// paint attributes based on the features’ geographies. Pass an ``MLNShape`` into an
+/// `NSPredicate` with the format `SELF IN %@` or `%@ CONTAINS SELF` and set the
+/// ``MLNVectorStyleLayer/predicate`` property to that predicate, or set a layout or
+/// paint attribute to a similarly formatted `NSExpression`.
 class MLNShape extends objc.NSObject {
   MLNShape._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
@@ -11120,7 +10991,9 @@ final _objc_msgSend_p1qkdlStret = objc.msgSendStretPointer
             ffi.Pointer<objc.ObjCSelector>, CLLocationCoordinate2D)>();
 late final _sel_metersPerPoint = objc.registerName("metersPerPoint");
 
-/// MLNMapProjection
+/// The aim of this class is to provide the functionality of changing the camera state and
+/// converting between map view screen coordinates and geographical coordinates without
+/// changing the actual map view camera state.
 class MLNMapProjection extends objc.NSObject {
   MLNMapProjection._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
@@ -11285,7 +11158,18 @@ late final _sel_removeAnnotations_ = objc.registerName("removeAnnotations:");
 /// WARNING: MLNAnnotationView is a stub. To generate bindings for this class, include
 /// MLNAnnotationView in your config's objc-interfaces list.
 ///
-/// MLNAnnotationView
+/// The ``MLNAnnotationView`` class is responsible for marking a point annotation
+/// with a view. Annotation views represent an annotation object, which is an
+/// object that corresponds to the ``MLNAnnotation`` protocol. When an annotation’s
+/// geographic coordinate is visible in the map view, the map view asks its
+/// delegate to a corresponding annotation view. If an annotation view is created
+/// with a reuse identifier, the map view may recycle the view when it goes
+/// offscreen.
+///
+/// Annotation views are compatible with UIKit, Core Animation, and other Cocoa
+/// Touch frameworks. On the other hand, if you do not need animation or
+/// interactivity such as dragging, you can use an ``MLNAnnotationImage`` instead to
+/// conserve memory and optimize drawing performance.
 class MLNAnnotationView extends objc.ObjCObjectBase {
   MLNAnnotationView._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
@@ -11306,11 +11190,18 @@ late final _sel_viewForAnnotation_ = objc.registerName("viewForAnnotation:");
 /// WARNING: MLNAnnotationImage is a stub. To generate bindings for this class, include
 /// MLNAnnotationImage in your config's objc-interfaces list.
 ///
-/// MLNAnnotationImage
-class MLNAnnotationImage extends objc.ObjCObjectBase {
+/// The ``MLNAnnotationImage`` class is responsible for presenting point-based
+/// annotations visually on a map view. Annotation image objects wrap `UIImage`
+/// objects and may be recycled later and put into a reuse queue that is maintained
+/// by the map view.
+///
+/// #### Related examples
+/// TODO: Mark a place on the map with an image, learn how use an image
+/// as a marker using ``MLNAnnotationImage``.
+class MLNAnnotationImage extends objc.NSObject {
   MLNAnnotationImage._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
-      : super(pointer, retain: retain, release: release);
+      : super.castFromPointer(pointer, retain: retain, release: release);
 
   /// Constructs a [MLNAnnotationImage] that points to the same underlying object as [other].
   MLNAnnotationImage.castFrom(objc.ObjCObjectBase other)
@@ -11416,6 +11307,52 @@ late final _sel_visibleFeaturesInRect_inStyleLayersWithIdentifiers_ =
 late final _sel_visibleFeaturesInRect_inStyleLayersWithIdentifiers_predicate_ =
     objc.registerName(
         "visibleFeaturesInRect:inStyleLayersWithIdentifiers:predicate:");
+
+/// Options for enabling debugging features in an ``MLNMapView`` instance.
+enum MLNMapDebugMaskOptions {
+  /// Edges of tile boundaries are shown as thick, red lines to help diagnose
+  /// tile clipping issues.
+  MLNMapDebugTileBoundariesMask(2),
+
+  /// Each tile shows its tile coordinate (x/y/z) in the upper-left corner.
+  MLNMapDebugTileInfoMask(4),
+
+  /// Each tile shows a timestamp indicating when it was loaded.
+  MLNMapDebugTimestampsMask(8),
+
+  /// Edges of glyphs and symbols are shown as faint, green lines to help
+  /// diagnose collision and label placement issues.
+  MLNMapDebugCollisionBoxesMask(16),
+
+  /// Each drawing operation is replaced by a translucent fill. Overlapping
+  /// drawing operations appear more prominent to help diagnose overdrawing.
+  /// > Note: This option does nothing in Release builds of the SDK.
+  MLNMapDebugOverdrawVisualizationMask(32),
+
+  /// The stencil buffer is shown instead of the color buffer.
+  /// > Note: This option does nothing in Release builds of the SDK.
+  MLNMapDebugStencilBufferMask(64),
+
+  /// The depth buffer is shown instead of the color buffer.
+  /// > Note: This option does nothing in Release builds of the SDK.
+  MLNMapDebugDepthBufferMask(128);
+
+  final int value;
+  const MLNMapDebugMaskOptions(this.value);
+
+  static MLNMapDebugMaskOptions fromValue(int value) => switch (value) {
+        2 => MLNMapDebugTileBoundariesMask,
+        4 => MLNMapDebugTileInfoMask,
+        8 => MLNMapDebugTimestampsMask,
+        16 => MLNMapDebugCollisionBoxesMask,
+        32 => MLNMapDebugOverdrawVisualizationMask,
+        64 => MLNMapDebugStencilBufferMask,
+        128 => MLNMapDebugDepthBufferMask,
+        _ => throw ArgumentError(
+            "Unknown value for MLNMapDebugMaskOptions: $value"),
+      };
+}
+
 late final _sel_debugMask = objc.registerName("debugMask");
 final _objc_msgSend_1kwkjor = objc.msgSendPointer
     .cast<
@@ -11434,45 +11371,30 @@ final _objc_msgSend_pisvbv = objc.msgSendPointer
     .asFunction<
         void Function(ffi.Pointer<objc.ObjCObject>,
             ffi.Pointer<objc.ObjCSelector>, int)>();
+
+/// WARNING: MLNBackendResource is a stub. To generate bindings for this class, include
+/// MLNBackendResource in your config's objc-interfaces list.
+///
+/// MLNBackendResource
+class MLNBackendResource extends objc.NSObject {
+  MLNBackendResource._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNBackendResource] that points to the same underlying object as [other].
+  MLNBackendResource.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNBackendResource] that wraps the given raw object pointer.
+  MLNBackendResource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+}
+
 late final _sel_backendResource = objc.registerName("backendResource");
 late final _sel_triggerRepaint = objc.registerName("triggerRepaint");
 
-/// An interactive, customizable map view with an interface similar to the one
-/// provided by Apple’s MapKit.
-///
-/// Using ``MLNMapView``, you can embed the map inside a view, allow users to
-/// manipulate it with standard gestures, animate the map between different
-/// viewpoints, and present information in the form of annotations and overlays.
-///
-/// The map view loads scalable vector tiles that conform to the
-/// <a href="https://github.com/mapbox/vector-tile-spec">Mapbox Vector Tile Specification</a>.
-/// It styles them with a style that conforms to the
-/// <a href="https://maplibre.org/maplibre-style-spec/">MapLibre Style Spec</a>.
-/// Such styles can be designed with
-/// <a href="https://maplibre.org/maputnik/">Maputnik</a>.
-///
-///
-/// Because ``MLNMapView`` loads asynchronously, several delegate methods are available
-/// for receiving map-related updates. These methods can be used to ensure that certain operations
-/// have completed before taking any additional actions. Information on these methods is located
-/// in the ``MLNMapViewDelegate`` protocol documentation.
-///
-/// Adding your own gesture recognizer to ``MLNMapView`` will block the corresponding
-/// gesture recognizer built into ``MLNMapView``. To avoid conflicts, define which
-/// gesture takes precedence. For example, you can create your own
-/// `UITapGestureRecognizer` that will be invoked only if the default ``MLNMapView``
-/// tap gesture fails:
-///
-/// ```swift
-/// let mapTapGestureRecognizer = UITapGestureRecognizer(target: self, action:
-/// #selector(myCustomFunction)) for recognizer in mapView.gestureRecognizers! where recognizer is
-/// UITapGestureRecognizer { mapTapGestureRecognizer.require(toFail: recognizer)
-/// }
-/// mapView.addGestureRecognizer(mapTapGestureRecognizer)
-/// ```
-///
-/// > Note: You are responsible for getting permission to use the map data and for
-/// ensuring that your use adheres to the relevant terms of use.
+/// MLNMapView
 class MLNMapView extends objc.ObjCObjectBase {
   MLNMapView._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
@@ -13064,7 +12986,7 @@ class MLNMapView extends objc.ObjCObjectBase {
           objc.ObjCObjectBase insets,
           double direction,
           double duration,
-          objc.ObjCObjectBase function,
+          CAMediaTimingFunction? function,
           objc.ObjCBlock<ffi.Void Function()>? completion) {
     _objc_msgSend_1rtoh8u(
         this.ref.pointer,
@@ -13074,7 +12996,7 @@ class MLNMapView extends objc.ObjCObjectBase {
         insets.ref.pointer,
         direction,
         duration,
-        function.ref.pointer,
+        function?.ref.pointer ?? ffi.nullptr,
         completion?.ref.pointer ?? ffi.nullptr);
   }
 
@@ -13187,13 +13109,13 @@ class MLNMapView extends objc.ObjCObjectBase {
   /// - TODO: Camera animation: learn how to create a timed animation that
   /// rotates around a central point for a specific duration.
   void setCamera_withDuration_animationTimingFunction_(
-      MLNMapCamera camera, double duration, objc.ObjCObjectBase function) {
+      MLNMapCamera camera, double duration, CAMediaTimingFunction? function) {
     _objc_msgSend_r1s65y(
         this.ref.pointer,
         _sel_setCamera_withDuration_animationTimingFunction_,
         camera.ref.pointer,
         duration,
-        function.ref.pointer);
+        function?.ref.pointer ?? ffi.nullptr);
   }
 
   /// Moves the viewpoint to a different location with respect to the map with an
@@ -13211,14 +13133,14 @@ class MLNMapView extends objc.ObjCObjectBase {
   void setCamera_withDuration_animationTimingFunction_completionHandler_(
       MLNMapCamera camera,
       double duration,
-      objc.ObjCObjectBase function,
+      CAMediaTimingFunction? function,
       objc.ObjCBlock<ffi.Void Function()>? completion) {
     _objc_msgSend_1s40ged(
         this.ref.pointer,
         _sel_setCamera_withDuration_animationTimingFunction_completionHandler_,
         camera.ref.pointer,
         duration,
-        function.ref.pointer,
+        function?.ref.pointer ?? ffi.nullptr,
         completion?.ref.pointer ?? ffi.nullptr);
   }
 
@@ -13241,7 +13163,7 @@ class MLNMapView extends objc.ObjCObjectBase {
       setCamera_withDuration_animationTimingFunction_edgePadding_completionHandler_(
           MLNMapCamera camera,
           double duration,
-          objc.ObjCObjectBase function,
+          CAMediaTimingFunction? function,
           objc.ObjCObjectBase edgePadding,
           objc.ObjCBlock<ffi.Void Function()>? completion) {
     _objc_msgSend_1aa3qa7(
@@ -13249,7 +13171,7 @@ class MLNMapView extends objc.ObjCObjectBase {
         _sel_setCamera_withDuration_animationTimingFunction_edgePadding_completionHandler_,
         camera.ref.pointer,
         duration,
-        function.ref.pointer,
+        function?.ref.pointer ?? ffi.nullptr,
         edgePadding.ref.pointer,
         completion?.ref.pointer ?? ffi.nullptr);
   }
@@ -14365,6 +14287,1376 @@ class MLNMapView extends objc.ObjCObjectBase {
   }
 }
 
+late final _sel_altitudeForZoomLevelWithZoomLevel_mapView_ =
+    objc.registerName("altitudeForZoomLevelWithZoomLevel:mapView:");
+final _objc_msgSend_qixgmh = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Double Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Double,
+                ffi.Pointer<objc.ObjCObject>)>>()
+    .asFunction<
+        double Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            double,
+            ffi.Pointer<objc.ObjCObject>)>();
+final _objc_msgSend_qixgmhFpret = objc.msgSendFpretPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Double Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Double,
+                ffi.Pointer<objc.ObjCObject>)>>()
+    .asFunction<
+        double Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            double,
+            ffi.Pointer<objc.ObjCObject>)>();
+late final _sel_zoomLevelForAltitudeWithAltitude_mapView_ =
+    objc.registerName("zoomLevelForAltitudeWithAltitude:mapView:");
+
+/// Helpers
+class Helpers extends objc.NSObject {
+  Helpers._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [Helpers] that points to the same underlying object as [other].
+  Helpers.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [Helpers] that wraps the given raw object pointer.
+  Helpers.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [Helpers].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_Helpers);
+  }
+
+  /// addImageToStyleWithTarget:field:expression:
+  static void addImageToStyleWithTarget_field_expression_(
+      objc.NSObject target, objc.NSString field, NSExpression expression) {
+    _objc_msgSend_r8gdi7(
+        _class_Helpers,
+        _sel_addImageToStyleWithTarget_field_expression_,
+        target.ref.pointer,
+        field.ref.pointer,
+        expression.ref.pointer);
+  }
+
+  /// setExpressionWithTarget:field:expression:
+  static void setExpressionWithTarget_field_expression_(
+      objc.NSObject target, objc.NSString field, NSExpression expression) {
+    _objc_msgSend_r8gdi7(
+        _class_Helpers,
+        _sel_setExpressionWithTarget_field_expression_,
+        target.ref.pointer,
+        field.ref.pointer,
+        expression.ref.pointer);
+  }
+
+  /// setFilterWithTarget:filter:
+  static objc.NSString? setFilterWithTarget_filter_(
+      objc.NSObject target, objc.NSString filter) {
+    final _ret = _objc_msgSend_15qeuct(
+        _class_Helpers,
+        _sel_setFilterWithTarget_filter_,
+        target.ref.pointer,
+        filter.ref.pointer);
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// parseExpressionWithPropertyName:expression:
+  static NSExpression? parseExpressionWithPropertyName_expression_(
+      objc.NSString propertyName, objc.NSString expression) {
+    final _ret = _objc_msgSend_15qeuct(
+        _class_Helpers,
+        _sel_parseExpressionWithPropertyName_expression_,
+        propertyName.ref.pointer,
+        expression.ref.pointer);
+    return _ret.address == 0
+        ? null
+        : NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// altitudeForZoomLevelWithZoomLevel:mapView:
+  static double altitudeForZoomLevelWithZoomLevel_mapView_(
+      double zoomLevel, MLNMapView mapView) {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_qixgmhFpret(
+            _class_Helpers,
+            _sel_altitudeForZoomLevelWithZoomLevel_mapView_,
+            zoomLevel,
+            mapView.ref.pointer)
+        : _objc_msgSend_qixgmh(
+            _class_Helpers,
+            _sel_altitudeForZoomLevelWithZoomLevel_mapView_,
+            zoomLevel,
+            mapView.ref.pointer);
+  }
+
+  /// zoomLevelForAltitudeWithAltitude:mapView:
+  static double zoomLevelForAltitudeWithAltitude_mapView_(
+      double altitude, MLNMapView mapView) {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_qixgmhFpret(
+            _class_Helpers,
+            _sel_zoomLevelForAltitudeWithAltitude_mapView_,
+            altitude,
+            mapView.ref.pointer)
+        : _objc_msgSend_qixgmh(
+            _class_Helpers,
+            _sel_zoomLevelForAltitudeWithAltitude_mapView_,
+            altitude,
+            mapView.ref.pointer);
+  }
+
+  /// init
+  Helpers init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return Helpers.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// new
+  static Helpers new1() {
+    final _ret = _objc_msgSend_151sglz(_class_Helpers, _sel_new);
+    return Helpers.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static Helpers allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret =
+        _objc_msgSend_1cwp428(_class_Helpers, _sel_allocWithZone_, zone);
+    return Helpers.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static Helpers alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_Helpers, _sel_alloc);
+    return Helpers.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  Helpers self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return Helpers.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  Helpers retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return Helpers.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  Helpers autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return Helpers.castFromPointer(_ret, retain: true, release: true);
+  }
+}
+
+late final _class_MapLibreRegistry =
+    objc.getClass("maplibre_ios.MapLibreRegistry");
+late final _sel_getMapWithViewId_ = objc.registerName("getMapWithViewId:");
+final _objc_msgSend_1ya1kjn = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>, ffi.Int64)>>()
+    .asFunction<
+        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>, int)>();
+late final _sel_activity = objc.registerName("activity");
+late final _sel_setActivity_ = objc.registerName("setActivity:");
+late final _sel_context = objc.registerName("context");
+late final _sel_setContext_ = objc.registerName("setContext:");
+
+/// MapLibreRegistry
+class MapLibreRegistry extends objc.NSObject {
+  MapLibreRegistry._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MapLibreRegistry] that points to the same underlying object as [other].
+  MapLibreRegistry.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MapLibreRegistry] that wraps the given raw object pointer.
+  MapLibreRegistry.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MapLibreRegistry].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MapLibreRegistry);
+  }
+
+  /// getMapWithViewId:
+  static objc.ObjCObjectBase? getMapWithViewId_(int viewId) {
+    final _ret = _objc_msgSend_1ya1kjn(
+        _class_MapLibreRegistry, _sel_getMapWithViewId_, viewId);
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// activity
+  static objc.ObjCObjectBase? getActivity() {
+    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_activity);
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// setActivity:
+  static void setActivity(objc.ObjCObjectBase? value) {
+    _objc_msgSend_xtuoz7(_class_MapLibreRegistry, _sel_setActivity_,
+        value?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// context
+  static objc.ObjCObjectBase? getContext() {
+    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_context);
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// setContext:
+  static void setContext(objc.ObjCObjectBase? value) {
+    _objc_msgSend_xtuoz7(_class_MapLibreRegistry, _sel_setContext_,
+        value?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// init
+  MapLibreRegistry init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// new
+  static MapLibreRegistry new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_new);
+    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MapLibreRegistry allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+        _class_MapLibreRegistry, _sel_allocWithZone_, zone);
+    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MapLibreRegistry alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_alloc);
+    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MapLibreRegistry self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MapLibreRegistry retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MapLibreRegistry autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
+  }
+}
+
+final class CGContext extends ffi.Opaque {}
+
+final class CGColor extends ffi.Opaque {}
+
+final class CGColorSpace extends ffi.Opaque {}
+
+final class CGPath extends ffi.Opaque {}
+
+final class CGLayer extends ffi.Opaque {}
+
+final class __CGEvent extends ffi.Opaque {}
+
+/// A quadrilateral area as measured on a two-dimensional map projection.
+/// ``MLNCoordinateQuad`` differs from ``MLNCoordinateQuad`` in that it allows
+/// representation of non-axis aligned bounds and non-rectangular quadrilaterals.
+/// The coordinates are described in counter clockwise order from top left.
+final class MLNCoordinateQuad extends ffi.Struct {
+  /// Coordinate at the top left corner.
+  external CLLocationCoordinate2D topLeft;
+
+  /// Coordinate at the bottom left corner.
+  external CLLocationCoordinate2D bottomLeft;
+
+  /// Coordinate at the bottom right corner.
+  external CLLocationCoordinate2D bottomRight;
+
+  /// Coordinate at the top right corner.
+  external CLLocationCoordinate2D topRight;
+}
+
+/// Constants indicating the visibility of different map ornaments.
+enum MLNOrnamentVisibility {
+  /// A constant indicating that the ornament adapts to the current map state.
+  MLNOrnamentVisibilityAdaptive(0),
+
+  /// A constant indicating that the ornament is always hidden.
+  MLNOrnamentVisibilityHidden(1),
+
+  /// A constant indicating that the ornament is always visible.
+  MLNOrnamentVisibilityVisible(2);
+
+  final int value;
+  const MLNOrnamentVisibility(this.value);
+
+  static MLNOrnamentVisibility fromValue(int value) => switch (value) {
+        0 => MLNOrnamentVisibilityAdaptive,
+        1 => MLNOrnamentVisibilityHidden,
+        2 => MLNOrnamentVisibilityVisible,
+        _ => throw ArgumentError(
+            "Unknown value for MLNOrnamentVisibility: $value"),
+      };
+}
+
+late final _class_MLNForegroundStyleLayer =
+    objc.getClass("MLNForegroundStyleLayer");
+late final _sel_sourceIdentifier = objc.registerName("sourceIdentifier");
+
+/// ``MLNForegroundStyleLayer`` is an abstract superclass for style layers whose
+/// content is defined by an ``MLNSource`` object.
+///
+/// Create instances of ``MLNRasterStyleLayer``, ``MLNRasterStyleLayer``, and the
+/// concrete subclasses of ``MLNVectorStyleLayer`` in order to use
+/// ``MLNForegroundStyleLayer``'s methods. Do not create instances of
+/// ``MLNForegroundStyleLayer`` directly, and do not create your own subclasses of
+/// this class.
+class MLNForegroundStyleLayer extends MLNStyleLayer {
+  MLNForegroundStyleLayer._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNForegroundStyleLayer] that points to the same underlying object as [other].
+  MLNForegroundStyleLayer.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNForegroundStyleLayer] that wraps the given raw object pointer.
+  MLNForegroundStyleLayer.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNForegroundStyleLayer].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNForegroundStyleLayer);
+  }
+
+  /// init
+  MLNForegroundStyleLayer init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MLNForegroundStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// Identifier of the source from which the receiver obtains the data to style.
+  objc.NSString? get sourceIdentifier {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_sourceIdentifier);
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// new
+  static MLNForegroundStyleLayer new1() {
+    final _ret =
+        _objc_msgSend_151sglz(_class_MLNForegroundStyleLayer, _sel_new);
+    return MLNForegroundStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNForegroundStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+        _class_MLNForegroundStyleLayer, _sel_allocWithZone_, zone);
+    return MLNForegroundStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNForegroundStyleLayer alloc() {
+    final _ret =
+        _objc_msgSend_151sglz(_class_MLNForegroundStyleLayer, _sel_alloc);
+    return MLNForegroundStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// self
+  MLNForegroundStyleLayer self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNForegroundStyleLayer.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+
+  /// retain
+  MLNForegroundStyleLayer retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNForegroundStyleLayer.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNForegroundStyleLayer autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNForegroundStyleLayer.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+}
+
+late final _class_MLNVectorStyleLayer = objc.getClass("MLNVectorStyleLayer");
+late final _sel_sourceLayerIdentifier =
+    objc.registerName("sourceLayerIdentifier");
+late final _sel_setSourceLayerIdentifier_ =
+    objc.registerName("setSourceLayerIdentifier:");
+late final _sel_setPredicate_ = objc.registerName("setPredicate:");
+
+/// ``MLNVectorStyleLayer`` is an abstract superclass for style layers whose content
+/// is defined by an ``MLNShapeSource`` or ``MLNShapeSource`` object.
+///
+/// Create instances of ``MLNCircleStyleLayer``, ``MLNCircleStyleLayer``,
+/// ``MLNFillExtrusionStyleLayer``, ``MLNFillExtrusionStyleLayer``, ``MLNFillExtrusionStyleLayer``, and
+/// ``MLNSymbolStyleLayer`` in order to use ``MLNSymbolStyleLayer``'s properties and
+/// methods. Do not create instances of ``MLNVectorStyleLayer`` directly, and do not
+/// create your own subclasses of this class.
+class MLNVectorStyleLayer extends MLNForegroundStyleLayer {
+  MLNVectorStyleLayer._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNVectorStyleLayer] that points to the same underlying object as [other].
+  MLNVectorStyleLayer.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNVectorStyleLayer] that wraps the given raw object pointer.
+  MLNVectorStyleLayer.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNVectorStyleLayer].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNVectorStyleLayer);
+  }
+
+  /// Identifier of the layer within the source identified by the `sourceIdentifier`
+  /// property from which the receiver obtains the data to style.
+  objc.NSString? get sourceLayerIdentifier {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.pointer, _sel_sourceLayerIdentifier);
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Identifier of the layer within the source identified by the `sourceIdentifier`
+  /// property from which the receiver obtains the data to style.
+  set sourceLayerIdentifier(objc.NSString? value) {
+    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_setSourceLayerIdentifier_,
+        value?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// The style layer’s predicate.
+  ///
+  /// Use the style layer’s predicate to include only the features in the source
+  /// layer that satisfy a condition that you define. If the style layer initially
+  /// comes from the style, its predicate corresponds to the
+  /// <a href="https://maplibre.org/maplibre-style-spec/#layer-filter">`filter`</a>
+  /// property in the style JSON.
+  ///
+  /// See the “<a href="../predicates-and-expressions.html">Predicates and Expressions</a>”
+  /// guide for details about the predicate syntax supported by this class.
+  ///
+  /// ### Example
+  ///
+  /// To filter the layer to include only the features whose `index` attribute is 5
+  /// or 10 and whose `ele` attribute is at least 1,500, you could create an
+  /// `NSCompoundPredicate` along these lines:
+  ///
+  /// ```swift
+  /// let layer = MLNLineStyleLayer(identifier: "contour", source: terrain)
+  /// layer.sourceLayerIdentifier = "contours"
+  /// layer.predicate = NSPredicate(format: "(index == 5 || index == 10) && CAST(ele, 'NSNumber') >=
+  /// 1500.0") mapView.style?.addLayer(layer)
+  /// ```
+  NSPredicate? get predicate {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_predicate);
+    return _ret.address == 0
+        ? null
+        : NSPredicate.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The style layer’s predicate.
+  ///
+  /// Use the style layer’s predicate to include only the features in the source
+  /// layer that satisfy a condition that you define. If the style layer initially
+  /// comes from the style, its predicate corresponds to the
+  /// <a href="https://maplibre.org/maplibre-style-spec/#layer-filter">`filter`</a>
+  /// property in the style JSON.
+  ///
+  /// See the “<a href="../predicates-and-expressions.html">Predicates and Expressions</a>”
+  /// guide for details about the predicate syntax supported by this class.
+  ///
+  /// ### Example
+  ///
+  /// To filter the layer to include only the features whose `index` attribute is 5
+  /// or 10 and whose `ele` attribute is at least 1,500, you could create an
+  /// `NSCompoundPredicate` along these lines:
+  ///
+  /// ```swift
+  /// let layer = MLNLineStyleLayer(identifier: "contour", source: terrain)
+  /// layer.sourceLayerIdentifier = "contours"
+  /// layer.predicate = NSPredicate(format: "(index == 5 || index == 10) && CAST(ele, 'NSNumber') >=
+  /// 1500.0") mapView.style?.addLayer(layer)
+  /// ```
+  set predicate(NSPredicate? value) {
+    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_setPredicate_,
+        value?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// init
+  MLNVectorStyleLayer init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MLNVectorStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// new
+  static MLNVectorStyleLayer new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNVectorStyleLayer, _sel_new);
+    return MLNVectorStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNVectorStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+        _class_MLNVectorStyleLayer, _sel_allocWithZone_, zone);
+    return MLNVectorStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNVectorStyleLayer alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNVectorStyleLayer, _sel_alloc);
+    return MLNVectorStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// self
+  MLNVectorStyleLayer self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNVectorStyleLayer.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+
+  /// retain
+  MLNVectorStyleLayer retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNVectorStyleLayer.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNVectorStyleLayer autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNVectorStyleLayer.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+}
+
+late final _class_MLNFillExtrusionStyleLayer =
+    objc.getClass("MLNFillExtrusionStyleLayer");
+late final _sel_initWithIdentifier_source_ =
+    objc.registerName("initWithIdentifier:source:");
+late final _sel_fillExtrusionBase = objc.registerName("fillExtrusionBase");
+late final _sel_setFillExtrusionBase_ =
+    objc.registerName("setFillExtrusionBase:");
+late final _sel_fillExtrusionBaseTransition =
+    objc.registerName("fillExtrusionBaseTransition");
+late final _sel_setFillExtrusionBaseTransition_ =
+    objc.registerName("setFillExtrusionBaseTransition:");
+late final _sel_fillExtrusionColor = objc.registerName("fillExtrusionColor");
+late final _sel_setFillExtrusionColor_ =
+    objc.registerName("setFillExtrusionColor:");
+late final _sel_fillExtrusionColorTransition =
+    objc.registerName("fillExtrusionColorTransition");
+late final _sel_setFillExtrusionColorTransition_ =
+    objc.registerName("setFillExtrusionColorTransition:");
+late final _sel_fillExtrusionHasVerticalGradient =
+    objc.registerName("fillExtrusionHasVerticalGradient");
+late final _sel_setFillExtrusionHasVerticalGradient_ =
+    objc.registerName("setFillExtrusionHasVerticalGradient:");
+late final _sel_fillExtrusionVerticalGradient =
+    objc.registerName("fillExtrusionVerticalGradient");
+late final _sel_setFillExtrusionVerticalGradient_ =
+    objc.registerName("setFillExtrusionVerticalGradient:");
+late final _sel_fillExtrusionHeight = objc.registerName("fillExtrusionHeight");
+late final _sel_setFillExtrusionHeight_ =
+    objc.registerName("setFillExtrusionHeight:");
+late final _sel_fillExtrusionHeightTransition =
+    objc.registerName("fillExtrusionHeightTransition");
+late final _sel_setFillExtrusionHeightTransition_ =
+    objc.registerName("setFillExtrusionHeightTransition:");
+late final _sel_fillExtrusionOpacity =
+    objc.registerName("fillExtrusionOpacity");
+late final _sel_setFillExtrusionOpacity_ =
+    objc.registerName("setFillExtrusionOpacity:");
+late final _sel_fillExtrusionOpacityTransition =
+    objc.registerName("fillExtrusionOpacityTransition");
+late final _sel_setFillExtrusionOpacityTransition_ =
+    objc.registerName("setFillExtrusionOpacityTransition:");
+late final _sel_fillExtrusionPattern =
+    objc.registerName("fillExtrusionPattern");
+late final _sel_setFillExtrusionPattern_ =
+    objc.registerName("setFillExtrusionPattern:");
+late final _sel_fillExtrusionPatternTransition =
+    objc.registerName("fillExtrusionPatternTransition");
+late final _sel_setFillExtrusionPatternTransition_ =
+    objc.registerName("setFillExtrusionPatternTransition:");
+late final _sel_fillExtrusionTranslation =
+    objc.registerName("fillExtrusionTranslation");
+late final _sel_setFillExtrusionTranslation_ =
+    objc.registerName("setFillExtrusionTranslation:");
+late final _sel_fillExtrusionTranslationTransition =
+    objc.registerName("fillExtrusionTranslationTransition");
+late final _sel_setFillExtrusionTranslationTransition_ =
+    objc.registerName("setFillExtrusionTranslationTransition:");
+late final _sel_fillExtrusionTranslate =
+    objc.registerName("fillExtrusionTranslate");
+late final _sel_setFillExtrusionTranslate_ =
+    objc.registerName("setFillExtrusionTranslate:");
+late final _sel_fillExtrusionTranslationAnchor =
+    objc.registerName("fillExtrusionTranslationAnchor");
+late final _sel_setFillExtrusionTranslationAnchor_ =
+    objc.registerName("setFillExtrusionTranslationAnchor:");
+late final _sel_fillExtrusionTranslateAnchor =
+    objc.registerName("fillExtrusionTranslateAnchor");
+late final _sel_setFillExtrusionTranslateAnchor_ =
+    objc.registerName("setFillExtrusionTranslateAnchor:");
+
+/// An ``MLNFillExtrusionStyleLayer`` is a style layer that renders one or more 3D
+/// extruded polygons on the map.
+///
+/// Use a fill-extrusion style layer to configure the visual appearance of polygon
+/// or multipolygon features. These features can come from vector tiles loaded by
+/// an ``MLNFillExtrusionStyleLayer`` object, or they can be
+/// ``MLNFillExtrusionStyleLayer``, ``MLNFillExtrusionStyleLayer``,
+/// ``MLNFillExtrusionStyleLayer``, or ``MLNFillExtrusionStyleLayer`` instances in
+/// an ``MLNFillExtrusionStyleLayer`` or ``MLNFillExtrusionStyleLayer`` object.
+///
+/// You can access an existing fill-extrusion style layer using the
+/// ``MLNStyle/layerWithIdentifier:`` method if you know its identifier;
+/// otherwise, find it using the ``MLNStyle/layers`` property. You can also create a
+/// new fill-extrusion style layer and add it to the style using a method such as
+/// ``MLNStyle/addLayer:``.
+///
+/// #### Related examples
+/// See the <a href="https://docs.mapbox.com/ios/maps/examples/extrusions/">Display
+/// 3D buildings</a> example to learn how to add and style 3D layers on a map.
+///
+/// ### Example
+///
+/// ```swift
+/// ```
+class MLNFillExtrusionStyleLayer extends MLNVectorStyleLayer {
+  MLNFillExtrusionStyleLayer._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNFillExtrusionStyleLayer] that points to the same underlying object as [other].
+  MLNFillExtrusionStyleLayer.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNFillExtrusionStyleLayer] that wraps the given raw object pointer.
+  MLNFillExtrusionStyleLayer.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNFillExtrusionStyleLayer].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(obj.ref.pointer, _sel_isKindOfClass_,
+        _class_MLNFillExtrusionStyleLayer);
+  }
+
+  /// Returns a fill-extrusion style layer initialized with an identifier and source.
+  ///
+  /// After initializing and configuring the style layer, add it to a map view’s
+  /// style using the ``MLNStyle/addLayer:`` or
+  /// ``MLNStyle/insertLayer:belowLayer:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param source The source from which to obtain the data to style. If the source
+  /// has not yet been added to the current style, the behavior is undefined.
+  /// @return An initialized foreground style layer.
+  MLNFillExtrusionStyleLayer initWithIdentifier_source_(
+      objc.NSString identifier, MLNSource source) {
+    final _ret = _objc_msgSend_15qeuct(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_source_,
+        identifier.ref.pointer,
+        source.ref.pointer);
+    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// The height with which to extrude the base of this layer. Must be less than or
+  /// equal to `fillExtrusionHeight`.
+  ///
+  /// This property is measured in meters.
+  ///
+  /// The default value of this property is an expression that evaluates to the float
+  /// `0`. Set this property to `nil` to reset it to the default value.
+  ///
+  /// This property is only applied to the style if `fillExtrusionHeight` is
+  /// non-`nil`. Otherwise, it is ignored.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant numeric values no less than 0
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
+  /// feature attributes
+  NSExpression get fillExtrusionBase {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionBase);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The height with which to extrude the base of this layer. Must be less than or
+  /// equal to `fillExtrusionHeight`.
+  ///
+  /// This property is measured in meters.
+  ///
+  /// The default value of this property is an expression that evaluates to the float
+  /// `0`. Set this property to `nil` to reset it to the default value.
+  ///
+  /// This property is only applied to the style if `fillExtrusionHeight` is
+  /// non-`nil`. Otherwise, it is ignored.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant numeric values no less than 0
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
+  /// feature attributes
+  set fillExtrusionBase(NSExpression value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setFillExtrusionBase_, value.ref.pointer);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionBase` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-base-transition` property in the style JSON file format.
+  MLNTransition get fillExtrusionBaseTransition {
+    final _ptr = pkg_ffi.calloc<MLNTransition>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1i0p3hyStret(
+            _ptr, this.ref.pointer, _sel_fillExtrusionBaseTransition)
+        : _ptr.ref = _objc_msgSend_1i0p3hy(
+            this.ref.pointer, _sel_fillExtrusionBaseTransition);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+        ffi.sizeOf<MLNTransition>(),
+        finalizer: pkg_ffi.calloc.nativeFree);
+    return ffi.Struct.create<MLNTransition>(_finalizable);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionBase` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-base-transition` property in the style JSON file format.
+  set fillExtrusionBaseTransition(MLNTransition value) {
+    _objc_msgSend_z7lywk(
+        this.ref.pointer, _sel_setFillExtrusionBaseTransition_, value);
+  }
+
+  /// The base color of this layer. The extrusion's surfaces will be shaded
+  /// differently based on this color in combination with the `light` settings. If
+  /// this color is specified with an alpha component, the alpha component will be
+  /// ignored; use `fillExtrusionOpacity` to set layer opacityco.
+  ///
+  /// The default value of this property is an expression that evaluates to
+  /// `NSColor.blackColor`. Set this property to `nil` to reset it to the default
+  /// value.
+  ///
+  /// This property is only applied to the style if `fillExtrusionPattern` is set to
+  /// `nil`. Otherwise, it is ignored.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant `NSColor` values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
+  /// feature attributes
+  NSExpression get fillExtrusionColor {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionColor);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The base color of this layer. The extrusion's surfaces will be shaded
+  /// differently based on this color in combination with the `light` settings. If
+  /// this color is specified with an alpha component, the alpha component will be
+  /// ignored; use `fillExtrusionOpacity` to set layer opacityco.
+  ///
+  /// The default value of this property is an expression that evaluates to
+  /// `NSColor.blackColor`. Set this property to `nil` to reset it to the default
+  /// value.
+  ///
+  /// This property is only applied to the style if `fillExtrusionPattern` is set to
+  /// `nil`. Otherwise, it is ignored.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant `NSColor` values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
+  /// feature attributes
+  set fillExtrusionColor(NSExpression value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setFillExtrusionColor_, value.ref.pointer);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionColor` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-color-transition` property in the style JSON file format.
+  MLNTransition get fillExtrusionColorTransition {
+    final _ptr = pkg_ffi.calloc<MLNTransition>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1i0p3hyStret(
+            _ptr, this.ref.pointer, _sel_fillExtrusionColorTransition)
+        : _ptr.ref = _objc_msgSend_1i0p3hy(
+            this.ref.pointer, _sel_fillExtrusionColorTransition);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+        ffi.sizeOf<MLNTransition>(),
+        finalizer: pkg_ffi.calloc.nativeFree);
+    return ffi.Struct.create<MLNTransition>(_finalizable);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionColor` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-color-transition` property in the style JSON file format.
+  set fillExtrusionColorTransition(MLNTransition value) {
+    _objc_msgSend_z7lywk(
+        this.ref.pointer, _sel_setFillExtrusionColorTransition_, value);
+  }
+
+  /// Whether to apply a vertical gradient to the sides of a fill-extrusion layer. If
+  /// true, sides will be shaded slightly darker farther down.
+  ///
+  /// The default value of this property is an expression that evaluates to `YES`.
+  /// Set this property to `nil` to reset it to the default value.
+  ///
+  /// This attribute corresponds to the <a
+  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-vertical-gradient"><code>fill-extrusion-vertical-gradient</code></a>
+  /// layout property in the MapLibre Style Spec.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant Boolean values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation functions to the
+  /// `$zoomLevel` variable or applying interpolation or step functions to feature
+  /// attributes.
+  NSExpression get fillExtrusionHasVerticalGradient {
+    final _ret = _objc_msgSend_151sglz(
+        this.ref.pointer, _sel_fillExtrusionHasVerticalGradient);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Whether to apply a vertical gradient to the sides of a fill-extrusion layer. If
+  /// true, sides will be shaded slightly darker farther down.
+  ///
+  /// The default value of this property is an expression that evaluates to `YES`.
+  /// Set this property to `nil` to reset it to the default value.
+  ///
+  /// This attribute corresponds to the <a
+  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-vertical-gradient"><code>fill-extrusion-vertical-gradient</code></a>
+  /// layout property in the MapLibre Style Spec.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant Boolean values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation functions to the
+  /// `$zoomLevel` variable or applying interpolation or step functions to feature
+  /// attributes.
+  set fillExtrusionHasVerticalGradient(NSExpression value) {
+    _objc_msgSend_xtuoz7(this.ref.pointer,
+        _sel_setFillExtrusionHasVerticalGradient_, value.ref.pointer);
+  }
+
+  /// fillExtrusionVerticalGradient
+  NSExpression get fillExtrusionVerticalGradient {
+    final _ret = _objc_msgSend_151sglz(
+        this.ref.pointer, _sel_fillExtrusionVerticalGradient);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// setFillExtrusionVerticalGradient:
+  set fillExtrusionVerticalGradient(NSExpression value) {
+    _objc_msgSend_xtuoz7(this.ref.pointer,
+        _sel_setFillExtrusionVerticalGradient_, value.ref.pointer);
+  }
+
+  /// The height with which to extrude this layer.
+  ///
+  /// This property is measured in meters.
+  ///
+  /// The default value of this property is an expression that evaluates to the float
+  /// `0`. Set this property to `nil` to reset it to the default value.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant numeric values no less than 0
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
+  /// feature attributes
+  NSExpression get fillExtrusionHeight {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionHeight);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The height with which to extrude this layer.
+  ///
+  /// This property is measured in meters.
+  ///
+  /// The default value of this property is an expression that evaluates to the float
+  /// `0`. Set this property to `nil` to reset it to the default value.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant numeric values no less than 0
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
+  /// feature attributes
+  set fillExtrusionHeight(NSExpression value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setFillExtrusionHeight_, value.ref.pointer);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionHeight` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-height-transition` property in the style JSON file format.
+  MLNTransition get fillExtrusionHeightTransition {
+    final _ptr = pkg_ffi.calloc<MLNTransition>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1i0p3hyStret(
+            _ptr, this.ref.pointer, _sel_fillExtrusionHeightTransition)
+        : _ptr.ref = _objc_msgSend_1i0p3hy(
+            this.ref.pointer, _sel_fillExtrusionHeightTransition);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+        ffi.sizeOf<MLNTransition>(),
+        finalizer: pkg_ffi.calloc.nativeFree);
+    return ffi.Struct.create<MLNTransition>(_finalizable);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionHeight` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-height-transition` property in the style JSON file format.
+  set fillExtrusionHeightTransition(MLNTransition value) {
+    _objc_msgSend_z7lywk(
+        this.ref.pointer, _sel_setFillExtrusionHeightTransition_, value);
+  }
+
+  /// The opacity of the entire fill extrusion layer. This is rendered on a
+  /// per-layer, not per-feature, basis, and data-driven styling is not available.
+  ///
+  /// The default value of this property is an expression that evaluates to the float
+  /// `1`. Set this property to `nil` to reset it to the default value.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant numeric values between 0 and 1 inclusive
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation or step functions to
+  /// feature attributes.
+  NSExpression get fillExtrusionOpacity {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionOpacity);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The opacity of the entire fill extrusion layer. This is rendered on a
+  /// per-layer, not per-feature, basis, and data-driven styling is not available.
+  ///
+  /// The default value of this property is an expression that evaluates to the float
+  /// `1`. Set this property to `nil` to reset it to the default value.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant numeric values between 0 and 1 inclusive
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation or step functions to
+  /// feature attributes.
+  set fillExtrusionOpacity(NSExpression value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setFillExtrusionOpacity_, value.ref.pointer);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionOpacity` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-opacity-transition` property in the style JSON file format.
+  MLNTransition get fillExtrusionOpacityTransition {
+    final _ptr = pkg_ffi.calloc<MLNTransition>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1i0p3hyStret(
+            _ptr, this.ref.pointer, _sel_fillExtrusionOpacityTransition)
+        : _ptr.ref = _objc_msgSend_1i0p3hy(
+            this.ref.pointer, _sel_fillExtrusionOpacityTransition);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+        ffi.sizeOf<MLNTransition>(),
+        finalizer: pkg_ffi.calloc.nativeFree);
+    return ffi.Struct.create<MLNTransition>(_finalizable);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionOpacity` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-opacity-transition` property in the style JSON file format.
+  set fillExtrusionOpacityTransition(MLNTransition value) {
+    _objc_msgSend_z7lywk(
+        this.ref.pointer, _sel_setFillExtrusionOpacityTransition_, value);
+  }
+
+  /// Name of image in style images to use for drawing image fill-extrusions. For
+  /// seamless patterns, image width and height must be a factor of two (2, 4, 8,
+  /// ..., 512).
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant string values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
+  /// feature attributes
+  NSExpression get fillExtrusionPattern {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionPattern);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Name of image in style images to use for drawing image fill-extrusions. For
+  /// seamless patterns, image width and height must be a factor of two (2, 4, 8,
+  /// ..., 512).
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant string values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
+  /// feature attributes
+  set fillExtrusionPattern(NSExpression value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setFillExtrusionPattern_, value.ref.pointer);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionPattern` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-pattern-transition` property in the style JSON file format.
+  MLNTransition get fillExtrusionPatternTransition {
+    final _ptr = pkg_ffi.calloc<MLNTransition>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1i0p3hyStret(
+            _ptr, this.ref.pointer, _sel_fillExtrusionPatternTransition)
+        : _ptr.ref = _objc_msgSend_1i0p3hy(
+            this.ref.pointer, _sel_fillExtrusionPatternTransition);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+        ffi.sizeOf<MLNTransition>(),
+        finalizer: pkg_ffi.calloc.nativeFree);
+    return ffi.Struct.create<MLNTransition>(_finalizable);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionPattern` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-pattern-transition` property in the style JSON file format.
+  set fillExtrusionPatternTransition(MLNTransition value) {
+    _objc_msgSend_z7lywk(
+        this.ref.pointer, _sel_setFillExtrusionPatternTransition_, value);
+  }
+
+  /// The geometry's offset.
+  ///
+  /// This property is measured in points.
+  ///
+  /// The default value of this property is an expression that evaluates to an
+  /// `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
+  /// points upward. Set this property to `nil` to reset it to the default value.
+  ///
+  /// This attribute corresponds to the <a
+  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-translate"><code>fill-extrusion-translate</code></a>
+  /// layout property in the MapLibre Style Spec.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant `CGVector` values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation or step functions to
+  /// feature attributes.
+  NSExpression get fillExtrusionTranslation {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionTranslation);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The geometry's offset.
+  ///
+  /// This property is measured in points.
+  ///
+  /// The default value of this property is an expression that evaluates to an
+  /// `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
+  /// points upward. Set this property to `nil` to reset it to the default value.
+  ///
+  /// This attribute corresponds to the <a
+  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-translate"><code>fill-extrusion-translate</code></a>
+  /// layout property in the MapLibre Style Spec.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant `CGVector` values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation or step functions to
+  /// feature attributes.
+  set fillExtrusionTranslation(NSExpression value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setFillExtrusionTranslation_, value.ref.pointer);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionTranslation` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-translate-transition` property in the style JSON file format.
+  MLNTransition get fillExtrusionTranslationTransition {
+    final _ptr = pkg_ffi.calloc<MLNTransition>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1i0p3hyStret(
+            _ptr, this.ref.pointer, _sel_fillExtrusionTranslationTransition)
+        : _ptr.ref = _objc_msgSend_1i0p3hy(
+            this.ref.pointer, _sel_fillExtrusionTranslationTransition);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+        ffi.sizeOf<MLNTransition>(),
+        finalizer: pkg_ffi.calloc.nativeFree);
+    return ffi.Struct.create<MLNTransition>(_finalizable);
+  }
+
+  /// The transition affecting any changes to this layer’s `fillExtrusionTranslation` property.
+  ///
+  /// This property corresponds to the `fill-extrusion-translate-transition` property in the style JSON file format.
+  set fillExtrusionTranslationTransition(MLNTransition value) {
+    _objc_msgSend_z7lywk(
+        this.ref.pointer, _sel_setFillExtrusionTranslationTransition_, value);
+  }
+
+  /// fillExtrusionTranslate
+  NSExpression get fillExtrusionTranslate {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionTranslate);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// setFillExtrusionTranslate:
+  set fillExtrusionTranslate(NSExpression value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setFillExtrusionTranslate_, value.ref.pointer);
+  }
+
+  /// Controls the frame of reference for `fillExtrusionTranslation`.
+  ///
+  /// The default value of this property is an expression that evaluates to `map`.
+  /// Set this property to `nil` to reset it to the default value.
+  ///
+  /// This property is only applied to the style if `fillExtrusionTranslation` is
+  /// non-`nil`. Otherwise, it is ignored.
+  ///
+  /// This attribute corresponds to the <a
+  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-translate-anchor"><code>fill-extrusion-translate-anchor</code></a>
+  /// layout property in the MapLibre Style Spec.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant `MLNFillExtrusionTranslationAnchor` values
+  /// Any of the following constant string values:
+  /// `map`: The fill extrusion is translated relative to the map.
+  /// `viewport`: The fill extrusion is translated relative to the viewport.
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation functions to the
+  /// `$zoomLevel` variable or applying interpolation or step functions to feature
+  /// attributes.
+  NSExpression get fillExtrusionTranslationAnchor {
+    final _ret = _objc_msgSend_151sglz(
+        this.ref.pointer, _sel_fillExtrusionTranslationAnchor);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Controls the frame of reference for `fillExtrusionTranslation`.
+  ///
+  /// The default value of this property is an expression that evaluates to `map`.
+  /// Set this property to `nil` to reset it to the default value.
+  ///
+  /// This property is only applied to the style if `fillExtrusionTranslation` is
+  /// non-`nil`. Otherwise, it is ignored.
+  ///
+  /// This attribute corresponds to the <a
+  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-translate-anchor"><code>fill-extrusion-translate-anchor</code></a>
+  /// layout property in the MapLibre Style Spec.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant `MLNFillExtrusionTranslationAnchor` values
+  /// Any of the following constant string values:
+  /// `map`: The fill extrusion is translated relative to the map.
+  /// `viewport`: The fill extrusion is translated relative to the viewport.
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation functions to the
+  /// `$zoomLevel` variable or applying interpolation or step functions to feature
+  /// attributes.
+  set fillExtrusionTranslationAnchor(NSExpression value) {
+    _objc_msgSend_xtuoz7(this.ref.pointer,
+        _sel_setFillExtrusionTranslationAnchor_, value.ref.pointer);
+  }
+
+  /// fillExtrusionTranslateAnchor
+  NSExpression get fillExtrusionTranslateAnchor {
+    final _ret = _objc_msgSend_151sglz(
+        this.ref.pointer, _sel_fillExtrusionTranslateAnchor);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// setFillExtrusionTranslateAnchor:
+  set fillExtrusionTranslateAnchor(NSExpression value) {
+    _objc_msgSend_xtuoz7(this.ref.pointer,
+        _sel_setFillExtrusionTranslateAnchor_, value.ref.pointer);
+  }
+
+  /// init
+  MLNFillExtrusionStyleLayer init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// new
+  static MLNFillExtrusionStyleLayer new1() {
+    final _ret =
+        _objc_msgSend_151sglz(_class_MLNFillExtrusionStyleLayer, _sel_new);
+    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNFillExtrusionStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+        _class_MLNFillExtrusionStyleLayer, _sel_allocWithZone_, zone);
+    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNFillExtrusionStyleLayer alloc() {
+    final _ret =
+        _objc_msgSend_151sglz(_class_MLNFillExtrusionStyleLayer, _sel_alloc);
+    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// self
+  MLNFillExtrusionStyleLayer self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+
+  /// retain
+  MLNFillExtrusionStyleLayer retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNFillExtrusionStyleLayer autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+}
+
 /// WARNING: MLNPointAnnotation is a stub. To generate bindings for this class, include
 /// MLNPointAnnotation in your config's objc-interfaces list.
 ///
@@ -14868,297 +16160,735 @@ class MLNVectorTileSource extends MLNTileSource {
   }
 }
 
-late final _class_MLNShapeSource = objc.getClass("MLNShapeSource");
-late final _sel_initWithIdentifier_URL_options_ =
-    objc.registerName("initWithIdentifier:URL:options:");
-late final _sel_initWithIdentifier_shape_options_ =
-    objc.registerName("initWithIdentifier:shape:options:");
-late final _sel_initWithIdentifier_features_options_ =
-    objc.registerName("initWithIdentifier:features:options:");
-late final _sel_initWithIdentifier_shapes_options_ =
-    objc.registerName("initWithIdentifier:shapes:options:");
-late final _sel_shape = objc.registerName("shape");
-late final _sel_setShape_ = objc.registerName("setShape:");
+final class _CGLContextObject extends ffi.Opaque {}
+
+final class _CGLPixelFormatObject extends ffi.Opaque {}
+
+final class __CVBuffer extends ffi.Opaque {}
+
+final class CGImageSource extends ffi.Opaque {}
+
+enum CGImagePropertyOrientation {
+  kCGImagePropertyOrientationUp(1),
+  kCGImagePropertyOrientationUpMirrored(2),
+  kCGImagePropertyOrientationDown(3),
+  kCGImagePropertyOrientationDownMirrored(4),
+  kCGImagePropertyOrientationLeftMirrored(5),
+  kCGImagePropertyOrientationRight(6),
+  kCGImagePropertyOrientationRightMirrored(7),
+  kCGImagePropertyOrientationLeft(8);
+
+  final int value;
+  const CGImagePropertyOrientation(this.value);
+
+  static CGImagePropertyOrientation fromValue(int value) => switch (value) {
+        1 => kCGImagePropertyOrientationUp,
+        2 => kCGImagePropertyOrientationUpMirrored,
+        3 => kCGImagePropertyOrientationDown,
+        4 => kCGImagePropertyOrientationDownMirrored,
+        5 => kCGImagePropertyOrientationLeftMirrored,
+        6 => kCGImagePropertyOrientationRight,
+        7 => kCGImagePropertyOrientationRightMirrored,
+        8 => kCGImagePropertyOrientationLeft,
+        _ => throw ArgumentError(
+            "Unknown value for CGImagePropertyOrientation: $value"),
+      };
+}
+
+enum IOSurfaceLockOptions {
+  kIOSurfaceLockReadOnly(1),
+  kIOSurfaceLockAvoidSync(2);
+
+  final int value;
+  const IOSurfaceLockOptions(this.value);
+
+  static IOSurfaceLockOptions fromValue(int value) => switch (value) {
+        1 => kIOSurfaceLockReadOnly,
+        2 => kIOSurfaceLockAvoidSync,
+        _ =>
+          throw ArgumentError("Unknown value for IOSurfaceLockOptions: $value"),
+      };
+}
+
+enum IOSurfacePurgeabilityState {
+  kIOSurfacePurgeableNonVolatile(0),
+  kIOSurfacePurgeableVolatile(1),
+  kIOSurfacePurgeableEmpty(2),
+  kIOSurfacePurgeableKeepCurrent(3);
+
+  final int value;
+  const IOSurfacePurgeabilityState(this.value);
+
+  static IOSurfacePurgeabilityState fromValue(int value) => switch (value) {
+        0 => kIOSurfacePurgeableNonVolatile,
+        1 => kIOSurfacePurgeableVolatile,
+        2 => kIOSurfacePurgeableEmpty,
+        3 => kIOSurfacePurgeableKeepCurrent,
+        _ => throw ArgumentError(
+            "Unknown value for IOSurfacePurgeabilityState: $value"),
+      };
+}
+
+enum MTLPixelFormat {
+  MTLPixelFormatInvalid(0),
+  MTLPixelFormatA8Unorm(1),
+  MTLPixelFormatR8Unorm(10),
+  MTLPixelFormatR8Unorm_sRGB(11),
+  MTLPixelFormatR8Snorm(12),
+  MTLPixelFormatR8Uint(13),
+  MTLPixelFormatR8Sint(14),
+  MTLPixelFormatR16Unorm(20),
+  MTLPixelFormatR16Snorm(22),
+  MTLPixelFormatR16Uint(23),
+  MTLPixelFormatR16Sint(24),
+  MTLPixelFormatR16Float(25),
+  MTLPixelFormatRG8Unorm(30),
+  MTLPixelFormatRG8Unorm_sRGB(31),
+  MTLPixelFormatRG8Snorm(32),
+  MTLPixelFormatRG8Uint(33),
+  MTLPixelFormatRG8Sint(34),
+  MTLPixelFormatB5G6R5Unorm(40),
+  MTLPixelFormatA1BGR5Unorm(41),
+  MTLPixelFormatABGR4Unorm(42),
+  MTLPixelFormatBGR5A1Unorm(43),
+  MTLPixelFormatR32Uint(53),
+  MTLPixelFormatR32Sint(54),
+  MTLPixelFormatR32Float(55),
+  MTLPixelFormatRG16Unorm(60),
+  MTLPixelFormatRG16Snorm(62),
+  MTLPixelFormatRG16Uint(63),
+  MTLPixelFormatRG16Sint(64),
+  MTLPixelFormatRG16Float(65),
+  MTLPixelFormatRGBA8Unorm(70),
+  MTLPixelFormatRGBA8Unorm_sRGB(71),
+  MTLPixelFormatRGBA8Snorm(72),
+  MTLPixelFormatRGBA8Uint(73),
+  MTLPixelFormatRGBA8Sint(74),
+  MTLPixelFormatBGRA8Unorm(80),
+  MTLPixelFormatBGRA8Unorm_sRGB(81),
+  MTLPixelFormatRGB10A2Unorm(90),
+  MTLPixelFormatRGB10A2Uint(91),
+  MTLPixelFormatRG11B10Float(92),
+  MTLPixelFormatRGB9E5Float(93),
+  MTLPixelFormatBGR10A2Unorm(94),
+  MTLPixelFormatBGR10_XR(554),
+  MTLPixelFormatBGR10_XR_sRGB(555),
+  MTLPixelFormatRG32Uint(103),
+  MTLPixelFormatRG32Sint(104),
+  MTLPixelFormatRG32Float(105),
+  MTLPixelFormatRGBA16Unorm(110),
+  MTLPixelFormatRGBA16Snorm(112),
+  MTLPixelFormatRGBA16Uint(113),
+  MTLPixelFormatRGBA16Sint(114),
+  MTLPixelFormatRGBA16Float(115),
+  MTLPixelFormatBGRA10_XR(552),
+  MTLPixelFormatBGRA10_XR_sRGB(553),
+  MTLPixelFormatRGBA32Uint(123),
+  MTLPixelFormatRGBA32Sint(124),
+  MTLPixelFormatRGBA32Float(125),
+  MTLPixelFormatBC1_RGBA(130),
+  MTLPixelFormatBC1_RGBA_sRGB(131),
+  MTLPixelFormatBC2_RGBA(132),
+  MTLPixelFormatBC2_RGBA_sRGB(133),
+  MTLPixelFormatBC3_RGBA(134),
+  MTLPixelFormatBC3_RGBA_sRGB(135),
+  MTLPixelFormatBC4_RUnorm(140),
+  MTLPixelFormatBC4_RSnorm(141),
+  MTLPixelFormatBC5_RGUnorm(142),
+  MTLPixelFormatBC5_RGSnorm(143),
+  MTLPixelFormatBC6H_RGBFloat(150),
+  MTLPixelFormatBC6H_RGBUfloat(151),
+  MTLPixelFormatBC7_RGBAUnorm(152),
+  MTLPixelFormatBC7_RGBAUnorm_sRGB(153),
+  MTLPixelFormatPVRTC_RGB_2BPP(160),
+  MTLPixelFormatPVRTC_RGB_2BPP_sRGB(161),
+  MTLPixelFormatPVRTC_RGB_4BPP(162),
+  MTLPixelFormatPVRTC_RGB_4BPP_sRGB(163),
+  MTLPixelFormatPVRTC_RGBA_2BPP(164),
+  MTLPixelFormatPVRTC_RGBA_2BPP_sRGB(165),
+  MTLPixelFormatPVRTC_RGBA_4BPP(166),
+  MTLPixelFormatPVRTC_RGBA_4BPP_sRGB(167),
+  MTLPixelFormatEAC_R11Unorm(170),
+  MTLPixelFormatEAC_R11Snorm(172),
+  MTLPixelFormatEAC_RG11Unorm(174),
+  MTLPixelFormatEAC_RG11Snorm(176),
+  MTLPixelFormatEAC_RGBA8(178),
+  MTLPixelFormatEAC_RGBA8_sRGB(179),
+  MTLPixelFormatETC2_RGB8(180),
+  MTLPixelFormatETC2_RGB8_sRGB(181),
+  MTLPixelFormatETC2_RGB8A1(182),
+  MTLPixelFormatETC2_RGB8A1_sRGB(183),
+  MTLPixelFormatASTC_4x4_sRGB(186),
+  MTLPixelFormatASTC_5x4_sRGB(187),
+  MTLPixelFormatASTC_5x5_sRGB(188),
+  MTLPixelFormatASTC_6x5_sRGB(189),
+  MTLPixelFormatASTC_6x6_sRGB(190),
+  MTLPixelFormatASTC_8x5_sRGB(192),
+  MTLPixelFormatASTC_8x6_sRGB(193),
+  MTLPixelFormatASTC_8x8_sRGB(194),
+  MTLPixelFormatASTC_10x5_sRGB(195),
+  MTLPixelFormatASTC_10x6_sRGB(196),
+  MTLPixelFormatASTC_10x8_sRGB(197),
+  MTLPixelFormatASTC_10x10_sRGB(198),
+  MTLPixelFormatASTC_12x10_sRGB(199),
+  MTLPixelFormatASTC_12x12_sRGB(200),
+  MTLPixelFormatASTC_4x4_LDR(204),
+  MTLPixelFormatASTC_5x4_LDR(205),
+  MTLPixelFormatASTC_5x5_LDR(206),
+  MTLPixelFormatASTC_6x5_LDR(207),
+  MTLPixelFormatASTC_6x6_LDR(208),
+  MTLPixelFormatASTC_8x5_LDR(210),
+  MTLPixelFormatASTC_8x6_LDR(211),
+  MTLPixelFormatASTC_8x8_LDR(212),
+  MTLPixelFormatASTC_10x5_LDR(213),
+  MTLPixelFormatASTC_10x6_LDR(214),
+  MTLPixelFormatASTC_10x8_LDR(215),
+  MTLPixelFormatASTC_10x10_LDR(216),
+  MTLPixelFormatASTC_12x10_LDR(217),
+  MTLPixelFormatASTC_12x12_LDR(218),
+  MTLPixelFormatASTC_4x4_HDR(222),
+  MTLPixelFormatASTC_5x4_HDR(223),
+  MTLPixelFormatASTC_5x5_HDR(224),
+  MTLPixelFormatASTC_6x5_HDR(225),
+  MTLPixelFormatASTC_6x6_HDR(226),
+  MTLPixelFormatASTC_8x5_HDR(228),
+  MTLPixelFormatASTC_8x6_HDR(229),
+  MTLPixelFormatASTC_8x8_HDR(230),
+  MTLPixelFormatASTC_10x5_HDR(231),
+  MTLPixelFormatASTC_10x6_HDR(232),
+  MTLPixelFormatASTC_10x8_HDR(233),
+  MTLPixelFormatASTC_10x10_HDR(234),
+  MTLPixelFormatASTC_12x10_HDR(235),
+  MTLPixelFormatASTC_12x12_HDR(236),
+  MTLPixelFormatGBGR422(240),
+  MTLPixelFormatBGRG422(241),
+  MTLPixelFormatDepth16Unorm(250),
+  MTLPixelFormatDepth32Float(252),
+  MTLPixelFormatStencil8(253),
+  MTLPixelFormatDepth24Unorm_Stencil8(255),
+  MTLPixelFormatDepth32Float_Stencil8(260),
+  MTLPixelFormatX32_Stencil8(261),
+  MTLPixelFormatX24_Stencil8(262);
+
+  final int value;
+  const MTLPixelFormat(this.value);
+
+  static MTLPixelFormat fromValue(int value) => switch (value) {
+        0 => MTLPixelFormatInvalid,
+        1 => MTLPixelFormatA8Unorm,
+        10 => MTLPixelFormatR8Unorm,
+        11 => MTLPixelFormatR8Unorm_sRGB,
+        12 => MTLPixelFormatR8Snorm,
+        13 => MTLPixelFormatR8Uint,
+        14 => MTLPixelFormatR8Sint,
+        20 => MTLPixelFormatR16Unorm,
+        22 => MTLPixelFormatR16Snorm,
+        23 => MTLPixelFormatR16Uint,
+        24 => MTLPixelFormatR16Sint,
+        25 => MTLPixelFormatR16Float,
+        30 => MTLPixelFormatRG8Unorm,
+        31 => MTLPixelFormatRG8Unorm_sRGB,
+        32 => MTLPixelFormatRG8Snorm,
+        33 => MTLPixelFormatRG8Uint,
+        34 => MTLPixelFormatRG8Sint,
+        40 => MTLPixelFormatB5G6R5Unorm,
+        41 => MTLPixelFormatA1BGR5Unorm,
+        42 => MTLPixelFormatABGR4Unorm,
+        43 => MTLPixelFormatBGR5A1Unorm,
+        53 => MTLPixelFormatR32Uint,
+        54 => MTLPixelFormatR32Sint,
+        55 => MTLPixelFormatR32Float,
+        60 => MTLPixelFormatRG16Unorm,
+        62 => MTLPixelFormatRG16Snorm,
+        63 => MTLPixelFormatRG16Uint,
+        64 => MTLPixelFormatRG16Sint,
+        65 => MTLPixelFormatRG16Float,
+        70 => MTLPixelFormatRGBA8Unorm,
+        71 => MTLPixelFormatRGBA8Unorm_sRGB,
+        72 => MTLPixelFormatRGBA8Snorm,
+        73 => MTLPixelFormatRGBA8Uint,
+        74 => MTLPixelFormatRGBA8Sint,
+        80 => MTLPixelFormatBGRA8Unorm,
+        81 => MTLPixelFormatBGRA8Unorm_sRGB,
+        90 => MTLPixelFormatRGB10A2Unorm,
+        91 => MTLPixelFormatRGB10A2Uint,
+        92 => MTLPixelFormatRG11B10Float,
+        93 => MTLPixelFormatRGB9E5Float,
+        94 => MTLPixelFormatBGR10A2Unorm,
+        554 => MTLPixelFormatBGR10_XR,
+        555 => MTLPixelFormatBGR10_XR_sRGB,
+        103 => MTLPixelFormatRG32Uint,
+        104 => MTLPixelFormatRG32Sint,
+        105 => MTLPixelFormatRG32Float,
+        110 => MTLPixelFormatRGBA16Unorm,
+        112 => MTLPixelFormatRGBA16Snorm,
+        113 => MTLPixelFormatRGBA16Uint,
+        114 => MTLPixelFormatRGBA16Sint,
+        115 => MTLPixelFormatRGBA16Float,
+        552 => MTLPixelFormatBGRA10_XR,
+        553 => MTLPixelFormatBGRA10_XR_sRGB,
+        123 => MTLPixelFormatRGBA32Uint,
+        124 => MTLPixelFormatRGBA32Sint,
+        125 => MTLPixelFormatRGBA32Float,
+        130 => MTLPixelFormatBC1_RGBA,
+        131 => MTLPixelFormatBC1_RGBA_sRGB,
+        132 => MTLPixelFormatBC2_RGBA,
+        133 => MTLPixelFormatBC2_RGBA_sRGB,
+        134 => MTLPixelFormatBC3_RGBA,
+        135 => MTLPixelFormatBC3_RGBA_sRGB,
+        140 => MTLPixelFormatBC4_RUnorm,
+        141 => MTLPixelFormatBC4_RSnorm,
+        142 => MTLPixelFormatBC5_RGUnorm,
+        143 => MTLPixelFormatBC5_RGSnorm,
+        150 => MTLPixelFormatBC6H_RGBFloat,
+        151 => MTLPixelFormatBC6H_RGBUfloat,
+        152 => MTLPixelFormatBC7_RGBAUnorm,
+        153 => MTLPixelFormatBC7_RGBAUnorm_sRGB,
+        160 => MTLPixelFormatPVRTC_RGB_2BPP,
+        161 => MTLPixelFormatPVRTC_RGB_2BPP_sRGB,
+        162 => MTLPixelFormatPVRTC_RGB_4BPP,
+        163 => MTLPixelFormatPVRTC_RGB_4BPP_sRGB,
+        164 => MTLPixelFormatPVRTC_RGBA_2BPP,
+        165 => MTLPixelFormatPVRTC_RGBA_2BPP_sRGB,
+        166 => MTLPixelFormatPVRTC_RGBA_4BPP,
+        167 => MTLPixelFormatPVRTC_RGBA_4BPP_sRGB,
+        170 => MTLPixelFormatEAC_R11Unorm,
+        172 => MTLPixelFormatEAC_R11Snorm,
+        174 => MTLPixelFormatEAC_RG11Unorm,
+        176 => MTLPixelFormatEAC_RG11Snorm,
+        178 => MTLPixelFormatEAC_RGBA8,
+        179 => MTLPixelFormatEAC_RGBA8_sRGB,
+        180 => MTLPixelFormatETC2_RGB8,
+        181 => MTLPixelFormatETC2_RGB8_sRGB,
+        182 => MTLPixelFormatETC2_RGB8A1,
+        183 => MTLPixelFormatETC2_RGB8A1_sRGB,
+        186 => MTLPixelFormatASTC_4x4_sRGB,
+        187 => MTLPixelFormatASTC_5x4_sRGB,
+        188 => MTLPixelFormatASTC_5x5_sRGB,
+        189 => MTLPixelFormatASTC_6x5_sRGB,
+        190 => MTLPixelFormatASTC_6x6_sRGB,
+        192 => MTLPixelFormatASTC_8x5_sRGB,
+        193 => MTLPixelFormatASTC_8x6_sRGB,
+        194 => MTLPixelFormatASTC_8x8_sRGB,
+        195 => MTLPixelFormatASTC_10x5_sRGB,
+        196 => MTLPixelFormatASTC_10x6_sRGB,
+        197 => MTLPixelFormatASTC_10x8_sRGB,
+        198 => MTLPixelFormatASTC_10x10_sRGB,
+        199 => MTLPixelFormatASTC_12x10_sRGB,
+        200 => MTLPixelFormatASTC_12x12_sRGB,
+        204 => MTLPixelFormatASTC_4x4_LDR,
+        205 => MTLPixelFormatASTC_5x4_LDR,
+        206 => MTLPixelFormatASTC_5x5_LDR,
+        207 => MTLPixelFormatASTC_6x5_LDR,
+        208 => MTLPixelFormatASTC_6x6_LDR,
+        210 => MTLPixelFormatASTC_8x5_LDR,
+        211 => MTLPixelFormatASTC_8x6_LDR,
+        212 => MTLPixelFormatASTC_8x8_LDR,
+        213 => MTLPixelFormatASTC_10x5_LDR,
+        214 => MTLPixelFormatASTC_10x6_LDR,
+        215 => MTLPixelFormatASTC_10x8_LDR,
+        216 => MTLPixelFormatASTC_10x10_LDR,
+        217 => MTLPixelFormatASTC_12x10_LDR,
+        218 => MTLPixelFormatASTC_12x12_LDR,
+        222 => MTLPixelFormatASTC_4x4_HDR,
+        223 => MTLPixelFormatASTC_5x4_HDR,
+        224 => MTLPixelFormatASTC_5x5_HDR,
+        225 => MTLPixelFormatASTC_6x5_HDR,
+        226 => MTLPixelFormatASTC_6x6_HDR,
+        228 => MTLPixelFormatASTC_8x5_HDR,
+        229 => MTLPixelFormatASTC_8x6_HDR,
+        230 => MTLPixelFormatASTC_8x8_HDR,
+        231 => MTLPixelFormatASTC_10x5_HDR,
+        232 => MTLPixelFormatASTC_10x6_HDR,
+        233 => MTLPixelFormatASTC_10x8_HDR,
+        234 => MTLPixelFormatASTC_10x10_HDR,
+        235 => MTLPixelFormatASTC_12x10_HDR,
+        236 => MTLPixelFormatASTC_12x12_HDR,
+        240 => MTLPixelFormatGBGR422,
+        241 => MTLPixelFormatBGRG422,
+        250 => MTLPixelFormatDepth16Unorm,
+        252 => MTLPixelFormatDepth32Float,
+        253 => MTLPixelFormatStencil8,
+        255 => MTLPixelFormatDepth24Unorm_Stencil8,
+        260 => MTLPixelFormatDepth32Float_Stencil8,
+        261 => MTLPixelFormatX32_Stencil8,
+        262 => MTLPixelFormatX24_Stencil8,
+        _ => throw ArgumentError("Unknown value for MTLPixelFormat: $value"),
+      };
+}
+
+CGRect _ObjCBlock_CGRect_ffiInt_CGRect_fnPtrTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block, int arg0, CGRect arg1) =>
+    block.ref.target
+        .cast<ffi.NativeFunction<CGRect Function(ffi.Int arg0, CGRect arg1)>>()
+        .asFunction<CGRect Function(int, CGRect)>()(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_CGRect_ffiInt_CGRect_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+            CGRect Function(ffi.Pointer<objc.ObjCBlockImpl>, ffi.Int,
+                CGRect)>(_ObjCBlock_CGRect_ffiInt_CGRect_fnPtrTrampoline)
+        .cast();
+CGRect _ObjCBlock_CGRect_ffiInt_CGRect_closureTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block, int arg0, CGRect arg1) =>
+    (objc.getBlockClosure(block) as CGRect Function(int, CGRect))(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_CGRect_ffiInt_CGRect_closureCallable =
+    ffi.Pointer.fromFunction<
+            CGRect Function(ffi.Pointer<objc.ObjCBlockImpl>, ffi.Int,
+                CGRect)>(_ObjCBlock_CGRect_ffiInt_CGRect_closureTrampoline)
+        .cast();
+
+/// Construction methods for `objc.ObjCBlock<CGRect Function(ffi.Int, CGRect)>`.
+abstract final class ObjCBlock_CGRect_ffiInt_CGRect {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<CGRect Function(ffi.Int, CGRect)> castFromPointer(
+          ffi.Pointer<objc.ObjCBlockImpl> pointer,
+          {bool retain = false,
+          bool release = false}) =>
+      objc.ObjCBlock<CGRect Function(ffi.Int, CGRect)>(pointer,
+          retain: retain, release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<CGRect Function(ffi.Int, CGRect)> fromFunctionPointer(
+          ffi.Pointer<
+                  ffi
+                  .NativeFunction<CGRect Function(ffi.Int arg0, CGRect arg1)>>
+              ptr) =>
+      objc.ObjCBlock<CGRect Function(ffi.Int, CGRect)>(
+          objc.newPointerBlock(
+              _ObjCBlock_CGRect_ffiInt_CGRect_fnPtrCallable, ptr.cast()),
+          retain: false,
+          release: true);
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<CGRect Function(ffi.Int, CGRect)> fromFunction(
+          CGRect Function(int, CGRect) fn) =>
+      objc.ObjCBlock<CGRect Function(ffi.Int, CGRect)>(
+          objc.newClosureBlock(_ObjCBlock_CGRect_ffiInt_CGRect_closureCallable,
+              (int arg0, CGRect arg1) => fn(arg0, arg1)),
+          retain: false,
+          release: true);
+}
+
+/// Call operator for `objc.ObjCBlock<CGRect Function(ffi.Int, CGRect)>`.
+extension ObjCBlock_CGRect_ffiInt_CGRect_CallExtension
+    on objc.ObjCBlock<CGRect Function(ffi.Int, CGRect)> {
+  CGRect call(int arg0, CGRect arg1) => ref.pointer.ref.invoke
+          .cast<
+              ffi.NativeFunction<
+                  CGRect Function(ffi.Pointer<objc.ObjCBlockImpl> block,
+                      ffi.Int arg0, CGRect arg1)>>()
+          .asFunction<
+              CGRect Function(ffi.Pointer<objc.ObjCBlockImpl>, int, CGRect)>()(
+      ref.pointer, arg0, arg1);
+}
+
+enum CIRenderDestinationAlphaMode {
+  CIRenderDestinationAlphaNone(0),
+  CIRenderDestinationAlphaPremultiplied(1),
+  CIRenderDestinationAlphaUnpremultiplied(2);
+
+  final int value;
+  const CIRenderDestinationAlphaMode(this.value);
+
+  static CIRenderDestinationAlphaMode fromValue(int value) => switch (value) {
+        0 => CIRenderDestinationAlphaNone,
+        1 => CIRenderDestinationAlphaPremultiplied,
+        2 => CIRenderDestinationAlphaUnpremultiplied,
+        _ => throw ArgumentError(
+            "Unknown value for CIRenderDestinationAlphaMode: $value"),
+      };
+}
+
+final class CATransform3D extends ffi.Struct {
+  @ffi.Double()
+  external double m11;
+
+  @ffi.Double()
+  external double m12;
+
+  @ffi.Double()
+  external double m13;
+
+  @ffi.Double()
+  external double m14;
+
+  @ffi.Double()
+  external double m21;
+
+  @ffi.Double()
+  external double m22;
+
+  @ffi.Double()
+  external double m23;
+
+  @ffi.Double()
+  external double m24;
+
+  @ffi.Double()
+  external double m31;
+
+  @ffi.Double()
+  external double m32;
+
+  @ffi.Double()
+  external double m33;
+
+  @ffi.Double()
+  external double m34;
+
+  @ffi.Double()
+  external double m41;
+
+  @ffi.Double()
+  external double m42;
+
+  @ffi.Double()
+  external double m43;
+
+  @ffi.Double()
+  external double m44;
+}
+
+enum CAAutoresizingMask {
+  kCALayerNotSizable(0),
+  kCALayerMinXMargin(1),
+  kCALayerWidthSizable(2),
+  kCALayerMaxXMargin(4),
+  kCALayerMinYMargin(8),
+  kCALayerHeightSizable(16),
+  kCALayerMaxYMargin(32);
+
+  final int value;
+  const CAAutoresizingMask(this.value);
+
+  static CAAutoresizingMask fromValue(int value) => switch (value) {
+        0 => kCALayerNotSizable,
+        1 => kCALayerMinXMargin,
+        2 => kCALayerWidthSizable,
+        4 => kCALayerMaxXMargin,
+        8 => kCALayerMinYMargin,
+        16 => kCALayerHeightSizable,
+        32 => kCALayerMaxYMargin,
+        _ =>
+          throw ArgumentError("Unknown value for CAAutoresizingMask: $value"),
+      };
+}
+
+enum CAEdgeAntialiasingMask {
+  kCALayerLeftEdge(1),
+  kCALayerRightEdge(2),
+  kCALayerBottomEdge(4),
+  kCALayerTopEdge(8);
+
+  final int value;
+  const CAEdgeAntialiasingMask(this.value);
+
+  static CAEdgeAntialiasingMask fromValue(int value) => switch (value) {
+        1 => kCALayerLeftEdge,
+        2 => kCALayerRightEdge,
+        4 => kCALayerBottomEdge,
+        8 => kCALayerTopEdge,
+        _ => throw ArgumentError(
+            "Unknown value for CAEdgeAntialiasingMask: $value"),
+      };
+}
+
+enum CACornerMask {
+  kCALayerMinXMinYCorner(1),
+  kCALayerMaxXMinYCorner(2),
+  kCALayerMinXMaxYCorner(4),
+  kCALayerMaxXMaxYCorner(8);
+
+  final int value;
+  const CACornerMask(this.value);
+
+  static CACornerMask fromValue(int value) => switch (value) {
+        1 => kCALayerMinXMinYCorner,
+        2 => kCALayerMaxXMinYCorner,
+        4 => kCALayerMinXMaxYCorner,
+        8 => kCALayerMaxXMaxYCorner,
+        _ => throw ArgumentError("Unknown value for CACornerMask: $value"),
+      };
+}
+
+final class CAFrameRateRange extends ffi.Struct {
+  @ffi.Float()
+  external double minimum;
+
+  @ffi.Float()
+  external double maximum;
+
+  @ffi.Float()
+  external double preferred;
+}
+
+enum CAConstraintAttribute {
+  kCAConstraintMinX(0),
+  kCAConstraintMidX(1),
+  kCAConstraintMaxX(2),
+  kCAConstraintWidth(3),
+  kCAConstraintMinY(4),
+  kCAConstraintMidY(5),
+  kCAConstraintMaxY(6),
+  kCAConstraintHeight(7);
+
+  final int value;
+  const CAConstraintAttribute(this.value);
+
+  static CAConstraintAttribute fromValue(int value) => switch (value) {
+        0 => kCAConstraintMinX,
+        1 => kCAConstraintMidX,
+        2 => kCAConstraintMaxX,
+        3 => kCAConstraintWidth,
+        4 => kCAConstraintMinY,
+        5 => kCAConstraintMidY,
+        6 => kCAConstraintMaxY,
+        7 => kCAConstraintHeight,
+        _ => throw ArgumentError(
+            "Unknown value for CAConstraintAttribute: $value"),
+      };
+}
+
+/// These constants indicate the current drag state of an annotation view.
+enum MLNAnnotationViewDragState {
+  /// The view is not involved in a drag operation.
+  MLNAnnotationViewDragStateNone(0),
+
+  /// An action occurred that indicated the view should begin dragging.
+  ///
+  /// The map view automatically moves draggable annotation views to this state
+  /// in response to the dragging the view after pressing and holding on it.
+  MLNAnnotationViewDragStateStarting(1),
+
+  /// The view is in the midst of a drag operation and is actively tracking the
+  /// user’s gesture.
+  MLNAnnotationViewDragStateDragging(2),
+
+  /// An action occurred that indicated the view should cancel the drag
+  /// operation.
+  MLNAnnotationViewDragStateCanceling(3),
+
+  /// An action occurred that indicated the view was dropped by the user.
+  ///
+  /// The map view automatically moves annotation views to this state in response
+  /// to the user lifting their finger at the end of a drag gesture.
+  MLNAnnotationViewDragStateEnding(4);
+
+  final int value;
+  const MLNAnnotationViewDragState(this.value);
+
+  static MLNAnnotationViewDragState fromValue(int value) => switch (value) {
+        0 => MLNAnnotationViewDragStateNone,
+        1 => MLNAnnotationViewDragStateStarting,
+        2 => MLNAnnotationViewDragStateDragging,
+        3 => MLNAnnotationViewDragStateCanceling,
+        4 => MLNAnnotationViewDragStateEnding,
+        _ => throw ArgumentError(
+            "Unknown value for MLNAnnotationViewDragState: $value"),
+      };
+}
+
+/// The attribution info is represented in the longest format available.
+enum MLNAttributionInfoStyle {
+  /// Specifies a short attribution info style.
+  MLNAttributionInfoStyleShort(1),
+
+  /// Specifies a medium attribution info style.
+  MLNAttributionInfoStyleMedium(2),
+
+  /// Specifies a long attribution info style.
+  MLNAttributionInfoStyleLong(3);
+
+  final int value;
+  const MLNAttributionInfoStyle(this.value);
+
+  static MLNAttributionInfoStyle fromValue(int value) => switch (value) {
+        1 => MLNAttributionInfoStyleShort,
+        2 => MLNAttributionInfoStyleMedium,
+        3 => MLNAttributionInfoStyleLong,
+        _ => throw ArgumentError(
+            "Unknown value for MLNAttributionInfoStyle: $value"),
+      };
+}
+
+late final _class_MLNAttributionInfo = objc.getClass("MLNAttributionInfo");
+late final _sel_initWithTitle_URL_ = objc.registerName("initWithTitle:URL:");
 late final _sel_URL = objc.registerName("URL");
 late final _sel_setURL_ = objc.registerName("setURL:");
-late final _sel_featuresMatchingPredicate_ =
-    objc.registerName("featuresMatchingPredicate:");
-late final _sel_leavesOfCluster_offset_limit_ =
-    objc.registerName("leavesOfCluster:offset:limit:");
-final _objc_msgSend_17wuhyd = objc.msgSendPointer
+late final _sel_isFeedbackLink = objc.registerName("isFeedbackLink");
+late final _sel_setFeedbackLink_ = objc.registerName("setFeedbackLink:");
+late final _sel_titleWithStyle_ = objc.registerName("titleWithStyle:");
+final _objc_msgSend_1sadrrm = objc.msgSendPointer
     .cast<
         ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.UnsignedLong,
-                ffi.UnsignedLong)>>()
+            ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>, ffi.UnsignedLong)>>()
     .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            ffi.Pointer<objc.ObjCObject>,
-            int,
-            int)>();
-late final _sel_childrenOfCluster_ = objc.registerName("childrenOfCluster:");
-late final _sel_zoomLevelForExpandingCluster_ =
-    objc.registerName("zoomLevelForExpandingCluster:");
-final _objc_msgSend_mabicu = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Double Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>)>>()
-    .asFunction<
-        double Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, ffi.Pointer<objc.ObjCObject>)>();
-final _objc_msgSend_mabicuFpret = objc.msgSendFpretPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Double Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>)>>()
-    .asFunction<
-        double Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, ffi.Pointer<objc.ObjCObject>)>();
+        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>, int)>();
 
-/// ``MLNShapeSource`` is a map content source that supplies vector shapes to be
-/// shown on the map. The shapes may be instances of ``MLNShape`` or ``MLNShape``,
-/// or they may be defined by local or external
-/// <a href="http://geojson.org/">GeoJSON</a> code. A shape source is added to an
-/// ``MLNStyle`` object along with an ``MLNStyle`` object. The vector style
-/// layer defines the appearance of any content supplied by the shape source. You
-/// can update a shape source by setting its `shape` or `URL` property.
-///
-/// ``MLNShapeSource`` is optimized for data sets that change dynamically and fit
-/// completely in memory. For large data sets that do not fit completely in memory,
-/// use the ``MLNComputedShapeSource`` or ``MLNComputedShapeSource`` class.
-///
-/// Each
-/// <a href="https://maplibre.org/maplibre-style-spec/#sources-geojson"><code>geojson</code></a>
-/// source defined by the style JSON file is represented at runtime by an
-/// ``MLNShapeSource`` object that you can use to refine the map’s content and
-/// initialize new style layers. You can also add and remove sources dynamically
-/// using methods such as ``MLNStyle/addSource:`` and
-/// ``MLNStyle/sourceWithIdentifier:``.
-///
-/// Any vector style layer initialized with a shape source should have a `nil`
-/// value in its `sourceLayerIdentifier` property.
-///
-/// ### Example
-///
-/// ```swift
-/// var coordinates: [CLLocationCoordinate2D] = [
-/// CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
-/// CLLocationCoordinate2D(latitude: 38.91, longitude: -77.04),
-/// ]
-/// let polyline = MLNPolylineFeature(coordinates: &coordinates, count: UInt(coordinates.count))
-/// let source = MLNShapeSource(identifier: "lines", features: [polyline], options: nil)
-/// mapView.style?.addSource(source)
-/// ```
-///
-/// #### Related examples
-/// TODO: Cluster point data
-/// TODO: Use images to cluster point data
-/// TODO: Add live data
-/// Learn how to add data to your map using this ``MLNSource`` object.
-class MLNShapeSource extends MLNSource {
-  MLNShapeSource._(ffi.Pointer<objc.ObjCObject> pointer,
+/// Information about an attribution statement, usually a copyright or trademark
+/// statement, associated with a map content source.
+class MLNAttributionInfo extends objc.NSObject {
+  MLNAttributionInfo._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
       : super.castFromPointer(pointer, retain: retain, release: release);
 
-  /// Constructs a [MLNShapeSource] that points to the same underlying object as [other].
-  MLNShapeSource.castFrom(objc.ObjCObjectBase other)
+  /// Constructs a [MLNAttributionInfo] that points to the same underlying object as [other].
+  MLNAttributionInfo.castFrom(objc.ObjCObjectBase other)
       : this._(other.ref.pointer, retain: true, release: true);
 
-  /// Constructs a [MLNShapeSource] that wraps the given raw object pointer.
-  MLNShapeSource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+  /// Constructs a [MLNAttributionInfo] that wraps the given raw object pointer.
+  MLNAttributionInfo.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
       {bool retain = false, bool release = false})
       : this._(other, retain: retain, release: release);
 
-  /// Returns whether [obj] is an instance of [MLNShapeSource].
+  /// Returns whether [obj] is an instance of [MLNAttributionInfo].
   static bool isInstance(objc.ObjCObjectBase obj) {
     return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNShapeSource);
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNAttributionInfo);
   }
 
-  /// Returns a shape source with an identifier, URL, and dictionary of options for
-  /// the source.
+  /// Returns an initialized attribution info object with the given title and URL.
   ///
-  /// This class supports the following options: ``MLNShapeSourceOptionClustered``,
-  /// ``MLNShapeSourceOptionClusterRadius``,
-  /// ``MLNShapeSourceOptionMaximumZoomLevelForClustering``,
-  /// ``MLNShapeSourceOptionMinimumZoomLevel``, ``MLNShapeSourceOptionMinimumZoomLevel``,
-  /// ``MLNShapeSourceOptionBuffer``, and
-  /// ``MLNShapeSourceOptionSimplificationTolerance``. Shapes provided by a shape
-  /// source are not clipped or wrapped automatically.
-  ///
-  /// @param identifier A string that uniquely identifies the source.
-  /// @param url An HTTP(S) URL, absolute file URL, or local file URL relative to the
-  /// current application’s resource bundle.
-  /// @param options An `NSDictionary` of options for this source.
-  /// @return An initialized shape source.
-  ///
-  /// #### Related examples
-  /// TODO: Add live data, learn how to add live data to your map by
-  /// updating the an ``MLNShapeSource`` object's `URL` property.
-  MLNShapeSource initWithIdentifier_URL_options_(
-      objc.NSString identifier, objc.NSURL url, objc.NSDictionary? options) {
-    final _ret = _objc_msgSend_11spmsz(
+  /// @param title The attribution statement’s title.
+  /// @param URL A URL to more information about the entity named in the attribution.
+  /// @return An initialized attribution info object.
+  MLNAttributionInfo initWithTitle_URL_(
+      NSAttributedString title, objc.NSURL? URL) {
+    final _ret = _objc_msgSend_15qeuct(
         this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_URL_options_,
-        identifier.ref.pointer,
-        url.ref.pointer,
-        options?.ref.pointer ?? ffi.nullptr);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
+        _sel_initWithTitle_URL_,
+        title.ref.pointer,
+        URL?.ref.pointer ?? ffi.nullptr);
+    return MLNAttributionInfo.castFromPointer(_ret,
+        retain: false, release: true);
   }
 
-  /// Returns a shape source with an identifier, a shape, and dictionary of options
-  /// for the source.
-  ///
-  /// This class supports the following options: ``MLNShapeSourceOptionClustered``,
-  /// ``MLNShapeSourceOptionClusterRadius``,
-  /// ``MLNShapeSourceOptionMaximumZoomLevelForClustering``,
-  /// ``MLNShapeSourceOptionMinimumZoomLevel``, ``MLNShapeSourceOptionMinimumZoomLevel``,
-  /// ``MLNShapeSourceOptionBuffer``, and
-  /// ``MLNShapeSourceOptionSimplificationTolerance``. Shapes provided by a shape
-  /// source are not clipped or wrapped automatically.
-  ///
-  /// To specify attributes about the shape, use an instance of an ``MLNShape``
-  /// subclass that conforms to the ``MLNFeature`` protocol, such as ``MLNFeature``.
-  /// To include multiple shapes in the source, use an ``MLNShapeCollection`` or
-  /// ``MLNShapeCollectionFeature`` object, or use the
-  /// `-initWithIdentifier:features:options:` or
-  /// `-initWithIdentifier:shapes:options:` methods.
-  ///
-  /// To create a shape from GeoJSON source code, use the
-  /// ``MLNShape/shapeWithData:encoding:error:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source.
-  /// @param shape A concrete subclass of ``MLNShape``
-  /// @param options An `NSDictionary` of options for this source.
-  /// @return An initialized shape source.
-  ///
-  /// #### Related examples
-  /// TODO: Animate a line, learn how to animate line data by continously
-  /// updating an ``MLNShapeSource``'s `shape` attribute.
-  MLNShapeSource initWithIdentifier_shape_options_(
-      objc.NSString identifier, MLNShape? shape, objc.NSDictionary? options) {
-    final _ret = _objc_msgSend_11spmsz(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_shape_options_,
-        identifier.ref.pointer,
-        shape?.ref.pointer ?? ffi.nullptr,
-        options?.ref.pointer ?? ffi.nullptr);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
+  /// The attribution statement’s attributed title text.
+  NSAttributedString get title {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_title);
+    return NSAttributedString.castFromPointer(_ret,
+        retain: true, release: true);
   }
 
-  /// Returns a shape source with an identifier, an array of features, and a dictionary
-  /// of options for the source.
-  ///
-  /// This class supports the following options: ``MLNShapeSourceOptionClustered``,
-  /// ``MLNShapeSourceOptionClusterRadius``,
-  /// ``MLNShapeSourceOptionMaximumZoomLevelForClustering``,
-  /// ``MLNShapeSourceOptionMinimumZoomLevel``, ``MLNShapeSourceOptionMinimumZoomLevel``,
-  /// ``MLNShapeSourceOptionBuffer``, and
-  /// ``MLNShapeSourceOptionSimplificationTolerance``. Shapes provided by a shape
-  /// source are not clipped or wrapped automatically.
-  ///
-  /// Unlike `-initWithIdentifier:shapes:options:`, this method accepts ``MLNFeature``
-  /// instances, such as ``MLNPointFeature`` objects, whose attributes you can use when
-  /// applying a predicate to ``MLNVectorStyleLayer`` or configuring a style layer’s
-  /// appearance.
-  ///
-  /// To create a shape from GeoJSON source code, use the
-  /// ``MLNShape/shapeWithData:encoding:error:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source.
-  /// @param features An array of objects that conform to the MLNFeature protocol.
-  /// @param options An `NSDictionary` of options for this source.
-  /// @return An initialized shape source.
-  MLNShapeSource initWithIdentifier_features_options_(objc.NSString identifier,
-      objc.NSArray features, objc.NSDictionary? options) {
-    final _ret = _objc_msgSend_11spmsz(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_features_options_,
-        identifier.ref.pointer,
-        features.ref.pointer,
-        options?.ref.pointer ?? ffi.nullptr);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
+  /// The attribution statement’s attributed title text.
+  set title(NSAttributedString value) {
+    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_setTitle_, value.ref.pointer);
   }
 
-  /// Returns a shape source with an identifier, an array of shapes, and a dictionary of
-  /// options for the source.
+  /// The URL to more information about the entity named in the attribution.
   ///
-  /// This class supports the following options: ``MLNShapeSourceOptionClustered``,
-  /// ``MLNShapeSourceOptionClusterRadius``,
-  /// ``MLNShapeSourceOptionMaximumZoomLevelForClustering``,
-  /// ``MLNShapeSourceOptionMinimumZoomLevel``, ``MLNShapeSourceOptionMinimumZoomLevel``,
-  /// ``MLNShapeSourceOptionBuffer``, and
-  /// ``MLNShapeSourceOptionSimplificationTolerance``. Shapes provided by a shape
-  /// source are not clipped or wrapped automatically.
-  ///
-  /// Any ``MLNFeature`` instance passed into this initializer is treated as an ordinary
-  /// shape, causing any attributes to be inaccessible to an ``MLNVectorStyleLayer`` when
-  /// evaluating a predicate or configuring certain layout or paint attributes. To
-  /// preserve the attributes associated with each feature, use the
-  /// `-initWithIdentifier:features:options:` method instead.
-  ///
-  /// To create a shape from GeoJSON source code, use the
-  /// ``MLNShape/shapeWithData:encoding:error:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source.
-  /// @param shapes An array of shapes; each shape is a member of a concrete subclass of MLNShape.
-  /// @param options An `NSDictionary` of options for this source.
-  /// @return An initialized shape source.
-  MLNShapeSource initWithIdentifier_shapes_options_(objc.NSString identifier,
-      objc.NSArray shapes, objc.NSDictionary? options) {
-    final _ret = _objc_msgSend_11spmsz(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_shapes_options_,
-        identifier.ref.pointer,
-        shapes.ref.pointer,
-        options?.ref.pointer ?? ffi.nullptr);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// The contents of the source. A shape can represent a GeoJSON geometry, a
-  /// feature, or a collection of features.
-  ///
-  /// If the receiver was initialized using `-initWithIdentifier:URL:options:`, this
-  /// property is set to `nil`. This property is unavailable until the receiver is
-  /// passed into ``MLNStyle/addSource:``.
-  ///
-  /// You can get/set the shapes within a collection via this property. Actions must
-  /// be performed on the application's main thread.
-  MLNShape? get shape {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_shape);
-    return _ret.address == 0
-        ? null
-        : MLNShape.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The contents of the source. A shape can represent a GeoJSON geometry, a
-  /// feature, or a collection of features.
-  ///
-  /// If the receiver was initialized using `-initWithIdentifier:URL:options:`, this
-  /// property is set to `nil`. This property is unavailable until the receiver is
-  /// passed into ``MLNStyle/addSource:``.
-  ///
-  /// You can get/set the shapes within a collection via this property. Actions must
-  /// be performed on the application's main thread.
-  set shape(MLNShape? value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setShape_, value?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// The URL to the GeoJSON document that specifies the contents of the source.
-  ///
-  /// If the receiver was initialized using `-initWithIdentifier:shape:options:`,
-  /// this property is set to `nil`.
+  /// If this property is set, the attribution statement should be displayed as a
+  /// hyperlink or action button. Otherwise, if it is `nil`, the attribution
+  /// statement should be displayed as plain text.
   objc.NSURL? get URL {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_URL);
     return _ret.address == 0
@@ -15166,850 +16896,97 @@ class MLNShapeSource extends MLNSource {
         : objc.NSURL.castFromPointer(_ret, retain: true, release: true);
   }
 
-  /// The URL to the GeoJSON document that specifies the contents of the source.
+  /// The URL to more information about the entity named in the attribution.
   ///
-  /// If the receiver was initialized using `-initWithIdentifier:shape:options:`,
-  /// this property is set to `nil`.
+  /// If this property is set, the attribution statement should be displayed as a
+  /// hyperlink or action button. Otherwise, if it is `nil`, the attribution
+  /// statement should be displayed as plain text.
   set URL(objc.NSURL? value) {
     _objc_msgSend_xtuoz7(
         this.ref.pointer, _sel_setURL_, value?.ref.pointer ?? ffi.nullptr);
   }
 
-  /// Returns an array of map features for this source, filtered by the given
-  /// predicate.
+  /// A Boolean value indicating whether the attribution statement is a shortcut to a
+  /// feedback tool.
   ///
-  /// Each object in the returned array represents a feature for the current style
-  /// and provides access to attributes specified via the `shape` property.
-  ///
-  /// Features come from tiled GeoJSON data that is converted to tiles internally,
-  /// so feature geometries are clipped at tile boundaries and features
-  /// may appear duplicated across tiles. For example, suppose this source contains a
-  /// long polyline representing a road. The resulting array includes those parts of
-  /// the road that lie within the map tiles that the source has loaded, even if the
-  /// road extends into other tiles. The portion of the road within each map tile is
-  /// included individually.
-  ///
-  /// Returned features may not necessarily be visible to the user at the time they
-  /// are loaded: the style may lack a layer that draws the features in question. To
-  /// obtain only _visible_ features, use the
-  /// ``MLNMapView/visibleFeaturesAtPoint:inStyleLayersWithIdentifiers:predicate:``
-  /// or
-  /// ``MLNMapView/visibleFeaturesInRect:inStyleLayersWithIdentifiers:predicate:``
-  /// method.
-  ///
-  /// @param predicate A predicate to filter the returned features. Use `nil` to
-  /// include all features in the source.
-  /// @return An array of objects conforming to the ``MLNFeature`` protocol that
-  /// represent features in the source that match the predicate.
-  objc.NSArray featuresMatchingPredicate_(NSPredicate? predicate) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.pointer,
-        _sel_featuresMatchingPredicate_, predicate?.ref.pointer ?? ffi.nullptr);
-    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  /// If this property is set, the statement should be treated as a way for the user
+  /// to provide feedback rather than an attribution statement.
+  bool get feedbackLink {
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_isFeedbackLink);
   }
 
-  /// Returns an array of map features that are the leaves of the specified cluster.
-  /// ("Leaves" are the original points that belong to the cluster.)
+  /// A Boolean value indicating whether the attribution statement is a shortcut to a
+  /// feedback tool.
   ///
-  /// This method supports pagination; you supply an offset (number of features to skip)
-  /// and a maximum number of features to return.
-  ///
-  /// @param cluster An object of type ``MLNPointFeatureCluster`` (that conforms to the
-  /// ``MLNPointFeatureCluster`` protocol).
-  /// @param offset Number of features to skip.
-  /// @param limit The maximum number of features to return
-  ///
-  /// @return An array of objects that conform to the ``MLNFeature`` protocol.
-  objc.NSArray leavesOfCluster_offset_limit_(
-      MLNPointFeatureCluster cluster, int offset, int limit) {
-    final _ret = _objc_msgSend_17wuhyd(this.ref.pointer,
-        _sel_leavesOfCluster_offset_limit_, cluster.ref.pointer, offset, limit);
-    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  /// If this property is set, the statement should be treated as a way for the user
+  /// to provide feedback rather than an attribution statement.
+  set feedbackLink(bool value) {
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setFeedbackLink_, value);
   }
 
-  /// Returns an array of map features that are the immediate children of the specified
-  /// cluster *on the next zoom level*. The may include features that also conform to
-  /// the ``MLNCluster`` protocol (currently only objects of type ``MLNCluster``).
+  /// Returns a copy of the current `title` formatted accordingly to `style`.
   ///
-  /// @param cluster An object of type ``MLNPointFeatureCluster`` (that conforms to the
-  /// ``MLNPointFeatureCluster`` protocol).
+  /// Example: If the `style` property is set to ``MLNAttributionInfoStyle/MLNAttributionInfoStyleShort``
+  /// and the `title` property is set to `OpenStreetMap`, then this method returns `OSM`.
   ///
-  /// @return An array of objects that conform to the ``MLNFeature`` protocol.
+  /// @param style The attribution info style.
   ///
-  /// > Note: The returned array may contain the `cluster` that was passed in, if the next
-  /// zoom level doesn't match the zoom level for expanding that cluster. See
-  /// ``MLNShapeSource/zoomLevelForExpandingCluster:``.
-  objc.NSArray childrenOfCluster_(MLNPointFeatureCluster cluster) {
-    final _ret = _objc_msgSend_1sotr3r(
-        this.ref.pointer, _sel_childrenOfCluster_, cluster.ref.pointer);
-    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Returns the zoom level at which the given cluster expands.
-  ///
-  /// @param cluster An object of type ``MLNPointFeatureCluster`` (that conforms to the
-  /// ``MLNPointFeatureCluster`` protocol).
-  ///
-  /// @return Zoom level. This should be >= 0; any negative return value should be
-  /// considered an error.
-  double zoomLevelForExpandingCluster_(MLNPointFeatureCluster cluster) {
-    return objc.useMsgSendVariants
-        ? _objc_msgSend_mabicuFpret(this.ref.pointer,
-            _sel_zoomLevelForExpandingCluster_, cluster.ref.pointer)
-        : _objc_msgSend_mabicu(this.ref.pointer,
-            _sel_zoomLevelForExpandingCluster_, cluster.ref.pointer);
+  /// @return The `NSAttributedString` styled title.
+  NSAttributedString titleWithStyle_(MLNAttributionInfoStyle style) {
+    final _ret = _objc_msgSend_1sadrrm(
+        this.ref.pointer, _sel_titleWithStyle_, style.value);
+    return NSAttributedString.castFromPointer(_ret,
+        retain: true, release: true);
   }
 
   /// init
-  MLNShapeSource init() {
+  MLNAttributionInfo init() {
     final _ret =
         _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// Returns a source initialized with an identifier.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @return An initialized source.
-  MLNShapeSource initWithIdentifier_(objc.NSString identifier) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_, identifier.ref.pointer);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// new
-  static MLNShapeSource new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNShapeSource, _sel_new);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MLNShapeSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_MLNShapeSource, _sel_allocWithZone_, zone);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// alloc
-  static MLNShapeSource alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNShapeSource, _sel_alloc);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// self
-  MLNShapeSource self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNShapeSource.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// retain
-  MLNShapeSource retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNShapeSource.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// autorelease
-  MLNShapeSource autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNShapeSource.castFromPointer(_ret, retain: true, release: true);
-  }
-}
-
-late final _class_MLNImageSource = objc.getClass("MLNImageSource");
-late final _sel_initWithIdentifier_coordinateQuad_URL_ =
-    objc.registerName("initWithIdentifier:coordinateQuad:URL:");
-final _objc_msgSend_judg3a = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>,
-                MLNCoordinateQuad,
-                ffi.Pointer<objc.ObjCObject>)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            ffi.Pointer<objc.ObjCObject>,
-            MLNCoordinateQuad,
-            ffi.Pointer<objc.ObjCObject>)>();
-late final _sel_initWithIdentifier_coordinateQuad_image_ =
-    objc.registerName("initWithIdentifier:coordinateQuad:image:");
-late final _sel_image = objc.registerName("image");
-late final _sel_setImage_ = objc.registerName("setImage:");
-late final _sel_coordinates = objc.registerName("coordinates");
-final _objc_msgSend_1ua371c = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            MLNCoordinateQuad Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        MLNCoordinateQuad Function(
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-final _objc_msgSend_1ua371cStret = objc.msgSendStretPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(
-                ffi.Pointer<MLNCoordinateQuad>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        void Function(ffi.Pointer<MLNCoordinateQuad>,
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-late final _sel_setCoordinates_ = objc.registerName("setCoordinates:");
-final _objc_msgSend_1wvd2xm = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>, MLNCoordinateQuad)>>()
-    .asFunction<
-        void Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, MLNCoordinateQuad)>();
-
-/// ``MLNImageSource`` is a content source that is used for a georeferenced raster
-/// image to be shown on the map. The georeferenced image scales and rotates as the
-/// user zooms and rotates the map. Images may also be used as icons or patterns
-/// in a style layer. To register an image for use as an icon or pattern,
-/// use the ``MLNStyle/setImage:forName:`` method. To configure a point
-/// annotation’s image, use the ``MLNAnnotationImage`` class.
-///
-/// The geographic location of the raster image content, supplied with
-/// ``MLNCoordinateQuad``, can be non-axis aligned.
-/// ``MLNImageSource`` supports raster content from `NSURL`, `NSImage` (macOS), or
-/// `UIImage` (iOS).
-/// An image source is added to an ``MLNStyle`` object along with one or more
-/// ``MLNRasterStyleLayer`` objects. Use a raster style layer to control the
-/// appearance of content supplied by the image source.
-///
-/// Each
-/// <a href="https://maplibre.org/maplibre-style-spec/#sources-image"><code>image</code></a>
-/// source defined by the style JSON file is represented at runtime by an
-/// ``MLNImageSource`` object that you can use to initialize new style layers. You
-/// can also add and remove sources dynamically using methods such as
-/// ``MLNStyle/addSource:`` and ``MLNStyle/sourceWithIdentifier:``.
-///
-/// ### Example
-///
-/// ```swift
-/// let coordinates = MLNCoordinateQuad(
-/// topLeft: CLLocationCoordinate2D(latitude: 46.437, longitude: -80.425),
-/// bottomLeft: CLLocationCoordinate2D(latitude: 37.936, longitude: -80.425),
-/// bottomRight: CLLocationCoordinate2D(latitude: 37.936, longitude: -71.516),
-/// topRight: CLLocationCoordinate2D(latitude: 46.437, longitude: -71.516))
-/// let source = MLNImageSource(identifier: "radar", coordinateQuad: coordinates, url: URL(string:
-/// "https://maplibre.org/maplibre-gl-js-docs/assets/radar.gif")!) mapView.style?.addSource(source)
-/// ```
-///
-/// #### Related examples
-/// TODO: Add an image, learn how to add an image to your map using ``MLNImageSource``.
-class MLNImageSource extends MLNSource {
-  MLNImageSource._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNImageSource] that points to the same underlying object as [other].
-  MLNImageSource.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNImageSource] that wraps the given raw object pointer.
-  MLNImageSource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MLNImageSource].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNImageSource);
-  }
-
-  /// Returns a georeferenced image source with an identifier, coordinates and a URL.
-  ///
-  /// @param identifier A string that uniquely identifies the source.
-  /// @param coordinateQuad the top left, top right, bottom right, and bottom left coordinates for the
-  /// image.
-  /// @param url An HTTP(S) URL, absolute file URL, or local file URL relative to the
-  /// current application’s resource bundle.
-  /// @return An initialized shape source.
-  MLNImageSource initWithIdentifier_coordinateQuad_URL_(
-      objc.NSString identifier,
-      MLNCoordinateQuad coordinateQuad,
-      objc.NSURL url) {
-    final _ret = _objc_msgSend_judg3a(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_coordinateQuad_URL_,
-        identifier.ref.pointer,
-        coordinateQuad,
-        url.ref.pointer);
-    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// Returns a georeferenced image source with an identifier, coordinates and an image.
-  ///
-  /// @param identifier A string that uniquely identifies the source.
-  /// @param coordinateQuad The top left, top right, bottom right, and bottom left coordinates for the
-  /// image.
-  /// @param image The image to display for the source.
-  /// @return An initialized shape source.
-  MLNImageSource initWithIdentifier_coordinateQuad_image_(
-      objc.NSString identifier,
-      MLNCoordinateQuad coordinateQuad,
-      NSImage image) {
-    final _ret = _objc_msgSend_judg3a(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_coordinateQuad_image_,
-        identifier.ref.pointer,
-        coordinateQuad,
-        image.ref.pointer);
-    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// The URL to the source image.
-  ///
-  /// If the receiver was initialized using `-initWithIdentifier:coordinateQuad:image:` or
-  /// the `image` property is set, this property is set to `nil`.
-  objc.NSURL? get URL {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_URL);
-    return _ret.address == 0
-        ? null
-        : objc.NSURL.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The URL to the source image.
-  ///
-  /// If the receiver was initialized using `-initWithIdentifier:coordinateQuad:image:` or
-  /// the `image` property is set, this property is set to `nil`.
-  set URL(objc.NSURL? value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setURL_, value?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// The source image.
-  ///
-  /// If the receiver was initialized using `-initWithIdentifier:coordinateQuad:URL:` or if the `URL`
-  /// property is set, this property is set to `nil`.
-  NSImage? get image {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_image);
-    return _ret.address == 0
-        ? null
-        : NSImage.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The source image.
-  ///
-  /// If the receiver was initialized using `-initWithIdentifier:coordinateQuad:URL:` or if the `URL`
-  /// property is set, this property is set to `nil`.
-  set image(NSImage? value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setImage_, value?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// The coordinates at which the corners of the source image will be placed.
-  MLNCoordinateQuad get coordinates {
-    final _ptr = pkg_ffi.calloc<MLNCoordinateQuad>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_1ua371cStret(_ptr, this.ref.pointer, _sel_coordinates)
-        : _ptr.ref = _objc_msgSend_1ua371c(this.ref.pointer, _sel_coordinates);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<MLNCoordinateQuad>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<MLNCoordinateQuad>(_finalizable);
-  }
-
-  /// The coordinates at which the corners of the source image will be placed.
-  set coordinates(MLNCoordinateQuad value) {
-    _objc_msgSend_1wvd2xm(this.ref.pointer, _sel_setCoordinates_, value);
-  }
-
-  /// init
-  MLNImageSource init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// Returns a source initialized with an identifier.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @return An initialized source.
-  MLNImageSource initWithIdentifier_(objc.NSString identifier) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_, identifier.ref.pointer);
-    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// new
-  static MLNImageSource new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNImageSource, _sel_new);
-    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MLNImageSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_MLNImageSource, _sel_allocWithZone_, zone);
-    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// alloc
-  static MLNImageSource alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNImageSource, _sel_alloc);
-    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// self
-  MLNImageSource self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNImageSource.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// retain
-  MLNImageSource retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNImageSource.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// autorelease
-  MLNImageSource autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNImageSource.castFromPointer(_ret, retain: true, release: true);
-  }
-}
-
-late final _class_MLNRasterTileSource = objc.getClass("MLNRasterTileSource");
-late final _sel_initWithIdentifier_configurationURL_tileSize_ =
-    objc.registerName("initWithIdentifier:configurationURL:tileSize:");
-
-/// ``MLNRasterTileSource`` is a map content source that supplies raster image tiles
-/// to be shown on the map. The location of and metadata about the tiles are
-/// defined either by an option dictionary or by an external file that conforms to
-/// the
-/// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
-/// A raster tile source is added to an ``MLNStyle`` object along with one or more
-/// ``MLNRasterStyleLayer`` objects. Use a raster style layer to control the
-/// appearance of content supplied by the raster tile source.
-///
-/// Each
-/// <a href="https://maplibre.org/maplibre-style-spec/#sources-raster"><code>raster</code></a>
-/// source defined by the style JSON file is represented at runtime by an
-/// ``MLNRasterTileSource`` object that you can use to initialize new style layers. You
-/// can also add and remove sources dynamically using methods such as
-/// ``MLNStyle/addSource:`` and ``MLNStyle/sourceWithIdentifier:``.
-///
-/// ### Example
-///
-/// ```swift
-/// let source = MLNRasterTileSource(identifier: "clouds", tileURLTemplates:
-/// ["https://example.com/raster-tiles/{z}/{x}/{y}.png"], options: [ .minimumZoomLevel: 9,
-/// .maximumZoomLevel: 16,
-/// .tileSize: 512,
-/// .attributionInfos: [
-/// MLNAttributionInfo(title: NSAttributedString(string: "© Mapbox"), url: URL(string:
-/// "https://mapbox.com"))
-/// ]
-/// ])
-/// mapView.style?.addSource(source)
-/// ```
-///
-/// #### Related examples
-/// TODO: Add raster imagery, learn how to add a ``MLNRasterStyleLayer``
-/// to your map using an ``MLNRasterTileSource``.
-class MLNRasterTileSource extends MLNTileSource {
-  MLNRasterTileSource._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNRasterTileSource] that points to the same underlying object as [other].
-  MLNRasterTileSource.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNRasterTileSource] that wraps the given raw object pointer.
-  MLNRasterTileSource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MLNRasterTileSource].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNRasterTileSource);
-  }
-
-  /// Returns a raster tile source initialized with an identifier and configuration
-  /// URL.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// The URL may be a full HTTP or HTTPS URL or canonical URL. The URL should
-  /// point to a JSON file that conforms to the
-  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
-  ///
-  /// If a Mapbox URL is specified, this source uses a tile size of 256. For all
-  /// other tilesets, the default value is 512. (See the
-  /// ``MLNTileSourceOptionTileSize`` documentation for more information about tile
-  /// sizes.) If you need to use a tile size other than the default, use the
-  /// `-initWithIdentifier:configurationURL:tileSize:` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @param configurationURL A URL to a TileJSON configuration file describing the
-  /// source’s contents and other metadata.
-  /// @return An initialized raster tile source.
-  MLNRasterTileSource initWithIdentifier_configurationURL_(
-      objc.NSString identifier, objc.NSURL configurationURL) {
-    final _ret = _objc_msgSend_15qeuct(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_configurationURL_,
-        identifier.ref.pointer,
-        configurationURL.ref.pointer);
-    return MLNRasterTileSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// Returns a raster tile source initialized with an identifier, configuration URL,
-  /// and tile size.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// The URL may be a full HTTP or HTTPS URL or, canonical URL. The URL should
-  /// point to a JSON file that conforms to the
-  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @param configurationURL A URL to a TileJSON configuration file describing the
-  /// source’s contents and other metadata.
-  /// @param tileSize The width and height (measured in points) of each tiled image
-  /// in the raster tile source. See the ``MLNTileSourceOptionTileSize``
-  /// documentation for details.
-  /// @return An initialized raster tile source.
-  MLNRasterTileSource initWithIdentifier_configurationURL_tileSize_(
-      objc.NSString identifier, objc.NSURL configurationURL, double tileSize) {
-    final _ret = _objc_msgSend_hzzkpm(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_configurationURL_tileSize_,
-        identifier.ref.pointer,
-        configurationURL.ref.pointer,
-        tileSize);
-    return MLNRasterTileSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// Returns a raster tile source initialized an identifier, tile URL templates, and
-  /// options.
-  ///
-  /// Tile URL templates are strings that specify the URLs of the raster tile images
-  /// to load. See the “<a href="../tile-url-templates.html">Tile URL Templates</a>”
-  /// guide for information about the format of a tile URL template.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @param tileURLTemplates An array of tile URL template strings. Only the first
-  /// string is used; any additional strings are ignored.
-  /// @param options A dictionary containing configuration options. See
-  /// ``MLNTileSourceOption`` for available keys and values. Pass in `nil` to use
-  /// the default values.
-  /// @return An initialized tile source.
-  MLNRasterTileSource initWithIdentifier_tileURLTemplates_options_(
-      objc.NSString identifier,
-      objc.NSArray tileURLTemplates,
-      objc.NSDictionary? options) {
-    final _ret = _objc_msgSend_11spmsz(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_tileURLTemplates_options_,
-        identifier.ref.pointer,
-        tileURLTemplates.ref.pointer,
-        options?.ref.pointer ?? ffi.nullptr);
-    return MLNRasterTileSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// init
-  MLNRasterTileSource init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNRasterTileSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// Returns a source initialized with an identifier.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @return An initialized source.
-  MLNRasterTileSource initWithIdentifier_(objc.NSString identifier) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_, identifier.ref.pointer);
-    return MLNRasterTileSource.castFromPointer(_ret,
+    return MLNAttributionInfo.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// new
-  static MLNRasterTileSource new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNRasterTileSource, _sel_new);
-    return MLNRasterTileSource.castFromPointer(_ret,
+  static MLNAttributionInfo new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNAttributionInfo, _sel_new);
+    return MLNAttributionInfo.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNRasterTileSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNAttributionInfo allocWithZone_(ffi.Pointer<_NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
-        _class_MLNRasterTileSource, _sel_allocWithZone_, zone);
-    return MLNRasterTileSource.castFromPointer(_ret,
+        _class_MLNAttributionInfo, _sel_allocWithZone_, zone);
+    return MLNAttributionInfo.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// alloc
-  static MLNRasterTileSource alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNRasterTileSource, _sel_alloc);
-    return MLNRasterTileSource.castFromPointer(_ret,
+  static MLNAttributionInfo alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNAttributionInfo, _sel_alloc);
+    return MLNAttributionInfo.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// self
-  MLNRasterTileSource self() {
+  MLNAttributionInfo self() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNRasterTileSource.castFromPointer(_ret,
+    return MLNAttributionInfo.castFromPointer(_ret,
         retain: true, release: true);
   }
 
   /// retain
-  MLNRasterTileSource retain() {
+  MLNAttributionInfo retain() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNRasterTileSource.castFromPointer(_ret,
+    return MLNAttributionInfo.castFromPointer(_ret,
         retain: true, release: true);
   }
 
   /// autorelease
-  MLNRasterTileSource autorelease() {
+  MLNAttributionInfo autorelease() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNRasterTileSource.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-}
-
-late final _class_MLNRasterDEMSource = objc.getClass("MLNRasterDEMSource");
-
-/// ``MLNRasterDEMSource`` is a map content source that supplies rasterized
-/// <a href="https://en.wikipedia.org/wiki/Digital_elevation_model">digital elevation model</a>
-/// (DEM) tiles to be shown on the map. The location of and metadata about the
-/// tiles are defined either by an option dictionary or by an external file that
-/// conforms to the
-/// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
-/// A raster DEM source is added to an ``MLNStyle`` object along with one or more
-/// ``MLNHillshadeStyleLayer`` objects. Use a hillshade style layer to control the
-/// appearance of content supplied by the raster DEM source.
-///
-/// Each
-/// <a href="https://maplibre.org/maplibre-style-spec/#sources-raster-dem"><code>raster-dem</code></a>
-/// source defined by the style JSON file is represented at runtime by an
-/// ``MLNRasterDEMSource`` object that you can use to initialize new style layers.
-/// You can also add and remove sources dynamically using methods such as
-/// ``MLNStyle/addSource:`` and ``MLNStyle/sourceWithIdentifier:``.
-///
-/// Currently, raster DEM sources only support the format used by
-/// <a
-/// href="https://docs.mapbox.com/help/troubleshooting/access-elevation-data/#mapbox-terrain-rgb">Mapbox
-/// Terrain-RGB</a>.
-///
-/// ### Example
-///
-/// ```swift
-/// let terrainRGBURL = URL(string: "maptiler://sources/terrain-rgb")!
-/// let source = MLNRasterDEMSource(identifier: "hills", configurationURL: terrainRGBURL)
-/// mapView.style?.addSource(source)
-/// ```
-class MLNRasterDEMSource extends MLNRasterTileSource {
-  MLNRasterDEMSource._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNRasterDEMSource] that points to the same underlying object as [other].
-  MLNRasterDEMSource.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNRasterDEMSource] that wraps the given raw object pointer.
-  MLNRasterDEMSource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MLNRasterDEMSource].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNRasterDEMSource);
-  }
-
-  /// Returns a raster tile source initialized with an identifier and configuration
-  /// URL.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// The URL may be a full HTTP or HTTPS URL or canonical URL. The URL should
-  /// point to a JSON file that conforms to the
-  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
-  ///
-  /// If a Mapbox URL is specified, this source uses a tile size of 256. For all
-  /// other tilesets, the default value is 512. (See the
-  /// ``MLNTileSourceOptionTileSize`` documentation for more information about tile
-  /// sizes.) If you need to use a tile size other than the default, use the
-  /// `-initWithIdentifier:configurationURL:tileSize:` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @param configurationURL A URL to a TileJSON configuration file describing the
-  /// source’s contents and other metadata.
-  /// @return An initialized raster tile source.
-  MLNRasterDEMSource initWithIdentifier_configurationURL_(
-      objc.NSString identifier, objc.NSURL configurationURL) {
-    final _ret = _objc_msgSend_15qeuct(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_configurationURL_,
-        identifier.ref.pointer,
-        configurationURL.ref.pointer);
-    return MLNRasterDEMSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// Returns a raster tile source initialized with an identifier, configuration URL,
-  /// and tile size.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// The URL may be a full HTTP or HTTPS URL or, canonical URL. The URL should
-  /// point to a JSON file that conforms to the
-  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @param configurationURL A URL to a TileJSON configuration file describing the
-  /// source’s contents and other metadata.
-  /// @param tileSize The width and height (measured in points) of each tiled image
-  /// in the raster tile source. See the ``MLNTileSourceOptionTileSize``
-  /// documentation for details.
-  /// @return An initialized raster tile source.
-  MLNRasterDEMSource initWithIdentifier_configurationURL_tileSize_(
-      objc.NSString identifier, objc.NSURL configurationURL, double tileSize) {
-    final _ret = _objc_msgSend_hzzkpm(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_configurationURL_tileSize_,
-        identifier.ref.pointer,
-        configurationURL.ref.pointer,
-        tileSize);
-    return MLNRasterDEMSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// Returns a raster tile source initialized an identifier, tile URL templates, and
-  /// options.
-  ///
-  /// Tile URL templates are strings that specify the URLs of the raster tile images
-  /// to load. See the “<a href="../tile-url-templates.html">Tile URL Templates</a>”
-  /// guide for information about the format of a tile URL template.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @param tileURLTemplates An array of tile URL template strings. Only the first
-  /// string is used; any additional strings are ignored.
-  /// @param options A dictionary containing configuration options. See
-  /// ``MLNTileSourceOption`` for available keys and values. Pass in `nil` to use
-  /// the default values.
-  /// @return An initialized tile source.
-  MLNRasterDEMSource initWithIdentifier_tileURLTemplates_options_(
-      objc.NSString identifier,
-      objc.NSArray tileURLTemplates,
-      objc.NSDictionary? options) {
-    final _ret = _objc_msgSend_11spmsz(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_tileURLTemplates_options_,
-        identifier.ref.pointer,
-        tileURLTemplates.ref.pointer,
-        options?.ref.pointer ?? ffi.nullptr);
-    return MLNRasterDEMSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// init
-  MLNRasterDEMSource init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNRasterDEMSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// Returns a source initialized with an identifier.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @return An initialized source.
-  MLNRasterDEMSource initWithIdentifier_(objc.NSString identifier) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_, identifier.ref.pointer);
-    return MLNRasterDEMSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// new
-  static MLNRasterDEMSource new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNRasterDEMSource, _sel_new);
-    return MLNRasterDEMSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MLNRasterDEMSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret = _objc_msgSend_1cwp428(
-        _class_MLNRasterDEMSource, _sel_allocWithZone_, zone);
-    return MLNRasterDEMSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// alloc
-  static MLNRasterDEMSource alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNRasterDEMSource, _sel_alloc);
-    return MLNRasterDEMSource.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// self
-  MLNRasterDEMSource self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNRasterDEMSource.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-
-  /// retain
-  MLNRasterDEMSource retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNRasterDEMSource.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-
-  /// autorelease
-  MLNRasterDEMSource autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNRasterDEMSource.castFromPointer(_ret,
+    return MLNAttributionInfo.castFromPointer(_ret,
         retain: true, release: true);
   }
 }
@@ -16338,265 +17315,7 @@ class MLNBackgroundStyleLayer extends MLNStyleLayer {
   }
 }
 
-late final _class_MLNForegroundStyleLayer =
-    objc.getClass("MLNForegroundStyleLayer");
-late final _sel_sourceIdentifier = objc.registerName("sourceIdentifier");
-
-/// ``MLNForegroundStyleLayer`` is an abstract superclass for style layers whose
-/// content is defined by an ``MLNSource`` object.
-///
-/// Create instances of ``MLNRasterStyleLayer``, ``MLNRasterStyleLayer``, and the
-/// concrete subclasses of ``MLNVectorStyleLayer`` in order to use
-/// ``MLNForegroundStyleLayer``'s methods. Do not create instances of
-/// ``MLNForegroundStyleLayer`` directly, and do not create your own subclasses of
-/// this class.
-class MLNForegroundStyleLayer extends MLNStyleLayer {
-  MLNForegroundStyleLayer._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNForegroundStyleLayer] that points to the same underlying object as [other].
-  MLNForegroundStyleLayer.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNForegroundStyleLayer] that wraps the given raw object pointer.
-  MLNForegroundStyleLayer.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MLNForegroundStyleLayer].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNForegroundStyleLayer);
-  }
-
-  /// init
-  MLNForegroundStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNForegroundStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// Identifier of the source from which the receiver obtains the data to style.
-  objc.NSString? get sourceIdentifier {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_sourceIdentifier);
-    return _ret.address == 0
-        ? null
-        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// new
-  static MLNForegroundStyleLayer new1() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_MLNForegroundStyleLayer, _sel_new);
-    return MLNForegroundStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MLNForegroundStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret = _objc_msgSend_1cwp428(
-        _class_MLNForegroundStyleLayer, _sel_allocWithZone_, zone);
-    return MLNForegroundStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// alloc
-  static MLNForegroundStyleLayer alloc() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_MLNForegroundStyleLayer, _sel_alloc);
-    return MLNForegroundStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// self
-  MLNForegroundStyleLayer self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNForegroundStyleLayer.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-
-  /// retain
-  MLNForegroundStyleLayer retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNForegroundStyleLayer.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-
-  /// autorelease
-  MLNForegroundStyleLayer autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNForegroundStyleLayer.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-}
-
-late final _class_MLNVectorStyleLayer = objc.getClass("MLNVectorStyleLayer");
-late final _sel_sourceLayerIdentifier =
-    objc.registerName("sourceLayerIdentifier");
-late final _sel_setSourceLayerIdentifier_ =
-    objc.registerName("setSourceLayerIdentifier:");
-late final _sel_setPredicate_ = objc.registerName("setPredicate:");
-
-/// ``MLNVectorStyleLayer`` is an abstract superclass for style layers whose content
-/// is defined by an ``MLNShapeSource`` or ``MLNShapeSource`` object.
-///
-/// Create instances of ``MLNCircleStyleLayer``, ``MLNCircleStyleLayer``,
-/// ``MLNFillExtrusionStyleLayer``, ``MLNFillExtrusionStyleLayer``, ``MLNFillExtrusionStyleLayer``, and
-/// ``MLNSymbolStyleLayer`` in order to use ``MLNSymbolStyleLayer``'s properties and
-/// methods. Do not create instances of ``MLNVectorStyleLayer`` directly, and do not
-/// create your own subclasses of this class.
-class MLNVectorStyleLayer extends MLNForegroundStyleLayer {
-  MLNVectorStyleLayer._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNVectorStyleLayer] that points to the same underlying object as [other].
-  MLNVectorStyleLayer.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNVectorStyleLayer] that wraps the given raw object pointer.
-  MLNVectorStyleLayer.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MLNVectorStyleLayer].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNVectorStyleLayer);
-  }
-
-  /// Identifier of the layer within the source identified by the `sourceIdentifier`
-  /// property from which the receiver obtains the data to style.
-  objc.NSString? get sourceLayerIdentifier {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.pointer, _sel_sourceLayerIdentifier);
-    return _ret.address == 0
-        ? null
-        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Identifier of the layer within the source identified by the `sourceIdentifier`
-  /// property from which the receiver obtains the data to style.
-  set sourceLayerIdentifier(objc.NSString? value) {
-    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_setSourceLayerIdentifier_,
-        value?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// The style layer’s predicate.
-  ///
-  /// Use the style layer’s predicate to include only the features in the source
-  /// layer that satisfy a condition that you define. If the style layer initially
-  /// comes from the style, its predicate corresponds to the
-  /// <a href="https://maplibre.org/maplibre-style-spec/#layer-filter">`filter`</a>
-  /// property in the style JSON.
-  ///
-  /// See the “<a href="../predicates-and-expressions.html">Predicates and Expressions</a>”
-  /// guide for details about the predicate syntax supported by this class.
-  ///
-  /// ### Example
-  ///
-  /// To filter the layer to include only the features whose `index` attribute is 5
-  /// or 10 and whose `ele` attribute is at least 1,500, you could create an
-  /// `NSCompoundPredicate` along these lines:
-  ///
-  /// ```swift
-  /// let layer = MLNLineStyleLayer(identifier: "contour", source: terrain)
-  /// layer.sourceLayerIdentifier = "contours"
-  /// layer.predicate = NSPredicate(format: "(index == 5 || index == 10) && CAST(ele, 'NSNumber') >=
-  /// 1500.0") mapView.style?.addLayer(layer)
-  /// ```
-  NSPredicate? get predicate {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_predicate);
-    return _ret.address == 0
-        ? null
-        : NSPredicate.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The style layer’s predicate.
-  ///
-  /// Use the style layer’s predicate to include only the features in the source
-  /// layer that satisfy a condition that you define. If the style layer initially
-  /// comes from the style, its predicate corresponds to the
-  /// <a href="https://maplibre.org/maplibre-style-spec/#layer-filter">`filter`</a>
-  /// property in the style JSON.
-  ///
-  /// See the “<a href="../predicates-and-expressions.html">Predicates and Expressions</a>”
-  /// guide for details about the predicate syntax supported by this class.
-  ///
-  /// ### Example
-  ///
-  /// To filter the layer to include only the features whose `index` attribute is 5
-  /// or 10 and whose `ele` attribute is at least 1,500, you could create an
-  /// `NSCompoundPredicate` along these lines:
-  ///
-  /// ```swift
-  /// let layer = MLNLineStyleLayer(identifier: "contour", source: terrain)
-  /// layer.sourceLayerIdentifier = "contours"
-  /// layer.predicate = NSPredicate(format: "(index == 5 || index == 10) && CAST(ele, 'NSNumber') >=
-  /// 1500.0") mapView.style?.addLayer(layer)
-  /// ```
-  set predicate(NSPredicate? value) {
-    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_setPredicate_,
-        value?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// init
-  MLNVectorStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNVectorStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// new
-  static MLNVectorStyleLayer new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNVectorStyleLayer, _sel_new);
-    return MLNVectorStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MLNVectorStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret = _objc_msgSend_1cwp428(
-        _class_MLNVectorStyleLayer, _sel_allocWithZone_, zone);
-    return MLNVectorStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// alloc
-  static MLNVectorStyleLayer alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNVectorStyleLayer, _sel_alloc);
-    return MLNVectorStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// self
-  MLNVectorStyleLayer self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNVectorStyleLayer.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-
-  /// retain
-  MLNVectorStyleLayer retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNVectorStyleLayer.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-
-  /// autorelease
-  MLNVectorStyleLayer autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNVectorStyleLayer.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-}
-
 late final _class_MLNCircleStyleLayer = objc.getClass("MLNCircleStyleLayer");
-late final _sel_initWithIdentifier_source_ =
-    objc.registerName("initWithIdentifier:source:");
 late final _sel_circleSortKey = objc.registerName("circleSortKey");
 late final _sel_setCircleSortKey_ = objc.registerName("setCircleSortKey:");
 late final _sel_circleBlur = objc.registerName("circleBlur");
@@ -17559,764 +18278,451 @@ class MLNCircleStyleLayer extends MLNVectorStyleLayer {
   }
 }
 
-late final _class_MLNFillExtrusionStyleLayer =
-    objc.getClass("MLNFillExtrusionStyleLayer");
-late final _sel_fillExtrusionBase = objc.registerName("fillExtrusionBase");
-late final _sel_setFillExtrusionBase_ =
-    objc.registerName("setFillExtrusionBase:");
-late final _sel_fillExtrusionBaseTransition =
-    objc.registerName("fillExtrusionBaseTransition");
-late final _sel_setFillExtrusionBaseTransition_ =
-    objc.registerName("setFillExtrusionBaseTransition:");
-late final _sel_fillExtrusionColor = objc.registerName("fillExtrusionColor");
-late final _sel_setFillExtrusionColor_ =
-    objc.registerName("setFillExtrusionColor:");
-late final _sel_fillExtrusionColorTransition =
-    objc.registerName("fillExtrusionColorTransition");
-late final _sel_setFillExtrusionColorTransition_ =
-    objc.registerName("setFillExtrusionColorTransition:");
-late final _sel_fillExtrusionHasVerticalGradient =
-    objc.registerName("fillExtrusionHasVerticalGradient");
-late final _sel_setFillExtrusionHasVerticalGradient_ =
-    objc.registerName("setFillExtrusionHasVerticalGradient:");
-late final _sel_fillExtrusionVerticalGradient =
-    objc.registerName("fillExtrusionVerticalGradient");
-late final _sel_setFillExtrusionVerticalGradient_ =
-    objc.registerName("setFillExtrusionVerticalGradient:");
-late final _sel_fillExtrusionHeight = objc.registerName("fillExtrusionHeight");
-late final _sel_setFillExtrusionHeight_ =
-    objc.registerName("setFillExtrusionHeight:");
-late final _sel_fillExtrusionHeightTransition =
-    objc.registerName("fillExtrusionHeightTransition");
-late final _sel_setFillExtrusionHeightTransition_ =
-    objc.registerName("setFillExtrusionHeightTransition:");
-late final _sel_fillExtrusionOpacity =
-    objc.registerName("fillExtrusionOpacity");
-late final _sel_setFillExtrusionOpacity_ =
-    objc.registerName("setFillExtrusionOpacity:");
-late final _sel_fillExtrusionOpacityTransition =
-    objc.registerName("fillExtrusionOpacityTransition");
-late final _sel_setFillExtrusionOpacityTransition_ =
-    objc.registerName("setFillExtrusionOpacityTransition:");
-late final _sel_fillExtrusionPattern =
-    objc.registerName("fillExtrusionPattern");
-late final _sel_setFillExtrusionPattern_ =
-    objc.registerName("setFillExtrusionPattern:");
-late final _sel_fillExtrusionPatternTransition =
-    objc.registerName("fillExtrusionPatternTransition");
-late final _sel_setFillExtrusionPatternTransition_ =
-    objc.registerName("setFillExtrusionPatternTransition:");
-late final _sel_fillExtrusionTranslation =
-    objc.registerName("fillExtrusionTranslation");
-late final _sel_setFillExtrusionTranslation_ =
-    objc.registerName("setFillExtrusionTranslation:");
-late final _sel_fillExtrusionTranslationTransition =
-    objc.registerName("fillExtrusionTranslationTransition");
-late final _sel_setFillExtrusionTranslationTransition_ =
-    objc.registerName("setFillExtrusionTranslationTransition:");
-late final _sel_fillExtrusionTranslate =
-    objc.registerName("fillExtrusionTranslate");
-late final _sel_setFillExtrusionTranslate_ =
-    objc.registerName("setFillExtrusionTranslate:");
-late final _sel_fillExtrusionTranslationAnchor =
-    objc.registerName("fillExtrusionTranslationAnchor");
-late final _sel_setFillExtrusionTranslationAnchor_ =
-    objc.registerName("setFillExtrusionTranslationAnchor:");
-late final _sel_fillExtrusionTranslateAnchor =
-    objc.registerName("fillExtrusionTranslateAnchor");
-late final _sel_setFillExtrusionTranslateAnchor_ =
-    objc.registerName("setFillExtrusionTranslateAnchor:");
+late final _class_MLNShapeSource = objc.getClass("MLNShapeSource");
+late final _sel_initWithIdentifier_URL_options_ =
+    objc.registerName("initWithIdentifier:URL:options:");
+late final _sel_initWithIdentifier_shape_options_ =
+    objc.registerName("initWithIdentifier:shape:options:");
+late final _sel_initWithIdentifier_features_options_ =
+    objc.registerName("initWithIdentifier:features:options:");
+late final _sel_initWithIdentifier_shapes_options_ =
+    objc.registerName("initWithIdentifier:shapes:options:");
+late final _sel_shape = objc.registerName("shape");
+late final _sel_setShape_ = objc.registerName("setShape:");
+late final _sel_featuresMatchingPredicate_ =
+    objc.registerName("featuresMatchingPredicate:");
+late final _sel_leavesOfCluster_offset_limit_ =
+    objc.registerName("leavesOfCluster:offset:limit:");
+final _objc_msgSend_17wuhyd = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.UnsignedLong,
+                ffi.UnsignedLong)>>()
+    .asFunction<
+        ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            int,
+            int)>();
+late final _sel_childrenOfCluster_ = objc.registerName("childrenOfCluster:");
+late final _sel_zoomLevelForExpandingCluster_ =
+    objc.registerName("zoomLevelForExpandingCluster:");
+final _objc_msgSend_mabicu = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Double Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Pointer<objc.ObjCObject>)>>()
+    .asFunction<
+        double Function(ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>, ffi.Pointer<objc.ObjCObject>)>();
+final _objc_msgSend_mabicuFpret = objc.msgSendFpretPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Double Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Pointer<objc.ObjCObject>)>>()
+    .asFunction<
+        double Function(ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>, ffi.Pointer<objc.ObjCObject>)>();
 
-/// An ``MLNFillExtrusionStyleLayer`` is a style layer that renders one or more 3D
-/// extruded polygons on the map.
+/// ``MLNShapeSource`` is a map content source that supplies vector shapes to be
+/// shown on the map. The shapes may be instances of ``MLNShape`` or ``MLNShape``,
+/// or they may be defined by local or external
+/// <a href="http://geojson.org/">GeoJSON</a> code. A shape source is added to an
+/// ``MLNStyle`` object along with an ``MLNStyle`` object. The vector style
+/// layer defines the appearance of any content supplied by the shape source. You
+/// can update a shape source by setting its `shape` or `URL` property.
 ///
-/// Use a fill-extrusion style layer to configure the visual appearance of polygon
-/// or multipolygon features. These features can come from vector tiles loaded by
-/// an ``MLNFillExtrusionStyleLayer`` object, or they can be
-/// ``MLNFillExtrusionStyleLayer``, ``MLNFillExtrusionStyleLayer``,
-/// ``MLNFillExtrusionStyleLayer``, or ``MLNFillExtrusionStyleLayer`` instances in
-/// an ``MLNFillExtrusionStyleLayer`` or ``MLNFillExtrusionStyleLayer`` object.
+/// ``MLNShapeSource`` is optimized for data sets that change dynamically and fit
+/// completely in memory. For large data sets that do not fit completely in memory,
+/// use the ``MLNComputedShapeSource`` or ``MLNComputedShapeSource`` class.
 ///
-/// You can access an existing fill-extrusion style layer using the
-/// ``MLNStyle/layerWithIdentifier:`` method if you know its identifier;
-/// otherwise, find it using the ``MLNStyle/layers`` property. You can also create a
-/// new fill-extrusion style layer and add it to the style using a method such as
-/// ``MLNStyle/addLayer:``.
+/// Each
+/// <a href="https://maplibre.org/maplibre-style-spec/#sources-geojson"><code>geojson</code></a>
+/// source defined by the style JSON file is represented at runtime by an
+/// ``MLNShapeSource`` object that you can use to refine the map’s content and
+/// initialize new style layers. You can also add and remove sources dynamically
+/// using methods such as ``MLNStyle/addSource:`` and
+/// ``MLNStyle/sourceWithIdentifier:``.
 ///
-/// #### Related examples
-/// See the <a href="https://docs.mapbox.com/ios/maps/examples/extrusions/">Display
-/// 3D buildings</a> example to learn how to add and style 3D layers on a map.
+/// Any vector style layer initialized with a shape source should have a `nil`
+/// value in its `sourceLayerIdentifier` property.
 ///
 /// ### Example
 ///
 /// ```swift
+/// var coordinates: [CLLocationCoordinate2D] = [
+/// CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
+/// CLLocationCoordinate2D(latitude: 38.91, longitude: -77.04),
+/// ]
+/// let polyline = MLNPolylineFeature(coordinates: &coordinates, count: UInt(coordinates.count))
+/// let source = MLNShapeSource(identifier: "lines", features: [polyline], options: nil)
+/// mapView.style?.addSource(source)
 /// ```
-class MLNFillExtrusionStyleLayer extends MLNVectorStyleLayer {
-  MLNFillExtrusionStyleLayer._(ffi.Pointer<objc.ObjCObject> pointer,
+///
+/// #### Related examples
+/// TODO: Cluster point data
+/// TODO: Use images to cluster point data
+/// TODO: Add live data
+/// Learn how to add data to your map using this ``MLNSource`` object.
+class MLNShapeSource extends MLNSource {
+  MLNShapeSource._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
       : super.castFromPointer(pointer, retain: retain, release: release);
 
-  /// Constructs a [MLNFillExtrusionStyleLayer] that points to the same underlying object as [other].
-  MLNFillExtrusionStyleLayer.castFrom(objc.ObjCObjectBase other)
+  /// Constructs a [MLNShapeSource] that points to the same underlying object as [other].
+  MLNShapeSource.castFrom(objc.ObjCObjectBase other)
       : this._(other.ref.pointer, retain: true, release: true);
 
-  /// Constructs a [MLNFillExtrusionStyleLayer] that wraps the given raw object pointer.
-  MLNFillExtrusionStyleLayer.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+  /// Constructs a [MLNShapeSource] that wraps the given raw object pointer.
+  MLNShapeSource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
       {bool retain = false, bool release = false})
       : this._(other, retain: retain, release: release);
 
-  /// Returns whether [obj] is an instance of [MLNFillExtrusionStyleLayer].
+  /// Returns whether [obj] is an instance of [MLNShapeSource].
   static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(obj.ref.pointer, _sel_isKindOfClass_,
-        _class_MLNFillExtrusionStyleLayer);
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNShapeSource);
   }
 
-  /// Returns a fill-extrusion style layer initialized with an identifier and source.
+  /// Returns a shape source with an identifier, URL, and dictionary of options for
+  /// the source.
   ///
-  /// After initializing and configuring the style layer, add it to a map view’s
-  /// style using the ``MLNStyle/addLayer:`` or
-  /// ``MLNStyle/insertLayer:belowLayer:`` method.
+  /// This class supports the following options: ``MLNShapeSourceOptionClustered``,
+  /// ``MLNShapeSourceOptionClusterRadius``,
+  /// ``MLNShapeSourceOptionMaximumZoomLevelForClustering``,
+  /// ``MLNShapeSourceOptionMinimumZoomLevel``, ``MLNShapeSourceOptionMinimumZoomLevel``,
+  /// ``MLNShapeSourceOptionBuffer``, and
+  /// ``MLNShapeSourceOptionSimplificationTolerance``. Shapes provided by a shape
+  /// source are not clipped or wrapped automatically.
   ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @param source The source from which to obtain the data to style. If the source
-  /// has not yet been added to the current style, the behavior is undefined.
-  /// @return An initialized foreground style layer.
-  MLNFillExtrusionStyleLayer initWithIdentifier_source_(
-      objc.NSString identifier, MLNSource source) {
-    final _ret = _objc_msgSend_15qeuct(
+  /// @param identifier A string that uniquely identifies the source.
+  /// @param url An HTTP(S) URL, absolute file URL, or local file URL relative to the
+  /// current application’s resource bundle.
+  /// @param options An `NSDictionary` of options for this source.
+  /// @return An initialized shape source.
+  ///
+  /// #### Related examples
+  /// TODO: Add live data, learn how to add live data to your map by
+  /// updating the an ``MLNShapeSource`` object's `URL` property.
+  MLNShapeSource initWithIdentifier_URL_options_(
+      objc.NSString identifier, objc.NSURL url, objc.NSDictionary? options) {
+    final _ret = _objc_msgSend_11spmsz(
         this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_source_,
+        _sel_initWithIdentifier_URL_options_,
         identifier.ref.pointer,
-        source.ref.pointer);
-    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+        url.ref.pointer,
+        options?.ref.pointer ?? ffi.nullptr);
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
   }
 
-  /// The height with which to extrude the base of this layer. Must be less than or
-  /// equal to `fillExtrusionHeight`.
+  /// Returns a shape source with an identifier, a shape, and dictionary of options
+  /// for the source.
   ///
-  /// This property is measured in meters.
+  /// This class supports the following options: ``MLNShapeSourceOptionClustered``,
+  /// ``MLNShapeSourceOptionClusterRadius``,
+  /// ``MLNShapeSourceOptionMaximumZoomLevelForClustering``,
+  /// ``MLNShapeSourceOptionMinimumZoomLevel``, ``MLNShapeSourceOptionMinimumZoomLevel``,
+  /// ``MLNShapeSourceOptionBuffer``, and
+  /// ``MLNShapeSourceOptionSimplificationTolerance``. Shapes provided by a shape
+  /// source are not clipped or wrapped automatically.
   ///
-  /// The default value of this property is an expression that evaluates to the float
-  /// `0`. Set this property to `nil` to reset it to the default value.
+  /// To specify attributes about the shape, use an instance of an ``MLNShape``
+  /// subclass that conforms to the ``MLNFeature`` protocol, such as ``MLNFeature``.
+  /// To include multiple shapes in the source, use an ``MLNShapeCollection`` or
+  /// ``MLNShapeCollectionFeature`` object, or use the
+  /// `-initWithIdentifier:features:options:` or
+  /// `-initWithIdentifier:shapes:options:` methods.
   ///
-  /// This property is only applied to the style if `fillExtrusionHeight` is
-  /// non-`nil`. Otherwise, it is ignored.
+  /// To create a shape from GeoJSON source code, use the
+  /// ``MLNShape/shapeWithData:encoding:error:`` method.
   ///
-  /// You can set this property to an expression containing any of the following:
+  /// @param identifier A string that uniquely identifies the source.
+  /// @param shape A concrete subclass of ``MLNShape``
+  /// @param options An `NSDictionary` of options for this source.
+  /// @return An initialized shape source.
   ///
-  /// Constant numeric values no less than 0
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
-  /// feature attributes
-  NSExpression get fillExtrusionBase {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionBase);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  /// #### Related examples
+  /// TODO: Animate a line, learn how to animate line data by continously
+  /// updating an ``MLNShapeSource``'s `shape` attribute.
+  MLNShapeSource initWithIdentifier_shape_options_(
+      objc.NSString identifier, MLNShape? shape, objc.NSDictionary? options) {
+    final _ret = _objc_msgSend_11spmsz(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_shape_options_,
+        identifier.ref.pointer,
+        shape?.ref.pointer ?? ffi.nullptr,
+        options?.ref.pointer ?? ffi.nullptr);
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
   }
 
-  /// The height with which to extrude the base of this layer. Must be less than or
-  /// equal to `fillExtrusionHeight`.
+  /// Returns a shape source with an identifier, an array of features, and a dictionary
+  /// of options for the source.
   ///
-  /// This property is measured in meters.
+  /// This class supports the following options: ``MLNShapeSourceOptionClustered``,
+  /// ``MLNShapeSourceOptionClusterRadius``,
+  /// ``MLNShapeSourceOptionMaximumZoomLevelForClustering``,
+  /// ``MLNShapeSourceOptionMinimumZoomLevel``, ``MLNShapeSourceOptionMinimumZoomLevel``,
+  /// ``MLNShapeSourceOptionBuffer``, and
+  /// ``MLNShapeSourceOptionSimplificationTolerance``. Shapes provided by a shape
+  /// source are not clipped or wrapped automatically.
   ///
-  /// The default value of this property is an expression that evaluates to the float
-  /// `0`. Set this property to `nil` to reset it to the default value.
+  /// Unlike `-initWithIdentifier:shapes:options:`, this method accepts ``MLNFeature``
+  /// instances, such as ``MLNPointFeature`` objects, whose attributes you can use when
+  /// applying a predicate to ``MLNVectorStyleLayer`` or configuring a style layer’s
+  /// appearance.
   ///
-  /// This property is only applied to the style if `fillExtrusionHeight` is
-  /// non-`nil`. Otherwise, it is ignored.
+  /// To create a shape from GeoJSON source code, use the
+  /// ``MLNShape/shapeWithData:encoding:error:`` method.
   ///
-  /// You can set this property to an expression containing any of the following:
+  /// @param identifier A string that uniquely identifies the source.
+  /// @param features An array of objects that conform to the MLNFeature protocol.
+  /// @param options An `NSDictionary` of options for this source.
+  /// @return An initialized shape source.
+  MLNShapeSource initWithIdentifier_features_options_(objc.NSString identifier,
+      objc.NSArray features, objc.NSDictionary? options) {
+    final _ret = _objc_msgSend_11spmsz(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_features_options_,
+        identifier.ref.pointer,
+        features.ref.pointer,
+        options?.ref.pointer ?? ffi.nullptr);
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// Returns a shape source with an identifier, an array of shapes, and a dictionary of
+  /// options for the source.
   ///
-  /// Constant numeric values no less than 0
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
-  /// feature attributes
-  set fillExtrusionBase(NSExpression value) {
+  /// This class supports the following options: ``MLNShapeSourceOptionClustered``,
+  /// ``MLNShapeSourceOptionClusterRadius``,
+  /// ``MLNShapeSourceOptionMaximumZoomLevelForClustering``,
+  /// ``MLNShapeSourceOptionMinimumZoomLevel``, ``MLNShapeSourceOptionMinimumZoomLevel``,
+  /// ``MLNShapeSourceOptionBuffer``, and
+  /// ``MLNShapeSourceOptionSimplificationTolerance``. Shapes provided by a shape
+  /// source are not clipped or wrapped automatically.
+  ///
+  /// Any ``MLNFeature`` instance passed into this initializer is treated as an ordinary
+  /// shape, causing any attributes to be inaccessible to an ``MLNVectorStyleLayer`` when
+  /// evaluating a predicate or configuring certain layout or paint attributes. To
+  /// preserve the attributes associated with each feature, use the
+  /// `-initWithIdentifier:features:options:` method instead.
+  ///
+  /// To create a shape from GeoJSON source code, use the
+  /// ``MLNShape/shapeWithData:encoding:error:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source.
+  /// @param shapes An array of shapes; each shape is a member of a concrete subclass of MLNShape.
+  /// @param options An `NSDictionary` of options for this source.
+  /// @return An initialized shape source.
+  MLNShapeSource initWithIdentifier_shapes_options_(objc.NSString identifier,
+      objc.NSArray shapes, objc.NSDictionary? options) {
+    final _ret = _objc_msgSend_11spmsz(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_shapes_options_,
+        identifier.ref.pointer,
+        shapes.ref.pointer,
+        options?.ref.pointer ?? ffi.nullptr);
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// The contents of the source. A shape can represent a GeoJSON geometry, a
+  /// feature, or a collection of features.
+  ///
+  /// If the receiver was initialized using `-initWithIdentifier:URL:options:`, this
+  /// property is set to `nil`. This property is unavailable until the receiver is
+  /// passed into ``MLNStyle/addSource:``.
+  ///
+  /// You can get/set the shapes within a collection via this property. Actions must
+  /// be performed on the application's main thread.
+  MLNShape? get shape {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_shape);
+    return _ret.address == 0
+        ? null
+        : MLNShape.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The contents of the source. A shape can represent a GeoJSON geometry, a
+  /// feature, or a collection of features.
+  ///
+  /// If the receiver was initialized using `-initWithIdentifier:URL:options:`, this
+  /// property is set to `nil`. This property is unavailable until the receiver is
+  /// passed into ``MLNStyle/addSource:``.
+  ///
+  /// You can get/set the shapes within a collection via this property. Actions must
+  /// be performed on the application's main thread.
+  set shape(MLNShape? value) {
     _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setFillExtrusionBase_, value.ref.pointer);
+        this.ref.pointer, _sel_setShape_, value?.ref.pointer ?? ffi.nullptr);
   }
 
-  /// The transition affecting any changes to this layer’s `fillExtrusionBase` property.
+  /// The URL to the GeoJSON document that specifies the contents of the source.
   ///
-  /// This property corresponds to the `fill-extrusion-base-transition` property in the style JSON file format.
-  MLNTransition get fillExtrusionBaseTransition {
-    final _ptr = pkg_ffi.calloc<MLNTransition>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_1i0p3hyStret(
-            _ptr, this.ref.pointer, _sel_fillExtrusionBaseTransition)
-        : _ptr.ref = _objc_msgSend_1i0p3hy(
-            this.ref.pointer, _sel_fillExtrusionBaseTransition);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<MLNTransition>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<MLNTransition>(_finalizable);
+  /// If the receiver was initialized using `-initWithIdentifier:shape:options:`,
+  /// this property is set to `nil`.
+  objc.NSURL? get URL {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_URL);
+    return _ret.address == 0
+        ? null
+        : objc.NSURL.castFromPointer(_ret, retain: true, release: true);
   }
 
-  /// The transition affecting any changes to this layer’s `fillExtrusionBase` property.
+  /// The URL to the GeoJSON document that specifies the contents of the source.
   ///
-  /// This property corresponds to the `fill-extrusion-base-transition` property in the style JSON file format.
-  set fillExtrusionBaseTransition(MLNTransition value) {
-    _objc_msgSend_z7lywk(
-        this.ref.pointer, _sel_setFillExtrusionBaseTransition_, value);
-  }
-
-  /// The base color of this layer. The extrusion's surfaces will be shaded
-  /// differently based on this color in combination with the `light` settings. If
-  /// this color is specified with an alpha component, the alpha component will be
-  /// ignored; use `fillExtrusionOpacity` to set layer opacityco.
-  ///
-  /// The default value of this property is an expression that evaluates to
-  /// `NSColor.blackColor`. Set this property to `nil` to reset it to the default
-  /// value.
-  ///
-  /// This property is only applied to the style if `fillExtrusionPattern` is set to
-  /// `nil`. Otherwise, it is ignored.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant `NSColor` values
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
-  /// feature attributes
-  NSExpression get fillExtrusionColor {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionColor);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The base color of this layer. The extrusion's surfaces will be shaded
-  /// differently based on this color in combination with the `light` settings. If
-  /// this color is specified with an alpha component, the alpha component will be
-  /// ignored; use `fillExtrusionOpacity` to set layer opacityco.
-  ///
-  /// The default value of this property is an expression that evaluates to
-  /// `NSColor.blackColor`. Set this property to `nil` to reset it to the default
-  /// value.
-  ///
-  /// This property is only applied to the style if `fillExtrusionPattern` is set to
-  /// `nil`. Otherwise, it is ignored.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant `NSColor` values
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
-  /// feature attributes
-  set fillExtrusionColor(NSExpression value) {
+  /// If the receiver was initialized using `-initWithIdentifier:shape:options:`,
+  /// this property is set to `nil`.
+  set URL(objc.NSURL? value) {
     _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setFillExtrusionColor_, value.ref.pointer);
+        this.ref.pointer, _sel_setURL_, value?.ref.pointer ?? ffi.nullptr);
   }
 
-  /// The transition affecting any changes to this layer’s `fillExtrusionColor` property.
+  /// Returns an array of map features for this source, filtered by the given
+  /// predicate.
   ///
-  /// This property corresponds to the `fill-extrusion-color-transition` property in the style JSON file format.
-  MLNTransition get fillExtrusionColorTransition {
-    final _ptr = pkg_ffi.calloc<MLNTransition>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_1i0p3hyStret(
-            _ptr, this.ref.pointer, _sel_fillExtrusionColorTransition)
-        : _ptr.ref = _objc_msgSend_1i0p3hy(
-            this.ref.pointer, _sel_fillExtrusionColorTransition);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<MLNTransition>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<MLNTransition>(_finalizable);
+  /// Each object in the returned array represents a feature for the current style
+  /// and provides access to attributes specified via the `shape` property.
+  ///
+  /// Features come from tiled GeoJSON data that is converted to tiles internally,
+  /// so feature geometries are clipped at tile boundaries and features
+  /// may appear duplicated across tiles. For example, suppose this source contains a
+  /// long polyline representing a road. The resulting array includes those parts of
+  /// the road that lie within the map tiles that the source has loaded, even if the
+  /// road extends into other tiles. The portion of the road within each map tile is
+  /// included individually.
+  ///
+  /// Returned features may not necessarily be visible to the user at the time they
+  /// are loaded: the style may lack a layer that draws the features in question. To
+  /// obtain only _visible_ features, use the
+  /// ``MLNMapView/visibleFeaturesAtPoint:inStyleLayersWithIdentifiers:predicate:``
+  /// or
+  /// ``MLNMapView/visibleFeaturesInRect:inStyleLayersWithIdentifiers:predicate:``
+  /// method.
+  ///
+  /// @param predicate A predicate to filter the returned features. Use `nil` to
+  /// include all features in the source.
+  /// @return An array of objects conforming to the ``MLNFeature`` protocol that
+  /// represent features in the source that match the predicate.
+  objc.NSArray featuresMatchingPredicate_(NSPredicate? predicate) {
+    final _ret = _objc_msgSend_1sotr3r(this.ref.pointer,
+        _sel_featuresMatchingPredicate_, predicate?.ref.pointer ?? ffi.nullptr);
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
   }
 
-  /// The transition affecting any changes to this layer’s `fillExtrusionColor` property.
+  /// Returns an array of map features that are the leaves of the specified cluster.
+  /// ("Leaves" are the original points that belong to the cluster.)
   ///
-  /// This property corresponds to the `fill-extrusion-color-transition` property in the style JSON file format.
-  set fillExtrusionColorTransition(MLNTransition value) {
-    _objc_msgSend_z7lywk(
-        this.ref.pointer, _sel_setFillExtrusionColorTransition_, value);
+  /// This method supports pagination; you supply an offset (number of features to skip)
+  /// and a maximum number of features to return.
+  ///
+  /// @param cluster An object of type ``MLNPointFeatureCluster`` (that conforms to the
+  /// ``MLNPointFeatureCluster`` protocol).
+  /// @param offset Number of features to skip.
+  /// @param limit The maximum number of features to return
+  ///
+  /// @return An array of objects that conform to the ``MLNFeature`` protocol.
+  objc.NSArray leavesOfCluster_offset_limit_(
+      MLNPointFeatureCluster cluster, int offset, int limit) {
+    final _ret = _objc_msgSend_17wuhyd(this.ref.pointer,
+        _sel_leavesOfCluster_offset_limit_, cluster.ref.pointer, offset, limit);
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
   }
 
-  /// Whether to apply a vertical gradient to the sides of a fill-extrusion layer. If
-  /// true, sides will be shaded slightly darker farther down.
+  /// Returns an array of map features that are the immediate children of the specified
+  /// cluster *on the next zoom level*. The may include features that also conform to
+  /// the ``MLNCluster`` protocol (currently only objects of type ``MLNCluster``).
   ///
-  /// The default value of this property is an expression that evaluates to `YES`.
-  /// Set this property to `nil` to reset it to the default value.
+  /// @param cluster An object of type ``MLNPointFeatureCluster`` (that conforms to the
+  /// ``MLNPointFeatureCluster`` protocol).
   ///
-  /// This attribute corresponds to the <a
-  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-vertical-gradient"><code>fill-extrusion-vertical-gradient</code></a>
-  /// layout property in the MapLibre Style Spec.
+  /// @return An array of objects that conform to the ``MLNFeature`` protocol.
   ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant Boolean values
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Step functions applied to the `$zoomLevel` variable
-  ///
-  /// This property does not support applying interpolation functions to the
-  /// `$zoomLevel` variable or applying interpolation or step functions to feature
-  /// attributes.
-  NSExpression get fillExtrusionHasVerticalGradient {
-    final _ret = _objc_msgSend_151sglz(
-        this.ref.pointer, _sel_fillExtrusionHasVerticalGradient);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  /// > Note: The returned array may contain the `cluster` that was passed in, if the next
+  /// zoom level doesn't match the zoom level for expanding that cluster. See
+  /// ``MLNShapeSource/zoomLevelForExpandingCluster:``.
+  objc.NSArray childrenOfCluster_(MLNPointFeatureCluster cluster) {
+    final _ret = _objc_msgSend_1sotr3r(
+        this.ref.pointer, _sel_childrenOfCluster_, cluster.ref.pointer);
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
   }
 
-  /// Whether to apply a vertical gradient to the sides of a fill-extrusion layer. If
-  /// true, sides will be shaded slightly darker farther down.
+  /// Returns the zoom level at which the given cluster expands.
   ///
-  /// The default value of this property is an expression that evaluates to `YES`.
-  /// Set this property to `nil` to reset it to the default value.
+  /// @param cluster An object of type ``MLNPointFeatureCluster`` (that conforms to the
+  /// ``MLNPointFeatureCluster`` protocol).
   ///
-  /// This attribute corresponds to the <a
-  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-vertical-gradient"><code>fill-extrusion-vertical-gradient</code></a>
-  /// layout property in the MapLibre Style Spec.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant Boolean values
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Step functions applied to the `$zoomLevel` variable
-  ///
-  /// This property does not support applying interpolation functions to the
-  /// `$zoomLevel` variable or applying interpolation or step functions to feature
-  /// attributes.
-  set fillExtrusionHasVerticalGradient(NSExpression value) {
-    _objc_msgSend_xtuoz7(this.ref.pointer,
-        _sel_setFillExtrusionHasVerticalGradient_, value.ref.pointer);
-  }
-
-  /// fillExtrusionVerticalGradient
-  NSExpression get fillExtrusionVerticalGradient {
-    final _ret = _objc_msgSend_151sglz(
-        this.ref.pointer, _sel_fillExtrusionVerticalGradient);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// setFillExtrusionVerticalGradient:
-  set fillExtrusionVerticalGradient(NSExpression value) {
-    _objc_msgSend_xtuoz7(this.ref.pointer,
-        _sel_setFillExtrusionVerticalGradient_, value.ref.pointer);
-  }
-
-  /// The height with which to extrude this layer.
-  ///
-  /// This property is measured in meters.
-  ///
-  /// The default value of this property is an expression that evaluates to the float
-  /// `0`. Set this property to `nil` to reset it to the default value.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant numeric values no less than 0
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
-  /// feature attributes
-  NSExpression get fillExtrusionHeight {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionHeight);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The height with which to extrude this layer.
-  ///
-  /// This property is measured in meters.
-  ///
-  /// The default value of this property is an expression that evaluates to the float
-  /// `0`. Set this property to `nil` to reset it to the default value.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant numeric values no less than 0
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
-  /// feature attributes
-  set fillExtrusionHeight(NSExpression value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setFillExtrusionHeight_, value.ref.pointer);
-  }
-
-  /// The transition affecting any changes to this layer’s `fillExtrusionHeight` property.
-  ///
-  /// This property corresponds to the `fill-extrusion-height-transition` property in the style JSON file format.
-  MLNTransition get fillExtrusionHeightTransition {
-    final _ptr = pkg_ffi.calloc<MLNTransition>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_1i0p3hyStret(
-            _ptr, this.ref.pointer, _sel_fillExtrusionHeightTransition)
-        : _ptr.ref = _objc_msgSend_1i0p3hy(
-            this.ref.pointer, _sel_fillExtrusionHeightTransition);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<MLNTransition>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<MLNTransition>(_finalizable);
-  }
-
-  /// The transition affecting any changes to this layer’s `fillExtrusionHeight` property.
-  ///
-  /// This property corresponds to the `fill-extrusion-height-transition` property in the style JSON file format.
-  set fillExtrusionHeightTransition(MLNTransition value) {
-    _objc_msgSend_z7lywk(
-        this.ref.pointer, _sel_setFillExtrusionHeightTransition_, value);
-  }
-
-  /// The opacity of the entire fill extrusion layer. This is rendered on a
-  /// per-layer, not per-feature, basis, and data-driven styling is not available.
-  ///
-  /// The default value of this property is an expression that evaluates to the float
-  /// `1`. Set this property to `nil` to reset it to the default value.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant numeric values between 0 and 1 inclusive
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable
-  ///
-  /// This property does not support applying interpolation or step functions to
-  /// feature attributes.
-  NSExpression get fillExtrusionOpacity {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionOpacity);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The opacity of the entire fill extrusion layer. This is rendered on a
-  /// per-layer, not per-feature, basis, and data-driven styling is not available.
-  ///
-  /// The default value of this property is an expression that evaluates to the float
-  /// `1`. Set this property to `nil` to reset it to the default value.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant numeric values between 0 and 1 inclusive
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable
-  ///
-  /// This property does not support applying interpolation or step functions to
-  /// feature attributes.
-  set fillExtrusionOpacity(NSExpression value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setFillExtrusionOpacity_, value.ref.pointer);
-  }
-
-  /// The transition affecting any changes to this layer’s `fillExtrusionOpacity` property.
-  ///
-  /// This property corresponds to the `fill-extrusion-opacity-transition` property in the style JSON file format.
-  MLNTransition get fillExtrusionOpacityTransition {
-    final _ptr = pkg_ffi.calloc<MLNTransition>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_1i0p3hyStret(
-            _ptr, this.ref.pointer, _sel_fillExtrusionOpacityTransition)
-        : _ptr.ref = _objc_msgSend_1i0p3hy(
-            this.ref.pointer, _sel_fillExtrusionOpacityTransition);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<MLNTransition>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<MLNTransition>(_finalizable);
-  }
-
-  /// The transition affecting any changes to this layer’s `fillExtrusionOpacity` property.
-  ///
-  /// This property corresponds to the `fill-extrusion-opacity-transition` property in the style JSON file format.
-  set fillExtrusionOpacityTransition(MLNTransition value) {
-    _objc_msgSend_z7lywk(
-        this.ref.pointer, _sel_setFillExtrusionOpacityTransition_, value);
-  }
-
-  /// Name of image in style images to use for drawing image fill-extrusions. For
-  /// seamless patterns, image width and height must be a factor of two (2, 4, 8,
-  /// ..., 512).
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant string values
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
-  /// feature attributes
-  NSExpression get fillExtrusionPattern {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionPattern);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Name of image in style images to use for drawing image fill-extrusions. For
-  /// seamless patterns, image width and height must be a factor of two (2, 4, 8,
-  /// ..., 512).
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant string values
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable and/or
-  /// feature attributes
-  set fillExtrusionPattern(NSExpression value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setFillExtrusionPattern_, value.ref.pointer);
-  }
-
-  /// The transition affecting any changes to this layer’s `fillExtrusionPattern` property.
-  ///
-  /// This property corresponds to the `fill-extrusion-pattern-transition` property in the style JSON file format.
-  MLNTransition get fillExtrusionPatternTransition {
-    final _ptr = pkg_ffi.calloc<MLNTransition>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_1i0p3hyStret(
-            _ptr, this.ref.pointer, _sel_fillExtrusionPatternTransition)
-        : _ptr.ref = _objc_msgSend_1i0p3hy(
-            this.ref.pointer, _sel_fillExtrusionPatternTransition);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<MLNTransition>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<MLNTransition>(_finalizable);
-  }
-
-  /// The transition affecting any changes to this layer’s `fillExtrusionPattern` property.
-  ///
-  /// This property corresponds to the `fill-extrusion-pattern-transition` property in the style JSON file format.
-  set fillExtrusionPatternTransition(MLNTransition value) {
-    _objc_msgSend_z7lywk(
-        this.ref.pointer, _sel_setFillExtrusionPatternTransition_, value);
-  }
-
-  /// The geometry's offset.
-  ///
-  /// This property is measured in points.
-  ///
-  /// The default value of this property is an expression that evaluates to an
-  /// `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
-  /// points upward. Set this property to `nil` to reset it to the default value.
-  ///
-  /// This attribute corresponds to the <a
-  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-translate"><code>fill-extrusion-translate</code></a>
-  /// layout property in the MapLibre Style Spec.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant `CGVector` values
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable
-  ///
-  /// This property does not support applying interpolation or step functions to
-  /// feature attributes.
-  NSExpression get fillExtrusionTranslation {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionTranslation);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The geometry's offset.
-  ///
-  /// This property is measured in points.
-  ///
-  /// The default value of this property is an expression that evaluates to an
-  /// `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
-  /// points upward. Set this property to `nil` to reset it to the default value.
-  ///
-  /// This attribute corresponds to the <a
-  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-translate"><code>fill-extrusion-translate</code></a>
-  /// layout property in the MapLibre Style Spec.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant `CGVector` values
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Interpolation and step functions applied to the `$zoomLevel` variable
-  ///
-  /// This property does not support applying interpolation or step functions to
-  /// feature attributes.
-  set fillExtrusionTranslation(NSExpression value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setFillExtrusionTranslation_, value.ref.pointer);
-  }
-
-  /// The transition affecting any changes to this layer’s `fillExtrusionTranslation` property.
-  ///
-  /// This property corresponds to the `fill-extrusion-translate-transition` property in the style JSON file format.
-  MLNTransition get fillExtrusionTranslationTransition {
-    final _ptr = pkg_ffi.calloc<MLNTransition>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_1i0p3hyStret(
-            _ptr, this.ref.pointer, _sel_fillExtrusionTranslationTransition)
-        : _ptr.ref = _objc_msgSend_1i0p3hy(
-            this.ref.pointer, _sel_fillExtrusionTranslationTransition);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<MLNTransition>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<MLNTransition>(_finalizable);
-  }
-
-  /// The transition affecting any changes to this layer’s `fillExtrusionTranslation` property.
-  ///
-  /// This property corresponds to the `fill-extrusion-translate-transition` property in the style JSON file format.
-  set fillExtrusionTranslationTransition(MLNTransition value) {
-    _objc_msgSend_z7lywk(
-        this.ref.pointer, _sel_setFillExtrusionTranslationTransition_, value);
-  }
-
-  /// fillExtrusionTranslate
-  NSExpression get fillExtrusionTranslate {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.pointer, _sel_fillExtrusionTranslate);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// setFillExtrusionTranslate:
-  set fillExtrusionTranslate(NSExpression value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setFillExtrusionTranslate_, value.ref.pointer);
-  }
-
-  /// Controls the frame of reference for `fillExtrusionTranslation`.
-  ///
-  /// The default value of this property is an expression that evaluates to `map`.
-  /// Set this property to `nil` to reset it to the default value.
-  ///
-  /// This property is only applied to the style if `fillExtrusionTranslation` is
-  /// non-`nil`. Otherwise, it is ignored.
-  ///
-  /// This attribute corresponds to the <a
-  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-translate-anchor"><code>fill-extrusion-translate-anchor</code></a>
-  /// layout property in the MapLibre Style Spec.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant `MLNFillExtrusionTranslationAnchor` values
-  /// Any of the following constant string values:
-  /// `map`: The fill extrusion is translated relative to the map.
-  /// `viewport`: The fill extrusion is translated relative to the viewport.
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Step functions applied to the `$zoomLevel` variable
-  ///
-  /// This property does not support applying interpolation functions to the
-  /// `$zoomLevel` variable or applying interpolation or step functions to feature
-  /// attributes.
-  NSExpression get fillExtrusionTranslationAnchor {
-    final _ret = _objc_msgSend_151sglz(
-        this.ref.pointer, _sel_fillExtrusionTranslationAnchor);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Controls the frame of reference for `fillExtrusionTranslation`.
-  ///
-  /// The default value of this property is an expression that evaluates to `map`.
-  /// Set this property to `nil` to reset it to the default value.
-  ///
-  /// This property is only applied to the style if `fillExtrusionTranslation` is
-  /// non-`nil`. Otherwise, it is ignored.
-  ///
-  /// This attribute corresponds to the <a
-  /// href="https://maplibre.org/maplibre-style-spec/#paint-fill-extrusion-translate-anchor"><code>fill-extrusion-translate-anchor</code></a>
-  /// layout property in the MapLibre Style Spec.
-  ///
-  /// You can set this property to an expression containing any of the following:
-  ///
-  /// Constant `MLNFillExtrusionTranslationAnchor` values
-  /// Any of the following constant string values:
-  /// `map`: The fill extrusion is translated relative to the map.
-  /// `viewport`: The fill extrusion is translated relative to the viewport.
-  /// Predefined functions, including mathematical and string operators
-  /// Conditional expressions
-  /// Variable assignments and references to assigned variables
-  /// Step functions applied to the `$zoomLevel` variable
-  ///
-  /// This property does not support applying interpolation functions to the
-  /// `$zoomLevel` variable or applying interpolation or step functions to feature
-  /// attributes.
-  set fillExtrusionTranslationAnchor(NSExpression value) {
-    _objc_msgSend_xtuoz7(this.ref.pointer,
-        _sel_setFillExtrusionTranslationAnchor_, value.ref.pointer);
-  }
-
-  /// fillExtrusionTranslateAnchor
-  NSExpression get fillExtrusionTranslateAnchor {
-    final _ret = _objc_msgSend_151sglz(
-        this.ref.pointer, _sel_fillExtrusionTranslateAnchor);
-    return NSExpression.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// setFillExtrusionTranslateAnchor:
-  set fillExtrusionTranslateAnchor(NSExpression value) {
-    _objc_msgSend_xtuoz7(this.ref.pointer,
-        _sel_setFillExtrusionTranslateAnchor_, value.ref.pointer);
+  /// @return Zoom level. This should be >= 0; any negative return value should be
+  /// considered an error.
+  double zoomLevelForExpandingCluster_(MLNPointFeatureCluster cluster) {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_mabicuFpret(this.ref.pointer,
+            _sel_zoomLevelForExpandingCluster_, cluster.ref.pointer)
+        : _objc_msgSend_mabicu(this.ref.pointer,
+            _sel_zoomLevelForExpandingCluster_, cluster.ref.pointer);
   }
 
   /// init
-  MLNFillExtrusionStyleLayer init() {
+  MLNShapeSource init() {
     final _ret =
         _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNShapeSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_, identifier.ref.pointer);
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// new
-  static MLNFillExtrusionStyleLayer new1() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_MLNFillExtrusionStyleLayer, _sel_new);
-    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+  static MLNShapeSource new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNShapeSource, _sel_new);
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNFillExtrusionStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret = _objc_msgSend_1cwp428(
-        _class_MLNFillExtrusionStyleLayer, _sel_allocWithZone_, zone);
-    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+  static MLNShapeSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret =
+        _objc_msgSend_1cwp428(_class_MLNShapeSource, _sel_allocWithZone_, zone);
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// alloc
-  static MLNFillExtrusionStyleLayer alloc() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_MLNFillExtrusionStyleLayer, _sel_alloc);
-    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+  static MLNShapeSource alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNShapeSource, _sel_alloc);
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// self
-  MLNFillExtrusionStyleLayer self() {
+  MLNShapeSource self() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
-        retain: true, release: true);
+    return MLNShapeSource.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// retain
-  MLNFillExtrusionStyleLayer retain() {
+  MLNShapeSource retain() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
-        retain: true, release: true);
+    return MLNShapeSource.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// autorelease
-  MLNFillExtrusionStyleLayer autorelease() {
+  MLNShapeSource autorelease() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNFillExtrusionStyleLayer.castFromPointer(_ret,
-        retain: true, release: true);
+    return MLNShapeSource.castFromPointer(_ret, retain: true, release: true);
   }
 }
 
@@ -19960,6 +20366,271 @@ class MLNHillshadeStyleLayer extends MLNForegroundStyleLayer {
   }
 }
 
+late final _class_MLNImageSource = objc.getClass("MLNImageSource");
+late final _sel_initWithIdentifier_coordinateQuad_URL_ =
+    objc.registerName("initWithIdentifier:coordinateQuad:URL:");
+final _objc_msgSend_judg3a = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Pointer<objc.ObjCObject>,
+                MLNCoordinateQuad,
+                ffi.Pointer<objc.ObjCObject>)>>()
+    .asFunction<
+        ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            MLNCoordinateQuad,
+            ffi.Pointer<objc.ObjCObject>)>();
+late final _sel_initWithIdentifier_coordinateQuad_image_ =
+    objc.registerName("initWithIdentifier:coordinateQuad:image:");
+late final _sel_image = objc.registerName("image");
+late final _sel_setImage_ = objc.registerName("setImage:");
+late final _sel_coordinates = objc.registerName("coordinates");
+final _objc_msgSend_1ua371c = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            MLNCoordinateQuad Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>)>>()
+    .asFunction<
+        MLNCoordinateQuad Function(
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
+final _objc_msgSend_1ua371cStret = objc.msgSendStretPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(
+                ffi.Pointer<MLNCoordinateQuad>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>)>>()
+    .asFunction<
+        void Function(ffi.Pointer<MLNCoordinateQuad>,
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
+late final _sel_setCoordinates_ = objc.registerName("setCoordinates:");
+final _objc_msgSend_1wvd2xm = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>, MLNCoordinateQuad)>>()
+    .asFunction<
+        void Function(ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>, MLNCoordinateQuad)>();
+
+/// ``MLNImageSource`` is a content source that is used for a georeferenced raster
+/// image to be shown on the map. The georeferenced image scales and rotates as the
+/// user zooms and rotates the map. Images may also be used as icons or patterns
+/// in a style layer. To register an image for use as an icon or pattern,
+/// use the ``MLNStyle/setImage:forName:`` method. To configure a point
+/// annotation’s image, use the ``MLNAnnotationImage`` class.
+///
+/// The geographic location of the raster image content, supplied with
+/// ``MLNCoordinateQuad``, can be non-axis aligned.
+/// ``MLNImageSource`` supports raster content from `NSURL`, `NSImage` (macOS), or
+/// `UIImage` (iOS).
+/// An image source is added to an ``MLNStyle`` object along with one or more
+/// ``MLNRasterStyleLayer`` objects. Use a raster style layer to control the
+/// appearance of content supplied by the image source.
+///
+/// Each
+/// <a href="https://maplibre.org/maplibre-style-spec/#sources-image"><code>image</code></a>
+/// source defined by the style JSON file is represented at runtime by an
+/// ``MLNImageSource`` object that you can use to initialize new style layers. You
+/// can also add and remove sources dynamically using methods such as
+/// ``MLNStyle/addSource:`` and ``MLNStyle/sourceWithIdentifier:``.
+///
+/// ### Example
+///
+/// ```swift
+/// let coordinates = MLNCoordinateQuad(
+/// topLeft: CLLocationCoordinate2D(latitude: 46.437, longitude: -80.425),
+/// bottomLeft: CLLocationCoordinate2D(latitude: 37.936, longitude: -80.425),
+/// bottomRight: CLLocationCoordinate2D(latitude: 37.936, longitude: -71.516),
+/// topRight: CLLocationCoordinate2D(latitude: 46.437, longitude: -71.516))
+/// let source = MLNImageSource(identifier: "radar", coordinateQuad: coordinates, url: URL(string:
+/// "https://maplibre.org/maplibre-gl-js-docs/assets/radar.gif")!) mapView.style?.addSource(source)
+/// ```
+///
+/// #### Related examples
+/// TODO: Add an image, learn how to add an image to your map using ``MLNImageSource``.
+class MLNImageSource extends MLNSource {
+  MLNImageSource._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNImageSource] that points to the same underlying object as [other].
+  MLNImageSource.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNImageSource] that wraps the given raw object pointer.
+  MLNImageSource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNImageSource].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNImageSource);
+  }
+
+  /// Returns a georeferenced image source with an identifier, coordinates and a URL.
+  ///
+  /// @param identifier A string that uniquely identifies the source.
+  /// @param coordinateQuad the top left, top right, bottom right, and bottom left coordinates for the
+  /// image.
+  /// @param url An HTTP(S) URL, absolute file URL, or local file URL relative to the
+  /// current application’s resource bundle.
+  /// @return An initialized shape source.
+  MLNImageSource initWithIdentifier_coordinateQuad_URL_(
+      objc.NSString identifier,
+      MLNCoordinateQuad coordinateQuad,
+      objc.NSURL url) {
+    final _ret = _objc_msgSend_judg3a(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_coordinateQuad_URL_,
+        identifier.ref.pointer,
+        coordinateQuad,
+        url.ref.pointer);
+    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// Returns a georeferenced image source with an identifier, coordinates and an image.
+  ///
+  /// @param identifier A string that uniquely identifies the source.
+  /// @param coordinateQuad The top left, top right, bottom right, and bottom left coordinates for the
+  /// image.
+  /// @param image The image to display for the source.
+  /// @return An initialized shape source.
+  MLNImageSource initWithIdentifier_coordinateQuad_image_(
+      objc.NSString identifier,
+      MLNCoordinateQuad coordinateQuad,
+      NSImage image) {
+    final _ret = _objc_msgSend_judg3a(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_coordinateQuad_image_,
+        identifier.ref.pointer,
+        coordinateQuad,
+        image.ref.pointer);
+    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// The URL to the source image.
+  ///
+  /// If the receiver was initialized using `-initWithIdentifier:coordinateQuad:image:` or
+  /// the `image` property is set, this property is set to `nil`.
+  objc.NSURL? get URL {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_URL);
+    return _ret.address == 0
+        ? null
+        : objc.NSURL.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The URL to the source image.
+  ///
+  /// If the receiver was initialized using `-initWithIdentifier:coordinateQuad:image:` or
+  /// the `image` property is set, this property is set to `nil`.
+  set URL(objc.NSURL? value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setURL_, value?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// The source image.
+  ///
+  /// If the receiver was initialized using `-initWithIdentifier:coordinateQuad:URL:` or if the `URL`
+  /// property is set, this property is set to `nil`.
+  NSImage? get image {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_image);
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The source image.
+  ///
+  /// If the receiver was initialized using `-initWithIdentifier:coordinateQuad:URL:` or if the `URL`
+  /// property is set, this property is set to `nil`.
+  set image(NSImage? value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setImage_, value?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// The coordinates at which the corners of the source image will be placed.
+  MLNCoordinateQuad get coordinates {
+    final _ptr = pkg_ffi.calloc<MLNCoordinateQuad>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1ua371cStret(_ptr, this.ref.pointer, _sel_coordinates)
+        : _ptr.ref = _objc_msgSend_1ua371c(this.ref.pointer, _sel_coordinates);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+        ffi.sizeOf<MLNCoordinateQuad>(),
+        finalizer: pkg_ffi.calloc.nativeFree);
+    return ffi.Struct.create<MLNCoordinateQuad>(_finalizable);
+  }
+
+  /// The coordinates at which the corners of the source image will be placed.
+  set coordinates(MLNCoordinateQuad value) {
+    _objc_msgSend_1wvd2xm(this.ref.pointer, _sel_setCoordinates_, value);
+  }
+
+  /// init
+  MLNImageSource init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNImageSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_, identifier.ref.pointer);
+    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// new
+  static MLNImageSource new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNImageSource, _sel_new);
+    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNImageSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret =
+        _objc_msgSend_1cwp428(_class_MLNImageSource, _sel_allocWithZone_, zone);
+    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNImageSource alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNImageSource, _sel_alloc);
+    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MLNImageSource self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNImageSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNImageSource retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNImageSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNImageSource autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNImageSource.castFromPointer(_ret, retain: true, release: true);
+  }
+}
+
 late final _class_MLNLineStyleLayer = objc.getClass("MLNLineStyleLayer");
 late final _sel_lineCap = objc.registerName("lineCap");
 late final _sel_setLineCap_ = objc.registerName("setLineCap:");
@@ -21142,6 +21813,2341 @@ class MLNLineStyleLayer extends MLNVectorStyleLayer {
   MLNLineStyleLayer autorelease() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
     return MLNLineStyleLayer.castFromPointer(_ret, retain: true, release: true);
+  }
+}
+
+/// The state an offline pack is currently in.
+enum MLNOfflinePackState {
+  /// It is unknown whether the pack is inactive, active, or complete.
+  ///
+  /// This is the initial state of a pack. The state of a pack becomes known by
+  /// the time the shared ``MLNOfflineStorage`` object sends the first
+  /// ``MLNOfflinePackProgressChangedNotification`` about the pack. For inactive
+  /// packs, you must explicitly request a progress update using the
+  /// ``MLNOfflinePack/requestProgress`` method.
+  ///
+  /// An invalid pack always has a state of ``MLNOfflinePackStateInvalid``, never
+  /// ``MLNOfflinePackState/MLNOfflinePackStateUnknown``.
+  MLNOfflinePackStateUnknown(0),
+
+  /// The pack is incomplete and is not currently downloading.
+  ///
+  /// This is the initial state of a pack that is created using the
+  /// ``MLNOfflineStorage/addPackForRegion:withContext:completionHandler:``
+  /// method, as well as after the ``MLNOfflinePack/suspend`` method is
+  /// called.
+  MLNOfflinePackStateInactive(1),
+
+  /// The pack is incomplete and is currently downloading.
+  ///
+  /// This is the state of a pack after the ``MLNOfflinePack/resume`` method is
+  /// called.
+  MLNOfflinePackStateActive(2),
+
+  /// The pack has downloaded to completion.
+  MLNOfflinePackStateComplete(3),
+
+  /// The pack has been removed using the
+  /// ``MLNOfflineStorage/removePack:withCompletionHandler:`` method. Sending
+  /// any message to the pack will raise an exception.
+  MLNOfflinePackStateInvalid(4);
+
+  final int value;
+  const MLNOfflinePackState(this.value);
+
+  static MLNOfflinePackState fromValue(int value) => switch (value) {
+        0 => MLNOfflinePackStateUnknown,
+        1 => MLNOfflinePackStateInactive,
+        2 => MLNOfflinePackStateActive,
+        3 => MLNOfflinePackStateComplete,
+        4 => MLNOfflinePackStateInvalid,
+        _ =>
+          throw ArgumentError("Unknown value for MLNOfflinePackState: $value"),
+      };
+}
+
+/// A structure containing information about an offline pack’s current download
+/// progress.
+final class MLNOfflinePackProgress extends ffi.Struct {
+  /// The number of resources, including tiles, that have been completely
+  /// downloaded and are ready to use offline.
+  @ffi.Uint64()
+  external int countOfResourcesCompleted;
+
+  /// The cumulative size of the downloaded resources on disk, including tiles,
+  /// measured in bytes.
+  @ffi.Uint64()
+  external int countOfBytesCompleted;
+
+  /// The number of tiles that have been completely downloaded and are ready
+  /// to use offline.
+  @ffi.Uint64()
+  external int countOfTilesCompleted;
+
+  /// The cumulative size of the downloaded tiles on disk, measured in bytes.
+  @ffi.Uint64()
+  external int countOfTileBytesCompleted;
+
+  /// The minimum number of resources that must be downloaded in order to view
+  /// the pack’s full region without any omissions.
+  ///
+  /// At the beginning of a download, this count is a lower bound; the number of
+  /// expected resources may increase as the download progresses.
+  @ffi.Uint64()
+  external int countOfResourcesExpected;
+
+  /// The maximum number of resources that must be downloaded in order to view
+  /// the pack’s full region without any omissions.
+  ///
+  /// At the beginning of a download, when the exact number of required resources
+  /// is unknown, this field is set to `UINT64_MAX`. Thus this count is always an
+  /// upper bound.
+  @ffi.Uint64()
+  external int maximumResourcesExpected;
+}
+
+late final _class_MLNOfflinePack = objc.getClass("MapLibre.MLNOfflinePack");
+late final _sel_region = objc.registerName("region");
+void _ObjCBlock_ffiVoid_NSError_fnPtrTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block,
+        ffi.Pointer<objc.ObjCObject> arg0) =>
+    block.ref.target
+        .cast<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0)>>()
+        .asFunction<void Function(ffi.Pointer<objc.ObjCObject>)>()(arg0);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+                ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<objc.ObjCObject>)>(
+            _ObjCBlock_ffiVoid_NSError_fnPtrTrampoline)
+        .cast();
+void _ObjCBlock_ffiVoid_NSError_closureTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block,
+        ffi.Pointer<objc.ObjCObject> arg0) =>
+    (objc.getBlockClosure(block) as void Function(
+        ffi.Pointer<objc.ObjCObject>))(arg0);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSError_closureCallable =
+    ffi.Pointer.fromFunction<
+                ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<objc.ObjCObject>)>(
+            _ObjCBlock_ffiVoid_NSError_closureTrampoline)
+        .cast();
+void _ObjCBlock_ffiVoid_NSError_listenerTrampoline(
+    ffi.Pointer<objc.ObjCBlockImpl> block, ffi.Pointer<objc.ObjCObject> arg0) {
+  (objc.getBlockClosure(block) as void Function(
+      ffi.Pointer<objc.ObjCObject>))(arg0);
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+        ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_NSError_listenerCallable = ffi.NativeCallable<
+            ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<objc.ObjCObject>)>.listener(
+        _ObjCBlock_ffiVoid_NSError_listenerTrampoline)
+      ..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_NSError_blockingTrampoline(
+    ffi.Pointer<objc.ObjCBlockImpl> block,
+    ffi.Pointer<ffi.Void> waiter,
+    ffi.Pointer<objc.ObjCObject> arg0) {
+  try {
+    (objc.getBlockClosure(block) as void Function(
+        ffi.Pointer<objc.ObjCObject>))(arg0);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_NSError_blockingCallable = ffi.NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<objc.ObjCObject>)>.isolateLocal(
+        _ObjCBlock_ffiVoid_NSError_blockingTrampoline)
+      ..keepIsolateAlive = false;
+ffi.NativeCallable<
+        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_NSError_blockingListenerCallable = ffi.NativeCallable<
+            ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>)>.listener(
+        _ObjCBlock_ffiVoid_NSError_blockingTrampoline)
+      ..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSError?)>`.
+abstract final class ObjCBlock_ffiVoid_NSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> castFromPointer(
+          ffi.Pointer<objc.ObjCBlockImpl> pointer,
+          {bool retain = false,
+          bool release = false}) =>
+      objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(pointer,
+          retain: retain, release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> fromFunctionPointer(
+          ffi.Pointer<
+                  ffi.NativeFunction<
+                      ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0)>>
+              ptr) =>
+      objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(
+          objc.newPointerBlock(
+              _ObjCBlock_ffiVoid_NSError_fnPtrCallable, ptr.cast()),
+          retain: false,
+          release: true);
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> fromFunction(
+          void Function(objc.NSError?) fn) =>
+      objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(
+          objc.newClosureBlock(
+              _ObjCBlock_ffiVoid_NSError_closureCallable,
+              (ffi.Pointer<objc.ObjCObject> arg0) => fn(arg0.address == 0
+                  ? null
+                  : objc.NSError.castFromPointer(arg0,
+                      retain: true, release: true))),
+          retain: false,
+          release: true);
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// Note that unlike the default behavior of NativeCallable.listener, listener
+  /// blocks do not keep the isolate alive.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> listener(
+      void Function(objc.NSError?) fn) {
+    final raw = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_NSError_listenerCallable.nativeFunction.cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0) => fn(arg0.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg0,
+                retain: false, release: true)));
+    final wrapper = _MapLibreFFi_wrapListenerBlock_xtuoz7(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(wrapper,
+        retain: false, release: true);
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// This block does not keep the owner isolate alive. If the owner isolate has
+  /// shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> blocking(
+      void Function(objc.NSError?) fn) {
+    final raw = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_NSError_blockingCallable.nativeFunction.cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0) => fn(arg0.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg0,
+                retain: false, release: true)));
+    final rawListener = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_NSError_blockingListenerCallable.nativeFunction
+            .cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0) => fn(arg0.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg0,
+                retain: false, release: true)));
+    final wrapper = objc.wrapBlockingBlock(
+        _MapLibreFFi_wrapBlockingBlock_xtuoz7, raw, rawListener);
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(wrapper,
+        retain: false, release: true);
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSError?)>`.
+extension ObjCBlock_ffiVoid_NSError_CallExtension
+    on objc.ObjCBlock<ffi.Void Function(objc.NSError?)> {
+  void call(objc.NSError? arg0) => ref.pointer.ref.invoke
+          .cast<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl> block,
+                      ffi.Pointer<objc.ObjCObject> arg0)>>()
+          .asFunction<
+              void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+                  ffi.Pointer<objc.ObjCObject>)>()(
+      ref.pointer, arg0?.ref.pointer ?? ffi.nullptr);
+}
+
+late final _sel_setContext_completionHandler_ =
+    objc.registerName("setContext:completionHandler:");
+late final _sel_state = objc.registerName("state");
+final _objc_msgSend_6gfr3p = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Long Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>)>>()
+    .asFunction<
+        int Function(
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
+late final _sel_progress = objc.registerName("progress");
+final _objc_msgSend_oftva = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            MLNOfflinePackProgress Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>)>>()
+    .asFunction<
+        MLNOfflinePackProgress Function(
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
+final _objc_msgSend_oftvaStret = objc.msgSendStretPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(
+                ffi.Pointer<MLNOfflinePackProgress>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>)>>()
+    .asFunction<
+        void Function(ffi.Pointer<MLNOfflinePackProgress>,
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
+late final _sel_resume = objc.registerName("resume");
+late final _sel_suspend = objc.registerName("suspend");
+late final _sel_requestProgress = objc.registerName("requestProgress");
+
+/// An ``MLNOfflinePack`` represents a collection of resources necessary for viewing
+/// a region offline to a local database.
+///
+/// To create an instance of ``MLNOfflinePack``, use the
+/// ``MLNOfflineStorage/addPackForRegion:withContext:completionHandler:`` method.
+/// A pack created using `MLNOfflinePack/init` is immediately invalid.
+///
+/// ### Example
+/// ```swift
+/// MLNOfflineStorage.shared.addPack(for: region, withContext: context) { (pack, error) in
+/// guard let pack = pack else {
+/// // If adding the pack fails, log an error to console.
+/// print("Error:", error?.localizedDescription ?? "unknown error adding pack at
+/// \(#file)(\(#line)) in \(#function)") return
+/// }
+///
+/// // Start an MLNOfflinePack download
+/// pack.resume()
+/// }
+/// ```
+class MLNOfflinePack extends objc.NSObject {
+  MLNOfflinePack._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNOfflinePack] that points to the same underlying object as [other].
+  MLNOfflinePack.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNOfflinePack] that wraps the given raw object pointer.
+  MLNOfflinePack.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNOfflinePack].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNOfflinePack);
+  }
+
+  /// The region for which the pack manages resources.
+  objc.ObjCObjectBase get region {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_region);
+    return objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// Arbitrary data stored alongside the downloaded resources.
+  ///
+  /// The context typically holds application-specific information for identifying
+  /// the pack, such as a user-selected name.
+  ///
+  /// To change the value of this property, use the `-setContext:completionHandler:`
+  /// method. If you access this property after calling that method but before its
+  /// completion handler is called, this property’s value may not reflect the new
+  /// value that you specify.
+  objc.NSData get context {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_context);
+    return objc.NSData.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Associates arbitrary contextual data with the offline pack, replacing any
+  /// context that was previously associated with the offline pack.
+  ///
+  /// Setting the context is asynchronous. The `context` property may not be updated
+  /// until the completion handler is called.
+  ///
+  /// @param context The new context to associate with the offline pack.
+  /// @param completion The completion handler to call when the context has been
+  /// updated. If there is an error setting the context, the error is passed into
+  /// the completion handler.
+  void setContext_completionHandler_(objc.NSData context,
+      objc.ObjCBlock<ffi.Void Function(objc.NSError?)>? completion) {
+    _objc_msgSend_o762yo(this.ref.pointer, _sel_setContext_completionHandler_,
+        context.ref.pointer, completion?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// The pack’s current state.
+  ///
+  /// The state of an inactive or completed pack is computed lazily and is set to
+  /// ``MLNOfflinePackState/MLNOfflinePackStateUnknown`` by default. To request the pack’s status, use
+  /// the
+  /// `-requestProgress` method. To get notified when the state becomes known and
+  /// when it changes, observe KVO change notifications on this pack’s `state` key
+  /// path. Alternatively, you can add an observer for
+  /// ``MLNOfflinePackProgressChangedNotification``s about this pack that come from the
+  /// default notification center.
+  MLNOfflinePackState get state {
+    final _ret = _objc_msgSend_6gfr3p(this.ref.pointer, _sel_state);
+    return MLNOfflinePackState.fromValue(_ret);
+  }
+
+  /// The pack’s current progress.
+  ///
+  /// The progress of an inactive or completed pack is computed lazily, and all its
+  /// fields are set to 0 by default. To request the pack’s progress, use the
+  /// `-requestProgress` method. To get notified when the progress becomes
+  /// known and when it changes, observe KVO change notifications on this pack’s
+  /// `state` key path. Alternatively, you can add an observer for
+  /// ``MLNOfflinePackProgressChangedNotification``s about this pack that come from the
+  /// default notification center.
+  MLNOfflinePackProgress get progress {
+    final _ptr = pkg_ffi.calloc<MLNOfflinePackProgress>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_oftvaStret(_ptr, this.ref.pointer, _sel_progress)
+        : _ptr.ref = _objc_msgSend_oftva(this.ref.pointer, _sel_progress);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+        ffi.sizeOf<MLNOfflinePackProgress>(),
+        finalizer: pkg_ffi.calloc.nativeFree);
+    return ffi.Struct.create<MLNOfflinePackProgress>(_finalizable);
+  }
+
+  /// Resumes downloading if the pack is inactive.
+  ///
+  /// When a pack resumes after being suspended, it may begin by iterating over the
+  /// already downloaded resources. As a result, the `progress` structure’s
+  /// `countOfResourcesCompleted` field may revert to 0 before rapidly returning to
+  /// the level of progress at the time the pack was suspended.
+  ///
+  /// To temporarily suspend downloading, call the `-suspend` method.
+  void resume() {
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_resume);
+  }
+
+  /// Temporarily stops downloading if the pack is active.
+  ///
+  /// A pack suspends asynchronously, so some network requests may be sent after this
+  /// method is called. Regardless, the `progress` property will not be updated until
+  /// `-resume` is called.
+  ///
+  /// If the pack previously reached a higher level of progress before being
+  /// suspended, it may wait to suspend until it returns to that level.
+  ///
+  /// To resume downloading, call the `-resume` method.
+  void suspend() {
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_suspend);
+  }
+
+  /// Request an asynchronous update to the pack’s `state` and `progress` properties.
+  ///
+  /// The state and progress of an inactive or completed pack are computed lazily. If
+  /// you need the state or progress of a pack whose `state` property is currently
+  /// set to ``MLNOfflinePackState/MLNOfflinePackStateUnknown``, observe KVO change notifications on this
+  /// pack’s `state` key path, then call this method. Alternatively, you can add an
+  /// observer for ``MLNOfflinePackProgressChangedNotification`` about this pack that
+  /// come from the default notification center.
+  void requestProgress() {
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_requestProgress);
+  }
+
+  /// init
+  MLNOfflinePack init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// new
+  static MLNOfflinePack new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNOfflinePack, _sel_new);
+    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNOfflinePack allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret =
+        _objc_msgSend_1cwp428(_class_MLNOfflinePack, _sel_allocWithZone_, zone);
+    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNOfflinePack alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNOfflinePack, _sel_alloc);
+    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MLNOfflinePack self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNOfflinePack.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNOfflinePack retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNOfflinePack.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNOfflinePack autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNOfflinePack.castFromPointer(_ret, retain: true, release: true);
+  }
+}
+
+void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block,
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1) =>
+    block.ref.target
+        .cast<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0,
+                    ffi.Pointer<objc.ObjCObject> arg1)>>()
+        .asFunction<
+            void Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>()(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+                ffi.Void Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<objc.ObjCObject>)>(
+            _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrTrampoline)
+        .cast();
+void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block,
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1) =>
+    (objc.getBlockClosure(block) as void Function(ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
+ffi.Pointer<ffi.Void>
+    _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureCallable =
+    ffi.Pointer.fromFunction<
+                ffi.Void Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<objc.ObjCObject>)>(
+            _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureTrampoline)
+        .cast();
+void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerTrampoline(
+    ffi.Pointer<objc.ObjCBlockImpl> block,
+    ffi.Pointer<objc.ObjCObject> arg0,
+    ffi.Pointer<objc.ObjCObject> arg1) {
+  (objc.getBlockClosure(block) as void Function(
+      ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerCallable = ffi
+        .NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>.listener(
+        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerTrampoline)
+      ..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingTrampoline(
+    ffi.Pointer<objc.ObjCBlockImpl> block,
+    ffi.Pointer<ffi.Void> waiter,
+    ffi.Pointer<objc.ObjCObject> arg0,
+    ffi.Pointer<objc.ObjCObject> arg1) {
+  try {
+    (objc.getBlockClosure(block) as void Function(ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+        ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingCallable = ffi
+        .NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>.isolateLocal(
+        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingTrampoline)
+      ..keepIsolateAlive = false;
+ffi.NativeCallable<
+        ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingListenerCallable = ffi
+        .NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>.listener(
+        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingTrampoline)
+      ..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>`.
+abstract final class ObjCBlock_ffiVoid_MLNOfflinePack_NSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
+      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
+              {bool retain = false, bool release = false}) =>
+          objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
+              pointer,
+              retain: retain,
+              release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)> fromFunctionPointer(
+          ffi.Pointer<
+                  ffi.NativeFunction<
+                      ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0,
+                          ffi.Pointer<objc.ObjCObject> arg1)>>
+              ptr) =>
+      objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
+          objc.newPointerBlock(_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrCallable, ptr.cast()),
+          retain: false,
+          release: true);
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)> fromFunction(
+          void Function(MLNOfflinePack?, objc.NSError?) fn) =>
+      objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
+          objc.newClosureBlock(
+              _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureCallable,
+              (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
+                  arg0.address == 0
+                      ? null
+                      : MLNOfflinePack.castFromPointer(arg0,
+                          retain: true, release: true),
+                  arg1.address == 0 ? null : objc.NSError.castFromPointer(arg1, retain: true, release: true))),
+          retain: false,
+          release: true);
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// Note that unlike the default behavior of NativeCallable.listener, listener
+  /// blocks do not keep the isolate alive.
+  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
+      listener(void Function(MLNOfflinePack?, objc.NSError?) fn) {
+    final raw = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerCallable
+            .nativeFunction
+            .cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0,
+                ffi.Pointer<objc.ObjCObject> arg1) =>
+            fn(
+                arg0.address == 0
+                    ? null
+                    : MLNOfflinePack.castFromPointer(arg0,
+                        retain: false, release: true),
+                arg1.address == 0
+                    ? null
+                    : objc.NSError.castFromPointer(arg1,
+                        retain: false, release: true)));
+    final wrapper = _MapLibreFFi_wrapListenerBlock_pfv6jd(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
+        wrapper,
+        retain: false,
+        release: true);
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// This block does not keep the owner isolate alive. If the owner isolate has
+  /// shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
+      blocking(void Function(MLNOfflinePack?, objc.NSError?) fn) {
+    final raw = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingCallable
+            .nativeFunction
+            .cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0,
+                ffi.Pointer<objc.ObjCObject> arg1) =>
+            fn(
+                arg0.address == 0
+                    ? null
+                    : MLNOfflinePack.castFromPointer(arg0,
+                        retain: false, release: true),
+                arg1.address == 0
+                    ? null
+                    : objc.NSError.castFromPointer(arg1,
+                        retain: false, release: true)));
+    final rawListener = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingListenerCallable
+            .nativeFunction
+            .cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0,
+                ffi.Pointer<objc.ObjCObject> arg1) =>
+            fn(
+                arg0.address == 0
+                    ? null
+                    : MLNOfflinePack.castFromPointer(arg0,
+                        retain: false, release: true),
+                arg1.address == 0
+                    ? null
+                    : objc.NSError.castFromPointer(arg1,
+                        retain: false, release: true)));
+    final wrapper = objc.wrapBlockingBlock(
+        _MapLibreFFi_wrapBlockingBlock_pfv6jd, raw, rawListener);
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
+        wrapper,
+        retain: false,
+        release: true);
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>`.
+extension ObjCBlock_ffiVoid_MLNOfflinePack_NSError_CallExtension
+    on objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)> {
+  void call(MLNOfflinePack? arg0, objc.NSError? arg1) => ref.pointer.ref.invoke
+          .cast<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Pointer<objc.ObjCBlockImpl> block,
+                      ffi.Pointer<objc.ObjCObject> arg0,
+                      ffi.Pointer<objc.ObjCObject> arg1)>>()
+          .asFunction<
+              void Function(
+                  ffi.Pointer<objc.ObjCBlockImpl>,
+                  ffi.Pointer<objc.ObjCObject>,
+                  ffi.Pointer<objc.ObjCObject>)>()(ref.pointer,
+      arg0?.ref.pointer ?? ffi.nullptr, arg1?.ref.pointer ?? ffi.nullptr);
+}
+
+void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block,
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2) =>
+    block.ref.target
+        .cast<
+            ffi.NativeFunction<
+                ffi.Void Function(
+                    ffi.Pointer<objc.ObjCObject> arg0,
+                    ffi.Pointer<objc.ObjCObject> arg1,
+                    ffi.Pointer<objc.ObjCObject> arg2)>>()
+        .asFunction<
+            void Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>()(arg0, arg1, arg2);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+                ffi.Void Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<objc.ObjCObject>)>(
+            _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrTrampoline)
+        .cast();
+void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block,
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2) =>
+    (objc.getBlockClosure(block) as void Function(
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>))(arg0, arg1, arg2);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureCallable =
+    ffi.Pointer.fromFunction<
+                ffi.Void Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<objc.ObjCObject>)>(
+            _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureTrampoline)
+        .cast();
+void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerTrampoline(
+    ffi.Pointer<objc.ObjCBlockImpl> block,
+    ffi.Pointer<objc.ObjCObject> arg0,
+    ffi.Pointer<objc.ObjCObject> arg1,
+    ffi.Pointer<objc.ObjCObject> arg2) {
+  (objc.getBlockClosure(block) as void Function(
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>))(arg0, arg1, arg2);
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+        ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerCallable = ffi
+        .NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>.listener(
+        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerTrampoline)
+      ..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingTrampoline(
+    ffi.Pointer<objc.ObjCBlockImpl> block,
+    ffi.Pointer<ffi.Void> waiter,
+    ffi.Pointer<objc.ObjCObject> arg0,
+    ffi.Pointer<objc.ObjCObject> arg1,
+    ffi.Pointer<objc.ObjCObject> arg2) {
+  try {
+    (objc.getBlockClosure(block) as void Function(
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>))(arg0, arg1, arg2);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+        ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingCallable = ffi
+        .NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>.isolateLocal(
+        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingTrampoline)
+      ..keepIsolateAlive = false;
+ffi.NativeCallable<
+        ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingListenerCallable = ffi
+        .NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>.listener(
+        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingTrampoline)
+      ..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>`.
+abstract final class ObjCBlock_ffiVoid_NSURL_NSArray_NSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc
+      .ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>
+      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
+              {bool retain = false, bool release = false}) =>
+          objc.ObjCBlock<
+              ffi.Void Function(objc.NSURL, objc.NSArray?,
+                  objc.NSError?)>(pointer, retain: retain, release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)> fromFunctionPointer(
+          ffi.Pointer<
+                  ffi.NativeFunction<
+                      ffi.Void Function(
+                          ffi.Pointer<objc.ObjCObject> arg0,
+                          ffi.Pointer<objc.ObjCObject> arg1,
+                          ffi.Pointer<objc.ObjCObject> arg2)>>
+              ptr) =>
+      objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>(
+          objc.newPointerBlock(_ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrCallable, ptr.cast()),
+          retain: false,
+          release: true);
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)> fromFunction(
+          void Function(objc.NSURL, objc.NSArray?, objc.NSError?) fn) =>
+      objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>(
+          objc.newClosureBlock(
+              _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureCallable,
+              (ffi.Pointer<objc.ObjCObject> arg0,
+                      ffi.Pointer<objc.ObjCObject> arg1,
+                      ffi.Pointer<objc.ObjCObject> arg2) =>
+                  fn(
+                      objc.NSURL.castFromPointer(arg0, retain: true, release: true),
+                      arg1.address == 0 ? null : objc.NSArray.castFromPointer(arg1, retain: true, release: true),
+                      arg2.address == 0 ? null : objc.NSError.castFromPointer(arg2, retain: true, release: true))),
+          retain: false,
+          release: true);
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// Note that unlike the default behavior of NativeCallable.listener, listener
+  /// blocks do not keep the isolate alive.
+  static objc
+      .ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>
+      listener(void Function(objc.NSURL, objc.NSArray?, objc.NSError?) fn) {
+    final raw = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerCallable.nativeFunction
+            .cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1,
+                ffi.Pointer<objc.ObjCObject> arg2) =>
+            fn(
+                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+                arg1.address == 0
+                    ? null
+                    : objc.NSArray.castFromPointer(arg1,
+                        retain: false, release: true),
+                arg2.address == 0
+                    ? null
+                    : objc.NSError.castFromPointer(arg2,
+                        retain: false, release: true)));
+    final wrapper = _MapLibreFFi_wrapListenerBlock_r8gdi7(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<
+        ffi.Void Function(objc.NSURL, objc.NSArray?,
+            objc.NSError?)>(wrapper, retain: false, release: true);
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// This block does not keep the owner isolate alive. If the owner isolate has
+  /// shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc
+      .ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>
+      blocking(void Function(objc.NSURL, objc.NSArray?, objc.NSError?) fn) {
+    final raw = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingCallable.nativeFunction
+            .cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1,
+                ffi.Pointer<objc.ObjCObject> arg2) =>
+            fn(
+                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+                arg1.address == 0
+                    ? null
+                    : objc.NSArray.castFromPointer(arg1,
+                        retain: false, release: true),
+                arg2.address == 0
+                    ? null
+                    : objc.NSError.castFromPointer(arg2,
+                        retain: false, release: true)));
+    final rawListener = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingListenerCallable
+            .nativeFunction
+            .cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1,
+                ffi.Pointer<objc.ObjCObject> arg2) =>
+            fn(
+                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+                arg1.address == 0
+                    ? null
+                    : objc.NSArray.castFromPointer(arg1,
+                        retain: false, release: true),
+                arg2.address == 0
+                    ? null
+                    : objc.NSError.castFromPointer(arg2,
+                        retain: false, release: true)));
+    final wrapper = objc.wrapBlockingBlock(
+        _MapLibreFFi_wrapBlockingBlock_r8gdi7, raw, rawListener);
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<
+        ffi.Void Function(objc.NSURL, objc.NSArray?,
+            objc.NSError?)>(wrapper, retain: false, release: true);
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>`.
+extension ObjCBlock_ffiVoid_NSURL_NSArray_NSError_CallExtension on objc
+    .ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)> {
+  void call(objc.NSURL arg0, objc.NSArray? arg1, objc.NSError? arg2) =>
+      ref.pointer.ref.invoke
+              .cast<
+                  ffi.NativeFunction<
+                      ffi.Void Function(
+                          ffi.Pointer<objc.ObjCBlockImpl> block,
+                          ffi.Pointer<objc.ObjCObject> arg0,
+                          ffi.Pointer<objc.ObjCObject> arg1,
+                          ffi.Pointer<objc.ObjCObject> arg2)>>()
+              .asFunction<
+                  void Function(
+                      ffi.Pointer<objc.ObjCBlockImpl>,
+                      ffi.Pointer<objc.ObjCObject>,
+                      ffi.Pointer<objc.ObjCObject>,
+                      ffi.Pointer<objc.ObjCObject>)>()(
+          ref.pointer,
+          arg0.ref.pointer,
+          arg1?.ref.pointer ?? ffi.nullptr,
+          arg2?.ref.pointer ?? ffi.nullptr);
+}
+
+void _ObjCBlock_ffiVoid_NSURL_NSError_fnPtrTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block,
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1) =>
+    block.ref.target
+        .cast<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0,
+                    ffi.Pointer<objc.ObjCObject> arg1)>>()
+        .asFunction<
+            void Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>()(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+                ffi.Void Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<objc.ObjCObject>)>(
+            _ObjCBlock_ffiVoid_NSURL_NSError_fnPtrTrampoline)
+        .cast();
+void _ObjCBlock_ffiVoid_NSURL_NSError_closureTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block,
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1) =>
+    (objc.getBlockClosure(block) as void Function(ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSError_closureCallable =
+    ffi.Pointer.fromFunction<
+                ffi.Void Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<objc.ObjCObject>)>(
+            _ObjCBlock_ffiVoid_NSURL_NSError_closureTrampoline)
+        .cast();
+void _ObjCBlock_ffiVoid_NSURL_NSError_listenerTrampoline(
+    ffi.Pointer<objc.ObjCBlockImpl> block,
+    ffi.Pointer<objc.ObjCObject> arg0,
+    ffi.Pointer<objc.ObjCObject> arg1) {
+  (objc.getBlockClosure(block) as void Function(
+      ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_NSURL_NSError_listenerCallable = ffi.NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>.listener(
+        _ObjCBlock_ffiVoid_NSURL_NSError_listenerTrampoline)
+      ..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_NSURL_NSError_blockingTrampoline(
+    ffi.Pointer<objc.ObjCBlockImpl> block,
+    ffi.Pointer<ffi.Void> waiter,
+    ffi.Pointer<objc.ObjCObject> arg0,
+    ffi.Pointer<objc.ObjCObject> arg1) {
+  try {
+    (objc.getBlockClosure(block) as void Function(ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+        ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_NSURL_NSError_blockingCallable = ffi.NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>.isolateLocal(
+        _ObjCBlock_ffiVoid_NSURL_NSError_blockingTrampoline)
+      ..keepIsolateAlive = false;
+ffi.NativeCallable<
+        ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>)>
+    _ObjCBlock_ffiVoid_NSURL_NSError_blockingListenerCallable = ffi
+        .NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>)>.listener(
+        _ObjCBlock_ffiVoid_NSURL_NSError_blockingTrampoline)
+      ..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>`.
+abstract final class ObjCBlock_ffiVoid_NSURL_NSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>
+      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
+              {bool retain = false, bool release = false}) =>
+          objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(pointer,
+              retain: retain, release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> fromFunctionPointer(
+          ffi.Pointer<
+                  ffi.NativeFunction<
+                      ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0,
+                          ffi.Pointer<objc.ObjCObject> arg1)>>
+              ptr) =>
+      objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(
+          objc.newPointerBlock(_ObjCBlock_ffiVoid_NSURL_NSError_fnPtrCallable, ptr.cast()),
+          retain: false,
+          release: true);
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> fromFunction(
+          void Function(objc.NSURL, objc.NSError?) fn) =>
+      objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(
+          objc.newClosureBlock(
+              _ObjCBlock_ffiVoid_NSURL_NSError_closureCallable,
+              (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
+                  objc.NSURL.castFromPointer(arg0, retain: true, release: true),
+                  arg1.address == 0
+                      ? null
+                      : objc.NSError.castFromPointer(arg1,
+                          retain: true, release: true))),
+          retain: false,
+          release: true);
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// Note that unlike the default behavior of NativeCallable.listener, listener
+  /// blocks do not keep the isolate alive.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> listener(
+      void Function(objc.NSURL, objc.NSError?) fn) {
+    final raw = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_NSURL_NSError_listenerCallable.nativeFunction.cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0,
+                ffi.Pointer<objc.ObjCObject> arg1) =>
+            fn(
+                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+                arg1.address == 0
+                    ? null
+                    : objc.NSError.castFromPointer(arg1,
+                        retain: false, release: true)));
+    final wrapper = _MapLibreFFi_wrapListenerBlock_pfv6jd(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(wrapper,
+        retain: false, release: true);
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// This block does not keep the owner isolate alive. If the owner isolate has
+  /// shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> blocking(
+      void Function(objc.NSURL, objc.NSError?) fn) {
+    final raw = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_NSURL_NSError_blockingCallable.nativeFunction.cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0,
+                ffi.Pointer<objc.ObjCObject> arg1) =>
+            fn(
+                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+                arg1.address == 0
+                    ? null
+                    : objc.NSError.castFromPointer(arg1,
+                        retain: false, release: true)));
+    final rawListener = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_NSURL_NSError_blockingListenerCallable.nativeFunction
+            .cast(),
+        (ffi.Pointer<objc.ObjCObject> arg0,
+                ffi.Pointer<objc.ObjCObject> arg1) =>
+            fn(
+                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+                arg1.address == 0
+                    ? null
+                    : objc.NSError.castFromPointer(arg1,
+                        retain: false, release: true)));
+    final wrapper = objc.wrapBlockingBlock(
+        _MapLibreFFi_wrapBlockingBlock_pfv6jd, raw, rawListener);
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(wrapper,
+        retain: false, release: true);
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>`.
+extension ObjCBlock_ffiVoid_NSURL_NSError_CallExtension
+    on objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> {
+  void call(objc.NSURL arg0, objc.NSError? arg1) => ref.pointer.ref.invoke
+          .cast<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Pointer<objc.ObjCBlockImpl> block,
+                      ffi.Pointer<objc.ObjCObject> arg0,
+                      ffi.Pointer<objc.ObjCObject> arg1)>>()
+          .asFunction<
+              void Function(
+                  ffi.Pointer<objc.ObjCBlockImpl>,
+                  ffi.Pointer<objc.ObjCObject>,
+                  ffi.Pointer<objc.ObjCObject>)>()(
+      ref.pointer, arg0.ref.pointer, arg1?.ref.pointer ?? ffi.nullptr);
+}
+
+late final _class_MLNOfflineStorage = objc.getClass("MLNOfflineStorage");
+late final _sel_sharedOfflineStorage =
+    objc.registerName("sharedOfflineStorage");
+late final _sel_databasePath = objc.registerName("databasePath");
+late final _sel_databaseURL = objc.registerName("databaseURL");
+late final _sel_addContentsOfFile_withCompletionHandler_ =
+    objc.registerName("addContentsOfFile:withCompletionHandler:");
+late final _sel_addContentsOfURL_withCompletionHandler_ =
+    objc.registerName("addContentsOfURL:withCompletionHandler:");
+late final _sel_packs = objc.registerName("packs");
+late final _sel_addPackForRegion_withContext_completionHandler_ =
+    objc.registerName("addPackForRegion:withContext:completionHandler:");
+final _objc_msgSend_18qun1e = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCBlockImpl>)>>()
+    .asFunction<
+        void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCBlockImpl>)>();
+late final _sel_removePack_withCompletionHandler_ =
+    objc.registerName("removePack:withCompletionHandler:");
+late final _sel_invalidatePack_withCompletionHandler_ =
+    objc.registerName("invalidatePack:withCompletionHandler:");
+late final _sel_reloadPacks = objc.registerName("reloadPacks");
+late final _sel_setMaximumAllowedMapboxTiles_ =
+    objc.registerName("setMaximumAllowedMapboxTiles:");
+final _objc_msgSend_1xsl7ae = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>, ffi.Uint64)>>()
+    .asFunction<
+        void Function(ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>, int)>();
+late final _sel_countOfBytesCompleted =
+    objc.registerName("countOfBytesCompleted");
+final _objc_msgSend_1p4gbjy = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.UnsignedLongLong Function(ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>)>>()
+    .asFunction<
+        int Function(
+            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
+late final _sel_setMaximumAmbientCacheSize_withCompletionHandler_ =
+    objc.registerName("setMaximumAmbientCacheSize:withCompletionHandler:");
+final _objc_msgSend_1sq2aut = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.UnsignedLong,
+                ffi.Pointer<objc.ObjCBlockImpl>)>>()
+    .asFunction<
+        void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+            ffi.Pointer<objc.ObjCBlockImpl>)>();
+late final _sel_invalidateAmbientCacheWithCompletionHandler_ =
+    objc.registerName("invalidateAmbientCacheWithCompletionHandler:");
+final _objc_msgSend_f167m6 = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Pointer<objc.ObjCBlockImpl>)>>()
+    .asFunction<
+        void Function(ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>, ffi.Pointer<objc.ObjCBlockImpl>)>();
+late final _sel_clearAmbientCacheWithCompletionHandler_ =
+    objc.registerName("clearAmbientCacheWithCompletionHandler:");
+late final _sel_resetDatabaseWithCompletionHandler_ =
+    objc.registerName("resetDatabaseWithCompletionHandler:");
+late final _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_ =
+    objc.registerName(
+        "preloadData:forURL:modificationDate:expirationDate:eTag:mustRevalidate:");
+final _objc_msgSend_1xt2lpz = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Bool)>>()
+    .asFunction<
+        void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            bool)>();
+late final _sel_putResourceWithUrl_data_modified_expires_etag_mustRevalidate_ =
+    objc.registerName(
+        "putResourceWithUrl:data:modified:expires:etag:mustRevalidate:");
+late final _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_completionHandler_ =
+    objc.registerName(
+        "preloadData:forURL:modificationDate:expirationDate:eTag:mustRevalidate:completionHandler:");
+final _objc_msgSend_899qho = objc.msgSendPointer
+    .cast<
+        ffi.NativeFunction<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Bool,
+                ffi.Pointer<objc.ObjCBlockImpl>)>>()
+    .asFunction<
+        void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+            ffi.Pointer<objc.ObjCBlockImpl>)>();
+
+/// MLNOfflineStorage implements a singleton (shared object) that manages offline
+/// packs and ambient caching. All of this class’s instance methods are asynchronous,
+/// reflecting the fact that offline resources are stored in a database. The shared
+/// object maintains a canonical collection of offline packs in its `packs` property.
+///
+/// Mapbox resources downloaded via this API are subject to separate Vector Tile and
+/// Raster Tile API pricing and are not included in the Maps SDK’s “unlimited” requests.
+/// See <a href="https://www.mapbox.com/pricing/">our pricing page</a> for more
+/// information.
+///
+/// #### Related examples
+/// - <doc:OfflinePackExample>
+/// - <doc:ManageOfflineRegionsExample>
+class MLNOfflineStorage extends objc.NSObject {
+  MLNOfflineStorage._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNOfflineStorage] that points to the same underlying object as [other].
+  MLNOfflineStorage.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNOfflineStorage] that wraps the given raw object pointer.
+  MLNOfflineStorage.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNOfflineStorage].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNOfflineStorage);
+  }
+
+  /// Returns the shared offline storage object.
+  static MLNOfflineStorage getSharedOfflineStorage() {
+    final _ret = _objc_msgSend_151sglz(
+        _class_MLNOfflineStorage, _sel_sharedOfflineStorage);
+    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The receiver’s delegate.
+  ///
+  /// An offline storage object sends messages to its delegate to allow it to
+  /// transform URLs before they are requested from the internet. This can be used
+  /// add or remove custom parameters, or reroute certain requests to other servers
+  /// or endpoints.
+  objc.ObjCObjectBase? get delegate {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_delegate);
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// The receiver’s delegate.
+  ///
+  /// An offline storage object sends messages to its delegate to allow it to
+  /// transform URLs before they are requested from the internet. This can be used
+  /// add or remove custom parameters, or reroute certain requests to other servers
+  /// or endpoints.
+  set delegate(objc.ObjCObjectBase? value) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_setDelegate_, value?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// The file path at which offline packs and the ambient cache are stored.
+  ///
+  /// To customize this path, specify the
+  /// `MLNOfflineStorageDatabasePath`
+  /// key in Info.plist, see <doc:Info.plist_Keys>.
+  objc.NSString get databasePath {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_databasePath);
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The file URL at which offline packs and the ambient cache are stored.
+  ///
+  /// To customize this path, specify the
+  /// `MLNOfflineStorageDatabasePath` key in Info.plist, see <doc:Info.plist_Keys>.
+  objc.NSURL get databaseURL {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_databaseURL);
+    return objc.NSURL.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Adds the offline packs located at the given file path to offline storage.
+  ///
+  /// The file must be a valid offline pack database bundled with the application or
+  /// downloaded separately.
+  ///
+  /// The resulting packs are added or updated to the shared offline storage object’s
+  /// `packs` property, then the `completion` block is executed.
+  ///
+  /// @param filePath A string representation of the file path. The file path must be
+  /// writable as schema updates may be perfomed.
+  /// @param completion The completion handler to call once the contents of the given
+  /// file has been added to offline storage. This handler is executed
+  /// asynchronously on the main queue.
+  void addContentsOfFile_withCompletionHandler_(
+      objc.NSString filePath,
+      objc.ObjCBlock<
+              ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>?
+          completion) {
+    _objc_msgSend_o762yo(
+        this.ref.pointer,
+        _sel_addContentsOfFile_withCompletionHandler_,
+        filePath.ref.pointer,
+        completion?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// Adds the offline packs located at the given URL to offline storage.
+  ///
+  /// The file must be a valid offline pack database bundled with the application or
+  /// downloaded separately.
+  ///
+  /// The resulting packs are added or updated to the shared offline storage object’s
+  /// `packs` property, then the `completion` block is executed.
+  ///
+  /// @param fileURL A file URL specifying the file to add. The URL should be a valid
+  /// system path. The URL must be writable as schema updates may be performed.
+  /// @param completion The completion handler to call once the contents of the given
+  /// file has been added to offline storage. This handler is executed
+  /// asynchronously on the main queue.
+  void addContentsOfURL_withCompletionHandler_(
+      objc.NSURL fileURL,
+      objc.ObjCBlock<
+              ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>?
+          completion) {
+    _objc_msgSend_o762yo(
+        this.ref.pointer,
+        _sel_addContentsOfURL_withCompletionHandler_,
+        fileURL.ref.pointer,
+        completion?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// An array of all known offline packs, in the order in which they were created.
+  ///
+  /// This property is set to `nil`, indicating that the receiver does not yet know
+  /// the existing packs, for an undefined amount of time starting from the moment
+  /// the shared offline storage object is initialized until the packs are fetched
+  /// from the database. After that point, this property is always non-nil, but it
+  /// may be empty to indicate that no packs are present.
+  ///
+  /// To detect when the shared offline storage object has finished loading its
+  /// `packs` property, observe KVO change notifications on the `packs` key path.
+  /// The initial load results in an `NSKeyValueChangeSetting` change.
+  objc.NSArray? get packs {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_packs);
+    return _ret.address == 0
+        ? null
+        : objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Creates and registers an offline pack that downloads the resources needed to
+  /// use the given region offline.
+  ///
+  /// The resulting pack is added to the shared offline storage object’s `packs`
+  /// property, then the `completion` block is executed with that pack passed in.
+  ///
+  /// The pack has an initial state of ``MLNOfflinePackState/MLNOfflinePackStateInactive``. To begin
+  /// downloading resources, call ``MLNOfflinePack/resume`` on the pack from within
+  /// the completion handler. To monitor download progress, add an observer for
+  /// ``MLNOfflinePackProgressChangedNotification``s about that pack.
+  ///
+  /// To detect when any call to this method results in a new pack, observe KVO
+  /// change notifications on the shared offline storage object’s `packs` key path.
+  /// Additions to that array result in an `NSKeyValueChangeInsertion` change.
+  ///
+  /// @param region A region to download.
+  /// @param context Arbitrary data to store alongside the downloaded resources.
+  /// @param completion The completion handler to call once the pack has been added.
+  /// This handler is executed asynchronously on the main queue.
+  void addPackForRegion_withContext_completionHandler_(
+      objc.ObjCObjectBase region,
+      objc.NSData context,
+      objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>?
+          completion) {
+    _objc_msgSend_18qun1e(
+        this.ref.pointer,
+        _sel_addPackForRegion_withContext_completionHandler_,
+        region.ref.pointer,
+        context.ref.pointer,
+        completion?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// Unregisters the given offline pack and allows resources that are no longer
+  /// required by any remaining packs to be potentially freed.
+  ///
+  /// As soon as this method is called on a pack, the pack becomes invalid; any
+  /// attempt to send it a message will result in an exception being thrown. If an
+  /// error occurs and the pack cannot be removed, do not attempt to reuse the pack
+  /// object. Instead, if you need continued access to the pack, suspend all packs
+  /// and use the ``MLNOfflineStorage/reloadPacks`` method to obtain valid pointers to all the packs.
+  ///
+  /// To detect when any call to this method results in a pack being removed, observe
+  /// KVO change notifications on the shared offline storage object’s `packs` key
+  /// path. Removals from that array result in an `NSKeyValueChangeRemoval` change.
+  ///
+  /// When you remove an offline pack, any resources that are required by that pack,
+  /// but not other packs, become eligible for deletion from offline storage. Because
+  /// the backing store used for offline storage is also used as a general purpose
+  /// cache for map resources, such resources may not be immediately removed if the
+  /// implementation determines that they remain useful for general performance of
+  /// the map.
+  ///
+  /// @param pack The offline pack to remove.
+  /// @param completion The completion handler to call once the pack has been
+  /// removed. This handler is executed asynchronously on the main queue.
+  void removePack_withCompletionHandler_(MLNOfflinePack pack,
+      objc.ObjCBlock<ffi.Void Function(objc.NSError?)>? completion) {
+    _objc_msgSend_o762yo(
+        this.ref.pointer,
+        _sel_removePack_withCompletionHandler_,
+        pack.ref.pointer,
+        completion?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// Invalidates the specified offline pack. This method checks that the tiles
+  /// in the specified offline pack match those from the server. Local tiles that
+  /// do not match the latest version on the server are updated.
+  ///
+  /// This is more efficient than deleting the offline pack and downloading it
+  /// again. If the data stored locally matches that on the server, new data will
+  /// not be downloaded.
+  ///
+  /// @param pack The offline pack to be invalidated.
+  /// @param completion The completion handler to call once the pack has been
+  /// removed. This handler is executed asynchronously on the main queue.
+  void invalidatePack_withCompletionHandler_(MLNOfflinePack pack,
+      objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion) {
+    _objc_msgSend_o762yo(
+        this.ref.pointer,
+        _sel_invalidatePack_withCompletionHandler_,
+        pack.ref.pointer,
+        completion.ref.pointer);
+  }
+
+  /// Forcibly, asynchronously reloads the `packs` property. At some point after this
+  /// method is called, the pointer values of the ``MLNOfflinePack`` objects in the
+  /// `packs` property change, even if the underlying data for these packs has not
+  /// changed. If this method is called while a pack is actively downloading, the
+  /// behavior is undefined.
+  ///
+  /// You typically do not need to call this method.
+  ///
+  /// To detect when the shared offline storage object has finished reloading its
+  /// `packs` property, observe KVO change notifications on the `packs` key path.
+  /// A reload results in an `NSKeyValueChangeSetting` change.
+  void reloadPacks() {
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_reloadPacks);
+  }
+
+  /// Sets the maximum number of tiles that may be downloaded and
+  /// stored on the current device.
+  ///
+  /// Once this limit is reached, an
+  /// ``MLNOfflinePackMaximumMapboxTilesReachedNotification`` is posted for every
+  /// attempt to download additional tiles until already downloaded tiles are removed
+  /// by calling the ``MLNOfflineStorage/removePack:withCompletionHandler:`` method.
+  ///
+  /// @param maximumCount The maximum number of tiles allowed to be downloaded.
+  void setMaximumAllowedMapboxTiles_(int maximumCount) {
+    _objc_msgSend_1xsl7ae(
+        this.ref.pointer, _sel_setMaximumAllowedMapboxTiles_, maximumCount);
+  }
+
+  /// The cumulative size, measured in bytes, of all downloaded resources on disk.
+  ///
+  /// The returned value includes all resources, including tiles, whether downloaded
+  /// as part of an offline pack or due to caching during normal use of ``MLNMapView``.
+  int get countOfBytesCompleted {
+    return _objc_msgSend_1p4gbjy(this.ref.pointer, _sel_countOfBytesCompleted);
+  }
+
+  /// Sets the maximum ambient cache size in bytes. The default maximum cache
+  /// size is 50 MB. To disable ambient caching, set the maximum ambient cache size
+  /// to `0`. Setting the maximum ambient cache size does not impact the maximum size
+  /// of offline packs.
+  ///
+  /// This method does not limit the space available to offline packs, and data in
+  /// offline packs does not count towards this limit. If you set the maximum ambient
+  /// cache size to 30 MB then download 20 MB of offline packs, 30 MB will remain
+  /// available for the ambient cache.
+  ///
+  /// This method should be called before the map and map style have been loaded.
+  ///
+  /// This method is potentially expensive, as the database will trim cached data
+  /// in order to prevent the ambient cache from being larger than the
+  /// specified amount.
+  ///
+  /// @param cacheSize The maximum size in bytes for the ambient cache.
+  /// @param completion The completion handler to call once the maximum ambient cache
+  /// size has been set. This handler is executed synchronously on the main queue.
+  void setMaximumAmbientCacheSize_withCompletionHandler_(int cacheSize,
+      objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion) {
+    _objc_msgSend_1sq2aut(
+        this.ref.pointer,
+        _sel_setMaximumAmbientCacheSize_withCompletionHandler_,
+        cacheSize,
+        completion.ref.pointer);
+  }
+
+  /// Invalidates the ambient cache. This method checks that the tiles in the
+  /// ambient cache match those from the server. If the local tiles do not match
+  /// those on the server, they are re-downloaded.
+  ///
+  /// This is recommended over clearing the cache or resetting the database
+  /// because valid local tiles will not be downloaded again.
+  ///
+  /// Resources shared with offline packs will not be affected by this method.
+  ///
+  /// @param completion The completion handler to call once the ambient cache has
+  /// been revalidated. This handler is executed asynchronously on the main queue.
+  void invalidateAmbientCacheWithCompletionHandler_(
+      objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion) {
+    _objc_msgSend_f167m6(
+        this.ref.pointer,
+        _sel_invalidateAmbientCacheWithCompletionHandler_,
+        completion.ref.pointer);
+  }
+
+  /// Clears the ambient cache by deleting resources. This method does not affect
+  /// resources shared with offline regions.
+  ///
+  /// @param completion The completion handler to call once resources from the
+  /// ambient cache have been cleared. This handler is executed asynchronously on
+  /// the main queue.
+  void clearAmbientCacheWithCompletionHandler_(
+      objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion) {
+    _objc_msgSend_f167m6(this.ref.pointer,
+        _sel_clearAmbientCacheWithCompletionHandler_, completion.ref.pointer);
+  }
+
+  /// Deletes the existing database, which includes both the ambient cache and
+  /// offline packs, then reinitializes it.
+  ///
+  /// You typically do not need to call this method.
+  ///
+  /// @param completion The completion handler to call once the pack has database has
+  /// been reset. This handler is executed asynchronously on the main queue.
+  void resetDatabaseWithCompletionHandler_(
+      objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion) {
+    _objc_msgSend_f167m6(this.ref.pointer,
+        _sel_resetDatabaseWithCompletionHandler_, completion.ref.pointer);
+  }
+
+  /// Inserts the provided resource into the ambient cache.
+  ///
+  /// This method mimics the caching that would take place if the equivalent resource
+  /// were requested in the process of map rendering. Use this method to pre-warm the
+  /// cache with resources you know will be requested.
+  ///
+  /// This method is asynchronous; the data may not be immediately available for
+  /// in-progress requests, though subsequent requests should have access to the
+  /// cached data.
+  ///
+  /// To find out when the resource is ready to retrieve from the cache, use the
+  /// ``MLNOfflineStorage/preloadData:forURL:modificationDate:expirationDate:eTag:mustRevalidate:completionHandler:``
+  /// method.
+  ///
+  /// @param data Response data to store for this resource. The data is expected to
+  /// be uncompressed; internally, the cache will compress data as necessary.
+  /// @param url The URL at which the data can normally be found.
+  /// @param modified The date the resource was last modified.
+  /// @param expires The date after which the resource is no longer valid.
+  /// @param eTag An HTTP entity tag.
+  /// @param mustRevalidate A Boolean value indicating whether the data is still
+  /// usable past the expiration date.
+  void preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_(
+      objc.NSData data,
+      objc.NSURL url,
+      objc.NSDate? modified,
+      objc.NSDate? expires,
+      objc.NSString? eTag,
+      bool mustRevalidate) {
+    _objc_msgSend_1xt2lpz(
+        this.ref.pointer,
+        _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_,
+        data.ref.pointer,
+        url.ref.pointer,
+        modified?.ref.pointer ?? ffi.nullptr,
+        expires?.ref.pointer ?? ffi.nullptr,
+        eTag?.ref.pointer ?? ffi.nullptr,
+        mustRevalidate);
+  }
+
+  /// putResourceWithUrl:data:modified:expires:etag:mustRevalidate:
+  void putResourceWithUrl_data_modified_expires_etag_mustRevalidate_(
+      objc.NSURL url,
+      objc.NSData data,
+      objc.NSDate? modified,
+      objc.NSDate? expires,
+      objc.NSString? etag,
+      bool mustRevalidate) {
+    _objc_msgSend_1xt2lpz(
+        this.ref.pointer,
+        _sel_putResourceWithUrl_data_modified_expires_etag_mustRevalidate_,
+        url.ref.pointer,
+        data.ref.pointer,
+        modified?.ref.pointer ?? ffi.nullptr,
+        expires?.ref.pointer ?? ffi.nullptr,
+        etag?.ref.pointer ?? ffi.nullptr,
+        mustRevalidate);
+  }
+
+  /// Inserts the provided resource into the ambient cache, calling a completion
+  /// handler when finished.
+  ///
+  /// This method is asynchronous. The data is available for in-progress requests as
+  /// soon as the completion handler is called.
+  ///
+  /// This method is asynchronous; the data may not be immediately available for
+  /// in-progress requests, though subsequent requests should have access to the
+  /// cached data.
+  ///
+  /// @param data Response data to store for this resource. The data is expected to
+  /// be uncompressed; internally, the cache will compress data as necessary.
+  /// @param url The URL at which the data can normally be found.
+  /// @param modified The date the resource was last modified.
+  /// @param expires The date after which the resource is no longer valid.
+  /// @param eTag An HTTP entity tag.
+  /// @param mustRevalidate A Boolean value indicating whether the data is still
+  /// usable past the expiration date.
+  /// @param completion The completion handler to call once the data has been
+  /// preloaded. This handler is executed asynchronously on the main queue.
+  void
+      preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_completionHandler_(
+          objc.NSData data,
+          objc.NSURL url,
+          objc.NSDate? modified,
+          objc.NSDate? expires,
+          objc.NSString? eTag,
+          bool mustRevalidate,
+          objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>?
+              completion) {
+    _objc_msgSend_899qho(
+        this.ref.pointer,
+        _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_completionHandler_,
+        data.ref.pointer,
+        url.ref.pointer,
+        modified?.ref.pointer ?? ffi.nullptr,
+        expires?.ref.pointer ?? ffi.nullptr,
+        eTag?.ref.pointer ?? ffi.nullptr,
+        mustRevalidate,
+        completion?.ref.pointer ?? ffi.nullptr);
+  }
+
+  /// init
+  MLNOfflineStorage init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MLNOfflineStorage.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// new
+  static MLNOfflineStorage new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNOfflineStorage, _sel_new);
+    return MLNOfflineStorage.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNOfflineStorage allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+        _class_MLNOfflineStorage, _sel_allocWithZone_, zone);
+    return MLNOfflineStorage.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNOfflineStorage alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNOfflineStorage, _sel_alloc);
+    return MLNOfflineStorage.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// self
+  MLNOfflineStorage self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNOfflineStorage retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNOfflineStorage autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
+  }
+}
+
+late final _class_MLNRasterTileSource = objc.getClass("MLNRasterTileSource");
+late final _sel_initWithIdentifier_configurationURL_tileSize_ =
+    objc.registerName("initWithIdentifier:configurationURL:tileSize:");
+
+/// ``MLNRasterTileSource`` is a map content source that supplies raster image tiles
+/// to be shown on the map. The location of and metadata about the tiles are
+/// defined either by an option dictionary or by an external file that conforms to
+/// the
+/// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+/// A raster tile source is added to an ``MLNStyle`` object along with one or more
+/// ``MLNRasterStyleLayer`` objects. Use a raster style layer to control the
+/// appearance of content supplied by the raster tile source.
+///
+/// Each
+/// <a href="https://maplibre.org/maplibre-style-spec/#sources-raster"><code>raster</code></a>
+/// source defined by the style JSON file is represented at runtime by an
+/// ``MLNRasterTileSource`` object that you can use to initialize new style layers. You
+/// can also add and remove sources dynamically using methods such as
+/// ``MLNStyle/addSource:`` and ``MLNStyle/sourceWithIdentifier:``.
+///
+/// ### Example
+///
+/// ```swift
+/// let source = MLNRasterTileSource(identifier: "clouds", tileURLTemplates:
+/// ["https://example.com/raster-tiles/{z}/{x}/{y}.png"], options: [ .minimumZoomLevel: 9,
+/// .maximumZoomLevel: 16,
+/// .tileSize: 512,
+/// .attributionInfos: [
+/// MLNAttributionInfo(title: NSAttributedString(string: "© Mapbox"), url: URL(string:
+/// "https://mapbox.com"))
+/// ]
+/// ])
+/// mapView.style?.addSource(source)
+/// ```
+///
+/// #### Related examples
+/// TODO: Add raster imagery, learn how to add a ``MLNRasterStyleLayer``
+/// to your map using an ``MLNRasterTileSource``.
+class MLNRasterTileSource extends MLNTileSource {
+  MLNRasterTileSource._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNRasterTileSource] that points to the same underlying object as [other].
+  MLNRasterTileSource.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNRasterTileSource] that wraps the given raw object pointer.
+  MLNRasterTileSource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNRasterTileSource].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNRasterTileSource);
+  }
+
+  /// Returns a raster tile source initialized with an identifier and configuration
+  /// URL.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// The URL may be a full HTTP or HTTPS URL or canonical URL. The URL should
+  /// point to a JSON file that conforms to the
+  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+  ///
+  /// If a Mapbox URL is specified, this source uses a tile size of 256. For all
+  /// other tilesets, the default value is 512. (See the
+  /// ``MLNTileSourceOptionTileSize`` documentation for more information about tile
+  /// sizes.) If you need to use a tile size other than the default, use the
+  /// `-initWithIdentifier:configurationURL:tileSize:` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param configurationURL A URL to a TileJSON configuration file describing the
+  /// source’s contents and other metadata.
+  /// @return An initialized raster tile source.
+  MLNRasterTileSource initWithIdentifier_configurationURL_(
+      objc.NSString identifier, objc.NSURL configurationURL) {
+    final _ret = _objc_msgSend_15qeuct(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_configurationURL_,
+        identifier.ref.pointer,
+        configurationURL.ref.pointer);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// Returns a raster tile source initialized with an identifier, configuration URL,
+  /// and tile size.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// The URL may be a full HTTP or HTTPS URL or, canonical URL. The URL should
+  /// point to a JSON file that conforms to the
+  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param configurationURL A URL to a TileJSON configuration file describing the
+  /// source’s contents and other metadata.
+  /// @param tileSize The width and height (measured in points) of each tiled image
+  /// in the raster tile source. See the ``MLNTileSourceOptionTileSize``
+  /// documentation for details.
+  /// @return An initialized raster tile source.
+  MLNRasterTileSource initWithIdentifier_configurationURL_tileSize_(
+      objc.NSString identifier, objc.NSURL configurationURL, double tileSize) {
+    final _ret = _objc_msgSend_hzzkpm(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_configurationURL_tileSize_,
+        identifier.ref.pointer,
+        configurationURL.ref.pointer,
+        tileSize);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// Returns a raster tile source initialized an identifier, tile URL templates, and
+  /// options.
+  ///
+  /// Tile URL templates are strings that specify the URLs of the raster tile images
+  /// to load. See the “<a href="../tile-url-templates.html">Tile URL Templates</a>”
+  /// guide for information about the format of a tile URL template.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param tileURLTemplates An array of tile URL template strings. Only the first
+  /// string is used; any additional strings are ignored.
+  /// @param options A dictionary containing configuration options. See
+  /// ``MLNTileSourceOption`` for available keys and values. Pass in `nil` to use
+  /// the default values.
+  /// @return An initialized tile source.
+  MLNRasterTileSource initWithIdentifier_tileURLTemplates_options_(
+      objc.NSString identifier,
+      objc.NSArray tileURLTemplates,
+      objc.NSDictionary? options) {
+    final _ret = _objc_msgSend_11spmsz(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_tileURLTemplates_options_,
+        identifier.ref.pointer,
+        tileURLTemplates.ref.pointer,
+        options?.ref.pointer ?? ffi.nullptr);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// init
+  MLNRasterTileSource init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNRasterTileSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_, identifier.ref.pointer);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// new
+  static MLNRasterTileSource new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNRasterTileSource, _sel_new);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNRasterTileSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+        _class_MLNRasterTileSource, _sel_allocWithZone_, zone);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNRasterTileSource alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNRasterTileSource, _sel_alloc);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// self
+  MLNRasterTileSource self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+
+  /// retain
+  MLNRasterTileSource retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNRasterTileSource autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNRasterTileSource.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+}
+
+late final _class_MLNRasterDEMSource = objc.getClass("MLNRasterDEMSource");
+
+/// ``MLNRasterDEMSource`` is a map content source that supplies rasterized
+/// <a href="https://en.wikipedia.org/wiki/Digital_elevation_model">digital elevation model</a>
+/// (DEM) tiles to be shown on the map. The location of and metadata about the
+/// tiles are defined either by an option dictionary or by an external file that
+/// conforms to the
+/// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+/// A raster DEM source is added to an ``MLNStyle`` object along with one or more
+/// ``MLNHillshadeStyleLayer`` objects. Use a hillshade style layer to control the
+/// appearance of content supplied by the raster DEM source.
+///
+/// Each
+/// <a href="https://maplibre.org/maplibre-style-spec/#sources-raster-dem"><code>raster-dem</code></a>
+/// source defined by the style JSON file is represented at runtime by an
+/// ``MLNRasterDEMSource`` object that you can use to initialize new style layers.
+/// You can also add and remove sources dynamically using methods such as
+/// ``MLNStyle/addSource:`` and ``MLNStyle/sourceWithIdentifier:``.
+///
+/// Currently, raster DEM sources only support the format used by
+/// <a
+/// href="https://docs.mapbox.com/help/troubleshooting/access-elevation-data/#mapbox-terrain-rgb">Mapbox
+/// Terrain-RGB</a>.
+///
+/// ### Example
+///
+/// ```swift
+/// let terrainRGBURL = URL(string: "maptiler://sources/terrain-rgb")!
+/// let source = MLNRasterDEMSource(identifier: "hills", configurationURL: terrainRGBURL)
+/// mapView.style?.addSource(source)
+/// ```
+class MLNRasterDEMSource extends MLNRasterTileSource {
+  MLNRasterDEMSource._(ffi.Pointer<objc.ObjCObject> pointer,
+      {bool retain = false, bool release = false})
+      : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNRasterDEMSource] that points to the same underlying object as [other].
+  MLNRasterDEMSource.castFrom(objc.ObjCObjectBase other)
+      : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNRasterDEMSource] that wraps the given raw object pointer.
+  MLNRasterDEMSource.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false, bool release = false})
+      : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNRasterDEMSource].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNRasterDEMSource);
+  }
+
+  /// Returns a raster tile source initialized with an identifier and configuration
+  /// URL.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// The URL may be a full HTTP or HTTPS URL or canonical URL. The URL should
+  /// point to a JSON file that conforms to the
+  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+  ///
+  /// If a Mapbox URL is specified, this source uses a tile size of 256. For all
+  /// other tilesets, the default value is 512. (See the
+  /// ``MLNTileSourceOptionTileSize`` documentation for more information about tile
+  /// sizes.) If you need to use a tile size other than the default, use the
+  /// `-initWithIdentifier:configurationURL:tileSize:` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param configurationURL A URL to a TileJSON configuration file describing the
+  /// source’s contents and other metadata.
+  /// @return An initialized raster tile source.
+  MLNRasterDEMSource initWithIdentifier_configurationURL_(
+      objc.NSString identifier, objc.NSURL configurationURL) {
+    final _ret = _objc_msgSend_15qeuct(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_configurationURL_,
+        identifier.ref.pointer,
+        configurationURL.ref.pointer);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// Returns a raster tile source initialized with an identifier, configuration URL,
+  /// and tile size.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// The URL may be a full HTTP or HTTPS URL or, canonical URL. The URL should
+  /// point to a JSON file that conforms to the
+  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param configurationURL A URL to a TileJSON configuration file describing the
+  /// source’s contents and other metadata.
+  /// @param tileSize The width and height (measured in points) of each tiled image
+  /// in the raster tile source. See the ``MLNTileSourceOptionTileSize``
+  /// documentation for details.
+  /// @return An initialized raster tile source.
+  MLNRasterDEMSource initWithIdentifier_configurationURL_tileSize_(
+      objc.NSString identifier, objc.NSURL configurationURL, double tileSize) {
+    final _ret = _objc_msgSend_hzzkpm(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_configurationURL_tileSize_,
+        identifier.ref.pointer,
+        configurationURL.ref.pointer,
+        tileSize);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// Returns a raster tile source initialized an identifier, tile URL templates, and
+  /// options.
+  ///
+  /// Tile URL templates are strings that specify the URLs of the raster tile images
+  /// to load. See the “<a href="../tile-url-templates.html">Tile URL Templates</a>”
+  /// guide for information about the format of a tile URL template.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param tileURLTemplates An array of tile URL template strings. Only the first
+  /// string is used; any additional strings are ignored.
+  /// @param options A dictionary containing configuration options. See
+  /// ``MLNTileSourceOption`` for available keys and values. Pass in `nil` to use
+  /// the default values.
+  /// @return An initialized tile source.
+  MLNRasterDEMSource initWithIdentifier_tileURLTemplates_options_(
+      objc.NSString identifier,
+      objc.NSArray tileURLTemplates,
+      objc.NSDictionary? options) {
+    final _ret = _objc_msgSend_11spmsz(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_tileURLTemplates_options_,
+        identifier.ref.pointer,
+        tileURLTemplates.ref.pointer,
+        options?.ref.pointer ?? ffi.nullptr);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// init
+  MLNRasterDEMSource init() {
+    final _ret =
+        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNRasterDEMSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
+        _sel_initWithIdentifier_, identifier.ref.pointer);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// new
+  static MLNRasterDEMSource new1() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNRasterDEMSource, _sel_new);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNRasterDEMSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+        _class_MLNRasterDEMSource, _sel_allocWithZone_, zone);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNRasterDEMSource alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNRasterDEMSource, _sel_alloc);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// self
+  MLNRasterDEMSource self() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+
+  /// retain
+  MLNRasterDEMSource retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNRasterDEMSource autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNRasterDEMSource.castFromPointer(_ret,
+        retain: true, release: true);
   }
 }
 
@@ -26025,197 +29031,538 @@ class MLNSymbolStyleLayer extends MLNVectorStyleLayer {
   }
 }
 
-/// The attribution info is represented in the longest format available.
-enum MLNAttributionInfoStyle {
-  /// Specifies a short attribution info style.
-  MLNAttributionInfoStyleShort(1),
-
-  /// Specifies a medium attribution info style.
-  MLNAttributionInfoStyleMedium(2),
-
-  /// Specifies a long attribution info style.
-  MLNAttributionInfoStyleLong(3);
-
-  final int value;
-  const MLNAttributionInfoStyle(this.value);
-
-  static MLNAttributionInfoStyle fromValue(int value) => switch (value) {
-        1 => MLNAttributionInfoStyleShort,
-        2 => MLNAttributionInfoStyleMedium,
-        3 => MLNAttributionInfoStyleLong,
-        _ => throw ArgumentError(
-            "Unknown value for MLNAttributionInfoStyle: $value"),
-      };
-}
-
-late final _class_MLNAttributionInfo = objc.getClass("MLNAttributionInfo");
-late final _sel_initWithTitle_URL_ = objc.registerName("initWithTitle:URL:");
-late final _sel_isFeedbackLink = objc.registerName("isFeedbackLink");
-late final _sel_setFeedbackLink_ = objc.registerName("setFeedbackLink:");
-late final _sel_titleWithStyle_ = objc.registerName("titleWithStyle:");
-final _objc_msgSend_1sadrrm = objc.msgSendPointer
+late final _class_MLNTilePyramidOfflineRegion =
+    objc.getClass("MLNTilePyramidOfflineRegion");
+late final _sel_bounds = objc.registerName("bounds");
+late final _sel_initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_ =
+    objc.registerName("initWithStyleURL:bounds:fromZoomLevel:toZoomLevel:");
+final _objc_msgSend_s3spq = objc.msgSendPointer
     .cast<
         ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>, ffi.UnsignedLong)>>()
+            ffi.Pointer<objc.ObjCObject> Function(
+                ffi.Pointer<objc.ObjCObject>,
+                ffi.Pointer<objc.ObjCSelector>,
+                ffi.Pointer<objc.ObjCObject>,
+                MLNCoordinateBounds,
+                ffi.Double,
+                ffi.Double)>>()
     .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, int)>();
+        ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            MLNCoordinateBounds,
+            double,
+            double)>();
+ffi.Pointer<objc.ObjCObject> _ObjCBlock_NSURL_ffiVoid_fnPtrTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block, ffi.Pointer<ffi.Void> arg0) =>
+    block.ref.target
+        .cast<
+            ffi.NativeFunction<
+                ffi.Pointer<objc.ObjCObject> Function(
+                    ffi.Pointer<ffi.Void> arg0)>>()
+        .asFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+                ffi.Pointer<ffi.Void>)>()(arg0);
+ffi.Pointer<ffi.Void> _ObjCBlock_NSURL_ffiVoid_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+                ffi.Pointer<objc.ObjCObject> Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<ffi.Void>)>(
+            _ObjCBlock_NSURL_ffiVoid_fnPtrTrampoline)
+        .cast();
+ffi.Pointer<objc.ObjCObject> _ObjCBlock_NSURL_ffiVoid_closureTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block, ffi.Pointer<ffi.Void> arg0) =>
+    (objc.getBlockClosure(block) as ffi.Pointer<objc.ObjCObject> Function(
+        ffi.Pointer<ffi.Void>))(arg0);
+ffi.Pointer<ffi.Void> _ObjCBlock_NSURL_ffiVoid_closureCallable =
+    ffi.Pointer.fromFunction<
+                ffi.Pointer<objc.ObjCObject> Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<ffi.Void>)>(
+            _ObjCBlock_NSURL_ffiVoid_closureTrampoline)
+        .cast();
 
-/// Information about an attribution statement, usually a copyright or trademark
-/// statement, associated with a map content source.
-class MLNAttributionInfo extends objc.NSObject {
-  MLNAttributionInfo._(ffi.Pointer<objc.ObjCObject> pointer,
+/// Construction methods for `objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>`.
+abstract final class ObjCBlock_NSURL_ffiVoid {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>
+      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
+              {bool retain = false, bool release = false}) =>
+          objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>(pointer,
+              retain: retain, release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc
+      .ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)> fromFunctionPointer(
+              ffi.Pointer<
+                      ffi.NativeFunction<
+                          ffi.Pointer<objc.ObjCObject> Function(
+                              ffi.Pointer<ffi.Void> arg0)>>
+                  ptr) =>
+          objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>(
+              objc.newPointerBlock(_ObjCBlock_NSURL_ffiVoid_fnPtrCallable, ptr.cast()),
+              retain: false,
+              release: true);
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>
+      fromFunction(objc.NSURL Function(ffi.Pointer<ffi.Void>) fn) =>
+          objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>(
+              objc.newClosureBlock(
+                  _ObjCBlock_NSURL_ffiVoid_closureCallable,
+                  (ffi.Pointer<ffi.Void> arg0) =>
+                      fn(arg0).ref.retainAndAutorelease()),
+              retain: false,
+              release: true);
+}
+
+/// Call operator for `objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>`.
+extension ObjCBlock_NSURL_ffiVoid_CallExtension
+    on objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)> {
+  objc.NSURL call(ffi.Pointer<ffi.Void> arg0) => objc.NSURL.castFromPointer(
+      ref.pointer.ref.invoke
+          .cast<
+              ffi.NativeFunction<
+                  ffi.Pointer<objc.ObjCObject> Function(
+                      ffi.Pointer<objc.ObjCBlockImpl> block,
+                      ffi.Pointer<ffi.Void> arg0)>>()
+          .asFunction<
+              ffi.Pointer<objc.ObjCObject> Function(
+                  ffi.Pointer<objc.ObjCBlockImpl>,
+                  ffi.Pointer<ffi.Void>)>()(ref.pointer, arg0),
+      retain: true,
+      release: true);
+}
+
+late final _sel_includesIdeographicGlyphs =
+    objc.registerName("includesIdeographicGlyphs");
+late final _sel_setIncludesIdeographicGlyphs_ =
+    objc.registerName("setIncludesIdeographicGlyphs:");
+void _ObjCBlock_ffiVoid_ffiVoid_bool_fnPtrTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block,
+        ffi.Pointer<ffi.Void> arg0,
+        bool arg1) =>
+    block.ref.target
+        .cast<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void> arg0, ffi.Bool arg1)>>()
+        .asFunction<void Function(ffi.Pointer<ffi.Void>, bool)>()(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_ffiVoid_bool_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Bool)>(_ObjCBlock_ffiVoid_ffiVoid_bool_fnPtrTrampoline)
+        .cast();
+void _ObjCBlock_ffiVoid_ffiVoid_bool_closureTrampoline(
+        ffi.Pointer<objc.ObjCBlockImpl> block,
+        ffi.Pointer<ffi.Void> arg0,
+        bool arg1) =>
+    (objc.getBlockClosure(block) as void Function(ffi.Pointer<ffi.Void>, bool))(
+        arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_ffiVoid_bool_closureCallable =
+    ffi.Pointer.fromFunction<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Bool)>(_ObjCBlock_ffiVoid_ffiVoid_bool_closureTrampoline)
+        .cast();
+void _ObjCBlock_ffiVoid_ffiVoid_bool_listenerTrampoline(
+    ffi.Pointer<objc.ObjCBlockImpl> block,
+    ffi.Pointer<ffi.Void> arg0,
+    bool arg1) {
+  (objc.getBlockClosure(block) as void Function(ffi.Pointer<ffi.Void>, bool))(
+      arg0, arg1);
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+        ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<ffi.Void>, ffi.Bool)>
+    _ObjCBlock_ffiVoid_ffiVoid_bool_listenerCallable = ffi.NativeCallable<
+            ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>, ffi.Bool)>.listener(
+        _ObjCBlock_ffiVoid_ffiVoid_bool_listenerTrampoline)
+      ..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_ffiVoid_bool_blockingTrampoline(
+    ffi.Pointer<objc.ObjCBlockImpl> block,
+    ffi.Pointer<ffi.Void> waiter,
+    ffi.Pointer<ffi.Void> arg0,
+    bool arg1) {
+  try {
+    (objc.getBlockClosure(block) as void Function(ffi.Pointer<ffi.Void>, bool))(
+        arg0, arg1);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Bool)>
+    _ObjCBlock_ffiVoid_ffiVoid_bool_blockingCallable = ffi.NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Bool)>.isolateLocal(
+        _ObjCBlock_ffiVoid_ffiVoid_bool_blockingTrampoline)
+      ..keepIsolateAlive = false;
+ffi.NativeCallable<
+        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Bool)>
+    _ObjCBlock_ffiVoid_ffiVoid_bool_blockingListenerCallable = ffi
+        .NativeCallable<
+            ffi.Void Function(
+                ffi.Pointer<objc.ObjCBlockImpl>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Bool)>.listener(
+        _ObjCBlock_ffiVoid_ffiVoid_bool_blockingTrampoline)
+      ..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>`.
+abstract final class ObjCBlock_ffiVoid_ffiVoid_bool {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>
+      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
+              {bool retain = false, bool release = false}) =>
+          objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>(
+              pointer,
+              retain: retain,
+              release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>
+      fromFunctionPointer(
+              ffi.Pointer<
+                      ffi.NativeFunction<
+                          ffi.Void Function(
+                              ffi.Pointer<ffi.Void> arg0, ffi.Bool arg1)>>
+                  ptr) =>
+          objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>(
+              objc.newPointerBlock(_ObjCBlock_ffiVoid_ffiVoid_bool_fnPtrCallable, ptr.cast()),
+              retain: false,
+              release: true);
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>
+      fromFunction(void Function(ffi.Pointer<ffi.Void>, bool) fn) =>
+          objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>(
+              objc.newClosureBlock(
+                  _ObjCBlock_ffiVoid_ffiVoid_bool_closureCallable,
+                  (ffi.Pointer<ffi.Void> arg0, bool arg1) => fn(arg0, arg1)),
+              retain: false,
+              release: true);
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// Note that unlike the default behavior of NativeCallable.listener, listener
+  /// blocks do not keep the isolate alive.
+  static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>
+      listener(void Function(ffi.Pointer<ffi.Void>, bool) fn) {
+    final raw = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_ffiVoid_bool_listenerCallable.nativeFunction.cast(),
+        (ffi.Pointer<ffi.Void> arg0, bool arg1) => fn(arg0, arg1));
+    final wrapper = _MapLibreFFi_wrapListenerBlock_10lndml(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>(
+        wrapper,
+        retain: false,
+        release: true);
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// This block does not keep the owner isolate alive. If the owner isolate has
+  /// shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>
+      blocking(void Function(ffi.Pointer<ffi.Void>, bool) fn) {
+    final raw = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_ffiVoid_bool_blockingCallable.nativeFunction.cast(),
+        (ffi.Pointer<ffi.Void> arg0, bool arg1) => fn(arg0, arg1));
+    final rawListener = objc.newClosureBlock(
+        _ObjCBlock_ffiVoid_ffiVoid_bool_blockingListenerCallable.nativeFunction
+            .cast(),
+        (ffi.Pointer<ffi.Void> arg0, bool arg1) => fn(arg0, arg1));
+    final wrapper = objc.wrapBlockingBlock(
+        _MapLibreFFi_wrapBlockingBlock_10lndml, raw, rawListener);
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>(
+        wrapper,
+        retain: false,
+        release: true);
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>`.
+extension ObjCBlock_ffiVoid_ffiVoid_bool_CallExtension
+    on objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)> {
+  void call(ffi.Pointer<ffi.Void> arg0, bool arg1) => ref.pointer.ref.invoke
+      .cast<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl> block,
+                  ffi.Pointer<ffi.Void> arg0, ffi.Bool arg1)>>()
+      .asFunction<
+          void Function(ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<ffi.Void>,
+              bool)>()(ref.pointer, arg0, arg1);
+}
+
+/// An offline region defined by a style URL, geographic coordinate bounds, and
+/// range of zoom levels.
+///
+/// To minimize the resources required by an irregularly shaped offline region,
+/// use the MLNShapeOfflineRegion class instead.
+///
+/// ### Example
+/// ```swift
+/// let northeast = CLLocationCoordinate2D(latitude: 40.989329, longitude: -102.062592)
+/// let southwest = CLLocationCoordinate2D(latitude: 36.986207, longitude: -109.049896)
+/// let bbox = MLNCoordinateBounds(sw: southwest, ne: northeast)
+///
+/// let region = MLNTilePyramidOfflineRegion(styleURL: MLNStyle.lightStyleURL, bounds: bbox,
+/// fromZoomLevel: 11, toZoomLevel: 14) let context = "Tile Pyramid Region".data(using: .utf8)
+/// MLNOfflineStorage.shared.addPack(for: region, withContext: context!)
+/// ```
+///
+/// #### Related examples
+/// TODO: Download an offline map, learn how to define an offline region
+/// to be downloaded to a user's device.
+class MLNTilePyramidOfflineRegion extends objc.NSObject {
+  MLNTilePyramidOfflineRegion._(ffi.Pointer<objc.ObjCObject> pointer,
       {bool retain = false, bool release = false})
       : super.castFromPointer(pointer, retain: retain, release: release);
 
-  /// Constructs a [MLNAttributionInfo] that points to the same underlying object as [other].
-  MLNAttributionInfo.castFrom(objc.ObjCObjectBase other)
+  /// Constructs a [MLNTilePyramidOfflineRegion] that points to the same underlying object as [other].
+  MLNTilePyramidOfflineRegion.castFrom(objc.ObjCObjectBase other)
       : this._(other.ref.pointer, retain: true, release: true);
 
-  /// Constructs a [MLNAttributionInfo] that wraps the given raw object pointer.
-  MLNAttributionInfo.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
+  /// Constructs a [MLNTilePyramidOfflineRegion] that wraps the given raw object pointer.
+  MLNTilePyramidOfflineRegion.castFromPointer(
+      ffi.Pointer<objc.ObjCObject> other,
+      {bool retain = false,
+      bool release = false})
       : this._(other, retain: retain, release: release);
 
-  /// Returns whether [obj] is an instance of [MLNAttributionInfo].
+  /// Returns whether [obj] is an instance of [MLNTilePyramidOfflineRegion].
   static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNAttributionInfo);
+    return _objc_msgSend_19nvye5(obj.ref.pointer, _sel_isKindOfClass_,
+        _class_MLNTilePyramidOfflineRegion);
   }
 
-  /// Returns an initialized attribution info object with the given title and URL.
-  ///
-  /// @param title The attribution statement’s title.
-  /// @param URL A URL to more information about the entity named in the attribution.
-  /// @return An initialized attribution info object.
-  MLNAttributionInfo initWithTitle_URL_(
-      NSAttributedString title, objc.NSURL? URL) {
-    final _ret = _objc_msgSend_15qeuct(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithTitle_URL_,
-        title.ref.pointer,
-        URL?.ref.pointer ?? ffi.nullptr);
-    return MLNAttributionInfo.castFromPointer(_ret,
-        retain: false, release: true);
+  /// The coordinate bounds for the geographic region covered by the downloaded
+  /// tiles.
+  MLNCoordinateBounds get bounds {
+    final _ptr = pkg_ffi.calloc<MLNCoordinateBounds>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_ygoa6aStret(_ptr, this.ref.pointer, _sel_bounds)
+        : _ptr.ref = _objc_msgSend_ygoa6a(this.ref.pointer, _sel_bounds);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+        ffi.sizeOf<MLNCoordinateBounds>(),
+        finalizer: pkg_ffi.calloc.nativeFree);
+    return ffi.Struct.create<MLNCoordinateBounds>(_finalizable);
   }
 
-  /// The attribution statement’s attributed title text.
-  NSAttributedString get title {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_title);
-    return NSAttributedString.castFromPointer(_ret,
-        retain: true, release: true);
+  /// The minimum zoom level for which to download tiles and other resources.
+  ///
+  /// For more information about zoom levels, ``MLNMapView/zoomLevel``.
+  double get minimumZoomLevel {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_minimumZoomLevel)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_minimumZoomLevel);
   }
 
-  /// The attribution statement’s attributed title text.
-  set title(NSAttributedString value) {
-    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_setTitle_, value.ref.pointer);
-  }
-
-  /// The URL to more information about the entity named in the attribution.
+  /// The maximum zoom level for which to download tiles and other resources.
   ///
-  /// If this property is set, the attribution statement should be displayed as a
-  /// hyperlink or action button. Otherwise, if it is `nil`, the attribution
-  /// statement should be displayed as plain text.
-  objc.NSURL? get URL {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_URL);
-    return _ret.address == 0
-        ? null
-        : objc.NSURL.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The URL to more information about the entity named in the attribution.
-  ///
-  /// If this property is set, the attribution statement should be displayed as a
-  /// hyperlink or action button. Otherwise, if it is `nil`, the attribution
-  /// statement should be displayed as plain text.
-  set URL(objc.NSURL? value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setURL_, value?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// A Boolean value indicating whether the attribution statement is a shortcut to a
-  /// feedback tool.
-  ///
-  /// If this property is set, the statement should be treated as a way for the user
-  /// to provide feedback rather than an attribution statement.
-  bool get feedbackLink {
-    return _objc_msgSend_91o635(this.ref.pointer, _sel_isFeedbackLink);
-  }
-
-  /// A Boolean value indicating whether the attribution statement is a shortcut to a
-  /// feedback tool.
-  ///
-  /// If this property is set, the statement should be treated as a way for the user
-  /// to provide feedback rather than an attribution statement.
-  set feedbackLink(bool value) {
-    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setFeedbackLink_, value);
-  }
-
-  /// Returns a copy of the current `title` formatted accordingly to `style`.
-  ///
-  /// Example: If the `style` property is set to ``MLNAttributionInfoStyle/MLNAttributionInfoStyleShort``
-  /// and the `title` property is set to `OpenStreetMap`, then this method returns `OSM`.
-  ///
-  /// @param style The attribution info style.
-  ///
-  /// @return The `NSAttributedString` styled title.
-  NSAttributedString titleWithStyle_(MLNAttributionInfoStyle style) {
-    final _ret = _objc_msgSend_1sadrrm(
-        this.ref.pointer, _sel_titleWithStyle_, style.value);
-    return NSAttributedString.castFromPointer(_ret,
-        retain: true, release: true);
+  /// For more information about zoom levels, ``MLNMapView/zoomLevel``.
+  double get maximumZoomLevel {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_maximumZoomLevel)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_maximumZoomLevel);
   }
 
   /// init
-  MLNAttributionInfo init() {
+  MLNTilePyramidOfflineRegion init() {
     final _ret =
         _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNAttributionInfo.castFromPointer(_ret,
+    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
+        retain: false, release: true);
+  }
+
+  /// Initializes a newly created offline region with the given style URL, geographic
+  /// coordinate bounds, and range of zoom levels.
+  ///
+  /// This is the designated initializer for ``MLNTilePyramidOfflineRegion``.
+  ///
+  /// @param styleURL URL of the map style for which to download resources. The URL
+  /// may be a full HTTP or HTTPS URL or a canonical style URL.
+  /// Specify `nil` for the default style.
+  /// Relative file URLs cannot be used as offline style URLs. To download the
+  /// online resources required by a local style, specify a URL to an online copy
+  /// of the style.
+  /// @param bounds The coordinate bounds for the geographic region to be covered by
+  /// the downloaded tiles.
+  /// @param minimumZoomLevel The minimum zoom level to be covered by the downloaded
+  /// tiles. This parameter should be set to at least 0 but no greater than the
+  /// value of the `maximumZoomLevel` parameter. For each required tile source, if
+  /// this parameter is set to a value less than the tile source’s minimum zoom
+  /// level, the download covers zoom levels down to the tile source’s minimum
+  /// zoom level.
+  /// @param maximumZoomLevel The maximum zoom level to be covered by the downloaded
+  /// tiles. This parameter should be set to at least the value of the
+  /// `minimumZoomLevel` parameter. For each required tile source, if this
+  /// parameter is set to a value greater than the tile source’s minimum zoom
+  /// level, the download covers zoom levels up to the tile source’s maximum zoom
+  /// level.
+  MLNTilePyramidOfflineRegion
+      initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_(
+          objc.NSURL? styleURL,
+          MLNCoordinateBounds bounds,
+          double minimumZoomLevel,
+          double maximumZoomLevel) {
+    final _ret = _objc_msgSend_s3spq(
+        this.ref.retainAndReturnPointer(),
+        _sel_initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_,
+        styleURL?.ref.pointer ?? ffi.nullptr,
+        bounds,
+        minimumZoomLevel,
+        maximumZoomLevel);
+    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// new
-  static MLNAttributionInfo new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNAttributionInfo, _sel_new);
-    return MLNAttributionInfo.castFromPointer(_ret,
+  static MLNTilePyramidOfflineRegion new1() {
+    final _ret =
+        _objc_msgSend_151sglz(_class_MLNTilePyramidOfflineRegion, _sel_new);
+    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNAttributionInfo allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNTilePyramidOfflineRegion allocWithZone_(ffi.Pointer<_NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
-        _class_MLNAttributionInfo, _sel_allocWithZone_, zone);
-    return MLNAttributionInfo.castFromPointer(_ret,
+        _class_MLNTilePyramidOfflineRegion, _sel_allocWithZone_, zone);
+    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// alloc
-  static MLNAttributionInfo alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNAttributionInfo, _sel_alloc);
-    return MLNAttributionInfo.castFromPointer(_ret,
+  static MLNTilePyramidOfflineRegion alloc() {
+    final _ret =
+        _objc_msgSend_151sglz(_class_MLNTilePyramidOfflineRegion, _sel_alloc);
+    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// self
-  MLNAttributionInfo self() {
+  MLNTilePyramidOfflineRegion self() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNAttributionInfo.castFromPointer(_ret,
+    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
         retain: true, release: true);
   }
 
   /// retain
-  MLNAttributionInfo retain() {
+  MLNTilePyramidOfflineRegion retain() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNAttributionInfo.castFromPointer(_ret,
+    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
         retain: true, release: true);
   }
 
   /// autorelease
-  MLNAttributionInfo autorelease() {
+  MLNTilePyramidOfflineRegion autorelease() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNAttributionInfo.castFromPointer(_ret,
+    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
         retain: true, release: true);
+  }
+
+  /// URL of the style whose resources are required for offline viewing.
+  ///
+  /// In addition to the JSON stylesheet, different styles may require different font
+  /// glyphs, sprite sheets, and other resources.
+  ///
+  /// The URL may be a full HTTP or HTTPS URL or a canonical URL
+  objc.NSURL get styleURL {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_styleURL);
+    return objc.NSURL.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Specifies whether to include ideographic glyphs in downloaded font data.
+  /// Ideographic glyphs make up the majority of downloaded font data, but
+  /// it is possible to configure the renderer to use locally installed fonts
+  /// instead of relying on fonts downloaded as part of the offline pack.
+  /// See `MLNIdeographicFontFamilyName` setting. Also, for regions outside of
+  /// China, Japan, and Korea, these glyphs will rarely appear for non-CJK users.
+  ///
+  /// By default, this property is set to `NO`, so that the offline pack will
+  /// include ideographic glyphs.
+  bool get includesIdeographicGlyphs {
+    return _objc_msgSend_91o635(
+        this.ref.pointer, _sel_includesIdeographicGlyphs);
+  }
+
+  /// Specifies whether to include ideographic glyphs in downloaded font data.
+  /// Ideographic glyphs make up the majority of downloaded font data, but
+  /// it is possible to configure the renderer to use locally installed fonts
+  /// instead of relying on fonts downloaded as part of the offline pack.
+  /// See `MLNIdeographicFontFamilyName` setting. Also, for regions outside of
+  /// China, Japan, and Korea, these glyphs will rarely appear for non-CJK users.
+  ///
+  /// By default, this property is set to `NO`, so that the offline pack will
+  /// include ideographic glyphs.
+  set includesIdeographicGlyphs(bool value) {
+    _objc_msgSend_1s56lr9(
+        this.ref.pointer, _sel_setIncludesIdeographicGlyphs_, value);
+  }
+
+  /// supportsSecureCoding
+  static bool getSupportsSecureCoding() {
+    return _objc_msgSend_91o635(
+        _class_MLNTilePyramidOfflineRegion, _sel_supportsSecureCoding);
+  }
+
+  /// encodeWithCoder:
+  void encodeWithCoder_(objc.NSCoder coder) {
+    _objc_msgSend_xtuoz7(
+        this.ref.pointer, _sel_encodeWithCoder_, coder.ref.pointer);
+  }
+
+  /// initWithCoder:
+  MLNTilePyramidOfflineRegion? initWithCoder_(objc.NSCoder coder) {
+    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
+        _sel_initWithCoder_, coder.ref.pointer);
+    return _ret.address == 0
+        ? null
+        : MLNTilePyramidOfflineRegion.castFromPointer(_ret,
+            retain: false, release: true);
   }
 }
 
@@ -26472,35 +29819,6 @@ enum NSTouchTypeMask {
         1 => NSTouchTypeMaskDirect,
         2 => NSTouchTypeMaskIndirect,
         _ => throw ArgumentError("Unknown value for NSTouchTypeMask: $value"),
-      };
-}
-
-final class CGImageSource extends ffi.Opaque {}
-
-enum CGImagePropertyOrientation {
-  kCGImagePropertyOrientationUp(1),
-  kCGImagePropertyOrientationUpMirrored(2),
-  kCGImagePropertyOrientationDown(3),
-  kCGImagePropertyOrientationDownMirrored(4),
-  kCGImagePropertyOrientationLeftMirrored(5),
-  kCGImagePropertyOrientationRight(6),
-  kCGImagePropertyOrientationRightMirrored(7),
-  kCGImagePropertyOrientationLeft(8);
-
-  final int value;
-  const CGImagePropertyOrientation(this.value);
-
-  static CGImagePropertyOrientation fromValue(int value) => switch (value) {
-        1 => kCGImagePropertyOrientationUp,
-        2 => kCGImagePropertyOrientationUpMirrored,
-        3 => kCGImagePropertyOrientationDown,
-        4 => kCGImagePropertyOrientationDownMirrored,
-        5 => kCGImagePropertyOrientationLeftMirrored,
-        6 => kCGImagePropertyOrientationRight,
-        7 => kCGImagePropertyOrientationRightMirrored,
-        8 => kCGImagePropertyOrientationLeft,
-        _ => throw ArgumentError(
-            "Unknown value for CGImagePropertyOrientation: $value"),
       };
 }
 
@@ -28324,8 +31642,6 @@ enum NSBitmapFormat {
       };
 }
 
-final class __CVBuffer extends ffi.Opaque {}
-
 enum NSColorPanelMode {
   NSColorPanelModeNone(-1),
   NSColorPanelModeGray(0),
@@ -29194,118 +32510,6 @@ enum NSBezierPathElement {
   }
 }
 
-final class CATransform3D extends ffi.Struct {
-  @ffi.Double()
-  external double m11;
-
-  @ffi.Double()
-  external double m12;
-
-  @ffi.Double()
-  external double m13;
-
-  @ffi.Double()
-  external double m14;
-
-  @ffi.Double()
-  external double m21;
-
-  @ffi.Double()
-  external double m22;
-
-  @ffi.Double()
-  external double m23;
-
-  @ffi.Double()
-  external double m24;
-
-  @ffi.Double()
-  external double m31;
-
-  @ffi.Double()
-  external double m32;
-
-  @ffi.Double()
-  external double m33;
-
-  @ffi.Double()
-  external double m34;
-
-  @ffi.Double()
-  external double m41;
-
-  @ffi.Double()
-  external double m42;
-
-  @ffi.Double()
-  external double m43;
-
-  @ffi.Double()
-  external double m44;
-}
-
-enum CAAutoresizingMask {
-  kCALayerNotSizable(0),
-  kCALayerMinXMargin(1),
-  kCALayerWidthSizable(2),
-  kCALayerMaxXMargin(4),
-  kCALayerMinYMargin(8),
-  kCALayerHeightSizable(16),
-  kCALayerMaxYMargin(32);
-
-  final int value;
-  const CAAutoresizingMask(this.value);
-
-  static CAAutoresizingMask fromValue(int value) => switch (value) {
-        0 => kCALayerNotSizable,
-        1 => kCALayerMinXMargin,
-        2 => kCALayerWidthSizable,
-        4 => kCALayerMaxXMargin,
-        8 => kCALayerMinYMargin,
-        16 => kCALayerHeightSizable,
-        32 => kCALayerMaxYMargin,
-        _ =>
-          throw ArgumentError("Unknown value for CAAutoresizingMask: $value"),
-      };
-}
-
-enum CAEdgeAntialiasingMask {
-  kCALayerLeftEdge(1),
-  kCALayerRightEdge(2),
-  kCALayerBottomEdge(4),
-  kCALayerTopEdge(8);
-
-  final int value;
-  const CAEdgeAntialiasingMask(this.value);
-
-  static CAEdgeAntialiasingMask fromValue(int value) => switch (value) {
-        1 => kCALayerLeftEdge,
-        2 => kCALayerRightEdge,
-        4 => kCALayerBottomEdge,
-        8 => kCALayerTopEdge,
-        _ => throw ArgumentError(
-            "Unknown value for CAEdgeAntialiasingMask: $value"),
-      };
-}
-
-enum CACornerMask {
-  kCALayerMinXMinYCorner(1),
-  kCALayerMaxXMinYCorner(2),
-  kCALayerMinXMaxYCorner(4),
-  kCALayerMaxXMaxYCorner(8);
-
-  final int value;
-  const CACornerMask(this.value);
-
-  static CACornerMask fromValue(int value) => switch (value) {
-        1 => kCALayerMinXMinYCorner,
-        2 => kCALayerMaxXMinYCorner,
-        4 => kCALayerMinXMaxYCorner,
-        8 => kCALayerMaxXMaxYCorner,
-        _ => throw ArgumentError("Unknown value for CACornerMask: $value"),
-      };
-}
-
 enum NSTypesetterControlCharacterAction {
   NSTypesetterZeroAdvancementAction(1),
   NSTypesetterWhitespaceAction(2),
@@ -29697,2426 +32901,4 @@ enum NSWritingToolsCoordinatorState {
         _ => throw ArgumentError(
             "Unknown value for NSWritingToolsCoordinatorState: $value"),
       };
-}
-
-late final _class_MLNOfflinePack = objc.getClass("MapLibre.MLNOfflinePack");
-late final _sel_region = objc.registerName("region");
-void _ObjCBlock_ffiVoid_NSError_fnPtrTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block,
-        ffi.Pointer<objc.ObjCObject> arg0) =>
-    block.ref.target
-        .cast<
-            ffi.NativeFunction<
-                ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0)>>()
-        .asFunction<void Function(ffi.Pointer<objc.ObjCObject>)>()(arg0);
-ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSError_fnPtrCallable =
-    ffi.Pointer.fromFunction<
-                ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-                    ffi.Pointer<objc.ObjCObject>)>(
-            _ObjCBlock_ffiVoid_NSError_fnPtrTrampoline)
-        .cast();
-void _ObjCBlock_ffiVoid_NSError_closureTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block,
-        ffi.Pointer<objc.ObjCObject> arg0) =>
-    (objc.getBlockClosure(block) as void Function(
-        ffi.Pointer<objc.ObjCObject>))(arg0);
-ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSError_closureCallable =
-    ffi.Pointer.fromFunction<
-                ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-                    ffi.Pointer<objc.ObjCObject>)>(
-            _ObjCBlock_ffiVoid_NSError_closureTrampoline)
-        .cast();
-void _ObjCBlock_ffiVoid_NSError_listenerTrampoline(
-    ffi.Pointer<objc.ObjCBlockImpl> block, ffi.Pointer<objc.ObjCObject> arg0) {
-  (objc.getBlockClosure(block) as void Function(
-      ffi.Pointer<objc.ObjCObject>))(arg0);
-  objc.objectRelease(block.cast());
-}
-
-ffi.NativeCallable<
-        ffi.Void Function(
-            ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_NSError_listenerCallable = ffi.NativeCallable<
-            ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<objc.ObjCObject>)>.listener(
-        _ObjCBlock_ffiVoid_NSError_listenerTrampoline)
-      ..keepIsolateAlive = false;
-void _ObjCBlock_ffiVoid_NSError_blockingTrampoline(
-    ffi.Pointer<objc.ObjCBlockImpl> block,
-    ffi.Pointer<ffi.Void> waiter,
-    ffi.Pointer<objc.ObjCObject> arg0) {
-  try {
-    (objc.getBlockClosure(block) as void Function(
-        ffi.Pointer<objc.ObjCObject>))(arg0);
-  } catch (e) {
-  } finally {
-    objc.signalWaiter(waiter);
-    objc.objectRelease(block.cast());
-  }
-}
-
-ffi.NativeCallable<
-        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_NSError_blockingCallable = ffi.NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<objc.ObjCObject>)>.isolateLocal(
-        _ObjCBlock_ffiVoid_NSError_blockingTrampoline)
-      ..keepIsolateAlive = false;
-ffi.NativeCallable<
-        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_NSError_blockingListenerCallable = ffi.NativeCallable<
-            ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>)>.listener(
-        _ObjCBlock_ffiVoid_NSError_blockingTrampoline)
-      ..keepIsolateAlive = false;
-
-/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSError?)>`.
-abstract final class ObjCBlock_ffiVoid_NSError {
-  /// Returns a block that wraps the given raw block pointer.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> castFromPointer(
-          ffi.Pointer<objc.ObjCBlockImpl> pointer,
-          {bool retain = false,
-          bool release = false}) =>
-      objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(pointer,
-          retain: retain, release: release);
-
-  /// Creates a block from a C function pointer.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> fromFunctionPointer(
-          ffi.Pointer<
-                  ffi.NativeFunction<
-                      ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0)>>
-              ptr) =>
-      objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(
-          objc.newPointerBlock(
-              _ObjCBlock_ffiVoid_NSError_fnPtrCallable, ptr.cast()),
-          retain: false,
-          release: true);
-
-  /// Creates a block from a Dart function.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> fromFunction(
-          void Function(objc.NSError?) fn) =>
-      objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(
-          objc.newClosureBlock(
-              _ObjCBlock_ffiVoid_NSError_closureCallable,
-              (ffi.Pointer<objc.ObjCObject> arg0) => fn(arg0.address == 0
-                  ? null
-                  : objc.NSError.castFromPointer(arg0,
-                      retain: true, release: true))),
-          retain: false,
-          release: true);
-
-  /// Creates a listener block from a Dart function.
-  ///
-  /// This is based on FFI's NativeCallable.listener, and has the same
-  /// capabilities and limitations. This block can be invoked from any thread,
-  /// but only supports void functions, and is not run synchronously. See
-  /// NativeCallable.listener for more details.
-  ///
-  /// Note that unlike the default behavior of NativeCallable.listener, listener
-  /// blocks do not keep the isolate alive.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> listener(
-      void Function(objc.NSError?) fn) {
-    final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSError_listenerCallable.nativeFunction.cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0) => fn(arg0.address == 0
-            ? null
-            : objc.NSError.castFromPointer(arg0,
-                retain: false, release: true)));
-    final wrapper = _MapLibreFFi_wrapListenerBlock_xtuoz7(raw);
-    objc.objectRelease(raw.cast());
-    return objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(wrapper,
-        retain: false, release: true);
-  }
-
-  /// Creates a blocking block from a Dart function.
-  ///
-  /// This callback can be invoked from any native thread, and will block the
-  /// caller until the callback is handled by the Dart isolate that created
-  /// the block. Async functions are not supported.
-  ///
-  /// This block does not keep the owner isolate alive. If the owner isolate has
-  /// shut down, and the block is invoked by native code, it may block
-  /// indefinitely, or have other undefined behavior.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> blocking(
-      void Function(objc.NSError?) fn) {
-    final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSError_blockingCallable.nativeFunction.cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0) => fn(arg0.address == 0
-            ? null
-            : objc.NSError.castFromPointer(arg0,
-                retain: false, release: true)));
-    final rawListener = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSError_blockingListenerCallable.nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0) => fn(arg0.address == 0
-            ? null
-            : objc.NSError.castFromPointer(arg0,
-                retain: false, release: true)));
-    final wrapper = objc.wrapBlockingBlock(
-        _MapLibreFFi_wrapBlockingBlock_xtuoz7, raw, rawListener);
-    objc.objectRelease(raw.cast());
-    objc.objectRelease(rawListener.cast());
-    return objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(wrapper,
-        retain: false, release: true);
-  }
-}
-
-/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSError?)>`.
-extension ObjCBlock_ffiVoid_NSError_CallExtension
-    on objc.ObjCBlock<ffi.Void Function(objc.NSError?)> {
-  void call(objc.NSError? arg0) => ref.pointer.ref.invoke
-          .cast<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl> block,
-                      ffi.Pointer<objc.ObjCObject> arg0)>>()
-          .asFunction<
-              void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-                  ffi.Pointer<objc.ObjCObject>)>()(
-      ref.pointer, arg0?.ref.pointer ?? ffi.nullptr);
-}
-
-late final _sel_setContext_completionHandler_ =
-    objc.registerName("setContext:completionHandler:");
-
-/// The state an offline pack is currently in.
-enum MLNOfflinePackState {
-  /// It is unknown whether the pack is inactive, active, or complete.
-  ///
-  /// This is the initial state of a pack. The state of a pack becomes known by
-  /// the time the shared ``MLNOfflineStorage`` object sends the first
-  /// ``MLNOfflinePackProgressChangedNotification`` about the pack. For inactive
-  /// packs, you must explicitly request a progress update using the
-  /// ``MLNOfflinePack/requestProgress`` method.
-  ///
-  /// An invalid pack always has a state of ``MLNOfflinePackStateInvalid``, never
-  /// ``MLNOfflinePackState/MLNOfflinePackStateUnknown``.
-  MLNOfflinePackStateUnknown(0),
-
-  /// The pack is incomplete and is not currently downloading.
-  ///
-  /// This is the initial state of a pack that is created using the
-  /// ``MLNOfflineStorage/addPackForRegion:withContext:completionHandler:``
-  /// method, as well as after the ``MLNOfflinePack/suspend`` method is
-  /// called.
-  MLNOfflinePackStateInactive(1),
-
-  /// The pack is incomplete and is currently downloading.
-  ///
-  /// This is the state of a pack after the ``MLNOfflinePack/resume`` method is
-  /// called.
-  MLNOfflinePackStateActive(2),
-
-  /// The pack has downloaded to completion.
-  MLNOfflinePackStateComplete(3),
-
-  /// The pack has been removed using the
-  /// ``MLNOfflineStorage/removePack:withCompletionHandler:`` method. Sending
-  /// any message to the pack will raise an exception.
-  MLNOfflinePackStateInvalid(4);
-
-  final int value;
-  const MLNOfflinePackState(this.value);
-
-  static MLNOfflinePackState fromValue(int value) => switch (value) {
-        0 => MLNOfflinePackStateUnknown,
-        1 => MLNOfflinePackStateInactive,
-        2 => MLNOfflinePackStateActive,
-        3 => MLNOfflinePackStateComplete,
-        4 => MLNOfflinePackStateInvalid,
-        _ =>
-          throw ArgumentError("Unknown value for MLNOfflinePackState: $value"),
-      };
-}
-
-late final _sel_state = objc.registerName("state");
-final _objc_msgSend_6gfr3p = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Long Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        int Function(
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-
-/// A structure containing information about an offline pack’s current download
-/// progress.
-final class MLNOfflinePackProgress extends ffi.Struct {
-  /// The number of resources, including tiles, that have been completely
-  /// downloaded and are ready to use offline.
-  @ffi.Uint64()
-  external int countOfResourcesCompleted;
-
-  /// The cumulative size of the downloaded resources on disk, including tiles,
-  /// measured in bytes.
-  @ffi.Uint64()
-  external int countOfBytesCompleted;
-
-  /// The number of tiles that have been completely downloaded and are ready
-  /// to use offline.
-  @ffi.Uint64()
-  external int countOfTilesCompleted;
-
-  /// The cumulative size of the downloaded tiles on disk, measured in bytes.
-  @ffi.Uint64()
-  external int countOfTileBytesCompleted;
-
-  /// The minimum number of resources that must be downloaded in order to view
-  /// the pack’s full region without any omissions.
-  ///
-  /// At the beginning of a download, this count is a lower bound; the number of
-  /// expected resources may increase as the download progresses.
-  @ffi.Uint64()
-  external int countOfResourcesExpected;
-
-  /// The maximum number of resources that must be downloaded in order to view
-  /// the pack’s full region without any omissions.
-  ///
-  /// At the beginning of a download, when the exact number of required resources
-  /// is unknown, this field is set to `UINT64_MAX`. Thus this count is always an
-  /// upper bound.
-  @ffi.Uint64()
-  external int maximumResourcesExpected;
-}
-
-late final _sel_progress = objc.registerName("progress");
-final _objc_msgSend_oftva = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            MLNOfflinePackProgress Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        MLNOfflinePackProgress Function(
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-final _objc_msgSend_oftvaStret = objc.msgSendStretPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(
-                ffi.Pointer<MLNOfflinePackProgress>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        void Function(ffi.Pointer<MLNOfflinePackProgress>,
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-late final _sel_resume = objc.registerName("resume");
-late final _sel_suspend = objc.registerName("suspend");
-late final _sel_requestProgress = objc.registerName("requestProgress");
-
-/// MLNOfflinePack
-class MLNOfflinePack extends objc.NSObject {
-  MLNOfflinePack._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNOfflinePack] that points to the same underlying object as [other].
-  MLNOfflinePack.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNOfflinePack] that wraps the given raw object pointer.
-  MLNOfflinePack.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MLNOfflinePack].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNOfflinePack);
-  }
-
-  /// The region for which the pack manages resources.
-  objc.ObjCObjectBase get region {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_region);
-    return objc.ObjCObjectBase(_ret, retain: true, release: true);
-  }
-
-  /// Arbitrary data stored alongside the downloaded resources.
-  ///
-  /// The context typically holds application-specific information for identifying
-  /// the pack, such as a user-selected name.
-  ///
-  /// To change the value of this property, use the `-setContext:completionHandler:`
-  /// method. If you access this property after calling that method but before its
-  /// completion handler is called, this property’s value may not reflect the new
-  /// value that you specify.
-  objc.NSData get context {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_context);
-    return objc.NSData.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Associates arbitrary contextual data with the offline pack, replacing any
-  /// context that was previously associated with the offline pack.
-  ///
-  /// Setting the context is asynchronous. The `context` property may not be updated
-  /// until the completion handler is called.
-  ///
-  /// @param context The new context to associate with the offline pack.
-  /// @param completion The completion handler to call when the context has been
-  /// updated. If there is an error setting the context, the error is passed into
-  /// the completion handler.
-  void setContext_completionHandler_(objc.NSData context,
-      objc.ObjCBlock<ffi.Void Function(objc.NSError?)>? completion) {
-    _objc_msgSend_o762yo(this.ref.pointer, _sel_setContext_completionHandler_,
-        context.ref.pointer, completion?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// The pack’s current state.
-  ///
-  /// The state of an inactive or completed pack is computed lazily and is set to
-  /// ``MLNOfflinePackState/MLNOfflinePackStateUnknown`` by default. To request the pack’s status, use
-  /// the
-  /// `-requestProgress` method. To get notified when the state becomes known and
-  /// when it changes, observe KVO change notifications on this pack’s `state` key
-  /// path. Alternatively, you can add an observer for
-  /// ``MLNOfflinePackProgressChangedNotification``s about this pack that come from the
-  /// default notification center.
-  MLNOfflinePackState get state {
-    final _ret = _objc_msgSend_6gfr3p(this.ref.pointer, _sel_state);
-    return MLNOfflinePackState.fromValue(_ret);
-  }
-
-  /// The pack’s current progress.
-  ///
-  /// The progress of an inactive or completed pack is computed lazily, and all its
-  /// fields are set to 0 by default. To request the pack’s progress, use the
-  /// `-requestProgress` method. To get notified when the progress becomes
-  /// known and when it changes, observe KVO change notifications on this pack’s
-  /// `state` key path. Alternatively, you can add an observer for
-  /// ``MLNOfflinePackProgressChangedNotification``s about this pack that come from the
-  /// default notification center.
-  MLNOfflinePackProgress get progress {
-    final _ptr = pkg_ffi.calloc<MLNOfflinePackProgress>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_oftvaStret(_ptr, this.ref.pointer, _sel_progress)
-        : _ptr.ref = _objc_msgSend_oftva(this.ref.pointer, _sel_progress);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<MLNOfflinePackProgress>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<MLNOfflinePackProgress>(_finalizable);
-  }
-
-  /// Resumes downloading if the pack is inactive.
-  ///
-  /// When a pack resumes after being suspended, it may begin by iterating over the
-  /// already downloaded resources. As a result, the `progress` structure’s
-  /// `countOfResourcesCompleted` field may revert to 0 before rapidly returning to
-  /// the level of progress at the time the pack was suspended.
-  ///
-  /// To temporarily suspend downloading, call the `-suspend` method.
-  void resume() {
-    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_resume);
-  }
-
-  /// Temporarily stops downloading if the pack is active.
-  ///
-  /// A pack suspends asynchronously, so some network requests may be sent after this
-  /// method is called. Regardless, the `progress` property will not be updated until
-  /// `-resume` is called.
-  ///
-  /// If the pack previously reached a higher level of progress before being
-  /// suspended, it may wait to suspend until it returns to that level.
-  ///
-  /// To resume downloading, call the `-resume` method.
-  void suspend() {
-    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_suspend);
-  }
-
-  /// Request an asynchronous update to the pack’s `state` and `progress` properties.
-  ///
-  /// The state and progress of an inactive or completed pack are computed lazily. If
-  /// you need the state or progress of a pack whose `state` property is currently
-  /// set to ``MLNOfflinePackState/MLNOfflinePackStateUnknown``, observe KVO change notifications on this
-  /// pack’s `state` key path, then call this method. Alternatively, you can add an
-  /// observer for ``MLNOfflinePackProgressChangedNotification`` about this pack that
-  /// come from the default notification center.
-  void requestProgress() {
-    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_requestProgress);
-  }
-
-  /// init
-  MLNOfflinePack init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// new
-  static MLNOfflinePack new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNOfflinePack, _sel_new);
-    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MLNOfflinePack allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_MLNOfflinePack, _sel_allocWithZone_, zone);
-    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// alloc
-  static MLNOfflinePack alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNOfflinePack, _sel_alloc);
-    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// self
-  MLNOfflinePack self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNOfflinePack.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// retain
-  MLNOfflinePack retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNOfflinePack.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// autorelease
-  MLNOfflinePack autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNOfflinePack.castFromPointer(_ret, retain: true, release: true);
-  }
-}
-
-void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block,
-        ffi.Pointer<objc.ObjCObject> arg0,
-        ffi.Pointer<objc.ObjCObject> arg1) =>
-    block.ref.target
-        .cast<
-            ffi.NativeFunction<
-                ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0,
-                    ffi.Pointer<objc.ObjCObject> arg1)>>()
-        .asFunction<
-            void Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>()(arg0, arg1);
-ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrCallable =
-    ffi.Pointer.fromFunction<
-                ffi.Void Function(
-                    ffi.Pointer<objc.ObjCBlockImpl>,
-                    ffi.Pointer<objc.ObjCObject>,
-                    ffi.Pointer<objc.ObjCObject>)>(
-            _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrTrampoline)
-        .cast();
-void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block,
-        ffi.Pointer<objc.ObjCObject> arg0,
-        ffi.Pointer<objc.ObjCObject> arg1) =>
-    (objc.getBlockClosure(block) as void Function(ffi.Pointer<objc.ObjCObject>,
-        ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
-ffi.Pointer<ffi.Void>
-    _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureCallable =
-    ffi.Pointer.fromFunction<
-                ffi.Void Function(
-                    ffi.Pointer<objc.ObjCBlockImpl>,
-                    ffi.Pointer<objc.ObjCObject>,
-                    ffi.Pointer<objc.ObjCObject>)>(
-            _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureTrampoline)
-        .cast();
-void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerTrampoline(
-    ffi.Pointer<objc.ObjCBlockImpl> block,
-    ffi.Pointer<objc.ObjCObject> arg0,
-    ffi.Pointer<objc.ObjCObject> arg1) {
-  (objc.getBlockClosure(block) as void Function(
-      ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
-  objc.objectRelease(block.cast());
-}
-
-ffi.NativeCallable<
-        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerCallable = ffi
-        .NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>.listener(
-        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerTrampoline)
-      ..keepIsolateAlive = false;
-void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingTrampoline(
-    ffi.Pointer<objc.ObjCBlockImpl> block,
-    ffi.Pointer<ffi.Void> waiter,
-    ffi.Pointer<objc.ObjCObject> arg0,
-    ffi.Pointer<objc.ObjCObject> arg1) {
-  try {
-    (objc.getBlockClosure(block) as void Function(ffi.Pointer<objc.ObjCObject>,
-        ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
-  } catch (e) {
-  } finally {
-    objc.signalWaiter(waiter);
-    objc.objectRelease(block.cast());
-  }
-}
-
-ffi.NativeCallable<
-        ffi.Void Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.Void>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingCallable = ffi
-        .NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>.isolateLocal(
-        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingTrampoline)
-      ..keepIsolateAlive = false;
-ffi.NativeCallable<
-        ffi.Void Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.Void>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingListenerCallable = ffi
-        .NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>.listener(
-        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingTrampoline)
-      ..keepIsolateAlive = false;
-
-/// Construction methods for `objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>`.
-abstract final class ObjCBlock_ffiVoid_MLNOfflinePack_NSError {
-  /// Returns a block that wraps the given raw block pointer.
-  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
-      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
-              {bool retain = false, bool release = false}) =>
-          objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
-              pointer,
-              retain: retain,
-              release: release);
-
-  /// Creates a block from a C function pointer.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)> fromFunctionPointer(
-          ffi.Pointer<
-                  ffi.NativeFunction<
-                      ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0,
-                          ffi.Pointer<objc.ObjCObject> arg1)>>
-              ptr) =>
-      objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
-          objc.newPointerBlock(_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrCallable, ptr.cast()),
-          retain: false,
-          release: true);
-
-  /// Creates a block from a Dart function.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)> fromFunction(
-          void Function(MLNOfflinePack?, objc.NSError?) fn) =>
-      objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
-          objc.newClosureBlock(
-              _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureCallable,
-              (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
-                  arg0.address == 0
-                      ? null
-                      : MLNOfflinePack.castFromPointer(arg0,
-                          retain: true, release: true),
-                  arg1.address == 0 ? null : objc.NSError.castFromPointer(arg1, retain: true, release: true))),
-          retain: false,
-          release: true);
-
-  /// Creates a listener block from a Dart function.
-  ///
-  /// This is based on FFI's NativeCallable.listener, and has the same
-  /// capabilities and limitations. This block can be invoked from any thread,
-  /// but only supports void functions, and is not run synchronously. See
-  /// NativeCallable.listener for more details.
-  ///
-  /// Note that unlike the default behavior of NativeCallable.listener, listener
-  /// blocks do not keep the isolate alive.
-  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
-      listener(void Function(MLNOfflinePack?, objc.NSError?) fn) {
-    final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0,
-                ffi.Pointer<objc.ObjCObject> arg1) =>
-            fn(
-                arg0.address == 0
-                    ? null
-                    : MLNOfflinePack.castFromPointer(arg0,
-                        retain: false, release: true),
-                arg1.address == 0
-                    ? null
-                    : objc.NSError.castFromPointer(arg1,
-                        retain: false, release: true)));
-    final wrapper = _MapLibreFFi_wrapListenerBlock_pfv6jd(raw);
-    objc.objectRelease(raw.cast());
-    return objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
-        wrapper,
-        retain: false,
-        release: true);
-  }
-
-  /// Creates a blocking block from a Dart function.
-  ///
-  /// This callback can be invoked from any native thread, and will block the
-  /// caller until the callback is handled by the Dart isolate that created
-  /// the block. Async functions are not supported.
-  ///
-  /// This block does not keep the owner isolate alive. If the owner isolate has
-  /// shut down, and the block is invoked by native code, it may block
-  /// indefinitely, or have other undefined behavior.
-  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
-      blocking(void Function(MLNOfflinePack?, objc.NSError?) fn) {
-    final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0,
-                ffi.Pointer<objc.ObjCObject> arg1) =>
-            fn(
-                arg0.address == 0
-                    ? null
-                    : MLNOfflinePack.castFromPointer(arg0,
-                        retain: false, release: true),
-                arg1.address == 0
-                    ? null
-                    : objc.NSError.castFromPointer(arg1,
-                        retain: false, release: true)));
-    final rawListener = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingListenerCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0,
-                ffi.Pointer<objc.ObjCObject> arg1) =>
-            fn(
-                arg0.address == 0
-                    ? null
-                    : MLNOfflinePack.castFromPointer(arg0,
-                        retain: false, release: true),
-                arg1.address == 0
-                    ? null
-                    : objc.NSError.castFromPointer(arg1,
-                        retain: false, release: true)));
-    final wrapper = objc.wrapBlockingBlock(
-        _MapLibreFFi_wrapBlockingBlock_pfv6jd, raw, rawListener);
-    objc.objectRelease(raw.cast());
-    objc.objectRelease(rawListener.cast());
-    return objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
-        wrapper,
-        retain: false,
-        release: true);
-  }
-}
-
-/// Call operator for `objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>`.
-extension ObjCBlock_ffiVoid_MLNOfflinePack_NSError_CallExtension
-    on objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)> {
-  void call(MLNOfflinePack? arg0, objc.NSError? arg1) => ref.pointer.ref.invoke
-          .cast<
-              ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Pointer<objc.ObjCBlockImpl> block,
-                      ffi.Pointer<objc.ObjCObject> arg0,
-                      ffi.Pointer<objc.ObjCObject> arg1)>>()
-          .asFunction<
-              void Function(
-                  ffi.Pointer<objc.ObjCBlockImpl>,
-                  ffi.Pointer<objc.ObjCObject>,
-                  ffi.Pointer<objc.ObjCObject>)>()(ref.pointer,
-      arg0?.ref.pointer ?? ffi.nullptr, arg1?.ref.pointer ?? ffi.nullptr);
-}
-
-void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block,
-        ffi.Pointer<objc.ObjCObject> arg0,
-        ffi.Pointer<objc.ObjCObject> arg1,
-        ffi.Pointer<objc.ObjCObject> arg2) =>
-    block.ref.target
-        .cast<
-            ffi.NativeFunction<
-                ffi.Void Function(
-                    ffi.Pointer<objc.ObjCObject> arg0,
-                    ffi.Pointer<objc.ObjCObject> arg1,
-                    ffi.Pointer<objc.ObjCObject> arg2)>>()
-        .asFunction<
-            void Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>()(arg0, arg1, arg2);
-ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrCallable =
-    ffi.Pointer.fromFunction<
-                ffi.Void Function(
-                    ffi.Pointer<objc.ObjCBlockImpl>,
-                    ffi.Pointer<objc.ObjCObject>,
-                    ffi.Pointer<objc.ObjCObject>,
-                    ffi.Pointer<objc.ObjCObject>)>(
-            _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrTrampoline)
-        .cast();
-void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block,
-        ffi.Pointer<objc.ObjCObject> arg0,
-        ffi.Pointer<objc.ObjCObject> arg1,
-        ffi.Pointer<objc.ObjCObject> arg2) =>
-    (objc.getBlockClosure(block) as void Function(
-        ffi.Pointer<objc.ObjCObject>,
-        ffi.Pointer<objc.ObjCObject>,
-        ffi.Pointer<objc.ObjCObject>))(arg0, arg1, arg2);
-ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureCallable =
-    ffi.Pointer.fromFunction<
-                ffi.Void Function(
-                    ffi.Pointer<objc.ObjCBlockImpl>,
-                    ffi.Pointer<objc.ObjCObject>,
-                    ffi.Pointer<objc.ObjCObject>,
-                    ffi.Pointer<objc.ObjCObject>)>(
-            _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureTrampoline)
-        .cast();
-void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerTrampoline(
-    ffi.Pointer<objc.ObjCBlockImpl> block,
-    ffi.Pointer<objc.ObjCObject> arg0,
-    ffi.Pointer<objc.ObjCObject> arg1,
-    ffi.Pointer<objc.ObjCObject> arg2) {
-  (objc.getBlockClosure(block) as void Function(
-      ffi.Pointer<objc.ObjCObject>,
-      ffi.Pointer<objc.ObjCObject>,
-      ffi.Pointer<objc.ObjCObject>))(arg0, arg1, arg2);
-  objc.objectRelease(block.cast());
-}
-
-ffi.NativeCallable<
-        ffi.Void Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerCallable = ffi
-        .NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>.listener(
-        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerTrampoline)
-      ..keepIsolateAlive = false;
-void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingTrampoline(
-    ffi.Pointer<objc.ObjCBlockImpl> block,
-    ffi.Pointer<ffi.Void> waiter,
-    ffi.Pointer<objc.ObjCObject> arg0,
-    ffi.Pointer<objc.ObjCObject> arg1,
-    ffi.Pointer<objc.ObjCObject> arg2) {
-  try {
-    (objc.getBlockClosure(block) as void Function(
-        ffi.Pointer<objc.ObjCObject>,
-        ffi.Pointer<objc.ObjCObject>,
-        ffi.Pointer<objc.ObjCObject>))(arg0, arg1, arg2);
-  } catch (e) {
-  } finally {
-    objc.signalWaiter(waiter);
-    objc.objectRelease(block.cast());
-  }
-}
-
-ffi.NativeCallable<
-        ffi.Void Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.Void>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingCallable = ffi
-        .NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>.isolateLocal(
-        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingTrampoline)
-      ..keepIsolateAlive = false;
-ffi.NativeCallable<
-        ffi.Void Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.Void>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingListenerCallable = ffi
-        .NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>.listener(
-        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingTrampoline)
-      ..keepIsolateAlive = false;
-
-/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>`.
-abstract final class ObjCBlock_ffiVoid_NSURL_NSArray_NSError {
-  /// Returns a block that wraps the given raw block pointer.
-  static objc
-      .ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>
-      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
-              {bool retain = false, bool release = false}) =>
-          objc.ObjCBlock<
-              ffi.Void Function(objc.NSURL, objc.NSArray?,
-                  objc.NSError?)>(pointer, retain: retain, release: release);
-
-  /// Creates a block from a C function pointer.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)> fromFunctionPointer(
-          ffi.Pointer<
-                  ffi.NativeFunction<
-                      ffi.Void Function(
-                          ffi.Pointer<objc.ObjCObject> arg0,
-                          ffi.Pointer<objc.ObjCObject> arg1,
-                          ffi.Pointer<objc.ObjCObject> arg2)>>
-              ptr) =>
-      objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>(
-          objc.newPointerBlock(_ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrCallable, ptr.cast()),
-          retain: false,
-          release: true);
-
-  /// Creates a block from a Dart function.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)> fromFunction(
-          void Function(objc.NSURL, objc.NSArray?, objc.NSError?) fn) =>
-      objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>(
-          objc.newClosureBlock(
-              _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureCallable,
-              (ffi.Pointer<objc.ObjCObject> arg0,
-                      ffi.Pointer<objc.ObjCObject> arg1,
-                      ffi.Pointer<objc.ObjCObject> arg2) =>
-                  fn(
-                      objc.NSURL.castFromPointer(arg0, retain: true, release: true),
-                      arg1.address == 0 ? null : objc.NSArray.castFromPointer(arg1, retain: true, release: true),
-                      arg2.address == 0 ? null : objc.NSError.castFromPointer(arg2, retain: true, release: true))),
-          retain: false,
-          release: true);
-
-  /// Creates a listener block from a Dart function.
-  ///
-  /// This is based on FFI's NativeCallable.listener, and has the same
-  /// capabilities and limitations. This block can be invoked from any thread,
-  /// but only supports void functions, and is not run synchronously. See
-  /// NativeCallable.listener for more details.
-  ///
-  /// Note that unlike the default behavior of NativeCallable.listener, listener
-  /// blocks do not keep the isolate alive.
-  static objc
-      .ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>
-      listener(void Function(objc.NSURL, objc.NSArray?, objc.NSError?) fn) {
-    final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerCallable.nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1,
-                ffi.Pointer<objc.ObjCObject> arg2) =>
-            fn(
-                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
-                arg1.address == 0
-                    ? null
-                    : objc.NSArray.castFromPointer(arg1,
-                        retain: false, release: true),
-                arg2.address == 0
-                    ? null
-                    : objc.NSError.castFromPointer(arg2,
-                        retain: false, release: true)));
-    final wrapper = _MapLibreFFi_wrapListenerBlock_r8gdi7(raw);
-    objc.objectRelease(raw.cast());
-    return objc.ObjCBlock<
-        ffi.Void Function(objc.NSURL, objc.NSArray?,
-            objc.NSError?)>(wrapper, retain: false, release: true);
-  }
-
-  /// Creates a blocking block from a Dart function.
-  ///
-  /// This callback can be invoked from any native thread, and will block the
-  /// caller until the callback is handled by the Dart isolate that created
-  /// the block. Async functions are not supported.
-  ///
-  /// This block does not keep the owner isolate alive. If the owner isolate has
-  /// shut down, and the block is invoked by native code, it may block
-  /// indefinitely, or have other undefined behavior.
-  static objc
-      .ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>
-      blocking(void Function(objc.NSURL, objc.NSArray?, objc.NSError?) fn) {
-    final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingCallable.nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1,
-                ffi.Pointer<objc.ObjCObject> arg2) =>
-            fn(
-                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
-                arg1.address == 0
-                    ? null
-                    : objc.NSArray.castFromPointer(arg1,
-                        retain: false, release: true),
-                arg2.address == 0
-                    ? null
-                    : objc.NSError.castFromPointer(arg2,
-                        retain: false, release: true)));
-    final rawListener = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingListenerCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1,
-                ffi.Pointer<objc.ObjCObject> arg2) =>
-            fn(
-                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
-                arg1.address == 0
-                    ? null
-                    : objc.NSArray.castFromPointer(arg1,
-                        retain: false, release: true),
-                arg2.address == 0
-                    ? null
-                    : objc.NSError.castFromPointer(arg2,
-                        retain: false, release: true)));
-    final wrapper = objc.wrapBlockingBlock(
-        _MapLibreFFi_wrapBlockingBlock_r8gdi7, raw, rawListener);
-    objc.objectRelease(raw.cast());
-    objc.objectRelease(rawListener.cast());
-    return objc.ObjCBlock<
-        ffi.Void Function(objc.NSURL, objc.NSArray?,
-            objc.NSError?)>(wrapper, retain: false, release: true);
-  }
-}
-
-/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>`.
-extension ObjCBlock_ffiVoid_NSURL_NSArray_NSError_CallExtension on objc
-    .ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)> {
-  void call(objc.NSURL arg0, objc.NSArray? arg1, objc.NSError? arg2) =>
-      ref.pointer.ref.invoke
-              .cast<
-                  ffi.NativeFunction<
-                      ffi.Void Function(
-                          ffi.Pointer<objc.ObjCBlockImpl> block,
-                          ffi.Pointer<objc.ObjCObject> arg0,
-                          ffi.Pointer<objc.ObjCObject> arg1,
-                          ffi.Pointer<objc.ObjCObject> arg2)>>()
-              .asFunction<
-                  void Function(
-                      ffi.Pointer<objc.ObjCBlockImpl>,
-                      ffi.Pointer<objc.ObjCObject>,
-                      ffi.Pointer<objc.ObjCObject>,
-                      ffi.Pointer<objc.ObjCObject>)>()(
-          ref.pointer,
-          arg0.ref.pointer,
-          arg1?.ref.pointer ?? ffi.nullptr,
-          arg2?.ref.pointer ?? ffi.nullptr);
-}
-
-void _ObjCBlock_ffiVoid_NSURL_NSError_fnPtrTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block,
-        ffi.Pointer<objc.ObjCObject> arg0,
-        ffi.Pointer<objc.ObjCObject> arg1) =>
-    block.ref.target
-        .cast<
-            ffi.NativeFunction<
-                ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0,
-                    ffi.Pointer<objc.ObjCObject> arg1)>>()
-        .asFunction<
-            void Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>()(arg0, arg1);
-ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSError_fnPtrCallable =
-    ffi.Pointer.fromFunction<
-                ffi.Void Function(
-                    ffi.Pointer<objc.ObjCBlockImpl>,
-                    ffi.Pointer<objc.ObjCObject>,
-                    ffi.Pointer<objc.ObjCObject>)>(
-            _ObjCBlock_ffiVoid_NSURL_NSError_fnPtrTrampoline)
-        .cast();
-void _ObjCBlock_ffiVoid_NSURL_NSError_closureTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block,
-        ffi.Pointer<objc.ObjCObject> arg0,
-        ffi.Pointer<objc.ObjCObject> arg1) =>
-    (objc.getBlockClosure(block) as void Function(ffi.Pointer<objc.ObjCObject>,
-        ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
-ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSError_closureCallable =
-    ffi.Pointer.fromFunction<
-                ffi.Void Function(
-                    ffi.Pointer<objc.ObjCBlockImpl>,
-                    ffi.Pointer<objc.ObjCObject>,
-                    ffi.Pointer<objc.ObjCObject>)>(
-            _ObjCBlock_ffiVoid_NSURL_NSError_closureTrampoline)
-        .cast();
-void _ObjCBlock_ffiVoid_NSURL_NSError_listenerTrampoline(
-    ffi.Pointer<objc.ObjCBlockImpl> block,
-    ffi.Pointer<objc.ObjCObject> arg0,
-    ffi.Pointer<objc.ObjCObject> arg1) {
-  (objc.getBlockClosure(block) as void Function(
-      ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
-  objc.objectRelease(block.cast());
-}
-
-ffi.NativeCallable<
-        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_NSURL_NSError_listenerCallable = ffi.NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>.listener(
-        _ObjCBlock_ffiVoid_NSURL_NSError_listenerTrampoline)
-      ..keepIsolateAlive = false;
-void _ObjCBlock_ffiVoid_NSURL_NSError_blockingTrampoline(
-    ffi.Pointer<objc.ObjCBlockImpl> block,
-    ffi.Pointer<ffi.Void> waiter,
-    ffi.Pointer<objc.ObjCObject> arg0,
-    ffi.Pointer<objc.ObjCObject> arg1) {
-  try {
-    (objc.getBlockClosure(block) as void Function(ffi.Pointer<objc.ObjCObject>,
-        ffi.Pointer<objc.ObjCObject>))(arg0, arg1);
-  } catch (e) {
-  } finally {
-    objc.signalWaiter(waiter);
-    objc.objectRelease(block.cast());
-  }
-}
-
-ffi.NativeCallable<
-        ffi.Void Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.Void>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_NSURL_NSError_blockingCallable = ffi.NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>.isolateLocal(
-        _ObjCBlock_ffiVoid_NSURL_NSError_blockingTrampoline)
-      ..keepIsolateAlive = false;
-ffi.NativeCallable<
-        ffi.Void Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.Void>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>)>
-    _ObjCBlock_ffiVoid_NSURL_NSError_blockingListenerCallable = ffi
-        .NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>)>.listener(
-        _ObjCBlock_ffiVoid_NSURL_NSError_blockingTrampoline)
-      ..keepIsolateAlive = false;
-
-/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>`.
-abstract final class ObjCBlock_ffiVoid_NSURL_NSError {
-  /// Returns a block that wraps the given raw block pointer.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>
-      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
-              {bool retain = false, bool release = false}) =>
-          objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(pointer,
-              retain: retain, release: release);
-
-  /// Creates a block from a C function pointer.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> fromFunctionPointer(
-          ffi.Pointer<
-                  ffi.NativeFunction<
-                      ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0,
-                          ffi.Pointer<objc.ObjCObject> arg1)>>
-              ptr) =>
-      objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(
-          objc.newPointerBlock(_ObjCBlock_ffiVoid_NSURL_NSError_fnPtrCallable, ptr.cast()),
-          retain: false,
-          release: true);
-
-  /// Creates a block from a Dart function.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> fromFunction(
-          void Function(objc.NSURL, objc.NSError?) fn) =>
-      objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(
-          objc.newClosureBlock(
-              _ObjCBlock_ffiVoid_NSURL_NSError_closureCallable,
-              (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
-                  objc.NSURL.castFromPointer(arg0, retain: true, release: true),
-                  arg1.address == 0
-                      ? null
-                      : objc.NSError.castFromPointer(arg1,
-                          retain: true, release: true))),
-          retain: false,
-          release: true);
-
-  /// Creates a listener block from a Dart function.
-  ///
-  /// This is based on FFI's NativeCallable.listener, and has the same
-  /// capabilities and limitations. This block can be invoked from any thread,
-  /// but only supports void functions, and is not run synchronously. See
-  /// NativeCallable.listener for more details.
-  ///
-  /// Note that unlike the default behavior of NativeCallable.listener, listener
-  /// blocks do not keep the isolate alive.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> listener(
-      void Function(objc.NSURL, objc.NSError?) fn) {
-    final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSURL_NSError_listenerCallable.nativeFunction.cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0,
-                ffi.Pointer<objc.ObjCObject> arg1) =>
-            fn(
-                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
-                arg1.address == 0
-                    ? null
-                    : objc.NSError.castFromPointer(arg1,
-                        retain: false, release: true)));
-    final wrapper = _MapLibreFFi_wrapListenerBlock_pfv6jd(raw);
-    objc.objectRelease(raw.cast());
-    return objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(wrapper,
-        retain: false, release: true);
-  }
-
-  /// Creates a blocking block from a Dart function.
-  ///
-  /// This callback can be invoked from any native thread, and will block the
-  /// caller until the callback is handled by the Dart isolate that created
-  /// the block. Async functions are not supported.
-  ///
-  /// This block does not keep the owner isolate alive. If the owner isolate has
-  /// shut down, and the block is invoked by native code, it may block
-  /// indefinitely, or have other undefined behavior.
-  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> blocking(
-      void Function(objc.NSURL, objc.NSError?) fn) {
-    final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSURL_NSError_blockingCallable.nativeFunction.cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0,
-                ffi.Pointer<objc.ObjCObject> arg1) =>
-            fn(
-                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
-                arg1.address == 0
-                    ? null
-                    : objc.NSError.castFromPointer(arg1,
-                        retain: false, release: true)));
-    final rawListener = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSURL_NSError_blockingListenerCallable.nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0,
-                ffi.Pointer<objc.ObjCObject> arg1) =>
-            fn(
-                objc.NSURL.castFromPointer(arg0, retain: false, release: true),
-                arg1.address == 0
-                    ? null
-                    : objc.NSError.castFromPointer(arg1,
-                        retain: false, release: true)));
-    final wrapper = objc.wrapBlockingBlock(
-        _MapLibreFFi_wrapBlockingBlock_pfv6jd, raw, rawListener);
-    objc.objectRelease(raw.cast());
-    objc.objectRelease(rawListener.cast());
-    return objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(wrapper,
-        retain: false, release: true);
-  }
-}
-
-/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>`.
-extension ObjCBlock_ffiVoid_NSURL_NSError_CallExtension
-    on objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> {
-  void call(objc.NSURL arg0, objc.NSError? arg1) => ref.pointer.ref.invoke
-          .cast<
-              ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Pointer<objc.ObjCBlockImpl> block,
-                      ffi.Pointer<objc.ObjCObject> arg0,
-                      ffi.Pointer<objc.ObjCObject> arg1)>>()
-          .asFunction<
-              void Function(
-                  ffi.Pointer<objc.ObjCBlockImpl>,
-                  ffi.Pointer<objc.ObjCObject>,
-                  ffi.Pointer<objc.ObjCObject>)>()(
-      ref.pointer, arg0.ref.pointer, arg1?.ref.pointer ?? ffi.nullptr);
-}
-
-late final _class_MLNOfflineStorage = objc.getClass("MLNOfflineStorage");
-late final _sel_sharedOfflineStorage =
-    objc.registerName("sharedOfflineStorage");
-late final _sel_databasePath = objc.registerName("databasePath");
-late final _sel_databaseURL = objc.registerName("databaseURL");
-late final _sel_addContentsOfFile_withCompletionHandler_ =
-    objc.registerName("addContentsOfFile:withCompletionHandler:");
-late final _sel_addContentsOfURL_withCompletionHandler_ =
-    objc.registerName("addContentsOfURL:withCompletionHandler:");
-late final _sel_packs = objc.registerName("packs");
-late final _sel_addPackForRegion_withContext_completionHandler_ =
-    objc.registerName("addPackForRegion:withContext:completionHandler:");
-final _objc_msgSend_18qun1e = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCBlockImpl>)>>()
-    .asFunction<
-        void Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCBlockImpl>)>();
-late final _sel_removePack_withCompletionHandler_ =
-    objc.registerName("removePack:withCompletionHandler:");
-late final _sel_invalidatePack_withCompletionHandler_ =
-    objc.registerName("invalidatePack:withCompletionHandler:");
-late final _sel_reloadPacks = objc.registerName("reloadPacks");
-late final _sel_setMaximumAllowedMapboxTiles_ =
-    objc.registerName("setMaximumAllowedMapboxTiles:");
-final _objc_msgSend_1xsl7ae = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>, ffi.Uint64)>>()
-    .asFunction<
-        void Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, int)>();
-late final _sel_countOfBytesCompleted =
-    objc.registerName("countOfBytesCompleted");
-final _objc_msgSend_1p4gbjy = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.UnsignedLongLong Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        int Function(
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-late final _sel_setMaximumAmbientCacheSize_withCompletionHandler_ =
-    objc.registerName("setMaximumAmbientCacheSize:withCompletionHandler:");
-final _objc_msgSend_1sq2aut = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.UnsignedLong,
-                ffi.Pointer<objc.ObjCBlockImpl>)>>()
-    .asFunction<
-        void Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            int,
-            ffi.Pointer<objc.ObjCBlockImpl>)>();
-late final _sel_invalidateAmbientCacheWithCompletionHandler_ =
-    objc.registerName("invalidateAmbientCacheWithCompletionHandler:");
-final _objc_msgSend_f167m6 = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCBlockImpl>)>>()
-    .asFunction<
-        void Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, ffi.Pointer<objc.ObjCBlockImpl>)>();
-late final _sel_clearAmbientCacheWithCompletionHandler_ =
-    objc.registerName("clearAmbientCacheWithCompletionHandler:");
-late final _sel_resetDatabaseWithCompletionHandler_ =
-    objc.registerName("resetDatabaseWithCompletionHandler:");
-late final _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_ =
-    objc.registerName(
-        "preloadData:forURL:modificationDate:expirationDate:eTag:mustRevalidate:");
-final _objc_msgSend_1xt2lpz = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Bool)>>()
-    .asFunction<
-        void Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            bool)>();
-late final _sel_putResourceWithUrl_data_modified_expires_etag_mustRevalidate_ =
-    objc.registerName(
-        "putResourceWithUrl:data:modified:expires:etag:mustRevalidate:");
-late final _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_completionHandler_ =
-    objc.registerName(
-        "preloadData:forURL:modificationDate:expirationDate:eTag:mustRevalidate:completionHandler:");
-final _objc_msgSend_899qho = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Bool,
-                ffi.Pointer<objc.ObjCBlockImpl>)>>()
-    .asFunction<
-        void Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            bool,
-            ffi.Pointer<objc.ObjCBlockImpl>)>();
-
-/// MLNOfflineStorage implements a singleton (shared object) that manages offline
-/// packs and ambient caching. All of this class’s instance methods are asynchronous,
-/// reflecting the fact that offline resources are stored in a database. The shared
-/// object maintains a canonical collection of offline packs in its `packs` property.
-///
-/// Mapbox resources downloaded via this API are subject to separate Vector Tile and
-/// Raster Tile API pricing and are not included in the Maps SDK’s “unlimited” requests.
-/// See <a href="https://www.mapbox.com/pricing/">our pricing page</a> for more
-/// information.
-///
-/// #### Related examples
-/// - <doc:OfflinePackExample>
-/// - <doc:ManageOfflineRegionsExample>
-class MLNOfflineStorage extends objc.NSObject {
-  MLNOfflineStorage._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNOfflineStorage] that points to the same underlying object as [other].
-  MLNOfflineStorage.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNOfflineStorage] that wraps the given raw object pointer.
-  MLNOfflineStorage.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false, bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MLNOfflineStorage].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(
-        obj.ref.pointer, _sel_isKindOfClass_, _class_MLNOfflineStorage);
-  }
-
-  /// Returns the shared offline storage object.
-  static MLNOfflineStorage getSharedOfflineStorage() {
-    final _ret = _objc_msgSend_151sglz(
-        _class_MLNOfflineStorage, _sel_sharedOfflineStorage);
-    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The receiver’s delegate.
-  ///
-  /// An offline storage object sends messages to its delegate to allow it to
-  /// transform URLs before they are requested from the internet. This can be used
-  /// add or remove custom parameters, or reroute certain requests to other servers
-  /// or endpoints.
-  objc.ObjCObjectBase? get delegate {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_delegate);
-    return _ret.address == 0
-        ? null
-        : objc.ObjCObjectBase(_ret, retain: true, release: true);
-  }
-
-  /// The receiver’s delegate.
-  ///
-  /// An offline storage object sends messages to its delegate to allow it to
-  /// transform URLs before they are requested from the internet. This can be used
-  /// add or remove custom parameters, or reroute certain requests to other servers
-  /// or endpoints.
-  set delegate(objc.ObjCObjectBase? value) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_setDelegate_, value?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// The file path at which offline packs and the ambient cache are stored.
-  ///
-  /// To customize this path, specify the
-  /// `MLNOfflineStorageDatabasePath`
-  /// key in Info.plist, see <doc:Info.plist_Keys>.
-  objc.NSString get databasePath {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_databasePath);
-    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The file URL at which offline packs and the ambient cache are stored.
-  ///
-  /// To customize this path, specify the
-  /// `MLNOfflineStorageDatabasePath` key in Info.plist, see <doc:Info.plist_Keys>.
-  objc.NSURL get databaseURL {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_databaseURL);
-    return objc.NSURL.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Adds the offline packs located at the given file path to offline storage.
-  ///
-  /// The file must be a valid offline pack database bundled with the application or
-  /// downloaded separately.
-  ///
-  /// The resulting packs are added or updated to the shared offline storage object’s
-  /// `packs` property, then the `completion` block is executed.
-  ///
-  /// @param filePath A string representation of the file path. The file path must be
-  /// writable as schema updates may be perfomed.
-  /// @param completion The completion handler to call once the contents of the given
-  /// file has been added to offline storage. This handler is executed
-  /// asynchronously on the main queue.
-  void addContentsOfFile_withCompletionHandler_(
-      objc.NSString filePath,
-      objc.ObjCBlock<
-              ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>?
-          completion) {
-    _objc_msgSend_o762yo(
-        this.ref.pointer,
-        _sel_addContentsOfFile_withCompletionHandler_,
-        filePath.ref.pointer,
-        completion?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// Adds the offline packs located at the given URL to offline storage.
-  ///
-  /// The file must be a valid offline pack database bundled with the application or
-  /// downloaded separately.
-  ///
-  /// The resulting packs are added or updated to the shared offline storage object’s
-  /// `packs` property, then the `completion` block is executed.
-  ///
-  /// @param fileURL A file URL specifying the file to add. The URL should be a valid
-  /// system path. The URL must be writable as schema updates may be performed.
-  /// @param completion The completion handler to call once the contents of the given
-  /// file has been added to offline storage. This handler is executed
-  /// asynchronously on the main queue.
-  void addContentsOfURL_withCompletionHandler_(
-      objc.NSURL fileURL,
-      objc.ObjCBlock<
-              ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>?
-          completion) {
-    _objc_msgSend_o762yo(
-        this.ref.pointer,
-        _sel_addContentsOfURL_withCompletionHandler_,
-        fileURL.ref.pointer,
-        completion?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// An array of all known offline packs, in the order in which they were created.
-  ///
-  /// This property is set to `nil`, indicating that the receiver does not yet know
-  /// the existing packs, for an undefined amount of time starting from the moment
-  /// the shared offline storage object is initialized until the packs are fetched
-  /// from the database. After that point, this property is always non-nil, but it
-  /// may be empty to indicate that no packs are present.
-  ///
-  /// To detect when the shared offline storage object has finished loading its
-  /// `packs` property, observe KVO change notifications on the `packs` key path.
-  /// The initial load results in an `NSKeyValueChangeSetting` change.
-  objc.NSArray? get packs {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_packs);
-    return _ret.address == 0
-        ? null
-        : objc.NSArray.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Creates and registers an offline pack that downloads the resources needed to
-  /// use the given region offline.
-  ///
-  /// The resulting pack is added to the shared offline storage object’s `packs`
-  /// property, then the `completion` block is executed with that pack passed in.
-  ///
-  /// The pack has an initial state of ``MLNOfflinePackState/MLNOfflinePackStateInactive``. To begin
-  /// downloading resources, call ``MLNOfflinePack/resume`` on the pack from within
-  /// the completion handler. To monitor download progress, add an observer for
-  /// ``MLNOfflinePackProgressChangedNotification``s about that pack.
-  ///
-  /// To detect when any call to this method results in a new pack, observe KVO
-  /// change notifications on the shared offline storage object’s `packs` key path.
-  /// Additions to that array result in an `NSKeyValueChangeInsertion` change.
-  ///
-  /// @param region A region to download.
-  /// @param context Arbitrary data to store alongside the downloaded resources.
-  /// @param completion The completion handler to call once the pack has been added.
-  /// This handler is executed asynchronously on the main queue.
-  void addPackForRegion_withContext_completionHandler_(
-      objc.ObjCObjectBase region,
-      objc.NSData context,
-      objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>?
-          completion) {
-    _objc_msgSend_18qun1e(
-        this.ref.pointer,
-        _sel_addPackForRegion_withContext_completionHandler_,
-        region.ref.pointer,
-        context.ref.pointer,
-        completion?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// Unregisters the given offline pack and allows resources that are no longer
-  /// required by any remaining packs to be potentially freed.
-  ///
-  /// As soon as this method is called on a pack, the pack becomes invalid; any
-  /// attempt to send it a message will result in an exception being thrown. If an
-  /// error occurs and the pack cannot be removed, do not attempt to reuse the pack
-  /// object. Instead, if you need continued access to the pack, suspend all packs
-  /// and use the ``MLNOfflineStorage/reloadPacks`` method to obtain valid pointers to all the packs.
-  ///
-  /// To detect when any call to this method results in a pack being removed, observe
-  /// KVO change notifications on the shared offline storage object’s `packs` key
-  /// path. Removals from that array result in an `NSKeyValueChangeRemoval` change.
-  ///
-  /// When you remove an offline pack, any resources that are required by that pack,
-  /// but not other packs, become eligible for deletion from offline storage. Because
-  /// the backing store used for offline storage is also used as a general purpose
-  /// cache for map resources, such resources may not be immediately removed if the
-  /// implementation determines that they remain useful for general performance of
-  /// the map.
-  ///
-  /// @param pack The offline pack to remove.
-  /// @param completion The completion handler to call once the pack has been
-  /// removed. This handler is executed asynchronously on the main queue.
-  void removePack_withCompletionHandler_(MLNOfflinePack pack,
-      objc.ObjCBlock<ffi.Void Function(objc.NSError?)>? completion) {
-    _objc_msgSend_o762yo(
-        this.ref.pointer,
-        _sel_removePack_withCompletionHandler_,
-        pack.ref.pointer,
-        completion?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// Invalidates the specified offline pack. This method checks that the tiles
-  /// in the specified offline pack match those from the server. Local tiles that
-  /// do not match the latest version on the server are updated.
-  ///
-  /// This is more efficient than deleting the offline pack and downloading it
-  /// again. If the data stored locally matches that on the server, new data will
-  /// not be downloaded.
-  ///
-  /// @param pack The offline pack to be invalidated.
-  /// @param completion The completion handler to call once the pack has been
-  /// removed. This handler is executed asynchronously on the main queue.
-  void invalidatePack_withCompletionHandler_(MLNOfflinePack pack,
-      objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion) {
-    _objc_msgSend_o762yo(
-        this.ref.pointer,
-        _sel_invalidatePack_withCompletionHandler_,
-        pack.ref.pointer,
-        completion.ref.pointer);
-  }
-
-  /// Forcibly, asynchronously reloads the `packs` property. At some point after this
-  /// method is called, the pointer values of the ``MLNOfflinePack`` objects in the
-  /// `packs` property change, even if the underlying data for these packs has not
-  /// changed. If this method is called while a pack is actively downloading, the
-  /// behavior is undefined.
-  ///
-  /// You typically do not need to call this method.
-  ///
-  /// To detect when the shared offline storage object has finished reloading its
-  /// `packs` property, observe KVO change notifications on the `packs` key path.
-  /// A reload results in an `NSKeyValueChangeSetting` change.
-  void reloadPacks() {
-    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_reloadPacks);
-  }
-
-  /// Sets the maximum number of tiles that may be downloaded and
-  /// stored on the current device.
-  ///
-  /// Once this limit is reached, an
-  /// ``MLNOfflinePackMaximumMapboxTilesReachedNotification`` is posted for every
-  /// attempt to download additional tiles until already downloaded tiles are removed
-  /// by calling the ``MLNOfflineStorage/removePack:withCompletionHandler:`` method.
-  ///
-  /// @param maximumCount The maximum number of tiles allowed to be downloaded.
-  void setMaximumAllowedMapboxTiles_(int maximumCount) {
-    _objc_msgSend_1xsl7ae(
-        this.ref.pointer, _sel_setMaximumAllowedMapboxTiles_, maximumCount);
-  }
-
-  /// The cumulative size, measured in bytes, of all downloaded resources on disk.
-  ///
-  /// The returned value includes all resources, including tiles, whether downloaded
-  /// as part of an offline pack or due to caching during normal use of ``MLNMapView``.
-  int get countOfBytesCompleted {
-    return _objc_msgSend_1p4gbjy(this.ref.pointer, _sel_countOfBytesCompleted);
-  }
-
-  /// Sets the maximum ambient cache size in bytes. The default maximum cache
-  /// size is 50 MB. To disable ambient caching, set the maximum ambient cache size
-  /// to `0`. Setting the maximum ambient cache size does not impact the maximum size
-  /// of offline packs.
-  ///
-  /// This method does not limit the space available to offline packs, and data in
-  /// offline packs does not count towards this limit. If you set the maximum ambient
-  /// cache size to 30 MB then download 20 MB of offline packs, 30 MB will remain
-  /// available for the ambient cache.
-  ///
-  /// This method should be called before the map and map style have been loaded.
-  ///
-  /// This method is potentially expensive, as the database will trim cached data
-  /// in order to prevent the ambient cache from being larger than the
-  /// specified amount.
-  ///
-  /// @param cacheSize The maximum size in bytes for the ambient cache.
-  /// @param completion The completion handler to call once the maximum ambient cache
-  /// size has been set. This handler is executed synchronously on the main queue.
-  void setMaximumAmbientCacheSize_withCompletionHandler_(int cacheSize,
-      objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion) {
-    _objc_msgSend_1sq2aut(
-        this.ref.pointer,
-        _sel_setMaximumAmbientCacheSize_withCompletionHandler_,
-        cacheSize,
-        completion.ref.pointer);
-  }
-
-  /// Invalidates the ambient cache. This method checks that the tiles in the
-  /// ambient cache match those from the server. If the local tiles do not match
-  /// those on the server, they are re-downloaded.
-  ///
-  /// This is recommended over clearing the cache or resetting the database
-  /// because valid local tiles will not be downloaded again.
-  ///
-  /// Resources shared with offline packs will not be affected by this method.
-  ///
-  /// @param completion The completion handler to call once the ambient cache has
-  /// been revalidated. This handler is executed asynchronously on the main queue.
-  void invalidateAmbientCacheWithCompletionHandler_(
-      objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion) {
-    _objc_msgSend_f167m6(
-        this.ref.pointer,
-        _sel_invalidateAmbientCacheWithCompletionHandler_,
-        completion.ref.pointer);
-  }
-
-  /// Clears the ambient cache by deleting resources. This method does not affect
-  /// resources shared with offline regions.
-  ///
-  /// @param completion The completion handler to call once resources from the
-  /// ambient cache have been cleared. This handler is executed asynchronously on
-  /// the main queue.
-  void clearAmbientCacheWithCompletionHandler_(
-      objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion) {
-    _objc_msgSend_f167m6(this.ref.pointer,
-        _sel_clearAmbientCacheWithCompletionHandler_, completion.ref.pointer);
-  }
-
-  /// Deletes the existing database, which includes both the ambient cache and
-  /// offline packs, then reinitializes it.
-  ///
-  /// You typically do not need to call this method.
-  ///
-  /// @param completion The completion handler to call once the pack has database has
-  /// been reset. This handler is executed asynchronously on the main queue.
-  void resetDatabaseWithCompletionHandler_(
-      objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion) {
-    _objc_msgSend_f167m6(this.ref.pointer,
-        _sel_resetDatabaseWithCompletionHandler_, completion.ref.pointer);
-  }
-
-  /// Inserts the provided resource into the ambient cache.
-  ///
-  /// This method mimics the caching that would take place if the equivalent resource
-  /// were requested in the process of map rendering. Use this method to pre-warm the
-  /// cache with resources you know will be requested.
-  ///
-  /// This method is asynchronous; the data may not be immediately available for
-  /// in-progress requests, though subsequent requests should have access to the
-  /// cached data.
-  ///
-  /// To find out when the resource is ready to retrieve from the cache, use the
-  /// ``MLNOfflineStorage/preloadData:forURL:modificationDate:expirationDate:eTag:mustRevalidate:completionHandler:``
-  /// method.
-  ///
-  /// @param data Response data to store for this resource. The data is expected to
-  /// be uncompressed; internally, the cache will compress data as necessary.
-  /// @param url The URL at which the data can normally be found.
-  /// @param modified The date the resource was last modified.
-  /// @param expires The date after which the resource is no longer valid.
-  /// @param eTag An HTTP entity tag.
-  /// @param mustRevalidate A Boolean value indicating whether the data is still
-  /// usable past the expiration date.
-  void preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_(
-      objc.NSData data,
-      objc.NSURL url,
-      objc.NSDate? modified,
-      objc.NSDate? expires,
-      objc.NSString? eTag,
-      bool mustRevalidate) {
-    _objc_msgSend_1xt2lpz(
-        this.ref.pointer,
-        _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_,
-        data.ref.pointer,
-        url.ref.pointer,
-        modified?.ref.pointer ?? ffi.nullptr,
-        expires?.ref.pointer ?? ffi.nullptr,
-        eTag?.ref.pointer ?? ffi.nullptr,
-        mustRevalidate);
-  }
-
-  /// putResourceWithUrl:data:modified:expires:etag:mustRevalidate:
-  void putResourceWithUrl_data_modified_expires_etag_mustRevalidate_(
-      objc.NSURL url,
-      objc.NSData data,
-      objc.NSDate? modified,
-      objc.NSDate? expires,
-      objc.NSString? etag,
-      bool mustRevalidate) {
-    _objc_msgSend_1xt2lpz(
-        this.ref.pointer,
-        _sel_putResourceWithUrl_data_modified_expires_etag_mustRevalidate_,
-        url.ref.pointer,
-        data.ref.pointer,
-        modified?.ref.pointer ?? ffi.nullptr,
-        expires?.ref.pointer ?? ffi.nullptr,
-        etag?.ref.pointer ?? ffi.nullptr,
-        mustRevalidate);
-  }
-
-  /// Inserts the provided resource into the ambient cache, calling a completion
-  /// handler when finished.
-  ///
-  /// This method is asynchronous. The data is available for in-progress requests as
-  /// soon as the completion handler is called.
-  ///
-  /// This method is asynchronous; the data may not be immediately available for
-  /// in-progress requests, though subsequent requests should have access to the
-  /// cached data.
-  ///
-  /// @param data Response data to store for this resource. The data is expected to
-  /// be uncompressed; internally, the cache will compress data as necessary.
-  /// @param url The URL at which the data can normally be found.
-  /// @param modified The date the resource was last modified.
-  /// @param expires The date after which the resource is no longer valid.
-  /// @param eTag An HTTP entity tag.
-  /// @param mustRevalidate A Boolean value indicating whether the data is still
-  /// usable past the expiration date.
-  /// @param completion The completion handler to call once the data has been
-  /// preloaded. This handler is executed asynchronously on the main queue.
-  void
-      preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_completionHandler_(
-          objc.NSData data,
-          objc.NSURL url,
-          objc.NSDate? modified,
-          objc.NSDate? expires,
-          objc.NSString? eTag,
-          bool mustRevalidate,
-          objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>?
-              completion) {
-    _objc_msgSend_899qho(
-        this.ref.pointer,
-        _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_completionHandler_,
-        data.ref.pointer,
-        url.ref.pointer,
-        modified?.ref.pointer ?? ffi.nullptr,
-        expires?.ref.pointer ?? ffi.nullptr,
-        eTag?.ref.pointer ?? ffi.nullptr,
-        mustRevalidate,
-        completion?.ref.pointer ?? ffi.nullptr);
-  }
-
-  /// init
-  MLNOfflineStorage init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNOfflineStorage.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// new
-  static MLNOfflineStorage new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNOfflineStorage, _sel_new);
-    return MLNOfflineStorage.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MLNOfflineStorage allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret = _objc_msgSend_1cwp428(
-        _class_MLNOfflineStorage, _sel_allocWithZone_, zone);
-    return MLNOfflineStorage.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// alloc
-  static MLNOfflineStorage alloc() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNOfflineStorage, _sel_alloc);
-    return MLNOfflineStorage.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// self
-  MLNOfflineStorage self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// retain
-  MLNOfflineStorage retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// autorelease
-  MLNOfflineStorage autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
-  }
-}
-
-late final _class_MLNTilePyramidOfflineRegion =
-    objc.getClass("MLNTilePyramidOfflineRegion");
-late final _sel_bounds = objc.registerName("bounds");
-late final _sel_initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_ =
-    objc.registerName("initWithStyleURL:bounds:fromZoomLevel:toZoomLevel:");
-final _objc_msgSend_s3spq = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>,
-                MLNCoordinateBounds,
-                ffi.Double,
-                ffi.Double)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            ffi.Pointer<objc.ObjCObject>,
-            MLNCoordinateBounds,
-            double,
-            double)>();
-ffi.Pointer<objc.ObjCObject> _ObjCBlock_NSURL_ffiVoid_fnPtrTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block, ffi.Pointer<ffi.Void> arg0) =>
-    block.ref.target
-        .cast<
-            ffi.NativeFunction<
-                ffi.Pointer<objc.ObjCObject> Function(
-                    ffi.Pointer<ffi.Void> arg0)>>()
-        .asFunction<
-            ffi.Pointer<objc.ObjCObject> Function(
-                ffi.Pointer<ffi.Void>)>()(arg0);
-ffi.Pointer<ffi.Void> _ObjCBlock_NSURL_ffiVoid_fnPtrCallable =
-    ffi.Pointer.fromFunction<
-                ffi.Pointer<objc.ObjCObject> Function(
-                    ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<ffi.Void>)>(
-            _ObjCBlock_NSURL_ffiVoid_fnPtrTrampoline)
-        .cast();
-ffi.Pointer<objc.ObjCObject> _ObjCBlock_NSURL_ffiVoid_closureTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block, ffi.Pointer<ffi.Void> arg0) =>
-    (objc.getBlockClosure(block) as ffi.Pointer<objc.ObjCObject> Function(
-        ffi.Pointer<ffi.Void>))(arg0);
-ffi.Pointer<ffi.Void> _ObjCBlock_NSURL_ffiVoid_closureCallable =
-    ffi.Pointer.fromFunction<
-                ffi.Pointer<objc.ObjCObject> Function(
-                    ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<ffi.Void>)>(
-            _ObjCBlock_NSURL_ffiVoid_closureTrampoline)
-        .cast();
-
-/// Construction methods for `objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>`.
-abstract final class ObjCBlock_NSURL_ffiVoid {
-  /// Returns a block that wraps the given raw block pointer.
-  static objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>
-      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
-              {bool retain = false, bool release = false}) =>
-          objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>(pointer,
-              retain: retain, release: release);
-
-  /// Creates a block from a C function pointer.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc
-      .ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)> fromFunctionPointer(
-              ffi.Pointer<
-                      ffi.NativeFunction<
-                          ffi.Pointer<objc.ObjCObject> Function(
-                              ffi.Pointer<ffi.Void> arg0)>>
-                  ptr) =>
-          objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>(
-              objc.newPointerBlock(_ObjCBlock_NSURL_ffiVoid_fnPtrCallable, ptr.cast()),
-              retain: false,
-              release: true);
-
-  /// Creates a block from a Dart function.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>
-      fromFunction(objc.NSURL Function(ffi.Pointer<ffi.Void>) fn) =>
-          objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>(
-              objc.newClosureBlock(
-                  _ObjCBlock_NSURL_ffiVoid_closureCallable,
-                  (ffi.Pointer<ffi.Void> arg0) =>
-                      fn(arg0).ref.retainAndAutorelease()),
-              retain: false,
-              release: true);
-}
-
-/// Call operator for `objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)>`.
-extension ObjCBlock_NSURL_ffiVoid_CallExtension
-    on objc.ObjCBlock<objc.NSURL Function(ffi.Pointer<ffi.Void>)> {
-  objc.NSURL call(ffi.Pointer<ffi.Void> arg0) => objc.NSURL.castFromPointer(
-      ref.pointer.ref.invoke
-          .cast<
-              ffi.NativeFunction<
-                  ffi.Pointer<objc.ObjCObject> Function(
-                      ffi.Pointer<objc.ObjCBlockImpl> block,
-                      ffi.Pointer<ffi.Void> arg0)>>()
-          .asFunction<
-              ffi.Pointer<objc.ObjCObject> Function(
-                  ffi.Pointer<objc.ObjCBlockImpl>,
-                  ffi.Pointer<ffi.Void>)>()(ref.pointer, arg0),
-      retain: true,
-      release: true);
-}
-
-late final _sel_includesIdeographicGlyphs =
-    objc.registerName("includesIdeographicGlyphs");
-late final _sel_setIncludesIdeographicGlyphs_ =
-    objc.registerName("setIncludesIdeographicGlyphs:");
-void _ObjCBlock_ffiVoid_ffiVoid_bool_fnPtrTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block,
-        ffi.Pointer<ffi.Void> arg0,
-        bool arg1) =>
-    block.ref.target
-        .cast<
-            ffi.NativeFunction<
-                ffi.Void Function(ffi.Pointer<ffi.Void> arg0, ffi.Bool arg1)>>()
-        .asFunction<void Function(ffi.Pointer<ffi.Void>, bool)>()(arg0, arg1);
-ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_ffiVoid_bool_fnPtrCallable =
-    ffi.Pointer.fromFunction<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Bool)>(_ObjCBlock_ffiVoid_ffiVoid_bool_fnPtrTrampoline)
-        .cast();
-void _ObjCBlock_ffiVoid_ffiVoid_bool_closureTrampoline(
-        ffi.Pointer<objc.ObjCBlockImpl> block,
-        ffi.Pointer<ffi.Void> arg0,
-        bool arg1) =>
-    (objc.getBlockClosure(block) as void Function(ffi.Pointer<ffi.Void>, bool))(
-        arg0, arg1);
-ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_ffiVoid_bool_closureCallable =
-    ffi.Pointer.fromFunction<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Bool)>(_ObjCBlock_ffiVoid_ffiVoid_bool_closureTrampoline)
-        .cast();
-void _ObjCBlock_ffiVoid_ffiVoid_bool_listenerTrampoline(
-    ffi.Pointer<objc.ObjCBlockImpl> block,
-    ffi.Pointer<ffi.Void> arg0,
-    bool arg1) {
-  (objc.getBlockClosure(block) as void Function(ffi.Pointer<ffi.Void>, bool))(
-      arg0, arg1);
-  objc.objectRelease(block.cast());
-}
-
-ffi.NativeCallable<
-        ffi.Void Function(
-            ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<ffi.Void>, ffi.Bool)>
-    _ObjCBlock_ffiVoid_ffiVoid_bool_listenerCallable = ffi.NativeCallable<
-            ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>, ffi.Bool)>.listener(
-        _ObjCBlock_ffiVoid_ffiVoid_bool_listenerTrampoline)
-      ..keepIsolateAlive = false;
-void _ObjCBlock_ffiVoid_ffiVoid_bool_blockingTrampoline(
-    ffi.Pointer<objc.ObjCBlockImpl> block,
-    ffi.Pointer<ffi.Void> waiter,
-    ffi.Pointer<ffi.Void> arg0,
-    bool arg1) {
-  try {
-    (objc.getBlockClosure(block) as void Function(ffi.Pointer<ffi.Void>, bool))(
-        arg0, arg1);
-  } catch (e) {
-  } finally {
-    objc.signalWaiter(waiter);
-    objc.objectRelease(block.cast());
-  }
-}
-
-ffi.NativeCallable<
-        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Bool)>
-    _ObjCBlock_ffiVoid_ffiVoid_bool_blockingCallable = ffi.NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Bool)>.isolateLocal(
-        _ObjCBlock_ffiVoid_ffiVoid_bool_blockingTrampoline)
-      ..keepIsolateAlive = false;
-ffi.NativeCallable<
-        ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Bool)>
-    _ObjCBlock_ffiVoid_ffiVoid_bool_blockingListenerCallable = ffi
-        .NativeCallable<
-            ffi.Void Function(
-                ffi.Pointer<objc.ObjCBlockImpl>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Bool)>.listener(
-        _ObjCBlock_ffiVoid_ffiVoid_bool_blockingTrampoline)
-      ..keepIsolateAlive = false;
-
-/// Construction methods for `objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>`.
-abstract final class ObjCBlock_ffiVoid_ffiVoid_bool {
-  /// Returns a block that wraps the given raw block pointer.
-  static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>
-      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
-              {bool retain = false, bool release = false}) =>
-          objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>(
-              pointer,
-              retain: retain,
-              release: release);
-
-  /// Creates a block from a C function pointer.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>
-      fromFunctionPointer(
-              ffi.Pointer<
-                      ffi.NativeFunction<
-                          ffi.Void Function(
-                              ffi.Pointer<ffi.Void> arg0, ffi.Bool arg1)>>
-                  ptr) =>
-          objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>(
-              objc.newPointerBlock(_ObjCBlock_ffiVoid_ffiVoid_bool_fnPtrCallable, ptr.cast()),
-              retain: false,
-              release: true);
-
-  /// Creates a block from a Dart function.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>
-      fromFunction(void Function(ffi.Pointer<ffi.Void>, bool) fn) =>
-          objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>(
-              objc.newClosureBlock(
-                  _ObjCBlock_ffiVoid_ffiVoid_bool_closureCallable,
-                  (ffi.Pointer<ffi.Void> arg0, bool arg1) => fn(arg0, arg1)),
-              retain: false,
-              release: true);
-
-  /// Creates a listener block from a Dart function.
-  ///
-  /// This is based on FFI's NativeCallable.listener, and has the same
-  /// capabilities and limitations. This block can be invoked from any thread,
-  /// but only supports void functions, and is not run synchronously. See
-  /// NativeCallable.listener for more details.
-  ///
-  /// Note that unlike the default behavior of NativeCallable.listener, listener
-  /// blocks do not keep the isolate alive.
-  static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>
-      listener(void Function(ffi.Pointer<ffi.Void>, bool) fn) {
-    final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_ffiVoid_bool_listenerCallable.nativeFunction.cast(),
-        (ffi.Pointer<ffi.Void> arg0, bool arg1) => fn(arg0, arg1));
-    final wrapper = _MapLibreFFi_wrapListenerBlock_10lndml(raw);
-    objc.objectRelease(raw.cast());
-    return objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>(
-        wrapper,
-        retain: false,
-        release: true);
-  }
-
-  /// Creates a blocking block from a Dart function.
-  ///
-  /// This callback can be invoked from any native thread, and will block the
-  /// caller until the callback is handled by the Dart isolate that created
-  /// the block. Async functions are not supported.
-  ///
-  /// This block does not keep the owner isolate alive. If the owner isolate has
-  /// shut down, and the block is invoked by native code, it may block
-  /// indefinitely, or have other undefined behavior.
-  static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>
-      blocking(void Function(ffi.Pointer<ffi.Void>, bool) fn) {
-    final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_ffiVoid_bool_blockingCallable.nativeFunction.cast(),
-        (ffi.Pointer<ffi.Void> arg0, bool arg1) => fn(arg0, arg1));
-    final rawListener = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_ffiVoid_bool_blockingListenerCallable.nativeFunction
-            .cast(),
-        (ffi.Pointer<ffi.Void> arg0, bool arg1) => fn(arg0, arg1));
-    final wrapper = objc.wrapBlockingBlock(
-        _MapLibreFFi_wrapBlockingBlock_10lndml, raw, rawListener);
-    objc.objectRelease(raw.cast());
-    objc.objectRelease(rawListener.cast());
-    return objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>(
-        wrapper,
-        retain: false,
-        release: true);
-  }
-}
-
-/// Call operator for `objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>`.
-extension ObjCBlock_ffiVoid_ffiVoid_bool_CallExtension
-    on objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)> {
-  void call(ffi.Pointer<ffi.Void> arg0, bool arg1) => ref.pointer.ref.invoke
-      .cast<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Pointer<objc.ObjCBlockImpl> block,
-                  ffi.Pointer<ffi.Void> arg0, ffi.Bool arg1)>>()
-      .asFunction<
-          void Function(ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<ffi.Void>,
-              bool)>()(ref.pointer, arg0, arg1);
-}
-
-/// An offline region defined by a style URL, geographic coordinate bounds, and
-/// range of zoom levels.
-///
-/// To minimize the resources required by an irregularly shaped offline region,
-/// use the MLNShapeOfflineRegion class instead.
-///
-/// ### Example
-/// ```swift
-/// let northeast = CLLocationCoordinate2D(latitude: 40.989329, longitude: -102.062592)
-/// let southwest = CLLocationCoordinate2D(latitude: 36.986207, longitude: -109.049896)
-/// let bbox = MLNCoordinateBounds(sw: southwest, ne: northeast)
-///
-/// let region = MLNTilePyramidOfflineRegion(styleURL: MLNStyle.lightStyleURL, bounds: bbox,
-/// fromZoomLevel: 11, toZoomLevel: 14) let context = "Tile Pyramid Region".data(using: .utf8)
-/// MLNOfflineStorage.shared.addPack(for: region, withContext: context!)
-/// ```
-///
-/// #### Related examples
-/// TODO: Download an offline map, learn how to define an offline region
-/// to be downloaded to a user's device.
-class MLNTilePyramidOfflineRegion extends objc.NSObject {
-  MLNTilePyramidOfflineRegion._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
-
-  /// Constructs a [MLNTilePyramidOfflineRegion] that points to the same underlying object as [other].
-  MLNTilePyramidOfflineRegion.castFrom(objc.ObjCObjectBase other)
-      : this._(other.ref.pointer, retain: true, release: true);
-
-  /// Constructs a [MLNTilePyramidOfflineRegion] that wraps the given raw object pointer.
-  MLNTilePyramidOfflineRegion.castFromPointer(
-      ffi.Pointer<objc.ObjCObject> other,
-      {bool retain = false,
-      bool release = false})
-      : this._(other, retain: retain, release: release);
-
-  /// Returns whether [obj] is an instance of [MLNTilePyramidOfflineRegion].
-  static bool isInstance(objc.ObjCObjectBase obj) {
-    return _objc_msgSend_19nvye5(obj.ref.pointer, _sel_isKindOfClass_,
-        _class_MLNTilePyramidOfflineRegion);
-  }
-
-  /// The coordinate bounds for the geographic region covered by the downloaded
-  /// tiles.
-  MLNCoordinateBounds get bounds {
-    final _ptr = pkg_ffi.calloc<MLNCoordinateBounds>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_ygoa6aStret(_ptr, this.ref.pointer, _sel_bounds)
-        : _ptr.ref = _objc_msgSend_ygoa6a(this.ref.pointer, _sel_bounds);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<MLNCoordinateBounds>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<MLNCoordinateBounds>(_finalizable);
-  }
-
-  /// The minimum zoom level for which to download tiles and other resources.
-  ///
-  /// For more information about zoom levels, ``MLNMapView/zoomLevel``.
-  double get minimumZoomLevel {
-    return objc.useMsgSendVariants
-        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_minimumZoomLevel)
-        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_minimumZoomLevel);
-  }
-
-  /// The maximum zoom level for which to download tiles and other resources.
-  ///
-  /// For more information about zoom levels, ``MLNMapView/zoomLevel``.
-  double get maximumZoomLevel {
-    return objc.useMsgSendVariants
-        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_maximumZoomLevel)
-        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_maximumZoomLevel);
-  }
-
-  /// init
-  MLNTilePyramidOfflineRegion init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// Initializes a newly created offline region with the given style URL, geographic
-  /// coordinate bounds, and range of zoom levels.
-  ///
-  /// This is the designated initializer for ``MLNTilePyramidOfflineRegion``.
-  ///
-  /// @param styleURL URL of the map style for which to download resources. The URL
-  /// may be a full HTTP or HTTPS URL or a canonical style URL.
-  /// Specify `nil` for the default style.
-  /// Relative file URLs cannot be used as offline style URLs. To download the
-  /// online resources required by a local style, specify a URL to an online copy
-  /// of the style.
-  /// @param bounds The coordinate bounds for the geographic region to be covered by
-  /// the downloaded tiles.
-  /// @param minimumZoomLevel The minimum zoom level to be covered by the downloaded
-  /// tiles. This parameter should be set to at least 0 but no greater than the
-  /// value of the `maximumZoomLevel` parameter. For each required tile source, if
-  /// this parameter is set to a value less than the tile source’s minimum zoom
-  /// level, the download covers zoom levels down to the tile source’s minimum
-  /// zoom level.
-  /// @param maximumZoomLevel The maximum zoom level to be covered by the downloaded
-  /// tiles. This parameter should be set to at least the value of the
-  /// `minimumZoomLevel` parameter. For each required tile source, if this
-  /// parameter is set to a value greater than the tile source’s minimum zoom
-  /// level, the download covers zoom levels up to the tile source’s maximum zoom
-  /// level.
-  MLNTilePyramidOfflineRegion
-      initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_(
-          objc.NSURL? styleURL,
-          MLNCoordinateBounds bounds,
-          double minimumZoomLevel,
-          double maximumZoomLevel) {
-    final _ret = _objc_msgSend_s3spq(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_,
-        styleURL?.ref.pointer ?? ffi.nullptr,
-        bounds,
-        minimumZoomLevel,
-        maximumZoomLevel);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// new
-  static MLNTilePyramidOfflineRegion new1() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_MLNTilePyramidOfflineRegion, _sel_new);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// allocWithZone:
-  static MLNTilePyramidOfflineRegion allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret = _objc_msgSend_1cwp428(
-        _class_MLNTilePyramidOfflineRegion, _sel_allocWithZone_, zone);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// alloc
-  static MLNTilePyramidOfflineRegion alloc() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_MLNTilePyramidOfflineRegion, _sel_alloc);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// self
-  MLNTilePyramidOfflineRegion self() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-
-  /// retain
-  MLNTilePyramidOfflineRegion retain() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-
-  /// autorelease
-  MLNTilePyramidOfflineRegion autorelease() {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: true, release: true);
-  }
-
-  /// URL of the style whose resources are required for offline viewing.
-  ///
-  /// In addition to the JSON stylesheet, different styles may require different font
-  /// glyphs, sprite sheets, and other resources.
-  ///
-  /// The URL may be a full HTTP or HTTPS URL or a canonical URL
-  objc.NSURL get styleURL {
-    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_styleURL);
-    return objc.NSURL.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// Specifies whether to include ideographic glyphs in downloaded font data.
-  /// Ideographic glyphs make up the majority of downloaded font data, but
-  /// it is possible to configure the renderer to use locally installed fonts
-  /// instead of relying on fonts downloaded as part of the offline pack.
-  /// See `MLNIdeographicFontFamilyName` setting. Also, for regions outside of
-  /// China, Japan, and Korea, these glyphs will rarely appear for non-CJK users.
-  ///
-  /// By default, this property is set to `NO`, so that the offline pack will
-  /// include ideographic glyphs.
-  bool get includesIdeographicGlyphs {
-    return _objc_msgSend_91o635(
-        this.ref.pointer, _sel_includesIdeographicGlyphs);
-  }
-
-  /// Specifies whether to include ideographic glyphs in downloaded font data.
-  /// Ideographic glyphs make up the majority of downloaded font data, but
-  /// it is possible to configure the renderer to use locally installed fonts
-  /// instead of relying on fonts downloaded as part of the offline pack.
-  /// See `MLNIdeographicFontFamilyName` setting. Also, for regions outside of
-  /// China, Japan, and Korea, these glyphs will rarely appear for non-CJK users.
-  ///
-  /// By default, this property is set to `NO`, so that the offline pack will
-  /// include ideographic glyphs.
-  set includesIdeographicGlyphs(bool value) {
-    _objc_msgSend_1s56lr9(
-        this.ref.pointer, _sel_setIncludesIdeographicGlyphs_, value);
-  }
-
-  /// supportsSecureCoding
-  static bool getSupportsSecureCoding() {
-    return _objc_msgSend_91o635(
-        _class_MLNTilePyramidOfflineRegion, _sel_supportsSecureCoding);
-  }
-
-  /// encodeWithCoder:
-  void encodeWithCoder_(objc.NSCoder coder) {
-    _objc_msgSend_xtuoz7(
-        this.ref.pointer, _sel_encodeWithCoder_, coder.ref.pointer);
-  }
-
-  /// initWithCoder:
-  MLNTilePyramidOfflineRegion? initWithCoder_(objc.NSCoder coder) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
-        _sel_initWithCoder_, coder.ref.pointer);
-    return _ret.address == 0
-        ? null
-        : MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-            retain: false, release: true);
-  }
 }

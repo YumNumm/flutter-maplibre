@@ -61,13 +61,20 @@ final class MapLibreMapStateIos extends MapLibreMapStateNative
     double webSpeed = 1.2,
     Duration? webMaxDuration,
   }) async {
-    if (zoom != null) _mapView.zoomLevel = zoom;
     final ffiCamera = _mapView.camera;
     if (pitch != null) ffiCamera.pitch = pitch;
     if (bearing != null) ffiCamera.heading = bearing;
     if (center != null) {
       ffiCamera.centerCoordinate = center.toCLLocationCoordinate2D();
     }
+    if (zoom != null) {
+      final altitude = Helpers.altitudeForZoomLevelWithZoomLevel_mapView_(
+        zoom,
+        _mapView,
+      );
+      ffiCamera.altitude = altitude;
+    }
+
     _mapView.flyToCamera_withDuration_completionHandler_(
       ffiCamera,
       nativeDuration.inMicroseconds / 1000000,
