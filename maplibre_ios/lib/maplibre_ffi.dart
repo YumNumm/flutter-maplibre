@@ -9,72 +9,44 @@ import 'package:objective_c/objective_c.dart' as objc;
 import 'package:ffi/ffi.dart' as pkg_ffi;
 
 @ffi.Native<
-    ffi.Pointer<objc.ObjCBlockImpl> Function(
-        ffi.Pointer<objc.ObjCBlockImpl>)>(isLeaf: true)
-external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_1pl9qdv(
-  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> Function(
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<ffi.Void>,
+  )
+>()
+external ffi.Pointer<objc.ObjCObject> _MapLibreFFi_protocolTrampoline_1mbt9g9(
+  ffi.Pointer<objc.ObjCObject> target,
+  ffi.Pointer<ffi.Void> arg0,
 );
 
 @ffi.Native<
-        ffi.Pointer<objc.ObjCBlockImpl> Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>>,
-            ffi.Pointer<
-                ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>)>(
-    isLeaf: true)
-external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_1pl9qdv(
-  ffi.Pointer<objc.ObjCBlockImpl> block,
-  ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
-  ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>> newWaiter,
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
-      awaitWaiter,
+  instancetype Function(
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+  )
+>()
+external instancetype _MapLibreFFi_protocolTrampoline_10z9f5k(
+  ffi.Pointer<objc.ObjCObject> target,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCObject> arg2,
+  ffi.Pointer<ffi.Pointer<objc.ObjCObject>> arg3,
 );
 
 @ffi.Native<
-    ffi.Pointer<objc.ObjCBlockImpl> Function(
-        ffi.Pointer<objc.ObjCBlockImpl>)>(isLeaf: true)
-external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_1a22wz(
-  ffi.Pointer<objc.ObjCBlockImpl> block,
-);
-
-@ffi.Native<
-        ffi.Pointer<objc.ObjCBlockImpl> Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>>,
-            ffi.Pointer<
-                ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>)>(
-    isLeaf: true)
-external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_1a22wz(
-  ffi.Pointer<objc.ObjCBlockImpl> block,
-  ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
-  ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>> newWaiter,
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
-      awaitWaiter,
-);
-
-@ffi.Native<
-    ffi.Pointer<objc.ObjCBlockImpl> Function(
-        ffi.Pointer<objc.ObjCBlockImpl>)>(isLeaf: true)
-external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_18v1jvf(
-  ffi.Pointer<objc.ObjCBlockImpl> block,
-);
-
-@ffi.Native<
-        ffi.Pointer<objc.ObjCBlockImpl> Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>>,
-            ffi.Pointer<
-                ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>)>(
-    isLeaf: true)
-external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_18v1jvf(
-  ffi.Pointer<objc.ObjCBlockImpl> block,
-  ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
-  ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>> newWaiter,
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
-      awaitWaiter,
+  ffi.Long Function(
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>()
+external int _MapLibreFFi_protocolTrampoline_1ldqghh(
+  ffi.Pointer<objc.ObjCObject> target,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
 );
 
 @ffi.Native<
@@ -85,19 +57,190 @@ external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_pfv6jd(
 );
 
 @ffi.Native<
-        ffi.Pointer<objc.ObjCBlockImpl> Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>>,
-            ffi.Pointer<
-                ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>)>(
-    isLeaf: true)
+  ffi.Pointer<objc.ObjCBlockImpl> Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.DOBJC_Context>,
+  )
+>(isLeaf: true)
 external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_pfv6jd(
   ffi.Pointer<objc.ObjCBlockImpl> block,
   ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
-  ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>> newWaiter,
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
-      awaitWaiter,
+  ffi.Pointer<objc.DOBJC_Context> context,
+);
+
+@ffi.Native<
+  ffi.Pointer<objc.ObjCObject> Function(
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCBlockImpl>,
+  )
+>()
+external ffi.Pointer<objc.ObjCObject> _MapLibreFFi_protocolTrampoline_1q0i84(
+  ffi.Pointer<objc.ObjCObject> target,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCBlockImpl> arg2,
+);
+
+@ffi.Native<
+  ffi.Pointer<objc.ObjCBlockImpl> Function(ffi.Pointer<objc.ObjCBlockImpl>)
+>(isLeaf: true)
+external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_1pl9qdv(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+);
+
+@ffi.Native<
+  ffi.Pointer<objc.ObjCBlockImpl> Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.DOBJC_Context>,
+  )
+>(isLeaf: true)
+external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_1pl9qdv(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
+  ffi.Pointer<objc.DOBJC_Context> context,
+);
+
+@ffi.Native<
+  ffi.Pointer<objc.ObjCBlockImpl> Function(ffi.Pointer<objc.ObjCBlockImpl>)
+>(isLeaf: true)
+external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_1a22wz(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+);
+
+@ffi.Native<
+  ffi.Pointer<objc.ObjCBlockImpl> Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.DOBJC_Context>,
+  )
+>(isLeaf: true)
+external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_1a22wz(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
+  ffi.Pointer<objc.DOBJC_Context> context,
+);
+
+@ffi.Native<
+  instancetype Function(
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>()
+external instancetype _MapLibreFFi_protocolTrampoline_xr62hr(
+  ffi.Pointer<objc.ObjCObject> target,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+);
+
+@ffi.Native<
+  ffi.UnsignedLong Function(
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>()
+external int _MapLibreFFi_protocolTrampoline_1jypdhr(
+  ffi.Pointer<objc.ObjCObject> target,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCObject> arg2,
+);
+
+@ffi.Native<
+  ffi.Pointer<objc.ObjCObject> Function(
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>()
+external ffi.Pointer<objc.ObjCObject> _MapLibreFFi_protocolTrampoline_zi5eed(
+  ffi.Pointer<objc.ObjCObject> target,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCObject> arg2,
+);
+
+@ffi.Native<
+  ffi.UnsignedLong Function(
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>()
+external int _MapLibreFFi_protocolTrampoline_zs9fen(
+  ffi.Pointer<objc.ObjCObject> target,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCObject> arg2,
+);
+
+@ffi.Native<
+  ffi.Bool Function(ffi.Pointer<objc.ObjCObject>, ffi.Pointer<ffi.Void>)
+>()
+external bool _MapLibreFFi_protocolTrampoline_e3qsqz(
+  ffi.Pointer<objc.ObjCObject> target,
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+@ffi.Native<
+  ffi.Pointer<objc.ObjCBlockImpl> Function(ffi.Pointer<objc.ObjCBlockImpl>)
+>(isLeaf: true)
+external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_18v1jvf(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+);
+
+@ffi.Native<
+  ffi.Pointer<objc.ObjCBlockImpl> Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.DOBJC_Context>,
+  )
+>(isLeaf: true)
+external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_18v1jvf(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
+  ffi.Pointer<objc.DOBJC_Context> context,
+);
+
+@ffi.Native<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>()
+external void _MapLibreFFi_protocolTrampoline_18v1jvf(
+  ffi.Pointer<objc.ObjCObject> target,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+);
+
+@ffi.Native<
+  ffi.Pointer<objc.ObjCBlockImpl> Function(ffi.Pointer<objc.ObjCBlockImpl>)
+>(isLeaf: true)
+external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_lmc3p5(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+);
+
+@ffi.Native<
+  ffi.Pointer<objc.ObjCBlockImpl> Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.DOBJC_Context>,
+  )
+>(isLeaf: true)
+external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_lmc3p5(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
+  ffi.Pointer<objc.DOBJC_Context> context,
 );
 
 @ffi.Native<
@@ -108,19 +251,16 @@ external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_xtuoz7(
 );
 
 @ffi.Native<
-        ffi.Pointer<objc.ObjCBlockImpl> Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>>,
-            ffi.Pointer<
-                ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>)>(
-    isLeaf: true)
+  ffi.Pointer<objc.ObjCBlockImpl> Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.DOBJC_Context>,
+  )
+>(isLeaf: true)
 external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_xtuoz7(
   ffi.Pointer<objc.ObjCBlockImpl> block,
   ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
-  ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>> newWaiter,
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
-      awaitWaiter,
+  ffi.Pointer<objc.DOBJC_Context> context,
 );
 
 @ffi.Native<
@@ -131,42 +271,16 @@ external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_r8gdi7(
 );
 
 @ffi.Native<
-        ffi.Pointer<objc.ObjCBlockImpl> Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>>,
-            ffi.Pointer<
-                ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>)>(
-    isLeaf: true)
+  ffi.Pointer<objc.ObjCBlockImpl> Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.DOBJC_Context>,
+  )
+>(isLeaf: true)
 external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_r8gdi7(
   ffi.Pointer<objc.ObjCBlockImpl> block,
   ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
-  ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>> newWaiter,
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
-      awaitWaiter,
-);
-
-@ffi.Native<
-    ffi.Pointer<objc.ObjCBlockImpl> Function(
-        ffi.Pointer<objc.ObjCBlockImpl>)>(isLeaf: true)
-external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapListenerBlock_10lndml(
-  ffi.Pointer<objc.ObjCBlockImpl> block,
-);
-
-@ffi.Native<
-        ffi.Pointer<objc.ObjCBlockImpl> Function(
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<objc.ObjCBlockImpl>,
-            ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>>,
-            ffi.Pointer<
-                ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>)>(
-    isLeaf: true)
-external ffi.Pointer<objc.ObjCBlockImpl> _MapLibreFFi_wrapBlockingBlock_10lndml(
-  ffi.Pointer<objc.ObjCBlockImpl> block,
-  ffi.Pointer<objc.ObjCBlockImpl> listnerBlock,
-  ffi.Pointer<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>> newWaiter,
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
-      awaitWaiter,
+  ffi.Pointer<objc.DOBJC_Context> context,
 );
 
 final class __CFDictionary extends ffi.Opaque {}
@@ -221,8 +335,6 @@ final class CGAffineTransform extends ffi.Struct {
   external double ty;
 }
 
-final class _NSZone extends ffi.Opaque {}
-
 enum NSQualityOfService {
   NSQualityOfServiceUserInteractive(33),
   NSQualityOfServiceUserInitiated(25),
@@ -234,14 +346,667 @@ enum NSQualityOfService {
   const NSQualityOfService(this.value);
 
   static NSQualityOfService fromValue(int value) => switch (value) {
-        33 => NSQualityOfServiceUserInteractive,
-        25 => NSQualityOfServiceUserInitiated,
-        17 => NSQualityOfServiceUtility,
-        9 => NSQualityOfServiceBackground,
-        -1 => NSQualityOfServiceDefault,
-        _ =>
-          throw ArgumentError("Unknown value for NSQualityOfService: $value"),
-      };
+    33 => NSQualityOfServiceUserInteractive,
+    25 => NSQualityOfServiceUserInitiated,
+    17 => NSQualityOfServiceUtility,
+    9 => NSQualityOfServiceBackground,
+    -1 => NSQualityOfServiceDefault,
+    _ => throw ArgumentError('Unknown value for NSQualityOfService: $value'),
+  };
+}
+
+late final _class_NSString = objc.getClass("NSString");
+late final _sel_stringEncodingForData_encodingOptions_convertedString_usedLossyConversion_ =
+    objc.registerName(
+      "stringEncodingForData:encodingOptions:convertedString:usedLossyConversion:",
+    );
+final _objc_msgSend_1q2ox4r =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.UnsignedLong Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+              ffi.Pointer<ffi.Bool>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+            ffi.Pointer<ffi.Bool>,
+          )
+        >();
+
+/// NSStringEncodingDetection
+extension NSStringEncodingDetection on objc.NSString {
+  /// stringEncodingForData:encodingOptions:convertedString:usedLossyConversion:
+  static int
+  stringEncodingForData_encodingOptions_convertedString_usedLossyConversion_(
+    objc.NSData data,
+    objc.NSDictionary? opts,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> string,
+    ffi.Pointer<ffi.Bool> usedLossyConversion,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.stringEncodingForData:encodingOptions:convertedString:usedLossyConversion:',
+      iOS: (false, (8, 0, 0)),
+      macOS: (false, (10, 10, 0)),
+    );
+    return _objc_msgSend_1q2ox4r(
+      _class_NSString,
+      _sel_stringEncodingForData_encodingOptions_convertedString_usedLossyConversion_,
+      data.ref.pointer,
+      opts?.ref.pointer ?? ffi.nullptr,
+      string,
+      usedLossyConversion,
+    );
+  }
+}
+
+late final _sel_readableTypeIdentifiersForItemProvider = objc.registerName(
+  "readableTypeIdentifiersForItemProvider",
+);
+final _objc_msgSend_151sglz =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+ffi.Pointer<objc.ObjCObject> _ObjCBlock_NSArray_ffiVoid_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<
+        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void> arg0)
+      >
+    >()
+    .asFunction<ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void>)>()(
+  arg0,
+);
+ffi.Pointer<ffi.Void> _ObjCBlock_NSArray_ffiVoid_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Pointer<objc.ObjCObject> Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+      )
+    >(_ObjCBlock_NSArray_ffiVoid_fnPtrTrampoline).cast();
+ffi.Pointer<objc.ObjCObject> _ObjCBlock_NSArray_ffiVoid_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+) => (objc.getBlockClosure(block)
+    as ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void>))(arg0);
+ffi.Pointer<ffi.Void> _ObjCBlock_NSArray_ffiVoid_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Pointer<objc.ObjCObject> Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+      )
+    >(_ObjCBlock_NSArray_ffiVoid_closureTrampoline).cast();
+
+/// Construction methods for `objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>)>`.
+abstract final class ObjCBlock_NSArray_ffiVoid {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>)>
+  castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>)>(
+    pointer,
+    retain: retain,
+    release: release,
+  );
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>)>
+  fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<
+        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void> arg0)
+      >
+    >
+    ptr,
+  ) => objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>)>(
+    objc.newPointerBlock(_ObjCBlock_NSArray_ffiVoid_fnPtrCallable, ptr.cast()),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>)>
+  fromFunction(
+    objc.NSArray Function(ffi.Pointer<ffi.Void>) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>)>(
+    objc.newClosureBlock(
+      _ObjCBlock_NSArray_ffiVoid_closureCallable,
+      (ffi.Pointer<ffi.Void> arg0) => fn(arg0).ref.retainAndAutorelease(),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+}
+
+/// Call operator for `objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>)>`.
+extension ObjCBlock_NSArray_ffiVoid_CallExtension
+    on objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>)> {
+  objc.NSArray call(ffi.Pointer<ffi.Void> arg0) => objc.NSArray.castFromPointer(
+    ref.pointer.ref.invoke
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCBlockImpl> block,
+              ffi.Pointer<ffi.Void> arg0,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>,
+          )
+        >()(ref.pointer, arg0),
+    retain: true,
+    release: true,
+  );
+}
+
+typedef instancetype = ffi.Pointer<objc.ObjCObject>;
+typedef Dartinstancetype = objc.ObjCObjectBase;
+late final _sel_objectWithItemProviderData_typeIdentifier_error_ = objc
+    .registerName("objectWithItemProviderData:typeIdentifier:error:");
+final _objc_msgSend_1pnyuds =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+          )
+        >();
+instancetype
+_ObjCBlock_instancetype_ffiVoid_NSData_NSString_NSError_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCObject> arg2,
+  ffi.Pointer<ffi.Pointer<objc.ObjCObject>> arg3,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<
+        instancetype Function(
+          ffi.Pointer<ffi.Void> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+          ffi.Pointer<objc.ObjCObject> arg2,
+          ffi.Pointer<ffi.Pointer<objc.ObjCObject>> arg3,
+        )
+      >
+    >()
+    .asFunction<
+      instancetype Function(
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+      )
+    >()(arg0, arg1, arg2, arg3);
+ffi.Pointer<ffi.Void>
+_ObjCBlock_instancetype_ffiVoid_NSData_NSString_NSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      instancetype Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+      )
+    >(
+      _ObjCBlock_instancetype_ffiVoid_NSData_NSString_NSError_fnPtrTrampoline,
+    ).cast();
+instancetype
+_ObjCBlock_instancetype_ffiVoid_NSData_NSString_NSError_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCObject> arg2,
+  ffi.Pointer<ffi.Pointer<objc.ObjCObject>> arg3,
+) => (objc.getBlockClosure(block)
+    as instancetype Function(
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+    ))(arg0, arg1, arg2, arg3);
+ffi.Pointer<ffi.Void>
+_ObjCBlock_instancetype_ffiVoid_NSData_NSString_NSError_closureCallable =
+    ffi.Pointer.fromFunction<
+      instancetype Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+      )
+    >(
+      _ObjCBlock_instancetype_ffiVoid_NSData_NSString_NSError_closureTrampoline,
+    ).cast();
+
+/// Construction methods for `objc.ObjCBlock<ffi.Pointer<objc.ObjCObject>? Function(ffi.Pointer<ffi.Void>, objc.NSData, objc.NSString, ffi.Pointer<ffi.Pointer<objc.ObjCObject>>)>`.
+abstract final class ObjCBlock_instancetype_ffiVoid_NSData_NSString_NSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject>? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSData,
+      objc.NSString,
+      ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+    )
+  >
+  castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject>? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSData,
+      objc.NSString,
+      ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+    )
+  >(pointer, retain: retain, release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject>? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSData,
+      objc.NSString,
+      ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+    )
+  >
+  fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<
+        instancetype Function(
+          ffi.Pointer<ffi.Void> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+          ffi.Pointer<objc.ObjCObject> arg2,
+          ffi.Pointer<ffi.Pointer<objc.ObjCObject>> arg3,
+        )
+      >
+    >
+    ptr,
+  ) => objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject>? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSData,
+      objc.NSString,
+      ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+    )
+  >(
+    objc.newPointerBlock(
+      _ObjCBlock_instancetype_ffiVoid_NSData_NSString_NSError_fnPtrCallable,
+      ptr.cast(),
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject>? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSData,
+      objc.NSString,
+      ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+    )
+  >
+  fromFunction(
+    Dartinstancetype? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSData,
+      objc.NSString,
+      ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+    )
+    fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject>? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSData,
+      objc.NSString,
+      ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+    )
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_instancetype_ffiVoid_NSData_NSString_NSError_closureCallable,
+      (
+        ffi.Pointer<ffi.Void> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2,
+        ffi.Pointer<ffi.Pointer<objc.ObjCObject>> arg3,
+      ) =>
+          fn(
+            arg0,
+            objc.NSData.castFromPointer(arg1, retain: true, release: true),
+            objc.NSString.castFromPointer(arg2, retain: true, release: true),
+            arg3,
+          )?.ref.retainAndAutorelease() ??
+          ffi.nullptr,
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Pointer<objc.ObjCObject>? Function(ffi.Pointer<ffi.Void>, objc.NSData, objc.NSString, ffi.Pointer<ffi.Pointer<objc.ObjCObject>>)>`.
+extension ObjCBlock_instancetype_ffiVoid_NSData_NSString_NSError_CallExtension
+    on
+        objc.ObjCBlock<
+          ffi.Pointer<objc.ObjCObject>? Function(
+            ffi.Pointer<ffi.Void>,
+            objc.NSData,
+            objc.NSString,
+            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+          )
+        > {
+  Dartinstancetype? call(
+    ffi.Pointer<ffi.Void> arg0,
+    objc.NSData arg1,
+    objc.NSString arg2,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> arg3,
+  ) =>
+      ref.pointer.ref.invoke
+                  .cast<
+                    ffi.NativeFunction<
+                      instancetype Function(
+                        ffi.Pointer<objc.ObjCBlockImpl> block,
+                        ffi.Pointer<ffi.Void> arg0,
+                        ffi.Pointer<objc.ObjCObject> arg1,
+                        ffi.Pointer<objc.ObjCObject> arg2,
+                        ffi.Pointer<ffi.Pointer<objc.ObjCObject>> arg3,
+                      )
+                    >
+                  >()
+                  .asFunction<
+                    instancetype Function(
+                      ffi.Pointer<objc.ObjCBlockImpl>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<objc.ObjCObject>,
+                      ffi.Pointer<objc.ObjCObject>,
+                      ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+                    )
+                  >()(
+                    ref.pointer,
+                    arg0,
+                    arg1.ref.pointer,
+                    arg2.ref.pointer,
+                    arg3,
+                  )
+                  .address ==
+              0
+          ? null
+          : objc.ObjCObjectBase(
+            ref.pointer.ref.invoke
+                .cast<
+                  ffi.NativeFunction<
+                    instancetype Function(
+                      ffi.Pointer<objc.ObjCBlockImpl> block,
+                      ffi.Pointer<ffi.Void> arg0,
+                      ffi.Pointer<objc.ObjCObject> arg1,
+                      ffi.Pointer<objc.ObjCObject> arg2,
+                      ffi.Pointer<ffi.Pointer<objc.ObjCObject>> arg3,
+                    )
+                  >
+                >()
+                .asFunction<
+                  instancetype Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+                  )
+                >()(
+              ref.pointer,
+              arg0,
+              arg1.ref.pointer,
+              arg2.ref.pointer,
+              arg3,
+            ),
+            retain: true,
+            release: true,
+          );
+}
+
+late final _sel_writableTypeIdentifiersForItemProvider = objc.registerName(
+  "writableTypeIdentifiersForItemProvider",
+);
+late final _sel_itemProviderVisibilityForRepresentationWithTypeIdentifier_ =
+    objc.registerName(
+      "itemProviderVisibilityForRepresentationWithTypeIdentifier:",
+    );
+final _objc_msgSend_16fy0up =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Long Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+int
+_ObjCBlock_NSItemProviderRepresentationVisibility_ffiVoid_NSString_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<
+        ffi.Long Function(
+          ffi.Pointer<ffi.Void> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+        )
+      >
+    >()
+    .asFunction<
+      int Function(ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>)
+    >()(arg0, arg1);
+ffi.Pointer<ffi.Void>
+_ObjCBlock_NSItemProviderRepresentationVisibility_ffiVoid_NSString_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Long Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(
+      _ObjCBlock_NSItemProviderRepresentationVisibility_ffiVoid_NSString_fnPtrTrampoline,
+      0,
+    ).cast();
+int
+_ObjCBlock_NSItemProviderRepresentationVisibility_ffiVoid_NSString_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) => (objc.getBlockClosure(block)
+    as int Function(ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>))(
+  arg0,
+  arg1,
+);
+ffi.Pointer<ffi.Void>
+_ObjCBlock_NSItemProviderRepresentationVisibility_ffiVoid_NSString_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Long Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(
+      _ObjCBlock_NSItemProviderRepresentationVisibility_ffiVoid_NSString_closureTrampoline,
+      0,
+    ).cast();
+
+/// Construction methods for `objc.ObjCBlock<ffi.Long Function(ffi.Pointer<ffi.Void>, objc.NSString)>`.
+abstract final class ObjCBlock_NSItemProviderRepresentationVisibility_ffiVoid_NSString {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<ffi.Long Function(ffi.Pointer<ffi.Void>, objc.NSString)>
+  castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<ffi.Long Function(ffi.Pointer<ffi.Void>, objc.NSString)>(
+    pointer,
+    retain: retain,
+    release: release,
+  );
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Long Function(ffi.Pointer<ffi.Void>, objc.NSString)>
+  fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<
+        ffi.Long Function(
+          ffi.Pointer<ffi.Void> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+        )
+      >
+    >
+    ptr,
+  ) => objc.ObjCBlock<ffi.Long Function(ffi.Pointer<ffi.Void>, objc.NSString)>(
+    objc.newPointerBlock(
+      _ObjCBlock_NSItemProviderRepresentationVisibility_ffiVoid_NSString_fnPtrCallable,
+      ptr.cast(),
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Long Function(ffi.Pointer<ffi.Void>, objc.NSString)>
+  fromFunction(
+    objc.NSItemProviderRepresentationVisibility Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+    )
+    fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<ffi.Long Function(ffi.Pointer<ffi.Void>, objc.NSString)>(
+    objc.newClosureBlock(
+      _ObjCBlock_NSItemProviderRepresentationVisibility_ffiVoid_NSString_closureCallable,
+      (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            arg0,
+            objc.NSString.castFromPointer(arg1, retain: true, release: true),
+          ).value,
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Long Function(ffi.Pointer<ffi.Void>, objc.NSString)>`.
+extension ObjCBlock_NSItemProviderRepresentationVisibility_ffiVoid_NSString_CallExtension
+    on objc.ObjCBlock<ffi.Long Function(ffi.Pointer<ffi.Void>, objc.NSString)> {
+  objc.NSItemProviderRepresentationVisibility call(
+    ffi.Pointer<ffi.Void> arg0,
+    objc.NSString arg1,
+  ) => objc.NSItemProviderRepresentationVisibility.fromValue(
+    ref.pointer.ref.invoke
+        .cast<
+          ffi.NativeFunction<
+            ffi.Long Function(
+              ffi.Pointer<objc.ObjCBlockImpl> block,
+              ffi.Pointer<ffi.Void> arg0,
+              ffi.Pointer<objc.ObjCObject> arg1,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCBlockImpl>,
+            ffi.Pointer<ffi.Void>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >()(ref.pointer, arg0, arg1.ref.pointer),
+  );
 }
 
 /// WARNING: NSProgress is a stub. To generate bindings for this class, include
@@ -249,9 +1014,17 @@ enum NSQualityOfService {
 ///
 /// NSProgress
 class NSProgress extends objc.NSObject {
-  NSProgress._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+  NSProgress._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSProgress',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 9, 0)),
+    );
+  }
 
   /// Constructs a [NSProgress] that points to the same underlying object as [other].
   NSProgress.castFrom(objc.ObjCObjectBase other)
@@ -261,6 +1034,1296 @@ class NSProgress extends objc.NSObject {
   NSProgress.castFromPointer(ffi.Pointer<objc.ObjCObject> other,
       {bool retain = false, bool release = false})
       : this._(other, retain: retain, release: release);
+}
+
+void _ObjCBlock_ffiVoid_NSData_NSError_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObject> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+        )
+      >
+    >()
+    .asFunction<
+      void Function(ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>)
+    >()(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSData_NSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(_ObjCBlock_ffiVoid_NSData_NSError_fnPtrTrampoline).cast();
+void _ObjCBlock_ffiVoid_NSData_NSError_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) => (objc.getBlockClosure(block)
+    as void Function(
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    ))(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSData_NSError_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(_ObjCBlock_ffiVoid_NSData_NSError_closureTrampoline).cast();
+void _ObjCBlock_ffiVoid_NSData_NSError_listenerTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) {
+  (objc.getBlockClosure(block)
+      as void Function(
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      ))(arg0, arg1);
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSData_NSError_listenerCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.listener(_ObjCBlock_ffiVoid_NSData_NSError_listenerTrampoline)
+  ..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_NSData_NSError_blockingTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> waiter,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) {
+  try {
+    (objc.getBlockClosure(block)
+        as void Function(
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+        ))(arg0, arg1);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSData_NSError_blockingCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.isolateLocal(_ObjCBlock_ffiVoid_NSData_NSError_blockingTrampoline)
+  ..keepIsolateAlive = false;
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSData_NSError_blockingListenerCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.listener(_ObjCBlock_ffiVoid_NSData_NSError_blockingTrampoline)
+  ..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>`.
+abstract final class ObjCBlock_ffiVoid_NSData_NSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>
+  castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>(
+    pointer,
+    retain: retain,
+    release: release,
+  );
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>
+  fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObject> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+        )
+      >
+    >
+    ptr,
+  ) => objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>(
+    objc.newPointerBlock(
+      _ObjCBlock_ffiVoid_NSData_NSError_fnPtrCallable,
+      ptr.cast(),
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>
+  fromFunction(
+    void Function(objc.NSData?, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>(
+    objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSData_NSError_closureCallable,
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSData.castFromPointer(arg0, retain: true, release: true),
+        arg1.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg1, retain: true, release: true),
+      ),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>
+  listener(
+    void Function(objc.NSData?, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSData_NSError_listenerCallable.nativeFunction.cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSData.castFromPointer(arg0, retain: false, release: true),
+        arg1.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg1, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapListenerBlock_pfv6jd(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>(
+      wrapper,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC. If the owner isolate
+  /// has shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>
+  blocking(
+    void Function(objc.NSData?, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSData_NSError_blockingCallable.nativeFunction.cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSData.castFromPointer(arg0, retain: false, release: true),
+        arg1.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg1, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
+    final rawListener = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSData_NSError_blockingListenerCallable.nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSData.castFromPointer(arg0, retain: false, release: true),
+        arg1.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg1, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapBlockingBlock_pfv6jd(
+      raw,
+      rawListener,
+      objc.objCContext,
+    );
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>(
+      wrapper,
+      retain: false,
+      release: true,
+    );
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>`.
+extension ObjCBlock_ffiVoid_NSData_NSError_CallExtension
+    on objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)> {
+  void call(objc.NSData? arg0, objc.NSError? arg1) => ref.pointer.ref.invoke
+      .cast<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl> block,
+            ffi.Pointer<objc.ObjCObject> arg0,
+            ffi.Pointer<objc.ObjCObject> arg1,
+          )
+        >
+      >()
+      .asFunction<
+        void Function(
+          ffi.Pointer<objc.ObjCBlockImpl>,
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+        )
+      >()(
+    ref.pointer,
+    arg0?.ref.pointer ?? ffi.nullptr,
+    arg1?.ref.pointer ?? ffi.nullptr,
+  );
+}
+
+late final _sel_loadDataWithTypeIdentifier_forItemProviderCompletionHandler_ =
+    objc.registerName(
+      "loadDataWithTypeIdentifier:forItemProviderCompletionHandler:",
+    );
+final _objc_msgSend_r0bo0s =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+ffi.Pointer<objc.ObjCObject>
+_ObjCBlock_NSProgress_ffiVoid_NSString_ffiVoidNSDataNSError_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCBlockImpl> arg2,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<
+        ffi.Pointer<objc.ObjCObject> Function(
+          ffi.Pointer<ffi.Void> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+          ffi.Pointer<objc.ObjCBlockImpl> arg2,
+        )
+      >
+    >()
+    .asFunction<
+      ffi.Pointer<objc.ObjCObject> Function(
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCBlockImpl>,
+      )
+    >()(arg0, arg1, arg2);
+ffi.Pointer<ffi.Void>
+_ObjCBlock_NSProgress_ffiVoid_NSString_ffiVoidNSDataNSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Pointer<objc.ObjCObject> Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCBlockImpl>,
+      )
+    >(
+      _ObjCBlock_NSProgress_ffiVoid_NSString_ffiVoidNSDataNSError_fnPtrTrampoline,
+    ).cast();
+ffi.Pointer<objc.ObjCObject>
+_ObjCBlock_NSProgress_ffiVoid_NSString_ffiVoidNSDataNSError_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCBlockImpl> arg2,
+) => (objc.getBlockClosure(block)
+    as ffi.Pointer<objc.ObjCObject> Function(
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCBlockImpl>,
+    ))(arg0, arg1, arg2);
+ffi.Pointer<ffi.Void>
+_ObjCBlock_NSProgress_ffiVoid_NSString_ffiVoidNSDataNSError_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Pointer<objc.ObjCObject> Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCBlockImpl>,
+      )
+    >(
+      _ObjCBlock_NSProgress_ffiVoid_NSString_ffiVoidNSDataNSError_closureTrampoline,
+    ).cast();
+
+/// Construction methods for `objc.ObjCBlock<NSProgress? Function(ffi.Pointer<ffi.Void>, objc.NSString, objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>)>`.
+abstract final class ObjCBlock_NSProgress_ffiVoid_NSString_ffiVoidNSDataNSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<
+    NSProgress? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>,
+    )
+  >
+  castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<
+    NSProgress? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>,
+    )
+  >(pointer, retain: retain, release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<
+    NSProgress? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>,
+    )
+  >
+  fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<
+        ffi.Pointer<objc.ObjCObject> Function(
+          ffi.Pointer<ffi.Void> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+          ffi.Pointer<objc.ObjCBlockImpl> arg2,
+        )
+      >
+    >
+    ptr,
+  ) => objc.ObjCBlock<
+    NSProgress? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>,
+    )
+  >(
+    objc.newPointerBlock(
+      _ObjCBlock_NSProgress_ffiVoid_NSString_ffiVoidNSDataNSError_fnPtrCallable,
+      ptr.cast(),
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    NSProgress? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>,
+    )
+  >
+  fromFunction(
+    NSProgress? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>,
+    )
+    fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    NSProgress? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>,
+    )
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_NSProgress_ffiVoid_NSString_ffiVoidNSDataNSError_closureCallable,
+      (
+        ffi.Pointer<ffi.Void> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCBlockImpl> arg2,
+      ) =>
+          fn(
+            arg0,
+            objc.NSString.castFromPointer(arg1, retain: true, release: true),
+            ObjCBlock_ffiVoid_NSData_NSError.castFromPointer(
+              arg2,
+              retain: true,
+              release: true,
+            ),
+          )?.ref.retainAndAutorelease() ??
+          ffi.nullptr,
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+}
+
+/// Call operator for `objc.ObjCBlock<NSProgress? Function(ffi.Pointer<ffi.Void>, objc.NSString, objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>)>`.
+extension ObjCBlock_NSProgress_ffiVoid_NSString_ffiVoidNSDataNSError_CallExtension
+    on
+        objc.ObjCBlock<
+          NSProgress? Function(
+            ffi.Pointer<ffi.Void>,
+            objc.NSString,
+            objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>,
+          )
+        > {
+  NSProgress? call(
+    ffi.Pointer<ffi.Void> arg0,
+    objc.NSString arg1,
+    objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)> arg2,
+  ) =>
+      ref.pointer.ref.invoke
+                  .cast<
+                    ffi.NativeFunction<
+                      ffi.Pointer<objc.ObjCObject> Function(
+                        ffi.Pointer<objc.ObjCBlockImpl> block,
+                        ffi.Pointer<ffi.Void> arg0,
+                        ffi.Pointer<objc.ObjCObject> arg1,
+                        ffi.Pointer<objc.ObjCBlockImpl> arg2,
+                      )
+                    >
+                  >()
+                  .asFunction<
+                    ffi.Pointer<objc.ObjCObject> Function(
+                      ffi.Pointer<objc.ObjCBlockImpl>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<objc.ObjCObject>,
+                      ffi.Pointer<objc.ObjCBlockImpl>,
+                    )
+                  >()(ref.pointer, arg0, arg1.ref.pointer, arg2.ref.pointer)
+                  .address ==
+              0
+          ? null
+          : NSProgress.castFromPointer(
+            ref.pointer.ref.invoke
+                .cast<
+                  ffi.NativeFunction<
+                    ffi.Pointer<objc.ObjCObject> Function(
+                      ffi.Pointer<objc.ObjCBlockImpl> block,
+                      ffi.Pointer<ffi.Void> arg0,
+                      ffi.Pointer<objc.ObjCObject> arg1,
+                      ffi.Pointer<objc.ObjCBlockImpl> arg2,
+                    )
+                  >
+                >()
+                .asFunction<
+                  ffi.Pointer<objc.ObjCObject> Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<objc.ObjCObject>,
+                    ffi.Pointer<objc.ObjCBlockImpl>,
+                  )
+                >()(ref.pointer, arg0, arg1.ref.pointer, arg2.ref.pointer),
+            retain: true,
+            release: true,
+          );
+}
+
+/// NSItemProvider
+extension NSItemProvider on objc.NSString {
+  /// readableTypeIdentifiersForItemProvider
+  static objc.NSArray getReadableTypeIdentifiersForItemProvider() {
+    objc.checkOsVersionInternal(
+      'NSString.readableTypeIdentifiersForItemProvider',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSString,
+      _sel_readableTypeIdentifiersForItemProvider,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// objectWithItemProviderData:typeIdentifier:error:
+  static objc.NSString? objectWithItemProviderData_typeIdentifier_error_(
+    objc.NSData data,
+    objc.NSString typeIdentifier,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> outError,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.objectWithItemProviderData:typeIdentifier:error:',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    final _ret = _objc_msgSend_1pnyuds(
+      _class_NSString,
+      _sel_objectWithItemProviderData_typeIdentifier_error_,
+      data.ref.pointer,
+      typeIdentifier.ref.pointer,
+      outError,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// writableTypeIdentifiersForItemProvider
+  static objc.NSArray getWritableTypeIdentifiersForItemProvider() {
+    objc.checkOsVersionInternal(
+      'NSString.writableTypeIdentifiersForItemProvider',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSString,
+      _sel_writableTypeIdentifiersForItemProvider,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// writableTypeIdentifiersForItemProvider
+  objc.NSArray get writableTypeIdentifiersForItemProvider$1 {
+    objc.checkOsVersionInternal(
+      'NSString.writableTypeIdentifiersForItemProvider',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    if (!objc.respondsToSelector(
+      this.ref.pointer,
+      _sel_writableTypeIdentifiersForItemProvider,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSString',
+        'writableTypeIdentifiersForItemProvider',
+      );
+    }
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_writableTypeIdentifiersForItemProvider,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// itemProviderVisibilityForRepresentationWithTypeIdentifier:
+  static objc.NSItemProviderRepresentationVisibility
+  itemProviderVisibilityForRepresentationWithTypeIdentifier_(
+    objc.NSString typeIdentifier,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.itemProviderVisibilityForRepresentationWithTypeIdentifier:',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    if (!objc.respondsToSelector(
+      _class_NSString,
+      _sel_itemProviderVisibilityForRepresentationWithTypeIdentifier_,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSString',
+        'itemProviderVisibilityForRepresentationWithTypeIdentifier:',
+      );
+    }
+    final _ret = _objc_msgSend_16fy0up(
+      _class_NSString,
+      _sel_itemProviderVisibilityForRepresentationWithTypeIdentifier_,
+      typeIdentifier.ref.pointer,
+    );
+    return objc.NSItemProviderRepresentationVisibility.fromValue(_ret);
+  }
+
+  /// itemProviderVisibilityForRepresentationWithTypeIdentifier:
+  objc.NSItemProviderRepresentationVisibility
+  itemProviderVisibilityForRepresentationWithTypeIdentifier_$1(
+    objc.NSString typeIdentifier,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.itemProviderVisibilityForRepresentationWithTypeIdentifier:',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    if (!objc.respondsToSelector(
+      this.ref.pointer,
+      _sel_itemProviderVisibilityForRepresentationWithTypeIdentifier_,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSString',
+        'itemProviderVisibilityForRepresentationWithTypeIdentifier:',
+      );
+    }
+    final _ret = _objc_msgSend_16fy0up(
+      this.ref.pointer,
+      _sel_itemProviderVisibilityForRepresentationWithTypeIdentifier_,
+      typeIdentifier.ref.pointer,
+    );
+    return objc.NSItemProviderRepresentationVisibility.fromValue(_ret);
+  }
+
+  /// loadDataWithTypeIdentifier:forItemProviderCompletionHandler:
+  NSProgress? loadDataWithTypeIdentifier_forItemProviderCompletionHandler_(
+    objc.NSString typeIdentifier,
+    objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>
+    completionHandler,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.loadDataWithTypeIdentifier:forItemProviderCompletionHandler:',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    final _ret = _objc_msgSend_r0bo0s(
+      this.ref.pointer,
+      _sel_loadDataWithTypeIdentifier_forItemProviderCompletionHandler_,
+      typeIdentifier.ref.pointer,
+      completionHandler.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSProgress.castFromPointer(_ret, retain: true, release: true);
+  }
+}
+
+late final _sel_propertyList = objc.registerName("propertyList");
+late final _sel_propertyListFromStringsFileFormat = objc.registerName(
+  "propertyListFromStringsFileFormat",
+);
+
+/// NSExtendedStringPropertyListParsing
+extension NSExtendedStringPropertyListParsing on objc.NSString {
+  /// propertyList
+  objc.ObjCObjectBase propertyList() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_propertyList);
+    return objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// propertyListFromStringsFileFormat
+  objc.NSDictionary? propertyListFromStringsFileFormat() {
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_propertyListFromStringsFileFormat,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.NSDictionary.castFromPointer(_ret, retain: true, release: true);
+  }
+}
+
+late final _sel_cString = objc.registerName("cString");
+final _objc_msgSend_1fuqfwb =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<ffi.Char> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<ffi.Char> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_lossyCString = objc.registerName("lossyCString");
+late final _sel_cStringLength = objc.registerName("cStringLength");
+final _objc_msgSend_xw2lbc =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.UnsignedLong Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_getCString_ = objc.registerName("getCString:");
+final _objc_msgSend_1r7ue5f =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<ffi.Char>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<ffi.Char>,
+          )
+        >();
+late final _sel_getCString_maxLength_ = objc.registerName(
+  "getCString:maxLength:",
+);
+final _objc_msgSend_1h3mito =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<ffi.Char>,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<ffi.Char>,
+            int,
+          )
+        >();
+late final _sel_getCString_maxLength_range_remainingRange_ = objc.registerName(
+  "getCString:maxLength:range:remainingRange:",
+);
+final _objc_msgSend_3gpdva =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<ffi.Char>,
+              ffi.UnsignedLong,
+              objc.NSRange,
+              ffi.Pointer<objc.NSRange>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<ffi.Char>,
+            int,
+            objc.NSRange,
+            ffi.Pointer<objc.NSRange>,
+          )
+        >();
+late final _sel_writeToFile_atomically_ = objc.registerName(
+  "writeToFile:atomically:",
+);
+final _objc_msgSend_1iyq28l =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Bool Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          bool Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+          )
+        >();
+late final _sel_writeToURL_atomically_ = objc.registerName(
+  "writeToURL:atomically:",
+);
+late final _sel_initWithContentsOfFile_ = objc.registerName(
+  "initWithContentsOfFile:",
+);
+final _objc_msgSend_1sotr3r =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+late final _sel_initWithContentsOfURL_ = objc.registerName(
+  "initWithContentsOfURL:",
+);
+late final _sel_stringWithContentsOfFile_ = objc.registerName(
+  "stringWithContentsOfFile:",
+);
+late final _sel_stringWithContentsOfURL_ = objc.registerName(
+  "stringWithContentsOfURL:",
+);
+late final _sel_initWithCStringNoCopy_length_freeWhenDone_ = objc.registerName(
+  "initWithCStringNoCopy:length:freeWhenDone:",
+);
+final _objc_msgSend_1ojrli4 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<ffi.Char>,
+              ffi.UnsignedLong,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<ffi.Char>,
+            int,
+            bool,
+          )
+        >();
+late final _sel_initWithCString_length_ = objc.registerName(
+  "initWithCString:length:",
+);
+final _objc_msgSend_erqryg =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<ffi.Char>,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<ffi.Char>,
+            int,
+          )
+        >();
+late final _sel_initWithCString_ = objc.registerName("initWithCString:");
+final _objc_msgSend_56zxyn =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<ffi.Char>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<ffi.Char>,
+          )
+        >();
+late final _sel_stringWithCString_length_ = objc.registerName(
+  "stringWithCString:length:",
+);
+late final _sel_stringWithCString_ = objc.registerName("stringWithCString:");
+late final _sel_getCharacters_ = objc.registerName("getCharacters:");
+final _objc_msgSend_g3kdhc =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<ffi.UnsignedShort>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<ffi.UnsignedShort>,
+          )
+        >();
+
+/// NSStringDeprecated
+extension NSStringDeprecated on objc.NSString {
+  /// cString
+  ffi.Pointer<ffi.Char> cString() {
+    objc.checkOsVersionInternal(
+      'NSString.cString',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_1fuqfwb(this.ref.pointer, _sel_cString);
+  }
+
+  /// lossyCString
+  ffi.Pointer<ffi.Char> lossyCString() {
+    objc.checkOsVersionInternal(
+      'NSString.lossyCString',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_1fuqfwb(this.ref.pointer, _sel_lossyCString);
+  }
+
+  /// cStringLength
+  int cStringLength() {
+    objc.checkOsVersionInternal(
+      'NSString.cStringLength',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_xw2lbc(this.ref.pointer, _sel_cStringLength);
+  }
+
+  /// getCString:
+  void getCString_(ffi.Pointer<ffi.Char> bytes) {
+    objc.checkOsVersionInternal(
+      'NSString.getCString:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1r7ue5f(this.ref.pointer, _sel_getCString_, bytes);
+  }
+
+  /// getCString:maxLength:
+  void getCString_maxLength_(ffi.Pointer<ffi.Char> bytes, int maxLength) {
+    objc.checkOsVersionInternal(
+      'NSString.getCString:maxLength:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1h3mito(
+      this.ref.pointer,
+      _sel_getCString_maxLength_,
+      bytes,
+      maxLength,
+    );
+  }
+
+  /// getCString:maxLength:range:remainingRange:
+  void getCString_maxLength_range_remainingRange_(
+    ffi.Pointer<ffi.Char> bytes,
+    int maxLength,
+    objc.NSRange aRange,
+    ffi.Pointer<objc.NSRange> leftoverRange,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.getCString:maxLength:range:remainingRange:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_3gpdva(
+      this.ref.pointer,
+      _sel_getCString_maxLength_range_remainingRange_,
+      bytes,
+      maxLength,
+      aRange,
+      leftoverRange,
+    );
+  }
+
+  /// writeToFile:atomically:
+  bool writeToFile_atomically_(objc.NSString path, bool useAuxiliaryFile) {
+    objc.checkOsVersionInternal(
+      'NSString.writeToFile:atomically:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_1iyq28l(
+      this.ref.pointer,
+      _sel_writeToFile_atomically_,
+      path.ref.pointer,
+      useAuxiliaryFile,
+    );
+  }
+
+  /// writeToURL:atomically:
+  bool writeToURL_atomically_(objc.NSURL url, bool atomically) {
+    objc.checkOsVersionInternal(
+      'NSString.writeToURL:atomically:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_1iyq28l(
+      this.ref.pointer,
+      _sel_writeToURL_atomically_,
+      url.ref.pointer,
+      atomically,
+    );
+  }
+
+  /// initWithContentsOfFile:
+  objc.ObjCObjectBase? initWithContentsOfFile_(objc.NSString path) {
+    objc.checkOsVersionInternal(
+      'NSString.initWithContentsOfFile:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithContentsOfFile_,
+      path.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: false, release: true);
+  }
+
+  /// initWithContentsOfURL:
+  objc.ObjCObjectBase? initWithContentsOfURL_(objc.NSURL url) {
+    objc.checkOsVersionInternal(
+      'NSString.initWithContentsOfURL:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithContentsOfURL_,
+      url.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: false, release: true);
+  }
+
+  /// stringWithContentsOfFile:
+  static objc.ObjCObjectBase? stringWithContentsOfFile_(objc.NSString path) {
+    objc.checkOsVersionInternal(
+      'NSString.stringWithContentsOfFile:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSString,
+      _sel_stringWithContentsOfFile_,
+      path.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// stringWithContentsOfURL:
+  static objc.ObjCObjectBase? stringWithContentsOfURL_(objc.NSURL url) {
+    objc.checkOsVersionInternal(
+      'NSString.stringWithContentsOfURL:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSString,
+      _sel_stringWithContentsOfURL_,
+      url.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// initWithCStringNoCopy:length:freeWhenDone:
+  objc.ObjCObjectBase? initWithCStringNoCopy_length_freeWhenDone_(
+    ffi.Pointer<ffi.Char> bytes,
+    int length,
+    bool freeBuffer,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.initWithCStringNoCopy:length:freeWhenDone:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1ojrli4(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithCStringNoCopy_length_freeWhenDone_,
+      bytes,
+      length,
+      freeBuffer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: false, release: true);
+  }
+
+  /// initWithCString:length:
+  objc.ObjCObjectBase? initWithCString_length_(
+    ffi.Pointer<ffi.Char> bytes,
+    int length,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.initWithCString:length:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_erqryg(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithCString_length_,
+      bytes,
+      length,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: false, release: true);
+  }
+
+  /// initWithCString:
+  objc.ObjCObjectBase? initWithCString_(ffi.Pointer<ffi.Char> bytes) {
+    objc.checkOsVersionInternal(
+      'NSString.initWithCString:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_56zxyn(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithCString_,
+      bytes,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: false, release: true);
+  }
+
+  /// stringWithCString:length:
+  static objc.ObjCObjectBase? stringWithCString_length_(
+    ffi.Pointer<ffi.Char> bytes,
+    int length,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.stringWithCString:length:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_erqryg(
+      _class_NSString,
+      _sel_stringWithCString_length_,
+      bytes,
+      length,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// stringWithCString:
+  static objc.ObjCObjectBase? stringWithCString_(ffi.Pointer<ffi.Char> bytes) {
+    objc.checkOsVersionInternal(
+      'NSString.stringWithCString:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_56zxyn(
+      _class_NSString,
+      _sel_stringWithCString_,
+      bytes,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// getCharacters:
+  void getCharacters_(ffi.Pointer<ffi.UnsignedShort> buffer) {
+    _objc_msgSend_g3kdhc(this.ref.pointer, _sel_getCharacters_, buffer);
+  }
 }
 
 void _ObjCBlock_ffiVoid_fnPtrTrampoline(
@@ -348,11 +2411,21 @@ abstract final class ObjCBlock_ffiVoid {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  static objc.ObjCBlock<ffi.Void Function()> fromFunction(void Function() fn) =>
-      objc.ObjCBlock<ffi.Void Function()>(
-          objc.newClosureBlock(_ObjCBlock_ffiVoid_closureCallable, () => fn()),
-          retain: false,
-          release: true);
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Void Function()> fromFunction(
+    void Function() fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<ffi.Void Function()>(
+    objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_closureCallable,
+      () => fn(),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 
   /// Creates a listener block from a Dart function.
   ///
@@ -361,11 +2434,17 @@ abstract final class ObjCBlock_ffiVoid {
   /// but only supports void functions, and is not run synchronously. See
   /// NativeCallable.listener for more details.
   ///
-  /// Note that unlike the default behavior of NativeCallable.listener, listener
-  /// blocks do not keep the isolate alive.
-  static objc.ObjCBlock<ffi.Void Function()> listener(void Function() fn) {
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Void Function()> listener(
+    void Function() fn, {
+    bool keepIsolateAlive = true,
+  }) {
     final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_listenerCallable.nativeFunction.cast(), () => fn());
+      _ObjCBlock_ffiVoid_listenerCallable.nativeFunction.cast(),
+      () => fn(),
+      keepIsolateAlive,
+    );
     final wrapper = _MapLibreFFi_wrapListenerBlock_1pl9qdv(raw);
     objc.objectRelease(raw.cast());
     return objc.ObjCBlock<ffi.Void Function()>(wrapper,
@@ -378,17 +2457,29 @@ abstract final class ObjCBlock_ffiVoid {
   /// caller until the callback is handled by the Dart isolate that created
   /// the block. Async functions are not supported.
   ///
-  /// This block does not keep the owner isolate alive. If the owner isolate has
-  /// shut down, and the block is invoked by native code, it may block
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC. If the owner isolate
+  /// has shut down, and the block is invoked by native code, it may block
   /// indefinitely, or have other undefined behavior.
-  static objc.ObjCBlock<ffi.Void Function()> blocking(void Function() fn) {
+  static objc.ObjCBlock<ffi.Void Function()> blocking(
+    void Function() fn, {
+    bool keepIsolateAlive = true,
+  }) {
     final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_blockingCallable.nativeFunction.cast(), () => fn());
+      _ObjCBlock_ffiVoid_blockingCallable.nativeFunction.cast(),
+      () => fn(),
+      keepIsolateAlive,
+    );
     final rawListener = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_blockingListenerCallable.nativeFunction.cast(),
-        () => fn());
-    final wrapper = objc.wrapBlockingBlock(
-        _MapLibreFFi_wrapBlockingBlock_1pl9qdv, raw, rawListener);
+      _ObjCBlock_ffiVoid_blockingListenerCallable.nativeFunction.cast(),
+      () => fn(),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapBlockingBlock_1pl9qdv(
+      raw,
+      rawListener,
+      objc.objCContext,
+    );
     objc.objectRelease(raw.cast());
     objc.objectRelease(rawListener.cast());
     return objc.ObjCBlock<ffi.Void Function()>(wrapper,
@@ -476,19 +2567,29 @@ abstract final class ObjCBlock_NSProgressUnpublishingHandler_NSProgress {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
   static objc.ObjCBlock<
-      objc.ObjCBlock<ffi.Void Function()>? Function(NSProgress)> fromFunction(
-          objc.ObjCBlock<ffi.Void Function()>? Function(NSProgress) fn) =>
+    objc.ObjCBlock<ffi.Void Function()>? Function(NSProgress)
+  >
+  fromFunction(
+    objc.ObjCBlock<ffi.Void Function()>? Function(NSProgress) fn, {
+    bool keepIsolateAlive = true,
+  }) =>
       objc.ObjCBlock<objc.ObjCBlock<ffi.Void Function()>? Function(NSProgress)>(
-          objc.newClosureBlock(
-              _ObjCBlock_NSProgressUnpublishingHandler_NSProgress_closureCallable,
-              (ffi.Pointer<objc.ObjCObject> arg0) =>
-                  fn(NSProgress.castFromPointer(arg0, retain: true, release: true))
-                      ?.ref
-                      .retainAndAutorelease() ??
-                  ffi.nullptr),
-          retain: false,
-          release: true);
+        objc.newClosureBlock(
+          _ObjCBlock_NSProgressUnpublishingHandler_NSProgress_closureCallable,
+          (ffi.Pointer<objc.ObjCObject> arg0) =>
+              fn(
+                NSProgress.castFromPointer(arg0, retain: true, release: true),
+              )?.ref.retainAndAutorelease() ??
+              ffi.nullptr,
+          keepIsolateAlive,
+        ),
+        retain: false,
+        release: true,
+      );
 }
 
 /// Call operator for `objc.ObjCBlock<objc.ObjCBlock<ffi.Void Function()>? Function(NSProgress)>`.
@@ -533,6 +2634,46 @@ class NSBundle extends objc.NSObject {
       : this._(other, retain: retain, release: release);
 }
 
+late final _sel_variantFittingPresentationWidth_ = objc.registerName(
+  "variantFittingPresentationWidth:",
+);
+final _objc_msgSend_qugqlf =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Long,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+          )
+        >();
+
+/// NSBundleExtensionMethods
+extension NSBundleExtensionMethods on objc.NSString {
+  /// variantFittingPresentationWidth:
+  objc.NSString variantFittingPresentationWidth_(int width) {
+    objc.checkOsVersionInternal(
+      'NSString.variantFittingPresentationWidth:',
+      iOS: (false, (9, 0, 0)),
+      macOS: (false, (10, 11, 0)),
+    );
+    final _ret = _objc_msgSend_qugqlf(
+      this.ref.pointer,
+      _sel_variantFittingPresentationWidth_,
+      width,
+    );
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+}
+
 late final _class_NSAttributedString = objc.getClass("NSAttributedString");
 late final _sel_isKindOfClass_ = objc.registerName("isKindOfClass:");
 final _objc_msgSend_19nvye5 = objc.msgSendPointer
@@ -546,47 +2687,13 @@ final _objc_msgSend_19nvye5 = objc.msgSendPointer
         bool Function(ffi.Pointer<objc.ObjCObject>,
             ffi.Pointer<objc.ObjCSelector>, ffi.Pointer<objc.ObjCObject>)>();
 late final _sel_length = objc.registerName("length");
-final _objc_msgSend_xw2lbc = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.UnsignedLong Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        int Function(
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
-late final _sel_attribute_atIndex_effectiveRange_ =
-    objc.registerName("attribute:atIndex:effectiveRange:");
-final _objc_msgSend_7km9vu = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.UnsignedLong,
-                ffi.Pointer<objc.NSRange>)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            ffi.Pointer<objc.ObjCObject>,
-            int,
-            ffi.Pointer<objc.NSRange>)>();
-late final _sel_attributedSubstringFromRange_ =
-    objc.registerName("attributedSubstringFromRange:");
-final _objc_msgSend_1k1o1s7 = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>, objc.NSRange)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, objc.NSRange)>();
-late final _sel_attributesAtIndex_longestEffectiveRange_inRange_ =
-    objc.registerName("attributesAtIndex:longestEffectiveRange:inRange:");
-final _objc_msgSend_1pp2gs8 = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
+late final _sel_attribute_atIndex_effectiveRange_ = objc.registerName(
+  "attribute:atIndex:effectiveRange:",
+);
+final _objc_msgSend_7km9vu =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
             ffi.Pointer<objc.ObjCObject> Function(
                 ffi.Pointer<objc.ObjCObject>,
                 ffi.Pointer<objc.ObjCSelector>,
@@ -630,14 +2737,16 @@ enum NSAttributedStringEnumerationOptions {
   final int value;
   const NSAttributedStringEnumerationOptions(this.value);
 
-  static NSAttributedStringEnumerationOptions fromValue(int value) =>
-      switch (value) {
-        2 => NSAttributedStringEnumerationReverse,
-        1048576 =>
-          NSAttributedStringEnumerationLongestEffectiveRangeNotRequired,
-        _ => throw ArgumentError(
-            "Unknown value for NSAttributedStringEnumerationOptions: $value"),
-      };
+  static NSAttributedStringEnumerationOptions fromValue(
+    int value,
+  ) => switch (value) {
+    2 => NSAttributedStringEnumerationReverse,
+    1048576 => NSAttributedStringEnumerationLongestEffectiveRangeNotRequired,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSAttributedStringEnumerationOptions: $value',
+      ),
+  };
 }
 
 void _ObjCBlock_ffiVoid_NSDictionary_NSRange_bool_fnPtrTrampoline(
@@ -790,17 +2899,34 @@ abstract final class ObjCBlock_ffiVoid_NSDictionary_NSRange_bool {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
   static objc.ObjCBlock<
-          ffi.Void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)>
-      fromFunction(void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>) fn) =>
-          objc.ObjCBlock<ffi.Void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)>(
-              objc.newClosureBlock(
-                  _ObjCBlock_ffiVoid_NSDictionary_NSRange_bool_closureCallable,
-                  (ffi.Pointer<objc.ObjCObject> arg0, objc.NSRange arg1,
-                          ffi.Pointer<ffi.Bool> arg2) =>
-                      fn(objc.NSDictionary.castFromPointer(arg0, retain: true, release: true), arg1, arg2)),
-              retain: false,
-              release: true);
+    ffi.Void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)
+  >
+  fromFunction(
+    void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    ffi.Void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSDictionary_NSRange_bool_closureCallable,
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        ffi.Pointer<ffi.Bool> arg2,
+      ) => fn(
+        objc.NSDictionary.castFromPointer(arg0, retain: true, release: true),
+        arg1,
+        arg2,
+      ),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 
   /// Creates a listener block from a Dart function.
   ///
@@ -809,24 +2935,30 @@ abstract final class ObjCBlock_ffiVoid_NSDictionary_NSRange_bool {
   /// but only supports void functions, and is not run synchronously. See
   /// NativeCallable.listener for more details.
   ///
-  /// Note that unlike the default behavior of NativeCallable.listener, listener
-  /// blocks do not keep the isolate alive.
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
   static objc.ObjCBlock<
-      ffi.Void Function(
-          objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)> listener(
-      void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)
-          fn) {
+    ffi.Void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)
+  >
+  listener(
+    void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>) fn, {
+    bool keepIsolateAlive = true,
+  }) {
     final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSDictionary_NSRange_bool_listenerCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0, objc.NSRange arg1,
-                ffi.Pointer<ffi.Bool> arg2) =>
-            fn(
-                objc.NSDictionary.castFromPointer(arg0,
-                    retain: false, release: true),
-                arg1,
-                arg2));
+      _ObjCBlock_ffiVoid_NSDictionary_NSRange_bool_listenerCallable
+          .nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        ffi.Pointer<ffi.Bool> arg2,
+      ) => fn(
+        objc.NSDictionary.castFromPointer(arg0, retain: false, release: true),
+        arg1,
+        arg2,
+      ),
+      keepIsolateAlive,
+    );
     final wrapper = _MapLibreFFi_wrapListenerBlock_1a22wz(raw);
     objc.objectRelease(raw.cast());
     return objc.ObjCBlock<
@@ -840,38 +2972,52 @@ abstract final class ObjCBlock_ffiVoid_NSDictionary_NSRange_bool {
   /// caller until the callback is handled by the Dart isolate that created
   /// the block. Async functions are not supported.
   ///
-  /// This block does not keep the owner isolate alive. If the owner isolate has
-  /// shut down, and the block is invoked by native code, it may block
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC. If the owner isolate
+  /// has shut down, and the block is invoked by native code, it may block
   /// indefinitely, or have other undefined behavior.
   static objc.ObjCBlock<
-      ffi.Void Function(
-          objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)> blocking(
-      void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)
-          fn) {
+    ffi.Void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)
+  >
+  blocking(
+    void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>) fn, {
+    bool keepIsolateAlive = true,
+  }) {
     final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSDictionary_NSRange_bool_blockingCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0, objc.NSRange arg1,
-                ffi.Pointer<ffi.Bool> arg2) =>
-            fn(
-                objc.NSDictionary.castFromPointer(arg0,
-                    retain: false, release: true),
-                arg1,
-                arg2));
+      _ObjCBlock_ffiVoid_NSDictionary_NSRange_bool_blockingCallable
+          .nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        ffi.Pointer<ffi.Bool> arg2,
+      ) => fn(
+        objc.NSDictionary.castFromPointer(arg0, retain: false, release: true),
+        arg1,
+        arg2,
+      ),
+      keepIsolateAlive,
+    );
     final rawListener = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_NSDictionary_NSRange_bool_blockingListenerCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0, objc.NSRange arg1,
-                ffi.Pointer<ffi.Bool> arg2) =>
-            fn(
-                objc.NSDictionary.castFromPointer(arg0,
-                    retain: false, release: true),
-                arg1,
-                arg2));
-    final wrapper = objc.wrapBlockingBlock(
-        _MapLibreFFi_wrapBlockingBlock_1a22wz, raw, rawListener);
+      _ObjCBlock_ffiVoid_NSDictionary_NSRange_bool_blockingListenerCallable
+          .nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        ffi.Pointer<ffi.Bool> arg2,
+      ) => fn(
+        objc.NSDictionary.castFromPointer(arg0, retain: false, release: true),
+        arg1,
+        arg2,
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapBlockingBlock_1a22wz(
+      raw,
+      rawListener,
+      objc.objCContext,
+    );
     objc.objectRelease(raw.cast());
     objc.objectRelease(rawListener.cast());
     return objc.ObjCBlock<
@@ -1070,17 +3216,45 @@ abstract final class ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
   static objc.ObjCBlock<
-          ffi.Void Function(ffi.Pointer<objc.ObjCObject>?, objc.NSRange, ffi.Pointer<ffi.Bool>)>
-      fromFunction(void Function(objc.ObjCObjectBase?, objc.NSRange, ffi.Pointer<ffi.Bool>) fn) =>
-          objc.ObjCBlock<ffi.Void Function(ffi.Pointer<objc.ObjCObject>?, objc.NSRange, ffi.Pointer<ffi.Bool>)>(
-              objc.newClosureBlock(
-                  _ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool_closureCallable,
-                  (ffi.Pointer<objc.ObjCObject> arg0, objc.NSRange arg1,
-                          ffi.Pointer<ffi.Bool> arg2) =>
-                      fn(arg0.address == 0 ? null : objc.ObjCObjectBase(arg0, retain: true, release: true), arg1, arg2)),
-              retain: false,
-              release: true);
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCObject>?,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >
+  fromFunction(
+    void Function(objc.ObjCObjectBase?, objc.NSRange, ffi.Pointer<ffi.Bool>)
+    fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCObject>?,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool_closureCallable,
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        ffi.Pointer<ffi.Bool> arg2,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.ObjCObjectBase(arg0, retain: true, release: true),
+        arg1,
+        arg2,
+      ),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 
   /// Creates a listener block from a Dart function.
   ///
@@ -1089,25 +3263,37 @@ abstract final class ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool {
   /// but only supports void functions, and is not run synchronously. See
   /// NativeCallable.listener for more details.
   ///
-  /// Note that unlike the default behavior of NativeCallable.listener, listener
-  /// blocks do not keep the isolate alive.
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
   static objc.ObjCBlock<
-      ffi.Void Function(ffi.Pointer<objc.ObjCObject>?, objc.NSRange,
-          ffi.Pointer<ffi.Bool>)> listener(
-      void Function(objc.ObjCObjectBase?, objc.NSRange, ffi.Pointer<ffi.Bool>)
-          fn) {
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCObject>?,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >
+  listener(
+    void Function(objc.ObjCObjectBase?, objc.NSRange, ffi.Pointer<ffi.Bool>)
+    fn, {
+    bool keepIsolateAlive = true,
+  }) {
     final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool_listenerCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0, objc.NSRange arg1,
-                ffi.Pointer<ffi.Bool> arg2) =>
-            fn(
-                arg0.address == 0
-                    ? null
-                    : objc.ObjCObjectBase(arg0, retain: false, release: true),
-                arg1,
-                arg2));
+      _ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool_listenerCallable
+          .nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        ffi.Pointer<ffi.Bool> arg2,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.ObjCObjectBase(arg0, retain: false, release: true),
+        arg1,
+        arg2,
+      ),
+      keepIsolateAlive,
+    );
     final wrapper = _MapLibreFFi_wrapListenerBlock_1a22wz(raw);
     objc.objectRelease(raw.cast());
     return objc.ObjCBlock<
@@ -1121,40 +3307,61 @@ abstract final class ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool {
   /// caller until the callback is handled by the Dart isolate that created
   /// the block. Async functions are not supported.
   ///
-  /// This block does not keep the owner isolate alive. If the owner isolate has
-  /// shut down, and the block is invoked by native code, it may block
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC. If the owner isolate
+  /// has shut down, and the block is invoked by native code, it may block
   /// indefinitely, or have other undefined behavior.
   static objc.ObjCBlock<
-      ffi.Void Function(ffi.Pointer<objc.ObjCObject>?, objc.NSRange,
-          ffi.Pointer<ffi.Bool>)> blocking(
-      void Function(objc.ObjCObjectBase?, objc.NSRange, ffi.Pointer<ffi.Bool>)
-          fn) {
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCObject>?,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >
+  blocking(
+    void Function(objc.ObjCObjectBase?, objc.NSRange, ffi.Pointer<ffi.Bool>)
+    fn, {
+    bool keepIsolateAlive = true,
+  }) {
     final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool_blockingCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0, objc.NSRange arg1,
-                ffi.Pointer<ffi.Bool> arg2) =>
-            fn(
-                arg0.address == 0
-                    ? null
-                    : objc.ObjCObjectBase(arg0, retain: false, release: true),
-                arg1,
-                arg2));
+      _ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool_blockingCallable
+          .nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        ffi.Pointer<ffi.Bool> arg2,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.ObjCObjectBase(arg0, retain: false, release: true),
+        arg1,
+        arg2,
+      ),
+      keepIsolateAlive,
+    );
     final rawListener = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool_blockingListenerCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<objc.ObjCObject> arg0, objc.NSRange arg1,
-                ffi.Pointer<ffi.Bool> arg2) =>
-            fn(
-                arg0.address == 0
-                    ? null
-                    : objc.ObjCObjectBase(arg0, retain: false, release: true),
-                arg1,
-                arg2));
-    final wrapper = objc.wrapBlockingBlock(
-        _MapLibreFFi_wrapBlockingBlock_1a22wz, raw, rawListener);
+      _ObjCBlock_ffiVoid_objcObjCObject_NSRange_bool_blockingListenerCallable
+          .nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        ffi.Pointer<ffi.Bool> arg2,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.ObjCObjectBase(arg0, retain: false, release: true),
+        arg1,
+        arg2,
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapBlockingBlock_1a22wz(
+      raw,
+      rawListener,
+      objc.objCContext,
+    );
     objc.objectRelease(raw.cast());
     objc.objectRelease(rawListener.cast());
     return objc.ObjCBlock<
@@ -1212,12 +3419,25 @@ final _objc_msgSend_ipgwfh = objc.msgSendPointer
 extension NSExtendedAttributedString on NSAttributedString {
   /// length
   int get length {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.length',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     return _objc_msgSend_xw2lbc(this.ref.pointer, _sel_length);
   }
 
   /// attribute:atIndex:effectiveRange:
   objc.ObjCObjectBase? attribute_atIndex_effectiveRange_(
-      objc.NSString attrName, int location, ffi.Pointer<objc.NSRange> range) {
+    objc.NSString attrName,
+    int location,
+    ffi.Pointer<objc.NSRange> range,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.attribute:atIndex:effectiveRange:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_7km9vu(
         this.ref.pointer,
         _sel_attribute_atIndex_effectiveRange_,
@@ -1231,6 +3451,11 @@ extension NSExtendedAttributedString on NSAttributedString {
 
   /// attributedSubstringFromRange:
   NSAttributedString attributedSubstringFromRange_(objc.NSRange range) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.attributedSubstringFromRange:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_1k1o1s7(
         this.ref.pointer, _sel_attributedSubstringFromRange_, range);
     return NSAttributedString.castFromPointer(_ret,
@@ -1239,7 +3464,15 @@ extension NSExtendedAttributedString on NSAttributedString {
 
   /// attributesAtIndex:longestEffectiveRange:inRange:
   objc.NSDictionary attributesAtIndex_longestEffectiveRange_inRange_(
-      int location, ffi.Pointer<objc.NSRange> range, objc.NSRange rangeLimit) {
+    int location,
+    ffi.Pointer<objc.NSRange> range,
+    objc.NSRange rangeLimit,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.attributesAtIndex:longestEffectiveRange:inRange:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_1pp2gs8(
         this.ref.pointer,
         _sel_attributesAtIndex_longestEffectiveRange_inRange_,
@@ -1251,10 +3484,16 @@ extension NSExtendedAttributedString on NSAttributedString {
 
   /// attribute:atIndex:longestEffectiveRange:inRange:
   objc.ObjCObjectBase? attribute_atIndex_longestEffectiveRange_inRange_(
-      objc.NSString attrName,
-      int location,
-      ffi.Pointer<objc.NSRange> range,
-      objc.NSRange rangeLimit) {
+    objc.NSString attrName,
+    int location,
+    ffi.Pointer<objc.NSRange> range,
+    objc.NSRange rangeLimit,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.attribute:atIndex:longestEffectiveRange:inRange:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_1k1akuq(
         this.ref.pointer,
         _sel_attribute_atIndex_longestEffectiveRange_inRange_,
@@ -1269,18 +3508,29 @@ extension NSExtendedAttributedString on NSAttributedString {
 
   /// isEqualToAttributedString:
   bool isEqualToAttributedString_(NSAttributedString other) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.isEqualToAttributedString:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     return _objc_msgSend_19nvye5(
         this.ref.pointer, _sel_isEqualToAttributedString_, other.ref.pointer);
   }
 
   /// enumerateAttributesInRange:options:usingBlock:
   void enumerateAttributesInRange_options_usingBlock_(
-      objc.NSRange enumerationRange,
-      NSAttributedStringEnumerationOptions opts,
-      objc.ObjCBlock<
-              ffi.Void Function(
-                  objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)>
-          block) {
+    objc.NSRange enumerationRange,
+    NSAttributedStringEnumerationOptions opts,
+    objc.ObjCBlock<
+      ffi.Void Function(objc.NSDictionary, objc.NSRange, ffi.Pointer<ffi.Bool>)
+    >
+    block,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.enumerateAttributesInRange:options:usingBlock:',
+      iOS: (false, (4, 0, 0)),
+      macOS: (false, (10, 6, 0)),
+    );
     _objc_msgSend_1kok4b(
         this.ref.pointer,
         _sel_enumerateAttributesInRange_options_usingBlock_,
@@ -1291,13 +3541,23 @@ extension NSExtendedAttributedString on NSAttributedString {
 
   /// enumerateAttribute:inRange:options:usingBlock:
   void enumerateAttribute_inRange_options_usingBlock_(
-      objc.NSString attrName,
-      objc.NSRange enumerationRange,
-      NSAttributedStringEnumerationOptions opts,
-      objc.ObjCBlock<
-              ffi.Void Function(ffi.Pointer<objc.ObjCObject>?, objc.NSRange,
-                  ffi.Pointer<ffi.Bool>)>
-          block) {
+    objc.NSString attrName,
+    objc.NSRange enumerationRange,
+    NSAttributedStringEnumerationOptions opts,
+    objc.ObjCBlock<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCObject>?,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      )
+    >
+    block,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.enumerateAttribute:inRange:options:usingBlock:',
+      iOS: (false, (4, 0, 0)),
+      macOS: (false, (10, 6, 0)),
+    );
     _objc_msgSend_ipgwfh(
         this.ref.pointer,
         _sel_enumerateAttribute_inRange_options_usingBlock_,
@@ -1314,21 +3574,19 @@ extension NSAttributedStringCreateFromMarkdown on NSAttributedString {}
 /// NSAttributedStringFormatting
 extension NSAttributedStringFormatting on NSAttributedString {}
 
-late final _sel_attributedStringByInflectingString =
-    objc.registerName("attributedStringByInflectingString");
-final _objc_msgSend_151sglz = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(
-            ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCSelector>)>();
+late final _sel_attributedStringByInflectingString = objc.registerName(
+  "attributedStringByInflectingString",
+);
 
 /// NSMorphology
 extension NSMorphology on NSAttributedString {
   /// attributedStringByInflectingString
   NSAttributedString attributedStringByInflectingString() {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.attributedStringByInflectingString',
+      iOS: (false, (15, 0, 0)),
+      macOS: (false, (12, 0, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         this.ref.pointer, _sel_attributedStringByInflectingString);
     return NSAttributedString.castFromPointer(_ret,
@@ -1359,10 +3617,18 @@ final _objc_msgSend_193219c = objc.msgSendPointer
 /// NSFileWrapper in your config's objc-interfaces list.
 ///
 /// NSFileWrapper
-class NSFileWrapper extends objc.NSObject {
-  NSFileWrapper._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+class NSFileWrapper extends objc.NSObject implements objc.NSSecureCoding {
+  NSFileWrapper._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSFileWrapper',
+      iOS: (false, (4, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+  }
 
   /// Constructs a [NSFileWrapper] that points to the same underlying object as [other].
   NSFileWrapper.castFrom(objc.ObjCObjectBase other)
@@ -1380,8 +3646,16 @@ late final _sel_fileWrapperFromRange_documentAttributes_error_ =
 /// NSAttributedStringDocumentFormats
 extension NSAttributedStringDocumentFormats on NSAttributedString {
   /// dataFromRange:documentAttributes:error:
-  objc.NSData? dataFromRange_documentAttributes_error_(objc.NSRange range,
-      objc.NSDictionary dict, ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error) {
+  objc.NSData? dataFromRange_documentAttributes_error_(
+    objc.NSRange range,
+    objc.NSDictionary dict,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.dataFromRange:documentAttributes:error:',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_193219c(
         this.ref.pointer,
         _sel_dataFromRange_documentAttributes_error_,
@@ -1395,9 +3669,15 @@ extension NSAttributedStringDocumentFormats on NSAttributedString {
 
   /// fileWrapperFromRange:documentAttributes:error:
   NSFileWrapper? fileWrapperFromRange_documentAttributes_error_(
-      objc.NSRange range,
-      objc.NSDictionary dict,
-      ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error) {
+    objc.NSRange range,
+    objc.NSDictionary dict,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.fileWrapperFromRange:documentAttributes:error:',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_193219c(
         this.ref.pointer,
         _sel_fileWrapperFromRange_documentAttributes_error_,
@@ -1426,12 +3706,22 @@ late final _sel_prefersRTFDInRange_ = objc.registerName("prefersRTFDInRange:");
 extension NSAttributedStringKitAdditions on NSAttributedString {
   /// containsAttachmentsInRange:
   bool containsAttachmentsInRange_(objc.NSRange range) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.containsAttachmentsInRange:',
+      iOS: (false, (9, 0, 0)),
+      macOS: (false, (10, 11, 0)),
+    );
     return _objc_msgSend_p4nurx(
         this.ref.pointer, _sel_containsAttachmentsInRange_, range);
   }
 
   /// prefersRTFDInRange:
   bool prefersRTFDInRange_(objc.NSRange range) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.prefersRTFDInRange:',
+      iOS: (false, (18, 0, 0)),
+      macOS: (false, (15, 0, 0)),
+    );
     return _objc_msgSend_p4nurx(
         this.ref.pointer, _sel_prefersRTFDInRange_, range);
   }
@@ -1464,9 +3754,20 @@ late final _sel_docFormatFromRange_documentAttributes_ =
 extension NSAttributedStringAppKitDocumentFormats on NSAttributedString {
   /// RTFFromRange:documentAttributes:
   objc.NSData? RTFFromRange_documentAttributes_(
-      objc.NSRange range, objc.NSDictionary dict) {
-    final _ret = _objc_msgSend_bstjp9(this.ref.pointer,
-        _sel_RTFFromRange_documentAttributes_, range, dict.ref.pointer);
+    objc.NSRange range,
+    objc.NSDictionary dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.RTFFromRange:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_bstjp9(
+      this.ref.pointer,
+      _sel_RTFFromRange_documentAttributes_,
+      range,
+      dict.ref.pointer,
+    );
     return _ret.address == 0
         ? null
         : objc.NSData.castFromPointer(_ret, retain: true, release: true);
@@ -1474,9 +3775,20 @@ extension NSAttributedStringAppKitDocumentFormats on NSAttributedString {
 
   /// RTFDFromRange:documentAttributes:
   objc.NSData? RTFDFromRange_documentAttributes_(
-      objc.NSRange range, objc.NSDictionary dict) {
-    final _ret = _objc_msgSend_bstjp9(this.ref.pointer,
-        _sel_RTFDFromRange_documentAttributes_, range, dict.ref.pointer);
+    objc.NSRange range,
+    objc.NSDictionary dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.RTFDFromRange:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_bstjp9(
+      this.ref.pointer,
+      _sel_RTFDFromRange_documentAttributes_,
+      range,
+      dict.ref.pointer,
+    );
     return _ret.address == 0
         ? null
         : objc.NSData.castFromPointer(_ret, retain: true, release: true);
@@ -1484,7 +3796,14 @@ extension NSAttributedStringAppKitDocumentFormats on NSAttributedString {
 
   /// RTFDFileWrapperFromRange:documentAttributes:
   NSFileWrapper? RTFDFileWrapperFromRange_documentAttributes_(
-      objc.NSRange range, objc.NSDictionary dict) {
+    objc.NSRange range,
+    objc.NSDictionary dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.RTFDFileWrapperFromRange:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_bstjp9(
         this.ref.pointer,
         _sel_RTFDFileWrapperFromRange_documentAttributes_,
@@ -1497,9 +3816,20 @@ extension NSAttributedStringAppKitDocumentFormats on NSAttributedString {
 
   /// docFormatFromRange:documentAttributes:
   objc.NSData? docFormatFromRange_documentAttributes_(
-      objc.NSRange range, objc.NSDictionary dict) {
-    final _ret = _objc_msgSend_bstjp9(this.ref.pointer,
-        _sel_docFormatFromRange_documentAttributes_, range, dict.ref.pointer);
+    objc.NSRange range,
+    objc.NSDictionary dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.docFormatFromRange:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_bstjp9(
+      this.ref.pointer,
+      _sel_docFormatFromRange_documentAttributes_,
+      range,
+      dict.ref.pointer,
+    );
     return _ret.address == 0
         ? null
         : objc.NSData.castFromPointer(_ret, retain: true, release: true);
@@ -1560,10 +3890,13 @@ final _objc_msgSend_pdufzl = objc.msgSendPointer
 /// NSTextBlock in your config's objc-interfaces list.
 ///
 /// NSTextBlock
-class NSTextBlock extends objc.NSObject {
-  NSTextBlock._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+class NSTextBlock extends objc.NSObject
+    implements objc.NSSecureCoding, objc.NSCopying {
+  NSTextBlock._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
 
   /// Constructs a [NSTextBlock] that points to the same underlying object as [other].
   NSTextBlock.castFrom(objc.ObjCObjectBase other)
@@ -1634,10 +3967,19 @@ late final _sel_rangeOfTextTable_atIndex_ =
 /// NSTextList in your config's objc-interfaces list.
 ///
 /// NSTextList
-class NSTextList extends objc.NSObject {
-  NSTextList._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+class NSTextList extends objc.NSObject
+    implements objc.NSSecureCoding, objc.NSCopying {
+  NSTextList._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSTextList',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+  }
 
   /// Constructs a [NSTextList] that points to the same underlying object as [other].
   NSTextList.castFrom(objc.ObjCObjectBase other)
@@ -1672,6 +4014,11 @@ final _objc_msgSend_o870ko = objc.msgSendPointer
 extension NSAttributedStringAppKitAdditions on NSAttributedString {
   /// fontAttributesInRange:
   objc.NSDictionary fontAttributesInRange_(objc.NSRange range) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.fontAttributesInRange:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_1k1o1s7(
         this.ref.pointer, _sel_fontAttributesInRange_, range);
     return objc.NSDictionary.castFromPointer(_ret, retain: true, release: true);
@@ -1679,6 +4026,11 @@ extension NSAttributedStringAppKitAdditions on NSAttributedString {
 
   /// rulerAttributesInRange:
   objc.NSDictionary rulerAttributesInRange_(objc.NSRange range) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.rulerAttributesInRange:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_1k1o1s7(
         this.ref.pointer, _sel_rulerAttributesInRange_, range);
     return objc.NSDictionary.castFromPointer(_ret, retain: true, release: true);
@@ -1686,19 +4038,44 @@ extension NSAttributedStringAppKitAdditions on NSAttributedString {
 
   /// lineBreakBeforeIndex:withinRange:
   int lineBreakBeforeIndex_withinRange_(int location, objc.NSRange aRange) {
-    return _objc_msgSend_1ih9idr(this.ref.pointer,
-        _sel_lineBreakBeforeIndex_withinRange_, location, aRange);
+    objc.checkOsVersionInternal(
+      'NSAttributedString.lineBreakBeforeIndex:withinRange:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_1ih9idr(
+      this.ref.pointer,
+      _sel_lineBreakBeforeIndex_withinRange_,
+      location,
+      aRange,
+    );
   }
 
   /// lineBreakByHyphenatingBeforeIndex:withinRange:
   int lineBreakByHyphenatingBeforeIndex_withinRange_(
-      int location, objc.NSRange aRange) {
-    return _objc_msgSend_1ih9idr(this.ref.pointer,
-        _sel_lineBreakByHyphenatingBeforeIndex_withinRange_, location, aRange);
+    int location,
+    objc.NSRange aRange,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.lineBreakByHyphenatingBeforeIndex:withinRange:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_1ih9idr(
+      this.ref.pointer,
+      _sel_lineBreakByHyphenatingBeforeIndex_withinRange_,
+      location,
+      aRange,
+    );
   }
 
   /// doubleClickAtIndex:
   objc.NSRange doubleClickAtIndex_(int location) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.doubleClickAtIndex:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ptr = pkg_ffi.calloc<objc.NSRange>();
     objc.useMsgSendVariants
         ? _objc_msgSend_d3i1uyStret(
@@ -1713,12 +4090,22 @@ extension NSAttributedStringAppKitAdditions on NSAttributedString {
 
   /// nextWordFromIndex:forward:
   int nextWordFromIndex_forward_(int location, bool isForward) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.nextWordFromIndex:forward:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     return _objc_msgSend_pdufzl(
         this.ref.pointer, _sel_nextWordFromIndex_forward_, location, isForward);
   }
 
   /// rangeOfTextBlock:atIndex:
   objc.NSRange rangeOfTextBlock_atIndex_(NSTextBlock block, int location) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.rangeOfTextBlock:atIndex:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ptr = pkg_ffi.calloc<objc.NSRange>();
     objc.useMsgSendVariants
         ? _objc_msgSend_1y9i18gStret(_ptr, this.ref.pointer,
@@ -1733,6 +4120,11 @@ extension NSAttributedStringAppKitAdditions on NSAttributedString {
 
   /// rangeOfTextTable:atIndex:
   objc.NSRange rangeOfTextTable_atIndex_(NSTextTable table, int location) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.rangeOfTextTable:atIndex:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ptr = pkg_ffi.calloc<objc.NSRange>();
     objc.useMsgSendVariants
         ? _objc_msgSend_1y9i18gStret(_ptr, this.ref.pointer,
@@ -1747,6 +4139,11 @@ extension NSAttributedStringAppKitAdditions on NSAttributedString {
 
   /// rangeOfTextList:atIndex:
   objc.NSRange rangeOfTextList_atIndex_(NSTextList list, int location) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.rangeOfTextList:atIndex:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ptr = pkg_ffi.calloc<objc.NSRange>();
     objc.useMsgSendVariants
         ? _objc_msgSend_1y9i18gStret(_ptr, this.ref.pointer,
@@ -1761,9 +4158,66 @@ extension NSAttributedStringAppKitAdditions on NSAttributedString {
 
   /// itemNumberInTextList:atIndex:
   int itemNumberInTextList_atIndex_(NSTextList list, int location) {
-    return _objc_msgSend_o870ko(this.ref.pointer,
-        _sel_itemNumberInTextList_atIndex_, list.ref.pointer, location);
+    objc.checkOsVersionInternal(
+      'NSAttributedString.itemNumberInTextList:atIndex:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_o870ko(
+      this.ref.pointer,
+      _sel_itemNumberInTextList_atIndex_,
+      list.ref.pointer,
+      location,
+    );
   }
+}
+
+/// WARNING: NSPasteboardReading is a stub. To generate bindings for this class, include
+/// NSPasteboardReading in your config's objc-protocols list.
+///
+/// NSPasteboardReading
+interface class NSPasteboardReading extends objc.ObjCProtocolBase
+    implements objc.NSObjectProtocol {
+  NSPasteboardReading._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [NSPasteboardReading] that points to the same underlying object as [other].
+  NSPasteboardReading.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [NSPasteboardReading] that wraps the given raw object pointer.
+  NSPasteboardReading.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+/// WARNING: NSPasteboardWriting is a stub. To generate bindings for this class, include
+/// NSPasteboardWriting in your config's objc-protocols list.
+///
+/// NSPasteboardWriting
+interface class NSPasteboardWriting extends objc.ObjCProtocolBase
+    implements objc.NSObjectProtocol {
+  NSPasteboardWriting._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [NSPasteboardWriting] that points to the same underlying object as [other].
+  NSPasteboardWriting.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [NSPasteboardWriting] that wraps the given raw object pointer.
+  NSPasteboardWriting.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
 }
 
 late final _sel_textTypes = objc.registerName("textTypes");
@@ -1774,9 +4228,13 @@ late final _sel_textUnfilteredTypes = objc.registerName("textUnfilteredTypes");
 ///
 /// NSPasteboard
 class NSPasteboard extends objc.NSObject {
-  NSPasteboard._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+  NSPasteboard._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal('NSPasteboard', iOS: (true, null));
+  }
 
   /// Constructs a [NSPasteboard] that points to the same underlying object as [other].
   NSPasteboard.castFrom(objc.ObjCObjectBase other)
@@ -1788,9 +4246,15 @@ class NSPasteboard extends objc.NSObject {
       : this._(other, retain: retain, release: release);
 }
 
-late final _sel_readableTypesForPasteboard_ =
-    objc.registerName("readableTypesForPasteboard:");
-final _objc_msgSend_1sotr3r = objc.msgSendPointer
+late final _sel_readableTypesForPasteboard_ = objc.registerName(
+  "readableTypesForPasteboard:",
+);
+ffi.Pointer<objc.ObjCObject>
+_ObjCBlock_NSArray_ffiVoid_NSPasteboard_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) => block.ref.target
     .cast<
         ffi.NativeFunction<
             ffi.Pointer<objc.ObjCObject> Function(
@@ -1871,18 +4335,30 @@ abstract final class ObjCBlock_NSArray_ffiVoid_NSPasteboard {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
   static objc.ObjCBlock<
-      objc.NSArray Function(ffi.Pointer<ffi.Void>, NSPasteboard)> fromFunction(
-          objc.NSArray Function(ffi.Pointer<ffi.Void>, NSPasteboard) fn) =>
-      objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>, NSPasteboard)>(
-          objc.newClosureBlock(
-              _ObjCBlock_NSArray_ffiVoid_NSPasteboard_closureCallable,
-              (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
-                  fn(arg0, NSPasteboard.castFromPointer(arg1, retain: true, release: true))
-                      .ref
-                      .retainAndAutorelease()),
-          retain: false,
-          release: true);
+    objc.NSArray Function(ffi.Pointer<ffi.Void>, NSPasteboard)
+  >
+  fromFunction(
+    objc.NSArray Function(ffi.Pointer<ffi.Void>, NSPasteboard) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    objc.NSArray Function(ffi.Pointer<ffi.Void>, NSPasteboard)
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_NSArray_ffiVoid_NSPasteboard_closureCallable,
+      (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            arg0,
+            NSPasteboard.castFromPointer(arg1, retain: true, release: true),
+          ).ref.retainAndAutorelease(),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 }
 
 /// Call operator for `objc.ObjCBlock<objc.NSArray Function(ffi.Pointer<ffi.Void>, NSPasteboard)>`.
@@ -1917,13 +4393,15 @@ enum NSPasteboardReadingOptions {
   const NSPasteboardReadingOptions(this.value);
 
   static NSPasteboardReadingOptions fromValue(int value) => switch (value) {
-        0 => NSPasteboardReadingAsData,
-        1 => NSPasteboardReadingAsString,
-        2 => NSPasteboardReadingAsPropertyList,
-        4 => NSPasteboardReadingAsKeyedArchive,
-        _ => throw ArgumentError(
-            "Unknown value for NSPasteboardReadingOptions: $value"),
-      };
+    0 => NSPasteboardReadingAsData,
+    1 => NSPasteboardReadingAsString,
+    2 => NSPasteboardReadingAsPropertyList,
+    4 => NSPasteboardReadingAsKeyedArchive,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSPasteboardReadingOptions: $value',
+      ),
+  };
 }
 
 late final _sel_readingOptionsForType_pasteboard_ =
@@ -2024,18 +4502,48 @@ abstract final class ObjCBlock_NSPasteboardReadingOptions_ffiVoid_NSPasteboardTy
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  static objc.ObjCBlock<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>, objc.NSString, NSPasteboard)> fromFunction(
-          NSPasteboardReadingOptions Function(
-                  ffi.Pointer<ffi.Void>, objc.NSString, NSPasteboard)
-              fn) =>
-      objc.ObjCBlock<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>, objc.NSString, NSPasteboard)>(
-          objc.newClosureBlock(
-              _ObjCBlock_NSPasteboardReadingOptions_ffiVoid_NSPasteboardType_NSPasteboard_closureCallable,
-              (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1,
-                      ffi.Pointer<objc.ObjCObject> arg2) =>
-                  fn(arg0, objc.NSString.castFromPointer(arg1, retain: true, release: true), NSPasteboard.castFromPointer(arg2, retain: true, release: true)).value),
-          retain: false,
-          release: true);
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    ffi.UnsignedLong Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      NSPasteboard,
+    )
+  >
+  fromFunction(
+    NSPasteboardReadingOptions Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      NSPasteboard,
+    )
+    fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    ffi.UnsignedLong Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      NSPasteboard,
+    )
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_NSPasteboardReadingOptions_ffiVoid_NSPasteboardType_NSPasteboard_closureCallable,
+      (
+        ffi.Pointer<ffi.Void> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2,
+      ) =>
+          fn(
+            arg0,
+            objc.NSString.castFromPointer(arg1, retain: true, release: true),
+            NSPasteboard.castFromPointer(arg2, retain: true, release: true),
+          ).value,
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 }
 
 /// Call operator for `objc.ObjCBlock<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>, objc.NSString, NSPasteboard)>`.
@@ -2168,20 +4676,49 @@ abstract final class ObjCBlock_objcObjCObject_ffiVoid_objcObjCObject_NSPasteboar
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  static objc.ObjCBlock<objc.Retained<ffi.Pointer<objc.ObjCObject>?> Function(ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>, objc.NSString)>
-      fromFunction(objc.ObjCObjectBase? Function(ffi.Pointer<ffi.Void>, objc.ObjCObjectBase, objc.NSString) fn) =>
-          objc.ObjCBlock<objc.Retained<ffi.Pointer<objc.ObjCObject>?> Function(ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>, objc.NSString)>(
-              objc.newClosureBlock(
-                  _ObjCBlock_objcObjCObject_ffiVoid_objcObjCObject_NSPasteboardType_closureCallable,
-                  (ffi.Pointer<ffi.Void> arg0,
-                          ffi.Pointer<objc.ObjCObject> arg1,
-                          ffi.Pointer<objc.ObjCObject> arg2) =>
-                      fn(arg0, objc.ObjCObjectBase(arg1, retain: true, release: true), objc.NSString.castFromPointer(arg2, retain: true, release: true))
-                          ?.ref
-                          .retainAndReturnPointer() ??
-                      ffi.nullptr),
-              retain: false,
-              release: true);
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    objc.Retained<ffi.Pointer<objc.ObjCObject>?> Function(
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+      objc.NSString,
+    )
+  >
+  fromFunction(
+    objc.ObjCObjectBase? Function(
+      ffi.Pointer<ffi.Void>,
+      objc.ObjCObjectBase,
+      objc.NSString,
+    )
+    fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    objc.Retained<ffi.Pointer<objc.ObjCObject>?> Function(
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+      objc.NSString,
+    )
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_objcObjCObject_ffiVoid_objcObjCObject_NSPasteboardType_closureCallable,
+      (
+        ffi.Pointer<ffi.Void> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2,
+      ) =>
+          fn(
+            arg0,
+            objc.ObjCObjectBase(arg1, retain: true, release: true),
+            objc.NSString.castFromPointer(arg2, retain: true, release: true),
+          )?.ref.retainAndReturnPointer() ??
+          ffi.nullptr,
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 }
 
 /// Call operator for `objc.ObjCBlock<objc.Retained<ffi.Pointer<objc.ObjCObject>?> Function(ffi.Pointer<ffi.Void>, ffi.Pointer<objc.ObjCObject>, objc.NSString)>`.
@@ -2223,10 +4760,12 @@ enum NSPasteboardWritingOptions {
   const NSPasteboardWritingOptions(this.value);
 
   static NSPasteboardWritingOptions fromValue(int value) => switch (value) {
-        512 => NSPasteboardWritingPromised,
-        _ => throw ArgumentError(
-            "Unknown value for NSPasteboardWritingOptions: $value"),
-      };
+    512 => NSPasteboardWritingPromised,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSPasteboardWritingOptions: $value',
+      ),
+  };
 }
 
 late final _sel_writingOptionsForType_pasteboard_ =
@@ -2327,18 +4866,48 @@ abstract final class ObjCBlock_NSPasteboardWritingOptions_ffiVoid_NSPasteboardTy
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  static objc.ObjCBlock<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>, objc.NSString, NSPasteboard)> fromFunction(
-          NSPasteboardWritingOptions Function(
-                  ffi.Pointer<ffi.Void>, objc.NSString, NSPasteboard)
-              fn) =>
-      objc.ObjCBlock<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>, objc.NSString, NSPasteboard)>(
-          objc.newClosureBlock(
-              _ObjCBlock_NSPasteboardWritingOptions_ffiVoid_NSPasteboardType_NSPasteboard_closureCallable,
-              (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1,
-                      ffi.Pointer<objc.ObjCObject> arg2) =>
-                  fn(arg0, objc.NSString.castFromPointer(arg1, retain: true, release: true), NSPasteboard.castFromPointer(arg2, retain: true, release: true)).value),
-          retain: false,
-          release: true);
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    ffi.UnsignedLong Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      NSPasteboard,
+    )
+  >
+  fromFunction(
+    NSPasteboardWritingOptions Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      NSPasteboard,
+    )
+    fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    ffi.UnsignedLong Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSString,
+      NSPasteboard,
+    )
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_NSPasteboardWritingOptions_ffiVoid_NSPasteboardType_NSPasteboard_closureCallable,
+      (
+        ffi.Pointer<ffi.Void> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2,
+      ) =>
+          fn(
+            arg0,
+            objc.NSString.castFromPointer(arg1, retain: true, release: true),
+            NSPasteboard.castFromPointer(arg2, retain: true, release: true),
+          ).value,
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 }
 
 /// Call operator for `objc.ObjCBlock<ffi.UnsignedLong Function(ffi.Pointer<ffi.Void>, objc.NSString, NSPasteboard)>`.
@@ -2441,19 +5010,31 @@ abstract final class ObjCBlock_objcObjCObject_ffiVoid_NSAnimatablePropertyKey {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  static objc
-      .ObjCBlock<ffi.Pointer<objc.ObjCObject>? Function(ffi.Pointer<ffi.Void>, objc.NSString)>
-      fromFunction(objc.ObjCObjectBase? Function(ffi.Pointer<ffi.Void>, objc.NSString) fn) =>
-          objc.ObjCBlock<ffi.Pointer<objc.ObjCObject>? Function(ffi.Pointer<ffi.Void>, objc.NSString)>(
-              objc.newClosureBlock(
-                  _ObjCBlock_objcObjCObject_ffiVoid_NSAnimatablePropertyKey_closureCallable,
-                  (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
-                      fn(arg0, objc.NSString.castFromPointer(arg1, retain: true, release: true))
-                          ?.ref
-                          .retainAndAutorelease() ??
-                      ffi.nullptr),
-              retain: false,
-              release: true);
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject>? Function(ffi.Pointer<ffi.Void>, objc.NSString)
+  >
+  fromFunction(
+    objc.ObjCObjectBase? Function(ffi.Pointer<ffi.Void>, objc.NSString) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject>? Function(ffi.Pointer<ffi.Void>, objc.NSString)
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_objcObjCObject_ffiVoid_NSAnimatablePropertyKey_closureCallable,
+      (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            arg0,
+            objc.NSString.castFromPointer(arg1, retain: true, release: true),
+          )?.ref.retainAndAutorelease() ??
+          ffi.nullptr,
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 }
 
 /// Call operator for `objc.ObjCBlock<ffi.Pointer<objc.ObjCObject>? Function(ffi.Pointer<ffi.Void>, objc.NSString)>`.
@@ -2486,13 +5067,23 @@ extension ObjCBlock_objcObjCObject_ffiVoid_NSAnimatablePropertyKey_CallExtension
 extension NSAttributedStringPasteboardAdditions on NSAttributedString {
   /// textTypes
   static objc.NSArray getTextTypes() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_NSAttributedString, _sel_textTypes);
+    objc.checkOsVersionInternal(
+      'NSAttributedString.textTypes',
+      macOS: (false, (10, 5, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSAttributedString,
+      _sel_textTypes,
+    );
     return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// textUnfilteredTypes
   static objc.NSArray getTextUnfilteredTypes() {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.textUnfilteredTypes',
+      macOS: (false, (10, 5, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSAttributedString, _sel_textUnfilteredTypes);
     return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
@@ -2500,14 +5091,27 @@ extension NSAttributedStringPasteboardAdditions on NSAttributedString {
 
   /// readableTypesForPasteboard:
   static objc.NSArray readableTypesForPasteboard_(NSPasteboard pasteboard) {
-    final _ret = _objc_msgSend_1sotr3r(_class_NSAttributedString,
-        _sel_readableTypesForPasteboard_, pasteboard.ref.pointer);
+    objc.checkOsVersionInternal(
+      'NSAttributedString.readableTypesForPasteboard:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSAttributedString,
+      _sel_readableTypesForPasteboard_,
+      pasteboard.ref.pointer,
+    );
     return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// readingOptionsForType:pasteboard:
   static NSPasteboardReadingOptions readingOptionsForType_pasteboard_(
-      objc.NSString type, NSPasteboard pasteboard) {
+    objc.NSString type,
+    NSPasteboard pasteboard,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.readingOptionsForType:pasteboard:',
+      iOS: (true, null),
+    );
     if (!objc.respondsToSelector(
         _class_NSAttributedString, _sel_readingOptionsForType_pasteboard_)) {
       throw objc.UnimplementedOptionalMethodException(
@@ -2523,9 +5127,17 @@ extension NSAttributedStringPasteboardAdditions on NSAttributedString {
 
   /// initWithPasteboardPropertyList:ofType:
   objc.ObjCObjectBase? initWithPasteboardPropertyList_ofType_(
-      objc.ObjCObjectBase propertyList, objc.NSString type) {
-    if (!objc.respondsToSelector(this.ref.retainAndReturnPointer(),
-        _sel_initWithPasteboardPropertyList_ofType_)) {
+    objc.ObjCObjectBase propertyList,
+    objc.NSString type,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithPasteboardPropertyList:ofType:',
+      iOS: (true, null),
+    );
+    if (!objc.respondsToSelector(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithPasteboardPropertyList_ofType_,
+    )) {
       throw objc.UnimplementedOptionalMethodException(
           'NSAttributedString', 'initWithPasteboardPropertyList:ofType:');
     }
@@ -2541,14 +5153,27 @@ extension NSAttributedStringPasteboardAdditions on NSAttributedString {
 
   /// writableTypesForPasteboard:
   objc.NSArray writableTypesForPasteboard_(NSPasteboard pasteboard) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.pointer,
-        _sel_writableTypesForPasteboard_, pasteboard.ref.pointer);
+    objc.checkOsVersionInternal(
+      'NSAttributedString.writableTypesForPasteboard:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_writableTypesForPasteboard_,
+      pasteboard.ref.pointer,
+    );
     return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// writingOptionsForType:pasteboard:
   NSPasteboardWritingOptions writingOptionsForType_pasteboard_(
-      objc.NSString type, NSPasteboard pasteboard) {
+    objc.NSString type,
+    NSPasteboard pasteboard,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.writingOptionsForType:pasteboard:',
+      iOS: (true, null),
+    );
     if (!objc.respondsToSelector(
         this.ref.pointer, _sel_writingOptionsForType_pasteboard_)) {
       throw objc.UnimplementedOptionalMethodException(
@@ -2564,8 +5189,15 @@ extension NSAttributedStringPasteboardAdditions on NSAttributedString {
 
   /// pasteboardPropertyListForType:
   objc.ObjCObjectBase? pasteboardPropertyListForType_(objc.NSString type) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.pointer,
-        _sel_pasteboardPropertyListForType_, type.ref.pointer);
+    objc.checkOsVersionInternal(
+      'NSAttributedString.pasteboardPropertyListForType:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_pasteboardPropertyListForType_,
+      type.ref.pointer,
+    );
     return _ret.address == 0
         ? null
         : objc.ObjCObjectBase(_ret, retain: true, release: true);
@@ -2605,18 +5237,33 @@ final _objc_msgSend_1776v9k = objc.msgSendPointer
 extension NSDeprecatedKitAdditions on NSAttributedString {
   /// containsAttachments
   bool get containsAttachments {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.containsAttachments',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     return _objc_msgSend_91o635(this.ref.pointer, _sel_containsAttachments);
   }
 
   /// textFileTypes
   static objc.NSArray textFileTypes() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_NSAttributedString, _sel_textFileTypes);
+    objc.checkOsVersionInternal(
+      'NSAttributedString.textFileTypes',
+      macOS: (false, (10, 1, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSAttributedString,
+      _sel_textFileTypes,
+    );
     return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// textPasteboardTypes
   static objc.NSArray textPasteboardTypes() {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.textPasteboardTypes',
+      macOS: (false, (10, 1, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSAttributedString, _sel_textPasteboardTypes);
     return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
@@ -2624,6 +5271,10 @@ extension NSDeprecatedKitAdditions on NSAttributedString {
 
   /// textUnfilteredFileTypes
   static objc.NSArray textUnfilteredFileTypes() {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.textUnfilteredFileTypes',
+      macOS: (false, (10, 1, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSAttributedString, _sel_textUnfilteredFileTypes);
     return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
@@ -2631,6 +5282,10 @@ extension NSDeprecatedKitAdditions on NSAttributedString {
 
   /// textUnfilteredPasteboardTypes
   static objc.NSArray textUnfilteredPasteboardTypes() {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.textUnfilteredPasteboardTypes',
+      macOS: (false, (10, 1, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSAttributedString, _sel_textUnfilteredPasteboardTypes);
     return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
@@ -2638,9 +5293,19 @@ extension NSDeprecatedKitAdditions on NSAttributedString {
 
   /// URLAtIndex:effectiveRange:
   objc.NSURL? URLAtIndex_effectiveRange_(
-      int location, ffi.Pointer<objc.NSRange> effectiveRange) {
-    final _ret = _objc_msgSend_1776v9k(this.ref.pointer,
-        _sel_URLAtIndex_effectiveRange_, location, effectiveRange);
+    int location,
+    ffi.Pointer<objc.NSRange> effectiveRange,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.URLAtIndex:effectiveRange:',
+      macOS: (false, (10, 5, 0)),
+    );
+    final _ret = _objc_msgSend_1776v9k(
+      this.ref.pointer,
+      _sel_URLAtIndex_effectiveRange_,
+      location,
+      effectiveRange,
+    );
     return _ret.address == 0
         ? null
         : objc.NSURL.castFromPointer(_ret, retain: true, release: true);
@@ -2651,10 +5316,19 @@ extension NSDeprecatedKitAdditions on NSAttributedString {
 /// NSTextAttachment in your config's objc-interfaces list.
 ///
 /// NSTextAttachment
-class NSTextAttachment extends objc.NSObject {
-  NSTextAttachment._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+class NSTextAttachment extends objc.NSObject
+    implements NSTextAttachmentLayout, objc.NSSecureCoding {
+  NSTextAttachment._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSTextAttachment',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+  }
 
   /// Constructs a [NSTextAttachment] that points to the same underlying object as [other].
   NSTextAttachment.castFrom(objc.ObjCObjectBase other)
@@ -2673,11 +5347,23 @@ late final _sel_attributedStringWithAttachment_ =
 extension NSAttributedStringAttachmentConveniences on NSAttributedString {
   /// attributedStringWithAttachment:
   static NSAttributedString attributedStringWithAttachment_(
-      NSTextAttachment attachment) {
-    final _ret = _objc_msgSend_1sotr3r(_class_NSAttributedString,
-        _sel_attributedStringWithAttachment_, attachment.ref.pointer);
-    return NSAttributedString.castFromPointer(_ret,
-        retain: true, release: true);
+    NSTextAttachment attachment,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.attributedStringWithAttachment:',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSAttributedString,
+      _sel_attributedStringWithAttachment_,
+      attachment.ref.pointer,
+    );
+    return NSAttributedString.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
   }
 }
 
@@ -2721,6 +5407,11 @@ final _objc_msgSend_1okkq16 = objc.msgSendPointer
 extension NSStringDrawing on NSAttributedString {
   /// size
   CGSize size() {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.size',
+      iOS: (false, (6, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ptr = pkg_ffi.calloc<CGSize>();
     objc.useMsgSendVariants
         ? _objc_msgSend_1vdfkenStret(_ptr, this.ref.pointer, _sel_size)
@@ -2733,11 +5424,21 @@ extension NSStringDrawing on NSAttributedString {
 
   /// drawAtPoint:
   void drawAtPoint_(CGPoint point) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.drawAtPoint:',
+      iOS: (false, (6, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     _objc_msgSend_iy8iz6(this.ref.pointer, _sel_drawAtPoint_, point);
   }
 
   /// drawInRect:
   void drawInRect_(CGRect rect) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.drawInRect:',
+      iOS: (false, (6, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     _objc_msgSend_1okkq16(this.ref.pointer, _sel_drawInRect_, rect);
   }
 }
@@ -2754,15 +5455,15 @@ enum NSStringDrawingOptions {
   const NSStringDrawingOptions(this.value);
 
   static NSStringDrawingOptions fromValue(int value) => switch (value) {
-        1 => NSStringDrawingUsesLineFragmentOrigin,
-        2 => NSStringDrawingUsesFontLeading,
-        8 => NSStringDrawingUsesDeviceMetrics,
-        32 => NSStringDrawingTruncatesLastVisibleLine,
-        4 => NSStringDrawingDisableScreenFontSubstitution,
-        16 => NSStringDrawingOneShot,
-        _ => throw ArgumentError(
-            "Unknown value for NSStringDrawingOptions: $value"),
-      };
+    1 => NSStringDrawingUsesLineFragmentOrigin,
+    2 => NSStringDrawingUsesFontLeading,
+    8 => NSStringDrawingUsesDeviceMetrics,
+    32 => NSStringDrawingTruncatesLastVisibleLine,
+    4 => NSStringDrawingDisableScreenFontSubstitution,
+    16 => NSStringDrawingOneShot,
+    _ =>
+      throw ArgumentError('Unknown value for NSStringDrawingOptions: $value'),
+  };
 }
 
 /// WARNING: NSStringDrawingContext is a stub. To generate bindings for this class, include
@@ -2770,9 +5471,17 @@ enum NSStringDrawingOptions {
 ///
 /// NSStringDrawingContext
 class NSStringDrawingContext extends objc.NSObject {
-  NSStringDrawingContext._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+  NSStringDrawingContext._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSStringDrawingContext',
+      iOS: (false, (6, 0, 0)),
+      macOS: (false, (10, 11, 0)),
+    );
+  }
 
   /// Constructs a [NSStringDrawingContext] that points to the same underlying object as [other].
   NSStringDrawingContext.castFrom(objc.ObjCObjectBase other)
@@ -2842,15 +5551,36 @@ final _objc_msgSend_1y1y0icStret = objc.msgSendStretPointer
 /// NSExtendedStringDrawing
 extension NSExtendedStringDrawing on NSAttributedString {
   /// drawWithRect:options:context:
-  void drawWithRect_options_context_(CGRect rect,
-      NSStringDrawingOptions options, NSStringDrawingContext? context) {
-    _objc_msgSend_g5bnri(this.ref.pointer, _sel_drawWithRect_options_context_,
-        rect, options.value, context?.ref.pointer ?? ffi.nullptr);
+  void drawWithRect_options_context_(
+    CGRect rect,
+    NSStringDrawingOptions options,
+    NSStringDrawingContext? context,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.drawWithRect:options:context:',
+      iOS: (false, (6, 0, 0)),
+      macOS: (false, (10, 11, 0)),
+    );
+    _objc_msgSend_g5bnri(
+      this.ref.pointer,
+      _sel_drawWithRect_options_context_,
+      rect,
+      options.value,
+      context?.ref.pointer ?? ffi.nullptr,
+    );
   }
 
   /// boundingRectWithSize:options:context:
-  CGRect boundingRectWithSize_options_context_(CGSize size,
-      NSStringDrawingOptions options, NSStringDrawingContext? context) {
+  CGRect boundingRectWithSize_options_context_(
+    CGSize size,
+    NSStringDrawingOptions options,
+    NSStringDrawingContext? context,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.boundingRectWithSize:options:context:',
+      iOS: (false, (6, 0, 0)),
+      macOS: (false, (10, 11, 0)),
+    );
     final _ptr = pkg_ffi.calloc<CGRect>();
     objc.useMsgSendVariants
         ? _objc_msgSend_1y1y0icStret(
@@ -2906,13 +5636,25 @@ final _objc_msgSend_fh0lbaStret = objc.msgSendStretPointer
 extension NSStringDrawingDeprecated on NSAttributedString {
   /// drawWithRect:options:
   void drawWithRect_options_(CGRect rect, NSStringDrawingOptions options) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.drawWithRect:options:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     _objc_msgSend_1rmtpco(
         this.ref.pointer, _sel_drawWithRect_options_, rect, options.value);
   }
 
   /// boundingRectWithSize:options:
   CGRect boundingRectWithSize_options_(
-      CGSize size, NSStringDrawingOptions options) {
+    CGSize size,
+    NSStringDrawingOptions options,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.boundingRectWithSize:options:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ptr = pkg_ffi.calloc<CGRect>();
     objc.useMsgSendVariants
         ? _objc_msgSend_fh0lbaStret(_ptr, this.ref.pointer,
@@ -2931,21 +5673,30 @@ extension NSAttributedStringAdaptiveImageGlyphConveniences
     on NSAttributedString {}
 
 late final _sel_string = objc.registerName("string");
-late final _sel_attributesAtIndex_effectiveRange_ =
-    objc.registerName("attributesAtIndex:effectiveRange:");
-typedef instancetype = ffi.Pointer<objc.ObjCObject>;
-typedef Dartinstancetype = objc.ObjCObjectBase;
+late final _sel_attributesAtIndex_effectiveRange_ = objc.registerName(
+  "attributesAtIndex:effectiveRange:",
+);
 late final _sel_init = objc.registerName("init");
 late final _sel_new = objc.registerName("new");
 late final _sel_allocWithZone_ = objc.registerName("allocWithZone:");
-final _objc_msgSend_1cwp428 = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>, ffi.Pointer<_NSZone>)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, ffi.Pointer<_NSZone>)>();
+final _objc_msgSend_1cwp428 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.NSZone>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.NSZone>,
+          )
+        >();
 late final _sel_alloc = objc.registerName("alloc");
 late final _sel_supportsSecureCoding =
     objc.registerName("supportsSecureCoding");
@@ -3001,13 +5752,21 @@ abstract final class ObjCBlock_bool_ffiVoid {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
   static objc.ObjCBlock<ffi.Bool Function(ffi.Pointer<ffi.Void>)> fromFunction(
-          bool Function(ffi.Pointer<ffi.Void>) fn) =>
-      objc.ObjCBlock<ffi.Bool Function(ffi.Pointer<ffi.Void>)>(
-          objc.newClosureBlock(_ObjCBlock_bool_ffiVoid_closureCallable,
-              (ffi.Pointer<ffi.Void> arg0) => fn(arg0)),
-          retain: false,
-          release: true);
+    bool Function(ffi.Pointer<ffi.Void>) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<ffi.Bool Function(ffi.Pointer<ffi.Void>)>(
+    objc.newClosureBlock(
+      _ObjCBlock_bool_ffiVoid_closureCallable,
+      (ffi.Pointer<ffi.Void> arg0) => fn(arg0),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 }
 
 /// Call operator for `objc.ObjCBlock<ffi.Bool Function(ffi.Pointer<ffi.Void>)>`.
@@ -3157,18 +5916,25 @@ abstract final class ObjCBlock_ffiVoid_ffiVoid_NSCoder {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
   static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, objc.NSCoder)>
-      fromFunction(void Function(ffi.Pointer<ffi.Void>, objc.NSCoder) fn) =>
-          objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, objc.NSCoder)>(
-              objc.newClosureBlock(
-                  _ObjCBlock_ffiVoid_ffiVoid_NSCoder_closureCallable,
-                  (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
-                      fn(
-                          arg0,
-                          objc.NSCoder.castFromPointer(arg1,
-                              retain: true, release: true))),
-              retain: false,
-              release: true);
+  fromFunction(
+    void Function(ffi.Pointer<ffi.Void>, objc.NSCoder) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, objc.NSCoder)>(
+    objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_ffiVoid_NSCoder_closureCallable,
+      (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
+        arg0,
+        objc.NSCoder.castFromPointer(arg1, retain: true, release: true),
+      ),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 
   /// Creates a listener block from a Dart function.
   ///
@@ -3177,16 +5943,21 @@ abstract final class ObjCBlock_ffiVoid_ffiVoid_NSCoder {
   /// but only supports void functions, and is not run synchronously. See
   /// NativeCallable.listener for more details.
   ///
-  /// Note that unlike the default behavior of NativeCallable.listener, listener
-  /// blocks do not keep the isolate alive.
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
   static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, objc.NSCoder)>
-      listener(void Function(ffi.Pointer<ffi.Void>, objc.NSCoder) fn) {
+  listener(
+    void Function(ffi.Pointer<ffi.Void>, objc.NSCoder) fn, {
+    bool keepIsolateAlive = true,
+  }) {
     final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_ffiVoid_NSCoder_listenerCallable.nativeFunction
-            .cast(),
-        (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
-            arg0,
-            objc.NSCoder.castFromPointer(arg1, retain: false, release: true)));
+      _ObjCBlock_ffiVoid_ffiVoid_NSCoder_listenerCallable.nativeFunction.cast(),
+      (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
+        arg0,
+        objc.NSCoder.castFromPointer(arg1, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
     final wrapper = _MapLibreFFi_wrapListenerBlock_18v1jvf(raw);
     objc.objectRelease(raw.cast());
     return objc.ObjCBlock<
@@ -3200,26 +5971,37 @@ abstract final class ObjCBlock_ffiVoid_ffiVoid_NSCoder {
   /// caller until the callback is handled by the Dart isolate that created
   /// the block. Async functions are not supported.
   ///
-  /// This block does not keep the owner isolate alive. If the owner isolate has
-  /// shut down, and the block is invoked by native code, it may block
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC. If the owner isolate
+  /// has shut down, and the block is invoked by native code, it may block
   /// indefinitely, or have other undefined behavior.
   static objc.ObjCBlock<ffi.Void Function(ffi.Pointer<ffi.Void>, objc.NSCoder)>
-      blocking(void Function(ffi.Pointer<ffi.Void>, objc.NSCoder) fn) {
+  blocking(
+    void Function(ffi.Pointer<ffi.Void>, objc.NSCoder) fn, {
+    bool keepIsolateAlive = true,
+  }) {
     final raw = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_ffiVoid_NSCoder_blockingCallable.nativeFunction
-            .cast(),
-        (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
-            arg0,
-            objc.NSCoder.castFromPointer(arg1, retain: false, release: true)));
+      _ObjCBlock_ffiVoid_ffiVoid_NSCoder_blockingCallable.nativeFunction.cast(),
+      (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
+        arg0,
+        objc.NSCoder.castFromPointer(arg1, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
     final rawListener = objc.newClosureBlock(
-        _ObjCBlock_ffiVoid_ffiVoid_NSCoder_blockingListenerCallable
-            .nativeFunction
-            .cast(),
-        (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
-            arg0,
-            objc.NSCoder.castFromPointer(arg1, retain: false, release: true)));
-    final wrapper = objc.wrapBlockingBlock(
-        _MapLibreFFi_wrapBlockingBlock_18v1jvf, raw, rawListener);
+      _ObjCBlock_ffiVoid_ffiVoid_NSCoder_blockingListenerCallable.nativeFunction
+          .cast(),
+      (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) => fn(
+        arg0,
+        objc.NSCoder.castFromPointer(arg1, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapBlockingBlock_18v1jvf(
+      raw,
+      rawListener,
+      objc.objCContext,
+    );
     objc.objectRelease(raw.cast());
     objc.objectRelease(rawListener.cast());
     return objc.ObjCBlock<
@@ -3312,18 +6094,37 @@ abstract final class ObjCBlock_instancetype_ffiVoid_NSCoder {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  static objc.ObjCBlock<objc.Retained<ffi.Pointer<objc.ObjCObject>?> Function(ffi.Pointer<ffi.Void>, objc.NSCoder)> fromFunction(
-          Dartinstancetype? Function(ffi.Pointer<ffi.Void>, objc.NSCoder) fn) =>
-      objc.ObjCBlock<objc.Retained<ffi.Pointer<objc.ObjCObject>?> Function(ffi.Pointer<ffi.Void>, objc.NSCoder)>(
-          objc.newClosureBlock(
-              _ObjCBlock_instancetype_ffiVoid_NSCoder_closureCallable,
-              (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
-                  fn(arg0, objc.NSCoder.castFromPointer(arg1, retain: true, release: true))
-                      ?.ref
-                      .retainAndReturnPointer() ??
-                  ffi.nullptr),
-          retain: false,
-          release: true);
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    objc.Retained<ffi.Pointer<objc.ObjCObject>?> Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSCoder,
+    )
+  >
+  fromFunction(
+    Dartinstancetype? Function(ffi.Pointer<ffi.Void>, objc.NSCoder) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    objc.Retained<ffi.Pointer<objc.ObjCObject>?> Function(
+      ffi.Pointer<ffi.Void>,
+      objc.NSCoder,
+    )
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_instancetype_ffiVoid_NSCoder_closureCallable,
+      (ffi.Pointer<ffi.Void> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            arg0,
+            objc.NSCoder.castFromPointer(arg1, retain: true, release: true),
+          )?.ref.retainAndReturnPointer() ??
+          ffi.nullptr,
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 }
 
 /// Call operator for `objc.ObjCBlock<objc.Retained<ffi.Pointer<objc.ObjCObject>?> Function(ffi.Pointer<ffi.Void>, objc.NSCoder)>`.
@@ -3362,12 +6163,19 @@ late final _sel_initWithAttributedString_ =
 /// NSAttributedStringMarkdownParsingOptions in your config's objc-interfaces list.
 ///
 /// NSAttributedStringMarkdownParsingOptions
-class NSAttributedStringMarkdownParsingOptions extends objc.NSObject {
+class NSAttributedStringMarkdownParsingOptions extends objc.NSObject
+    implements objc.NSCopying {
   NSAttributedStringMarkdownParsingOptions._(
-      ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false,
-      bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSAttributedStringMarkdownParsingOptions',
+      iOS: (false, (15, 0, 0)),
+      macOS: (false, (12, 0, 0)),
+    );
+  }
 
   /// Constructs a [NSAttributedStringMarkdownParsingOptions] that points to the same underlying object as [other].
   NSAttributedStringMarkdownParsingOptions.castFrom(objc.ObjCObjectBase other)
@@ -3418,8 +6226,10 @@ enum NSAttributedStringFormattingOptions {
       switch (value) {
         1 => NSAttributedStringFormattingInsertArgumentAttributesWithoutMerging,
         2 => NSAttributedStringFormattingApplyReplacementIndexAttribute,
-        _ => throw ArgumentError(
-            "Unknown value for NSAttributedStringFormattingOptions: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSAttributedStringFormattingOptions: $value',
+          ),
       };
 }
 
@@ -3520,50 +6330,54 @@ final _objc_msgSend_1lhpu4m = objc.msgSendPointer
             ffi.Pointer<objc.ObjCObject>,
             ffi.Pointer<objc.ObjCSelector>,
             ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>)>();
-late final _sel_initWithRTFD_documentAttributes_ =
-    objc.registerName("initWithRTFD:documentAttributes:");
-late final _sel_initWithHTML_documentAttributes_ =
-    objc.registerName("initWithHTML:documentAttributes:");
-late final _sel_initWithHTML_baseURL_documentAttributes_ =
-    objc.registerName("initWithHTML:baseURL:documentAttributes:");
-final _objc_msgSend_1pnyuds = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<ffi.Pointer<objc.ObjCObject>>)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>)>();
-late final _sel_initWithDocFormat_documentAttributes_ =
-    objc.registerName("initWithDocFormat:documentAttributes:");
-late final _sel_initWithHTML_options_documentAttributes_ =
-    objc.registerName("initWithHTML:options:documentAttributes:");
-late final _sel_initWithRTFDFileWrapper_documentAttributes_ =
-    objc.registerName("initWithRTFDFileWrapper:documentAttributes:");
-late final _sel_initWithURL_documentAttributes_ =
-    objc.registerName("initWithURL:documentAttributes:");
-late final _sel_initWithPath_documentAttributes_ =
-    objc.registerName("initWithPath:documentAttributes:");
-late final _sel_attributedStringWithAttachment_attributes_ =
-    objc.registerName("attributedStringWithAttachment:attributes:");
+            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+          )
+        >();
+late final _sel_initWithRTFD_documentAttributes_ = objc.registerName(
+  "initWithRTFD:documentAttributes:",
+);
+late final _sel_initWithHTML_documentAttributes_ = objc.registerName(
+  "initWithHTML:documentAttributes:",
+);
+late final _sel_initWithHTML_baseURL_documentAttributes_ = objc.registerName(
+  "initWithHTML:baseURL:documentAttributes:",
+);
+late final _sel_initWithDocFormat_documentAttributes_ = objc.registerName(
+  "initWithDocFormat:documentAttributes:",
+);
+late final _sel_initWithHTML_options_documentAttributes_ = objc.registerName(
+  "initWithHTML:options:documentAttributes:",
+);
+late final _sel_initWithRTFDFileWrapper_documentAttributes_ = objc.registerName(
+  "initWithRTFDFileWrapper:documentAttributes:",
+);
+late final _sel_initWithURL_documentAttributes_ = objc.registerName(
+  "initWithURL:documentAttributes:",
+);
+late final _sel_initWithPath_documentAttributes_ = objc.registerName(
+  "initWithPath:documentAttributes:",
+);
+late final _sel_attributedStringWithAttachment_attributes_ = objc.registerName(
+  "attributedStringWithAttachment:attributes:",
+);
 
 /// WARNING: NSAdaptiveImageGlyph is a stub. To generate bindings for this class, include
 /// NSAdaptiveImageGlyph in your config's objc-interfaces list.
 ///
 /// NSAdaptiveImageGlyph
-class NSAdaptiveImageGlyph extends objc.NSObject {
-  NSAdaptiveImageGlyph._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+class NSAdaptiveImageGlyph extends objc.NSObject
+    implements objc.NSCopying, objc.NSSecureCoding, CTAdaptiveImageProviding {
+  NSAdaptiveImageGlyph._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSAdaptiveImageGlyph',
+      iOS: (false, (18, 0, 0)),
+      macOS: (false, (15, 0, 0)),
+    );
+  }
 
   /// Constructs a [NSAdaptiveImageGlyph] that points to the same underlying object as [other].
   NSAdaptiveImageGlyph.castFrom(objc.ObjCObjectBase other)
@@ -3579,10 +6393,19 @@ late final _sel_attributedStringWithAdaptiveImageGlyph_attributes_ =
     objc.registerName("attributedStringWithAdaptiveImageGlyph:attributes:");
 
 /// NSAttributedString
-class NSAttributedString extends objc.NSObject {
-  NSAttributedString._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+class NSAttributedString extends objc.NSObject
+    implements objc.NSCopying, objc.NSMutableCopying, objc.NSSecureCoding {
+  NSAttributedString._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+  }
 
   /// Constructs a [NSAttributedString] that points to the same underlying object as [other].
   NSAttributedString.castFrom(objc.ObjCObjectBase other)
@@ -3601,35 +6424,61 @@ class NSAttributedString extends objc.NSObject {
 
   /// string
   objc.NSString get string {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.string',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_string);
     return objc.NSString.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// attributesAtIndex:effectiveRange:
   objc.NSDictionary attributesAtIndex_effectiveRange_(
-      int location, ffi.Pointer<objc.NSRange> range) {
-    final _ret = _objc_msgSend_1776v9k(this.ref.pointer,
-        _sel_attributesAtIndex_effectiveRange_, location, range);
+    int location,
+    ffi.Pointer<objc.NSRange> range,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.attributesAtIndex:effectiveRange:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1776v9k(
+      this.ref.pointer,
+      _sel_attributesAtIndex_effectiveRange_,
+      location,
+      range,
+    );
     return objc.NSDictionary.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// init
   NSAttributedString init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return NSAttributedString.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'NSAttributedString.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return NSAttributedString.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static NSAttributedString new1() {
+  static NSAttributedString new$() {
     final _ret = _objc_msgSend_151sglz(_class_NSAttributedString, _sel_new);
     return NSAttributedString.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static NSAttributedString allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static NSAttributedString allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_NSAttributedString, _sel_allocWithZone_, zone);
     return NSAttributedString.castFromPointer(_ret,
@@ -3667,15 +6516,33 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithString:
   NSAttributedString initWithString_(objc.NSString str) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
-        _sel_initWithString_, str.ref.pointer);
-    return NSAttributedString.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithString:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithString_,
+      str.ref.pointer,
+    );
+    return NSAttributedString.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// initWithString:attributes:
   NSAttributedString initWithString_attributes_(
-      objc.NSString str, objc.NSDictionary? attrs) {
+    objc.NSString str,
+    objc.NSDictionary? attrs,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithString:attributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_15qeuct(
         this.ref.retainAndReturnPointer(),
         _sel_initWithString_attributes_,
@@ -3687,19 +6554,36 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithAttributedString:
   NSAttributedString initWithAttributedString_(NSAttributedString attrStr) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
-        _sel_initWithAttributedString_, attrStr.ref.pointer);
-    return NSAttributedString.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithAttributedString:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithAttributedString_,
+      attrStr.ref.pointer,
+    );
+    return NSAttributedString.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// initWithContentsOfMarkdownFileAtURL:options:baseURL:error:
   NSAttributedString?
-      initWithContentsOfMarkdownFileAtURL_options_baseURL_error_(
-          objc.NSURL markdownFile,
-          NSAttributedStringMarkdownParsingOptions? options,
-          objc.NSURL? baseURL,
-          ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error) {
+  initWithContentsOfMarkdownFileAtURL_options_baseURL_error_(
+    objc.NSURL markdownFile,
+    NSAttributedStringMarkdownParsingOptions? options,
+    objc.NSURL? baseURL,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithContentsOfMarkdownFileAtURL:options:baseURL:error:',
+      iOS: (false, (15, 0, 0)),
+      macOS: (false, (12, 0, 0)),
+    );
     final _ret = _objc_msgSend_1k0ezzm(
         this.ref.retainAndReturnPointer(),
         _sel_initWithContentsOfMarkdownFileAtURL_options_baseURL_error_,
@@ -3715,10 +6599,16 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithMarkdown:options:baseURL:error:
   NSAttributedString? initWithMarkdown_options_baseURL_error_(
-      objc.NSData markdown,
-      NSAttributedStringMarkdownParsingOptions? options,
-      objc.NSURL? baseURL,
-      ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error) {
+    objc.NSData markdown,
+    NSAttributedStringMarkdownParsingOptions? options,
+    objc.NSURL? baseURL,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithMarkdown:options:baseURL:error:',
+      iOS: (false, (15, 0, 0)),
+      macOS: (false, (12, 0, 0)),
+    );
     final _ret = _objc_msgSend_1k0ezzm(
         this.ref.retainAndReturnPointer(),
         _sel_initWithMarkdown_options_baseURL_error_,
@@ -3734,10 +6624,16 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithMarkdownString:options:baseURL:error:
   NSAttributedString? initWithMarkdownString_options_baseURL_error_(
-      objc.NSString markdownString,
-      NSAttributedStringMarkdownParsingOptions? options,
-      objc.NSURL? baseURL,
-      ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error) {
+    objc.NSString markdownString,
+    NSAttributedStringMarkdownParsingOptions? options,
+    objc.NSURL? baseURL,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithMarkdownString:options:baseURL:error:',
+      iOS: (false, (15, 0, 0)),
+      macOS: (false, (12, 0, 0)),
+    );
     final _ret = _objc_msgSend_1k0ezzm(
         this.ref.retainAndReturnPointer(),
         _sel_initWithMarkdownString_options_baseURL_error_,
@@ -3752,8 +6648,16 @@ class NSAttributedString extends objc.NSObject {
   }
 
   /// initWithFormat:options:locale:
-  NSAttributedString initWithFormat_options_locale_(NSAttributedString format,
-      NSAttributedStringFormattingOptions options, objc.NSLocale? locale) {
+  NSAttributedString initWithFormat_options_locale_(
+    NSAttributedString format,
+    NSAttributedStringFormattingOptions options,
+    objc.NSLocale? locale,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithFormat:options:locale:',
+      iOS: (false, (15, 0, 0)),
+      macOS: (false, (12, 0, 0)),
+    );
     final _ret = _objc_msgSend_187k8ck(
         this.ref.retainAndReturnPointer(),
         _sel_initWithFormat_options_locale_,
@@ -3766,16 +6670,35 @@ class NSAttributedString extends objc.NSObject {
 
   /// localizedAttributedStringWithFormat:
   static NSAttributedString localizedAttributedStringWithFormat_(
-      NSAttributedString format) {
-    final _ret = _objc_msgSend_1sotr3r(_class_NSAttributedString,
-        _sel_localizedAttributedStringWithFormat_, format.ref.pointer);
-    return NSAttributedString.castFromPointer(_ret,
-        retain: true, release: true);
+    NSAttributedString format,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.localizedAttributedStringWithFormat:',
+      iOS: (false, (15, 0, 0)),
+      macOS: (false, (12, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSAttributedString,
+      _sel_localizedAttributedStringWithFormat_,
+      format.ref.pointer,
+    );
+    return NSAttributedString.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
   }
 
   /// localizedAttributedStringWithFormat:options:
   static NSAttributedString localizedAttributedStringWithFormat_options_(
-      NSAttributedString format, NSAttributedStringFormattingOptions options) {
+    NSAttributedString format,
+    NSAttributedStringFormattingOptions options,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.localizedAttributedStringWithFormat:options:',
+      iOS: (false, (15, 0, 0)),
+      macOS: (false, (12, 0, 0)),
+    );
     final _ret = _objc_msgSend_s058d2(
         _class_NSAttributedString,
         _sel_localizedAttributedStringWithFormat_options_,
@@ -3787,10 +6710,16 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithFormat:options:locale:context:
   NSAttributedString initWithFormat_options_locale_context_(
-      NSAttributedString format,
-      NSAttributedStringFormattingOptions options,
-      objc.NSLocale? locale,
-      objc.NSDictionary context) {
+    NSAttributedString format,
+    NSAttributedStringFormattingOptions options,
+    objc.NSLocale? locale,
+    objc.NSDictionary context,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithFormat:options:locale:context:',
+      iOS: (false, (17, 0, 0)),
+      macOS: (false, (14, 0, 0)),
+    );
     final _ret = _objc_msgSend_3fn4ca(
         this.ref.retainAndReturnPointer(),
         _sel_initWithFormat_options_locale_context_,
@@ -3804,7 +6733,14 @@ class NSAttributedString extends objc.NSObject {
 
   /// localizedAttributedStringWithFormat:context:
   static NSAttributedString localizedAttributedStringWithFormat_context_(
-      NSAttributedString format, objc.NSDictionary context) {
+    NSAttributedString format,
+    objc.NSDictionary context,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.localizedAttributedStringWithFormat:context:',
+      iOS: (false, (17, 0, 0)),
+      macOS: (false, (14, 0, 0)),
+    );
     final _ret = _objc_msgSend_15qeuct(
         _class_NSAttributedString,
         _sel_localizedAttributedStringWithFormat_context_,
@@ -3816,10 +6752,16 @@ class NSAttributedString extends objc.NSObject {
 
   /// localizedAttributedStringWithFormat:options:context:
   static NSAttributedString
-      localizedAttributedStringWithFormat_options_context_(
-          NSAttributedString format,
-          NSAttributedStringFormattingOptions options,
-          objc.NSDictionary context) {
+  localizedAttributedStringWithFormat_options_context_(
+    NSAttributedString format,
+    NSAttributedStringFormattingOptions options,
+    objc.NSDictionary context,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.localizedAttributedStringWithFormat:options:context:',
+      iOS: (false, (17, 0, 0)),
+      macOS: (false, (14, 0, 0)),
+    );
     final _ret = _objc_msgSend_187k8ck(
         _class_NSAttributedString,
         _sel_localizedAttributedStringWithFormat_options_context_,
@@ -3832,10 +6774,16 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithURL:options:documentAttributes:error:
   NSAttributedString? initWithURL_options_documentAttributes_error_(
-      objc.NSURL url,
-      objc.NSDictionary options,
-      ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
-      ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error) {
+    objc.NSURL url,
+    objc.NSDictionary options,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithURL:options:documentAttributes:error:',
+      iOS: (false, (9, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_of3pfd(
         this.ref.retainAndReturnPointer(),
         _sel_initWithURL_options_documentAttributes_error_,
@@ -3851,10 +6799,16 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithData:options:documentAttributes:error:
   NSAttributedString? initWithData_options_documentAttributes_error_(
-      objc.NSData data,
-      objc.NSDictionary options,
-      ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
-      ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error) {
+    objc.NSData data,
+    objc.NSDictionary options,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> error,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithData:options:documentAttributes:error:',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_of3pfd(
         this.ref.retainAndReturnPointer(),
         _sel_initWithData_options_documentAttributes_error_,
@@ -3870,9 +6824,20 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithRTF:documentAttributes:
   NSAttributedString? initWithRTF_documentAttributes_(
-      objc.NSData data, ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict) {
-    final _ret = _objc_msgSend_1lhpu4m(this.ref.retainAndReturnPointer(),
-        _sel_initWithRTF_documentAttributes_, data.ref.pointer, dict);
+    objc.NSData data,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithRTF:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1lhpu4m(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithRTF_documentAttributes_,
+      data.ref.pointer,
+      dict,
+    );
     return _ret.address == 0
         ? null
         : NSAttributedString.castFromPointer(_ret,
@@ -3881,9 +6846,20 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithRTFD:documentAttributes:
   NSAttributedString? initWithRTFD_documentAttributes_(
-      objc.NSData data, ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict) {
-    final _ret = _objc_msgSend_1lhpu4m(this.ref.retainAndReturnPointer(),
-        _sel_initWithRTFD_documentAttributes_, data.ref.pointer, dict);
+    objc.NSData data,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithRTFD:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1lhpu4m(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithRTFD_documentAttributes_,
+      data.ref.pointer,
+      dict,
+    );
     return _ret.address == 0
         ? null
         : NSAttributedString.castFromPointer(_ret,
@@ -3892,9 +6868,20 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithHTML:documentAttributes:
   NSAttributedString? initWithHTML_documentAttributes_(
-      objc.NSData data, ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict) {
-    final _ret = _objc_msgSend_1lhpu4m(this.ref.retainAndReturnPointer(),
-        _sel_initWithHTML_documentAttributes_, data.ref.pointer, dict);
+    objc.NSData data,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithHTML:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1lhpu4m(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithHTML_documentAttributes_,
+      data.ref.pointer,
+      dict,
+    );
     return _ret.address == 0
         ? null
         : NSAttributedString.castFromPointer(_ret,
@@ -3902,8 +6889,16 @@ class NSAttributedString extends objc.NSObject {
   }
 
   /// initWithHTML:baseURL:documentAttributes:
-  NSAttributedString? initWithHTML_baseURL_documentAttributes_(objc.NSData data,
-      objc.NSURL base, ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict) {
+  NSAttributedString? initWithHTML_baseURL_documentAttributes_(
+    objc.NSData data,
+    objc.NSURL base,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithHTML:baseURL:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_1pnyuds(
         this.ref.retainAndReturnPointer(),
         _sel_initWithHTML_baseURL_documentAttributes_,
@@ -3918,9 +6913,20 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithDocFormat:documentAttributes:
   NSAttributedString? initWithDocFormat_documentAttributes_(
-      objc.NSData data, ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict) {
-    final _ret = _objc_msgSend_1lhpu4m(this.ref.retainAndReturnPointer(),
-        _sel_initWithDocFormat_documentAttributes_, data.ref.pointer, dict);
+    objc.NSData data,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithDocFormat:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1lhpu4m(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithDocFormat_documentAttributes_,
+      data.ref.pointer,
+      dict,
+    );
     return _ret.address == 0
         ? null
         : NSAttributedString.castFromPointer(_ret,
@@ -3929,9 +6935,15 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithHTML:options:documentAttributes:
   NSAttributedString? initWithHTML_options_documentAttributes_(
-      objc.NSData data,
-      objc.NSDictionary options,
-      ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict) {
+    objc.NSData data,
+    objc.NSDictionary options,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithHTML:options:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_1pnyuds(
         this.ref.retainAndReturnPointer(),
         _sel_initWithHTML_options_documentAttributes_,
@@ -3946,7 +6958,14 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithRTFDFileWrapper:documentAttributes:
   NSAttributedString? initWithRTFDFileWrapper_documentAttributes_(
-      NSFileWrapper wrapper, ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict) {
+    NSFileWrapper wrapper,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithRTFDFileWrapper:documentAttributes:',
+      iOS: (false, (3, 2, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
     final _ret = _objc_msgSend_1lhpu4m(
         this.ref.retainAndReturnPointer(),
         _sel_initWithRTFDFileWrapper_documentAttributes_,
@@ -3960,9 +6979,19 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithURL:documentAttributes:
   NSAttributedString? initWithURL_documentAttributes_(
-      objc.NSURL url, ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict) {
-    final _ret = _objc_msgSend_1lhpu4m(this.ref.retainAndReturnPointer(),
-        _sel_initWithURL_documentAttributes_, url.ref.pointer, dict);
+    objc.NSURL url,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithURL:documentAttributes:',
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1lhpu4m(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithURL_documentAttributes_,
+      url.ref.pointer,
+      dict,
+    );
     return _ret.address == 0
         ? null
         : NSAttributedString.castFromPointer(_ret,
@@ -3971,9 +7000,19 @@ class NSAttributedString extends objc.NSObject {
 
   /// initWithPath:documentAttributes:
   NSAttributedString? initWithPath_documentAttributes_(
-      objc.NSString path, ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict) {
-    final _ret = _objc_msgSend_1lhpu4m(this.ref.retainAndReturnPointer(),
-        _sel_initWithPath_documentAttributes_, path.ref.pointer, dict);
+    objc.NSString path,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> dict,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.initWithPath:documentAttributes:',
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1lhpu4m(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithPath_documentAttributes_,
+      path.ref.pointer,
+      dict,
+    );
     return _ret.address == 0
         ? null
         : NSAttributedString.castFromPointer(_ret,
@@ -3982,7 +7021,14 @@ class NSAttributedString extends objc.NSObject {
 
   /// attributedStringWithAttachment:attributes:
   static NSAttributedString attributedStringWithAttachment_attributes_(
-      NSTextAttachment attachment, objc.NSDictionary attributes) {
+    NSTextAttachment attachment,
+    objc.NSDictionary attributes,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.attributedStringWithAttachment:attributes:',
+      iOS: (false, (18, 0, 0)),
+      macOS: (false, (15, 0, 0)),
+    );
     final _ret = _objc_msgSend_15qeuct(
         _class_NSAttributedString,
         _sel_attributedStringWithAttachment_attributes_,
@@ -3994,7 +7040,14 @@ class NSAttributedString extends objc.NSObject {
 
   /// attributedStringWithAdaptiveImageGlyph:attributes:
   static NSAttributedString attributedStringWithAdaptiveImageGlyph_attributes_(
-      NSAdaptiveImageGlyph adaptiveImageGlyph, objc.NSDictionary attributes) {
+    NSAdaptiveImageGlyph adaptiveImageGlyph,
+    objc.NSDictionary attributes,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSAttributedString.attributedStringWithAdaptiveImageGlyph:attributes:',
+      iOS: (false, (18, 0, 0)),
+      macOS: (false, (15, 0, 0)),
+    );
     final _ret = _objc_msgSend_15qeuct(
         _class_NSAttributedString,
         _sel_attributedStringWithAdaptiveImageGlyph_attributes_,
@@ -4003,6 +7056,9 @@ class NSAttributedString extends objc.NSObject {
     return NSAttributedString.castFromPointer(_ret,
         retain: true, release: true);
   }
+
+  /// Returns a new instance of NSAttributedString constructed with the default `new` method.
+  factory NSAttributedString() => new$();
 }
 
 enum NSAttributedStringMarkdownParsingFailurePolicy {
@@ -4012,14 +7068,17 @@ enum NSAttributedStringMarkdownParsingFailurePolicy {
   final int value;
   const NSAttributedStringMarkdownParsingFailurePolicy(this.value);
 
-  static NSAttributedStringMarkdownParsingFailurePolicy fromValue(int value) =>
-      switch (value) {
-        0 => NSAttributedStringMarkdownParsingFailureReturnError,
-        1 =>
-          NSAttributedStringMarkdownParsingFailureReturnPartiallyParsedIfPossible,
-        _ => throw ArgumentError(
-            "Unknown value for NSAttributedStringMarkdownParsingFailurePolicy: $value"),
-      };
+  static NSAttributedStringMarkdownParsingFailurePolicy fromValue(
+    int value,
+  ) => switch (value) {
+    0 => NSAttributedStringMarkdownParsingFailureReturnError,
+    1 =>
+      NSAttributedStringMarkdownParsingFailureReturnPartiallyParsedIfPossible,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSAttributedStringMarkdownParsingFailurePolicy: $value',
+      ),
+  };
 }
 
 enum NSAttributedStringMarkdownInterpretedSyntax {
@@ -4030,15 +7089,369 @@ enum NSAttributedStringMarkdownInterpretedSyntax {
   final int value;
   const NSAttributedStringMarkdownInterpretedSyntax(this.value);
 
-  static NSAttributedStringMarkdownInterpretedSyntax fromValue(int value) =>
-      switch (value) {
-        0 => NSAttributedStringMarkdownInterpretedSyntaxFull,
-        1 => NSAttributedStringMarkdownInterpretedSyntaxInlineOnly,
-        2 =>
-          NSAttributedStringMarkdownInterpretedSyntaxInlineOnlyPreservingWhitespace,
-        _ => throw ArgumentError(
-            "Unknown value for NSAttributedStringMarkdownInterpretedSyntax: $value"),
-      };
+  static NSAttributedStringMarkdownInterpretedSyntax fromValue(
+    int value,
+  ) => switch (value) {
+    0 => NSAttributedStringMarkdownInterpretedSyntaxFull,
+    1 => NSAttributedStringMarkdownInterpretedSyntaxInlineOnly,
+    2 =>
+      NSAttributedStringMarkdownInterpretedSyntaxInlineOnlyPreservingWhitespace,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSAttributedStringMarkdownInterpretedSyntax: $value',
+      ),
+  };
+}
+
+late final _sel_pathWithComponents_ = objc.registerName("pathWithComponents:");
+late final _sel_pathComponents = objc.registerName("pathComponents");
+late final _sel_isAbsolutePath = objc.registerName("isAbsolutePath");
+late final _sel_lastPathComponent = objc.registerName("lastPathComponent");
+late final _sel_stringByDeletingLastPathComponent = objc.registerName(
+  "stringByDeletingLastPathComponent",
+);
+late final _sel_stringByAppendingPathComponent_ = objc.registerName(
+  "stringByAppendingPathComponent:",
+);
+late final _sel_pathExtension = objc.registerName("pathExtension");
+late final _sel_stringByDeletingPathExtension = objc.registerName(
+  "stringByDeletingPathExtension",
+);
+late final _sel_stringByAppendingPathExtension_ = objc.registerName(
+  "stringByAppendingPathExtension:",
+);
+late final _sel_stringByAbbreviatingWithTildeInPath = objc.registerName(
+  "stringByAbbreviatingWithTildeInPath",
+);
+late final _sel_stringByExpandingTildeInPath = objc.registerName(
+  "stringByExpandingTildeInPath",
+);
+late final _sel_stringByStandardizingPath = objc.registerName(
+  "stringByStandardizingPath",
+);
+late final _sel_stringByResolvingSymlinksInPath = objc.registerName(
+  "stringByResolvingSymlinksInPath",
+);
+late final _sel_stringsByAppendingPaths_ = objc.registerName(
+  "stringsByAppendingPaths:",
+);
+late final _sel_completePathIntoString_caseSensitive_matchesIntoArray_filterTypes_ =
+    objc.registerName(
+      "completePathIntoString:caseSensitive:matchesIntoArray:filterTypes:",
+    );
+final _objc_msgSend_8mvqcu =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.UnsignedLong Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+              ffi.Bool,
+              ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+            bool,
+            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+late final _sel_fileSystemRepresentation = objc.registerName(
+  "fileSystemRepresentation",
+);
+late final _sel_getFileSystemRepresentation_maxLength_ = objc.registerName(
+  "getFileSystemRepresentation:maxLength:",
+);
+final _objc_msgSend_8cymbm =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Bool Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<ffi.Char>,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          bool Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<ffi.Char>,
+            int,
+          )
+        >();
+
+/// NSStringPathExtensions
+extension NSStringPathExtensions on objc.NSString {
+  /// pathWithComponents:
+  static objc.NSString pathWithComponents_(objc.NSArray components) {
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSString,
+      _sel_pathWithComponents_,
+      components.ref.pointer,
+    );
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// pathComponents
+  objc.NSArray get pathComponents {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_pathComponents);
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// isAbsolutePath
+  bool get absolutePath {
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_isAbsolutePath);
+  }
+
+  /// lastPathComponent
+  objc.NSString get lastPathComponent {
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_lastPathComponent,
+    );
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByDeletingLastPathComponent
+  objc.NSString get stringByDeletingLastPathComponent {
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_stringByDeletingLastPathComponent,
+    );
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByAppendingPathComponent:
+  objc.NSString stringByAppendingPathComponent_(objc.NSString str) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_stringByAppendingPathComponent_,
+      str.ref.pointer,
+    );
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// pathExtension
+  objc.NSString get pathExtension {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_pathExtension);
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByDeletingPathExtension
+  objc.NSString get stringByDeletingPathExtension {
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_stringByDeletingPathExtension,
+    );
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByAppendingPathExtension:
+  objc.NSString? stringByAppendingPathExtension_(objc.NSString str) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_stringByAppendingPathExtension_,
+      str.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByAbbreviatingWithTildeInPath
+  objc.NSString get stringByAbbreviatingWithTildeInPath {
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_stringByAbbreviatingWithTildeInPath,
+    );
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByExpandingTildeInPath
+  objc.NSString get stringByExpandingTildeInPath {
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_stringByExpandingTildeInPath,
+    );
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByStandardizingPath
+  objc.NSString get stringByStandardizingPath {
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_stringByStandardizingPath,
+    );
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByResolvingSymlinksInPath
+  objc.NSString get stringByResolvingSymlinksInPath {
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_stringByResolvingSymlinksInPath,
+    );
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringsByAppendingPaths:
+  objc.NSArray stringsByAppendingPaths_(objc.NSArray paths) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_stringsByAppendingPaths_,
+      paths.ref.pointer,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// completePathIntoString:caseSensitive:matchesIntoArray:filterTypes:
+  int completePathIntoString_caseSensitive_matchesIntoArray_filterTypes_(
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> outputName,
+    bool flag,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> outputArray,
+    objc.NSArray? filterTypes,
+  ) {
+    return _objc_msgSend_8mvqcu(
+      this.ref.pointer,
+      _sel_completePathIntoString_caseSensitive_matchesIntoArray_filterTypes_,
+      outputName,
+      flag,
+      outputArray,
+      filterTypes?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// fileSystemRepresentation
+  ffi.Pointer<ffi.Char> get fileSystemRepresentation {
+    return _objc_msgSend_1fuqfwb(
+      this.ref.pointer,
+      _sel_fileSystemRepresentation,
+    );
+  }
+
+  /// getFileSystemRepresentation:maxLength:
+  bool getFileSystemRepresentation_maxLength_(
+    ffi.Pointer<ffi.Char> cname,
+    int max,
+  ) {
+    return _objc_msgSend_8cymbm(
+      this.ref.pointer,
+      _sel_getFileSystemRepresentation_maxLength_,
+      cname,
+      max,
+    );
+  }
+}
+
+late final _sel_stringByAddingPercentEncodingWithAllowedCharacters_ = objc
+    .registerName("stringByAddingPercentEncodingWithAllowedCharacters:");
+late final _sel_stringByRemovingPercentEncoding = objc.registerName(
+  "stringByRemovingPercentEncoding",
+);
+late final _sel_stringByAddingPercentEscapesUsingEncoding_ = objc.registerName(
+  "stringByAddingPercentEscapesUsingEncoding:",
+);
+final _objc_msgSend_14hpxwa =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+          )
+        >();
+late final _sel_stringByReplacingPercentEscapesUsingEncoding_ = objc
+    .registerName("stringByReplacingPercentEscapesUsingEncoding:");
+
+/// NSURLUtilities
+extension NSURLUtilities on objc.NSString {
+  /// stringByAddingPercentEncodingWithAllowedCharacters:
+  objc.NSString? stringByAddingPercentEncodingWithAllowedCharacters_(
+    objc.NSCharacterSet allowedCharacters,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.stringByAddingPercentEncodingWithAllowedCharacters:',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 9, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_stringByAddingPercentEncodingWithAllowedCharacters_,
+      allowedCharacters.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByRemovingPercentEncoding
+  objc.NSString? get stringByRemovingPercentEncoding {
+    objc.checkOsVersionInternal(
+      'NSString.stringByRemovingPercentEncoding',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 9, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_stringByRemovingPercentEncoding,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByAddingPercentEscapesUsingEncoding:
+  objc.NSString? stringByAddingPercentEscapesUsingEncoding_(int enc) {
+    objc.checkOsVersionInternal(
+      'NSString.stringByAddingPercentEscapesUsingEncoding:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_14hpxwa(
+      this.ref.pointer,
+      _sel_stringByAddingPercentEscapesUsingEncoding_,
+      enc,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// stringByReplacingPercentEscapesUsingEncoding:
+  objc.NSString? stringByReplacingPercentEscapesUsingEncoding_(int enc) {
+    objc.checkOsVersionInternal(
+      'NSString.stringByReplacingPercentEscapesUsingEncoding:',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_14hpxwa(
+      this.ref.pointer,
+      _sel_stringByReplacingPercentEscapesUsingEncoding_,
+      enc,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
 }
 
 final class __IOSurface extends ffi.Opaque {}
@@ -4058,12 +7471,12 @@ enum NSRectEdge {
   const NSRectEdge(this.value);
 
   static NSRectEdge fromValue(int value) => switch (value) {
-        0 => NSRectEdgeMinX,
-        1 => NSRectEdgeMinY,
-        2 => NSRectEdgeMaxX,
-        3 => NSRectEdgeMaxY,
-        _ => throw ArgumentError("Unknown value for NSRectEdge: $value"),
-      };
+    0 => NSRectEdgeMinX,
+    1 => NSRectEdgeMinY,
+    2 => NSRectEdgeMaxX,
+    3 => NSRectEdgeMaxY,
+    _ => throw ArgumentError('Unknown value for NSRectEdge: $value'),
+  };
 
   @override
   String toString() {
@@ -4121,31 +7534,30 @@ enum NSAlignmentOptions {
   const NSAlignmentOptions(this.value);
 
   static NSAlignmentOptions fromValue(int value) => switch (value) {
-        1 => NSAlignMinXInward,
-        2 => NSAlignMinYInward,
-        4 => NSAlignMaxXInward,
-        8 => NSAlignMaxYInward,
-        16 => NSAlignWidthInward,
-        32 => NSAlignHeightInward,
-        256 => NSAlignMinXOutward,
-        512 => NSAlignMinYOutward,
-        1024 => NSAlignMaxXOutward,
-        2048 => NSAlignMaxYOutward,
-        4096 => NSAlignWidthOutward,
-        8192 => NSAlignHeightOutward,
-        65536 => NSAlignMinXNearest,
-        131072 => NSAlignMinYNearest,
-        262144 => NSAlignMaxXNearest,
-        524288 => NSAlignMaxYNearest,
-        1048576 => NSAlignWidthNearest,
-        2097152 => NSAlignHeightNearest,
-        -9223372036854775808 => NSAlignRectFlipped,
-        15 => NSAlignAllEdgesInward,
-        3840 => NSAlignAllEdgesOutward,
-        983040 => NSAlignAllEdgesNearest,
-        _ =>
-          throw ArgumentError("Unknown value for NSAlignmentOptions: $value"),
-      };
+    1 => NSAlignMinXInward,
+    2 => NSAlignMinYInward,
+    4 => NSAlignMaxXInward,
+    8 => NSAlignMaxYInward,
+    16 => NSAlignWidthInward,
+    32 => NSAlignHeightInward,
+    256 => NSAlignMinXOutward,
+    512 => NSAlignMinYOutward,
+    1024 => NSAlignMaxXOutward,
+    2048 => NSAlignMaxYOutward,
+    4096 => NSAlignWidthOutward,
+    8192 => NSAlignHeightOutward,
+    65536 => NSAlignMinXNearest,
+    131072 => NSAlignMinYNearest,
+    262144 => NSAlignMaxXNearest,
+    524288 => NSAlignMaxYNearest,
+    1048576 => NSAlignWidthNearest,
+    2097152 => NSAlignHeightNearest,
+    -9223372036854775808 => NSAlignRectFlipped,
+    15 => NSAlignAllEdgesInward,
+    3840 => NSAlignAllEdgesOutward,
+    983040 => NSAlignAllEdgesNearest,
+    _ => throw ArgumentError('Unknown value for NSAlignmentOptions: $value'),
+  };
 }
 
 enum NSOperationQueuePriority {
@@ -4159,14 +7571,44 @@ enum NSOperationQueuePriority {
   const NSOperationQueuePriority(this.value);
 
   static NSOperationQueuePriority fromValue(int value) => switch (value) {
-        -8 => NSOperationQueuePriorityVeryLow,
-        -4 => NSOperationQueuePriorityLow,
-        0 => NSOperationQueuePriorityNormal,
-        4 => NSOperationQueuePriorityHigh,
-        8 => NSOperationQueuePriorityVeryHigh,
-        _ => throw ArgumentError(
-            "Unknown value for NSOperationQueuePriority: $value"),
-      };
+    -8 => NSOperationQueuePriorityVeryLow,
+    -4 => NSOperationQueuePriorityLow,
+    0 => NSOperationQueuePriorityNormal,
+    4 => NSOperationQueuePriorityHigh,
+    8 => NSOperationQueuePriorityVeryHigh,
+    _ =>
+      throw ArgumentError('Unknown value for NSOperationQueuePriority: $value'),
+  };
+}
+
+/// WARNING: NSOrthography is a stub. To generate bindings for this class, include
+/// NSOrthography in your config's objc-interfaces list.
+///
+/// NSOrthography
+class NSOrthography extends objc.NSObject
+    implements objc.NSCopying, objc.NSSecureCoding {
+  NSOrthography._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSOrthography',
+      iOS: (false, (4, 0, 0)),
+      macOS: (false, (10, 6, 0)),
+    );
+  }
+
+  /// Constructs a [NSOrthography] that points to the same underlying object as [other].
+  NSOrthography.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [NSOrthography] that wraps the given raw object pointer.
+  NSOrthography.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
 }
 
 final class OpaqueAEDataStorageType extends ffi.Opaque {}
@@ -4185,10 +7627,19 @@ final class OpaqueIconRef extends ffi.Opaque {}
 /// NSPredicate in your config's objc-interfaces list.
 ///
 /// NSPredicate
-class NSPredicate extends objc.NSObject {
-  NSPredicate._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+class NSPredicate extends objc.NSObject
+    implements objc.NSSecureCoding, objc.NSCopying {
+  NSPredicate._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSPredicate',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
+  }
 
   /// Constructs a [NSPredicate] that points to the same underlying object as [other].
   NSPredicate.castFrom(objc.ObjCObjectBase other)
@@ -4219,21 +7670,21 @@ enum NSExpressionType {
   const NSExpressionType(this.value);
 
   static NSExpressionType fromValue(int value) => switch (value) {
-        0 => NSConstantValueExpressionType,
-        1 => NSEvaluatedObjectExpressionType,
-        2 => NSVariableExpressionType,
-        3 => NSKeyPathExpressionType,
-        4 => NSFunctionExpressionType,
-        5 => NSUnionSetExpressionType,
-        6 => NSIntersectSetExpressionType,
-        7 => NSMinusSetExpressionType,
-        13 => NSSubqueryExpressionType,
-        14 => NSAggregateExpressionType,
-        15 => NSAnyKeyExpressionType,
-        19 => NSBlockExpressionType,
-        20 => NSConditionalExpressionType,
-        _ => throw ArgumentError("Unknown value for NSExpressionType: $value"),
-      };
+    0 => NSConstantValueExpressionType,
+    1 => NSEvaluatedObjectExpressionType,
+    2 => NSVariableExpressionType,
+    3 => NSKeyPathExpressionType,
+    4 => NSFunctionExpressionType,
+    5 => NSUnionSetExpressionType,
+    6 => NSIntersectSetExpressionType,
+    7 => NSMinusSetExpressionType,
+    13 => NSSubqueryExpressionType,
+    14 => NSAggregateExpressionType,
+    15 => NSAnyKeyExpressionType,
+    19 => NSBlockExpressionType,
+    20 => NSConditionalExpressionType,
+    _ => throw ArgumentError('Unknown value for NSExpressionType: $value'),
+  };
 }
 
 late final _class_NSExpression = objc.getClass("NSExpression");
@@ -4266,6 +7717,11 @@ extension MLNAdditions on NSExpression {
   /// <a href="https://maplibre.org/maplibre-style-spec/expressions/#zoom"><code>zoom</code></a>
   /// expression operator in the MapLibre Style Spec.
   static NSExpression getZoomLevelVariableExpression() {
+    objc.checkOsVersionInternal(
+      'NSExpression.zoomLevelVariableExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSExpression, _sel_zoomLevelVariableExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4276,6 +7732,11 @@ extension MLNAdditions on NSExpression {
   /// href="https://maplibre.org/maplibre-style-spec/expressions/#heatmap-density"><code>heatmap-density</code></a>
   /// expression operator in the MapLibre Style Spec.
   static NSExpression getHeatmapDensityVariableExpression() {
+    objc.checkOsVersionInternal(
+      'NSExpression.heatmapDensityVariableExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSExpression, _sel_heatmapDensityVariableExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4286,6 +7747,11 @@ extension MLNAdditions on NSExpression {
   /// href="https://maplibre.org/maplibre-style-spec/expressions/#line-progress"><code>line-progress</code></a>
   /// expression operator in the MapLibre Style Spec.
   static NSExpression getLineProgressVariableExpression() {
+    objc.checkOsVersionInternal(
+      'NSExpression.lineProgressVariableExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSExpression, _sel_lineProgressVariableExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4296,6 +7762,11 @@ extension MLNAdditions on NSExpression {
   /// href="https://maplibre.org/maplibre-style-spec/expressions/#geometry-type"><code>geometry-type</code></a>
   /// expression operator in the MapLibre Style Spec.
   static NSExpression getGeometryTypeVariableExpression() {
+    objc.checkOsVersionInternal(
+      'NSExpression.geometryTypeVariableExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSExpression, _sel_geometryTypeVariableExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4305,6 +7776,11 @@ extension MLNAdditions on NSExpression {
   /// <a href="https://maplibre.org/maplibre-style-spec/expressions/#id"><code>id</code></a>
   /// expression operator in the MapLibre Style Spec.
   static NSExpression getFeatureIdentifierVariableExpression() {
+    objc.checkOsVersionInternal(
+      'NSExpression.featureIdentifierVariableExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSExpression, _sel_featureIdentifierVariableExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4314,6 +7790,11 @@ extension MLNAdditions on NSExpression {
   /// <a href="https://docs.mapbox.com/mapbox-gl-js/style-spec/#accumulated"><code>id</code></a>
   /// expression operator in the MapLibre Style Spec.
   static NSExpression getFeatureAccumulatedVariableExpression() {
+    objc.checkOsVersionInternal(
+      'NSExpression.featureAccumulatedVariableExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSExpression, _sel_featureAccumulatedVariableExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4324,6 +7805,11 @@ extension MLNAdditions on NSExpression {
   /// href="https://maplibre.org/maplibre-style-spec/expressions/#properties"><code>properties</code></a>
   /// expression operator in the MapLibre Style Spec.
   static NSExpression getFeatureAttributesVariableExpression() {
+    objc.checkOsVersionInternal(
+      'NSExpression.featureAttributesVariableExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSExpression, _sel_featureAttributesVariableExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4331,6 +7817,11 @@ extension MLNAdditions on NSExpression {
 
   /// featurePropertiesVariableExpression
   static NSExpression getFeaturePropertiesVariableExpression() {
+    objc.checkOsVersionInternal(
+      'NSExpression.featurePropertiesVariableExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSExpression, _sel_featurePropertiesVariableExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4348,8 +7839,15 @@ extension MLNAdditions on NSExpression {
   /// You can use `NSJSONSerialization` to serialize the Foundation object as data to
   /// write to a file.
   objc.ObjCObjectBase get mgl_jsonExpressionObject {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.pointer, _sel_mgl_jsonExpressionObject);
+    objc.checkOsVersionInternal(
+      'NSExpression.mgl_jsonExpressionObject',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_mgl_jsonExpressionObject,
+    );
     return objc.ObjCObjectBase(_ret, retain: true, release: true);
   }
 
@@ -4366,6 +7864,11 @@ extension MLNAdditions on NSExpression {
   /// system’s preferred language, if supported, specify `nil`. To use the local
   /// language, specify a locale with the identifier `mul`.
   NSExpression mgl_expressionLocalizedIntoLocale_(objc.NSLocale? locale) {
+    objc.checkOsVersionInternal(
+      'NSExpression.mgl_expressionLocalizedIntoLocale:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_1sotr3r(
         this.ref.pointer,
         _sel_mgl_expressionLocalizedIntoLocale_,
@@ -4504,19 +8007,56 @@ abstract final class ObjCBlock_objcObjCObject_objcObjCObject_NSArray_NSMutableDi
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  static objc.ObjCBlock<ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>?, objc.NSArray, objc.NSMutableDictionary?)>
-      fromFunction(objc.ObjCObjectBase Function(objc.ObjCObjectBase?, objc.NSArray, objc.NSMutableDictionary?) fn) =>
-          objc.ObjCBlock<ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>?, objc.NSArray, objc.NSMutableDictionary?)>(
-              objc.newClosureBlock(
-                  _ObjCBlock_objcObjCObject_objcObjCObject_NSArray_NSMutableDictionary_closureCallable,
-                  (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1, ffi.Pointer<objc.ObjCObject> arg2) => fn(
-                          arg0.address == 0 ? null : objc.ObjCObjectBase(arg0, retain: true, release: true),
-                          objc.NSArray.castFromPointer(arg1, retain: true, release: true),
-                          arg2.address == 0 ? null : objc.NSMutableDictionary.castFromPointer(arg2, retain: true, release: true))
-                      .ref
-                      .retainAndAutorelease()),
-              retain: false,
-              release: true);
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject> Function(
+      ffi.Pointer<objc.ObjCObject>?,
+      objc.NSArray,
+      objc.NSMutableDictionary?,
+    )
+  >
+  fromFunction(
+    objc.ObjCObjectBase Function(
+      objc.ObjCObjectBase?,
+      objc.NSArray,
+      objc.NSMutableDictionary?,
+    )
+    fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject> Function(
+      ffi.Pointer<objc.ObjCObject>?,
+      objc.NSArray,
+      objc.NSMutableDictionary?,
+    )
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_objcObjCObject_objcObjCObject_NSArray_NSMutableDictionary_closureCallable,
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2,
+      ) =>
+          fn(
+            arg0.address == 0
+                ? null
+                : objc.ObjCObjectBase(arg0, retain: true, release: true),
+            objc.NSArray.castFromPointer(arg1, retain: true, release: true),
+            arg2.address == 0
+                ? null
+                : objc.NSMutableDictionary.castFromPointer(
+                  arg2,
+                  retain: true,
+                  release: true,
+                ),
+          ).ref.retainAndAutorelease(),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 }
 
 /// Call operator for `objc.ObjCBlock<ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>?, objc.NSArray, objc.NSMutableDictionary?)>`.
@@ -4678,17 +8218,26 @@ abstract final class ObjCBlock_instancetype_ffiVoid {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  static objc
-      .ObjCBlock<ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void>)>
-      fromFunction(Dartinstancetype Function(ffi.Pointer<ffi.Void>) fn) =>
-          objc.ObjCBlock<
-                  ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void>)>(
-              objc.newClosureBlock(
-                  _ObjCBlock_instancetype_ffiVoid_closureCallable,
-                  (ffi.Pointer<ffi.Void> arg0) =>
-                      fn(arg0).ref.retainAndAutorelease()),
-              retain: false,
-              release: true);
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void>)
+  >
+  fromFunction(
+    Dartinstancetype Function(ffi.Pointer<ffi.Void>) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void>)
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_instancetype_ffiVoid_closureCallable,
+      (ffi.Pointer<ffi.Void> arg0) => fn(arg0).ref.retainAndAutorelease(),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 }
 
 /// Call operator for `objc.ObjCBlock<ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void>)>`.
@@ -4746,10 +8295,19 @@ late final _sel_expressionWithMLNJSONObject_ =
     objc.registerName("expressionWithMLNJSONObject:");
 
 /// NSExpression
-class NSExpression extends objc.NSObject {
-  NSExpression._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+class NSExpression extends objc.NSObject
+    implements objc.NSSecureCoding, objc.NSCopying {
+  NSExpression._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
+  }
 
   /// Constructs a [NSExpression] that points to the same underlying object as [other].
   NSExpression.castFrom(objc.ObjCObjectBase other)
@@ -4768,7 +8326,14 @@ class NSExpression extends objc.NSObject {
 
   /// expressionWithFormat:argumentArray:
   static NSExpression expressionWithFormat_argumentArray_(
-      objc.NSString expressionFormat, objc.NSArray arguments) {
+    objc.NSString expressionFormat,
+    objc.NSArray arguments,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionWithFormat:argumentArray:',
+      iOS: (false, (4, 0, 0)),
+      macOS: (false, (10, 6, 0)),
+    );
     final _ret = _objc_msgSend_15qeuct(
         _class_NSExpression,
         _sel_expressionWithFormat_argumentArray_,
@@ -4779,20 +8344,41 @@ class NSExpression extends objc.NSObject {
 
   /// expressionWithFormat:
   static NSExpression expressionWithFormat_(objc.NSString expressionFormat) {
-    final _ret = _objc_msgSend_1sotr3r(_class_NSExpression,
-        _sel_expressionWithFormat_, expressionFormat.ref.pointer);
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionWithFormat:',
+      iOS: (false, (4, 0, 0)),
+      macOS: (false, (10, 6, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSExpression,
+      _sel_expressionWithFormat_,
+      expressionFormat.ref.pointer,
+    );
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// expressionForConstantValue:
   static NSExpression expressionForConstantValue_(objc.ObjCObjectBase? obj) {
-    final _ret = _objc_msgSend_1sotr3r(_class_NSExpression,
-        _sel_expressionForConstantValue_, obj?.ref.pointer ?? ffi.nullptr);
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForConstantValue:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSExpression,
+      _sel_expressionForConstantValue_,
+      obj?.ref.pointer ?? ffi.nullptr,
+    );
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// expressionForEvaluatedObject
   static NSExpression expressionForEvaluatedObject() {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForEvaluatedObject',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(
         _class_NSExpression, _sel_expressionForEvaluatedObject);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4800,6 +8386,11 @@ class NSExpression extends objc.NSObject {
 
   /// expressionForVariable:
   static NSExpression expressionForVariable_(objc.NSString string) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForVariable:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_1sotr3r(
         _class_NSExpression, _sel_expressionForVariable_, string.ref.pointer);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4807,6 +8398,11 @@ class NSExpression extends objc.NSObject {
 
   /// expressionForKeyPath:
   static NSExpression expressionForKeyPath_(objc.NSString keyPath) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForKeyPath:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_1sotr3r(
         _class_NSExpression, _sel_expressionForKeyPath_, keyPath.ref.pointer);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
@@ -4814,7 +8410,14 @@ class NSExpression extends objc.NSObject {
 
   /// expressionForFunction:arguments:
   static NSExpression expressionForFunction_arguments_(
-      objc.NSString name, objc.NSArray parameters) {
+    objc.NSString name,
+    objc.NSArray parameters,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForFunction:arguments:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_15qeuct(
         _class_NSExpression,
         _sel_expressionForFunction_arguments_,
@@ -4825,22 +8428,48 @@ class NSExpression extends objc.NSObject {
 
   /// expressionForAggregate:
   static NSExpression expressionForAggregate_(objc.NSArray subexpressions) {
-    final _ret = _objc_msgSend_1sotr3r(_class_NSExpression,
-        _sel_expressionForAggregate_, subexpressions.ref.pointer);
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForAggregate:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 5, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSExpression,
+      _sel_expressionForAggregate_,
+      subexpressions.ref.pointer,
+    );
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// expressionForUnionSet:with:
   static NSExpression expressionForUnionSet_with_(
-      NSExpression left, NSExpression right) {
-    final _ret = _objc_msgSend_15qeuct(_class_NSExpression,
-        _sel_expressionForUnionSet_with_, left.ref.pointer, right.ref.pointer);
+    NSExpression left,
+    NSExpression right,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForUnionSet:with:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 5, 0)),
+    );
+    final _ret = _objc_msgSend_15qeuct(
+      _class_NSExpression,
+      _sel_expressionForUnionSet_with_,
+      left.ref.pointer,
+      right.ref.pointer,
+    );
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// expressionForIntersectSet:with:
   static NSExpression expressionForIntersectSet_with_(
-      NSExpression left, NSExpression right) {
+    NSExpression left,
+    NSExpression right,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForIntersectSet:with:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 5, 0)),
+    );
     final _ret = _objc_msgSend_15qeuct(
         _class_NSExpression,
         _sel_expressionForIntersectSet_with_,
@@ -4851,15 +8480,34 @@ class NSExpression extends objc.NSObject {
 
   /// expressionForMinusSet:with:
   static NSExpression expressionForMinusSet_with_(
-      NSExpression left, NSExpression right) {
-    final _ret = _objc_msgSend_15qeuct(_class_NSExpression,
-        _sel_expressionForMinusSet_with_, left.ref.pointer, right.ref.pointer);
+    NSExpression left,
+    NSExpression right,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForMinusSet:with:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 5, 0)),
+    );
+    final _ret = _objc_msgSend_15qeuct(
+      _class_NSExpression,
+      _sel_expressionForMinusSet_with_,
+      left.ref.pointer,
+      right.ref.pointer,
+    );
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// expressionForSubquery:usingIteratorVariable:predicate:
   static NSExpression expressionForSubquery_usingIteratorVariable_predicate_(
-      NSExpression expression, objc.NSString variable, NSPredicate predicate) {
+    NSExpression expression,
+    objc.NSString variable,
+    NSPredicate predicate,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForSubquery:usingIteratorVariable:predicate:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 5, 0)),
+    );
     final _ret = _objc_msgSend_11spmsz(
         _class_NSExpression,
         _sel_expressionForSubquery_usingIteratorVariable_predicate_,
@@ -4871,7 +8519,15 @@ class NSExpression extends objc.NSObject {
 
   /// expressionForFunction:selectorName:arguments:
   static NSExpression expressionForFunction_selectorName_arguments_(
-      NSExpression target, objc.NSString name, objc.NSArray? parameters) {
+    NSExpression target,
+    objc.NSString name,
+    objc.NSArray? parameters,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForFunction:selectorName:arguments:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 5, 0)),
+    );
     final _ret = _objc_msgSend_11spmsz(
         _class_NSExpression,
         _sel_expressionForFunction_selectorName_arguments_,
@@ -4883,20 +8539,35 @@ class NSExpression extends objc.NSObject {
 
   /// expressionForAnyKey
   static NSExpression expressionForAnyKey() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_NSExpression, _sel_expressionForAnyKey);
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForAnyKey',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 9, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSExpression,
+      _sel_expressionForAnyKey,
+    );
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// expressionForBlock:arguments:
   static NSExpression expressionForBlock_arguments_(
-      objc.ObjCBlock<
-              ffi.Pointer<objc.ObjCObject> Function(
-                  ffi.Pointer<objc.ObjCObject>?,
-                  objc.NSArray,
-                  objc.NSMutableDictionary?)>
-          block,
-      objc.NSArray? arguments) {
+    objc.ObjCBlock<
+      ffi.Pointer<objc.ObjCObject> Function(
+        ffi.Pointer<objc.ObjCObject>?,
+        objc.NSArray,
+        objc.NSMutableDictionary?,
+      )
+    >
+    block,
+    objc.NSArray? arguments,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForBlock:arguments:',
+      iOS: (false, (4, 0, 0)),
+      macOS: (false, (10, 6, 0)),
+    );
     final _ret = _objc_msgSend_27lb7c(
         _class_NSExpression,
         _sel_expressionForBlock_arguments_,
@@ -4907,9 +8578,15 @@ class NSExpression extends objc.NSObject {
 
   /// expressionForConditional:trueExpression:falseExpression:
   static NSExpression expressionForConditional_trueExpression_falseExpression_(
-      NSPredicate predicate,
-      NSExpression trueExpression,
-      NSExpression falseExpression) {
+    NSPredicate predicate,
+    NSExpression trueExpression,
+    NSExpression falseExpression,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionForConditional:trueExpression:falseExpression:',
+      iOS: (false, (9, 0, 0)),
+      macOS: (false, (10, 11, 0)),
+    );
     final _ret = _objc_msgSend_11spmsz(
         _class_NSExpression,
         _sel_expressionForConditional_trueExpression_falseExpression_,
@@ -4921,8 +8598,16 @@ class NSExpression extends objc.NSObject {
 
   /// initWithExpressionType:
   NSExpression initWithExpressionType_(NSExpressionType type) {
-    final _ret = _objc_msgSend_1rz5npq(this.ref.retainAndReturnPointer(),
-        _sel_initWithExpressionType_, type.value);
+    objc.checkOsVersionInternal(
+      'NSExpression.initWithExpressionType:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
+    final _ret = _objc_msgSend_1rz5npq(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithExpressionType_,
+      type.value,
+    );
     return NSExpression.castFromPointer(_ret, retain: false, release: true);
   }
 
@@ -4937,12 +8622,22 @@ class NSExpression extends objc.NSObject {
 
   /// expressionType
   NSExpressionType get expressionType {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionType',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_1ts4niw(this.ref.pointer, _sel_expressionType);
     return NSExpressionType.fromValue(_ret);
   }
 
   /// constantValue
   objc.ObjCObjectBase? get constantValue {
+    objc.checkOsVersionInternal(
+      'NSExpression.constantValue',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_constantValue);
     return _ret.address == 0
         ? null
@@ -4951,30 +8646,55 @@ class NSExpression extends objc.NSObject {
 
   /// keyPath
   objc.NSString get keyPath {
+    objc.checkOsVersionInternal(
+      'NSExpression.keyPath',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_keyPath);
     return objc.NSString.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// function
   objc.NSString get function {
+    objc.checkOsVersionInternal(
+      'NSExpression.function',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_function);
     return objc.NSString.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// variable
   objc.NSString get variable {
+    objc.checkOsVersionInternal(
+      'NSExpression.variable',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_variable);
     return objc.NSString.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// operand
   NSExpression get operand {
+    objc.checkOsVersionInternal(
+      'NSExpression.operand',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_operand);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// arguments
   objc.NSArray? get arguments {
+    objc.checkOsVersionInternal(
+      'NSExpression.arguments',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_arguments);
     return _ret.address == 0
         ? null
@@ -4983,44 +8703,84 @@ class NSExpression extends objc.NSObject {
 
   /// collection
   objc.ObjCObjectBase get collection {
+    objc.checkOsVersionInternal(
+      'NSExpression.collection',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 5, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_collection);
     return objc.ObjCObjectBase(_ret, retain: true, release: true);
   }
 
   /// predicate
   NSPredicate get predicate {
+    objc.checkOsVersionInternal(
+      'NSExpression.predicate',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 5, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_predicate);
     return NSPredicate.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// leftExpression
   NSExpression get leftExpression {
+    objc.checkOsVersionInternal(
+      'NSExpression.leftExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 5, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_leftExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// rightExpression
   NSExpression get rightExpression {
+    objc.checkOsVersionInternal(
+      'NSExpression.rightExpression',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 5, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_rightExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// trueExpression
   NSExpression get trueExpression {
+    objc.checkOsVersionInternal(
+      'NSExpression.trueExpression',
+      iOS: (false, (9, 0, 0)),
+      macOS: (false, (10, 11, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_trueExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// falseExpression
   NSExpression get falseExpression {
+    objc.checkOsVersionInternal(
+      'NSExpression.falseExpression',
+      iOS: (false, (9, 0, 0)),
+      macOS: (false, (10, 11, 0)),
+    );
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_falseExpression);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// expressionBlock
   objc.ObjCBlock<
-      ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>?,
-          objc.NSArray, objc.NSMutableDictionary?)> get expressionBlock {
+    ffi.Pointer<objc.ObjCObject> Function(
+      ffi.Pointer<objc.ObjCObject>?,
+      objc.NSArray,
+      objc.NSMutableDictionary?,
+    )
+  >
+  get expressionBlock {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionBlock',
+      iOS: (false, (4, 0, 0)),
+      macOS: (false, (10, 6, 0)),
+    );
     final _ret = _objc_msgSend_uwvaik(this.ref.pointer, _sel_expressionBlock);
     return ObjCBlock_objcObjCObject_objcObjCObject_NSArray_NSMutableDictionary
         .castFromPointer(_ret, retain: true, release: true);
@@ -5028,7 +8788,14 @@ class NSExpression extends objc.NSObject {
 
   /// expressionValueWithObject:context:
   objc.ObjCObjectBase? expressionValueWithObject_context_(
-      objc.ObjCObjectBase? object, objc.NSMutableDictionary? context) {
+    objc.ObjCObjectBase? object,
+    objc.NSMutableDictionary? context,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionValueWithObject:context:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_15qeuct(
         this.ref.pointer,
         _sel_expressionValueWithObject_context_,
@@ -5041,26 +8808,41 @@ class NSExpression extends objc.NSObject {
 
   /// allowEvaluation
   void allowEvaluation() {
+    objc.checkOsVersionInternal(
+      'NSExpression.allowEvaluation',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 9, 0)),
+    );
     _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_allowEvaluation);
   }
 
   /// init
   NSExpression init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    objc.checkOsVersionInternal(
+      'NSExpression.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
     return NSExpression.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// new
-  static NSExpression new1() {
+  static NSExpression new$() {
     final _ret = _objc_msgSend_151sglz(_class_NSExpression, _sel_new);
     return NSExpression.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// allocWithZone:
-  static NSExpression allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_NSExpression, _sel_allocWithZone_, zone);
+  static NSExpression allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_NSExpression,
+      _sel_allocWithZone_,
+      zone,
+    );
     return NSExpression.castFromPointer(_ret, retain: false, release: true);
   }
 
@@ -5071,7 +8853,7 @@ class NSExpression extends objc.NSObject {
   }
 
   /// self
-  NSExpression self() {
+  NSExpression self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
@@ -5106,10 +8888,16 @@ class NSExpression extends objc.NSObject {
   /// @param trueExpression The expression for conditions equal to true.
   /// @param falseExpression The expression for conditions equal to false.
   static NSExpression
-      mgl_expressionForConditional_trueExpression_falseExpresssion_(
-          NSPredicate conditionPredicate,
-          NSExpression trueExpression,
-          NSExpression falseExpression) {
+  mgl_expressionForConditional_trueExpression_falseExpresssion_(
+    NSPredicate conditionPredicate,
+    NSExpression trueExpression,
+    NSExpression falseExpression,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.mgl_expressionForConditional:trueExpression:falseExpresssion:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_11spmsz(
         _class_NSExpression,
         _sel_mgl_expressionForConditional_trueExpression_falseExpresssion_,
@@ -5132,9 +8920,15 @@ class NSExpression extends objc.NSObject {
   /// TODO: Use images to cluster point data
   /// Learn how to use this expression to style a map layer based on an attribute value.
   static NSExpression mgl_expressionForSteppingExpression_fromExpression_stops_(
-      NSExpression steppingExpression,
-      NSExpression minimumExpression,
-      NSExpression stops) {
+    NSExpression steppingExpression,
+    NSExpression minimumExpression,
+    NSExpression stops,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.mgl_expressionForSteppingExpression:fromExpression:stops:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_11spmsz(
         _class_NSExpression,
         _sel_mgl_expressionForSteppingExpression_fromExpression_stops_,
@@ -5158,11 +8952,17 @@ class NSExpression extends objc.NSObject {
   /// TODO: Create a heatmap layer, learn how to style an ``MLNHeatmapStyleLayer``
   /// based on zoom level and point density with this expression.
   static NSExpression
-      mgl_expressionForInterpolatingExpression_withCurveType_parameters_stops_(
-          NSExpression inputExpression,
-          objc.NSString curveType,
-          NSExpression? parameters,
-          NSExpression stops) {
+  mgl_expressionForInterpolatingExpression_withCurveType_parameters_stops_(
+    NSExpression inputExpression,
+    objc.NSString curveType,
+    NSExpression? parameters,
+    NSExpression stops,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.mgl_expressionForInterpolatingExpression:withCurveType:parameters:stops:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_s92gih(
         _class_NSExpression,
         _sel_mgl_expressionForInterpolatingExpression_withCurveType_parameters_stops_,
@@ -5180,10 +8980,16 @@ class NSExpression extends objc.NSObject {
   /// @param matchedExpressions The matched values expression dictionary must be condition : value.
   /// @param defaultExpression The defaultValue expression to be used in case there is no match.
   static NSExpression
-      mgl_expressionForMatchingExpression_inDictionary_defaultExpression_(
-          NSExpression inputExpression,
-          objc.NSDictionary matchedExpressions,
-          NSExpression defaultExpression) {
+  mgl_expressionForMatchingExpression_inDictionary_defaultExpression_(
+    NSExpression inputExpression,
+    objc.NSDictionary matchedExpressions,
+    NSExpression defaultExpression,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.mgl_expressionForMatchingExpression:inDictionary:defaultExpression:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_11spmsz(
         _class_NSExpression,
         _sel_mgl_expressionForMatchingExpression_inDictionary_defaultExpression_,
@@ -5198,7 +9004,13 @@ class NSExpression extends objc.NSObject {
   ///
   /// @param attributedExpressions The ``MLNAttributedExpression`` constant expression array.
   static NSExpression mgl_expressionForAttributedExpressions_(
-      objc.NSArray attributedExpressions) {
+    objc.NSArray attributedExpressions,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSExpression.mgl_expressionForAttributedExpressions:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
     final _ret = _objc_msgSend_1sotr3r(
         _class_NSExpression,
         _sel_mgl_expressionForAttributedExpressions_,
@@ -5213,8 +9025,16 @@ class NSExpression extends objc.NSObject {
   ///
   /// @param expression The expression to append to the receiver.
   NSExpression mgl_expressionByAppendingExpression_(NSExpression expression) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.pointer,
-        _sel_mgl_expressionByAppendingExpression_, expression.ref.pointer);
+    objc.checkOsVersionInternal(
+      'NSExpression.mgl_expressionByAppendingExpression:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_mgl_expressionByAppendingExpression_,
+      expression.ref.pointer,
+    );
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
 
@@ -5233,10 +9053,21 @@ class NSExpression extends objc.NSObject {
   /// @return An initialized expression equivalent to `object`, suitable for use as
   /// the value of a style layer attribute.
   static NSExpression expressionWithMLNJSONObject_(objc.ObjCObjectBase object) {
-    final _ret = _objc_msgSend_1sotr3r(_class_NSExpression,
-        _sel_expressionWithMLNJSONObject_, object.ref.pointer);
+    objc.checkOsVersionInternal(
+      'NSExpression.expressionWithMLNJSONObject:',
+      iOS: (false, (3, 0, 0)),
+      macOS: (false, (10, 4, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSExpression,
+      _sel_expressionWithMLNJSONObject_,
+      object.ref.pointer,
+    );
     return NSExpression.castFromPointer(_ret, retain: true, release: true);
   }
+
+  /// Returns a new instance of NSExpression constructed with the default `new` method.
+  factory NSExpression() => new$();
 }
 
 enum NSFileWrapperReadingOptions {
@@ -5247,11 +9078,13 @@ enum NSFileWrapperReadingOptions {
   const NSFileWrapperReadingOptions(this.value);
 
   static NSFileWrapperReadingOptions fromValue(int value) => switch (value) {
-        1 => NSFileWrapperReadingImmediate,
-        2 => NSFileWrapperReadingWithoutMapping,
-        _ => throw ArgumentError(
-            "Unknown value for NSFileWrapperReadingOptions: $value"),
-      };
+    1 => NSFileWrapperReadingImmediate,
+    2 => NSFileWrapperReadingWithoutMapping,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSFileWrapperReadingOptions: $value',
+      ),
+  };
 }
 
 enum NSFileWrapperWritingOptions {
@@ -5262,11 +9095,627 @@ enum NSFileWrapperWritingOptions {
   const NSFileWrapperWritingOptions(this.value);
 
   static NSFileWrapperWritingOptions fromValue(int value) => switch (value) {
-        1 => NSFileWrapperWritingAtomic,
-        2 => NSFileWrapperWritingWithNameUpdating,
-        _ => throw ArgumentError(
-            "Unknown value for NSFileWrapperWritingOptions: $value"),
-      };
+    1 => NSFileWrapperWritingAtomic,
+    2 => NSFileWrapperWritingWithNameUpdating,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSFileWrapperWritingOptions: $value',
+      ),
+  };
+}
+
+enum NSLinguisticTaggerOptions {
+  NSLinguisticTaggerOmitWords(1),
+  NSLinguisticTaggerOmitPunctuation(2),
+  NSLinguisticTaggerOmitWhitespace(4),
+  NSLinguisticTaggerOmitOther(8),
+  NSLinguisticTaggerJoinNames(16);
+
+  final int value;
+  const NSLinguisticTaggerOptions(this.value);
+
+  static NSLinguisticTaggerOptions fromValue(int value) => switch (value) {
+    1 => NSLinguisticTaggerOmitWords,
+    2 => NSLinguisticTaggerOmitPunctuation,
+    4 => NSLinguisticTaggerOmitWhitespace,
+    8 => NSLinguisticTaggerOmitOther,
+    16 => NSLinguisticTaggerJoinNames,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSLinguisticTaggerOptions: $value',
+      ),
+  };
+}
+
+late final _sel_linguisticTagsInRange_scheme_options_orthography_tokenRanges_ =
+    objc.registerName(
+      "linguisticTagsInRange:scheme:options:orthography:tokenRanges:",
+    );
+final _objc_msgSend_1l09uru =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              objc.NSRange,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.UnsignedLong,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            objc.NSRange,
+            ffi.Pointer<objc.ObjCObject>,
+            int,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+          )
+        >();
+void _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  objc.NSRange arg1,
+  objc.NSRange arg2,
+  ffi.Pointer<ffi.Bool> arg3,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObject> arg0,
+          objc.NSRange arg1,
+          objc.NSRange arg2,
+          ffi.Pointer<ffi.Bool> arg3,
+        )
+      >
+    >()
+    .asFunction<
+      void Function(
+        ffi.Pointer<objc.ObjCObject>,
+        objc.NSRange,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      )
+    >()(arg0, arg1, arg2, arg3);
+ffi.Pointer<ffi.Void>
+_ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        objc.NSRange,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      )
+    >(_ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_fnPtrTrampoline).cast();
+void _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  objc.NSRange arg1,
+  objc.NSRange arg2,
+  ffi.Pointer<ffi.Bool> arg3,
+) => (objc.getBlockClosure(block)
+    as void Function(
+      ffi.Pointer<objc.ObjCObject>,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    ))(arg0, arg1, arg2, arg3);
+ffi.Pointer<ffi.Void>
+_ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        objc.NSRange,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      )
+    >(
+      _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_closureTrampoline,
+    ).cast();
+void _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_listenerTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  objc.NSRange arg1,
+  objc.NSRange arg2,
+  ffi.Pointer<ffi.Bool> arg3,
+) {
+  (objc.getBlockClosure(block)
+      as void Function(
+        ffi.Pointer<objc.ObjCObject>,
+        objc.NSRange,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      ))(arg0, arg1, arg2, arg3);
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCObject>,
+    objc.NSRange,
+    objc.NSRange,
+    ffi.Pointer<ffi.Bool>,
+  )
+>
+_ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_listenerCallable =
+    ffi.NativeCallable<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        objc.NSRange,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      )
+    >.listener(
+      _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_listenerTrampoline,
+    )..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_blockingTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> waiter,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  objc.NSRange arg1,
+  objc.NSRange arg2,
+  ffi.Pointer<ffi.Bool> arg3,
+) {
+  try {
+    (objc.getBlockClosure(block)
+        as void Function(
+          ffi.Pointer<objc.ObjCObject>,
+          objc.NSRange,
+          objc.NSRange,
+          ffi.Pointer<ffi.Bool>,
+        ))(arg0, arg1, arg2, arg3);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    objc.NSRange,
+    objc.NSRange,
+    ffi.Pointer<ffi.Bool>,
+  )
+>
+_ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_blockingCallable =
+    ffi.NativeCallable<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<objc.ObjCObject>,
+        objc.NSRange,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      )
+    >.isolateLocal(
+      _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_blockingTrampoline,
+    )..keepIsolateAlive = false;
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    objc.NSRange,
+    objc.NSRange,
+    ffi.Pointer<ffi.Bool>,
+  )
+>
+_ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_blockingListenerCallable =
+    ffi.NativeCallable<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<objc.ObjCObject>,
+        objc.NSRange,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      )
+    >.listener(
+      _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_blockingTrampoline,
+    )..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSString?, objc.NSRange, objc.NSRange, ffi.Pointer<ffi.Bool>)>`.
+abstract final class ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<
+    ffi.Void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >
+  castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<
+    ffi.Void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >(pointer, retain: retain, release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<
+    ffi.Void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >
+  fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObject> arg0,
+          objc.NSRange arg1,
+          objc.NSRange arg2,
+          ffi.Pointer<ffi.Bool> arg3,
+        )
+      >
+    >
+    ptr,
+  ) => objc.ObjCBlock<
+    ffi.Void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >(
+    objc.newPointerBlock(
+      _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_fnPtrCallable,
+      ptr.cast(),
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    ffi.Void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >
+  fromFunction(
+    void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+    fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    ffi.Void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_closureCallable,
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        objc.NSRange arg2,
+        ffi.Pointer<ffi.Bool> arg3,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSString.castFromPointer(arg0, retain: true, release: true),
+        arg1,
+        arg2,
+        arg3,
+      ),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    ffi.Void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >
+  listener(
+    void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+    fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_listenerCallable
+          .nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        objc.NSRange arg2,
+        ffi.Pointer<ffi.Bool> arg3,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSString.castFromPointer(arg0, retain: false, release: true),
+        arg1,
+        arg2,
+        arg3,
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapListenerBlock_lmc3p5(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<
+      ffi.Void Function(
+        objc.NSString?,
+        objc.NSRange,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      )
+    >(wrapper, retain: false, release: true);
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC. If the owner isolate
+  /// has shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc.ObjCBlock<
+    ffi.Void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+  >
+  blocking(
+    void Function(
+      objc.NSString?,
+      objc.NSRange,
+      objc.NSRange,
+      ffi.Pointer<ffi.Bool>,
+    )
+    fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_blockingCallable
+          .nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        objc.NSRange arg2,
+        ffi.Pointer<ffi.Bool> arg3,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSString.castFromPointer(arg0, retain: false, release: true),
+        arg1,
+        arg2,
+        arg3,
+      ),
+      keepIsolateAlive,
+    );
+    final rawListener = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_blockingListenerCallable
+          .nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        objc.NSRange arg1,
+        objc.NSRange arg2,
+        ffi.Pointer<ffi.Bool> arg3,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSString.castFromPointer(arg0, retain: false, release: true),
+        arg1,
+        arg2,
+        arg3,
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapBlockingBlock_lmc3p5(
+      raw,
+      rawListener,
+      objc.objCContext,
+    );
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<
+      ffi.Void Function(
+        objc.NSString?,
+        objc.NSRange,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      )
+    >(wrapper, retain: false, release: true);
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSString?, objc.NSRange, objc.NSRange, ffi.Pointer<ffi.Bool>)>`.
+extension ObjCBlock_ffiVoid_NSString_NSRange_NSRange_bool_CallExtension
+    on
+        objc.ObjCBlock<
+          ffi.Void Function(
+            objc.NSString?,
+            objc.NSRange,
+            objc.NSRange,
+            ffi.Pointer<ffi.Bool>,
+          )
+        > {
+  void call(
+    objc.NSString? arg0,
+    objc.NSRange arg1,
+    objc.NSRange arg2,
+    ffi.Pointer<ffi.Bool> arg3,
+  ) => ref.pointer.ref.invoke
+      .cast<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl> block,
+            ffi.Pointer<objc.ObjCObject> arg0,
+            objc.NSRange arg1,
+            objc.NSRange arg2,
+            ffi.Pointer<ffi.Bool> arg3,
+          )
+        >
+      >()
+      .asFunction<
+        void Function(
+          ffi.Pointer<objc.ObjCBlockImpl>,
+          ffi.Pointer<objc.ObjCObject>,
+          objc.NSRange,
+          objc.NSRange,
+          ffi.Pointer<ffi.Bool>,
+        )
+      >()(ref.pointer, arg0?.ref.pointer ?? ffi.nullptr, arg1, arg2, arg3);
+}
+
+late final _sel_enumerateLinguisticTagsInRange_scheme_options_orthography_usingBlock_ =
+    objc.registerName(
+      "enumerateLinguisticTagsInRange:scheme:options:orthography:usingBlock:",
+    );
+final _objc_msgSend_vij4rw =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              objc.NSRange,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.UnsignedLong,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            objc.NSRange,
+            ffi.Pointer<objc.ObjCObject>,
+            int,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+
+/// NSLinguisticAnalysis
+extension NSLinguisticAnalysis on objc.NSString {
+  /// linguisticTagsInRange:scheme:options:orthography:tokenRanges:
+  objc.NSArray linguisticTagsInRange_scheme_options_orthography_tokenRanges_(
+    objc.NSRange range,
+    objc.NSString scheme,
+    NSLinguisticTaggerOptions options,
+    NSOrthography? orthography,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> tokenRanges,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.linguisticTagsInRange:scheme:options:orthography:tokenRanges:',
+      iOS: (false, (5, 0, 0)),
+      macOS: (false, (10, 7, 0)),
+    );
+    final _ret = _objc_msgSend_1l09uru(
+      this.ref.pointer,
+      _sel_linguisticTagsInRange_scheme_options_orthography_tokenRanges_,
+      range,
+      scheme.ref.pointer,
+      options.value,
+      orthography?.ref.pointer ?? ffi.nullptr,
+      tokenRanges,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// enumerateLinguisticTagsInRange:scheme:options:orthography:usingBlock:
+  void enumerateLinguisticTagsInRange_scheme_options_orthography_usingBlock_(
+    objc.NSRange range,
+    objc.NSString scheme,
+    NSLinguisticTaggerOptions options,
+    NSOrthography? orthography,
+    objc.ObjCBlock<
+      ffi.Void Function(
+        objc.NSString?,
+        objc.NSRange,
+        objc.NSRange,
+        ffi.Pointer<ffi.Bool>,
+      )
+    >
+    block,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.enumerateLinguisticTagsInRange:scheme:options:orthography:usingBlock:',
+      iOS: (false, (5, 0, 0)),
+      macOS: (false, (10, 7, 0)),
+    );
+    _objc_msgSend_vij4rw(
+      this.ref.pointer,
+      _sel_enumerateLinguisticTagsInRange_scheme_options_orthography_usingBlock_,
+      range,
+      scheme.ref.pointer,
+      options.value,
+      orthography?.ref.pointer ?? ffi.nullptr,
+      block.ref.pointer,
+    );
+  }
 }
 
 final class NSAffineTransformStruct extends ffi.Struct {
@@ -5306,20 +9755,20 @@ enum NSAppleEventSendOptions {
   const NSAppleEventSendOptions(this.value);
 
   static NSAppleEventSendOptions fromValue(int value) => switch (value) {
-        1 => NSAppleEventSendNoReply,
-        2 => NSAppleEventSendQueueReply,
-        3 => NSAppleEventSendWaitForReply,
-        16 => NSAppleEventSendNeverInteract,
-        32 => NSAppleEventSendCanInteract,
-        48 => NSAppleEventSendAlwaysInteract,
-        64 => NSAppleEventSendCanSwitchLayer,
-        4096 => NSAppleEventSendDontRecord,
-        8192 => NSAppleEventSendDontExecute,
-        65536 => NSAppleEventSendDontAnnotate,
-        35 => NSAppleEventSendDefaultOptions,
-        _ => throw ArgumentError(
-            "Unknown value for NSAppleEventSendOptions: $value"),
-      };
+    1 => NSAppleEventSendNoReply,
+    2 => NSAppleEventSendQueueReply,
+    3 => NSAppleEventSendWaitForReply,
+    16 => NSAppleEventSendNeverInteract,
+    32 => NSAppleEventSendCanInteract,
+    48 => NSAppleEventSendAlwaysInteract,
+    64 => NSAppleEventSendCanSwitchLayer,
+    4096 => NSAppleEventSendDontRecord,
+    8192 => NSAppleEventSendDontExecute,
+    65536 => NSAppleEventSendDontAnnotate,
+    35 => NSAppleEventSendDefaultOptions,
+    _ =>
+      throw ArgumentError('Unknown value for NSAppleEventSendOptions: $value'),
+  };
 }
 
 enum NSSaveOptions {
@@ -5331,11 +9780,11 @@ enum NSSaveOptions {
   const NSSaveOptions(this.value);
 
   static NSSaveOptions fromValue(int value) => switch (value) {
-        0 => NSSaveOptionsYes,
-        1 => NSSaveOptionsNo,
-        2 => NSSaveOptionsAsk,
-        _ => throw ArgumentError("Unknown value for NSSaveOptions: $value"),
-      };
+    0 => NSSaveOptionsYes,
+    1 => NSSaveOptionsNo,
+    2 => NSSaveOptionsAsk,
+    _ => throw ArgumentError('Unknown value for NSSaveOptions: $value'),
+  };
 }
 
 late final _class_Helpers = objc.getClass("maplibre_ios.Helpers");
@@ -5445,21 +9894,34 @@ extension IBAdditions on MLNMapView {
         : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_longitude);
   }
 
-  /// setLongitude:
-  set longitude(double value) {
-    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setLongitude_, value);
+  /// init
+  Helpers init() {
+    objc.checkOsVersionInternal(
+      'Helpers.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return Helpers.castFromPointer(_ret, retain: false, release: true);
   }
 
-  /// zoomLevel
-  double get zoomLevel {
-    return objc.useMsgSendVariants
-        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_zoomLevel)
-        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_zoomLevel);
+  /// new
+  static Helpers new$() {
+    final _ret = _objc_msgSend_151sglz(_class_Helpers, _sel_new);
+    return Helpers.castFromPointer(_ret, retain: false, release: true);
   }
 
-  /// setZoomLevel:
-  set zoomLevel(double value) {
-    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setZoomLevel_, value);
+  /// allocWithZone:
+  static Helpers allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_Helpers,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return Helpers.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// minimumZoomLevel
@@ -5469,9 +9931,10 @@ extension IBAdditions on MLNMapView {
         : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_minimumZoomLevel);
   }
 
-  /// setMinimumZoomLevel:
-  set minimumZoomLevel(double value) {
-    _objc_msgSend_hwm8nu(this.ref.pointer, _sel_setMinimumZoomLevel_, value);
+  /// self
+  Helpers self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return Helpers.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// maximumZoomLevel
@@ -5555,6 +10018,9 @@ extension IBAdditions on MLNMapView {
   set showsScale(bool value) {
     _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setShowsScale_, value);
   }
+
+  /// Returns a new instance of Helpers constructed with the default `new` method.
+  factory Helpers() => new$();
 }
 
 late final _sel_initWithFrame_ = objc.registerName("initWithFrame:");
@@ -5587,8 +10053,140 @@ late final _sel_setDelegate_ = objc.registerName("setDelegate:");
 late final _class_MLNStyle = objc.getClass("MLNStyle");
 late final _sel_predefinedStyles = objc.registerName("predefinedStyles");
 
-/// WARNING: MLNDefaultStyle is a stub. To generate bindings for this class, include
-/// MLNDefaultStyle in your config's objc-interfaces list.
+/// MapLibreRegistry
+class MapLibreRegistry extends objc.NSObject {
+  MapLibreRegistry._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MapLibreRegistry] that points to the same underlying object as [other].
+  MapLibreRegistry.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MapLibreRegistry] that wraps the given raw object pointer.
+  MapLibreRegistry.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MapLibreRegistry].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MapLibreRegistry,
+    );
+  }
+
+  /// getMapWithViewId:
+  static objc.ObjCObjectBase? getMapWithViewId_(int viewId) {
+    final _ret = _objc_msgSend_1ya1kjn(
+      _class_MapLibreRegistry,
+      _sel_getMapWithViewId_,
+      viewId,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// activity
+  static objc.ObjCObjectBase? getActivity() {
+    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_activity);
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// setActivity:
+  static void setActivity(objc.ObjCObjectBase? value) {
+    _objc_msgSend_xtuoz7(
+      _class_MapLibreRegistry,
+      _sel_setActivity_,
+      value?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// context
+  static objc.ObjCObjectBase? getContext() {
+    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_context);
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// setContext:
+  static void setContext(objc.ObjCObjectBase? value) {
+    _objc_msgSend_xtuoz7(
+      _class_MapLibreRegistry,
+      _sel_setContext_,
+      value?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// init
+  MapLibreRegistry init() {
+    objc.checkOsVersionInternal(
+      'MapLibreRegistry.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// new
+  static MapLibreRegistry new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_new);
+    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MapLibreRegistry allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MapLibreRegistry,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MapLibreRegistry alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_alloc);
+    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MapLibreRegistry self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MapLibreRegistry retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MapLibreRegistry autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a new instance of MapLibreRegistry constructed with the default `new` method.
+  factory MapLibreRegistry() => new$();
+}
+
+/// WARNING: MLNBackendResource is a stub. To generate bindings for this class, include
+/// MLNBackendResource in your config's objc-interfaces list.
 ///
 /// The ``MLNDefaultStyle`` defines the predefined vendor style
 class MLNDefaultStyle extends objc.NSObject {
@@ -5606,12 +10204,64 @@ class MLNDefaultStyle extends objc.NSObject {
       : this._(other, retain: retain, release: release);
 }
 
-late final _sel_defaultStyle = objc.registerName("defaultStyle");
-late final _sel_defaultStyleURL = objc.registerName("defaultStyleURL");
-late final _sel_predefinedStyle_ = objc.registerName("predefinedStyle:");
-late final _sel_name = objc.registerName("name");
-late final _sel_sources = objc.registerName("sources");
-late final _sel_setSources_ = objc.registerName("setSources:");
+final class CGContext extends ffi.Opaque {}
+
+final class CGColor extends ffi.Opaque {}
+
+final class CGColorSpace extends ffi.Opaque {}
+
+final class CGImage extends ffi.Opaque {}
+
+final class CGPath extends ffi.Opaque {}
+
+final class CGLayer extends ffi.Opaque {}
+
+final class __CGEvent extends ffi.Opaque {}
+
+/// Options for enabling debugging features in an ``MLNMapView`` instance.
+enum MLNMapDebugMaskOptions {
+  /// Edges of tile boundaries are shown as thick, red lines to help diagnose
+  /// tile clipping issues.
+  MLNMapDebugTileBoundariesMask(2),
+
+  /// Each tile shows its tile coordinate (x/y/z) in the upper-left corner.
+  MLNMapDebugTileInfoMask(4),
+
+  /// Each tile shows a timestamp indicating when it was loaded.
+  MLNMapDebugTimestampsMask(8),
+
+  /// Edges of glyphs and symbols are shown as faint, green lines to help
+  /// diagnose collision and label placement issues.
+  MLNMapDebugCollisionBoxesMask(16),
+
+  /// Each drawing operation is replaced by a translucent fill. Overlapping
+  /// drawing operations appear more prominent to help diagnose overdrawing.
+  /// > Note: This option does nothing in Release builds of the SDK.
+  MLNMapDebugOverdrawVisualizationMask(32),
+
+  /// The stencil buffer is shown instead of the color buffer.
+  /// > Note: This option does nothing in Release builds of the SDK.
+  MLNMapDebugStencilBufferMask(64),
+
+  /// The depth buffer is shown instead of the color buffer.
+  /// > Note: This option does nothing in Release builds of the SDK.
+  MLNMapDebugDepthBufferMask(128);
+
+  final int value;
+  const MLNMapDebugMaskOptions(this.value);
+
+  static MLNMapDebugMaskOptions fromValue(int value) => switch (value) {
+    2 => MLNMapDebugTileBoundariesMask,
+    4 => MLNMapDebugTileInfoMask,
+    8 => MLNMapDebugTimestampsMask,
+    16 => MLNMapDebugCollisionBoxesMask,
+    32 => MLNMapDebugOverdrawVisualizationMask,
+    64 => MLNMapDebugStencilBufferMask,
+    128 => MLNMapDebugDepthBufferMask,
+    _ =>
+      throw ArgumentError('Unknown value for MLNMapDebugMaskOptions: $value'),
+  };
+}
 
 /// A structure containing information about a transition.
 final class MLNTransition extends ffi.Struct {
@@ -6082,39 +10732,12 @@ enum NSCompositingOperation {
   final int value;
   const NSCompositingOperation(this.value);
 
-  static NSCompositingOperation fromValue(int value) => switch (value) {
-        0 => NSCompositingOperationClear,
-        1 => NSCompositingOperationCopy,
-        2 => NSCompositingOperationSourceOver,
-        3 => NSCompositingOperationSourceIn,
-        4 => NSCompositingOperationSourceOut,
-        5 => NSCompositingOperationSourceAtop,
-        6 => NSCompositingOperationDestinationOver,
-        7 => NSCompositingOperationDestinationIn,
-        8 => NSCompositingOperationDestinationOut,
-        9 => NSCompositingOperationDestinationAtop,
-        10 => NSCompositingOperationXOR,
-        11 => NSCompositingOperationPlusDarker,
-        12 => NSCompositingOperationHighlight,
-        13 => NSCompositingOperationPlusLighter,
-        14 => NSCompositingOperationMultiply,
-        15 => NSCompositingOperationScreen,
-        16 => NSCompositingOperationOverlay,
-        17 => NSCompositingOperationDarken,
-        18 => NSCompositingOperationLighten,
-        19 => NSCompositingOperationColorDodge,
-        20 => NSCompositingOperationColorBurn,
-        21 => NSCompositingOperationSoftLight,
-        22 => NSCompositingOperationHardLight,
-        23 => NSCompositingOperationDifference,
-        24 => NSCompositingOperationExclusion,
-        25 => NSCompositingOperationHue,
-        26 => NSCompositingOperationSaturation,
-        27 => NSCompositingOperationColor,
-        28 => NSCompositingOperationLuminosity,
-        _ => throw ArgumentError(
-            "Unknown value for NSCompositingOperation: $value"),
-      };
+  static MLNOrnamentVisibility fromValue(int value) => switch (value) {
+    0 => MLNOrnamentVisibilityAdaptive,
+    1 => MLNOrnamentVisibilityHidden,
+    2 => MLNOrnamentVisibilityVisible,
+    _ => throw ArgumentError('Unknown value for MLNOrnamentVisibility: $value'),
+  };
 }
 
 late final _sel_compositeToPoint_operation_ =
@@ -9868,10 +14491,13 @@ late final _sel_isEqualToMapCamera_ = objc.registerName("isEqualToMapCamera:");
 /// restrict panning.
 /// - *TODO:* Camera animation, learn how to create a camera that rotates
 /// around a central point.
-class MLNMapCamera extends objc.NSObject {
-  MLNMapCamera._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+class MLNMapCamera extends objc.NSObject
+    implements objc.NSSecureCoding, objc.NSCopying {
+  MLNMapCamera._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
 
   /// Constructs a [MLNMapCamera] that points to the same underlying object as [other].
   MLNMapCamera.castFrom(objc.ObjCObjectBase other)
@@ -10110,21 +14736,31 @@ class MLNMapCamera extends objc.NSObject {
 
   /// init
   MLNMapCamera init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    objc.checkOsVersionInternal(
+      'MLNMapCamera.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
     return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// new
-  static MLNMapCamera new1() {
+  static MLNMapCamera new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNMapCamera, _sel_new);
     return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNMapCamera allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_MLNMapCamera, _sel_allocWithZone_, zone);
+  static MLNMapCamera allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNMapCamera,
+      _sel_allocWithZone_,
+      zone,
+    );
     return MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
   }
 
@@ -10135,7 +14771,7 @@ class MLNMapCamera extends objc.NSObject {
   }
 
   /// self
-  MLNMapCamera self() {
+  MLNMapCamera self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNMapCamera.castFromPointer(_ret, retain: true, release: true);
   }
@@ -10171,8 +14807,5227 @@ class MLNMapCamera extends objc.NSObject {
         ? null
         : MLNMapCamera.castFromPointer(_ret, retain: false, release: true);
   }
+
+  /// Returns a new instance of MLNMapCamera constructed with the default `new` method.
+  factory MLNMapCamera() => new$();
 }
 
+late final _class_MLNStyleLayer = objc.getClass("MLNStyleLayer");
+late final _sel_identifier = objc.registerName("identifier");
+late final _sel_isVisible = objc.registerName("isVisible");
+late final _sel_setVisible_ = objc.registerName("setVisible:");
+final _objc_msgSend_1s56lr9 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            bool,
+          )
+        >();
+late final _sel_maximumZoomLevel = objc.registerName("maximumZoomLevel");
+final _objc_msgSend_2cgrxl =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Float Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          double Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+final _objc_msgSend_2cgrxlFpret =
+    objc.msgSendFpretPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Float Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          double Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setMaximumZoomLevel_ = objc.registerName(
+  "setMaximumZoomLevel:",
+);
+final _objc_msgSend_v5hmet =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Float,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            double,
+          )
+        >();
+late final _sel_minimumZoomLevel = objc.registerName("minimumZoomLevel");
+late final _sel_setMinimumZoomLevel_ = objc.registerName(
+  "setMinimumZoomLevel:",
+);
+
+/// ``MLNStyleLayer`` is an abstract base class for style layers. A style layer
+/// manages the layout and appearance of content at a specific z-index in a style.
+/// An ``MLNStyle`` object consists of one or more ``MLNStyle`` objects.
+///
+/// Each style layer defined by the style JSON file is represented at runtime by an
+/// ``MLNStyleLayer`` object, which you can use to refine the map’s appearance. You
+/// can also add and remove style layers dynamically.
+///
+/// Create instances of ``MLNBackgroundStyleLayer`` and the concrete subclasses of
+/// ``MLNForegroundStyleLayer`` in order to use ``MLNForegroundStyleLayer``'s properties and methods.
+/// You do not create instances of ``MLNStyleLayer`` directly, and do not
+/// create your own subclasses of this class.
+///
+/// Do not add ``MLNStyleLayer`` objects to the `style` property of a ``MLNStyleLayer`` before
+/// ``MLNMapViewDelegate/mapView:didFinishLoadingStyle:`` is called.
+class MLNStyleLayer extends objc.NSObject {
+  MLNStyleLayer._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNStyleLayer] that points to the same underlying object as [other].
+  MLNStyleLayer.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNStyleLayer] that wraps the given raw object pointer.
+  MLNStyleLayer.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNStyleLayer].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MLNStyleLayer,
+    );
+  }
+
+  /// init
+  MLNStyleLayer init() {
+    objc.checkOsVersionInternal(
+      'MLNStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNStyleLayer.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// A string that uniquely identifies the style layer in the style to which it is
+  /// added.
+  objc.NSString get identifier {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_identifier);
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Whether this layer is displayed. A value of `NO` hides the layer.
+  ///
+  /// #### Related examples
+  /// TODO: Show and hide a layer, learn how to toggle an ``MLNStyleLayer``
+  /// object's visibility.
+  bool get visible {
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_isVisible);
+  }
+
+  /// Whether this layer is displayed. A value of `NO` hides the layer.
+  ///
+  /// #### Related examples
+  /// TODO: Show and hide a layer, learn how to toggle an ``MLNStyleLayer``
+  /// object's visibility.
+  set visible(bool value) {
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setVisible_, value);
+  }
+
+  /// The maximum zoom level at which the layer gets parsed and appears. This value is a floating-point
+  /// number.
+  double get maximumZoomLevel {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_2cgrxlFpret(this.ref.pointer, _sel_maximumZoomLevel)
+        : _objc_msgSend_2cgrxl(this.ref.pointer, _sel_maximumZoomLevel);
+  }
+
+  /// The maximum zoom level at which the layer gets parsed and appears. This value is a floating-point
+  /// number.
+  set maximumZoomLevel(double value) {
+    _objc_msgSend_v5hmet(this.ref.pointer, _sel_setMaximumZoomLevel_, value);
+  }
+
+  /// The minimum zoom level at which the layer gets parsed and appears. This value is a floating-point
+  /// number.
+  double get minimumZoomLevel {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_2cgrxlFpret(this.ref.pointer, _sel_minimumZoomLevel)
+        : _objc_msgSend_2cgrxl(this.ref.pointer, _sel_minimumZoomLevel);
+  }
+
+  /// The minimum zoom level at which the layer gets parsed and appears. This value is a floating-point
+  /// number.
+  set minimumZoomLevel(double value) {
+    _objc_msgSend_v5hmet(this.ref.pointer, _sel_setMinimumZoomLevel_, value);
+  }
+
+  /// new
+  static MLNStyleLayer new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNStyleLayer, _sel_new);
+    return MLNStyleLayer.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNStyleLayer,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNStyleLayer.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNStyleLayer alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNStyleLayer, _sel_alloc);
+    return MLNStyleLayer.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MLNStyleLayer self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNStyleLayer.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNStyleLayer retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNStyleLayer.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNStyleLayer autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNStyleLayer.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a new instance of MLNStyleLayer constructed with the default `new` method.
+  factory MLNStyleLayer() => new$();
+}
+
+/// WARNING: MLNDefaultStyle is a stub. To generate bindings for this class, include
+/// MLNDefaultStyle in your config's objc-interfaces list.
+///
+/// The ``MLNDefaultStyle`` defines the predefined vendor style
+class MLNDefaultStyle extends objc.NSObject {
+  MLNDefaultStyle._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNDefaultStyle] that points to the same underlying object as [other].
+  MLNDefaultStyle.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNDefaultStyle] that wraps the given raw object pointer.
+  MLNDefaultStyle.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _class_MLNStyle = objc.getClass("MLNStyle");
+late final _sel_predefinedStyles = objc.registerName("predefinedStyles");
+late final _sel_defaultStyle = objc.registerName("defaultStyle");
+late final _sel_defaultStyleURL = objc.registerName("defaultStyleURL");
+late final _sel_predefinedStyle_ = objc.registerName("predefinedStyle:");
+late final _sel_name = objc.registerName("name");
+late final _sel_sources = objc.registerName("sources");
+late final _sel_setSources_ = objc.registerName("setSources:");
+late final _sel_transition = objc.registerName("transition");
+final _objc_msgSend_1i0p3hy =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            MLNTransition Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          MLNTransition Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+final _objc_msgSend_1i0p3hyStret =
+    objc.msgSendStretPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<MLNTransition>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<MLNTransition>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setTransition_ = objc.registerName("setTransition:");
+final _objc_msgSend_z7lywk =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              MLNTransition,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            MLNTransition,
+          )
+        >();
+late final _sel_performsPlacementTransitions = objc.registerName(
+  "performsPlacementTransitions",
+);
+late final _sel_setPerformsPlacementTransitions_ = objc.registerName(
+  "setPerformsPlacementTransitions:",
+);
+late final _class_MLNSource = objc.getClass("MLNSource");
+late final _sel_initWithIdentifier_ = objc.registerName("initWithIdentifier:");
+late final _sel_setIdentifier_ = objc.registerName("setIdentifier:");
+
+/// MLNSource
+class MLNSource extends objc.NSObject {
+  MLNSource._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNSource] that points to the same underlying object as [other].
+  MLNSource.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNSource] that wraps the given raw object pointer.
+  MLNSource.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNSource].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MLNSource,
+    );
+  }
+
+  /// init
+  MLNSource init() {
+    objc.checkOsVersionInternal(
+      'MLNSource.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_,
+      identifier.ref.pointer,
+    );
+    return MLNSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// A string that uniquely identifies the source in the style to which it is added.
+  objc.NSString get identifier {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_identifier);
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// A string that uniquely identifies the source in the style to which it is added.
+  set identifier(objc.NSString value) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_setIdentifier_,
+      value.ref.pointer,
+    );
+  }
+
+  /// new
+  static MLNSource new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNSource, _sel_new);
+    return MLNSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNSource allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNSource,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNSource alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNSource, _sel_alloc);
+    return MLNSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MLNSource self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNSource retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNSource autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a new instance of MLNSource constructed with the default `new` method.
+  factory MLNSource() => new$();
+}
+
+late final _sel_sourceWithIdentifier_ = objc.registerName(
+  "sourceWithIdentifier:",
+);
+late final _sel_addSource_ = objc.registerName("addSource:");
+late final _sel_removeSource_ = objc.registerName("removeSource:");
+late final _sel_removeSource_error_ = objc.registerName("removeSource:error:");
+final _objc_msgSend_l9p60w =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Bool Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+            )
+          >
+        >()
+        .asFunction<
+          bool Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<ffi.Pointer<objc.ObjCObject>>,
+          )
+        >();
+late final _sel_layers = objc.registerName("layers");
+late final _sel_setLayers_ = objc.registerName("setLayers:");
+late final _sel_layerWithIdentifier_ = objc.registerName(
+  "layerWithIdentifier:",
+);
+late final _sel_addLayer_ = objc.registerName("addLayer:");
+late final _sel_insertLayer_atIndex_ = objc.registerName(
+  "insertLayer:atIndex:",
+);
+final _objc_msgSend_djsa9o =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            int,
+          )
+        >();
+late final _sel_insertLayer_belowLayer_ = objc.registerName(
+  "insertLayer:belowLayer:",
+);
+final _objc_msgSend_pfv6jd =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+late final _sel_insertLayer_aboveLayer_ = objc.registerName(
+  "insertLayer:aboveLayer:",
+);
+late final _sel_removeLayer_ = objc.registerName("removeLayer:");
+late final _class_NSImage = objc.getClass("NSImage");
+
+///
+extension unnamed on NSImage {}
+
+///
+extension unnamed$1 on NSImage {}
+
+late final _sel_imageUnfilteredFileTypes = objc.registerName(
+  "imageUnfilteredFileTypes",
+);
+late final _sel_imageUnfilteredPasteboardTypes = objc.registerName(
+  "imageUnfilteredPasteboardTypes",
+);
+late final _sel_imageFileTypes = objc.registerName("imageFileTypes");
+late final _sel_imagePasteboardTypes = objc.registerName(
+  "imagePasteboardTypes",
+);
+
+/// WARNING: NSImageRep is a stub. To generate bindings for this class, include
+/// NSImageRep in your config's objc-interfaces list.
+///
+/// NSImageRep
+class NSImageRep extends objc.NSObject
+    implements objc.NSCopying, objc.NSCoding {
+  NSImageRep._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal('NSImageRep', iOS: (true, null));
+  }
+
+  /// Constructs a [NSImageRep] that points to the same underlying object as [other].
+  NSImageRep.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [NSImageRep] that wraps the given raw object pointer.
+  NSImageRep.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_bestRepresentationForDevice_ = objc.registerName(
+  "bestRepresentationForDevice:",
+);
+late final _sel_lockFocus = objc.registerName("lockFocus");
+late final _sel_lockFocusFlipped_ = objc.registerName("lockFocusFlipped:");
+late final _sel_unlockFocus = objc.registerName("unlockFocus");
+late final _sel_setFlipped_ = objc.registerName("setFlipped:");
+late final _sel_isFlipped = objc.registerName("isFlipped");
+late final _sel_setScalesWhenResized_ = objc.registerName(
+  "setScalesWhenResized:",
+);
+late final _sel_scalesWhenResized = objc.registerName("scalesWhenResized");
+late final _sel_setDataRetained_ = objc.registerName("setDataRetained:");
+late final _sel_isDataRetained = objc.registerName("isDataRetained");
+late final _sel_setCachedSeparately_ = objc.registerName(
+  "setCachedSeparately:",
+);
+late final _sel_isCachedSeparately = objc.registerName("isCachedSeparately");
+late final _sel_setCacheDepthMatchesImageDepth_ = objc.registerName(
+  "setCacheDepthMatchesImageDepth:",
+);
+late final _sel_cacheDepthMatchesImageDepth = objc.registerName(
+  "cacheDepthMatchesImageDepth",
+);
+late final _sel_dissolveToPoint_fraction_ = objc.registerName(
+  "dissolveToPoint:fraction:",
+);
+final _objc_msgSend_1lkz44l =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGPoint,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGPoint,
+            double,
+          )
+        >();
+late final _sel_dissolveToPoint_fromRect_fraction_ = objc.registerName(
+  "dissolveToPoint:fromRect:fraction:",
+);
+final _objc_msgSend_93gyx4 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGPoint,
+              CGRect,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGPoint,
+            CGRect,
+            double,
+          )
+        >();
+
+enum NSCompositingOperation {
+  NSCompositingOperationClear(0),
+  NSCompositingOperationCopy(1),
+  NSCompositingOperationSourceOver(2),
+  NSCompositingOperationSourceIn(3),
+  NSCompositingOperationSourceOut(4),
+  NSCompositingOperationSourceAtop(5),
+  NSCompositingOperationDestinationOver(6),
+  NSCompositingOperationDestinationIn(7),
+  NSCompositingOperationDestinationOut(8),
+  NSCompositingOperationDestinationAtop(9),
+  NSCompositingOperationXOR(10),
+  NSCompositingOperationPlusDarker(11),
+  NSCompositingOperationHighlight(12),
+  NSCompositingOperationPlusLighter(13),
+  NSCompositingOperationMultiply(14),
+  NSCompositingOperationScreen(15),
+  NSCompositingOperationOverlay(16),
+  NSCompositingOperationDarken(17),
+  NSCompositingOperationLighten(18),
+  NSCompositingOperationColorDodge(19),
+  NSCompositingOperationColorBurn(20),
+  NSCompositingOperationSoftLight(21),
+  NSCompositingOperationHardLight(22),
+  NSCompositingOperationDifference(23),
+  NSCompositingOperationExclusion(24),
+  NSCompositingOperationHue(25),
+  NSCompositingOperationSaturation(26),
+  NSCompositingOperationColor(27),
+  NSCompositingOperationLuminosity(28);
+
+  final int value;
+  const NSCompositingOperation(this.value);
+
+  static NSCompositingOperation fromValue(int value) => switch (value) {
+    0 => NSCompositingOperationClear,
+    1 => NSCompositingOperationCopy,
+    2 => NSCompositingOperationSourceOver,
+    3 => NSCompositingOperationSourceIn,
+    4 => NSCompositingOperationSourceOut,
+    5 => NSCompositingOperationSourceAtop,
+    6 => NSCompositingOperationDestinationOver,
+    7 => NSCompositingOperationDestinationIn,
+    8 => NSCompositingOperationDestinationOut,
+    9 => NSCompositingOperationDestinationAtop,
+    10 => NSCompositingOperationXOR,
+    11 => NSCompositingOperationPlusDarker,
+    12 => NSCompositingOperationHighlight,
+    13 => NSCompositingOperationPlusLighter,
+    14 => NSCompositingOperationMultiply,
+    15 => NSCompositingOperationScreen,
+    16 => NSCompositingOperationOverlay,
+    17 => NSCompositingOperationDarken,
+    18 => NSCompositingOperationLighten,
+    19 => NSCompositingOperationColorDodge,
+    20 => NSCompositingOperationColorBurn,
+    21 => NSCompositingOperationSoftLight,
+    22 => NSCompositingOperationHardLight,
+    23 => NSCompositingOperationDifference,
+    24 => NSCompositingOperationExclusion,
+    25 => NSCompositingOperationHue,
+    26 => NSCompositingOperationSaturation,
+    27 => NSCompositingOperationColor,
+    28 => NSCompositingOperationLuminosity,
+    _ =>
+      throw ArgumentError('Unknown value for NSCompositingOperation: $value'),
+  };
+}
+
+late final _sel_compositeToPoint_operation_ = objc.registerName(
+  "compositeToPoint:operation:",
+);
+final _objc_msgSend_tutwec =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGPoint,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGPoint,
+            int,
+          )
+        >();
+late final _sel_compositeToPoint_fromRect_operation_ = objc.registerName(
+  "compositeToPoint:fromRect:operation:",
+);
+final _objc_msgSend_bjle81 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGPoint,
+              CGRect,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGPoint,
+            CGRect,
+            int,
+          )
+        >();
+late final _sel_compositeToPoint_operation_fraction_ = objc.registerName(
+  "compositeToPoint:operation:fraction:",
+);
+final _objc_msgSend_16t8gcf =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGPoint,
+              ffi.UnsignedLong,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGPoint,
+            int,
+            double,
+          )
+        >();
+late final _sel_compositeToPoint_fromRect_operation_fraction_ = objc
+    .registerName("compositeToPoint:fromRect:operation:fraction:");
+final _objc_msgSend_1xnlu4e =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGPoint,
+              CGRect,
+              ffi.UnsignedLong,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGPoint,
+            CGRect,
+            int,
+            double,
+          )
+        >();
+late final _sel_lockFocusOnRepresentation_ = objc.registerName(
+  "lockFocusOnRepresentation:",
+);
+late final _sel_cancelIncrementalLoad = objc.registerName(
+  "cancelIncrementalLoad",
+);
+
+/// Deprecated
+extension Deprecated on NSImage {
+  /// imageUnfilteredFileTypes
+  static objc.NSArray imageUnfilteredFileTypes() {
+    objc.checkOsVersionInternal(
+      'NSImage.imageUnfilteredFileTypes',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSImage,
+      _sel_imageUnfilteredFileTypes,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// imageUnfilteredPasteboardTypes
+  static objc.NSArray imageUnfilteredPasteboardTypes() {
+    objc.checkOsVersionInternal(
+      'NSImage.imageUnfilteredPasteboardTypes',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSImage,
+      _sel_imageUnfilteredPasteboardTypes,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// imageFileTypes
+  static objc.NSArray imageFileTypes() {
+    objc.checkOsVersionInternal(
+      'NSImage.imageFileTypes',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(_class_NSImage, _sel_imageFileTypes);
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// imagePasteboardTypes
+  static objc.NSArray imagePasteboardTypes() {
+    objc.checkOsVersionInternal(
+      'NSImage.imagePasteboardTypes',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSImage,
+      _sel_imagePasteboardTypes,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// bestRepresentationForDevice:
+  NSImageRep bestRepresentationForDevice_(objc.NSDictionary deviceDescription) {
+    objc.checkOsVersionInternal(
+      'NSImage.bestRepresentationForDevice:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_bestRepresentationForDevice_,
+      deviceDescription.ref.pointer,
+    );
+    return NSImageRep.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// lockFocus
+  void lockFocus() {
+    objc.checkOsVersionInternal(
+      'NSImage.lockFocus',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_lockFocus);
+  }
+
+  /// lockFocusFlipped:
+  void lockFocusFlipped_(bool flipped) {
+    objc.checkOsVersionInternal(
+      'NSImage.lockFocusFlipped:',
+      iOS: (true, null),
+      macOS: (false, (10, 6, 0)),
+    );
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_lockFocusFlipped_, flipped);
+  }
+
+  /// unlockFocus
+  void unlockFocus() {
+    objc.checkOsVersionInternal(
+      'NSImage.unlockFocus',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_unlockFocus);
+  }
+
+  /// setFlipped:
+  void setFlipped_(bool flag) {
+    objc.checkOsVersionInternal(
+      'NSImage.setFlipped:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setFlipped_, flag);
+  }
+
+  /// isFlipped
+  bool isFlipped() {
+    objc.checkOsVersionInternal(
+      'NSImage.isFlipped',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_isFlipped);
+  }
+
+  /// setScalesWhenResized:
+  void setScalesWhenResized_(bool flag) {
+    objc.checkOsVersionInternal(
+      'NSImage.setScalesWhenResized:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setScalesWhenResized_, flag);
+  }
+
+  /// scalesWhenResized
+  bool scalesWhenResized() {
+    objc.checkOsVersionInternal(
+      'NSImage.scalesWhenResized',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_scalesWhenResized);
+  }
+
+  /// setDataRetained:
+  void setDataRetained_(bool flag) {
+    objc.checkOsVersionInternal(
+      'NSImage.setDataRetained:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setDataRetained_, flag);
+  }
+
+  /// isDataRetained
+  bool isDataRetained() {
+    objc.checkOsVersionInternal(
+      'NSImage.isDataRetained',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_isDataRetained);
+  }
+
+  /// setCachedSeparately:
+  void setCachedSeparately_(bool flag) {
+    objc.checkOsVersionInternal(
+      'NSImage.setCachedSeparately:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setCachedSeparately_, flag);
+  }
+
+  /// isCachedSeparately
+  bool isCachedSeparately() {
+    objc.checkOsVersionInternal(
+      'NSImage.isCachedSeparately',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_isCachedSeparately);
+  }
+
+  /// setCacheDepthMatchesImageDepth:
+  void setCacheDepthMatchesImageDepth_(bool flag) {
+    objc.checkOsVersionInternal(
+      'NSImage.setCacheDepthMatchesImageDepth:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1s56lr9(
+      this.ref.pointer,
+      _sel_setCacheDepthMatchesImageDepth_,
+      flag,
+    );
+  }
+
+  /// cacheDepthMatchesImageDepth
+  bool cacheDepthMatchesImageDepth() {
+    objc.checkOsVersionInternal(
+      'NSImage.cacheDepthMatchesImageDepth',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    return _objc_msgSend_91o635(
+      this.ref.pointer,
+      _sel_cacheDepthMatchesImageDepth,
+    );
+  }
+
+  /// dissolveToPoint:fraction:
+  void dissolveToPoint_fraction_(CGPoint point, double fraction) {
+    objc.checkOsVersionInternal(
+      'NSImage.dissolveToPoint:fraction:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1lkz44l(
+      this.ref.pointer,
+      _sel_dissolveToPoint_fraction_,
+      point,
+      fraction,
+    );
+  }
+
+  /// dissolveToPoint:fromRect:fraction:
+  void dissolveToPoint_fromRect_fraction_(
+    CGPoint point,
+    CGRect rect,
+    double fraction,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.dissolveToPoint:fromRect:fraction:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_93gyx4(
+      this.ref.pointer,
+      _sel_dissolveToPoint_fromRect_fraction_,
+      point,
+      rect,
+      fraction,
+    );
+  }
+
+  /// compositeToPoint:operation:
+  void compositeToPoint_operation_(
+    CGPoint point,
+    NSCompositingOperation operation,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.compositeToPoint:operation:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_tutwec(
+      this.ref.pointer,
+      _sel_compositeToPoint_operation_,
+      point,
+      operation.value,
+    );
+  }
+
+  /// compositeToPoint:fromRect:operation:
+  void compositeToPoint_fromRect_operation_(
+    CGPoint point,
+    CGRect rect,
+    NSCompositingOperation operation,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.compositeToPoint:fromRect:operation:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_bjle81(
+      this.ref.pointer,
+      _sel_compositeToPoint_fromRect_operation_,
+      point,
+      rect,
+      operation.value,
+    );
+  }
+
+  /// compositeToPoint:operation:fraction:
+  void compositeToPoint_operation_fraction_(
+    CGPoint point,
+    NSCompositingOperation operation,
+    double fraction,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.compositeToPoint:operation:fraction:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_16t8gcf(
+      this.ref.pointer,
+      _sel_compositeToPoint_operation_fraction_,
+      point,
+      operation.value,
+      fraction,
+    );
+  }
+
+  /// compositeToPoint:fromRect:operation:fraction:
+  void compositeToPoint_fromRect_operation_fraction_(
+    CGPoint point,
+    CGRect rect,
+    NSCompositingOperation operation,
+    double fraction,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.compositeToPoint:fromRect:operation:fraction:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1xnlu4e(
+      this.ref.pointer,
+      _sel_compositeToPoint_fromRect_operation_fraction_,
+      point,
+      rect,
+      operation.value,
+      fraction,
+    );
+  }
+
+  /// lockFocusOnRepresentation:
+  void lockFocusOnRepresentation_(NSImageRep imageRepresentation) {
+    objc.checkOsVersionInternal(
+      'NSImage.lockFocusOnRepresentation:',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_lockFocusOnRepresentation_,
+      imageRepresentation.ref.pointer,
+    );
+  }
+
+  /// cancelIncrementalLoad
+  void cancelIncrementalLoad() {
+    objc.checkOsVersionInternal(
+      'NSImage.cancelIncrementalLoad',
+      iOS: (true, null),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_cancelIncrementalLoad);
+  }
+}
+
+late final _sel_imageNamed_ = objc.registerName("imageNamed:");
+late final _sel_imageWithSystemSymbolName_accessibilityDescription_ = objc
+    .registerName("imageWithSystemSymbolName:accessibilityDescription:");
+late final _sel_imageWithSystemSymbolName_variableValue_accessibilityDescription_ =
+    objc.registerName(
+      "imageWithSystemSymbolName:variableValue:accessibilityDescription:",
+    );
+final _objc_msgSend_17i4wqy =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Double,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            double,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+late final _sel_imageWithSymbolName_variableValue_ = objc.registerName(
+  "imageWithSymbolName:variableValue:",
+);
+final _objc_msgSend_6plvbo =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            double,
+          )
+        >();
+late final _sel_imageWithSymbolName_bundle_variableValue_ = objc.registerName(
+  "imageWithSymbolName:bundle:variableValue:",
+);
+final _objc_msgSend_hzzkpm =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            double,
+          )
+        >();
+late final _sel_initWithSize_ = objc.registerName("initWithSize:");
+final _objc_msgSend_1c2zpn3 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGSize,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGSize,
+          )
+        >();
+late final _sel_initWithData_ = objc.registerName("initWithData:");
+late final _sel_initByReferencingFile_ = objc.registerName(
+  "initByReferencingFile:",
+);
+late final _sel_initByReferencingURL_ = objc.registerName(
+  "initByReferencingURL:",
+);
+late final _sel_initWithPasteboard_ = objc.registerName("initWithPasteboard:");
+late final _sel_initWithDataIgnoringOrientation_ = objc.registerName(
+  "initWithDataIgnoringOrientation:",
+);
+bool _ObjCBlock_bool_NSRect_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  CGRect arg0,
+) => block.ref.target
+    .cast<ffi.NativeFunction<ffi.Bool Function(CGRect arg0)>>()
+    .asFunction<bool Function(CGRect)>()(arg0);
+ffi.Pointer<ffi.Void> _ObjCBlock_bool_NSRect_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Bool Function(ffi.Pointer<objc.ObjCBlockImpl>, CGRect)
+    >(_ObjCBlock_bool_NSRect_fnPtrTrampoline, false).cast();
+bool _ObjCBlock_bool_NSRect_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  CGRect arg0,
+) => (objc.getBlockClosure(block) as bool Function(CGRect))(arg0);
+ffi.Pointer<ffi.Void> _ObjCBlock_bool_NSRect_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Bool Function(ffi.Pointer<objc.ObjCBlockImpl>, CGRect)
+    >(_ObjCBlock_bool_NSRect_closureTrampoline, false).cast();
+
+/// Construction methods for `objc.ObjCBlock<ffi.Bool Function(CGRect)>`.
+abstract final class ObjCBlock_bool_NSRect {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<ffi.Bool Function(CGRect)> castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<ffi.Bool Function(CGRect)>(
+    pointer,
+    retain: retain,
+    release: release,
+  );
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Bool Function(CGRect)> fromFunctionPointer(
+    ffi.Pointer<ffi.NativeFunction<ffi.Bool Function(CGRect arg0)>> ptr,
+  ) => objc.ObjCBlock<ffi.Bool Function(CGRect)>(
+    objc.newPointerBlock(_ObjCBlock_bool_NSRect_fnPtrCallable, ptr.cast()),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Bool Function(CGRect)> fromFunction(
+    bool Function(CGRect) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<ffi.Bool Function(CGRect)>(
+    objc.newClosureBlock(
+      _ObjCBlock_bool_NSRect_closureCallable,
+      (CGRect arg0) => fn(arg0),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Bool Function(CGRect)>`.
+extension ObjCBlock_bool_NSRect_CallExtension
+    on objc.ObjCBlock<ffi.Bool Function(CGRect)> {
+  bool call(CGRect arg0) => ref.pointer.ref.invoke
+      .cast<
+        ffi.NativeFunction<
+          ffi.Bool Function(ffi.Pointer<objc.ObjCBlockImpl> block, CGRect arg0)
+        >
+      >()
+      .asFunction<bool Function(ffi.Pointer<objc.ObjCBlockImpl>, CGRect)>()(
+    ref.pointer,
+    arg0,
+  );
+}
+
+late final _sel_imageWithSize_flipped_drawingHandler_ = objc.registerName(
+  "imageWithSize:flipped:drawingHandler:",
+);
+final _objc_msgSend_ap2ayg =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGSize,
+              ffi.Bool,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGSize,
+            bool,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+late final _sel_setSize_ = objc.registerName("setSize:");
+final _objc_msgSend_13lgpwz =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGSize,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGSize,
+          )
+        >();
+late final _sel_setName_ = objc.registerName("setName:");
+
+/// WARNING: NSColor is a stub. To generate bindings for this class, include
+/// NSColor in your config's objc-interfaces list.
+///
+/// NSColor
+class NSColor extends objc.NSObject
+    implements
+        objc.NSCopying,
+        objc.NSSecureCoding,
+        NSPasteboardReading,
+        NSPasteboardWriting {
+  NSColor._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal('NSColor', iOS: (true, null));
+  }
+
+  /// Constructs a [NSColor] that points to the same underlying object as [other].
+  NSColor.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [NSColor] that wraps the given raw object pointer.
+  NSColor.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_backgroundColor = objc.registerName("backgroundColor");
+late final _sel_setBackgroundColor_ = objc.registerName("setBackgroundColor:");
+late final _sel_usesEPSOnResolutionMismatch = objc.registerName(
+  "usesEPSOnResolutionMismatch",
+);
+late final _sel_setUsesEPSOnResolutionMismatch_ = objc.registerName(
+  "setUsesEPSOnResolutionMismatch:",
+);
+late final _sel_prefersColorMatch = objc.registerName("prefersColorMatch");
+late final _sel_setPrefersColorMatch_ = objc.registerName(
+  "setPrefersColorMatch:",
+);
+late final _sel_matchesOnMultipleResolution = objc.registerName(
+  "matchesOnMultipleResolution",
+);
+late final _sel_setMatchesOnMultipleResolution_ = objc.registerName(
+  "setMatchesOnMultipleResolution:",
+);
+late final _sel_matchesOnlyOnBestFittingAxis = objc.registerName(
+  "matchesOnlyOnBestFittingAxis",
+);
+late final _sel_setMatchesOnlyOnBestFittingAxis_ = objc.registerName(
+  "setMatchesOnlyOnBestFittingAxis:",
+);
+late final _sel_drawAtPoint_fromRect_operation_fraction_ = objc.registerName(
+  "drawAtPoint:fromRect:operation:fraction:",
+);
+late final _sel_drawInRect_fromRect_operation_fraction_ = objc.registerName(
+  "drawInRect:fromRect:operation:fraction:",
+);
+final _objc_msgSend_bfgdl2 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGRect,
+              CGRect,
+              ffi.UnsignedLong,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGRect,
+            CGRect,
+            int,
+            double,
+          )
+        >();
+late final _sel_drawInRect_fromRect_operation_fraction_respectFlipped_hints_ =
+    objc.registerName(
+      "drawInRect:fromRect:operation:fraction:respectFlipped:hints:",
+    );
+final _objc_msgSend_1qus490 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGRect,
+              CGRect,
+              ffi.UnsignedLong,
+              ffi.Double,
+              ffi.Bool,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGRect,
+            CGRect,
+            int,
+            double,
+            bool,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+late final _sel_drawRepresentation_inRect_ = objc.registerName(
+  "drawRepresentation:inRect:",
+);
+final _objc_msgSend_x4xkoq =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Bool Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              CGRect,
+            )
+          >
+        >()
+        .asFunction<
+          bool Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            CGRect,
+          )
+        >();
+late final _sel_recache = objc.registerName("recache");
+late final _sel_TIFFRepresentation = objc.registerName("TIFFRepresentation");
+
+enum NSTIFFCompression {
+  NSTIFFCompressionNone(1),
+  NSTIFFCompressionCCITTFAX3(3),
+  NSTIFFCompressionCCITTFAX4(4),
+  NSTIFFCompressionLZW(5),
+  NSTIFFCompressionJPEG(6),
+  NSTIFFCompressionNEXT(32766),
+  NSTIFFCompressionPackBits(32773),
+  NSTIFFCompressionOldJPEG(32865);
+
+  final int value;
+  const NSTIFFCompression(this.value);
+
+  static NSTIFFCompression fromValue(int value) => switch (value) {
+    1 => NSTIFFCompressionNone,
+    3 => NSTIFFCompressionCCITTFAX3,
+    4 => NSTIFFCompressionCCITTFAX4,
+    5 => NSTIFFCompressionLZW,
+    6 => NSTIFFCompressionJPEG,
+    32766 => NSTIFFCompressionNEXT,
+    32773 => NSTIFFCompressionPackBits,
+    32865 => NSTIFFCompressionOldJPEG,
+    _ => throw ArgumentError('Unknown value for NSTIFFCompression: $value'),
+  };
+}
+
+late final _sel_TIFFRepresentationUsingCompression_factor_ = objc.registerName(
+  "TIFFRepresentationUsingCompression:factor:",
+);
+final _objc_msgSend_gs5ux1 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+              ffi.Float,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+            double,
+          )
+        >();
+late final _sel_representations = objc.registerName("representations");
+late final _sel_addRepresentations_ = objc.registerName("addRepresentations:");
+late final _sel_addRepresentation_ = objc.registerName("addRepresentation:");
+late final _sel_removeRepresentation_ = objc.registerName(
+  "removeRepresentation:",
+);
+late final _sel_isValid = objc.registerName("isValid");
+
+/// WARNING: NSImageDelegate is a stub. To generate bindings for this class, include
+/// NSImageDelegate in your config's objc-protocols list.
+///
+/// NSImageDelegate
+interface class NSImageDelegate extends objc.ObjCProtocolBase
+    implements objc.NSObjectProtocol {
+  NSImageDelegate._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [NSImageDelegate] that points to the same underlying object as [other].
+  NSImageDelegate.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [NSImageDelegate] that wraps the given raw object pointer.
+  NSImageDelegate.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_delegate = objc.registerName("delegate");
+late final _sel_setDelegate_ = objc.registerName("setDelegate:");
+late final _sel_imageTypes = objc.registerName("imageTypes");
+late final _sel_imageUnfilteredTypes = objc.registerName(
+  "imageUnfilteredTypes",
+);
+late final _sel_canInitWithPasteboard_ = objc.registerName(
+  "canInitWithPasteboard:",
+);
+
+enum NSImageCacheMode {
+  NSImageCacheDefault(0),
+  NSImageCacheAlways(1),
+  NSImageCacheBySize(2),
+  NSImageCacheNever(3);
+
+  final int value;
+  const NSImageCacheMode(this.value);
+
+  static NSImageCacheMode fromValue(int value) => switch (value) {
+    0 => NSImageCacheDefault,
+    1 => NSImageCacheAlways,
+    2 => NSImageCacheBySize,
+    3 => NSImageCacheNever,
+    _ => throw ArgumentError('Unknown value for NSImageCacheMode: $value'),
+  };
+}
+
+late final _sel_cacheMode = objc.registerName("cacheMode");
+final _objc_msgSend_1d4tuvg =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.UnsignedLong Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setCacheMode_ = objc.registerName("setCacheMode:");
+final _objc_msgSend_14xnhaq =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+          )
+        >();
+late final _sel_alignmentRect = objc.registerName("alignmentRect");
+final _objc_msgSend_bu1hbw =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            CGRect Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          CGRect Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+final _objc_msgSend_bu1hbwStret =
+    objc.msgSendStretPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<CGRect>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<CGRect>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setAlignmentRect_ = objc.registerName("setAlignmentRect:");
+late final _sel_isTemplate = objc.registerName("isTemplate");
+late final _sel_setTemplate_ = objc.registerName("setTemplate:");
+late final _sel_accessibilityDescription = objc.registerName(
+  "accessibilityDescription",
+);
+late final _sel_setAccessibilityDescription_ = objc.registerName(
+  "setAccessibilityDescription:",
+);
+late final _sel_initWithCGImage_size_ = objc.registerName(
+  "initWithCGImage:size:",
+);
+final _objc_msgSend_lvz2zr =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<CGImage>,
+              CGSize,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<CGImage>,
+            CGSize,
+          )
+        >();
+
+/// WARNING: NSGraphicsContext is a stub. To generate bindings for this class, include
+/// NSGraphicsContext in your config's objc-interfaces list.
+///
+/// NSGraphicsContext
+class NSGraphicsContext extends objc.NSObject {
+  NSGraphicsContext._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal('NSGraphicsContext', iOS: (true, null));
+  }
+
+  /// Constructs a [NSGraphicsContext] that points to the same underlying object as [other].
+  NSGraphicsContext.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [NSGraphicsContext] that wraps the given raw object pointer.
+  NSGraphicsContext.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_CGImageForProposedRect_context_hints_ = objc.registerName(
+  "CGImageForProposedRect:context:hints:",
+);
+final _objc_msgSend_1lfy6m2 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<CGImage> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<CGRect>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<CGImage> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<CGRect>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+late final _sel_bestRepresentationForRect_context_hints_ = objc.registerName(
+  "bestRepresentationForRect:context:hints:",
+);
+final _objc_msgSend_1o8sa9u =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGRect,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGRect,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+late final _sel_hitTestRect_withImageDestinationRect_context_hints_flipped_ =
+    objc.registerName(
+      "hitTestRect:withImageDestinationRect:context:hints:flipped:",
+    );
+final _objc_msgSend_h03lrd =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Bool Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGRect,
+              CGRect,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          bool Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGRect,
+            CGRect,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+          )
+        >();
+late final _sel_recommendedLayerContentsScale_ = objc.registerName(
+  "recommendedLayerContentsScale:",
+);
+final _objc_msgSend_1tczmpv =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Double Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          double Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            double,
+          )
+        >();
+final _objc_msgSend_1tczmpvFpret =
+    objc.msgSendFpretPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Double Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          double Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            double,
+          )
+        >();
+late final _sel_layerContentsForContentsScale_ = objc.registerName(
+  "layerContentsForContentsScale:",
+);
+final _objc_msgSend_oa8mke =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            double,
+          )
+        >();
+late final _sel_capInsets = objc.registerName("capInsets");
+final _objc_msgSend_sl0cgw =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            NSEdgeInsets Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          NSEdgeInsets Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+final _objc_msgSend_sl0cgwStret =
+    objc.msgSendStretPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<NSEdgeInsets>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<NSEdgeInsets>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setCapInsets_ = objc.registerName("setCapInsets:");
+final _objc_msgSend_1ug163q =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              NSEdgeInsets,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            NSEdgeInsets,
+          )
+        >();
+
+enum NSImageResizingMode {
+  NSImageResizingModeTile(0),
+  NSImageResizingModeStretch(1);
+
+  final int value;
+  const NSImageResizingMode(this.value);
+
+  static NSImageResizingMode fromValue(int value) => switch (value) {
+    0 => NSImageResizingModeTile,
+    1 => NSImageResizingModeStretch,
+    _ => throw ArgumentError('Unknown value for NSImageResizingMode: $value'),
+  };
+}
+
+late final _sel_resizingMode = objc.registerName("resizingMode");
+final _objc_msgSend_q65rpn =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Long Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setResizingMode_ = objc.registerName("setResizingMode:");
+final _objc_msgSend_197i80f =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Long,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+          )
+        >();
+
+/// WARNING: NSImageSymbolConfiguration is a stub. To generate bindings for this class, include
+/// NSImageSymbolConfiguration in your config's objc-interfaces list.
+///
+/// NSImageSymbolConfiguration
+class NSImageSymbolConfiguration extends objc.NSObject
+    implements objc.NSCopying, objc.NSSecureCoding {
+  NSImageSymbolConfiguration._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release) {
+    objc.checkOsVersionInternal(
+      'NSImageSymbolConfiguration',
+      iOS: (true, null),
+      macOS: (false, (11, 0, 0)),
+    );
+  }
+
+  /// Constructs a [NSImageSymbolConfiguration] that points to the same underlying object as [other].
+  NSImageSymbolConfiguration.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [NSImageSymbolConfiguration] that wraps the given raw object pointer.
+  NSImageSymbolConfiguration.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_imageWithSymbolConfiguration_ = objc.registerName(
+  "imageWithSymbolConfiguration:",
+);
+late final _sel_symbolConfiguration = objc.registerName("symbolConfiguration");
+late final _sel_imageWithLocale_ = objc.registerName("imageWithLocale:");
+late final _sel_locale = objc.registerName("locale");
+late final _sel_initWithIconRef_ = objc.registerName("initWithIconRef:");
+final _objc_msgSend_1o4xiu1 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<OpaqueIconRef>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<OpaqueIconRef>,
+          )
+        >();
+
+/// NSImage
+class NSImage extends objc.NSObject {
+  NSImage._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [NSImage] that points to the same underlying object as [other].
+  NSImage.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [NSImage] that wraps the given raw object pointer.
+  NSImage.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [NSImage].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_NSImage,
+    );
+  }
+
+  /// imageNamed:
+  static NSImage? imageNamed_(objc.NSString name) {
+    objc.checkOsVersionInternal('NSImage.imageNamed:', iOS: (true, null));
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSImage,
+      _sel_imageNamed_,
+      name.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// imageWithSystemSymbolName:accessibilityDescription:
+  static NSImage? imageWithSystemSymbolName_accessibilityDescription_(
+    objc.NSString name,
+    objc.NSString? description,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.imageWithSystemSymbolName:accessibilityDescription:',
+      iOS: (true, null),
+      macOS: (false, (11, 0, 0)),
+    );
+    final _ret = _objc_msgSend_15qeuct(
+      _class_NSImage,
+      _sel_imageWithSystemSymbolName_accessibilityDescription_,
+      name.ref.pointer,
+      description?.ref.pointer ?? ffi.nullptr,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// imageWithSystemSymbolName:variableValue:accessibilityDescription:
+  static NSImage?
+  imageWithSystemSymbolName_variableValue_accessibilityDescription_(
+    objc.NSString name,
+    double value,
+    objc.NSString? description,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.imageWithSystemSymbolName:variableValue:accessibilityDescription:',
+      iOS: (true, null),
+      macOS: (false, (13, 0, 0)),
+    );
+    final _ret = _objc_msgSend_17i4wqy(
+      _class_NSImage,
+      _sel_imageWithSystemSymbolName_variableValue_accessibilityDescription_,
+      name.ref.pointer,
+      value,
+      description?.ref.pointer ?? ffi.nullptr,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// imageWithSymbolName:variableValue:
+  static NSImage? imageWithSymbolName_variableValue_(
+    objc.NSString name,
+    double value,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.imageWithSymbolName:variableValue:',
+      iOS: (true, null),
+      macOS: (false, (13, 0, 0)),
+    );
+    final _ret = _objc_msgSend_6plvbo(
+      _class_NSImage,
+      _sel_imageWithSymbolName_variableValue_,
+      name.ref.pointer,
+      value,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// imageWithSymbolName:bundle:variableValue:
+  static NSImage? imageWithSymbolName_bundle_variableValue_(
+    objc.NSString name,
+    NSBundle? bundle,
+    double value,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.imageWithSymbolName:bundle:variableValue:',
+      iOS: (true, null),
+      macOS: (false, (13, 0, 0)),
+    );
+    final _ret = _objc_msgSend_hzzkpm(
+      _class_NSImage,
+      _sel_imageWithSymbolName_bundle_variableValue_,
+      name.ref.pointer,
+      bundle?.ref.pointer ?? ffi.nullptr,
+      value,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// initWithSize:
+  NSImage initWithSize_(CGSize size) {
+    objc.checkOsVersionInternal('NSImage.initWithSize:', iOS: (true, null));
+    final _ret = _objc_msgSend_1c2zpn3(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithSize_,
+      size,
+    );
+    return NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// initWithCoder:
+  NSImage? initWithCoder_(objc.NSCoder coder) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithCoder_,
+      coder.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// initWithData:
+  NSImage? initWithData_(objc.NSData data) {
+    objc.checkOsVersionInternal('NSImage.initWithData:', iOS: (true, null));
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithData_,
+      data.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// initWithContentsOfFile:
+  NSImage? initWithContentsOfFile_(objc.NSString fileName) {
+    objc.checkOsVersionInternal(
+      'NSImage.initWithContentsOfFile:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithContentsOfFile_,
+      fileName.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// initWithContentsOfURL:
+  NSImage? initWithContentsOfURL_(objc.NSURL url) {
+    objc.checkOsVersionInternal(
+      'NSImage.initWithContentsOfURL:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithContentsOfURL_,
+      url.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// initByReferencingFile:
+  NSImage? initByReferencingFile_(objc.NSString fileName) {
+    objc.checkOsVersionInternal(
+      'NSImage.initByReferencingFile:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initByReferencingFile_,
+      fileName.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// initByReferencingURL:
+  NSImage initByReferencingURL_(objc.NSURL url) {
+    objc.checkOsVersionInternal(
+      'NSImage.initByReferencingURL:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initByReferencingURL_,
+      url.ref.pointer,
+    );
+    return NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// initWithPasteboard:
+  NSImage? initWithPasteboard_(NSPasteboard pasteboard) {
+    objc.checkOsVersionInternal(
+      'NSImage.initWithPasteboard:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithPasteboard_,
+      pasteboard.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// initWithDataIgnoringOrientation:
+  NSImage? initWithDataIgnoringOrientation_(objc.NSData data) {
+    objc.checkOsVersionInternal(
+      'NSImage.initWithDataIgnoringOrientation:',
+      iOS: (true, null),
+      macOS: (false, (10, 6, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithDataIgnoringOrientation_,
+      data.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// imageWithSize:flipped:drawingHandler:
+  static NSImage imageWithSize_flipped_drawingHandler_(
+    CGSize size,
+    bool drawingHandlerShouldBeCalledWithFlippedContext,
+    objc.ObjCBlock<ffi.Bool Function(CGRect)> drawingHandler,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.imageWithSize:flipped:drawingHandler:',
+      iOS: (true, null),
+      macOS: (false, (10, 8, 0)),
+    );
+    final _ret = _objc_msgSend_ap2ayg(
+      _class_NSImage,
+      _sel_imageWithSize_flipped_drawingHandler_,
+      size,
+      drawingHandlerShouldBeCalledWithFlippedContext,
+      drawingHandler.ref.pointer,
+    );
+    return NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// size
+  CGSize get size {
+    objc.checkOsVersionInternal('NSImage.size', iOS: (true, null));
+    final _ptr = pkg_ffi.calloc<CGSize>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1vdfkenStret(_ptr, this.ref.pointer, _sel_size)
+        : _ptr.ref = _objc_msgSend_1vdfken(this.ref.pointer, _sel_size);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<CGSize>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<CGSize>(_finalizable);
+  }
+
+  /// setSize:
+  set size(CGSize value) {
+    objc.checkOsVersionInternal('NSImage.setSize:', iOS: (true, null));
+    _objc_msgSend_13lgpwz(this.ref.pointer, _sel_setSize_, value);
+  }
+
+  /// setName:
+  bool setName_(objc.NSString? string) {
+    objc.checkOsVersionInternal('NSImage.setName:', iOS: (true, null));
+    return _objc_msgSend_19nvye5(
+      this.ref.pointer,
+      _sel_setName_,
+      string?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// name
+  objc.NSString? name() {
+    objc.checkOsVersionInternal('NSImage.name', iOS: (true, null));
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_name);
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// backgroundColor
+  NSColor get backgroundColor {
+    objc.checkOsVersionInternal('NSImage.backgroundColor', iOS: (true, null));
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_backgroundColor);
+    return NSColor.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// setBackgroundColor:
+  set backgroundColor(NSColor value) {
+    objc.checkOsVersionInternal(
+      'NSImage.setBackgroundColor:',
+      iOS: (true, null),
+    );
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_setBackgroundColor_,
+      value.ref.pointer,
+    );
+  }
+
+  /// usesEPSOnResolutionMismatch
+  bool get usesEPSOnResolutionMismatch {
+    objc.checkOsVersionInternal(
+      'NSImage.usesEPSOnResolutionMismatch',
+      iOS: (true, null),
+    );
+    return _objc_msgSend_91o635(
+      this.ref.pointer,
+      _sel_usesEPSOnResolutionMismatch,
+    );
+  }
+
+  /// setUsesEPSOnResolutionMismatch:
+  set usesEPSOnResolutionMismatch(bool value) {
+    objc.checkOsVersionInternal(
+      'NSImage.setUsesEPSOnResolutionMismatch:',
+      iOS: (true, null),
+    );
+    _objc_msgSend_1s56lr9(
+      this.ref.pointer,
+      _sel_setUsesEPSOnResolutionMismatch_,
+      value,
+    );
+  }
+
+  /// prefersColorMatch
+  bool get prefersColorMatch {
+    objc.checkOsVersionInternal('NSImage.prefersColorMatch', iOS: (true, null));
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_prefersColorMatch);
+  }
+
+  /// setPrefersColorMatch:
+  set prefersColorMatch(bool value) {
+    objc.checkOsVersionInternal(
+      'NSImage.setPrefersColorMatch:',
+      iOS: (true, null),
+    );
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setPrefersColorMatch_, value);
+  }
+
+  /// matchesOnMultipleResolution
+  bool get matchesOnMultipleResolution {
+    objc.checkOsVersionInternal(
+      'NSImage.matchesOnMultipleResolution',
+      iOS: (true, null),
+    );
+    return _objc_msgSend_91o635(
+      this.ref.pointer,
+      _sel_matchesOnMultipleResolution,
+    );
+  }
+
+  /// setMatchesOnMultipleResolution:
+  set matchesOnMultipleResolution(bool value) {
+    objc.checkOsVersionInternal(
+      'NSImage.setMatchesOnMultipleResolution:',
+      iOS: (true, null),
+    );
+    _objc_msgSend_1s56lr9(
+      this.ref.pointer,
+      _sel_setMatchesOnMultipleResolution_,
+      value,
+    );
+  }
+
+  /// matchesOnlyOnBestFittingAxis
+  bool get matchesOnlyOnBestFittingAxis {
+    objc.checkOsVersionInternal(
+      'NSImage.matchesOnlyOnBestFittingAxis',
+      iOS: (true, null),
+      macOS: (false, (10, 7, 0)),
+    );
+    return _objc_msgSend_91o635(
+      this.ref.pointer,
+      _sel_matchesOnlyOnBestFittingAxis,
+    );
+  }
+
+  /// setMatchesOnlyOnBestFittingAxis:
+  set matchesOnlyOnBestFittingAxis(bool value) {
+    objc.checkOsVersionInternal(
+      'NSImage.setMatchesOnlyOnBestFittingAxis:',
+      iOS: (true, null),
+      macOS: (false, (10, 7, 0)),
+    );
+    _objc_msgSend_1s56lr9(
+      this.ref.pointer,
+      _sel_setMatchesOnlyOnBestFittingAxis_,
+      value,
+    );
+  }
+
+  /// drawAtPoint:fromRect:operation:fraction:
+  void drawAtPoint_fromRect_operation_fraction_(
+    CGPoint point,
+    CGRect fromRect,
+    NSCompositingOperation op,
+    double delta,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.drawAtPoint:fromRect:operation:fraction:',
+      iOS: (true, null),
+    );
+    _objc_msgSend_1xnlu4e(
+      this.ref.pointer,
+      _sel_drawAtPoint_fromRect_operation_fraction_,
+      point,
+      fromRect,
+      op.value,
+      delta,
+    );
+  }
+
+  /// drawInRect:fromRect:operation:fraction:
+  void drawInRect_fromRect_operation_fraction_(
+    CGRect rect,
+    CGRect fromRect,
+    NSCompositingOperation op,
+    double delta,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.drawInRect:fromRect:operation:fraction:',
+      iOS: (true, null),
+    );
+    _objc_msgSend_bfgdl2(
+      this.ref.pointer,
+      _sel_drawInRect_fromRect_operation_fraction_,
+      rect,
+      fromRect,
+      op.value,
+      delta,
+    );
+  }
+
+  /// drawInRect:fromRect:operation:fraction:respectFlipped:hints:
+  void drawInRect_fromRect_operation_fraction_respectFlipped_hints_(
+    CGRect dstSpacePortionRect,
+    CGRect srcSpacePortionRect,
+    NSCompositingOperation op,
+    double requestedAlpha,
+    bool respectContextIsFlipped,
+    objc.NSDictionary? hints,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.drawInRect:fromRect:operation:fraction:respectFlipped:hints:',
+      iOS: (true, null),
+      macOS: (false, (10, 6, 0)),
+    );
+    _objc_msgSend_1qus490(
+      this.ref.pointer,
+      _sel_drawInRect_fromRect_operation_fraction_respectFlipped_hints_,
+      dstSpacePortionRect,
+      srcSpacePortionRect,
+      op.value,
+      requestedAlpha,
+      respectContextIsFlipped,
+      hints?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// drawRepresentation:inRect:
+  bool drawRepresentation_inRect_(NSImageRep imageRep, CGRect rect) {
+    objc.checkOsVersionInternal(
+      'NSImage.drawRepresentation:inRect:',
+      iOS: (true, null),
+    );
+    return _objc_msgSend_x4xkoq(
+      this.ref.pointer,
+      _sel_drawRepresentation_inRect_,
+      imageRep.ref.pointer,
+      rect,
+    );
+  }
+
+  /// drawInRect:
+  void drawInRect_(CGRect rect) {
+    objc.checkOsVersionInternal(
+      'NSImage.drawInRect:',
+      iOS: (true, null),
+      macOS: (false, (10, 9, 0)),
+    );
+    _objc_msgSend_1okkq16(this.ref.pointer, _sel_drawInRect_, rect);
+  }
+
+  /// recache
+  void recache() {
+    objc.checkOsVersionInternal('NSImage.recache', iOS: (true, null));
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_recache);
+  }
+
+  /// TIFFRepresentation
+  objc.NSData? get TIFFRepresentation {
+    objc.checkOsVersionInternal(
+      'NSImage.TIFFRepresentation',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_TIFFRepresentation,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.NSData.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// TIFFRepresentationUsingCompression:factor:
+  objc.NSData? TIFFRepresentationUsingCompression_factor_(
+    NSTIFFCompression comp,
+    double factor,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.TIFFRepresentationUsingCompression:factor:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_gs5ux1(
+      this.ref.pointer,
+      _sel_TIFFRepresentationUsingCompression_factor_,
+      comp.value,
+      factor,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.NSData.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// representations
+  objc.NSArray get representations {
+    objc.checkOsVersionInternal('NSImage.representations', iOS: (true, null));
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_representations);
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// addRepresentations:
+  void addRepresentations_(objc.NSArray imageReps) {
+    objc.checkOsVersionInternal(
+      'NSImage.addRepresentations:',
+      iOS: (true, null),
+    );
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_addRepresentations_,
+      imageReps.ref.pointer,
+    );
+  }
+
+  /// addRepresentation:
+  void addRepresentation_(NSImageRep imageRep) {
+    objc.checkOsVersionInternal(
+      'NSImage.addRepresentation:',
+      iOS: (true, null),
+    );
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_addRepresentation_,
+      imageRep.ref.pointer,
+    );
+  }
+
+  /// removeRepresentation:
+  void removeRepresentation_(NSImageRep imageRep) {
+    objc.checkOsVersionInternal(
+      'NSImage.removeRepresentation:',
+      iOS: (true, null),
+    );
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_removeRepresentation_,
+      imageRep.ref.pointer,
+    );
+  }
+
+  /// isValid
+  bool get valid {
+    objc.checkOsVersionInternal('NSImage.isValid', iOS: (true, null));
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_isValid);
+  }
+
+  /// delegate
+  NSImageDelegate? get delegate {
+    objc.checkOsVersionInternal('NSImage.delegate', iOS: (true, null));
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_delegate);
+    return _ret.address == 0
+        ? null
+        : NSImageDelegate.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// setDelegate:
+  set delegate(NSImageDelegate? value) {
+    objc.checkOsVersionInternal('NSImage.setDelegate:', iOS: (true, null));
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_setDelegate_,
+      value?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// imageTypes
+  static objc.NSArray getImageTypes() {
+    objc.checkOsVersionInternal(
+      'NSImage.imageTypes',
+      iOS: (true, null),
+      macOS: (false, (10, 5, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(_class_NSImage, _sel_imageTypes);
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// imageUnfilteredTypes
+  static objc.NSArray getImageUnfilteredTypes() {
+    objc.checkOsVersionInternal(
+      'NSImage.imageUnfilteredTypes',
+      iOS: (true, null),
+      macOS: (false, (10, 5, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSImage,
+      _sel_imageUnfilteredTypes,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// canInitWithPasteboard:
+  static bool canInitWithPasteboard_(NSPasteboard pasteboard) {
+    objc.checkOsVersionInternal(
+      'NSImage.canInitWithPasteboard:',
+      iOS: (true, null),
+    );
+    return _objc_msgSend_19nvye5(
+      _class_NSImage,
+      _sel_canInitWithPasteboard_,
+      pasteboard.ref.pointer,
+    );
+  }
+
+  /// cacheMode
+  NSImageCacheMode get cacheMode {
+    objc.checkOsVersionInternal('NSImage.cacheMode', iOS: (true, null));
+    final _ret = _objc_msgSend_1d4tuvg(this.ref.pointer, _sel_cacheMode);
+    return NSImageCacheMode.fromValue(_ret);
+  }
+
+  /// setCacheMode:
+  set cacheMode(NSImageCacheMode value) {
+    objc.checkOsVersionInternal('NSImage.setCacheMode:', iOS: (true, null));
+    _objc_msgSend_14xnhaq(this.ref.pointer, _sel_setCacheMode_, value.value);
+  }
+
+  /// alignmentRect
+  CGRect get alignmentRect {
+    objc.checkOsVersionInternal(
+      'NSImage.alignmentRect',
+      iOS: (true, null),
+      macOS: (false, (10, 5, 0)),
+    );
+    final _ptr = pkg_ffi.calloc<CGRect>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_bu1hbwStret(_ptr, this.ref.pointer, _sel_alignmentRect)
+        : _ptr.ref = _objc_msgSend_bu1hbw(this.ref.pointer, _sel_alignmentRect);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<CGRect>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<CGRect>(_finalizable);
+  }
+
+  /// setAlignmentRect:
+  set alignmentRect(CGRect value) {
+    objc.checkOsVersionInternal(
+      'NSImage.setAlignmentRect:',
+      iOS: (true, null),
+      macOS: (false, (10, 5, 0)),
+    );
+    _objc_msgSend_1okkq16(this.ref.pointer, _sel_setAlignmentRect_, value);
+  }
+
+  /// isTemplate
+  bool get template {
+    objc.checkOsVersionInternal(
+      'NSImage.isTemplate',
+      iOS: (true, null),
+      macOS: (false, (10, 5, 0)),
+    );
+    return _objc_msgSend_91o635(this.ref.pointer, _sel_isTemplate);
+  }
+
+  /// setTemplate:
+  set template(bool value) {
+    objc.checkOsVersionInternal(
+      'NSImage.setTemplate:',
+      iOS: (true, null),
+      macOS: (false, (10, 5, 0)),
+    );
+    _objc_msgSend_1s56lr9(this.ref.pointer, _sel_setTemplate_, value);
+  }
+
+  /// accessibilityDescription
+  objc.NSString? get accessibilityDescription {
+    objc.checkOsVersionInternal(
+      'NSImage.accessibilityDescription',
+      iOS: (true, null),
+      macOS: (false, (10, 6, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_accessibilityDescription,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// setAccessibilityDescription:
+  set accessibilityDescription(objc.NSString? value) {
+    objc.checkOsVersionInternal(
+      'NSImage.setAccessibilityDescription:',
+      iOS: (true, null),
+      macOS: (false, (10, 6, 0)),
+    );
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_setAccessibilityDescription_,
+      value?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// initWithCGImage:size:
+  NSImage initWithCGImage_size_(ffi.Pointer<CGImage> cgImage, CGSize size) {
+    objc.checkOsVersionInternal(
+      'NSImage.initWithCGImage:size:',
+      iOS: (true, null),
+      macOS: (false, (10, 6, 0)),
+    );
+    final _ret = _objc_msgSend_lvz2zr(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithCGImage_size_,
+      cgImage,
+      size,
+    );
+    return NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// CGImageForProposedRect:context:hints:
+  ffi.Pointer<CGImage> CGImageForProposedRect_context_hints_(
+    ffi.Pointer<CGRect> proposedDestRect,
+    NSGraphicsContext? referenceContext,
+    objc.NSDictionary? hints,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.CGImageForProposedRect:context:hints:',
+      iOS: (true, null),
+      macOS: (false, (10, 6, 0)),
+    );
+    return _objc_msgSend_1lfy6m2(
+      this.ref.pointer,
+      _sel_CGImageForProposedRect_context_hints_,
+      proposedDestRect,
+      referenceContext?.ref.pointer ?? ffi.nullptr,
+      hints?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// bestRepresentationForRect:context:hints:
+  NSImageRep? bestRepresentationForRect_context_hints_(
+    CGRect rect,
+    NSGraphicsContext? referenceContext,
+    objc.NSDictionary? hints,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.bestRepresentationForRect:context:hints:',
+      iOS: (true, null),
+      macOS: (false, (10, 6, 0)),
+    );
+    final _ret = _objc_msgSend_1o8sa9u(
+      this.ref.pointer,
+      _sel_bestRepresentationForRect_context_hints_,
+      rect,
+      referenceContext?.ref.pointer ?? ffi.nullptr,
+      hints?.ref.pointer ?? ffi.nullptr,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImageRep.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// hitTestRect:withImageDestinationRect:context:hints:flipped:
+  bool hitTestRect_withImageDestinationRect_context_hints_flipped_(
+    CGRect testRectDestSpace,
+    CGRect imageRectDestSpace,
+    NSGraphicsContext? context,
+    objc.NSDictionary? hints,
+    bool flipped,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.hitTestRect:withImageDestinationRect:context:hints:flipped:',
+      iOS: (true, null),
+      macOS: (false, (10, 6, 0)),
+    );
+    return _objc_msgSend_h03lrd(
+      this.ref.pointer,
+      _sel_hitTestRect_withImageDestinationRect_context_hints_flipped_,
+      testRectDestSpace,
+      imageRectDestSpace,
+      context?.ref.pointer ?? ffi.nullptr,
+      hints?.ref.pointer ?? ffi.nullptr,
+      flipped,
+    );
+  }
+
+  /// recommendedLayerContentsScale:
+  double recommendedLayerContentsScale_(double preferredContentsScale) {
+    objc.checkOsVersionInternal(
+      'NSImage.recommendedLayerContentsScale:',
+      iOS: (true, null),
+      macOS: (false, (10, 7, 0)),
+    );
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1tczmpvFpret(
+          this.ref.pointer,
+          _sel_recommendedLayerContentsScale_,
+          preferredContentsScale,
+        )
+        : _objc_msgSend_1tczmpv(
+          this.ref.pointer,
+          _sel_recommendedLayerContentsScale_,
+          preferredContentsScale,
+        );
+  }
+
+  /// layerContentsForContentsScale:
+  objc.ObjCObjectBase layerContentsForContentsScale_(
+    double layerContentsScale,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.layerContentsForContentsScale:',
+      iOS: (true, null),
+      macOS: (false, (10, 7, 0)),
+    );
+    final _ret = _objc_msgSend_oa8mke(
+      this.ref.pointer,
+      _sel_layerContentsForContentsScale_,
+      layerContentsScale,
+    );
+    return objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// capInsets
+  NSEdgeInsets get capInsets {
+    objc.checkOsVersionInternal(
+      'NSImage.capInsets',
+      iOS: (true, null),
+      macOS: (false, (10, 10, 0)),
+    );
+    final _ptr = pkg_ffi.calloc<NSEdgeInsets>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_sl0cgwStret(_ptr, this.ref.pointer, _sel_capInsets)
+        : _ptr.ref = _objc_msgSend_sl0cgw(this.ref.pointer, _sel_capInsets);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<NSEdgeInsets>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<NSEdgeInsets>(_finalizable);
+  }
+
+  /// setCapInsets:
+  set capInsets(NSEdgeInsets value) {
+    objc.checkOsVersionInternal(
+      'NSImage.setCapInsets:',
+      iOS: (true, null),
+      macOS: (false, (10, 10, 0)),
+    );
+    _objc_msgSend_1ug163q(this.ref.pointer, _sel_setCapInsets_, value);
+  }
+
+  /// resizingMode
+  NSImageResizingMode get resizingMode {
+    objc.checkOsVersionInternal(
+      'NSImage.resizingMode',
+      iOS: (true, null),
+      macOS: (false, (10, 10, 0)),
+    );
+    final _ret = _objc_msgSend_q65rpn(this.ref.pointer, _sel_resizingMode);
+    return NSImageResizingMode.fromValue(_ret);
+  }
+
+  /// setResizingMode:
+  set resizingMode(NSImageResizingMode value) {
+    objc.checkOsVersionInternal(
+      'NSImage.setResizingMode:',
+      iOS: (true, null),
+      macOS: (false, (10, 10, 0)),
+    );
+    _objc_msgSend_197i80f(this.ref.pointer, _sel_setResizingMode_, value.value);
+  }
+
+  /// imageWithSymbolConfiguration:
+  NSImage? imageWithSymbolConfiguration_(
+    NSImageSymbolConfiguration configuration,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.imageWithSymbolConfiguration:',
+      iOS: (true, null),
+      macOS: (false, (11, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_imageWithSymbolConfiguration_,
+      configuration.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// symbolConfiguration
+  NSImageSymbolConfiguration get symbolConfiguration {
+    objc.checkOsVersionInternal(
+      'NSImage.symbolConfiguration',
+      iOS: (true, null),
+      macOS: (false, (12, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_symbolConfiguration,
+    );
+    return NSImageSymbolConfiguration.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// imageWithLocale:
+  NSImage imageWithLocale_(objc.NSLocale? locale) {
+    objc.checkOsVersionInternal(
+      'NSImage.imageWithLocale:',
+      iOS: (true, null),
+      macOS: (false, (14, 0, 0)),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_imageWithLocale_,
+      locale?.ref.pointer ?? ffi.nullptr,
+    );
+    return NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// locale
+  objc.NSLocale? get locale {
+    objc.checkOsVersionInternal(
+      'NSImage.locale',
+      iOS: (true, null),
+      macOS: (false, (14, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_locale);
+    return _ret.address == 0
+        ? null
+        : objc.NSLocale.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// init
+  NSImage init() {
+    objc.checkOsVersionInternal(
+      'NSImage.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// new
+  static NSImage new$() {
+    final _ret = _objc_msgSend_151sglz(_class_NSImage, _sel_new);
+    return NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static NSImage allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_NSImage,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static NSImage alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_NSImage, _sel_alloc);
+    return NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// supportsSecureCoding
+  static bool getSupportsSecureCoding() {
+    return _objc_msgSend_91o635(_class_NSImage, _sel_supportsSecureCoding);
+  }
+
+  /// encodeWithCoder:
+  void encodeWithCoder_(objc.NSCoder coder) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_encodeWithCoder_,
+      coder.ref.pointer,
+    );
+  }
+
+  /// readableTypesForPasteboard:
+  static objc.NSArray readableTypesForPasteboard_(NSPasteboard pasteboard) {
+    objc.checkOsVersionInternal(
+      'NSImage.readableTypesForPasteboard:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSImage,
+      _sel_readableTypesForPasteboard_,
+      pasteboard.ref.pointer,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// readingOptionsForType:pasteboard:
+  static NSPasteboardReadingOptions readingOptionsForType_pasteboard_(
+    objc.NSString type,
+    NSPasteboard pasteboard,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.readingOptionsForType:pasteboard:',
+      iOS: (true, null),
+    );
+    if (!objc.respondsToSelector(
+      _class_NSImage,
+      _sel_readingOptionsForType_pasteboard_,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSImage',
+        'readingOptionsForType:pasteboard:',
+      );
+    }
+    final _ret = _objc_msgSend_9e06sb(
+      _class_NSImage,
+      _sel_readingOptionsForType_pasteboard_,
+      type.ref.pointer,
+      pasteboard.ref.pointer,
+    );
+    return NSPasteboardReadingOptions.fromValue(_ret);
+  }
+
+  /// initWithPasteboardPropertyList:ofType:
+  objc.ObjCObjectBase? initWithPasteboardPropertyList_ofType_(
+    objc.ObjCObjectBase propertyList,
+    objc.NSString type,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.initWithPasteboardPropertyList:ofType:',
+      iOS: (true, null),
+    );
+    if (!objc.respondsToSelector(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithPasteboardPropertyList_ofType_,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSImage',
+        'initWithPasteboardPropertyList:ofType:',
+      );
+    }
+    final _ret = _objc_msgSend_15qeuct(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithPasteboardPropertyList_ofType_,
+      propertyList.ref.pointer,
+      type.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: false, release: true);
+  }
+
+  /// writableTypesForPasteboard:
+  objc.NSArray writableTypesForPasteboard_(NSPasteboard pasteboard) {
+    objc.checkOsVersionInternal(
+      'NSImage.writableTypesForPasteboard:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_writableTypesForPasteboard_,
+      pasteboard.ref.pointer,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// writingOptionsForType:pasteboard:
+  NSPasteboardWritingOptions writingOptionsForType_pasteboard_(
+    objc.NSString type,
+    NSPasteboard pasteboard,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.writingOptionsForType:pasteboard:',
+      iOS: (true, null),
+    );
+    if (!objc.respondsToSelector(
+      this.ref.pointer,
+      _sel_writingOptionsForType_pasteboard_,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSImage',
+        'writingOptionsForType:pasteboard:',
+      );
+    }
+    final _ret = _objc_msgSend_1r3sx4b(
+      this.ref.pointer,
+      _sel_writingOptionsForType_pasteboard_,
+      type.ref.pointer,
+      pasteboard.ref.pointer,
+    );
+    return NSPasteboardWritingOptions.fromValue(_ret);
+  }
+
+  /// pasteboardPropertyListForType:
+  objc.ObjCObjectBase? pasteboardPropertyListForType_(objc.NSString type) {
+    objc.checkOsVersionInternal(
+      'NSImage.pasteboardPropertyListForType:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_pasteboardPropertyListForType_,
+      type.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// readableTypeIdentifiersForItemProvider
+  static objc.NSArray getReadableTypeIdentifiersForItemProvider() {
+    objc.checkOsVersionInternal(
+      'NSImage.readableTypeIdentifiersForItemProvider',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSImage,
+      _sel_readableTypeIdentifiersForItemProvider,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// objectWithItemProviderData:typeIdentifier:error:
+  static NSImage? objectWithItemProviderData_typeIdentifier_error_(
+    objc.NSData data,
+    objc.NSString typeIdentifier,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> outError,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.objectWithItemProviderData:typeIdentifier:error:',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    final _ret = _objc_msgSend_1pnyuds(
+      _class_NSImage,
+      _sel_objectWithItemProviderData_typeIdentifier_error_,
+      data.ref.pointer,
+      typeIdentifier.ref.pointer,
+      outError,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// writableTypeIdentifiersForItemProvider
+  static objc.NSArray getWritableTypeIdentifiersForItemProvider() {
+    objc.checkOsVersionInternal(
+      'NSImage.writableTypeIdentifiersForItemProvider',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      _class_NSImage,
+      _sel_writableTypeIdentifiersForItemProvider,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// writableTypeIdentifiersForItemProvider
+  objc.NSArray get writableTypeIdentifiersForItemProvider$1 {
+    objc.checkOsVersionInternal(
+      'NSImage.writableTypeIdentifiersForItemProvider',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    if (!objc.respondsToSelector(
+      this.ref.pointer,
+      _sel_writableTypeIdentifiersForItemProvider,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSImage',
+        'writableTypeIdentifiersForItemProvider',
+      );
+    }
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_writableTypeIdentifiersForItemProvider,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// itemProviderVisibilityForRepresentationWithTypeIdentifier:
+  static objc.NSItemProviderRepresentationVisibility
+  itemProviderVisibilityForRepresentationWithTypeIdentifier_(
+    objc.NSString typeIdentifier,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.itemProviderVisibilityForRepresentationWithTypeIdentifier:',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    if (!objc.respondsToSelector(
+      _class_NSImage,
+      _sel_itemProviderVisibilityForRepresentationWithTypeIdentifier_,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSImage',
+        'itemProviderVisibilityForRepresentationWithTypeIdentifier:',
+      );
+    }
+    final _ret = _objc_msgSend_16fy0up(
+      _class_NSImage,
+      _sel_itemProviderVisibilityForRepresentationWithTypeIdentifier_,
+      typeIdentifier.ref.pointer,
+    );
+    return objc.NSItemProviderRepresentationVisibility.fromValue(_ret);
+  }
+
+  /// itemProviderVisibilityForRepresentationWithTypeIdentifier:
+  objc.NSItemProviderRepresentationVisibility
+  itemProviderVisibilityForRepresentationWithTypeIdentifier_$1(
+    objc.NSString typeIdentifier,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.itemProviderVisibilityForRepresentationWithTypeIdentifier:',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    if (!objc.respondsToSelector(
+      this.ref.pointer,
+      _sel_itemProviderVisibilityForRepresentationWithTypeIdentifier_,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSImage',
+        'itemProviderVisibilityForRepresentationWithTypeIdentifier:',
+      );
+    }
+    final _ret = _objc_msgSend_16fy0up(
+      this.ref.pointer,
+      _sel_itemProviderVisibilityForRepresentationWithTypeIdentifier_,
+      typeIdentifier.ref.pointer,
+    );
+    return objc.NSItemProviderRepresentationVisibility.fromValue(_ret);
+  }
+
+  /// loadDataWithTypeIdentifier:forItemProviderCompletionHandler:
+  NSProgress? loadDataWithTypeIdentifier_forItemProviderCompletionHandler_(
+    objc.NSString typeIdentifier,
+    objc.ObjCBlock<ffi.Void Function(objc.NSData?, objc.NSError?)>
+    completionHandler,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSImage.loadDataWithTypeIdentifier:forItemProviderCompletionHandler:',
+      iOS: (false, (11, 0, 0)),
+      macOS: (false, (10, 13, 0)),
+    );
+    final _ret = _objc_msgSend_r0bo0s(
+      this.ref.pointer,
+      _sel_loadDataWithTypeIdentifier_forItemProviderCompletionHandler_,
+      typeIdentifier.ref.pointer,
+      completionHandler.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSProgress.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// initWithIconRef:
+  NSImage initWithIconRef_(ffi.Pointer<OpaqueIconRef> iconRef) {
+    objc.checkOsVersionInternal(
+      'NSImage.initWithIconRef:',
+      iOS: (true, null),
+      macOS: (false, (10, 5, 0)),
+    );
+    final _ret = _objc_msgSend_1o4xiu1(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIconRef_,
+      iconRef,
+    );
+    return NSImage.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// Returns a new instance of NSImage constructed with the default `new` method.
+  factory NSImage() => new$();
+}
+
+late final _sel_imageForName_ = objc.registerName("imageForName:");
+late final _sel_setImage_forName_ = objc.registerName("setImage:forName:");
+late final _sel_removeImageForName_ = objc.registerName("removeImageForName:");
+
+/// WARNING: MLNLight is a stub. To generate bindings for this class, include
+/// MLNLight in your config's objc-interfaces list.
+///
+/// MLNLight
+class MLNLight extends objc.ObjCObjectBase {
+  MLNLight._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNLight] that points to the same underlying object as [other].
+  MLNLight.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNLight] that wraps the given raw object pointer.
+  MLNLight.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_light = objc.registerName("light");
+late final _sel_setLight_ = objc.registerName("setLight:");
+late final _sel_localizeLabelsIntoLocale_ = objc.registerName(
+  "localizeLabelsIntoLocale:",
+);
+
+/// The proxy object for the current map style.
+///
+/// MLNStyle provides a set of convenience methods for changing default styles included
+/// with MapLibre.
+///
+/// It is also possible to directly manipulate the current map style
+/// via ``MLNMapView/style`` by updating the style's data sources or layers.
+///
+/// > Note: Wait until the map style has finished loading before modifying a map's
+/// style via any of the ``MLNStyle`` instance methods below. You can use the
+/// ``MLNMapViewDelegate/mapView:didFinishLoadingStyle:`` or
+/// ``MLNMapViewDelegate/mapViewDidFinishLoadingMap:`` methods as indicators
+/// that it's safe to modify the map's style.
+class MLNStyle extends objc.NSObject {
+  MLNStyle._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNStyle] that points to the same underlying object as [other].
+  MLNStyle.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNStyle] that wraps the given raw object pointer.
+  MLNStyle.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNStyle].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MLNStyle,
+    );
+  }
+
+  /// Returns list of predefined styles
+  static objc.NSArray predefinedStyles() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNStyle, _sel_predefinedStyles);
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns default style
+  static MLNDefaultStyle defaultStyle() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNStyle, _sel_defaultStyle);
+    return MLNDefaultStyle.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns default style as NSURL
+  static objc.NSURL? defaultStyleURL() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNStyle, _sel_defaultStyleURL);
+    return _ret.address == 0
+        ? null
+        : objc.NSURL.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Get predefined style by name
+  ///
+  /// @param withStyleName style name.
+  static MLNDefaultStyle? predefinedStyle_(objc.NSString withStyleName) {
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_MLNStyle,
+      _sel_predefinedStyle_,
+      withStyleName.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : MLNDefaultStyle.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The name of the style.
+  ///
+  /// You can customize the style’s name in Mapbox Studio.
+  objc.NSString? get name {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_name);
+    return _ret.address == 0
+        ? null
+        : objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// A set containing the style’s sources.
+  objc.NSSet get sources {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_sources);
+    return objc.NSSet.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// A set containing the style’s sources.
+  set sources(objc.NSSet value) {
+    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_setSources_, value.ref.pointer);
+  }
+
+  /// Values describing animated transitions to changes on a style's individual
+  /// paint properties.
+  MLNTransition get transition {
+    final _ptr = pkg_ffi.calloc<MLNTransition>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1i0p3hyStret(_ptr, this.ref.pointer, _sel_transition)
+        : _ptr.ref = _objc_msgSend_1i0p3hy(this.ref.pointer, _sel_transition);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<MLNTransition>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<MLNTransition>(_finalizable);
+  }
+
+  /// Values describing animated transitions to changes on a style's individual
+  /// paint properties.
+  set transition(MLNTransition value) {
+    _objc_msgSend_z7lywk(this.ref.pointer, _sel_setTransition_, value);
+  }
+
+  /// A boolean value indicating whether label placement transitions are enabled.
+  ///
+  /// The default value of this property is `YES`.
+  bool get performsPlacementTransitions {
+    return _objc_msgSend_91o635(
+      this.ref.pointer,
+      _sel_performsPlacementTransitions,
+    );
+  }
+
+  /// A boolean value indicating whether label placement transitions are enabled.
+  ///
+  /// The default value of this property is `YES`.
+  set performsPlacementTransitions(bool value) {
+    _objc_msgSend_1s56lr9(
+      this.ref.pointer,
+      _sel_setPerformsPlacementTransitions_,
+      value,
+    );
+  }
+
+  /// Returns a source with the given identifier in the current style.
+  ///
+  /// @return An instance of a concrete subclass of ``MLNSource`` associated with the
+  /// given identifier, or `nil` if the current style contains no such source.
+  MLNSource? sourceWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_sourceWithIdentifier_,
+      identifier.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : MLNSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Adds a new source to the current style.
+  ///
+  /// > Note: Adding the same source instance more than once will result in a
+  /// ``MLNRedundantSourceException``. Reusing the same source identifier, even with
+  /// different source instances, will result in a
+  /// ``MLNRedundantSourceIdentifierException``.
+  ///
+  /// > Note: Sources should be added in
+  /// ``MLNMapViewDelegate/mapView:didFinishLoadingStyle:`` or
+  /// ``MLNMapViewDelegate/mapViewDidFinishLoadingMap:`` to ensure that the map
+  /// has loaded the style and is ready to accept a new source.
+  ///
+  /// @param source The source to add to the current style.
+  void addSource_(MLNSource source) {
+    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_addSource_, source.ref.pointer);
+  }
+
+  /// Removes a source from the current style.
+  ///
+  /// @param source The source to remove from the current style.
+  void removeSource_(MLNSource source) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_removeSource_,
+      source.ref.pointer,
+    );
+  }
+
+  /// Removes a source from the current style.
+  ///
+  /// @param source The source to remove from the current style.
+  /// @param outError Upon return, if an error has occurred, a pointer to an `NSError`
+  /// object describing the error. Pass in `NULL` to ignore any error.
+  ///
+  /// @return `YES` if `source` was removed successfully. If `NO`, `outError` contains
+  /// an `NSError` object describing the problem.
+  bool removeSource_error_(
+    MLNSource source,
+    ffi.Pointer<ffi.Pointer<objc.ObjCObject>> outError,
+  ) {
+    return _objc_msgSend_l9p60w(
+      this.ref.pointer,
+      _sel_removeSource_error_,
+      source.ref.pointer,
+      outError,
+    );
+  }
+
+  /// The layers included in the style, arranged according to their back-to-front
+  /// ordering on the screen.
+  objc.NSArray get layers {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_layers);
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The layers included in the style, arranged according to their back-to-front
+  /// ordering on the screen.
+  set layers(objc.NSArray value) {
+    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_setLayers_, value.ref.pointer);
+  }
+
+  /// Returns a style layer with the given identifier in the current style.
+  ///
+  /// @return An instance of a concrete subclass of ``MLNStyleLayer`` associated with
+  /// the given identifier, or `nil` if the current style contains no such style
+  /// layer.
+  MLNStyleLayer? layerWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_layerWithIdentifier_,
+      identifier.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : MLNStyleLayer.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Adds a new layer on top of existing layers.
+  ///
+  /// > Note: Adding the same layer instance more than once will result in a
+  /// ``MLNRedundantLayerException``. Reusing the same layer identifer, even with
+  /// different layer instances, will also result in an exception.
+  ///
+  /// > Note: Layers should be added in
+  /// ``MLNMapViewDelegate/mapView:didFinishLoadingStyle:`` or
+  /// ``MLNMapViewDelegate/mapViewDidFinishLoadingMap:`` to ensure that the map
+  /// has loaded the style and is ready to accept a new layer.
+  ///
+  /// @param layer The layer object to add to the map view. This object must be an
+  /// instance of a concrete subclass of ``MLNStyleLayer``.
+  void addLayer_(MLNStyleLayer layer) {
+    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_addLayer_, layer.ref.pointer);
+  }
+
+  /// Inserts a new layer into the style at the given index.
+  ///
+  /// > Note: Adding the same layer instance more than once will result in a
+  /// ``MLNRedundantLayerException``. Reusing the same layer identifer, even with
+  /// different layer instances, will also result in an exception.
+  ///
+  /// > Note: Layers should be added in
+  /// ``MLNMapViewDelegate/mapView:didFinishLoadingStyle:`` or
+  /// ``MLNMapViewDelegate/mapViewDidFinishLoadingMap:`` to ensure that the map
+  /// has loaded the style and is ready to accept a new layer.
+  ///
+  /// @param layer The layer to insert.
+  /// @param index The index at which to insert the layer. An index of 0 would send
+  /// the layer to the back; an index equal to the number of objects in the
+  /// `layers` property would bring the layer to the front.
+  void insertLayer_atIndex_(MLNStyleLayer layer, int index) {
+    _objc_msgSend_djsa9o(
+      this.ref.pointer,
+      _sel_insertLayer_atIndex_,
+      layer.ref.pointer,
+      index,
+    );
+  }
+
+  /// Inserts a new layer below another layer.
+  ///
+  /// > Note: Inserting the same layer instance more than once will result in a
+  /// ``MLNRedundantLayerException``. Reusing the same layer identifer, even with
+  /// different layer instances, will also result in an exception.
+  ///
+  /// @param layer The layer to insert.
+  /// @param sibling An existing layer in the style.
+  ///
+  /// #### Related examples
+  /// TODO: Add multiple shapes from a single shape source, learn how to
+  /// add a layer to your map below an existing layer.
+  void insertLayer_belowLayer_(MLNStyleLayer layer, MLNStyleLayer sibling) {
+    _objc_msgSend_pfv6jd(
+      this.ref.pointer,
+      _sel_insertLayer_belowLayer_,
+      layer.ref.pointer,
+      sibling.ref.pointer,
+    );
+  }
+
+  /// Inserts a new layer above another layer.
+  ///
+  /// > Note: Inserting the same layer instance more than once will result in a
+  /// ``MLNRedundantLayerException``. Reusing the same layer identifer, even with
+  /// different layer instances, will also result in an exception.
+  ///
+  /// @param layer The layer to insert.
+  /// @param sibling An existing layer in the style.
+  ///
+  /// #### Related examples
+  /// TODO: Add an image, learn how to add a layer to your map above an
+  /// existing layer.
+  void insertLayer_aboveLayer_(MLNStyleLayer layer, MLNStyleLayer sibling) {
+    _objc_msgSend_pfv6jd(
+      this.ref.pointer,
+      _sel_insertLayer_aboveLayer_,
+      layer.ref.pointer,
+      sibling.ref.pointer,
+    );
+  }
+
+  /// Removes a layer from the map view.
+  ///
+  /// @param layer The layer object to remove from the map view. This object
+  /// must conform to the ``MLNStyleLayer`` protocol.
+  void removeLayer_(MLNStyleLayer layer) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_removeLayer_,
+      layer.ref.pointer,
+    );
+  }
+
+  /// Returns the image associated with the given name in the style.
+  ///
+  /// @param name The name associated with the image you want to obtain.
+  /// @return The image associated with the given name, or `nil` if no image is
+  /// associated with that name.
+  NSImage? imageForName_(objc.NSString name) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_imageForName_,
+      name.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : NSImage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Adds or overrides an image used by the style’s layers.
+  ///
+  /// To use an image in a style layer, give it a unique name using this method, then
+  /// set the `iconImageName` property of an ``MLNSymbolStyleLayer`` object to that
+  /// name.
+  ///
+  /// @param image The image for the name.
+  /// @param name The name of the image to set to the style.
+  ///
+  /// #### Related examples
+  /// TODO: Use images to cluster point data
+  /// TODO: Cluster point data
+  /// Learn how to add images to your map using an ``MLNStyle`` object.
+  void setImage_forName_(NSImage image, objc.NSString name) {
+    _objc_msgSend_pfv6jd(
+      this.ref.pointer,
+      _sel_setImage_forName_,
+      image.ref.pointer,
+      name.ref.pointer,
+    );
+  }
+
+  /// Removes a name and its associated image from the style.
+  ///
+  /// @param name The name of the image to remove.
+  void removeImageForName_(objc.NSString name) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_removeImageForName_,
+      name.ref.pointer,
+    );
+  }
+
+  /// Provides global light source for the style.
+  MLNLight get light {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_light);
+    return MLNLight.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Provides global light source for the style.
+  set light(MLNLight value) {
+    _objc_msgSend_xtuoz7(this.ref.pointer, _sel_setLight_, value.ref.pointer);
+  }
+
+  /// Attempts to localize labels in the style into the given locale.
+  ///
+  /// This method automatically modifies the text property of any symbol style layer
+  /// in the style whose source is the
+  /// <a href="https://www.mapbox.com/vector-tiles/mapbox-streets-v8/#overview">Mapbox Streets
+  /// source</a>. On iOS, the user can set the system’s preferred language in Settings, General Settings,
+  /// Language & Region. On macOS, the user can set the system’s preferred language in the Language &
+  /// Region pane of System Preferences.
+  ///
+  /// @param locale The locale into which labels should be localized. To use the
+  /// system’s preferred language, if supported, specify `nil`. To use the local
+  /// language, specify a locale with the identifier `mul`.
+  void localizeLabelsIntoLocale_(objc.NSLocale? locale) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_localizeLabelsIntoLocale_,
+      locale?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// init
+  MLNStyle init() {
+    objc.checkOsVersionInternal(
+      'MLNStyle.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNStyle.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// new
+  static MLNStyle new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNStyle, _sel_new);
+    return MLNStyle.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNStyle allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNStyle,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNStyle.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNStyle alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNStyle, _sel_alloc);
+    return MLNStyle.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MLNStyle self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNStyle.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNStyle retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNStyle.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNStyle autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNStyle.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a new instance of MLNStyle constructed with the default `new` method.
+  factory MLNStyle() => new$();
+}
+
+/// WARNING: MLNStylable is a stub. To generate bindings for this class, include
+/// MLNStylable in your config's objc-protocols list.
+///
+/// An object whose contents are represented by an ``MLNStyle`` object that you
+/// configure.
+interface class MLNStylable extends objc.ObjCProtocolBase
+    implements objc.NSObjectProtocol {
+  MLNStylable._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNStylable] that points to the same underlying object as [other].
+  MLNStylable.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNStylable] that wraps the given raw object pointer.
+  MLNStylable.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+/// The vertical alignment of an annotation within a map view. Used with
+/// ``MLNMapView/userLocationVerticalAlignment``.
+enum MLNAnnotationVerticalAlignment {
+  /// Aligns the annotation vertically in the center of the map view.
+  MLNAnnotationVerticalAlignmentCenter(0),
+
+  /// Aligns the annotation vertically at the top of the map view.
+  MLNAnnotationVerticalAlignmentTop(1),
+
+  /// Aligns the annotation vertically at the bottom of the map view.
+  MLNAnnotationVerticalAlignmentBottom(2);
+
+  final int value;
+  const MLNAnnotationVerticalAlignment(this.value);
+
+  static MLNAnnotationVerticalAlignment fromValue(int value) => switch (value) {
+    0 => MLNAnnotationVerticalAlignmentCenter,
+    1 => MLNAnnotationVerticalAlignmentTop,
+    2 => MLNAnnotationVerticalAlignmentBottom,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for MLNAnnotationVerticalAlignment: $value',
+      ),
+  };
+}
+
+/// The position of scale bar, compass, logo and attribution in a map view. Used with
+/// ``MLNMapView/scaleBarPosition``,
+/// ``MLNMapView/compassViewPosition``,
+/// ``MLNMapView/logoViewPosition``,
+/// ``MLNMapView/attributionButtonPosition``.
+enum MLNOrnamentPosition {
+  /// Place the ornament in the top left of the map view.
+  MLNOrnamentPositionTopLeft(0),
+
+  /// Place the ornament in the top right of the map view.
+  MLNOrnamentPositionTopRight(1),
+
+  /// Place the ornament in the bottom left of the map view.
+  MLNOrnamentPositionBottomLeft(2),
+
+  /// Place the ornament in the bottom right of the map view.
+  MLNOrnamentPositionBottomRight(3);
+
+  final int value;
+  const MLNOrnamentPosition(this.value);
+
+  static MLNOrnamentPosition fromValue(int value) => switch (value) {
+    0 => MLNOrnamentPositionTopLeft,
+    1 => MLNOrnamentPositionTopRight,
+    2 => MLNOrnamentPositionBottomLeft,
+    3 => MLNOrnamentPositionBottomRight,
+    _ => throw ArgumentError('Unknown value for MLNOrnamentPosition: $value'),
+  };
+}
+
+/// The mode used to track the user location on the map. Used with
+/// ``MLNMapView/userTrackingMode``.
+///
+/// #### Related examples
+/// - TODO: Switch between user tracking modes</a> example to learn how to toggle modes and
+/// how each mode behaves.
+enum MLNUserTrackingMode {
+  /// The map does not follow the user location.
+  MLNUserTrackingModeNone(0),
+
+  /// The map follows the user location. This tracking mode falls back
+  /// to ``MLNUserTrackingMode/MLNUserTrackingModeNone`` if the user pans the map view.
+  MLNUserTrackingModeFollow(1),
+
+  /// The map follows the user location and rotates when the heading changes.
+  /// The default user location annotation displays a fan-shaped indicator with
+  /// the current heading. The heading indicator represents the direction the
+  /// device is facing, which is sized according to the reported accuracy.
+  ///
+  /// This tracking mode is disabled if the user pans the map view, but
+  /// remains enabled if the user zooms in. If the user rotates the map
+  /// view, this tracking mode will fall back to ``MLNUserTrackingModeFollow``.
+  MLNUserTrackingModeFollowWithHeading(2),
+
+  /// The map follows the user location and rotates when the course changes.
+  /// Course represents the direction in which the device is traveling.
+  /// The default user location annotation shows a puck-shaped indicator
+  /// that rotates as the course changes.
+  ///
+  /// This tracking mode is disabled if the user pans the map view, but
+  /// remains enabled if the user zooms in. If the user rotates the map view,
+  /// this tracking mode will fall back to ``MLNUserTrackingModeFollow``.
+  MLNUserTrackingModeFollowWithCourse(3);
+
+  final int value;
+  const MLNUserTrackingMode(this.value);
+
+  static MLNUserTrackingMode fromValue(int value) => switch (value) {
+    0 => MLNUserTrackingModeNone,
+    1 => MLNUserTrackingModeFollow,
+    2 => MLNUserTrackingModeFollowWithHeading,
+    3 => MLNUserTrackingModeFollowWithCourse,
+    _ => throw ArgumentError('Unknown value for MLNUserTrackingMode: $value'),
+  };
+}
+
+enum MLNPanScrollingMode {
+  /// The map allows the user to only scroll horizontally.
+  MLNPanScrollingModeHorizontal(0),
+
+  /// The map allows the user to only scroll vertically.
+  MLNPanScrollingModeVertical(1),
+
+  /// The map allows the user to scroll both horizontally and vertically.
+  MLNPanScrollingModeDefault(2);
+
+  final int value;
+  const MLNPanScrollingMode(this.value);
+
+  static MLNPanScrollingMode fromValue(int value) => switch (value) {
+    0 => MLNPanScrollingModeHorizontal,
+    1 => MLNPanScrollingModeVertical,
+    2 => MLNPanScrollingModeDefault,
+    _ => throw ArgumentError('Unknown value for MLNPanScrollingMode: $value'),
+  };
+}
+
+late final _class_MLNMapView = objc.getClass("MapLibre.MLNMapView");
+late final _sel_initWithFrame_ = objc.registerName("initWithFrame:");
+final _objc_msgSend_15yz4e6 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGRect,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGRect,
+          )
+        >();
+late final _sel_initWithFrame_styleURL_ = objc.registerName(
+  "initWithFrame:styleURL:",
+);
+final _objc_msgSend_gxusyk =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGRect,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGRect,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+
+/// WARNING: MLNMapViewDelegate is a stub. To generate bindings for this class, include
+/// MLNMapViewDelegate in your config's objc-protocols list.
+///
+/// MLNMapViewDelegate
+interface class MLNMapViewDelegate extends objc.ObjCProtocolBase {
+  MLNMapViewDelegate._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNMapViewDelegate] that points to the same underlying object as [other].
+  MLNMapViewDelegate.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNMapViewDelegate] that wraps the given raw object pointer.
+  MLNMapViewDelegate.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_style = objc.registerName("style");
+ffi.Pointer<objc.ObjCObject> _ObjCBlock_MLNStyle_ffiVoid_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<
+        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void> arg0)
+      >
+    >()
+    .asFunction<ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void>)>()(
+  arg0,
+);
+ffi.Pointer<ffi.Void> _ObjCBlock_MLNStyle_ffiVoid_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Pointer<objc.ObjCObject> Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+      )
+    >(_ObjCBlock_MLNStyle_ffiVoid_fnPtrTrampoline).cast();
+ffi.Pointer<objc.ObjCObject> _ObjCBlock_MLNStyle_ffiVoid_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> arg0,
+) => (objc.getBlockClosure(block)
+    as ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void>))(arg0);
+ffi.Pointer<ffi.Void> _ObjCBlock_MLNStyle_ffiVoid_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Pointer<objc.ObjCObject> Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<ffi.Void>,
+      )
+    >(_ObjCBlock_MLNStyle_ffiVoid_closureTrampoline).cast();
+
+/// Construction methods for `objc.ObjCBlock<MLNStyle? Function(ffi.Pointer<ffi.Void>)>`.
+abstract final class ObjCBlock_MLNStyle_ffiVoid {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<MLNStyle? Function(ffi.Pointer<ffi.Void>)>
+  castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<MLNStyle? Function(ffi.Pointer<ffi.Void>)>(
+    pointer,
+    retain: retain,
+    release: release,
+  );
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<MLNStyle? Function(ffi.Pointer<ffi.Void>)>
+  fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<
+        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<ffi.Void> arg0)
+      >
+    >
+    ptr,
+  ) => objc.ObjCBlock<MLNStyle? Function(ffi.Pointer<ffi.Void>)>(
+    objc.newPointerBlock(_ObjCBlock_MLNStyle_ffiVoid_fnPtrCallable, ptr.cast()),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<MLNStyle? Function(ffi.Pointer<ffi.Void>)> fromFunction(
+    MLNStyle? Function(ffi.Pointer<ffi.Void>) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<MLNStyle? Function(ffi.Pointer<ffi.Void>)>(
+    objc.newClosureBlock(
+      _ObjCBlock_MLNStyle_ffiVoid_closureCallable,
+      (ffi.Pointer<ffi.Void> arg0) =>
+          fn(arg0)?.ref.retainAndAutorelease() ?? ffi.nullptr,
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+}
+
+/// Call operator for `objc.ObjCBlock<MLNStyle? Function(ffi.Pointer<ffi.Void>)>`.
+extension ObjCBlock_MLNStyle_ffiVoid_CallExtension
+    on objc.ObjCBlock<MLNStyle? Function(ffi.Pointer<ffi.Void>)> {
+  MLNStyle? call(ffi.Pointer<ffi.Void> arg0) =>
+      ref.pointer.ref.invoke
+                  .cast<
+                    ffi.NativeFunction<
+                      ffi.Pointer<objc.ObjCObject> Function(
+                        ffi.Pointer<objc.ObjCBlockImpl> block,
+                        ffi.Pointer<ffi.Void> arg0,
+                      )
+                    >
+                  >()
+                  .asFunction<
+                    ffi.Pointer<objc.ObjCObject> Function(
+                      ffi.Pointer<objc.ObjCBlockImpl>,
+                      ffi.Pointer<ffi.Void>,
+                    )
+                  >()(ref.pointer, arg0)
+                  .address ==
+              0
+          ? null
+          : MLNStyle.castFromPointer(
+            ref.pointer.ref.invoke
+                .cast<
+                  ffi.NativeFunction<
+                    ffi.Pointer<objc.ObjCObject> Function(
+                      ffi.Pointer<objc.ObjCBlockImpl> block,
+                      ffi.Pointer<ffi.Void> arg0,
+                    )
+                  >
+                >()
+                .asFunction<
+                  ffi.Pointer<objc.ObjCObject> Function(
+                    ffi.Pointer<objc.ObjCBlockImpl>,
+                    ffi.Pointer<ffi.Void>,
+                  )
+                >()(ref.pointer, arg0),
+            retain: true,
+            release: true,
+          );
+}
+
+late final _sel_styleURL = objc.registerName("styleURL");
+late final _sel_setStyleURL_ = objc.registerName("setStyleURL:");
+late final _sel_reloadStyle_ = objc.registerName("reloadStyle:");
+late final _sel_automaticallyAdjustsContentInset = objc.registerName(
+  "automaticallyAdjustsContentInset",
+);
+late final _sel_setAutomaticallyAdjustsContentInset_ = objc.registerName(
+  "setAutomaticallyAdjustsContentInset:",
+);
+late final _sel_showsScale = objc.registerName("showsScale");
+late final _sel_setShowsScale_ = objc.registerName("setShowsScale:");
+
+/// WARNING: MLNScaleBar is a stub. To generate bindings for this class, include
+/// MLNScaleBar in your config's objc-interfaces list.
+///
+/// MLNScaleBar
+class MLNScaleBar extends objc.ObjCObjectBase {
+  MLNScaleBar._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNScaleBar] that points to the same underlying object as [other].
+  MLNScaleBar.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNScaleBar] that wraps the given raw object pointer.
+  MLNScaleBar.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_scaleBar = objc.registerName("scaleBar");
+late final _sel_scaleBarShouldShowDarkStyles = objc.registerName(
+  "scaleBarShouldShowDarkStyles",
+);
+late final _sel_setScaleBarShouldShowDarkStyles_ = objc.registerName(
+  "setScaleBarShouldShowDarkStyles:",
+);
+late final _sel_scaleBarUsesMetricSystem = objc.registerName(
+  "scaleBarUsesMetricSystem",
+);
+late final _sel_setScaleBarUsesMetricSystem_ = objc.registerName(
+  "setScaleBarUsesMetricSystem:",
+);
+late final _sel_scaleBarPosition = objc.registerName("scaleBarPosition");
+final _objc_msgSend_1c31cvt =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.UnsignedLong Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setScaleBarPosition_ = objc.registerName(
+  "setScaleBarPosition:",
+);
+final _objc_msgSend_8fd115 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+          )
+        >();
+late final _sel_scaleBarMargins = objc.registerName("scaleBarMargins");
+final _objc_msgSend_1uwdhlk =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            CGPoint Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          CGPoint Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+final _objc_msgSend_1uwdhlkStret =
+    objc.msgSendStretPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<CGPoint>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<CGPoint>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setScaleBarMargins_ = objc.registerName("setScaleBarMargins:");
+late final _sel_compassView = objc.registerName("compassView");
+late final _sel_compassViewPosition = objc.registerName("compassViewPosition");
+late final _sel_setCompassViewPosition_ = objc.registerName(
+  "setCompassViewPosition:",
+);
+late final _sel_compassViewMargins = objc.registerName("compassViewMargins");
+late final _sel_setCompassViewMargins_ = objc.registerName(
+  "setCompassViewMargins:",
+);
+late final _sel_logoView = objc.registerName("logoView");
+final _objc_msgSend_1p5sbp0 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<ffi.Int> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<ffi.Int> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_logoViewPosition = objc.registerName("logoViewPosition");
+late final _sel_setLogoViewPosition_ = objc.registerName(
+  "setLogoViewPosition:",
+);
+late final _sel_logoViewMargins = objc.registerName("logoViewMargins");
+late final _sel_setLogoViewMargins_ = objc.registerName("setLogoViewMargins:");
+late final _sel_attributionButton = objc.registerName("attributionButton");
+late final _sel_attributionButtonPosition = objc.registerName(
+  "attributionButtonPosition",
+);
+late final _sel_setAttributionButtonPosition_ = objc.registerName(
+  "setAttributionButtonPosition:",
+);
+late final _sel_attributionButtonMargins = objc.registerName(
+  "attributionButtonMargins",
+);
+late final _sel_setAttributionButtonMargins_ = objc.registerName(
+  "setAttributionButtonMargins:",
+);
+late final _sel_showAttribution_ = objc.registerName("showAttribution:");
+late final _sel_preferredFramesPerSecond = objc.registerName(
+  "preferredFramesPerSecond",
+);
+final _objc_msgSend_1hz7y9r =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Long Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setPreferredFramesPerSecond_ = objc.registerName(
+  "setPreferredFramesPerSecond:",
+);
+final _objc_msgSend_4sp4xj =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Long,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+          )
+        >();
+late final _sel_prefetchesTiles = objc.registerName("prefetchesTiles");
+late final _sel_setPrefetchesTiles_ = objc.registerName("setPrefetchesTiles:");
+late final _sel_tileCacheEnabled = objc.registerName("tileCacheEnabled");
+late final _sel_setTileCacheEnabled_ = objc.registerName(
+  "setTileCacheEnabled:",
+);
+
+/// WARNING: MLNLocationManager is a stub. To generate bindings for this class, include
+/// MLNLocationManager in your config's objc-protocols list.
+///
+/// MLNLocationManager
+interface class MLNLocationManager extends objc.ObjCProtocolBase {
+  MLNLocationManager._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNLocationManager] that points to the same underlying object as [other].
+  MLNLocationManager.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNLocationManager] that wraps the given raw object pointer.
+  MLNLocationManager.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_locationManager = objc.registerName("locationManager");
+late final _sel_setLocationManager_ = objc.registerName("setLocationManager:");
+late final _sel_showsUserLocation = objc.registerName("showsUserLocation");
+late final _sel_setShowsUserLocation_ = objc.registerName(
+  "setShowsUserLocation:",
+);
+late final _sel_shouldRequestAuthorizationToUseLocationServices = objc
+    .registerName("shouldRequestAuthorizationToUseLocationServices");
+late final _sel_setShouldRequestAuthorizationToUseLocationServices_ = objc
+    .registerName("setShouldRequestAuthorizationToUseLocationServices:");
+late final _sel_isUserLocationVisible = objc.registerName(
+  "isUserLocationVisible",
+);
+
+/// WARNING: MLNUserLocation is a stub. To generate bindings for this class, include
+/// MLNUserLocation in your config's objc-interfaces list.
+///
+/// MLNUserLocation
+class MLNUserLocation extends objc.ObjCObjectBase {
+  MLNUserLocation._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNUserLocation] that points to the same underlying object as [other].
+  MLNUserLocation.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNUserLocation] that wraps the given raw object pointer.
+  MLNUserLocation.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_userLocation = objc.registerName("userLocation");
+late final _sel_userTrackingMode = objc.registerName("userTrackingMode");
+final _objc_msgSend_1swtepj =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.UnsignedLong Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setUserTrackingMode_ = objc.registerName(
+  "setUserTrackingMode:",
+);
+final _objc_msgSend_xoapar =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+          )
+        >();
+late final _sel_setUserTrackingMode_animated_ = objc.registerName(
+  "setUserTrackingMode:animated:",
+);
+final _objc_msgSend_7oa3sf =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+            bool,
+          )
+        >();
+late final _sel_setUserTrackingMode_animated_completionHandler_ = objc
+    .registerName("setUserTrackingMode:animated:completionHandler:");
+final _objc_msgSend_1iu40ms =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+              ffi.Bool,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+            bool,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+late final _sel_userLocationVerticalAlignment = objc.registerName(
+  "userLocationVerticalAlignment",
+);
+final _objc_msgSend_1m9zum6 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.UnsignedLong Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setUserLocationVerticalAlignment_ = objc.registerName(
+  "setUserLocationVerticalAlignment:",
+);
+final _objc_msgSend_47doj4 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+          )
+        >();
+late final _sel_setUserLocationVerticalAlignment_animated_ = objc.registerName(
+  "setUserLocationVerticalAlignment:animated:",
+);
+final _objc_msgSend_1qddrus =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+            bool,
+          )
+        >();
+late final _sel_updateUserLocationAnnotationView = objc.registerName(
+  "updateUserLocationAnnotationView",
+);
+late final _sel_updateUserLocationAnnotationViewAnimatedWithDuration_ = objc
+    .registerName("updateUserLocationAnnotationViewAnimatedWithDuration:");
+late final _sel_showsUserHeadingIndicator = objc.registerName(
+  "showsUserHeadingIndicator",
+);
+late final _sel_setShowsUserHeadingIndicator_ = objc.registerName(
+  "setShowsUserHeadingIndicator:",
+);
+late final _sel_displayHeadingCalibration = objc.registerName(
+  "displayHeadingCalibration",
+);
+late final _sel_setDisplayHeadingCalibration_ = objc.registerName(
+  "setDisplayHeadingCalibration:",
+);
+late final _sel_targetCoordinate = objc.registerName("targetCoordinate");
+late final _sel_setTargetCoordinate_ = objc.registerName(
+  "setTargetCoordinate:",
+);
+late final _sel_setTargetCoordinate_animated_ = objc.registerName(
+  "setTargetCoordinate:animated:",
+);
+final _objc_msgSend_o7hjv2 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CLLocationCoordinate2D,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CLLocationCoordinate2D,
+            bool,
+          )
+        >();
+late final _sel_setTargetCoordinate_animated_completionHandler_ = objc
+    .registerName("setTargetCoordinate:animated:completionHandler:");
+final _objc_msgSend_1pbhom5 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CLLocationCoordinate2D,
+              ffi.Bool,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CLLocationCoordinate2D,
+            bool,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+late final _sel_isZoomEnabled = objc.registerName("isZoomEnabled");
+late final _sel_setZoomEnabled_ = objc.registerName("setZoomEnabled:");
+late final _sel_isScrollEnabled = objc.registerName("isScrollEnabled");
+late final _sel_setScrollEnabled_ = objc.registerName("setScrollEnabled:");
+late final _sel_panScrollingMode = objc.registerName("panScrollingMode");
+final _objc_msgSend_1vb5jwj =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.UnsignedLong Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setPanScrollingMode_ = objc.registerName(
+  "setPanScrollingMode:",
+);
+final _objc_msgSend_k7jknj =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+          )
+        >();
+late final _sel_isRotateEnabled = objc.registerName("isRotateEnabled");
+late final _sel_setRotateEnabled_ = objc.registerName("setRotateEnabled:");
+late final _sel_isPitchEnabled = objc.registerName("isPitchEnabled");
+late final _sel_setPitchEnabled_ = objc.registerName("setPitchEnabled:");
+late final _sel_anchorRotateOrZoomGesturesToCenterCoordinate = objc
+    .registerName("anchorRotateOrZoomGesturesToCenterCoordinate");
+late final _sel_setAnchorRotateOrZoomGesturesToCenterCoordinate_ = objc
+    .registerName("setAnchorRotateOrZoomGesturesToCenterCoordinate:");
+late final _sel_isHapticFeedbackEnabled = objc.registerName(
+  "isHapticFeedbackEnabled",
+);
+late final _sel_setHapticFeedbackEnabled_ = objc.registerName(
+  "setHapticFeedbackEnabled:",
+);
+late final _sel_decelerationRate = objc.registerName("decelerationRate");
+late final _sel_setDecelerationRate_ = objc.registerName(
+  "setDecelerationRate:",
+);
+late final _sel_setCenterCoordinate_animated_ = objc.registerName(
+  "setCenterCoordinate:animated:",
+);
+late final _sel_setCenterCoordinate_zoomLevel_animated_ = objc.registerName(
+  "setCenterCoordinate:zoomLevel:animated:",
+);
+final _objc_msgSend_sbs4d5 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CLLocationCoordinate2D,
+              ffi.Double,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CLLocationCoordinate2D,
+            double,
+            bool,
+          )
+        >();
+late final _sel_setCenterCoordinate_zoomLevel_direction_animated_ = objc
+    .registerName("setCenterCoordinate:zoomLevel:direction:animated:");
+final _objc_msgSend_3zczym =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CLLocationCoordinate2D,
+              ffi.Double,
+              ffi.Double,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CLLocationCoordinate2D,
+            double,
+            double,
+            bool,
+          )
+        >();
+late final _sel_setCenterCoordinate_zoomLevel_direction_animated_completionHandler_ =
+    objc.registerName(
+      "setCenterCoordinate:zoomLevel:direction:animated:completionHandler:",
+    );
+final _objc_msgSend_d9pvdp =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CLLocationCoordinate2D,
+              ffi.Double,
+              ffi.Double,
+              ffi.Bool,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CLLocationCoordinate2D,
+            double,
+            double,
+            bool,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+late final _sel_zoomLevel = objc.registerName("zoomLevel");
+late final _sel_setZoomLevel_ = objc.registerName("setZoomLevel:");
+late final _sel_setZoomLevel_animated_ = objc.registerName(
+  "setZoomLevel:animated:",
+);
+final _objc_msgSend_ghxo7e =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Double,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            double,
+            bool,
+          )
+        >();
+late final _sel_maximumScreenBounds = objc.registerName("maximumScreenBounds");
+final _objc_msgSend_ygoa6a =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            MLNCoordinateBounds Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          MLNCoordinateBounds Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+final _objc_msgSend_ygoa6aStret =
+    objc.msgSendStretPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<MLNCoordinateBounds>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<MLNCoordinateBounds>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setMaximumScreenBounds_ = objc.registerName(
+  "setMaximumScreenBounds:",
+);
+final _objc_msgSend_9ay59k =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              MLNCoordinateBounds,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            MLNCoordinateBounds,
+          )
+        >();
+late final _sel_direction = objc.registerName("direction");
+late final _sel_setDirection_ = objc.registerName("setDirection:");
+late final _sel_setDirection_animated_ = objc.registerName(
+  "setDirection:animated:",
+);
+late final _sel_minimumPitch = objc.registerName("minimumPitch");
+late final _sel_setMinimumPitch_ = objc.registerName("setMinimumPitch:");
+late final _sel_maximumPitch = objc.registerName("maximumPitch");
+late final _sel_setMaximumPitch_ = objc.registerName("setMaximumPitch:");
+late final _sel_resetNorth = objc.registerName("resetNorth");
+late final _sel_resetPosition = objc.registerName("resetPosition");
+late final _sel_visibleCoordinateBounds = objc.registerName(
+  "visibleCoordinateBounds",
+);
+late final _sel_setVisibleCoordinateBounds_ = objc.registerName(
+  "setVisibleCoordinateBounds:",
+);
+late final _sel_setVisibleCoordinateBounds_animated_ = objc.registerName(
+  "setVisibleCoordinateBounds:animated:",
+);
+final _objc_msgSend_148tmbg =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              MLNCoordinateBounds,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            MLNCoordinateBounds,
+            bool,
+          )
+        >();
+late final _sel_setVisibleCoordinateBounds_edgePadding_animated_ = objc
+    .registerName("setVisibleCoordinateBounds:edgePadding:animated:");
+final _objc_msgSend_77m626 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              MLNCoordinateBounds,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            MLNCoordinateBounds,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+          )
+        >();
+late final _sel_setVisibleCoordinateBounds_edgePadding_animated_completionHandler_ =
+    objc.registerName(
+      "setVisibleCoordinateBounds:edgePadding:animated:completionHandler:",
+    );
+final _objc_msgSend_1a8k3st =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              MLNCoordinateBounds,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Bool,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            MLNCoordinateBounds,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+late final _sel_setVisibleCoordinates_count_edgePadding_animated_ = objc
+    .registerName("setVisibleCoordinates:count:edgePadding:animated:");
+final _objc_msgSend_4v7863 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<CLLocationCoordinate2D>,
+              ffi.UnsignedLong,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<CLLocationCoordinate2D>,
+            int,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+          )
+        >();
+late final _sel_setVisibleCoordinates_count_edgePadding_direction_duration_animationTimingFunction_completionHandler_ =
+    objc.registerName(
+      "setVisibleCoordinates:count:edgePadding:direction:duration:animationTimingFunction:completionHandler:",
+    );
+final _objc_msgSend_1rtoh8u =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<CLLocationCoordinate2D>,
+              ffi.UnsignedLong,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Double,
+              ffi.Double,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<CLLocationCoordinate2D>,
+            int,
+            ffi.Pointer<objc.ObjCObject>,
+            double,
+            double,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+late final _sel_showAnnotations_animated_ = objc.registerName(
+  "showAnnotations:animated:",
+);
+final _objc_msgSend_6p7ndb =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+          )
+        >();
+late final _sel_showAnnotations_edgePadding_animated_ = objc.registerName(
+  "showAnnotations:edgePadding:animated:",
+);
+final _objc_msgSend_1lhy15d =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+          )
+        >();
+late final _sel_showAnnotations_edgePadding_animated_completionHandler_ = objc
+    .registerName("showAnnotations:edgePadding:animated:completionHandler:");
+final _objc_msgSend_1imhooq =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Bool,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
 late final _sel_setCamera_ = objc.registerName("setCamera:");
 late final _sel_setCamera_animated_ = objc.registerName("setCamera:animated:");
 late final _sel_setCamera_withDuration_animationTimingFunction_ =
@@ -10356,11 +20211,37 @@ final _objc_msgSend_jcjgzg = objc.msgSendPointer
             MLNCoordinateBounds,
             ffi.Pointer<objc.ObjCObject>)>();
 late final _class_MLNShape = objc.getClass("MLNShape");
-late final _sel_shapeWithData_encoding_error_ =
-    objc.registerName("shapeWithData:encoding:error:");
-final _objc_msgSend_1nomli1 = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
+
+/// WARNING: MLNAnnotation is a stub. To generate bindings for this class, include
+/// MLNAnnotation in your config's objc-protocols list.
+///
+/// MLNAnnotation
+interface class MLNAnnotation extends objc.ObjCProtocolBase {
+  MLNAnnotation._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNAnnotation] that points to the same underlying object as [other].
+  MLNAnnotation.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNAnnotation] that wraps the given raw object pointer.
+  MLNAnnotation.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_shapeWithData_encoding_error_ = objc.registerName(
+  "shapeWithData:encoding:error:",
+);
+final _objc_msgSend_1nomli1 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
             ffi.Pointer<objc.ObjCObject> Function(
                 ffi.Pointer<objc.ObjCObject>,
                 ffi.Pointer<objc.ObjCSelector>,
@@ -10380,141 +20261,18 @@ late final _sel_subtitle = objc.registerName("subtitle");
 late final _sel_setSubtitle_ = objc.registerName("setSubtitle:");
 late final _sel_toolTip = objc.registerName("toolTip");
 late final _sel_setToolTip_ = objc.registerName("setToolTip:");
-late final _sel_geoJSONDataUsingEncoding_ =
-    objc.registerName("geoJSONDataUsingEncoding:");
-final _objc_msgSend_14hpxwa = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
-            ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-                ffi.Pointer<objc.ObjCSelector>, ffi.UnsignedLong)>>()
-    .asFunction<
-        ffi.Pointer<objc.ObjCObject> Function(ffi.Pointer<objc.ObjCObject>,
-            ffi.Pointer<objc.ObjCSelector>, int)>();
-late final _sel_coordinate = objc.registerName("coordinate");
-CLLocationCoordinate2D
-    _ObjCBlock_CLLocationCoordinate2D_ffiVoid_fnPtrTrampoline(
-            ffi.Pointer<objc.ObjCBlockImpl> block,
-            ffi.Pointer<ffi.Void> arg0) =>
-        block.ref.target
-            .cast<
-                ffi.NativeFunction<
-                    CLLocationCoordinate2D Function(
-                        ffi.Pointer<ffi.Void> arg0)>>()
-            .asFunction<
-                CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>)>()(arg0);
-ffi.Pointer<ffi.Void> _ObjCBlock_CLLocationCoordinate2D_ffiVoid_fnPtrCallable =
-    ffi.Pointer.fromFunction<
-                CLLocationCoordinate2D Function(
-                    ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<ffi.Void>)>(
-            _ObjCBlock_CLLocationCoordinate2D_ffiVoid_fnPtrTrampoline)
-        .cast();
-CLLocationCoordinate2D
-    _ObjCBlock_CLLocationCoordinate2D_ffiVoid_closureTrampoline(
-            ffi.Pointer<objc.ObjCBlockImpl> block,
-            ffi.Pointer<ffi.Void> arg0) =>
-        (objc.getBlockClosure(block) as CLLocationCoordinate2D Function(
-            ffi.Pointer<ffi.Void>))(arg0);
-ffi.Pointer<ffi.Void>
-    _ObjCBlock_CLLocationCoordinate2D_ffiVoid_closureCallable =
-    ffi.Pointer.fromFunction<
-                CLLocationCoordinate2D Function(
-                    ffi.Pointer<objc.ObjCBlockImpl>, ffi.Pointer<ffi.Void>)>(
-            _ObjCBlock_CLLocationCoordinate2D_ffiVoid_closureTrampoline)
-        .cast();
+late final _sel_geoJSONDataUsingEncoding_ = objc.registerName(
+  "geoJSONDataUsingEncoding:",
+);
 
-/// Construction methods for `objc.ObjCBlock<CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>)>`.
-abstract final class ObjCBlock_CLLocationCoordinate2D_ffiVoid {
-  /// Returns a block that wraps the given raw block pointer.
-  static objc.ObjCBlock<CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>)>
-      castFromPointer(ffi.Pointer<objc.ObjCBlockImpl> pointer,
-              {bool retain = false, bool release = false}) =>
-          objc.ObjCBlock<
-                  CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>)>(
-              pointer,
-              retain: retain,
-              release: release);
-
-  /// Creates a block from a C function pointer.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>)> fromFunctionPointer(
-          ffi.Pointer<
-                  ffi.NativeFunction<
-                      CLLocationCoordinate2D Function(
-                          ffi.Pointer<ffi.Void> arg0)>>
-              ptr) =>
-      objc.ObjCBlock<CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>)>(
-          objc.newPointerBlock(
-              _ObjCBlock_CLLocationCoordinate2D_ffiVoid_fnPtrCallable, ptr.cast()),
-          retain: false,
-          release: true);
-
-  /// Creates a block from a Dart function.
-  ///
-  /// This block must be invoked by native code running on the same thread as
-  /// the isolate that registered it. Invoking the block on the wrong thread
-  /// will result in a crash.
-  static objc.ObjCBlock<CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>)>
-      fromFunction(CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>) fn) =>
-          objc.ObjCBlock<
-                  CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>)>(
-              objc.newClosureBlock(
-                  _ObjCBlock_CLLocationCoordinate2D_ffiVoid_closureCallable,
-                  (ffi.Pointer<ffi.Void> arg0) => fn(arg0)),
-              retain: false,
-              release: true);
-}
-
-/// Call operator for `objc.ObjCBlock<CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>)>`.
-extension ObjCBlock_CLLocationCoordinate2D_ffiVoid_CallExtension
-    on objc.ObjCBlock<CLLocationCoordinate2D Function(ffi.Pointer<ffi.Void>)> {
-  CLLocationCoordinate2D call(ffi.Pointer<ffi.Void> arg0) =>
-      ref.pointer.ref.invoke
-          .cast<
-              ffi.NativeFunction<
-                  CLLocationCoordinate2D Function(
-                      ffi.Pointer<objc.ObjCBlockImpl> block,
-                      ffi.Pointer<ffi.Void> arg0)>>()
-          .asFunction<
-              CLLocationCoordinate2D Function(ffi.Pointer<objc.ObjCBlockImpl>,
-                  ffi.Pointer<ffi.Void>)>()(ref.pointer, arg0);
-}
-
-/// ``MLNShape`` is an abstract class that represents a shape or annotation. Shapes
-/// constitute the content of a map — not only the overlays atop the map, but also
-/// the content that forms the base map.
-///
-/// Create instances of ``MLNPointAnnotation``, ``MLNPointAnnotation``, ``MLNPointAnnotation``,
-/// ``MLNMultiPolyline``, ``MLNMultiPolyline``, ``MLNMultiPolyline``, or ``MLNMultiPolyline`` in
-/// order to use ``MLNShape``'s methods. Do not create instances of ``MLNShape``
-/// directly, and do not create your own subclasses of this class. The shape
-/// classes correspond to the
-/// <a href="https://tools.ietf.org/html/rfc7946#section-3.1">Geometry</a> object
-/// types in the GeoJSON standard, but some have nonstandard names for backwards
-/// compatibility.
-///
-/// Although you do not create instances of this class directly, you can use its
-/// ``MLNShape/shapeWithData:encoding:error:`` factory method to create one of the
-/// concrete subclasses of ``MLNShape`` noted above from GeoJSON data. To access a
-/// shape’s attributes, use the corresponding ``MLNFeature`` class instead.
-///
-/// You can add shapes to the map by adding them to an ``MLNShapeSource`` object.
-/// Configure the appearance of an ``MLNShapeSource``’s or ``MLNShapeSource``’s
-/// shapes collectively using a concrete instance of ``MLNVectorStyleLayer``.
-/// Alternatively, you can add some kinds of shapes directly to a map view as
-/// annotations or overlays.
-///
-/// You can filter the features in a ``MLNVectorStyleLayer`` or vary their layout or
-/// paint attributes based on the features’ geographies. Pass an ``MLNShape`` into an
-/// `NSPredicate` with the format `SELF IN %@` or `%@ CONTAINS SELF` and set the
-/// ``MLNVectorStyleLayer/predicate`` property to that predicate, or set a layout or
-/// paint attribute to a similarly formatted `NSExpression`.
-class MLNShape extends objc.NSObject {
-  MLNShape._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super.castFromPointer(pointer, retain: retain, release: release);
+/// MLNShape
+class MLNShape extends objc.NSObject
+    implements MLNAnnotation, objc.NSSecureCoding {
+  MLNShape._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
 
   /// Constructs a [MLNShape] that points to the same underlying object as [other].
   MLNShape.castFrom(objc.ObjCObjectBase other)
@@ -10654,21 +20412,31 @@ class MLNShape extends objc.NSObject {
 
   /// init
   MLNShape init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    objc.checkOsVersionInternal(
+      'MLNShape.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
     return MLNShape.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// new
-  static MLNShape new1() {
+  static MLNShape new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNShape, _sel_new);
     return MLNShape.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNShape allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_MLNShape, _sel_allocWithZone_, zone);
+  static MLNShape allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNShape,
+      _sel_allocWithZone_,
+      zone,
+    );
     return MLNShape.castFromPointer(_ret, retain: false, release: true);
   }
 
@@ -10679,7 +20447,7 @@ class MLNShape extends objc.NSObject {
   }
 
   /// self
-  MLNShape self() {
+  MLNShape self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNShape.castFromPointer(_ret, retain: true, release: true);
   }
@@ -10694,19 +20462,6 @@ class MLNShape extends objc.NSObject {
   MLNShape autorelease() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
     return MLNShape.castFromPointer(_ret, retain: true, release: true);
-  }
-
-  /// The center point (specified as a map coordinate) of the annotation. (required)
-  /// (read-only)
-  CLLocationCoordinate2D get coordinate {
-    final _ptr = pkg_ffi.calloc<CLLocationCoordinate2D>();
-    objc.useMsgSendVariants
-        ? _objc_msgSend_18o5nokStret(_ptr, this.ref.pointer, _sel_coordinate)
-        : _ptr.ref = _objc_msgSend_18o5nok(this.ref.pointer, _sel_coordinate);
-    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
-        ffi.sizeOf<CLLocationCoordinate2D>(),
-        finalizer: pkg_ffi.calloc.nativeFree);
-    return ffi.Struct.create<CLLocationCoordinate2D>(_finalizable);
   }
 
   /// supportsSecureCoding
@@ -10728,6 +20483,9 @@ class MLNShape extends objc.NSObject {
         ? null
         : MLNShape.castFromPointer(_ret, retain: false, release: true);
   }
+
+  /// Returns a new instance of MLNShape constructed with the default `new` method.
+  factory MLNShape() => new$();
 }
 
 late final _sel_camera_fittingShape_edgePadding_ =
@@ -11105,19 +20863,26 @@ class MLNMapProjection extends objc.NSObject {
 
   /// init
   MLNMapProjection init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
+    objc.checkOsVersionInternal(
+      'MLNMapProjection.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
     return MLNMapProjection.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// new
-  static MLNMapProjection new1() {
+  static MLNMapProjection new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNMapProjection, _sel_new);
     return MLNMapProjection.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNMapProjection allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNMapProjection allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNMapProjection, _sel_allocWithZone_, zone);
     return MLNMapProjection.castFromPointer(_ret, retain: false, release: true);
@@ -11130,7 +20895,7 @@ class MLNMapProjection extends objc.NSObject {
   }
 
   /// self
-  MLNMapProjection self() {
+  MLNMapProjection self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNMapProjection.castFromPointer(_ret, retain: true, release: true);
   }
@@ -11146,6 +20911,9 @@ class MLNMapProjection extends objc.NSObject {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
     return MLNMapProjection.castFromPointer(_ret, retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNMapProjection constructed with the default `new` method.
+  factory MLNMapProjection() => new$();
 }
 
 late final _sel_mapProjection = objc.registerName("mapProjection");
@@ -11251,6 +21019,30 @@ final _objc_msgSend_2nhnqw = objc.msgSendPointer
 late final _sel_deselectAnnotation_animated_ =
     objc.registerName("deselectAnnotation:animated:");
 late final _sel_overlays = objc.registerName("overlays");
+
+/// WARNING: MLNOverlay is a stub. To generate bindings for this class, include
+/// MLNOverlay in your config's objc-protocols list.
+///
+/// MLNOverlay
+interface class MLNOverlay extends objc.ObjCProtocolBase {
+  MLNOverlay._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNOverlay] that points to the same underlying object as [other].
+  MLNOverlay.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNOverlay] that wraps the given raw object pointer.
+  MLNOverlay.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
 late final _sel_addOverlay_ = objc.registerName("addOverlay:");
 late final _sel_addOverlays_ = objc.registerName("addOverlays:");
 late final _sel_removeOverlay_ = objc.registerName("removeOverlay:");
@@ -11394,11 +21186,48 @@ class MLNBackendResource extends objc.NSObject {
 late final _sel_backendResource = objc.registerName("backendResource");
 late final _sel_triggerRepaint = objc.registerName("triggerRepaint");
 
-/// MLNMapView
-class MLNMapView extends objc.ObjCObjectBase {
-  MLNMapView._(ffi.Pointer<objc.ObjCObject> pointer,
-      {bool retain = false, bool release = false})
-      : super(pointer, retain: retain, release: release);
+/// An interactive, customizable map view with an interface similar to the one
+/// provided by Apple’s MapKit.
+///
+/// Using ``MLNMapView``, you can embed the map inside a view, allow users to
+/// manipulate it with standard gestures, animate the map between different
+/// viewpoints, and present information in the form of annotations and overlays.
+///
+/// The map view loads scalable vector tiles that conform to the
+/// <a href="https://github.com/mapbox/vector-tile-spec">Mapbox Vector Tile Specification</a>.
+/// It styles them with a style that conforms to the
+/// <a href="https://maplibre.org/maplibre-style-spec/">MapLibre Style Spec</a>.
+/// Such styles can be designed with
+/// <a href="https://maplibre.org/maputnik/">Maputnik</a>.
+///
+///
+/// Because ``MLNMapView`` loads asynchronously, several delegate methods are available
+/// for receiving map-related updates. These methods can be used to ensure that certain operations
+/// have completed before taking any additional actions. Information on these methods is located
+/// in the ``MLNMapViewDelegate`` protocol documentation.
+///
+/// Adding your own gesture recognizer to ``MLNMapView`` will block the corresponding
+/// gesture recognizer built into ``MLNMapView``. To avoid conflicts, define which
+/// gesture takes precedence. For example, you can create your own
+/// `UITapGestureRecognizer` that will be invoked only if the default ``MLNMapView``
+/// tap gesture fails:
+///
+/// ```swift
+/// let mapTapGestureRecognizer = UITapGestureRecognizer(target: self, action:
+/// #selector(myCustomFunction)) for recognizer in mapView.gestureRecognizers! where recognizer is
+/// UITapGestureRecognizer { mapTapGestureRecognizer.require(toFail: recognizer)
+/// }
+/// mapView.addGestureRecognizer(mapTapGestureRecognizer)
+/// ```
+///
+/// > Note: You are responsible for getting permission to use the map data and for
+/// ensuring that your use adheres to the relevant terms of use.
+class MLNMapView extends objc.ObjCObjectBase implements MLNStylable {
+  MLNMapView._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
 
   /// Constructs a [MLNMapView] that points to the same underlying object as [other].
   MLNMapView.castFrom(objc.ObjCObjectBase other)
@@ -11454,11 +21283,11 @@ class MLNMapView extends objc.ObjCObjectBase {
   /// contents or the viewpoint. The delegate also provides information about
   /// annotations displayed on the map, such as the styles to apply to individual
   /// annotations.
-  objc.ObjCObjectBase? get delegate {
+  MLNMapViewDelegate? get delegate {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_delegate);
     return _ret.address == 0
         ? null
-        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+        : MLNMapViewDelegate.castFromPointer(_ret, retain: true, release: true);
   }
 
   /// The receiver’s delegate.
@@ -11467,7 +21296,7 @@ class MLNMapView extends objc.ObjCObjectBase {
   /// contents or the viewpoint. The delegate also provides information about
   /// annotations displayed on the map, such as the styles to apply to individual
   /// annotations.
-  set delegate(objc.ObjCObjectBase? value) {
+  set delegate(MLNMapViewDelegate? value) {
     _objc_msgSend_xtuoz7(
         this.ref.pointer, _sel_setDelegate_, value?.ref.pointer ?? ffi.nullptr);
   }
@@ -11876,9 +21705,13 @@ class MLNMapView extends objc.ObjCObjectBase {
   /// own location manager, you should do so by setting this property before setting
   /// `showsUserLocation` to `YES`. To restore the default location manager,
   /// set this property to `nil`.
-  objc.ObjCObjectBase get locationManager {
+  MLNLocationManager get locationManager {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_locationManager);
-    return objc.ObjCObjectBase(_ret, retain: true, release: true);
+    return MLNLocationManager.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
   }
 
   /// The object that this map view uses to start and stop the delivery of
@@ -11895,7 +21728,7 @@ class MLNMapView extends objc.ObjCObjectBase {
   /// own location manager, you should do so by setting this property before setting
   /// `showsUserLocation` to `YES`. To restore the default location manager,
   /// set this property to `nil`.
-  set locationManager(objc.ObjCObjectBase value) {
+  set locationManager(MLNLocationManager value) {
     _objc_msgSend_xtuoz7(
         this.ref.pointer, _sel_setLocationManager_, value.ref.pointer);
   }
@@ -13711,7 +23544,7 @@ class MLNMapView extends objc.ObjCObjectBase {
   /// #### Related examples
   /// - TODO: add a line annotation from GeoJSON.
   /// - TODO: add an annotation to an ``MLNMapView`` object.
-  void addAnnotation_(objc.ObjCObjectBase annotation) {
+  void addAnnotation_(MLNAnnotation annotation) {
     _objc_msgSend_xtuoz7(
         this.ref.pointer, _sel_addAnnotation_, annotation.ref.pointer);
   }
@@ -13740,7 +23573,7 @@ class MLNMapView extends objc.ObjCObjectBase {
   ///
   /// @param annotation The annotation object to remove. This object must conform
   /// to the ``MLNAnnotation`` protocol
-  void removeAnnotation_(objc.ObjCObjectBase annotation) {
+  void removeAnnotation_(MLNAnnotation annotation) {
     _objc_msgSend_xtuoz7(
         this.ref.pointer, _sel_removeAnnotation_, annotation.ref.pointer);
   }
@@ -13764,7 +23597,7 @@ class MLNMapView extends objc.ObjCObjectBase {
   ///
   /// @param annotation The annotation associated with the view.
   /// Annotation must conform to the ``MLNAnnotation`` protocol.
-  MLNAnnotationView? viewForAnnotation_(objc.ObjCObjectBase annotation) {
+  MLNAnnotationView? viewForAnnotation_(MLNAnnotation annotation) {
     final _ret = _objc_msgSend_1sotr3r(
         this.ref.pointer, _sel_viewForAnnotation_, annotation.ref.pointer);
     return _ret.address == 0
@@ -13908,10 +23741,13 @@ class MLNMapView extends objc.ObjCObjectBase {
   ///
   /// > Note: In versions prior to `4.0.0` selecting an offscreen annotation did not
   /// change the camera.
-  void selectAnnotation_animated_(
-      objc.ObjCObjectBase annotation, bool animated) {
-    _objc_msgSend_6p7ndb(this.ref.pointer, _sel_selectAnnotation_animated_,
-        annotation.ref.pointer, animated);
+  void selectAnnotation_animated_(MLNAnnotation annotation, bool animated) {
+    _objc_msgSend_6p7ndb(
+      this.ref.pointer,
+      _sel_selectAnnotation_animated_,
+      annotation.ref.pointer,
+      animated,
+    );
   }
 
   /// Selects an annotation and displays its callout view with an optional completion
@@ -13938,9 +23774,10 @@ class MLNMapView extends objc.ObjCObjectBase {
   /// > Note: In versions prior to `4.0.0` selecting an offscreen annotation did not
   /// change the camera.
   void selectAnnotation_animated_completionHandler_(
-      objc.ObjCObjectBase annotation,
-      bool animated,
-      objc.ObjCBlock<ffi.Void Function()>? completion) {
+    MLNAnnotation annotation,
+    bool animated,
+    objc.ObjCBlock<ffi.Void Function()>? completion,
+  ) {
     _objc_msgSend_na2nx0(
         this.ref.pointer,
         _sel_selectAnnotation_animated_completionHandler_,
@@ -13962,10 +23799,11 @@ class MLNMapView extends objc.ObjCObjectBase {
   /// are animated.
   /// @param completion The block executed after the animation finishes.
   void selectAnnotation_moveIntoView_animateSelection_completionHandler_(
-      objc.ObjCObjectBase annotation,
-      bool moveIntoView,
-      bool animateSelection,
-      objc.ObjCBlock<ffi.Void Function()>? completion) {
+    MLNAnnotation annotation,
+    bool moveIntoView,
+    bool animateSelection,
+    objc.ObjCBlock<ffi.Void Function()>? completion,
+  ) {
     _objc_msgSend_2nhnqw(
         this.ref.pointer,
         _sel_selectAnnotation_moveIntoView_animateSelection_completionHandler_,
@@ -13979,10 +23817,13 @@ class MLNMapView extends objc.ObjCObjectBase {
   ///
   /// @param annotation The annotation object to deselect.
   /// @param animated If `YES`, the callout view is animated offscreen.
-  void deselectAnnotation_animated_(
-      objc.ObjCObjectBase? annotation, bool animated) {
-    _objc_msgSend_6p7ndb(this.ref.pointer, _sel_deselectAnnotation_animated_,
-        annotation?.ref.pointer ?? ffi.nullptr, animated);
+  void deselectAnnotation_animated_(MLNAnnotation? annotation, bool animated) {
+    _objc_msgSend_6p7ndb(
+      this.ref.pointer,
+      _sel_deselectAnnotation_animated_,
+      annotation?.ref.pointer ?? ffi.nullptr,
+      animated,
+    );
   }
 
   /// The complete list of overlays associated with the receiver. (read-only)
@@ -14001,7 +23842,7 @@ class MLNMapView extends objc.ObjCObjectBase {
   ///
   /// @param overlay The overlay object to add. This object must conform to the
   /// ``MLNOverlay`` protocol.
-  void addOverlay_(objc.ObjCObjectBase overlay) {
+  void addOverlay_(MLNOverlay overlay) {
     _objc_msgSend_xtuoz7(
         this.ref.pointer, _sel_addOverlay_, overlay.ref.pointer);
   }
@@ -14023,7 +23864,7 @@ class MLNMapView extends objc.ObjCObjectBase {
   /// method does nothing.
   ///
   /// @param overlay The overlay object to remove.
-  void removeOverlay_(objc.ObjCObjectBase overlay) {
+  void removeOverlay_(MLNOverlay overlay) {
     _objc_msgSend_xtuoz7(
         this.ref.pointer, _sel_removeOverlay_, overlay.ref.pointer);
   }
@@ -14287,11 +24128,764 @@ class MLNMapView extends objc.ObjCObjectBase {
   }
 }
 
-late final _sel_altitudeForZoomLevelWithZoomLevel_mapView_ =
-    objc.registerName("altitudeForZoomLevelWithZoomLevel:mapView:");
-final _objc_msgSend_qixgmh = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
+/// WARNING: MLNCluster is a stub. To generate bindings for this class, include
+/// MLNCluster in your config's objc-protocols list.
+///
+/// A protocol that feature subclasses (i.e. those already conforming to
+/// the ``MLNFeature`` protocol) conform to if they represent clusters.
+///
+/// Currently the only class that conforms to ``MLNCluster`` is
+/// ``MLNPointFeatureCluster`` (a subclass of ``MLNPointFeatureCluster``).
+///
+/// To check if a feature is a cluster, check conformity to ``MLNCluster``, for
+/// example:
+///
+/// ```swift
+/// let shape = try! MLNShape(data: clusterShapeData, encoding: String.Encoding.utf8.rawValue)
+///
+/// guard let pointFeature = shape as? MLNPointFeature else {
+/// throw ExampleError.unexpectedFeatureType
+/// }
+///
+/// // Check for cluster conformance
+/// guard let cluster = pointFeature as? MLNCluster else {
+/// throw ExampleError.featureIsNotACluster
+/// }
+///
+/// // Currently the only supported class that conforms to ``MLNCluster`` is
+/// // ``MLNPointFeatureCluster``
+/// guard cluster is MLNPointFeatureCluster else {
+/// throw ExampleError.unexpectedFeatureType
+/// }
+/// ```
+interface class MLNCluster extends objc.ObjCProtocolBase implements MLNFeature {
+  MLNCluster._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNCluster] that points to the same underlying object as [other].
+  MLNCluster.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNCluster] that wraps the given raw object pointer.
+  MLNCluster.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+/// WARNING: MLNPointAnnotation is a stub. To generate bindings for this class, include
+/// MLNPointAnnotation in your config's objc-interfaces list.
+///
+/// An ``MLNPointAnnotation`` object represents a one-dimensional shape located at a
+/// single geographical coordinate. Depending on how it is used, an
+/// ``MLNPointAnnotation`` object is known as a point annotation or point shape. For
+/// example, you could use a point shape to represent a city at low zoom levels, an
+/// address at high zoom levels, or the location of a long press gesture.
+///
+/// You can add point shapes to the map by adding them to an ``MLNShapeSource``
+/// object. Configure the appearance of an ``MLNShapeSource``’s or
+/// ``MLNVectorTileSource``’s point shapes collectively using an ``MLNVectorTileSource`` or
+/// ``MLNSymbolStyleLayer`` object.
+///
+/// For more interactivity, add a selectable point annotation to a map view using
+/// the ``MLNMapView/addAnnotation:`` method. Alternatively, define your own model
+/// class that conforms to the ``MLNAnnotation`` protocol. Configure a point
+/// annotation’s appearance using
+/// ``MLNMapViewDelegate/mapView:imageForAnnotation:`` or
+/// ``MLNMapViewDelegate/mapView:viewForAnnotation:`` (iOS only). A point
+/// annotation’s ``MLNShape/title`` and ``MLNShape/title`` properties define the
+/// default content of the annotation’s callout (on iOS) or popover (on macOS).
+///
+/// To group multiple related points together in one shape, use an
+/// ``MLNPointCollection`` or ``MLNPointCollection`` object. To access
+/// a point’s attributes, use an ``MLNPointFeature`` object.
+///
+/// A point shape is known as a
+/// <a href="https://tools.ietf.org/html/rfc7946#section-3.1.2">Point</a> geometry
+/// in GeoJSON.
+///
+/// #### Related examples
+/// TODO: Mark a place on the map with an annotation
+/// TODO: Mark a place on the map with an image
+/// TODO: Default callout usage
+/// Learn how to add ``MLNPointAnnotation`` objects to your map.
+class MLNPointAnnotation extends MLNShape {
+  MLNPointAnnotation._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNPointAnnotation] that points to the same underlying object as [other].
+  MLNPointAnnotation.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNPointAnnotation] that wraps the given raw object pointer.
+  MLNPointAnnotation.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+/// WARNING: MLNFeature is a stub. To generate bindings for this class, include
+/// MLNFeature in your config's objc-protocols list.
+///
+/// The ``MLNFeature``  protocol is used to provide details about geographic features
+/// contained in an ``MLNShapeSource`` or ``MLNVectorTileSource`` object. Each concrete
+/// subclass of ``MLNShape`` in turn has a subclass that conforms to this protocol. A
+/// feature object associates a shape with an optional identifier and attributes.
+///
+/// You can add custom data to display on the map by creating feature objects and
+/// adding them to an ``MLNShapeSource`` using the
+/// ``MLNShapeSource/initWithIdentifier:shape:options:`` method or
+/// ``MLNShapeSource/shape`` property.
+///
+/// In addition to adding data to the map, you can also extract data from the map:
+/// ``MLNMapView/visibleFeaturesAtPoint:`` and related methods return feature
+/// objects that correspond to features in the source. This enables you to inspect
+/// the properties of features in vector tiles loaded by ``MLNVectorTileSource``
+/// objects. You also reuse these feature objects as overlay annotations.
+///
+/// While it is possible to add ``MLNFeature``-conforming objects to the map as
+/// annotations using ``MLNMapView/addAnnotations:`` and related methods, doing so
+/// has trade-offs:
+///
+/// - Features added as annotations will not have ``identifier`` or ``attributes``
+/// properties when used with feature querying.
+///
+/// - Features added as annotations become interactive. Taps and selection can be
+/// handled in ``MLNMapViewDelegate/mapView:didSelectAnnotation:``.
+interface class MLNFeature extends objc.ObjCProtocolBase
+    implements MLNAnnotation {
+  MLNFeature._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNFeature] that points to the same underlying object as [other].
+  MLNFeature.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNFeature] that wraps the given raw object pointer.
+  MLNFeature.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+/// WARNING: MLNPointFeature is a stub. To generate bindings for this class, include
+/// MLNPointFeature in your config's objc-interfaces list.
+///
+/// An ``MLNPointFeature`` object associates a point shape with an optional
+/// identifier and attributes.
+///
+/// #### Related examples
+/// - <doc:WebAPIDataExample>
+class MLNPointFeature extends MLNPointAnnotation implements MLNFeature {
+  MLNPointFeature._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNPointFeature] that points to the same underlying object as [other].
+  MLNPointFeature.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNPointFeature] that wraps the given raw object pointer.
+  MLNPointFeature.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+/// WARNING: MLNPointFeatureCluster is a stub. To generate bindings for this class, include
+/// MLNPointFeatureCluster in your config's objc-interfaces list.
+///
+/// An ``MLNPointFeatureCluster`` object associates a point shape (with an optional
+/// identifier and attributes) and represents a point cluster.
+///
+/// @see ``MLNCluster``
+///
+/// #### Related examples
+/// TODO: Clustering point data, learn how to initialize
+/// clusters and add them to your map.
+class MLNPointFeatureCluster extends MLNPointFeature implements MLNCluster {
+  MLNPointFeatureCluster._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNPointFeatureCluster] that points to the same underlying object as [other].
+  MLNPointFeatureCluster.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNPointFeatureCluster] that wraps the given raw object pointer.
+  MLNPointFeatureCluster.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _class_MLNTileSource = objc.getClass("MLNTileSource");
+late final _sel_configurationURL = objc.registerName("configurationURL");
+late final _sel_attributionInfos = objc.registerName("attributionInfos");
+
+/// ``MLNTileSource`` is a map content source that supplies map tiles to be shown on
+/// the map. The location of and metadata about the tiles are defined either by an
+/// option dictionary or by an external file that conforms to the
+/// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+/// A tile source is added to an ``MLNStyle`` object along with one or more
+/// ``MLNRasterStyleLayer`` or ``MLNRasterStyleLayer`` objects. Use a style layer to
+/// control the appearance of content supplied by the tile source.
+///
+/// A tile source is also known as a tile set. To learn about the structure of a
+/// Mapbox-hosted tile set, view it in
+/// <a href="https://www.mapbox.com/studio/tilesets/">Mapbox Studio’s Tilesets editor</a>.
+///
+/// Create instances of ``MLNRasterTileSource`` and ``MLNRasterTileSource`` in order
+/// to use ``MLNTileSource``'s properties and methods. Do not create instances of
+/// ``MLNTileSource`` directly, and do not create your own subclasses of this class.
+class MLNTileSource extends MLNSource {
+  MLNTileSource._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNTileSource] that points to the same underlying object as [other].
+  MLNTileSource.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNTileSource] that wraps the given raw object pointer.
+  MLNTileSource.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNTileSource].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MLNTileSource,
+    );
+  }
+
+  /// The URL to the TileJSON configuration file that specifies the contents of the
+  /// source.
+  ///
+  /// If the receiver was initialized using
+  /// `-initWithIdentifier:tileURLTemplates:options`, this property is set to `nil`.
+  objc.NSURL? get configurationURL {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_configurationURL);
+    return _ret.address == 0
+        ? null
+        : objc.NSURL.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// An array of ``MLNAttributionInfo`` objects that define the attribution
+  /// statements to be displayed when the map is shown to the user.
+  ///
+  /// By default, this array is empty. If the source is initialized with a
+  /// configuration URL, this array is also empty until the configuration JSON file
+  /// is loaded.
+  objc.NSArray get attributionInfos {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_attributionInfos);
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// init
+  MLNTileSource init() {
+    objc.checkOsVersionInternal(
+      'MLNTileSource.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNTileSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNTileSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_,
+      identifier.ref.pointer,
+    );
+    return MLNTileSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// new
+  static MLNTileSource new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNTileSource, _sel_new);
+    return MLNTileSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNTileSource allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNTileSource,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNTileSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNTileSource alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNTileSource, _sel_alloc);
+    return MLNTileSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MLNTileSource self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNTileSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNTileSource retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNTileSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNTileSource autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNTileSource.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a new instance of MLNTileSource constructed with the default `new` method.
+  factory MLNTileSource() => new$();
+}
+
+late final _class_MLNVectorTileSource = objc.getClass(
+  "MapLibre.MLNVectorTileSource",
+);
+late final _sel_initWithIdentifier_configurationURL_ = objc.registerName(
+  "initWithIdentifier:configurationURL:",
+);
+late final _sel_initWithIdentifier_configurationURLString_ = objc.registerName(
+  "initWithIdentifier:configurationURLString:",
+);
+late final _sel_initWithIdentifier_tileURLTemplates_options_ = objc
+    .registerName("initWithIdentifier:tileURLTemplates:options:");
+late final _sel_featuresInSourceLayersWithIdentifiers_predicate_ = objc
+    .registerName("featuresInSourceLayersWithIdentifiers:predicate:");
+
+/// ``MLNVectorTileSource`` is a map content source that supplies tiled vector data
+/// in <a href="https://www.mapbox.com/vector-tiles/">Mapbox Vector Tile</a> format
+/// to be shown on the map. The location of and metadata about the tiles are
+/// defined either by an option dictionary or by an external file that conforms to
+/// the
+/// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+/// A vector tile source is added to an ``MLNStyle`` object along with one or more
+/// ``MLNVectorStyleLayer`` objects. A vector style layer defines the appearance of
+/// any content supplied by the vector tile source.
+///
+/// ``MLNVectorTileSource`` is optimized for data sets that are too large to fit
+/// completely in memory, such as vector tile sets or data sets managed in
+/// <a href="https://www.mapbox.com/studio/">Mapbox Studio</a>. For
+/// <a href="http://geojson.org/">GeoJSON</a> data, use the ``MLNShapeSource``
+/// class. For tiled data that changes dynamically, the ``MLNComputedShapeSource``
+/// class may be a suitable alternative.
+///
+/// Each
+/// <a href="https://maplibre.org/maplibre-style-spec/sources/#vector"><code>vector</code></a>
+/// source defined by the style JSON file is represented at runtime by an
+/// ``MLNVectorTileSource`` object that you can use to initialize new style layers.
+/// You can also add and remove sources dynamically using methods such as
+/// ``MLNStyle/addSource:`` and ``MLNStyle/sourceWithIdentifier:``.
+///
+/// Within each vector tile, each geometric coordinate must lie between
+/// −1&nbsp;×&nbsp;<var>extent</var> and
+/// (<var>extent</var>&nbsp;×&nbsp;2)&nbsp;−&nbsp;1, inclusive. Any vector style
+/// layer initialized with a vector tile source must have a non-`nil` value in its
+/// `sourceLayerIdentifier` property.
+///
+/// Commonly used vector tile sources include
+/// <a href="https://www.mapbox.com/vector-tiles/mapbox-streets/">Mapbox Streets</a>,
+/// <a href="https://www.mapbox.com/vector-tiles/mapbox-terrain/">Mapbox Terrain</a>,
+/// and
+/// <a href="https://www.mapbox.com/vector-tiles/mapbox-traffic-v1/">Mapbox Traffic</a>.
+///
+/// ### Example
+///
+/// ```swift
+/// let source = MLNVectorTileSource(identifier: "pois", tileURLTemplates:
+/// ["https://example.com/vector-tiles/{z}/{x}/{y}.mvt"], options: [ .minimumZoomLevel: 9,
+/// .maximumZoomLevel: 16,
+/// .attributionInfos: [
+/// MLNAttributionInfo(title: NSAttributedString(string: "© Mapbox"), url: URL(string:
+/// "https://mapbox.com"))
+/// ]
+/// ])
+/// mapView.style?.addSource(source)
+/// ```
+///
+/// #### Related examples
+/// TODO: Data-driven circles, learn how to add data to your map using
+/// an ``MLNVectorTileSource`` object.
+class MLNVectorTileSource extends MLNTileSource {
+  MLNVectorTileSource._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNVectorTileSource] that points to the same underlying object as [other].
+  MLNVectorTileSource.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNVectorTileSource] that wraps the given raw object pointer.
+  MLNVectorTileSource.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNVectorTileSource].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MLNVectorTileSource,
+    );
+  }
+
+  /// Returns a vector tile source initialized with an identifier and configuration
+  /// URL.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// The URL may be a full HTTP or HTTPS URL or a canonical
+  /// URL. The URL should point to a JSON file that conforms to the
+  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param configurationURL A URL to a TileJSON configuration file describing the
+  /// source’s contents and other metadata.
+  /// @return An initialized vector tile source.
+  MLNVectorTileSource initWithIdentifier_configurationURL_(
+    objc.NSString identifier,
+    objc.NSURL configurationURL,
+  ) {
+    final _ret = _objc_msgSend_15qeuct(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_configurationURL_,
+      identifier.ref.pointer,
+      configurationURL.ref.pointer,
+    );
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Returns a vector tile source initialized with an identifier and a
+  /// string-based configuration URL.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// The string may be a full HTTP or HTTPS URL or a canonical URL. The string should
+  /// point to a JSON file that conforms to the
+  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+  ///
+  /// This constructor can be used for URLs that cause problems with `NSURL`’s URL
+  /// parsing behavior. For example, URLs starting with `pmtiles://https://` were
+  /// not parsed correctly on iOS 17.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param configurationURLString A string to a TileJSON configuration file
+  /// describing the source’s contents and other metadata.
+  /// @return An initialized vector tile source.
+  MLNVectorTileSource initWithIdentifier_configurationURLString_(
+    objc.NSString identifier,
+    objc.NSString configurationURLString,
+  ) {
+    final _ret = _objc_msgSend_15qeuct(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_configurationURLString_,
+      identifier.ref.pointer,
+      configurationURLString.ref.pointer,
+    );
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Returns a vector tile source initialized an identifier, tile URL templates, and
+  /// options.
+  ///
+  /// Tile URL templates are strings that specify the URLs of the vector tiles to
+  /// load. See the “<a href="../tile-url-templates.html">Tile URL Templates</a>”
+  /// guide for information about the format of a tile URL template.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param tileURLTemplates An array of tile URL template strings. Only the first
+  /// string is used; any additional strings are ignored.
+  /// @param options A dictionary containing configuration options. See
+  /// ``MLNTileSourceOption`` for available keys and values. Pass in `nil` to use
+  /// the default values.
+  /// @return An initialized tile source.
+  MLNVectorTileSource initWithIdentifier_tileURLTemplates_options_(
+    objc.NSString identifier,
+    objc.NSArray tileURLTemplates,
+    objc.NSDictionary? options,
+  ) {
+    final _ret = _objc_msgSend_11spmsz(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_tileURLTemplates_options_,
+      identifier.ref.pointer,
+      tileURLTemplates.ref.pointer,
+      options?.ref.pointer ?? ffi.nullptr,
+    );
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Returns an array of map features loaded by this source, restricted to the given
+  /// source layers and filtered by the given predicate.
+  ///
+  /// Each object in the returned array represents a feature loaded by the source and
+  /// provides access to attributes specified as part of the loaded feature. The
+  /// source loads a feature if the source is added to an ``MLNMapView``’s style; that
+  /// style has a layer that uses the source; and the map view has recently scrolled
+  /// to the region containing the feature.
+  ///
+  /// Features come from tiled vector data that is converted to tiles internally, so
+  /// feature geometries are clipped at tile boundaries and features may appear
+  /// duplicated across tiles. For example, suppose part of a lengthy polyline
+  /// representing a road has recently scrolled into view. The resulting array
+  /// includes those parts of the road that lie within the map tiles that the source
+  /// has loaded, even if the road extends into other tiles. The portion of the road
+  /// within each map tile is included individually.
+  ///
+  /// Returned features may not necessarily be visible to the user at the time they
+  /// are loaded: the style may contain a layer that forces the source’s tiles to
+  /// load but filters out the features in question, preventing them from being
+  /// drawn. To obtain only _visible_ features, use the
+  /// ``MLNMapView/visibleFeaturesAtPoint:inStyleLayersWithIdentifiers:predicate:``
+  /// or
+  /// ``MLNMapView/visibleFeaturesInRect:inStyleLayersWithIdentifiers:predicate:``
+  /// method.
+  ///
+  /// @param sourceLayerIdentifiers The source layers to include in the query. Only
+  /// the features contained in these source layers are included in the returned
+  /// array. This array may not be empty.
+  /// @param predicate A predicate to filter the returned features. Use `nil` to
+  /// include all loaded features.
+  /// @return An array of objects conforming to the ``MLNFeature`` protocol that
+  /// represent features loaded by the source that match the predicate.
+  objc.NSArray featuresInSourceLayersWithIdentifiers_predicate_(
+    objc.NSSet sourceLayerIdentifiers,
+    NSPredicate? predicate,
+  ) {
+    final _ret = _objc_msgSend_15qeuct(
+      this.ref.pointer,
+      _sel_featuresInSourceLayersWithIdentifiers_predicate_,
+      sourceLayerIdentifiers.ref.pointer,
+      predicate?.ref.pointer ?? ffi.nullptr,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// init
+  MLNVectorTileSource init() {
+    objc.checkOsVersionInternal(
+      'MLNVectorTileSource.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNVectorTileSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_,
+      identifier.ref.pointer,
+    );
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// new
+  static MLNVectorTileSource new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNVectorTileSource, _sel_new);
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// allocWithZone:
+  static MLNVectorTileSource allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNVectorTileSource,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// alloc
+  static MLNVectorTileSource alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNVectorTileSource, _sel_alloc);
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// self
+  MLNVectorTileSource self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// retain
+  MLNVectorTileSource retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// autorelease
+  MLNVectorTileSource autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNVectorTileSource.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// Returns a new instance of MLNVectorTileSource constructed with the default `new` method.
+  factory MLNVectorTileSource() => new$();
+}
+
+late final _class_MLNShapeSource = objc.getClass("MLNShapeSource");
+late final _sel_initWithIdentifier_URL_options_ = objc.registerName(
+  "initWithIdentifier:URL:options:",
+);
+late final _sel_initWithIdentifier_shape_options_ = objc.registerName(
+  "initWithIdentifier:shape:options:",
+);
+late final _sel_initWithIdentifier_features_options_ = objc.registerName(
+  "initWithIdentifier:features:options:",
+);
+late final _sel_initWithIdentifier_shapes_options_ = objc.registerName(
+  "initWithIdentifier:shapes:options:",
+);
+late final _sel_shape = objc.registerName("shape");
+late final _sel_setShape_ = objc.registerName("setShape:");
+late final _sel_URL = objc.registerName("URL");
+late final _sel_setURL_ = objc.registerName("setURL:");
+late final _sel_featuresMatchingPredicate_ = objc.registerName(
+  "featuresMatchingPredicate:",
+);
+late final _sel_leavesOfCluster_offset_limit_ = objc.registerName(
+  "leavesOfCluster:offset:limit:",
+);
+final _objc_msgSend_17wuhyd =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.UnsignedLong,
+              ffi.UnsignedLong,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            int,
+            int,
+          )
+        >();
+late final _sel_childrenOfCluster_ = objc.registerName("childrenOfCluster:");
+late final _sel_zoomLevelForExpandingCluster_ = objc.registerName(
+  "zoomLevelForExpandingCluster:",
+);
+final _objc_msgSend_mabicu =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
             ffi.Double Function(
                 ffi.Pointer<objc.ObjCObject>,
                 ffi.Pointer<objc.ObjCSelector>,
@@ -14422,23 +25016,50 @@ class Helpers extends objc.NSObject {
   }
 
   /// init
-  Helpers init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return Helpers.castFromPointer(_ret, retain: false, release: true);
+  MLNShapeSource init() {
+    objc.checkOsVersionInternal(
+      'MLNShapeSource.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNShapeSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_,
+      identifier.ref.pointer,
+    );
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// new
-  static Helpers new1() {
-    final _ret = _objc_msgSend_151sglz(_class_Helpers, _sel_new);
-    return Helpers.castFromPointer(_ret, retain: false, release: true);
+  static MLNShapeSource new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNShapeSource, _sel_new);
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// allocWithZone:
-  static Helpers allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_Helpers, _sel_allocWithZone_, zone);
-    return Helpers.castFromPointer(_ret, retain: false, release: true);
+  static MLNShapeSource allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNShapeSource,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// alloc
@@ -14448,7 +25069,7 @@ class Helpers extends objc.NSObject {
   }
 
   /// self
-  Helpers self() {
+  MLNShapeSource self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return Helpers.castFromPointer(_ret, retain: true, release: true);
   }
@@ -14464,6 +25085,9 @@ class Helpers extends objc.NSObject {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
     return Helpers.castFromPointer(_ret, retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNShapeSource constructed with the default `new` method.
+  factory MLNShapeSource() => new$();
 }
 
 late final _class_MapLibreRegistry =
@@ -14541,20 +25165,44 @@ class MapLibreRegistry extends objc.NSObject {
   }
 
   /// init
-  MapLibreRegistry init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
+  MLNImageSource init() {
+    objc.checkOsVersionInternal(
+      'MLNImageSource.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNImageSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_,
+      identifier.ref.pointer,
+    );
+    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// new
-  static MapLibreRegistry new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MapLibreRegistry, _sel_new);
-    return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
+  static MLNImageSource new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNImageSource, _sel_new);
+    return MLNImageSource.castFromPointer(_ret, retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MapLibreRegistry allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNImageSource allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MapLibreRegistry, _sel_allocWithZone_, zone);
     return MapLibreRegistry.castFromPointer(_ret, retain: false, release: true);
@@ -14567,7 +25215,7 @@ class MapLibreRegistry extends objc.NSObject {
   }
 
   /// self
-  MapLibreRegistry self() {
+  MLNImageSource self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
   }
@@ -14583,6 +25231,9 @@ class MapLibreRegistry extends objc.NSObject {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
     return MapLibreRegistry.castFromPointer(_ret, retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNImageSource constructed with the default `new` method.
+  factory MLNImageSource() => new$();
 }
 
 final class CGContext extends ffi.Opaque {}
@@ -14608,11 +25259,111 @@ final class MLNCoordinateQuad extends ffi.Struct {
   /// Coordinate at the bottom left corner.
   external CLLocationCoordinate2D bottomLeft;
 
-  /// Coordinate at the bottom right corner.
-  external CLLocationCoordinate2D bottomRight;
+  /// init
+  MLNRasterTileSource init() {
+    objc.checkOsVersionInternal(
+      'MLNRasterTileSource.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNRasterTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
 
-  /// Coordinate at the top right corner.
-  external CLLocationCoordinate2D topRight;
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNRasterTileSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_,
+      identifier.ref.pointer,
+    );
+    return MLNRasterTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// new
+  static MLNRasterTileSource new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNRasterTileSource, _sel_new);
+    return MLNRasterTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// allocWithZone:
+  static MLNRasterTileSource allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNRasterTileSource,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNRasterTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// alloc
+  static MLNRasterTileSource alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNRasterTileSource, _sel_alloc);
+    return MLNRasterTileSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// self
+  MLNRasterTileSource self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNRasterTileSource.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// retain
+  MLNRasterTileSource retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNRasterTileSource.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// autorelease
+  MLNRasterTileSource autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNRasterTileSource.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// Returns a new instance of MLNRasterTileSource constructed with the default `new` method.
+  factory MLNRasterTileSource() => new$();
 }
 
 /// Constants indicating the visibility of different map ornaments.
@@ -14629,17 +25380,661 @@ enum MLNOrnamentVisibility {
   final int value;
   const MLNOrnamentVisibility(this.value);
 
-  static MLNOrnamentVisibility fromValue(int value) => switch (value) {
-        0 => MLNOrnamentVisibilityAdaptive,
-        1 => MLNOrnamentVisibilityHidden,
-        2 => MLNOrnamentVisibilityVisible,
-        _ => throw ArgumentError(
-            "Unknown value for MLNOrnamentVisibility: $value"),
-      };
+  /// Returns whether [obj] is an instance of [MLNRasterDEMSource].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MLNRasterDEMSource,
+    );
+  }
+
+  /// Returns a raster tile source initialized with an identifier and configuration
+  /// URL.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// The URL may be a full HTTP or HTTPS URL or canonical URL. The URL should
+  /// point to a JSON file that conforms to the
+  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+  ///
+  /// If a Mapbox URL is specified, this source uses a tile size of 256. For all
+  /// other tilesets, the default value is 512. (See the
+  /// ``MLNTileSourceOptionTileSize`` documentation for more information about tile
+  /// sizes.) If you need to use a tile size other than the default, use the
+  /// `-initWithIdentifier:configurationURL:tileSize:` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param configurationURL A URL to a TileJSON configuration file describing the
+  /// source’s contents and other metadata.
+  /// @return An initialized raster tile source.
+  MLNRasterDEMSource initWithIdentifier_configurationURL_(
+    objc.NSString identifier,
+    objc.NSURL configurationURL,
+  ) {
+    final _ret = _objc_msgSend_15qeuct(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_configurationURL_,
+      identifier.ref.pointer,
+      configurationURL.ref.pointer,
+    );
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Returns a raster tile source initialized with an identifier, configuration URL,
+  /// and tile size.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// The URL may be a full HTTP or HTTPS URL or, canonical URL. The URL should
+  /// point to a JSON file that conforms to the
+  /// <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param configurationURL A URL to a TileJSON configuration file describing the
+  /// source’s contents and other metadata.
+  /// @param tileSize The width and height (measured in points) of each tiled image
+  /// in the raster tile source. See the ``MLNTileSourceOptionTileSize``
+  /// documentation for details.
+  /// @return An initialized raster tile source.
+  MLNRasterDEMSource initWithIdentifier_configurationURL_tileSize_(
+    objc.NSString identifier,
+    objc.NSURL configurationURL,
+    double tileSize,
+  ) {
+    final _ret = _objc_msgSend_hzzkpm(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_configurationURL_tileSize_,
+      identifier.ref.pointer,
+      configurationURL.ref.pointer,
+      tileSize,
+    );
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Returns a raster tile source initialized an identifier, tile URL templates, and
+  /// options.
+  ///
+  /// Tile URL templates are strings that specify the URLs of the raster tile images
+  /// to load. See the “<a href="../tile-url-templates.html">Tile URL Templates</a>”
+  /// guide for information about the format of a tile URL template.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @param tileURLTemplates An array of tile URL template strings. Only the first
+  /// string is used; any additional strings are ignored.
+  /// @param options A dictionary containing configuration options. See
+  /// ``MLNTileSourceOption`` for available keys and values. Pass in `nil` to use
+  /// the default values.
+  /// @return An initialized tile source.
+  MLNRasterDEMSource initWithIdentifier_tileURLTemplates_options_(
+    objc.NSString identifier,
+    objc.NSArray tileURLTemplates,
+    objc.NSDictionary? options,
+  ) {
+    final _ret = _objc_msgSend_11spmsz(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_tileURLTemplates_options_,
+      identifier.ref.pointer,
+      tileURLTemplates.ref.pointer,
+      options?.ref.pointer ?? ffi.nullptr,
+    );
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// init
+  MLNRasterDEMSource init() {
+    objc.checkOsVersionInternal(
+      'MLNRasterDEMSource.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Returns a source initialized with an identifier.
+  ///
+  /// After initializing and configuring the source, add it to a map view’s style
+  /// using the ``MLNStyle/addSource:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  /// @return An initialized source.
+  MLNRasterDEMSource initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_,
+      identifier.ref.pointer,
+    );
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// new
+  static MLNRasterDEMSource new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNRasterDEMSource, _sel_new);
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// allocWithZone:
+  static MLNRasterDEMSource allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNRasterDEMSource,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// alloc
+  static MLNRasterDEMSource alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNRasterDEMSource, _sel_alloc);
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// self
+  MLNRasterDEMSource self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// retain
+  MLNRasterDEMSource retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// autorelease
+  MLNRasterDEMSource autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNRasterDEMSource.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// Returns a new instance of MLNRasterDEMSource constructed with the default `new` method.
+  factory MLNRasterDEMSource() => new$();
 }
 
-late final _class_MLNForegroundStyleLayer =
-    objc.getClass("MLNForegroundStyleLayer");
+late final _class_MLNBackgroundStyleLayer = objc.getClass(
+  "MLNBackgroundStyleLayer",
+);
+late final _sel_backgroundColorTransition = objc.registerName(
+  "backgroundColorTransition",
+);
+late final _sel_setBackgroundColorTransition_ = objc.registerName(
+  "setBackgroundColorTransition:",
+);
+late final _sel_backgroundOpacity = objc.registerName("backgroundOpacity");
+late final _sel_setBackgroundOpacity_ = objc.registerName(
+  "setBackgroundOpacity:",
+);
+late final _sel_backgroundOpacityTransition = objc.registerName(
+  "backgroundOpacityTransition",
+);
+late final _sel_setBackgroundOpacityTransition_ = objc.registerName(
+  "setBackgroundOpacityTransition:",
+);
+late final _sel_backgroundPattern = objc.registerName("backgroundPattern");
+late final _sel_setBackgroundPattern_ = objc.registerName(
+  "setBackgroundPattern:",
+);
+late final _sel_backgroundPatternTransition = objc.registerName(
+  "backgroundPatternTransition",
+);
+late final _sel_setBackgroundPatternTransition_ = objc.registerName(
+  "setBackgroundPatternTransition:",
+);
+
+/// An ``MLNBackgroundStyleLayer`` is a style layer that covers the entire map. Use
+/// a background style layer to configure a color or pattern to show below all
+/// other map content. If the style’s other layers use the Mapbox Streets source,
+/// the background style layer is responsible for drawing land, whereas the oceans
+/// and other bodies of water are drawn by ``MLNBackgroundStyleLayer`` objects.
+///
+/// A background style layer is typically the bottommost layer in a style, because
+/// it covers the entire map and can occlude any layers below it. You can therefore
+/// access it by getting the last item in the ``MLNStyle/layers`` array.
+///
+/// If the background style layer is transparent or omitted from the style, any
+/// portion of the map view that does not show another style layer is transparent.
+class MLNBackgroundStyleLayer extends MLNStyleLayer {
+  MLNBackgroundStyleLayer._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNBackgroundStyleLayer] that points to the same underlying object as [other].
+  MLNBackgroundStyleLayer.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNBackgroundStyleLayer] that wraps the given raw object pointer.
+  MLNBackgroundStyleLayer.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNBackgroundStyleLayer].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MLNBackgroundStyleLayer,
+    );
+  }
+
+  /// Returns a background style layer initialized with an identifier.
+  ///
+  /// After initializing and configuring the style layer, add it to a map view’s
+  /// style using the ``MLNStyle/addLayer:`` or
+  /// ``MLNStyle/insertLayer:belowLayer:`` method.
+  ///
+  /// @param identifier A string that uniquely identifies the source in the style to
+  /// which it is added.
+  MLNBackgroundStyleLayer initWithIdentifier_(objc.NSString identifier) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithIdentifier_,
+      identifier.ref.pointer,
+    );
+    return MLNBackgroundStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// The color with which the background will be drawn.
+  ///
+  /// The default value of this property is an expression that evaluates to
+  /// `NSColor.blackColor`. Set this property to `nil` to reset it to the default
+  /// value.
+  ///
+  /// This property is only applied to the style if `backgroundPattern` is set to
+  /// `nil`. Otherwise, it is ignored.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant `NSColor` values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation or step functions to
+  /// feature attributes.
+  NSExpression get backgroundColor {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_backgroundColor);
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The color with which the background will be drawn.
+  ///
+  /// The default value of this property is an expression that evaluates to
+  /// `NSColor.blackColor`. Set this property to `nil` to reset it to the default
+  /// value.
+  ///
+  /// This property is only applied to the style if `backgroundPattern` is set to
+  /// `nil`. Otherwise, it is ignored.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant `NSColor` values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation or step functions to
+  /// feature attributes.
+  set backgroundColor(NSExpression value) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_setBackgroundColor_,
+      value.ref.pointer,
+    );
+  }
+
+  /// The transition affecting any changes to this layer’s `backgroundColor` property.
+  ///
+  /// This property corresponds to the `background-color-transition` property in the style JSON file format.
+  MLNTransition get backgroundColorTransition {
+    final _ptr = pkg_ffi.calloc<MLNTransition>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1i0p3hyStret(
+          _ptr,
+          this.ref.pointer,
+          _sel_backgroundColorTransition,
+        )
+        : _ptr.ref = _objc_msgSend_1i0p3hy(
+          this.ref.pointer,
+          _sel_backgroundColorTransition,
+        );
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<MLNTransition>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<MLNTransition>(_finalizable);
+  }
+
+  /// The transition affecting any changes to this layer’s `backgroundColor` property.
+  ///
+  /// This property corresponds to the `background-color-transition` property in the style JSON file format.
+  set backgroundColorTransition(MLNTransition value) {
+    _objc_msgSend_z7lywk(
+      this.ref.pointer,
+      _sel_setBackgroundColorTransition_,
+      value,
+    );
+  }
+
+  /// The opacity at which the background will be drawn.
+  ///
+  /// The default value of this property is an expression that evaluates to the float
+  /// `1`. Set this property to `nil` to reset it to the default value.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant numeric values between 0 and 1 inclusive
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation or step functions to
+  /// feature attributes.
+  NSExpression get backgroundOpacity {
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_backgroundOpacity,
+    );
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The opacity at which the background will be drawn.
+  ///
+  /// The default value of this property is an expression that evaluates to the float
+  /// `1`. Set this property to `nil` to reset it to the default value.
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant numeric values between 0 and 1 inclusive
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Interpolation and step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation or step functions to
+  /// feature attributes.
+  set backgroundOpacity(NSExpression value) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_setBackgroundOpacity_,
+      value.ref.pointer,
+    );
+  }
+
+  /// The transition affecting any changes to this layer’s `backgroundOpacity` property.
+  ///
+  /// This property corresponds to the `background-opacity-transition` property in the style JSON file format.
+  MLNTransition get backgroundOpacityTransition {
+    final _ptr = pkg_ffi.calloc<MLNTransition>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1i0p3hyStret(
+          _ptr,
+          this.ref.pointer,
+          _sel_backgroundOpacityTransition,
+        )
+        : _ptr.ref = _objc_msgSend_1i0p3hy(
+          this.ref.pointer,
+          _sel_backgroundOpacityTransition,
+        );
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<MLNTransition>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<MLNTransition>(_finalizable);
+  }
+
+  /// The transition affecting any changes to this layer’s `backgroundOpacity` property.
+  ///
+  /// This property corresponds to the `background-opacity-transition` property in the style JSON file format.
+  set backgroundOpacityTransition(MLNTransition value) {
+    _objc_msgSend_z7lywk(
+      this.ref.pointer,
+      _sel_setBackgroundOpacityTransition_,
+      value,
+    );
+  }
+
+  /// Name of image in style images to use for drawing an image background. For
+  /// seamless patterns, image width and height must be a factor of two (2, 4, 8,
+  /// ..., 512).
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant string values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation functions to the
+  /// `$zoomLevel` variable or applying interpolation or step functions to feature
+  /// attributes.
+  NSExpression get backgroundPattern {
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.pointer,
+      _sel_backgroundPattern,
+    );
+    return NSExpression.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Name of image in style images to use for drawing an image background. For
+  /// seamless patterns, image width and height must be a factor of two (2, 4, 8,
+  /// ..., 512).
+  ///
+  /// You can set this property to an expression containing any of the following:
+  ///
+  /// Constant string values
+  /// Predefined functions, including mathematical and string operators
+  /// Conditional expressions
+  /// Variable assignments and references to assigned variables
+  /// Step functions applied to the `$zoomLevel` variable
+  ///
+  /// This property does not support applying interpolation functions to the
+  /// `$zoomLevel` variable or applying interpolation or step functions to feature
+  /// attributes.
+  set backgroundPattern(NSExpression value) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_setBackgroundPattern_,
+      value.ref.pointer,
+    );
+  }
+
+  /// The transition affecting any changes to this layer’s `backgroundPattern` property.
+  ///
+  /// This property corresponds to the `background-pattern-transition` property in the style JSON file format.
+  MLNTransition get backgroundPatternTransition {
+    final _ptr = pkg_ffi.calloc<MLNTransition>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1i0p3hyStret(
+          _ptr,
+          this.ref.pointer,
+          _sel_backgroundPatternTransition,
+        )
+        : _ptr.ref = _objc_msgSend_1i0p3hy(
+          this.ref.pointer,
+          _sel_backgroundPatternTransition,
+        );
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<MLNTransition>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<MLNTransition>(_finalizable);
+  }
+
+  /// The transition affecting any changes to this layer’s `backgroundPattern` property.
+  ///
+  /// This property corresponds to the `background-pattern-transition` property in the style JSON file format.
+  set backgroundPatternTransition(MLNTransition value) {
+    _objc_msgSend_z7lywk(
+      this.ref.pointer,
+      _sel_setBackgroundPatternTransition_,
+      value,
+    );
+  }
+
+  /// init
+  MLNBackgroundStyleLayer init() {
+    objc.checkOsVersionInternal(
+      'MLNBackgroundStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNBackgroundStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// new
+  static MLNBackgroundStyleLayer new$() {
+    final _ret = _objc_msgSend_151sglz(
+      _class_MLNBackgroundStyleLayer,
+      _sel_new,
+    );
+    return MLNBackgroundStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// allocWithZone:
+  static MLNBackgroundStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNBackgroundStyleLayer,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNBackgroundStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// alloc
+  static MLNBackgroundStyleLayer alloc() {
+    final _ret = _objc_msgSend_151sglz(
+      _class_MLNBackgroundStyleLayer,
+      _sel_alloc,
+    );
+    return MLNBackgroundStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// self
+  MLNBackgroundStyleLayer self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNBackgroundStyleLayer.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// retain
+  MLNBackgroundStyleLayer retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNBackgroundStyleLayer.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// autorelease
+  MLNBackgroundStyleLayer autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNBackgroundStyleLayer.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// Returns a new instance of MLNBackgroundStyleLayer constructed with the default `new` method.
+  factory MLNBackgroundStyleLayer() => new$();
+}
+
+late final _class_MLNForegroundStyleLayer = objc.getClass(
+  "MLNForegroundStyleLayer",
+);
 late final _sel_sourceIdentifier = objc.registerName("sourceIdentifier");
 
 /// ``MLNForegroundStyleLayer`` is an abstract superclass for style layers whose
@@ -14672,10 +26067,20 @@ class MLNForegroundStyleLayer extends MLNStyleLayer {
 
   /// init
   MLNForegroundStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNForegroundStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'MLNForegroundStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNForegroundStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// Identifier of the source from which the receiver obtains the data to style.
@@ -14687,15 +26092,20 @@ class MLNForegroundStyleLayer extends MLNStyleLayer {
   }
 
   /// new
-  static MLNForegroundStyleLayer new1() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_MLNForegroundStyleLayer, _sel_new);
-    return MLNForegroundStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+  static MLNForegroundStyleLayer new$() {
+    final _ret = _objc_msgSend_151sglz(
+      _class_MLNForegroundStyleLayer,
+      _sel_new,
+    );
+    return MLNForegroundStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// allocWithZone:
-  static MLNForegroundStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNForegroundStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNForegroundStyleLayer, _sel_allocWithZone_, zone);
     return MLNForegroundStyleLayer.castFromPointer(_ret,
@@ -14711,7 +26121,7 @@ class MLNForegroundStyleLayer extends MLNStyleLayer {
   }
 
   /// self
-  MLNForegroundStyleLayer self() {
+  MLNForegroundStyleLayer self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNForegroundStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
@@ -14730,6 +26140,9 @@ class MLNForegroundStyleLayer extends MLNStyleLayer {
     return MLNForegroundStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNForegroundStyleLayer constructed with the default `new` method.
+  factory MLNForegroundStyleLayer() => new$();
 }
 
 late final _class_MLNVectorStyleLayer = objc.getClass("MLNVectorStyleLayer");
@@ -14844,21 +26257,31 @@ class MLNVectorStyleLayer extends MLNForegroundStyleLayer {
 
   /// init
   MLNVectorStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNVectorStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'MLNVectorStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNVectorStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static MLNVectorStyleLayer new1() {
+  static MLNVectorStyleLayer new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNVectorStyleLayer, _sel_new);
     return MLNVectorStyleLayer.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNVectorStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNVectorStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNVectorStyleLayer, _sel_allocWithZone_, zone);
     return MLNVectorStyleLayer.castFromPointer(_ret,
@@ -14873,7 +26296,7 @@ class MLNVectorStyleLayer extends MLNForegroundStyleLayer {
   }
 
   /// self
-  MLNVectorStyleLayer self() {
+  MLNVectorStyleLayer self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNVectorStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
@@ -17313,6 +28736,9 @@ class MLNBackgroundStyleLayer extends MLNStyleLayer {
     return MLNBackgroundStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNVectorStyleLayer constructed with the default `new` method.
+  factory MLNVectorStyleLayer() => new$();
 }
 
 late final _class_MLNCircleStyleLayer = objc.getClass("MLNCircleStyleLayer");
@@ -18228,21 +29654,31 @@ class MLNCircleStyleLayer extends MLNVectorStyleLayer {
 
   /// init
   MLNCircleStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNCircleStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'MLNCircleStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNCircleStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static MLNCircleStyleLayer new1() {
+  static MLNCircleStyleLayer new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNCircleStyleLayer, _sel_new);
     return MLNCircleStyleLayer.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNCircleStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNCircleStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNCircleStyleLayer, _sel_allocWithZone_, zone);
     return MLNCircleStyleLayer.castFromPointer(_ret,
@@ -18257,7 +29693,7 @@ class MLNCircleStyleLayer extends MLNVectorStyleLayer {
   }
 
   /// self
-  MLNCircleStyleLayer self() {
+  MLNCircleStyleLayer self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNCircleStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
@@ -18276,6 +29712,9 @@ class MLNCircleStyleLayer extends MLNVectorStyleLayer {
     return MLNCircleStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNCircleStyleLayer constructed with the default `new` method.
+  factory MLNCircleStyleLayer() => new$();
 }
 
 late final _class_MLNShapeSource = objc.getClass("MLNShapeSource");
@@ -18668,37 +30107,50 @@ class MLNShapeSource extends MLNSource {
   }
 
   /// init
-  MLNShapeSource init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
-  }
-
-  /// Returns a source initialized with an identifier.
-  ///
-  /// After initializing and configuring the source, add it to a map view’s style
-  /// using the ``MLNStyle/addSource:`` method.
-  ///
-  /// @param identifier A string that uniquely identifies the source in the style to
-  /// which it is added.
-  /// @return An initialized source.
-  MLNShapeSource initWithIdentifier_(objc.NSString identifier) {
-    final _ret = _objc_msgSend_1sotr3r(this.ref.retainAndReturnPointer(),
-        _sel_initWithIdentifier_, identifier.ref.pointer);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
+  MLNFillExtrusionStyleLayer init() {
+    objc.checkOsVersionInternal(
+      'MLNFillExtrusionStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNFillExtrusionStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static MLNShapeSource new1() {
-    final _ret = _objc_msgSend_151sglz(_class_MLNShapeSource, _sel_new);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
+  static MLNFillExtrusionStyleLayer new$() {
+    final _ret = _objc_msgSend_151sglz(
+      _class_MLNFillExtrusionStyleLayer,
+      _sel_new,
+    );
+    return MLNFillExtrusionStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// allocWithZone:
-  static MLNShapeSource allocWithZone_(ffi.Pointer<_NSZone> zone) {
-    final _ret =
-        _objc_msgSend_1cwp428(_class_MLNShapeSource, _sel_allocWithZone_, zone);
-    return MLNShapeSource.castFromPointer(_ret, retain: false, release: true);
+  static MLNFillExtrusionStyleLayer allocWithZone_(
+    ffi.Pointer<objc.NSZone> zone,
+  ) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNFillExtrusionStyleLayer,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNFillExtrusionStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// alloc
@@ -18708,7 +30160,7 @@ class MLNShapeSource extends MLNSource {
   }
 
   /// self
-  MLNShapeSource self() {
+  MLNFillExtrusionStyleLayer self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNShapeSource.castFromPointer(_ret, retain: true, release: true);
   }
@@ -18724,6 +30176,9 @@ class MLNShapeSource extends MLNSource {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
     return MLNShapeSource.castFromPointer(_ret, retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNFillExtrusionStyleLayer constructed with the default `new` method.
+  factory MLNFillExtrusionStyleLayer() => new$();
 }
 
 late final _class_MLNFillStyleLayer = objc.getClass("MLNFillStyleLayer");
@@ -19355,21 +30810,31 @@ class MLNFillStyleLayer extends MLNVectorStyleLayer {
 
   /// init
   MLNFillStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNFillStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'MLNFillStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNFillStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static MLNFillStyleLayer new1() {
+  static MLNFillStyleLayer new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNFillStyleLayer, _sel_new);
     return MLNFillStyleLayer.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNFillStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNFillStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNFillStyleLayer, _sel_allocWithZone_, zone);
     return MLNFillStyleLayer.castFromPointer(_ret,
@@ -19384,7 +30849,7 @@ class MLNFillStyleLayer extends MLNVectorStyleLayer {
   }
 
   /// self
-  MLNFillStyleLayer self() {
+  MLNFillStyleLayer self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNFillStyleLayer.castFromPointer(_ret, retain: true, release: true);
   }
@@ -19400,6 +30865,9 @@ class MLNFillStyleLayer extends MLNVectorStyleLayer {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
     return MLNFillStyleLayer.castFromPointer(_ret, retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNFillStyleLayer constructed with the default `new` method.
+  factory MLNFillStyleLayer() => new$();
 }
 
 late final _class_MLNHeatmapStyleLayer = objc.getClass("MLNHeatmapStyleLayer");
@@ -19787,21 +31255,31 @@ class MLNHeatmapStyleLayer extends MLNVectorStyleLayer {
 
   /// init
   MLNHeatmapStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNHeatmapStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'MLNHeatmapStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNHeatmapStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static MLNHeatmapStyleLayer new1() {
+  static MLNHeatmapStyleLayer new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNHeatmapStyleLayer, _sel_new);
     return MLNHeatmapStyleLayer.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNHeatmapStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNHeatmapStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNHeatmapStyleLayer, _sel_allocWithZone_, zone);
     return MLNHeatmapStyleLayer.castFromPointer(_ret,
@@ -19816,7 +31294,7 @@ class MLNHeatmapStyleLayer extends MLNVectorStyleLayer {
   }
 
   /// self
-  MLNHeatmapStyleLayer self() {
+  MLNHeatmapStyleLayer self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNHeatmapStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
@@ -19835,6 +31313,9 @@ class MLNHeatmapStyleLayer extends MLNVectorStyleLayer {
     return MLNHeatmapStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNHeatmapStyleLayer constructed with the default `new` method.
+  factory MLNHeatmapStyleLayer() => new$();
 }
 
 late final _class_MLNHillshadeStyleLayer =
@@ -20315,21 +31796,31 @@ class MLNHillshadeStyleLayer extends MLNForegroundStyleLayer {
 
   /// init
   MLNHillshadeStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNHillshadeStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'MLNHillshadeStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNHillshadeStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static MLNHillshadeStyleLayer new1() {
+  static MLNHillshadeStyleLayer new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNHillshadeStyleLayer, _sel_new);
     return MLNHillshadeStyleLayer.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNHillshadeStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNHillshadeStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNHillshadeStyleLayer, _sel_allocWithZone_, zone);
     return MLNHillshadeStyleLayer.castFromPointer(_ret,
@@ -20345,7 +31836,7 @@ class MLNHillshadeStyleLayer extends MLNForegroundStyleLayer {
   }
 
   /// self
-  MLNHillshadeStyleLayer self() {
+  MLNHillshadeStyleLayer self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNHillshadeStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
@@ -20629,6 +32120,9 @@ class MLNImageSource extends MLNSource {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
     return MLNImageSource.castFromPointer(_ret, retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNHillshadeStyleLayer constructed with the default `new` method.
+  factory MLNHillshadeStyleLayer() => new$();
 }
 
 late final _class_MLNLineStyleLayer = objc.getClass("MLNLineStyleLayer");
@@ -21769,21 +33263,31 @@ class MLNLineStyleLayer extends MLNVectorStyleLayer {
 
   /// init
   MLNLineStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNLineStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'MLNLineStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNLineStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static MLNLineStyleLayer new1() {
+  static MLNLineStyleLayer new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNLineStyleLayer, _sel_new);
     return MLNLineStyleLayer.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNLineStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNLineStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNLineStyleLayer, _sel_allocWithZone_, zone);
     return MLNLineStyleLayer.castFromPointer(_ret,
@@ -21798,7 +33302,7 @@ class MLNLineStyleLayer extends MLNVectorStyleLayer {
   }
 
   /// self
-  MLNLineStyleLayer self() {
+  MLNLineStyleLayer self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNLineStyleLayer.castFromPointer(_ret, retain: true, release: true);
   }
@@ -21814,6 +33318,9 @@ class MLNLineStyleLayer extends MLNVectorStyleLayer {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
     return MLNLineStyleLayer.castFromPointer(_ret, retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNLineStyleLayer constructed with the default `new` method.
+  factory MLNLineStyleLayer() => new$();
 }
 
 /// The state an offline pack is currently in.
@@ -24874,21 +36381,31 @@ class MLNRasterStyleLayer extends MLNForegroundStyleLayer {
 
   /// init
   MLNRasterStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNRasterStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'MLNRasterStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNRasterStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static MLNRasterStyleLayer new1() {
+  static MLNRasterStyleLayer new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNRasterStyleLayer, _sel_new);
     return MLNRasterStyleLayer.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNRasterStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNRasterStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNRasterStyleLayer, _sel_allocWithZone_, zone);
     return MLNRasterStyleLayer.castFromPointer(_ret,
@@ -24903,7 +36420,7 @@ class MLNRasterStyleLayer extends MLNForegroundStyleLayer {
   }
 
   /// self
-  MLNRasterStyleLayer self() {
+  MLNRasterStyleLayer self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNRasterStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
@@ -24922,6 +36439,9 @@ class MLNRasterStyleLayer extends MLNForegroundStyleLayer {
     return MLNRasterStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNRasterStyleLayer constructed with the default `new` method.
+  factory MLNRasterStyleLayer() => new$();
 }
 
 late final _class_MLNSymbolStyleLayer = objc.getClass("MLNSymbolStyleLayer");
@@ -28981,21 +40501,31 @@ class MLNSymbolStyleLayer extends MLNVectorStyleLayer {
 
   /// init
   MLNSymbolStyleLayer init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNSymbolStyleLayer.castFromPointer(_ret,
-        retain: false, release: true);
+    objc.checkOsVersionInternal(
+      'MLNSymbolStyleLayer.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNSymbolStyleLayer.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static MLNSymbolStyleLayer new1() {
+  static MLNSymbolStyleLayer new$() {
     final _ret = _objc_msgSend_151sglz(_class_MLNSymbolStyleLayer, _sel_new);
     return MLNSymbolStyleLayer.castFromPointer(_ret,
         retain: false, release: true);
   }
 
   /// allocWithZone:
-  static MLNSymbolStyleLayer allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNSymbolStyleLayer allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNSymbolStyleLayer, _sel_allocWithZone_, zone);
     return MLNSymbolStyleLayer.castFromPointer(_ret,
@@ -29010,7 +40540,7 @@ class MLNSymbolStyleLayer extends MLNVectorStyleLayer {
   }
 
   /// self
-  MLNSymbolStyleLayer self() {
+  MLNSymbolStyleLayer self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNSymbolStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
@@ -29029,16 +40559,43 @@ class MLNSymbolStyleLayer extends MLNVectorStyleLayer {
     return MLNSymbolStyleLayer.castFromPointer(_ret,
         retain: true, release: true);
   }
+
+  /// Returns a new instance of MLNSymbolStyleLayer constructed with the default `new` method.
+  factory MLNSymbolStyleLayer() => new$();
 }
 
-late final _class_MLNTilePyramidOfflineRegion =
-    objc.getClass("MLNTilePyramidOfflineRegion");
-late final _sel_bounds = objc.registerName("bounds");
-late final _sel_initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_ =
-    objc.registerName("initWithStyleURL:bounds:fromZoomLevel:toZoomLevel:");
-final _objc_msgSend_s3spq = objc.msgSendPointer
-    .cast<
-        ffi.NativeFunction<
+/// The attribution info is represented in the longest format available.
+enum MLNAttributionInfoStyle {
+  /// Specifies a short attribution info style.
+  MLNAttributionInfoStyleShort(1),
+
+  /// Specifies a medium attribution info style.
+  MLNAttributionInfoStyleMedium(2),
+
+  /// Specifies a long attribution info style.
+  MLNAttributionInfoStyleLong(3);
+
+  final int value;
+  const MLNAttributionInfoStyle(this.value);
+
+  static MLNAttributionInfoStyle fromValue(int value) => switch (value) {
+    1 => MLNAttributionInfoStyleShort,
+    2 => MLNAttributionInfoStyleMedium,
+    3 => MLNAttributionInfoStyleLong,
+    _ =>
+      throw ArgumentError('Unknown value for MLNAttributionInfoStyle: $value'),
+  };
+}
+
+late final _class_MLNAttributionInfo = objc.getClass("MLNAttributionInfo");
+late final _sel_initWithTitle_URL_ = objc.registerName("initWithTitle:URL:");
+late final _sel_isFeedbackLink = objc.registerName("isFeedbackLink");
+late final _sel_setFeedbackLink_ = objc.registerName("setFeedbackLink:");
+late final _sel_titleWithStyle_ = objc.registerName("titleWithStyle:");
+final _objc_msgSend_1sadrrm =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
             ffi.Pointer<objc.ObjCObject> Function(
                 ffi.Pointer<objc.ObjCObject>,
                 ffi.Pointer<objc.ObjCSelector>,
@@ -29410,65 +40967,35 @@ class MLNTilePyramidOfflineRegion extends objc.NSObject {
   }
 
   /// init
-  MLNTilePyramidOfflineRegion init() {
-    final _ret =
-        _objc_msgSend_151sglz(this.ref.retainAndReturnPointer(), _sel_init);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: false, release: true);
-  }
-
-  /// Initializes a newly created offline region with the given style URL, geographic
-  /// coordinate bounds, and range of zoom levels.
-  ///
-  /// This is the designated initializer for ``MLNTilePyramidOfflineRegion``.
-  ///
-  /// @param styleURL URL of the map style for which to download resources. The URL
-  /// may be a full HTTP or HTTPS URL or a canonical style URL.
-  /// Specify `nil` for the default style.
-  /// Relative file URLs cannot be used as offline style URLs. To download the
-  /// online resources required by a local style, specify a URL to an online copy
-  /// of the style.
-  /// @param bounds The coordinate bounds for the geographic region to be covered by
-  /// the downloaded tiles.
-  /// @param minimumZoomLevel The minimum zoom level to be covered by the downloaded
-  /// tiles. This parameter should be set to at least 0 but no greater than the
-  /// value of the `maximumZoomLevel` parameter. For each required tile source, if
-  /// this parameter is set to a value less than the tile source’s minimum zoom
-  /// level, the download covers zoom levels down to the tile source’s minimum
-  /// zoom level.
-  /// @param maximumZoomLevel The maximum zoom level to be covered by the downloaded
-  /// tiles. This parameter should be set to at least the value of the
-  /// `minimumZoomLevel` parameter. For each required tile source, if this
-  /// parameter is set to a value greater than the tile source’s minimum zoom
-  /// level, the download covers zoom levels up to the tile source’s maximum zoom
-  /// level.
-  MLNTilePyramidOfflineRegion
-      initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_(
-          objc.NSURL? styleURL,
-          MLNCoordinateBounds bounds,
-          double minimumZoomLevel,
-          double maximumZoomLevel) {
-    final _ret = _objc_msgSend_s3spq(
-        this.ref.retainAndReturnPointer(),
-        _sel_initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_,
-        styleURL?.ref.pointer ?? ffi.nullptr,
-        bounds,
-        minimumZoomLevel,
-        maximumZoomLevel);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: false, release: true);
+  MLNAttributionInfo init() {
+    objc.checkOsVersionInternal(
+      'MLNAttributionInfo.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNAttributionInfo.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// new
-  static MLNTilePyramidOfflineRegion new1() {
-    final _ret =
-        _objc_msgSend_151sglz(_class_MLNTilePyramidOfflineRegion, _sel_new);
-    return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
-        retain: false, release: true);
+  static MLNAttributionInfo new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNAttributionInfo, _sel_new);
+    return MLNAttributionInfo.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
   }
 
   /// allocWithZone:
-  static MLNTilePyramidOfflineRegion allocWithZone_(ffi.Pointer<_NSZone> zone) {
+  static MLNAttributionInfo allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
     final _ret = _objc_msgSend_1cwp428(
         _class_MLNTilePyramidOfflineRegion, _sel_allocWithZone_, zone);
     return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
@@ -29484,7 +41011,7 @@ class MLNTilePyramidOfflineRegion extends objc.NSObject {
   }
 
   /// self
-  MLNTilePyramidOfflineRegion self() {
+  MLNAttributionInfo self$1() {
     final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
     return MLNTilePyramidOfflineRegion.castFromPointer(_ret,
         retain: true, release: true);
@@ -29564,6 +41091,9 @@ class MLNTilePyramidOfflineRegion extends objc.NSObject {
         : MLNTilePyramidOfflineRegion.castFromPointer(_ret,
             retain: false, release: true);
   }
+
+  /// Returns a new instance of MLNAttributionInfo constructed with the default `new` method.
+  factory MLNAttributionInfo() => new$();
 }
 
 enum NSBackingStoreType {
@@ -29575,12 +41105,11 @@ enum NSBackingStoreType {
   const NSBackingStoreType(this.value);
 
   static NSBackingStoreType fromValue(int value) => switch (value) {
-        0 => NSBackingStoreRetained,
-        1 => NSBackingStoreNonretained,
-        2 => NSBackingStoreBuffered,
-        _ =>
-          throw ArgumentError("Unknown value for NSBackingStoreType: $value"),
-      };
+    0 => NSBackingStoreRetained,
+    1 => NSBackingStoreNonretained,
+    2 => NSBackingStoreBuffered,
+    _ => throw ArgumentError('Unknown value for NSBackingStoreType: $value'),
+  };
 }
 
 enum NSWindowOrderingMode {
@@ -29592,12 +41121,11 @@ enum NSWindowOrderingMode {
   const NSWindowOrderingMode(this.value);
 
   static NSWindowOrderingMode fromValue(int value) => switch (value) {
-        1 => NSWindowAbove,
-        -1 => NSWindowBelow,
-        0 => NSWindowOut,
-        _ =>
-          throw ArgumentError("Unknown value for NSWindowOrderingMode: $value"),
-      };
+    1 => NSWindowAbove,
+    -1 => NSWindowBelow,
+    0 => NSWindowOut,
+    _ => throw ArgumentError('Unknown value for NSWindowOrderingMode: $value'),
+  };
 }
 
 enum NSFocusRingType {
@@ -29609,11 +41137,11 @@ enum NSFocusRingType {
   const NSFocusRingType(this.value);
 
   static NSFocusRingType fromValue(int value) => switch (value) {
-        0 => NSFocusRingTypeDefault,
-        1 => NSFocusRingTypeNone,
-        2 => NSFocusRingTypeExterior,
-        _ => throw ArgumentError("Unknown value for NSFocusRingType: $value"),
-      };
+    0 => NSFocusRingTypeDefault,
+    1 => NSFocusRingTypeNone,
+    2 => NSFocusRingTypeExterior,
+    _ => throw ArgumentError('Unknown value for NSFocusRingType: $value'),
+  };
 }
 
 enum NSColorRenderingIntent {
@@ -29627,14 +41155,14 @@ enum NSColorRenderingIntent {
   const NSColorRenderingIntent(this.value);
 
   static NSColorRenderingIntent fromValue(int value) => switch (value) {
-        0 => NSColorRenderingIntentDefault,
-        1 => NSColorRenderingIntentAbsoluteColorimetric,
-        2 => NSColorRenderingIntentRelativeColorimetric,
-        3 => NSColorRenderingIntentPerceptual,
-        4 => NSColorRenderingIntentSaturation,
-        _ => throw ArgumentError(
-            "Unknown value for NSColorRenderingIntent: $value"),
-      };
+    0 => NSColorRenderingIntentDefault,
+    1 => NSColorRenderingIntentAbsoluteColorimetric,
+    2 => NSColorRenderingIntentRelativeColorimetric,
+    3 => NSColorRenderingIntentPerceptual,
+    4 => NSColorRenderingIntentSaturation,
+    _ =>
+      throw ArgumentError('Unknown value for NSColorRenderingIntent: $value'),
+  };
 }
 
 enum NSWindowDepth {
@@ -29646,11 +41174,11 @@ enum NSWindowDepth {
   const NSWindowDepth(this.value);
 
   static NSWindowDepth fromValue(int value) => switch (value) {
-        520 => NSWindowDepthTwentyfourBitRGB,
-        528 => NSWindowDepthSixtyfourBitRGB,
-        544 => NSWindowDepthOnehundredtwentyeightBitRGB,
-        _ => throw ArgumentError("Unknown value for NSWindowDepth: $value"),
-      };
+    520 => NSWindowDepthTwentyfourBitRGB,
+    528 => NSWindowDepthSixtyfourBitRGB,
+    544 => NSWindowDepthOnehundredtwentyeightBitRGB,
+    _ => throw ArgumentError('Unknown value for NSWindowDepth: $value'),
+  };
 }
 
 enum NSDisplayGamut {
@@ -29661,10 +41189,10 @@ enum NSDisplayGamut {
   const NSDisplayGamut(this.value);
 
   static NSDisplayGamut fromValue(int value) => switch (value) {
-        1 => NSDisplayGamutSRGB,
-        2 => NSDisplayGamutP3,
-        _ => throw ArgumentError("Unknown value for NSDisplayGamut: $value"),
-      };
+    1 => NSDisplayGamutSRGB,
+    2 => NSDisplayGamutP3,
+    _ => throw ArgumentError('Unknown value for NSDisplayGamut: $value'),
+  };
 }
 
 enum NSImageInterpolation {
@@ -29678,14 +41206,13 @@ enum NSImageInterpolation {
   const NSImageInterpolation(this.value);
 
   static NSImageInterpolation fromValue(int value) => switch (value) {
-        0 => NSImageInterpolationDefault,
-        1 => NSImageInterpolationNone,
-        2 => NSImageInterpolationLow,
-        4 => NSImageInterpolationMedium,
-        3 => NSImageInterpolationHigh,
-        _ =>
-          throw ArgumentError("Unknown value for NSImageInterpolation: $value"),
-      };
+    0 => NSImageInterpolationDefault,
+    1 => NSImageInterpolationNone,
+    2 => NSImageInterpolationLow,
+    4 => NSImageInterpolationMedium,
+    3 => NSImageInterpolationHigh,
+    _ => throw ArgumentError('Unknown value for NSImageInterpolation: $value'),
+  };
 }
 
 enum NSAccessibilityOrientation {
@@ -29697,12 +41224,14 @@ enum NSAccessibilityOrientation {
   const NSAccessibilityOrientation(this.value);
 
   static NSAccessibilityOrientation fromValue(int value) => switch (value) {
-        0 => NSAccessibilityOrientationUnknown,
-        1 => NSAccessibilityOrientationVertical,
-        2 => NSAccessibilityOrientationHorizontal,
-        _ => throw ArgumentError(
-            "Unknown value for NSAccessibilityOrientation: $value"),
-      };
+    0 => NSAccessibilityOrientationUnknown,
+    1 => NSAccessibilityOrientationVertical,
+    2 => NSAccessibilityOrientationHorizontal,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSAccessibilityOrientation: $value',
+      ),
+  };
 }
 
 enum NSAccessibilitySortDirection {
@@ -29714,12 +41243,14 @@ enum NSAccessibilitySortDirection {
   const NSAccessibilitySortDirection(this.value);
 
   static NSAccessibilitySortDirection fromValue(int value) => switch (value) {
-        0 => NSAccessibilitySortDirectionUnknown,
-        1 => NSAccessibilitySortDirectionAscending,
-        2 => NSAccessibilitySortDirectionDescending,
-        _ => throw ArgumentError(
-            "Unknown value for NSAccessibilitySortDirection: $value"),
-      };
+    0 => NSAccessibilitySortDirectionUnknown,
+    1 => NSAccessibilitySortDirectionAscending,
+    2 => NSAccessibilitySortDirectionDescending,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSAccessibilitySortDirection: $value',
+      ),
+  };
 }
 
 enum NSAccessibilityRulerMarkerType {
@@ -29736,17 +41267,19 @@ enum NSAccessibilityRulerMarkerType {
   const NSAccessibilityRulerMarkerType(this.value);
 
   static NSAccessibilityRulerMarkerType fromValue(int value) => switch (value) {
-        0 => NSAccessibilityRulerMarkerTypeUnknown,
-        1 => NSAccessibilityRulerMarkerTypeTabStopLeft,
-        2 => NSAccessibilityRulerMarkerTypeTabStopRight,
-        3 => NSAccessibilityRulerMarkerTypeTabStopCenter,
-        4 => NSAccessibilityRulerMarkerTypeTabStopDecimal,
-        5 => NSAccessibilityRulerMarkerTypeIndentHead,
-        6 => NSAccessibilityRulerMarkerTypeIndentTail,
-        7 => NSAccessibilityRulerMarkerTypeIndentFirstLine,
-        _ => throw ArgumentError(
-            "Unknown value for NSAccessibilityRulerMarkerType: $value"),
-      };
+    0 => NSAccessibilityRulerMarkerTypeUnknown,
+    1 => NSAccessibilityRulerMarkerTypeTabStopLeft,
+    2 => NSAccessibilityRulerMarkerTypeTabStopRight,
+    3 => NSAccessibilityRulerMarkerTypeTabStopCenter,
+    4 => NSAccessibilityRulerMarkerTypeTabStopDecimal,
+    5 => NSAccessibilityRulerMarkerTypeIndentHead,
+    6 => NSAccessibilityRulerMarkerTypeIndentTail,
+    7 => NSAccessibilityRulerMarkerTypeIndentFirstLine,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSAccessibilityRulerMarkerType: $value',
+      ),
+  };
 }
 
 enum NSAccessibilityUnits {
@@ -29760,14 +41293,13 @@ enum NSAccessibilityUnits {
   const NSAccessibilityUnits(this.value);
 
   static NSAccessibilityUnits fromValue(int value) => switch (value) {
-        0 => NSAccessibilityUnitsUnknown,
-        1 => NSAccessibilityUnitsInches,
-        2 => NSAccessibilityUnitsCentimeters,
-        3 => NSAccessibilityUnitsPoints,
-        4 => NSAccessibilityUnitsPicas,
-        _ =>
-          throw ArgumentError("Unknown value for NSAccessibilityUnits: $value"),
-      };
+    0 => NSAccessibilityUnitsUnknown,
+    1 => NSAccessibilityUnitsInches,
+    2 => NSAccessibilityUnitsCentimeters,
+    3 => NSAccessibilityUnitsPoints,
+    4 => NSAccessibilityUnitsPicas,
+    _ => throw ArgumentError('Unknown value for NSAccessibilityUnits: $value'),
+  };
 }
 
 enum NSTouchPhase {
@@ -29783,15 +41315,15 @@ enum NSTouchPhase {
   const NSTouchPhase(this.value);
 
   static NSTouchPhase fromValue(int value) => switch (value) {
-        1 => NSTouchPhaseBegan,
-        2 => NSTouchPhaseMoved,
-        4 => NSTouchPhaseStationary,
-        8 => NSTouchPhaseEnded,
-        16 => NSTouchPhaseCancelled,
-        7 => NSTouchPhaseTouching,
-        -1 => NSTouchPhaseAny,
-        _ => throw ArgumentError("Unknown value for NSTouchPhase: $value"),
-      };
+    1 => NSTouchPhaseBegan,
+    2 => NSTouchPhaseMoved,
+    4 => NSTouchPhaseStationary,
+    8 => NSTouchPhaseEnded,
+    16 => NSTouchPhaseCancelled,
+    7 => NSTouchPhaseTouching,
+    -1 => NSTouchPhaseAny,
+    _ => throw ArgumentError('Unknown value for NSTouchPhase: $value'),
+  };
 }
 
 enum NSTouchType {
@@ -29802,10 +41334,10 @@ enum NSTouchType {
   const NSTouchType(this.value);
 
   static NSTouchType fromValue(int value) => switch (value) {
-        0 => NSTouchTypeDirect,
-        1 => NSTouchTypeIndirect,
-        _ => throw ArgumentError("Unknown value for NSTouchType: $value"),
-      };
+    0 => NSTouchTypeDirect,
+    1 => NSTouchTypeIndirect,
+    _ => throw ArgumentError('Unknown value for NSTouchType: $value'),
+  };
 }
 
 enum NSTouchTypeMask {
@@ -29816,10 +41348,64 @@ enum NSTouchTypeMask {
   const NSTouchTypeMask(this.value);
 
   static NSTouchTypeMask fromValue(int value) => switch (value) {
-        1 => NSTouchTypeMaskDirect,
-        2 => NSTouchTypeMaskIndirect,
-        _ => throw ArgumentError("Unknown value for NSTouchTypeMask: $value"),
-      };
+    1 => NSTouchTypeMaskDirect,
+    2 => NSTouchTypeMaskIndirect,
+    _ => throw ArgumentError('Unknown value for NSTouchTypeMask: $value'),
+  };
+}
+
+/// WARNING: CTAdaptiveImageProviding is a stub. To generate bindings for this class, include
+/// CTAdaptiveImageProviding in your config's objc-protocols list.
+///
+/// CTAdaptiveImageProviding
+interface class CTAdaptiveImageProviding extends objc.ObjCProtocolBase {
+  CTAdaptiveImageProviding._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [CTAdaptiveImageProviding] that points to the same underlying object as [other].
+  CTAdaptiveImageProviding.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [CTAdaptiveImageProviding] that wraps the given raw object pointer.
+  CTAdaptiveImageProviding.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+final class CGImageSource extends ffi.Opaque {}
+
+enum CGImagePropertyOrientation {
+  kCGImagePropertyOrientationUp(1),
+  kCGImagePropertyOrientationUpMirrored(2),
+  kCGImagePropertyOrientationDown(3),
+  kCGImagePropertyOrientationDownMirrored(4),
+  kCGImagePropertyOrientationLeftMirrored(5),
+  kCGImagePropertyOrientationRight(6),
+  kCGImagePropertyOrientationRightMirrored(7),
+  kCGImagePropertyOrientationLeft(8);
+
+  final int value;
+  const CGImagePropertyOrientation(this.value);
+
+  static CGImagePropertyOrientation fromValue(int value) => switch (value) {
+    1 => kCGImagePropertyOrientationUp,
+    2 => kCGImagePropertyOrientationUpMirrored,
+    3 => kCGImagePropertyOrientationDown,
+    4 => kCGImagePropertyOrientationDownMirrored,
+    5 => kCGImagePropertyOrientationLeftMirrored,
+    6 => kCGImagePropertyOrientationRight,
+    7 => kCGImagePropertyOrientationRightMirrored,
+    8 => kCGImagePropertyOrientationLeft,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for CGImagePropertyOrientation: $value',
+      ),
+  };
 }
 
 enum NSEventType {
@@ -29862,42 +41448,42 @@ enum NSEventType {
   const NSEventType(this.value);
 
   static NSEventType fromValue(int value) => switch (value) {
-        1 => NSEventTypeLeftMouseDown,
-        2 => NSEventTypeLeftMouseUp,
-        3 => NSEventTypeRightMouseDown,
-        4 => NSEventTypeRightMouseUp,
-        5 => NSEventTypeMouseMoved,
-        6 => NSEventTypeLeftMouseDragged,
-        7 => NSEventTypeRightMouseDragged,
-        8 => NSEventTypeMouseEntered,
-        9 => NSEventTypeMouseExited,
-        10 => NSEventTypeKeyDown,
-        11 => NSEventTypeKeyUp,
-        12 => NSEventTypeFlagsChanged,
-        13 => NSEventTypeAppKitDefined,
-        14 => NSEventTypeSystemDefined,
-        15 => NSEventTypeApplicationDefined,
-        16 => NSEventTypePeriodic,
-        17 => NSEventTypeCursorUpdate,
-        22 => NSEventTypeScrollWheel,
-        23 => NSEventTypeTabletPoint,
-        24 => NSEventTypeTabletProximity,
-        25 => NSEventTypeOtherMouseDown,
-        26 => NSEventTypeOtherMouseUp,
-        27 => NSEventTypeOtherMouseDragged,
-        29 => NSEventTypeGesture,
-        30 => NSEventTypeMagnify,
-        31 => NSEventTypeSwipe,
-        18 => NSEventTypeRotate,
-        19 => NSEventTypeBeginGesture,
-        20 => NSEventTypeEndGesture,
-        32 => NSEventTypeSmartMagnify,
-        33 => NSEventTypeQuickLook,
-        34 => NSEventTypePressure,
-        37 => NSEventTypeDirectTouch,
-        38 => NSEventTypeChangeMode,
-        _ => throw ArgumentError("Unknown value for NSEventType: $value"),
-      };
+    1 => NSEventTypeLeftMouseDown,
+    2 => NSEventTypeLeftMouseUp,
+    3 => NSEventTypeRightMouseDown,
+    4 => NSEventTypeRightMouseUp,
+    5 => NSEventTypeMouseMoved,
+    6 => NSEventTypeLeftMouseDragged,
+    7 => NSEventTypeRightMouseDragged,
+    8 => NSEventTypeMouseEntered,
+    9 => NSEventTypeMouseExited,
+    10 => NSEventTypeKeyDown,
+    11 => NSEventTypeKeyUp,
+    12 => NSEventTypeFlagsChanged,
+    13 => NSEventTypeAppKitDefined,
+    14 => NSEventTypeSystemDefined,
+    15 => NSEventTypeApplicationDefined,
+    16 => NSEventTypePeriodic,
+    17 => NSEventTypeCursorUpdate,
+    22 => NSEventTypeScrollWheel,
+    23 => NSEventTypeTabletPoint,
+    24 => NSEventTypeTabletProximity,
+    25 => NSEventTypeOtherMouseDown,
+    26 => NSEventTypeOtherMouseUp,
+    27 => NSEventTypeOtherMouseDragged,
+    29 => NSEventTypeGesture,
+    30 => NSEventTypeMagnify,
+    31 => NSEventTypeSwipe,
+    18 => NSEventTypeRotate,
+    19 => NSEventTypeBeginGesture,
+    20 => NSEventTypeEndGesture,
+    32 => NSEventTypeSmartMagnify,
+    33 => NSEventTypeQuickLook,
+    34 => NSEventTypePressure,
+    37 => NSEventTypeDirectTouch,
+    38 => NSEventTypeChangeMode,
+    _ => throw ArgumentError('Unknown value for NSEventType: $value'),
+  };
 }
 
 enum NSEventMask {
@@ -29940,42 +41526,42 @@ enum NSEventMask {
   const NSEventMask(this.value);
 
   static NSEventMask fromValue(int value) => switch (value) {
-        2 => NSEventMaskLeftMouseDown,
-        4 => NSEventMaskLeftMouseUp,
-        8 => NSEventMaskRightMouseDown,
-        16 => NSEventMaskRightMouseUp,
-        32 => NSEventMaskMouseMoved,
-        64 => NSEventMaskLeftMouseDragged,
-        128 => NSEventMaskRightMouseDragged,
-        256 => NSEventMaskMouseEntered,
-        512 => NSEventMaskMouseExited,
-        1024 => NSEventMaskKeyDown,
-        2048 => NSEventMaskKeyUp,
-        4096 => NSEventMaskFlagsChanged,
-        8192 => NSEventMaskAppKitDefined,
-        16384 => NSEventMaskSystemDefined,
-        32768 => NSEventMaskApplicationDefined,
-        65536 => NSEventMaskPeriodic,
-        131072 => NSEventMaskCursorUpdate,
-        4194304 => NSEventMaskScrollWheel,
-        8388608 => NSEventMaskTabletPoint,
-        16777216 => NSEventMaskTabletProximity,
-        33554432 => NSEventMaskOtherMouseDown,
-        67108864 => NSEventMaskOtherMouseUp,
-        134217728 => NSEventMaskOtherMouseDragged,
-        536870912 => NSEventMaskGesture,
-        1073741824 => NSEventMaskMagnify,
-        2147483648 => NSEventMaskSwipe,
-        262144 => NSEventMaskRotate,
-        524288 => NSEventMaskBeginGesture,
-        1048576 => NSEventMaskEndGesture,
-        4294967296 => NSEventMaskSmartMagnify,
-        17179869184 => NSEventMaskPressure,
-        137438953472 => NSEventMaskDirectTouch,
-        274877906944 => NSEventMaskChangeMode,
-        -1 => NSEventMaskAny,
-        _ => throw ArgumentError("Unknown value for NSEventMask: $value"),
-      };
+    2 => NSEventMaskLeftMouseDown,
+    4 => NSEventMaskLeftMouseUp,
+    8 => NSEventMaskRightMouseDown,
+    16 => NSEventMaskRightMouseUp,
+    32 => NSEventMaskMouseMoved,
+    64 => NSEventMaskLeftMouseDragged,
+    128 => NSEventMaskRightMouseDragged,
+    256 => NSEventMaskMouseEntered,
+    512 => NSEventMaskMouseExited,
+    1024 => NSEventMaskKeyDown,
+    2048 => NSEventMaskKeyUp,
+    4096 => NSEventMaskFlagsChanged,
+    8192 => NSEventMaskAppKitDefined,
+    16384 => NSEventMaskSystemDefined,
+    32768 => NSEventMaskApplicationDefined,
+    65536 => NSEventMaskPeriodic,
+    131072 => NSEventMaskCursorUpdate,
+    4194304 => NSEventMaskScrollWheel,
+    8388608 => NSEventMaskTabletPoint,
+    16777216 => NSEventMaskTabletProximity,
+    33554432 => NSEventMaskOtherMouseDown,
+    67108864 => NSEventMaskOtherMouseUp,
+    134217728 => NSEventMaskOtherMouseDragged,
+    536870912 => NSEventMaskGesture,
+    1073741824 => NSEventMaskMagnify,
+    2147483648 => NSEventMaskSwipe,
+    262144 => NSEventMaskRotate,
+    524288 => NSEventMaskBeginGesture,
+    1048576 => NSEventMaskEndGesture,
+    4294967296 => NSEventMaskSmartMagnify,
+    17179869184 => NSEventMaskPressure,
+    137438953472 => NSEventMaskDirectTouch,
+    274877906944 => NSEventMaskChangeMode,
+    -1 => NSEventMaskAny,
+    _ => throw ArgumentError('Unknown value for NSEventMask: $value'),
+  };
 }
 
 enum NSEventModifierFlags {
@@ -29993,18 +41579,17 @@ enum NSEventModifierFlags {
   const NSEventModifierFlags(this.value);
 
   static NSEventModifierFlags fromValue(int value) => switch (value) {
-        65536 => NSEventModifierFlagCapsLock,
-        131072 => NSEventModifierFlagShift,
-        262144 => NSEventModifierFlagControl,
-        524288 => NSEventModifierFlagOption,
-        1048576 => NSEventModifierFlagCommand,
-        2097152 => NSEventModifierFlagNumericPad,
-        4194304 => NSEventModifierFlagHelp,
-        8388608 => NSEventModifierFlagFunction,
-        4294901760 => NSEventModifierFlagDeviceIndependentFlagsMask,
-        _ =>
-          throw ArgumentError("Unknown value for NSEventModifierFlags: $value"),
-      };
+    65536 => NSEventModifierFlagCapsLock,
+    131072 => NSEventModifierFlagShift,
+    262144 => NSEventModifierFlagControl,
+    524288 => NSEventModifierFlagOption,
+    1048576 => NSEventModifierFlagCommand,
+    2097152 => NSEventModifierFlagNumericPad,
+    4194304 => NSEventModifierFlagHelp,
+    8388608 => NSEventModifierFlagFunction,
+    4294901760 => NSEventModifierFlagDeviceIndependentFlagsMask,
+    _ => throw ArgumentError('Unknown value for NSEventModifierFlags: $value'),
+  };
 }
 
 enum NSPointingDeviceType {
@@ -30017,13 +41602,12 @@ enum NSPointingDeviceType {
   const NSPointingDeviceType(this.value);
 
   static NSPointingDeviceType fromValue(int value) => switch (value) {
-        0 => NSPointingDeviceTypeUnknown,
-        1 => NSPointingDeviceTypePen,
-        2 => NSPointingDeviceTypeCursor,
-        3 => NSPointingDeviceTypeEraser,
-        _ =>
-          throw ArgumentError("Unknown value for NSPointingDeviceType: $value"),
-      };
+    0 => NSPointingDeviceTypeUnknown,
+    1 => NSPointingDeviceTypePen,
+    2 => NSPointingDeviceTypeCursor,
+    3 => NSPointingDeviceTypeEraser,
+    _ => throw ArgumentError('Unknown value for NSPointingDeviceType: $value'),
+  };
 }
 
 enum NSEventButtonMask {
@@ -30035,11 +41619,11 @@ enum NSEventButtonMask {
   const NSEventButtonMask(this.value);
 
   static NSEventButtonMask fromValue(int value) => switch (value) {
-        1 => NSEventButtonMaskPenTip,
-        2 => NSEventButtonMaskPenLowerSide,
-        4 => NSEventButtonMaskPenUpperSide,
-        _ => throw ArgumentError("Unknown value for NSEventButtonMask: $value"),
-      };
+    1 => NSEventButtonMaskPenTip,
+    2 => NSEventButtonMaskPenLowerSide,
+    4 => NSEventButtonMaskPenUpperSide,
+    _ => throw ArgumentError('Unknown value for NSEventButtonMask: $value'),
+  };
 }
 
 enum NSEventPhase {
@@ -30055,15 +41639,15 @@ enum NSEventPhase {
   const NSEventPhase(this.value);
 
   static NSEventPhase fromValue(int value) => switch (value) {
-        0 => NSEventPhaseNone,
-        1 => NSEventPhaseBegan,
-        2 => NSEventPhaseStationary,
-        4 => NSEventPhaseChanged,
-        8 => NSEventPhaseEnded,
-        16 => NSEventPhaseCancelled,
-        32 => NSEventPhaseMayBegin,
-        _ => throw ArgumentError("Unknown value for NSEventPhase: $value"),
-      };
+    0 => NSEventPhaseNone,
+    1 => NSEventPhaseBegan,
+    2 => NSEventPhaseStationary,
+    4 => NSEventPhaseChanged,
+    8 => NSEventPhaseEnded,
+    16 => NSEventPhaseCancelled,
+    32 => NSEventPhaseMayBegin,
+    _ => throw ArgumentError('Unknown value for NSEventPhase: $value'),
+  };
 }
 
 enum NSEventGestureAxis {
@@ -30075,12 +41659,11 @@ enum NSEventGestureAxis {
   const NSEventGestureAxis(this.value);
 
   static NSEventGestureAxis fromValue(int value) => switch (value) {
-        0 => NSEventGestureAxisNone,
-        1 => NSEventGestureAxisHorizontal,
-        2 => NSEventGestureAxisVertical,
-        _ =>
-          throw ArgumentError("Unknown value for NSEventGestureAxis: $value"),
-      };
+    0 => NSEventGestureAxisNone,
+    1 => NSEventGestureAxisHorizontal,
+    2 => NSEventGestureAxisVertical,
+    _ => throw ArgumentError('Unknown value for NSEventGestureAxis: $value'),
+  };
 }
 
 enum NSEventSwipeTrackingOptions {
@@ -30091,11 +41674,13 @@ enum NSEventSwipeTrackingOptions {
   const NSEventSwipeTrackingOptions(this.value);
 
   static NSEventSwipeTrackingOptions fromValue(int value) => switch (value) {
-        1 => NSEventSwipeTrackingLockDirection,
-        2 => NSEventSwipeTrackingClampGestureAmount,
-        _ => throw ArgumentError(
-            "Unknown value for NSEventSwipeTrackingOptions: $value"),
-      };
+    1 => NSEventSwipeTrackingLockDirection,
+    2 => NSEventSwipeTrackingClampGestureAmount,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSEventSwipeTrackingOptions: $value',
+      ),
+  };
 }
 
 enum NSEventSubtype {
@@ -30116,14 +41701,14 @@ enum NSEventSubtype {
   const NSEventSubtype(this.value);
 
   static NSEventSubtype fromValue(int value) => switch (value) {
-        0 => NSEventSubtypeWindowExposed,
-        1 => NSEventSubtypeApplicationActivated,
-        2 => NSEventSubtypeApplicationDeactivated,
-        4 => NSEventSubtypeWindowMoved,
-        8 => NSEventSubtypeScreenChanged,
-        3 => NSEventSubtypeTouch,
-        _ => throw ArgumentError("Unknown value for NSEventSubtype: $value"),
-      };
+    0 => NSEventSubtypeWindowExposed,
+    1 => NSEventSubtypeApplicationActivated,
+    2 => NSEventSubtypeApplicationDeactivated,
+    4 => NSEventSubtypeWindowMoved,
+    8 => NSEventSubtypeScreenChanged,
+    3 => NSEventSubtypeTouch,
+    _ => throw ArgumentError('Unknown value for NSEventSubtype: $value'),
+  };
 
   @override
   String toString() {
@@ -30150,35 +41735,15 @@ enum NSPressureBehavior {
   const NSPressureBehavior(this.value);
 
   static NSPressureBehavior fromValue(int value) => switch (value) {
-        -1 => NSPressureBehaviorUnknown,
-        0 => NSPressureBehaviorPrimaryDefault,
-        1 => NSPressureBehaviorPrimaryClick,
-        2 => NSPressureBehaviorPrimaryGeneric,
-        3 => NSPressureBehaviorPrimaryAccelerator,
-        5 => NSPressureBehaviorPrimaryDeepClick,
-        6 => NSPressureBehaviorPrimaryDeepDrag,
-        _ =>
-          throw ArgumentError("Unknown value for NSPressureBehavior: $value"),
-      };
-}
-
-enum NSPasteboardAccessBehavior {
-  NSPasteboardAccessBehaviorDefault(0),
-  NSPasteboardAccessBehaviorAsk(1),
-  NSPasteboardAccessBehaviorAlwaysAllow(2),
-  NSPasteboardAccessBehaviorAlwaysDeny(3);
-
-  final int value;
-  const NSPasteboardAccessBehavior(this.value);
-
-  static NSPasteboardAccessBehavior fromValue(int value) => switch (value) {
-        0 => NSPasteboardAccessBehaviorDefault,
-        1 => NSPasteboardAccessBehaviorAsk,
-        2 => NSPasteboardAccessBehaviorAlwaysAllow,
-        3 => NSPasteboardAccessBehaviorAlwaysDeny,
-        _ => throw ArgumentError(
-            "Unknown value for NSPasteboardAccessBehavior: $value"),
-      };
+    -1 => NSPressureBehaviorUnknown,
+    0 => NSPressureBehaviorPrimaryDefault,
+    1 => NSPressureBehaviorPrimaryClick,
+    2 => NSPressureBehaviorPrimaryGeneric,
+    3 => NSPressureBehaviorPrimaryAccelerator,
+    5 => NSPressureBehaviorPrimaryDeepClick,
+    6 => NSPressureBehaviorPrimaryDeepDrag,
+    _ => throw ArgumentError('Unknown value for NSPressureBehavior: $value'),
+  };
 }
 
 enum NSPasteboardContentsOptions {
@@ -30188,10 +41753,142 @@ enum NSPasteboardContentsOptions {
   const NSPasteboardContentsOptions(this.value);
 
   static NSPasteboardContentsOptions fromValue(int value) => switch (value) {
-        1 => NSPasteboardContentsCurrentHostOnly,
-        _ => throw ArgumentError(
-            "Unknown value for NSPasteboardContentsOptions: $value"),
-      };
+    1 => NSPasteboardContentsCurrentHostOnly,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSPasteboardContentsOptions: $value',
+      ),
+  };
+}
+
+/// NSPasteboardSupport
+extension NSPasteboardSupport on objc.NSString {
+  /// writableTypesForPasteboard:
+  objc.NSArray writableTypesForPasteboard_(NSPasteboard pasteboard) {
+    objc.checkOsVersionInternal(
+      'NSString.writableTypesForPasteboard:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_writableTypesForPasteboard_,
+      pasteboard.ref.pointer,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// writingOptionsForType:pasteboard:
+  NSPasteboardWritingOptions writingOptionsForType_pasteboard_(
+    objc.NSString type,
+    NSPasteboard pasteboard,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.writingOptionsForType:pasteboard:',
+      iOS: (true, null),
+    );
+    if (!objc.respondsToSelector(
+      this.ref.pointer,
+      _sel_writingOptionsForType_pasteboard_,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSString',
+        'writingOptionsForType:pasteboard:',
+      );
+    }
+    final _ret = _objc_msgSend_1r3sx4b(
+      this.ref.pointer,
+      _sel_writingOptionsForType_pasteboard_,
+      type.ref.pointer,
+      pasteboard.ref.pointer,
+    );
+    return NSPasteboardWritingOptions.fromValue(_ret);
+  }
+
+  /// pasteboardPropertyListForType:
+  objc.ObjCObjectBase? pasteboardPropertyListForType_(objc.NSString type) {
+    objc.checkOsVersionInternal(
+      'NSString.pasteboardPropertyListForType:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.pointer,
+      _sel_pasteboardPropertyListForType_,
+      type.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: true, release: true);
+  }
+
+  /// readableTypesForPasteboard:
+  static objc.NSArray readableTypesForPasteboard_(NSPasteboard pasteboard) {
+    objc.checkOsVersionInternal(
+      'NSString.readableTypesForPasteboard:',
+      iOS: (true, null),
+    );
+    final _ret = _objc_msgSend_1sotr3r(
+      _class_NSString,
+      _sel_readableTypesForPasteboard_,
+      pasteboard.ref.pointer,
+    );
+    return objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// readingOptionsForType:pasteboard:
+  static NSPasteboardReadingOptions readingOptionsForType_pasteboard_(
+    objc.NSString type,
+    NSPasteboard pasteboard,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.readingOptionsForType:pasteboard:',
+      iOS: (true, null),
+    );
+    if (!objc.respondsToSelector(
+      _class_NSString,
+      _sel_readingOptionsForType_pasteboard_,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSString',
+        'readingOptionsForType:pasteboard:',
+      );
+    }
+    final _ret = _objc_msgSend_9e06sb(
+      _class_NSString,
+      _sel_readingOptionsForType_pasteboard_,
+      type.ref.pointer,
+      pasteboard.ref.pointer,
+    );
+    return NSPasteboardReadingOptions.fromValue(_ret);
+  }
+
+  /// initWithPasteboardPropertyList:ofType:
+  objc.ObjCObjectBase? initWithPasteboardPropertyList_ofType_(
+    objc.ObjCObjectBase propertyList,
+    objc.NSString type,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.initWithPasteboardPropertyList:ofType:',
+      iOS: (true, null),
+    );
+    if (!objc.respondsToSelector(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithPasteboardPropertyList_ofType_,
+    )) {
+      throw objc.UnimplementedOptionalMethodException(
+        'NSString',
+        'initWithPasteboardPropertyList:ofType:',
+      );
+    }
+    final _ret = _objc_msgSend_15qeuct(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithPasteboardPropertyList_ofType_,
+      propertyList.ref.pointer,
+      type.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : objc.ObjCObjectBase(_ret, retain: false, release: true);
+  }
 }
 
 enum NSAnimationCurve {
@@ -30204,12 +41901,12 @@ enum NSAnimationCurve {
   const NSAnimationCurve(this.value);
 
   static NSAnimationCurve fromValue(int value) => switch (value) {
-        0 => NSAnimationEaseInOut,
-        1 => NSAnimationEaseIn,
-        2 => NSAnimationEaseOut,
-        3 => NSAnimationLinear,
-        _ => throw ArgumentError("Unknown value for NSAnimationCurve: $value"),
-      };
+    0 => NSAnimationEaseInOut,
+    1 => NSAnimationEaseIn,
+    2 => NSAnimationEaseOut,
+    3 => NSAnimationLinear,
+    _ => throw ArgumentError('Unknown value for NSAnimationCurve: $value'),
+  };
 }
 
 enum NSAnimationBlockingMode {
@@ -30221,12 +41918,12 @@ enum NSAnimationBlockingMode {
   const NSAnimationBlockingMode(this.value);
 
   static NSAnimationBlockingMode fromValue(int value) => switch (value) {
-        0 => NSAnimationBlocking,
-        1 => NSAnimationNonblocking,
-        2 => NSAnimationNonblockingThreaded,
-        _ => throw ArgumentError(
-            "Unknown value for NSAnimationBlockingMode: $value"),
-      };
+    0 => NSAnimationBlocking,
+    1 => NSAnimationNonblocking,
+    2 => NSAnimationNonblockingThreaded,
+    _ =>
+      throw ArgumentError('Unknown value for NSAnimationBlockingMode: $value'),
+  };
 }
 
 enum NSDragOperation {
@@ -30246,17 +41943,17 @@ enum NSDragOperation {
   const NSDragOperation(this.value);
 
   static NSDragOperation fromValue(int value) => switch (value) {
-        0 => NSDragOperationNone,
-        1 => NSDragOperationCopy,
-        2 => NSDragOperationLink,
-        4 => NSDragOperationGeneric,
-        8 => NSDragOperationPrivate,
-        16 => NSDragOperationMove,
-        32 => NSDragOperationDelete,
-        -1 => NSDragOperationEvery,
-        15 => NSDragOperationAll_Obsolete,
-        _ => throw ArgumentError("Unknown value for NSDragOperation: $value"),
-      };
+    0 => NSDragOperationNone,
+    1 => NSDragOperationCopy,
+    2 => NSDragOperationLink,
+    4 => NSDragOperationGeneric,
+    8 => NSDragOperationPrivate,
+    16 => NSDragOperationMove,
+    32 => NSDragOperationDelete,
+    -1 => NSDragOperationEvery,
+    15 => NSDragOperationAll_Obsolete,
+    _ => throw ArgumentError('Unknown value for NSDragOperation: $value'),
+  };
 
   @override
   String toString() {
@@ -30277,14 +41974,13 @@ enum NSDraggingFormation {
   const NSDraggingFormation(this.value);
 
   static NSDraggingFormation fromValue(int value) => switch (value) {
-        0 => NSDraggingFormationDefault,
-        1 => NSDraggingFormationNone,
-        2 => NSDraggingFormationPile,
-        3 => NSDraggingFormationList,
-        4 => NSDraggingFormationStack,
-        _ =>
-          throw ArgumentError("Unknown value for NSDraggingFormation: $value"),
-      };
+    0 => NSDraggingFormationDefault,
+    1 => NSDraggingFormationNone,
+    2 => NSDraggingFormationPile,
+    3 => NSDraggingFormationList,
+    4 => NSDraggingFormationStack,
+    _ => throw ArgumentError('Unknown value for NSDraggingFormation: $value'),
+  };
 }
 
 enum NSDraggingContext {
@@ -30295,10 +41991,10 @@ enum NSDraggingContext {
   const NSDraggingContext(this.value);
 
   static NSDraggingContext fromValue(int value) => switch (value) {
-        0 => NSDraggingContextOutsideApplication,
-        1 => NSDraggingContextWithinApplication,
-        _ => throw ArgumentError("Unknown value for NSDraggingContext: $value"),
-      };
+    0 => NSDraggingContextOutsideApplication,
+    1 => NSDraggingContextWithinApplication,
+    _ => throw ArgumentError('Unknown value for NSDraggingContext: $value'),
+  };
 }
 
 enum NSDraggingItemEnumerationOptions {
@@ -30312,9 +42008,28 @@ enum NSDraggingItemEnumerationOptions {
       switch (value) {
         1 => NSDraggingItemEnumerationConcurrent,
         65536 => NSDraggingItemEnumerationClearNonenumeratedImages,
-        _ => throw ArgumentError(
-            "Unknown value for NSDraggingItemEnumerationOptions: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSDraggingItemEnumerationOptions: $value',
+          ),
       };
+}
+
+enum NSSpringLoadingHighlight {
+  NSSpringLoadingHighlightNone(0),
+  NSSpringLoadingHighlightStandard(1),
+  NSSpringLoadingHighlightEmphasized(2);
+
+  final int value;
+  const NSSpringLoadingHighlight(this.value);
+
+  static NSSpringLoadingHighlight fromValue(int value) => switch (value) {
+    0 => NSSpringLoadingHighlightNone,
+    1 => NSSpringLoadingHighlightStandard,
+    2 => NSSpringLoadingHighlightEmphasized,
+    _ =>
+      throw ArgumentError('Unknown value for NSSpringLoadingHighlight: $value'),
+  };
 }
 
 enum NSUserInterfaceLayoutDirection {
@@ -30325,11 +42040,13 @@ enum NSUserInterfaceLayoutDirection {
   const NSUserInterfaceLayoutDirection(this.value);
 
   static NSUserInterfaceLayoutDirection fromValue(int value) => switch (value) {
-        0 => NSUserInterfaceLayoutDirectionLeftToRight,
-        1 => NSUserInterfaceLayoutDirectionRightToLeft,
-        _ => throw ArgumentError(
-            "Unknown value for NSUserInterfaceLayoutDirection: $value"),
-      };
+    0 => NSUserInterfaceLayoutDirectionLeftToRight,
+    1 => NSUserInterfaceLayoutDirectionRightToLeft,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSUserInterfaceLayoutDirection: $value',
+      ),
+  };
 }
 
 enum NSAutoresizingMaskOptions {
@@ -30345,16 +42062,18 @@ enum NSAutoresizingMaskOptions {
   const NSAutoresizingMaskOptions(this.value);
 
   static NSAutoresizingMaskOptions fromValue(int value) => switch (value) {
-        0 => NSViewNotSizable,
-        1 => NSViewMinXMargin,
-        2 => NSViewWidthSizable,
-        4 => NSViewMaxXMargin,
-        8 => NSViewMinYMargin,
-        16 => NSViewHeightSizable,
-        32 => NSViewMaxYMargin,
-        _ => throw ArgumentError(
-            "Unknown value for NSAutoresizingMaskOptions: $value"),
-      };
+    0 => NSViewNotSizable,
+    1 => NSViewMinXMargin,
+    2 => NSViewWidthSizable,
+    4 => NSViewMaxXMargin,
+    8 => NSViewMinYMargin,
+    16 => NSViewHeightSizable,
+    32 => NSViewMaxYMargin,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSAutoresizingMaskOptions: $value',
+      ),
+  };
 }
 
 enum NSBorderType {
@@ -30367,12 +42086,12 @@ enum NSBorderType {
   const NSBorderType(this.value);
 
   static NSBorderType fromValue(int value) => switch (value) {
-        0 => NSNoBorder,
-        1 => NSLineBorder,
-        2 => NSBezelBorder,
-        3 => NSGrooveBorder,
-        _ => throw ArgumentError("Unknown value for NSBorderType: $value"),
-      };
+    0 => NSNoBorder,
+    1 => NSLineBorder,
+    2 => NSBezelBorder,
+    3 => NSGrooveBorder,
+    _ => throw ArgumentError('Unknown value for NSBorderType: $value'),
+  };
 }
 
 enum NSViewLayerContentsRedrawPolicy {
@@ -30392,8 +42111,10 @@ enum NSViewLayerContentsRedrawPolicy {
         2 => NSViewLayerContentsRedrawDuringViewResize,
         3 => NSViewLayerContentsRedrawBeforeViewResize,
         4 => NSViewLayerContentsRedrawCrossfade,
-        _ => throw ArgumentError(
-            "Unknown value for NSViewLayerContentsRedrawPolicy: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSViewLayerContentsRedrawPolicy: $value',
+          ),
       };
 }
 
@@ -30415,21 +42136,23 @@ enum NSViewLayerContentsPlacement {
   const NSViewLayerContentsPlacement(this.value);
 
   static NSViewLayerContentsPlacement fromValue(int value) => switch (value) {
-        0 => NSViewLayerContentsPlacementScaleAxesIndependently,
-        1 => NSViewLayerContentsPlacementScaleProportionallyToFit,
-        2 => NSViewLayerContentsPlacementScaleProportionallyToFill,
-        3 => NSViewLayerContentsPlacementCenter,
-        4 => NSViewLayerContentsPlacementTop,
-        5 => NSViewLayerContentsPlacementTopRight,
-        6 => NSViewLayerContentsPlacementRight,
-        7 => NSViewLayerContentsPlacementBottomRight,
-        8 => NSViewLayerContentsPlacementBottom,
-        9 => NSViewLayerContentsPlacementBottomLeft,
-        10 => NSViewLayerContentsPlacementLeft,
-        11 => NSViewLayerContentsPlacementTopLeft,
-        _ => throw ArgumentError(
-            "Unknown value for NSViewLayerContentsPlacement: $value"),
-      };
+    0 => NSViewLayerContentsPlacementScaleAxesIndependently,
+    1 => NSViewLayerContentsPlacementScaleProportionallyToFit,
+    2 => NSViewLayerContentsPlacementScaleProportionallyToFill,
+    3 => NSViewLayerContentsPlacementCenter,
+    4 => NSViewLayerContentsPlacementTop,
+    5 => NSViewLayerContentsPlacementTopRight,
+    6 => NSViewLayerContentsPlacementRight,
+    7 => NSViewLayerContentsPlacementBottomRight,
+    8 => NSViewLayerContentsPlacementBottom,
+    9 => NSViewLayerContentsPlacementBottomLeft,
+    10 => NSViewLayerContentsPlacementLeft,
+    11 => NSViewLayerContentsPlacementTopLeft,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSViewLayerContentsPlacement: $value',
+      ),
+  };
 }
 
 enum NSWritingDirection {
@@ -30441,12 +42164,11 @@ enum NSWritingDirection {
   const NSWritingDirection(this.value);
 
   static NSWritingDirection fromValue(int value) => switch (value) {
-        -1 => NSWritingDirectionNatural,
-        0 => NSWritingDirectionLeftToRight,
-        1 => NSWritingDirectionRightToLeft,
-        _ =>
-          throw ArgumentError("Unknown value for NSWritingDirection: $value"),
-      };
+    -1 => NSWritingDirectionNatural,
+    0 => NSWritingDirectionLeftToRight,
+    1 => NSWritingDirectionRightToLeft,
+    _ => throw ArgumentError('Unknown value for NSWritingDirection: $value'),
+  };
 }
 
 enum NSTextAlignment {
@@ -30460,13 +42182,13 @@ enum NSTextAlignment {
   const NSTextAlignment(this.value);
 
   static NSTextAlignment fromValue(int value) => switch (value) {
-        0 => NSTextAlignmentLeft,
-        1 => NSTextAlignmentCenter,
-        2 => NSTextAlignmentRight,
-        3 => NSTextAlignmentJustified,
-        4 => NSTextAlignmentNatural,
-        _ => throw ArgumentError("Unknown value for NSTextAlignment: $value"),
-      };
+    0 => NSTextAlignmentLeft,
+    1 => NSTextAlignmentCenter,
+    2 => NSTextAlignmentRight,
+    3 => NSTextAlignmentJustified,
+    4 => NSTextAlignmentNatural,
+    _ => throw ArgumentError('Unknown value for NSTextAlignment: $value'),
+  };
 }
 
 enum NSLineBreakMode {
@@ -30481,14 +42203,14 @@ enum NSLineBreakMode {
   const NSLineBreakMode(this.value);
 
   static NSLineBreakMode fromValue(int value) => switch (value) {
-        0 => NSLineBreakByWordWrapping,
-        1 => NSLineBreakByCharWrapping,
-        2 => NSLineBreakByClipping,
-        3 => NSLineBreakByTruncatingHead,
-        4 => NSLineBreakByTruncatingTail,
-        5 => NSLineBreakByTruncatingMiddle,
-        _ => throw ArgumentError("Unknown value for NSLineBreakMode: $value"),
-      };
+    0 => NSLineBreakByWordWrapping,
+    1 => NSLineBreakByCharWrapping,
+    2 => NSLineBreakByClipping,
+    3 => NSLineBreakByTruncatingHead,
+    4 => NSLineBreakByTruncatingTail,
+    5 => NSLineBreakByTruncatingMiddle,
+    _ => throw ArgumentError('Unknown value for NSLineBreakMode: $value'),
+  };
 }
 
 enum NSLineBreakStrategy {
@@ -30501,13 +42223,12 @@ enum NSLineBreakStrategy {
   const NSLineBreakStrategy(this.value);
 
   static NSLineBreakStrategy fromValue(int value) => switch (value) {
-        0 => NSLineBreakStrategyNone,
-        1 => NSLineBreakStrategyPushOut,
-        2 => NSLineBreakStrategyHangulWordPriority,
-        65535 => NSLineBreakStrategyStandard,
-        _ =>
-          throw ArgumentError("Unknown value for NSLineBreakStrategy: $value"),
-      };
+    0 => NSLineBreakStrategyNone,
+    1 => NSLineBreakStrategyPushOut,
+    2 => NSLineBreakStrategyHangulWordPriority,
+    65535 => NSLineBreakStrategyStandard,
+    _ => throw ArgumentError('Unknown value for NSLineBreakStrategy: $value'),
+  };
 }
 
 enum NSTextTabType {
@@ -30520,12 +42241,12 @@ enum NSTextTabType {
   const NSTextTabType(this.value);
 
   static NSTextTabType fromValue(int value) => switch (value) {
-        0 => NSLeftTabStopType,
-        1 => NSRightTabStopType,
-        2 => NSCenterTabStopType,
-        3 => NSDecimalTabStopType,
-        _ => throw ArgumentError("Unknown value for NSTextTabType: $value"),
-      };
+    0 => NSLeftTabStopType,
+    1 => NSRightTabStopType,
+    2 => NSCenterTabStopType,
+    3 => NSDecimalTabStopType,
+    _ => throw ArgumentError('Unknown value for NSTextTabType: $value'),
+  };
 }
 
 enum NSCellType {
@@ -30537,11 +42258,11 @@ enum NSCellType {
   const NSCellType(this.value);
 
   static NSCellType fromValue(int value) => switch (value) {
-        0 => NSNullCellType,
-        1 => NSTextCellType,
-        2 => NSImageCellType,
-        _ => throw ArgumentError("Unknown value for NSCellType: $value"),
-      };
+    0 => NSNullCellType,
+    1 => NSTextCellType,
+    2 => NSImageCellType,
+    _ => throw ArgumentError('Unknown value for NSCellType: $value'),
+  };
 }
 
 enum NSCellAttribute {
@@ -30567,25 +42288,25 @@ enum NSCellAttribute {
   const NSCellAttribute(this.value);
 
   static NSCellAttribute fromValue(int value) => switch (value) {
-        0 => NSCellDisabled,
-        1 => NSCellState,
-        2 => NSPushInCell,
-        3 => NSCellEditable,
-        4 => NSChangeGrayCell,
-        5 => NSCellHighlighted,
-        6 => NSCellLightsByContents,
-        7 => NSCellLightsByGray,
-        8 => NSChangeBackgroundCell,
-        9 => NSCellLightsByBackground,
-        10 => NSCellIsBordered,
-        11 => NSCellHasOverlappingImage,
-        12 => NSCellHasImageHorizontal,
-        13 => NSCellHasImageOnLeftOrBottom,
-        14 => NSCellChangesContents,
-        15 => NSCellIsInsetButton,
-        16 => NSCellAllowsMixedState,
-        _ => throw ArgumentError("Unknown value for NSCellAttribute: $value"),
-      };
+    0 => NSCellDisabled,
+    1 => NSCellState,
+    2 => NSPushInCell,
+    3 => NSCellEditable,
+    4 => NSChangeGrayCell,
+    5 => NSCellHighlighted,
+    6 => NSCellLightsByContents,
+    7 => NSCellLightsByGray,
+    8 => NSChangeBackgroundCell,
+    9 => NSCellLightsByBackground,
+    10 => NSCellIsBordered,
+    11 => NSCellHasOverlappingImage,
+    12 => NSCellHasImageHorizontal,
+    13 => NSCellHasImageOnLeftOrBottom,
+    14 => NSCellChangesContents,
+    15 => NSCellIsInsetButton,
+    16 => NSCellAllowsMixedState,
+    _ => throw ArgumentError('Unknown value for NSCellAttribute: $value'),
+  };
 }
 
 enum NSCellImagePosition {
@@ -30603,18 +42324,17 @@ enum NSCellImagePosition {
   const NSCellImagePosition(this.value);
 
   static NSCellImagePosition fromValue(int value) => switch (value) {
-        0 => NSNoImage,
-        1 => NSImageOnly,
-        2 => NSImageLeft,
-        3 => NSImageRight,
-        4 => NSImageBelow,
-        5 => NSImageAbove,
-        6 => NSImageOverlaps,
-        7 => NSImageLeading,
-        8 => NSImageTrailing,
-        _ =>
-          throw ArgumentError("Unknown value for NSCellImagePosition: $value"),
-      };
+    0 => NSNoImage,
+    1 => NSImageOnly,
+    2 => NSImageLeft,
+    3 => NSImageRight,
+    4 => NSImageBelow,
+    5 => NSImageAbove,
+    6 => NSImageOverlaps,
+    7 => NSImageLeading,
+    8 => NSImageTrailing,
+    _ => throw ArgumentError('Unknown value for NSCellImagePosition: $value'),
+  };
 }
 
 enum NSImageScaling {
@@ -30631,12 +42351,12 @@ enum NSImageScaling {
   const NSImageScaling(this.value);
 
   static NSImageScaling fromValue(int value) => switch (value) {
-        0 => NSImageScaleProportionallyDown,
-        1 => NSImageScaleAxesIndependently,
-        2 => NSImageScaleNone,
-        3 => NSImageScaleProportionallyUpOrDown,
-        _ => throw ArgumentError("Unknown value for NSImageScaling: $value"),
-      };
+    0 => NSImageScaleProportionallyDown,
+    1 => NSImageScaleAxesIndependently,
+    2 => NSImageScaleNone,
+    3 => NSImageScaleProportionallyUpOrDown,
+    _ => throw ArgumentError('Unknown value for NSImageScaling: $value'),
+  };
 
   @override
   String toString() {
@@ -30661,13 +42381,13 @@ enum NSCellStyleMask {
   const NSCellStyleMask(this.value);
 
   static NSCellStyleMask fromValue(int value) => switch (value) {
-        0 => NSNoCellMask,
-        1 => NSContentsCellMask,
-        2 => NSPushInCellMask,
-        4 => NSChangeGrayCellMask,
-        8 => NSChangeBackgroundCellMask,
-        _ => throw ArgumentError("Unknown value for NSCellStyleMask: $value"),
-      };
+    0 => NSNoCellMask,
+    1 => NSContentsCellMask,
+    2 => NSPushInCellMask,
+    4 => NSChangeGrayCellMask,
+    8 => NSChangeBackgroundCellMask,
+    _ => throw ArgumentError('Unknown value for NSCellStyleMask: $value'),
+  };
 }
 
 enum NSControlTint {
@@ -30680,12 +42400,12 @@ enum NSControlTint {
   const NSControlTint(this.value);
 
   static NSControlTint fromValue(int value) => switch (value) {
-        0 => NSDefaultControlTint,
-        1 => NSBlueControlTint,
-        6 => NSGraphiteControlTint,
-        7 => NSClearControlTint,
-        _ => throw ArgumentError("Unknown value for NSControlTint: $value"),
-      };
+    0 => NSDefaultControlTint,
+    1 => NSBlueControlTint,
+    6 => NSGraphiteControlTint,
+    7 => NSClearControlTint,
+    _ => throw ArgumentError('Unknown value for NSControlTint: $value'),
+  };
 }
 
 enum NSControlSize {
@@ -30698,12 +42418,12 @@ enum NSControlSize {
   const NSControlSize(this.value);
 
   static NSControlSize fromValue(int value) => switch (value) {
-        0 => NSControlSizeRegular,
-        1 => NSControlSizeSmall,
-        2 => NSControlSizeMini,
-        3 => NSControlSizeLarge,
-        _ => throw ArgumentError("Unknown value for NSControlSize: $value"),
-      };
+    0 => NSControlSizeRegular,
+    1 => NSControlSizeSmall,
+    2 => NSControlSizeMini,
+    3 => NSControlSizeLarge,
+    _ => throw ArgumentError('Unknown value for NSControlSize: $value'),
+  };
 }
 
 enum NSCellHitResult {
@@ -30716,12 +42436,12 @@ enum NSCellHitResult {
   const NSCellHitResult(this.value);
 
   static NSCellHitResult fromValue(int value) => switch (value) {
-        0 => NSCellHitNone,
-        1 => NSCellHitContentArea,
-        2 => NSCellHitEditableTextArea,
-        4 => NSCellHitTrackableArea,
-        _ => throw ArgumentError("Unknown value for NSCellHitResult: $value"),
-      };
+    0 => NSCellHitNone,
+    1 => NSCellHitContentArea,
+    2 => NSCellHitEditableTextArea,
+    4 => NSCellHitTrackableArea,
+    _ => throw ArgumentError('Unknown value for NSCellHitResult: $value'),
+  };
 }
 
 enum NSBackgroundStyle {
@@ -30734,12 +42454,12 @@ enum NSBackgroundStyle {
   const NSBackgroundStyle(this.value);
 
   static NSBackgroundStyle fromValue(int value) => switch (value) {
-        0 => NSBackgroundStyleNormal,
-        1 => NSBackgroundStyleEmphasized,
-        2 => NSBackgroundStyleRaised,
-        3 => NSBackgroundStyleLowered,
-        _ => throw ArgumentError("Unknown value for NSBackgroundStyle: $value"),
-      };
+    0 => NSBackgroundStyleNormal,
+    1 => NSBackgroundStyleEmphasized,
+    2 => NSBackgroundStyleRaised,
+    3 => NSBackgroundStyleLowered,
+    _ => throw ArgumentError('Unknown value for NSBackgroundStyle: $value'),
+  };
 }
 
 enum NSMenuPresentationStyle {
@@ -30750,11 +42470,11 @@ enum NSMenuPresentationStyle {
   const NSMenuPresentationStyle(this.value);
 
   static NSMenuPresentationStyle fromValue(int value) => switch (value) {
-        0 => NSMenuPresentationStyleRegular,
-        1 => NSMenuPresentationStylePalette,
-        _ => throw ArgumentError(
-            "Unknown value for NSMenuPresentationStyle: $value"),
-      };
+    0 => NSMenuPresentationStyleRegular,
+    1 => NSMenuPresentationStylePalette,
+    _ =>
+      throw ArgumentError('Unknown value for NSMenuPresentationStyle: $value'),
+  };
 }
 
 enum NSMenuSelectionMode {
@@ -30766,12 +42486,11 @@ enum NSMenuSelectionMode {
   const NSMenuSelectionMode(this.value);
 
   static NSMenuSelectionMode fromValue(int value) => switch (value) {
-        0 => NSMenuSelectionModeAutomatic,
-        1 => NSMenuSelectionModeSelectOne,
-        2 => NSMenuSelectionModeSelectAny,
-        _ =>
-          throw ArgumentError("Unknown value for NSMenuSelectionMode: $value"),
-      };
+    0 => NSMenuSelectionModeAutomatic,
+    1 => NSMenuSelectionModeSelectOne,
+    2 => NSMenuSelectionModeSelectAny,
+    _ => throw ArgumentError('Unknown value for NSMenuSelectionMode: $value'),
+  };
 }
 
 enum NSMenuProperties {
@@ -30786,13 +42505,55 @@ enum NSMenuProperties {
   const NSMenuProperties(this.value);
 
   static NSMenuProperties fromValue(int value) => switch (value) {
-        1 => NSMenuPropertyItemTitle,
-        2 => NSMenuPropertyItemAttributedTitle,
-        4 => NSMenuPropertyItemKeyEquivalent,
-        8 => NSMenuPropertyItemImage,
-        16 => NSMenuPropertyItemEnabled,
-        32 => NSMenuPropertyItemAccessibilityDescription,
-        _ => throw ArgumentError("Unknown value for NSMenuProperties: $value"),
+    1 => NSMenuPropertyItemTitle,
+    2 => NSMenuPropertyItemAttributedTitle,
+    4 => NSMenuPropertyItemKeyEquivalent,
+    8 => NSMenuPropertyItemImage,
+    16 => NSMenuPropertyItemEnabled,
+    32 => NSMenuPropertyItemAccessibilityDescription,
+    _ => throw ArgumentError('Unknown value for NSMenuProperties: $value'),
+  };
+}
+
+enum NSApplicationPresentationOptions {
+  NSApplicationPresentationDefault(0),
+  NSApplicationPresentationAutoHideDock(1),
+  NSApplicationPresentationHideDock(2),
+  NSApplicationPresentationAutoHideMenuBar(4),
+  NSApplicationPresentationHideMenuBar(8),
+  NSApplicationPresentationDisableAppleMenu(16),
+  NSApplicationPresentationDisableProcessSwitching(32),
+  NSApplicationPresentationDisableForceQuit(64),
+  NSApplicationPresentationDisableSessionTermination(128),
+  NSApplicationPresentationDisableHideApplication(256),
+  NSApplicationPresentationDisableMenuBarTransparency(512),
+  NSApplicationPresentationFullScreen(1024),
+  NSApplicationPresentationAutoHideToolbar(2048),
+  NSApplicationPresentationDisableCursorLocationAssistance(4096);
+
+  final int value;
+  const NSApplicationPresentationOptions(this.value);
+
+  static NSApplicationPresentationOptions fromValue(int value) =>
+      switch (value) {
+        0 => NSApplicationPresentationDefault,
+        1 => NSApplicationPresentationAutoHideDock,
+        2 => NSApplicationPresentationHideDock,
+        4 => NSApplicationPresentationAutoHideMenuBar,
+        8 => NSApplicationPresentationHideMenuBar,
+        16 => NSApplicationPresentationDisableAppleMenu,
+        32 => NSApplicationPresentationDisableProcessSwitching,
+        64 => NSApplicationPresentationDisableForceQuit,
+        128 => NSApplicationPresentationDisableSessionTermination,
+        256 => NSApplicationPresentationDisableHideApplication,
+        512 => NSApplicationPresentationDisableMenuBarTransparency,
+        1024 => NSApplicationPresentationFullScreen,
+        2048 => NSApplicationPresentationAutoHideToolbar,
+        4096 => NSApplicationPresentationDisableCursorLocationAssistance,
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSApplicationPresentationOptions: $value',
+          ),
       };
 }
 
@@ -30805,11 +42566,11 @@ enum NSColorType {
   const NSColorType(this.value);
 
   static NSColorType fromValue(int value) => switch (value) {
-        0 => NSColorTypeComponentBased,
-        1 => NSColorTypePattern,
-        2 => NSColorTypeCatalog,
-        _ => throw ArgumentError("Unknown value for NSColorType: $value"),
-      };
+    0 => NSColorTypeComponentBased,
+    1 => NSColorTypePattern,
+    2 => NSColorTypeCatalog,
+    _ => throw ArgumentError('Unknown value for NSColorType: $value'),
+  };
 }
 
 enum NSColorSystemEffect {
@@ -30823,14 +42584,13 @@ enum NSColorSystemEffect {
   const NSColorSystemEffect(this.value);
 
   static NSColorSystemEffect fromValue(int value) => switch (value) {
-        0 => NSColorSystemEffectNone,
-        1 => NSColorSystemEffectPressed,
-        2 => NSColorSystemEffectDeepPressed,
-        3 => NSColorSystemEffectDisabled,
-        4 => NSColorSystemEffectRollover,
-        _ =>
-          throw ArgumentError("Unknown value for NSColorSystemEffect: $value"),
-      };
+    0 => NSColorSystemEffectNone,
+    1 => NSColorSystemEffectPressed,
+    2 => NSColorSystemEffectDeepPressed,
+    3 => NSColorSystemEffectDisabled,
+    4 => NSColorSystemEffectRollover,
+    _ => throw ArgumentError('Unknown value for NSColorSystemEffect: $value'),
+  };
 }
 
 enum NSButtonType {
@@ -30849,18 +42609,18 @@ enum NSButtonType {
   const NSButtonType(this.value);
 
   static NSButtonType fromValue(int value) => switch (value) {
-        0 => NSButtonTypeMomentaryLight,
-        1 => NSButtonTypePushOnPushOff,
-        2 => NSButtonTypeToggle,
-        3 => NSButtonTypeSwitch,
-        4 => NSButtonTypeRadio,
-        5 => NSButtonTypeMomentaryChange,
-        6 => NSButtonTypeOnOff,
-        7 => NSButtonTypeMomentaryPushIn,
-        8 => NSButtonTypeAccelerator,
-        9 => NSButtonTypeMultiLevelAccelerator,
-        _ => throw ArgumentError("Unknown value for NSButtonType: $value"),
-      };
+    0 => NSButtonTypeMomentaryLight,
+    1 => NSButtonTypePushOnPushOff,
+    2 => NSButtonTypeToggle,
+    3 => NSButtonTypeSwitch,
+    4 => NSButtonTypeRadio,
+    5 => NSButtonTypeMomentaryChange,
+    6 => NSButtonTypeOnOff,
+    7 => NSButtonTypeMomentaryPushIn,
+    8 => NSButtonTypeAccelerator,
+    9 => NSButtonTypeMultiLevelAccelerator,
+    _ => throw ArgumentError('Unknown value for NSButtonType: $value'),
+  };
 }
 
 enum NSBezelStyle {
@@ -30891,22 +42651,22 @@ enum NSBezelStyle {
   const NSBezelStyle(this.value);
 
   static NSBezelStyle fromValue(int value) => switch (value) {
-        0 => NSBezelStyleAutomatic,
-        1 => NSBezelStylePush,
-        2 => NSBezelStyleFlexiblePush,
-        5 => NSBezelStyleDisclosure,
-        7 => NSBezelStyleCircular,
-        9 => NSBezelStyleHelpButton,
-        10 => NSBezelStyleSmallSquare,
-        11 => NSBezelStyleToolbar,
-        12 => NSBezelStyleAccessoryBarAction,
-        13 => NSBezelStyleAccessoryBar,
-        14 => NSBezelStylePushDisclosure,
-        15 => NSBezelStyleBadge,
-        6 => NSBezelStyleShadowlessSquare,
-        8 => NSBezelStyleTexturedSquare,
-        _ => throw ArgumentError("Unknown value for NSBezelStyle: $value"),
-      };
+    0 => NSBezelStyleAutomatic,
+    1 => NSBezelStylePush,
+    2 => NSBezelStyleFlexiblePush,
+    5 => NSBezelStyleDisclosure,
+    7 => NSBezelStyleCircular,
+    9 => NSBezelStyleHelpButton,
+    10 => NSBezelStyleSmallSquare,
+    11 => NSBezelStyleToolbar,
+    12 => NSBezelStyleAccessoryBarAction,
+    13 => NSBezelStyleAccessoryBar,
+    14 => NSBezelStylePushDisclosure,
+    15 => NSBezelStyleBadge,
+    6 => NSBezelStyleShadowlessSquare,
+    8 => NSBezelStyleTexturedSquare,
+    _ => throw ArgumentError('Unknown value for NSBezelStyle: $value'),
+  };
 
   @override
   String toString() {
@@ -30939,13 +42699,13 @@ enum NSGradientType {
   const NSGradientType(this.value);
 
   static NSGradientType fromValue(int value) => switch (value) {
-        0 => NSGradientNone,
-        1 => NSGradientConcaveWeak,
-        2 => NSGradientConcaveStrong,
-        3 => NSGradientConvexWeak,
-        4 => NSGradientConvexStrong,
-        _ => throw ArgumentError("Unknown value for NSGradientType: $value"),
-      };
+    0 => NSGradientNone,
+    1 => NSGradientConcaveWeak,
+    2 => NSGradientConcaveStrong,
+    3 => NSGradientConvexWeak,
+    4 => NSGradientConvexStrong,
+    _ => throw ArgumentError('Unknown value for NSGradientType: $value'),
+  };
 }
 
 enum NSPopoverBehavior {
@@ -30957,11 +42717,11 @@ enum NSPopoverBehavior {
   const NSPopoverBehavior(this.value);
 
   static NSPopoverBehavior fromValue(int value) => switch (value) {
-        0 => NSPopoverBehaviorApplicationDefined,
-        1 => NSPopoverBehaviorTransient,
-        2 => NSPopoverBehaviorSemitransient,
-        _ => throw ArgumentError("Unknown value for NSPopoverBehavior: $value"),
-      };
+    0 => NSPopoverBehaviorApplicationDefined,
+    1 => NSPopoverBehaviorTransient,
+    2 => NSPopoverBehaviorSemitransient,
+    _ => throw ArgumentError('Unknown value for NSPopoverBehavior: $value'),
+  };
 }
 
 ffi.Pointer<objc.ObjCObject> _ObjCBlock_objcObjCObject_NSCoder_fnPtrTrampoline(
@@ -31029,19 +42789,26 @@ abstract final class ObjCBlock_objcObjCObject_NSCoder {
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  static objc.ObjCBlock<
-      ffi.Pointer<objc.ObjCObject>? Function(objc.NSCoder)> fromFunction(
-          objc.ObjCObjectBase? Function(objc.NSCoder) fn) =>
-      objc.ObjCBlock<ffi.Pointer<objc.ObjCObject>? Function(objc.NSCoder)>(
-          objc.newClosureBlock(
-              _ObjCBlock_objcObjCObject_NSCoder_closureCallable,
-              (ffi.Pointer<objc.ObjCObject> arg0) =>
-                  fn(objc.NSCoder.castFromPointer(arg0, retain: true, release: true))
-                      ?.ref
-                      .retainAndAutorelease() ??
-                  ffi.nullptr),
-          retain: false,
-          release: true);
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Pointer<objc.ObjCObject>? Function(objc.NSCoder)>
+  fromFunction(
+    objc.ObjCObjectBase? Function(objc.NSCoder) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<ffi.Pointer<objc.ObjCObject>? Function(objc.NSCoder)>(
+    objc.newClosureBlock(
+      _ObjCBlock_objcObjCObject_NSCoder_closureCallable,
+      (ffi.Pointer<objc.ObjCObject> arg0) =>
+          fn(
+            objc.NSCoder.castFromPointer(arg0, retain: true, release: true),
+          )?.ref.retainAndAutorelease() ??
+          ffi.nullptr,
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
 }
 
 /// Call operator for `objc.ObjCBlock<ffi.Pointer<objc.ObjCObject>? Function(objc.NSCoder)>`.
@@ -31091,8 +42858,10 @@ enum NSViewControllerTransitionOptions {
         320 => NSViewControllerTransitionSlideForward,
         384 => NSViewControllerTransitionSlideBackward,
         4096 => NSViewControllerTransitionAllowUserInteraction,
-        _ => throw ArgumentError(
-            "Unknown value for NSViewControllerTransitionOptions: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSViewControllerTransitionOptions: $value',
+          ),
       };
 }
 
@@ -31105,12 +42874,12 @@ enum NSHorizontalDirections {
   const NSHorizontalDirections(this.value);
 
   static NSHorizontalDirections fromValue(int value) => switch (value) {
-        1 => NSHorizontalDirectionsLeft,
-        2 => NSHorizontalDirectionsRight,
-        3 => NSHorizontalDirectionsAll,
-        _ => throw ArgumentError(
-            "Unknown value for NSHorizontalDirections: $value"),
-      };
+    1 => NSHorizontalDirectionsLeft,
+    2 => NSHorizontalDirectionsRight,
+    3 => NSHorizontalDirectionsAll,
+    _ =>
+      throw ArgumentError('Unknown value for NSHorizontalDirections: $value'),
+  };
 }
 
 enum NSVerticalDirections {
@@ -31122,12 +42891,11 @@ enum NSVerticalDirections {
   const NSVerticalDirections(this.value);
 
   static NSVerticalDirections fromValue(int value) => switch (value) {
-        1 => NSVerticalDirectionsUp,
-        2 => NSVerticalDirectionsDown,
-        3 => NSVerticalDirectionsAll,
-        _ =>
-          throw ArgumentError("Unknown value for NSVerticalDirections: $value"),
-      };
+    1 => NSVerticalDirectionsUp,
+    2 => NSVerticalDirectionsDown,
+    3 => NSVerticalDirectionsAll,
+    _ => throw ArgumentError('Unknown value for NSVerticalDirections: $value'),
+  };
 }
 
 enum NSFontDescriptorSymbolicTraits {
@@ -31159,30 +42927,32 @@ enum NSFontDescriptorSymbolicTraits {
   const NSFontDescriptorSymbolicTraits(this.value);
 
   static NSFontDescriptorSymbolicTraits fromValue(int value) => switch (value) {
-        1 => NSFontDescriptorTraitItalic,
-        2 => NSFontDescriptorTraitBold,
-        32 => NSFontDescriptorTraitExpanded,
-        64 => NSFontDescriptorTraitCondensed,
-        1024 => NSFontDescriptorTraitMonoSpace,
-        2048 => NSFontDescriptorTraitVertical,
-        4096 => NSFontDescriptorTraitUIOptimized,
-        32768 => NSFontDescriptorTraitTightLeading,
-        65536 => NSFontDescriptorTraitLooseLeading,
-        -268435456 => NSFontDescriptorClassMask,
-        0 => NSFontDescriptorClassUnknown,
-        268435456 => NSFontDescriptorClassOldStyleSerifs,
-        536870912 => NSFontDescriptorClassTransitionalSerifs,
-        805306368 => NSFontDescriptorClassModernSerifs,
-        1073741824 => NSFontDescriptorClassClarendonSerifs,
-        1342177280 => NSFontDescriptorClassSlabSerifs,
-        1879048192 => NSFontDescriptorClassFreeformSerifs,
-        -2147483648 => NSFontDescriptorClassSansSerif,
-        -1879048192 => NSFontDescriptorClassOrnamentals,
-        -1610612736 => NSFontDescriptorClassScripts,
-        -1073741824 => NSFontDescriptorClassSymbolic,
-        _ => throw ArgumentError(
-            "Unknown value for NSFontDescriptorSymbolicTraits: $value"),
-      };
+    1 => NSFontDescriptorTraitItalic,
+    2 => NSFontDescriptorTraitBold,
+    32 => NSFontDescriptorTraitExpanded,
+    64 => NSFontDescriptorTraitCondensed,
+    1024 => NSFontDescriptorTraitMonoSpace,
+    2048 => NSFontDescriptorTraitVertical,
+    4096 => NSFontDescriptorTraitUIOptimized,
+    32768 => NSFontDescriptorTraitTightLeading,
+    65536 => NSFontDescriptorTraitLooseLeading,
+    -268435456 => NSFontDescriptorClassMask,
+    0 => NSFontDescriptorClassUnknown,
+    268435456 => NSFontDescriptorClassOldStyleSerifs,
+    536870912 => NSFontDescriptorClassTransitionalSerifs,
+    805306368 => NSFontDescriptorClassModernSerifs,
+    1073741824 => NSFontDescriptorClassClarendonSerifs,
+    1342177280 => NSFontDescriptorClassSlabSerifs,
+    1879048192 => NSFontDescriptorClassFreeformSerifs,
+    -2147483648 => NSFontDescriptorClassSansSerif,
+    -1879048192 => NSFontDescriptorClassOrnamentals,
+    -1610612736 => NSFontDescriptorClassScripts,
+    -1073741824 => NSFontDescriptorClassSymbolic,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSFontDescriptorSymbolicTraits: $value',
+      ),
+  };
 
   @override
   String toString() {
@@ -31202,13 +42972,12 @@ enum NSFontRenderingMode {
   const NSFontRenderingMode(this.value);
 
   static NSFontRenderingMode fromValue(int value) => switch (value) {
-        0 => NSFontDefaultRenderingMode,
-        1 => NSFontAntialiasedRenderingMode,
-        2 => NSFontIntegerAdvancementsRenderingMode,
-        3 => NSFontAntialiasedIntegerAdvancementsRenderingMode,
-        _ =>
-          throw ArgumentError("Unknown value for NSFontRenderingMode: $value"),
-      };
+    0 => NSFontDefaultRenderingMode,
+    1 => NSFontAntialiasedRenderingMode,
+    2 => NSFontIntegerAdvancementsRenderingMode,
+    3 => NSFontAntialiasedIntegerAdvancementsRenderingMode,
+    _ => throw ArgumentError('Unknown value for NSFontRenderingMode: $value'),
+  };
 }
 
 enum NSFontTraitMask {
@@ -31229,20 +42998,20 @@ enum NSFontTraitMask {
   const NSFontTraitMask(this.value);
 
   static NSFontTraitMask fromValue(int value) => switch (value) {
-        1 => NSItalicFontMask,
-        2 => NSBoldFontMask,
-        4 => NSUnboldFontMask,
-        8 => NSNonStandardCharacterSetFontMask,
-        16 => NSNarrowFontMask,
-        32 => NSExpandedFontMask,
-        64 => NSCondensedFontMask,
-        128 => NSSmallCapsFontMask,
-        256 => NSPosterFontMask,
-        512 => NSCompressedFontMask,
-        1024 => NSFixedPitchFontMask,
-        16777216 => NSUnitalicFontMask,
-        _ => throw ArgumentError("Unknown value for NSFontTraitMask: $value"),
-      };
+    1 => NSItalicFontMask,
+    2 => NSBoldFontMask,
+    4 => NSUnboldFontMask,
+    8 => NSNonStandardCharacterSetFontMask,
+    16 => NSNarrowFontMask,
+    32 => NSExpandedFontMask,
+    64 => NSCondensedFontMask,
+    128 => NSSmallCapsFontMask,
+    256 => NSPosterFontMask,
+    512 => NSCompressedFontMask,
+    1024 => NSFixedPitchFontMask,
+    16777216 => NSUnitalicFontMask,
+    _ => throw ArgumentError('Unknown value for NSFontTraitMask: $value'),
+  };
 }
 
 enum NSWindowStyleMask {
@@ -31264,21 +43033,21 @@ enum NSWindowStyleMask {
   const NSWindowStyleMask(this.value);
 
   static NSWindowStyleMask fromValue(int value) => switch (value) {
-        0 => NSWindowStyleMaskBorderless,
-        1 => NSWindowStyleMaskTitled,
-        2 => NSWindowStyleMaskClosable,
-        4 => NSWindowStyleMaskMiniaturizable,
-        8 => NSWindowStyleMaskResizable,
-        256 => NSWindowStyleMaskTexturedBackground,
-        4096 => NSWindowStyleMaskUnifiedTitleAndToolbar,
-        16384 => NSWindowStyleMaskFullScreen,
-        32768 => NSWindowStyleMaskFullSizeContentView,
-        16 => NSWindowStyleMaskUtilityWindow,
-        64 => NSWindowStyleMaskDocModalWindow,
-        128 => NSWindowStyleMaskNonactivatingPanel,
-        8192 => NSWindowStyleMaskHUDWindow,
-        _ => throw ArgumentError("Unknown value for NSWindowStyleMask: $value"),
-      };
+    0 => NSWindowStyleMaskBorderless,
+    1 => NSWindowStyleMaskTitled,
+    2 => NSWindowStyleMaskClosable,
+    4 => NSWindowStyleMaskMiniaturizable,
+    8 => NSWindowStyleMaskResizable,
+    256 => NSWindowStyleMaskTexturedBackground,
+    4096 => NSWindowStyleMaskUnifiedTitleAndToolbar,
+    16384 => NSWindowStyleMaskFullScreen,
+    32768 => NSWindowStyleMaskFullSizeContentView,
+    16 => NSWindowStyleMaskUtilityWindow,
+    64 => NSWindowStyleMaskDocModalWindow,
+    128 => NSWindowStyleMaskNonactivatingPanel,
+    8192 => NSWindowStyleMaskHUDWindow,
+    _ => throw ArgumentError('Unknown value for NSWindowStyleMask: $value'),
+  };
 }
 
 enum NSWindowSharingType {
@@ -31289,11 +43058,10 @@ enum NSWindowSharingType {
   const NSWindowSharingType(this.value);
 
   static NSWindowSharingType fromValue(int value) => switch (value) {
-        0 => NSWindowSharingNone,
-        1 => NSWindowSharingReadOnly,
-        _ =>
-          throw ArgumentError("Unknown value for NSWindowSharingType: $value"),
-      };
+    0 => NSWindowSharingNone,
+    1 => NSWindowSharingReadOnly,
+    _ => throw ArgumentError('Unknown value for NSWindowSharingType: $value'),
+  };
 }
 
 enum NSWindowCollectionBehavior {
@@ -31318,25 +43086,27 @@ enum NSWindowCollectionBehavior {
   const NSWindowCollectionBehavior(this.value);
 
   static NSWindowCollectionBehavior fromValue(int value) => switch (value) {
-        0 => NSWindowCollectionBehaviorDefault,
-        1 => NSWindowCollectionBehaviorCanJoinAllSpaces,
-        2 => NSWindowCollectionBehaviorMoveToActiveSpace,
-        4 => NSWindowCollectionBehaviorManaged,
-        8 => NSWindowCollectionBehaviorTransient,
-        16 => NSWindowCollectionBehaviorStationary,
-        32 => NSWindowCollectionBehaviorParticipatesInCycle,
-        64 => NSWindowCollectionBehaviorIgnoresCycle,
-        128 => NSWindowCollectionBehaviorFullScreenPrimary,
-        256 => NSWindowCollectionBehaviorFullScreenAuxiliary,
-        512 => NSWindowCollectionBehaviorFullScreenNone,
-        2048 => NSWindowCollectionBehaviorFullScreenAllowsTiling,
-        4096 => NSWindowCollectionBehaviorFullScreenDisallowsTiling,
-        65536 => NSWindowCollectionBehaviorPrimary,
-        131072 => NSWindowCollectionBehaviorAuxiliary,
-        262144 => NSWindowCollectionBehaviorCanJoinAllApplications,
-        _ => throw ArgumentError(
-            "Unknown value for NSWindowCollectionBehavior: $value"),
-      };
+    0 => NSWindowCollectionBehaviorDefault,
+    1 => NSWindowCollectionBehaviorCanJoinAllSpaces,
+    2 => NSWindowCollectionBehaviorMoveToActiveSpace,
+    4 => NSWindowCollectionBehaviorManaged,
+    8 => NSWindowCollectionBehaviorTransient,
+    16 => NSWindowCollectionBehaviorStationary,
+    32 => NSWindowCollectionBehaviorParticipatesInCycle,
+    64 => NSWindowCollectionBehaviorIgnoresCycle,
+    128 => NSWindowCollectionBehaviorFullScreenPrimary,
+    256 => NSWindowCollectionBehaviorFullScreenAuxiliary,
+    512 => NSWindowCollectionBehaviorFullScreenNone,
+    2048 => NSWindowCollectionBehaviorFullScreenAllowsTiling,
+    4096 => NSWindowCollectionBehaviorFullScreenDisallowsTiling,
+    65536 => NSWindowCollectionBehaviorPrimary,
+    131072 => NSWindowCollectionBehaviorAuxiliary,
+    262144 => NSWindowCollectionBehaviorCanJoinAllApplications,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSWindowCollectionBehavior: $value',
+      ),
+  };
 }
 
 enum NSWindowAnimationBehavior {
@@ -31350,14 +43120,16 @@ enum NSWindowAnimationBehavior {
   const NSWindowAnimationBehavior(this.value);
 
   static NSWindowAnimationBehavior fromValue(int value) => switch (value) {
-        0 => NSWindowAnimationBehaviorDefault,
-        2 => NSWindowAnimationBehaviorNone,
-        3 => NSWindowAnimationBehaviorDocumentWindow,
-        4 => NSWindowAnimationBehaviorUtilityWindow,
-        5 => NSWindowAnimationBehaviorAlertPanel,
-        _ => throw ArgumentError(
-            "Unknown value for NSWindowAnimationBehavior: $value"),
-      };
+    0 => NSWindowAnimationBehaviorDefault,
+    2 => NSWindowAnimationBehaviorNone,
+    3 => NSWindowAnimationBehaviorDocumentWindow,
+    4 => NSWindowAnimationBehaviorUtilityWindow,
+    5 => NSWindowAnimationBehaviorAlertPanel,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSWindowAnimationBehavior: $value',
+      ),
+  };
 }
 
 enum NSWindowNumberListOptions {
@@ -31368,11 +43140,13 @@ enum NSWindowNumberListOptions {
   const NSWindowNumberListOptions(this.value);
 
   static NSWindowNumberListOptions fromValue(int value) => switch (value) {
-        1 => NSWindowNumberListAllApplications,
-        16 => NSWindowNumberListAllSpaces,
-        _ => throw ArgumentError(
-            "Unknown value for NSWindowNumberListOptions: $value"),
-      };
+    1 => NSWindowNumberListAllApplications,
+    16 => NSWindowNumberListAllSpaces,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSWindowNumberListOptions: $value',
+      ),
+  };
 }
 
 enum NSWindowOcclusionState {
@@ -31382,10 +43156,10 @@ enum NSWindowOcclusionState {
   const NSWindowOcclusionState(this.value);
 
   static NSWindowOcclusionState fromValue(int value) => switch (value) {
-        2 => NSWindowOcclusionStateVisible,
-        _ => throw ArgumentError(
-            "Unknown value for NSWindowOcclusionState: $value"),
-      };
+    2 => NSWindowOcclusionStateVisible,
+    _ =>
+      throw ArgumentError('Unknown value for NSWindowOcclusionState: $value'),
+  };
 }
 
 enum NSSelectionDirection {
@@ -31397,12 +43171,11 @@ enum NSSelectionDirection {
   const NSSelectionDirection(this.value);
 
   static NSSelectionDirection fromValue(int value) => switch (value) {
-        0 => NSDirectSelection,
-        1 => NSSelectingNext,
-        2 => NSSelectingPrevious,
-        _ =>
-          throw ArgumentError("Unknown value for NSSelectionDirection: $value"),
-      };
+    0 => NSDirectSelection,
+    1 => NSSelectingNext,
+    2 => NSSelectingPrevious,
+    _ => throw ArgumentError('Unknown value for NSSelectionDirection: $value'),
+  };
 }
 
 enum NSWindowButton {
@@ -31417,14 +43190,14 @@ enum NSWindowButton {
   const NSWindowButton(this.value);
 
   static NSWindowButton fromValue(int value) => switch (value) {
-        0 => NSWindowCloseButton,
-        1 => NSWindowMiniaturizeButton,
-        2 => NSWindowZoomButton,
-        3 => NSWindowToolbarButton,
-        4 => NSWindowDocumentIconButton,
-        6 => NSWindowDocumentVersionsButton,
-        _ => throw ArgumentError("Unknown value for NSWindowButton: $value"),
-      };
+    0 => NSWindowCloseButton,
+    1 => NSWindowMiniaturizeButton,
+    2 => NSWindowZoomButton,
+    3 => NSWindowToolbarButton,
+    4 => NSWindowDocumentIconButton,
+    6 => NSWindowDocumentVersionsButton,
+    _ => throw ArgumentError('Unknown value for NSWindowButton: $value'),
+  };
 }
 
 enum NSWindowTitleVisibility {
@@ -31435,11 +43208,11 @@ enum NSWindowTitleVisibility {
   const NSWindowTitleVisibility(this.value);
 
   static NSWindowTitleVisibility fromValue(int value) => switch (value) {
-        0 => NSWindowTitleVisible,
-        1 => NSWindowTitleHidden,
-        _ => throw ArgumentError(
-            "Unknown value for NSWindowTitleVisibility: $value"),
-      };
+    0 => NSWindowTitleVisible,
+    1 => NSWindowTitleHidden,
+    _ =>
+      throw ArgumentError('Unknown value for NSWindowTitleVisibility: $value'),
+  };
 }
 
 enum NSWindowToolbarStyle {
@@ -31453,14 +43226,13 @@ enum NSWindowToolbarStyle {
   const NSWindowToolbarStyle(this.value);
 
   static NSWindowToolbarStyle fromValue(int value) => switch (value) {
-        0 => NSWindowToolbarStyleAutomatic,
-        1 => NSWindowToolbarStyleExpanded,
-        2 => NSWindowToolbarStylePreference,
-        3 => NSWindowToolbarStyleUnified,
-        4 => NSWindowToolbarStyleUnifiedCompact,
-        _ =>
-          throw ArgumentError("Unknown value for NSWindowToolbarStyle: $value"),
-      };
+    0 => NSWindowToolbarStyleAutomatic,
+    1 => NSWindowToolbarStyleExpanded,
+    2 => NSWindowToolbarStylePreference,
+    3 => NSWindowToolbarStyleUnified,
+    4 => NSWindowToolbarStyleUnifiedCompact,
+    _ => throw ArgumentError('Unknown value for NSWindowToolbarStyle: $value'),
+  };
 }
 
 enum NSWindowUserTabbingPreference {
@@ -31472,12 +43244,14 @@ enum NSWindowUserTabbingPreference {
   const NSWindowUserTabbingPreference(this.value);
 
   static NSWindowUserTabbingPreference fromValue(int value) => switch (value) {
-        0 => NSWindowUserTabbingPreferenceManual,
-        1 => NSWindowUserTabbingPreferenceAlways,
-        2 => NSWindowUserTabbingPreferenceInFullScreen,
-        _ => throw ArgumentError(
-            "Unknown value for NSWindowUserTabbingPreference: $value"),
-      };
+    0 => NSWindowUserTabbingPreferenceManual,
+    1 => NSWindowUserTabbingPreferenceAlways,
+    2 => NSWindowUserTabbingPreferenceInFullScreen,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSWindowUserTabbingPreference: $value',
+      ),
+  };
 }
 
 enum NSWindowTabbingMode {
@@ -31489,12 +43263,11 @@ enum NSWindowTabbingMode {
   const NSWindowTabbingMode(this.value);
 
   static NSWindowTabbingMode fromValue(int value) => switch (value) {
-        0 => NSWindowTabbingModeAutomatic,
-        1 => NSWindowTabbingModePreferred,
-        2 => NSWindowTabbingModeDisallowed,
-        _ =>
-          throw ArgumentError("Unknown value for NSWindowTabbingMode: $value"),
-      };
+    0 => NSWindowTabbingModeAutomatic,
+    1 => NSWindowTabbingModePreferred,
+    2 => NSWindowTabbingModeDisallowed,
+    _ => throw ArgumentError('Unknown value for NSWindowTabbingMode: $value'),
+  };
 }
 
 enum NSTitlebarSeparatorStyle {
@@ -31507,13 +43280,13 @@ enum NSTitlebarSeparatorStyle {
   const NSTitlebarSeparatorStyle(this.value);
 
   static NSTitlebarSeparatorStyle fromValue(int value) => switch (value) {
-        0 => NSTitlebarSeparatorStyleAutomatic,
-        1 => NSTitlebarSeparatorStyleNone,
-        2 => NSTitlebarSeparatorStyleLine,
-        3 => NSTitlebarSeparatorStyleShadow,
-        _ => throw ArgumentError(
-            "Unknown value for NSTitlebarSeparatorStyle: $value"),
-      };
+    0 => NSTitlebarSeparatorStyleAutomatic,
+    1 => NSTitlebarSeparatorStyleNone,
+    2 => NSTitlebarSeparatorStyleLine,
+    3 => NSTitlebarSeparatorStyleShadow,
+    _ =>
+      throw ArgumentError('Unknown value for NSTitlebarSeparatorStyle: $value'),
+  };
 }
 
 enum NSWindowBackingLocation {
@@ -31525,12 +43298,12 @@ enum NSWindowBackingLocation {
   const NSWindowBackingLocation(this.value);
 
   static NSWindowBackingLocation fromValue(int value) => switch (value) {
-        0 => NSWindowBackingLocationDefault,
-        1 => NSWindowBackingLocationVideoMemory,
-        2 => NSWindowBackingLocationMainMemory,
-        _ => throw ArgumentError(
-            "Unknown value for NSWindowBackingLocation: $value"),
-      };
+    0 => NSWindowBackingLocationDefault,
+    1 => NSWindowBackingLocationVideoMemory,
+    2 => NSWindowBackingLocationMainMemory,
+    _ =>
+      throw ArgumentError('Unknown value for NSWindowBackingLocation: $value'),
+  };
 }
 
 enum NSMenuItemBadgeType {
@@ -31543,13 +43316,12 @@ enum NSMenuItemBadgeType {
   const NSMenuItemBadgeType(this.value);
 
   static NSMenuItemBadgeType fromValue(int value) => switch (value) {
-        0 => NSMenuItemBadgeTypeNone,
-        1 => NSMenuItemBadgeTypeUpdates,
-        2 => NSMenuItemBadgeTypeNewItems,
-        3 => NSMenuItemBadgeTypeAlerts,
-        _ =>
-          throw ArgumentError("Unknown value for NSMenuItemBadgeType: $value"),
-      };
+    0 => NSMenuItemBadgeTypeNone,
+    1 => NSMenuItemBadgeTypeUpdates,
+    2 => NSMenuItemBadgeTypeNewItems,
+    3 => NSMenuItemBadgeTypeAlerts,
+    _ => throw ArgumentError('Unknown value for NSMenuItemBadgeType: $value'),
+  };
 }
 
 enum NSColorSpaceModel {
@@ -31566,16 +43338,16 @@ enum NSColorSpaceModel {
   const NSColorSpaceModel(this.value);
 
   static NSColorSpaceModel fromValue(int value) => switch (value) {
-        -1 => NSColorSpaceModelUnknown,
-        0 => NSColorSpaceModelGray,
-        1 => NSColorSpaceModelRGB,
-        2 => NSColorSpaceModelCMYK,
-        3 => NSColorSpaceModelLAB,
-        4 => NSColorSpaceModelDeviceN,
-        5 => NSColorSpaceModelIndexed,
-        6 => NSColorSpaceModelPatterned,
-        _ => throw ArgumentError("Unknown value for NSColorSpaceModel: $value"),
-      };
+    -1 => NSColorSpaceModelUnknown,
+    0 => NSColorSpaceModelGray,
+    1 => NSColorSpaceModelRGB,
+    2 => NSColorSpaceModelCMYK,
+    3 => NSColorSpaceModelLAB,
+    4 => NSColorSpaceModelDeviceN,
+    5 => NSColorSpaceModelIndexed,
+    6 => NSColorSpaceModelPatterned,
+    _ => throw ArgumentError('Unknown value for NSColorSpaceModel: $value'),
+  };
 }
 
 enum NSImageLayoutDirection {
@@ -31587,12 +43359,12 @@ enum NSImageLayoutDirection {
   const NSImageLayoutDirection(this.value);
 
   static NSImageLayoutDirection fromValue(int value) => switch (value) {
-        -1 => NSImageLayoutDirectionUnspecified,
-        2 => NSImageLayoutDirectionLeftToRight,
-        3 => NSImageLayoutDirectionRightToLeft,
-        _ => throw ArgumentError(
-            "Unknown value for NSImageLayoutDirection: $value"),
-      };
+    -1 => NSImageLayoutDirectionUnspecified,
+    2 => NSImageLayoutDirectionLeftToRight,
+    3 => NSImageLayoutDirectionRightToLeft,
+    _ =>
+      throw ArgumentError('Unknown value for NSImageLayoutDirection: $value'),
+  };
 }
 
 enum NSBitmapImageFileType {
@@ -31607,15 +43379,14 @@ enum NSBitmapImageFileType {
   const NSBitmapImageFileType(this.value);
 
   static NSBitmapImageFileType fromValue(int value) => switch (value) {
-        0 => NSBitmapImageFileTypeTIFF,
-        1 => NSBitmapImageFileTypeBMP,
-        2 => NSBitmapImageFileTypeGIF,
-        3 => NSBitmapImageFileTypeJPEG,
-        4 => NSBitmapImageFileTypePNG,
-        5 => NSBitmapImageFileTypeJPEG2000,
-        _ => throw ArgumentError(
-            "Unknown value for NSBitmapImageFileType: $value"),
-      };
+    0 => NSBitmapImageFileTypeTIFF,
+    1 => NSBitmapImageFileTypeBMP,
+    2 => NSBitmapImageFileTypeGIF,
+    3 => NSBitmapImageFileTypeJPEG,
+    4 => NSBitmapImageFileTypePNG,
+    5 => NSBitmapImageFileTypeJPEG2000,
+    _ => throw ArgumentError('Unknown value for NSBitmapImageFileType: $value'),
+  };
 }
 
 enum NSBitmapFormat {
@@ -31631,15 +43402,15 @@ enum NSBitmapFormat {
   const NSBitmapFormat(this.value);
 
   static NSBitmapFormat fromValue(int value) => switch (value) {
-        1 => NSBitmapFormatAlphaFirst,
-        2 => NSBitmapFormatAlphaNonpremultiplied,
-        4 => NSBitmapFormatFloatingPointSamples,
-        256 => NSBitmapFormatSixteenBitLittleEndian,
-        512 => NSBitmapFormatThirtyTwoBitLittleEndian,
-        1024 => NSBitmapFormatSixteenBitBigEndian,
-        2048 => NSBitmapFormatThirtyTwoBitBigEndian,
-        _ => throw ArgumentError("Unknown value for NSBitmapFormat: $value"),
-      };
+    1 => NSBitmapFormatAlphaFirst,
+    2 => NSBitmapFormatAlphaNonpremultiplied,
+    4 => NSBitmapFormatFloatingPointSamples,
+    256 => NSBitmapFormatSixteenBitLittleEndian,
+    512 => NSBitmapFormatThirtyTwoBitLittleEndian,
+    1024 => NSBitmapFormatSixteenBitBigEndian,
+    2048 => NSBitmapFormatThirtyTwoBitBigEndian,
+    _ => throw ArgumentError('Unknown value for NSBitmapFormat: $value'),
+  };
 }
 
 enum NSColorPanelMode {
@@ -31657,17 +43428,17 @@ enum NSColorPanelMode {
   const NSColorPanelMode(this.value);
 
   static NSColorPanelMode fromValue(int value) => switch (value) {
-        -1 => NSColorPanelModeNone,
-        0 => NSColorPanelModeGray,
-        1 => NSColorPanelModeRGB,
-        2 => NSColorPanelModeCMYK,
-        3 => NSColorPanelModeHSB,
-        4 => NSColorPanelModeCustomPalette,
-        5 => NSColorPanelModeColorList,
-        6 => NSColorPanelModeWheel,
-        7 => NSColorPanelModeCrayon,
-        _ => throw ArgumentError("Unknown value for NSColorPanelMode: $value"),
-      };
+    -1 => NSColorPanelModeNone,
+    0 => NSColorPanelModeGray,
+    1 => NSColorPanelModeRGB,
+    2 => NSColorPanelModeCMYK,
+    3 => NSColorPanelModeHSB,
+    4 => NSColorPanelModeCustomPalette,
+    5 => NSColorPanelModeColorList,
+    6 => NSColorPanelModeWheel,
+    7 => NSColorPanelModeCrayon,
+    _ => throw ArgumentError('Unknown value for NSColorPanelMode: $value'),
+  };
 }
 
 enum NSColorPanelOptions {
@@ -31685,18 +43456,17 @@ enum NSColorPanelOptions {
   const NSColorPanelOptions(this.value);
 
   static NSColorPanelOptions fromValue(int value) => switch (value) {
-        1 => NSColorPanelGrayModeMask,
-        2 => NSColorPanelRGBModeMask,
-        4 => NSColorPanelCMYKModeMask,
-        8 => NSColorPanelHSBModeMask,
-        16 => NSColorPanelCustomPaletteModeMask,
-        32 => NSColorPanelColorListModeMask,
-        64 => NSColorPanelWheelModeMask,
-        128 => NSColorPanelCrayonModeMask,
-        65535 => NSColorPanelAllModesMask,
-        _ =>
-          throw ArgumentError("Unknown value for NSColorPanelOptions: $value"),
-      };
+    1 => NSColorPanelGrayModeMask,
+    2 => NSColorPanelRGBModeMask,
+    4 => NSColorPanelCMYKModeMask,
+    8 => NSColorPanelHSBModeMask,
+    16 => NSColorPanelCustomPaletteModeMask,
+    32 => NSColorPanelColorListModeMask,
+    64 => NSColorPanelWheelModeMask,
+    128 => NSColorPanelCrayonModeMask,
+    65535 => NSColorPanelAllModesMask,
+    _ => throw ArgumentError('Unknown value for NSColorPanelOptions: $value'),
+  };
 }
 
 enum NSCursorFrameResizePosition {
@@ -31713,17 +43483,19 @@ enum NSCursorFrameResizePosition {
   const NSCursorFrameResizePosition(this.value);
 
   static NSCursorFrameResizePosition fromValue(int value) => switch (value) {
-        1 => NSCursorFrameResizePositionTop,
-        2 => NSCursorFrameResizePositionLeft,
-        4 => NSCursorFrameResizePositionBottom,
-        8 => NSCursorFrameResizePositionRight,
-        3 => NSCursorFrameResizePositionTopLeft,
-        9 => NSCursorFrameResizePositionTopRight,
-        6 => NSCursorFrameResizePositionBottomLeft,
-        12 => NSCursorFrameResizePositionBottomRight,
-        _ => throw ArgumentError(
-            "Unknown value for NSCursorFrameResizePosition: $value"),
-      };
+    1 => NSCursorFrameResizePositionTop,
+    2 => NSCursorFrameResizePositionLeft,
+    4 => NSCursorFrameResizePositionBottom,
+    8 => NSCursorFrameResizePositionRight,
+    3 => NSCursorFrameResizePositionTopLeft,
+    9 => NSCursorFrameResizePositionTopRight,
+    6 => NSCursorFrameResizePositionBottomLeft,
+    12 => NSCursorFrameResizePositionBottomRight,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSCursorFrameResizePosition: $value',
+      ),
+  };
 }
 
 enum NSCursorFrameResizeDirections {
@@ -31735,12 +43507,14 @@ enum NSCursorFrameResizeDirections {
   const NSCursorFrameResizeDirections(this.value);
 
   static NSCursorFrameResizeDirections fromValue(int value) => switch (value) {
-        1 => NSCursorFrameResizeDirectionsInward,
-        2 => NSCursorFrameResizeDirectionsOutward,
-        3 => NSCursorFrameResizeDirectionsAll,
-        _ => throw ArgumentError(
-            "Unknown value for NSCursorFrameResizeDirections: $value"),
-      };
+    1 => NSCursorFrameResizeDirectionsInward,
+    2 => NSCursorFrameResizeDirectionsOutward,
+    3 => NSCursorFrameResizeDirectionsAll,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSCursorFrameResizeDirections: $value',
+      ),
+  };
 }
 
 enum NSGestureRecognizerState {
@@ -31758,15 +43532,15 @@ enum NSGestureRecognizerState {
   const NSGestureRecognizerState(this.value);
 
   static NSGestureRecognizerState fromValue(int value) => switch (value) {
-        0 => NSGestureRecognizerStatePossible,
-        1 => NSGestureRecognizerStateBegan,
-        2 => NSGestureRecognizerStateChanged,
-        3 => NSGestureRecognizerStateEnded,
-        4 => NSGestureRecognizerStateCancelled,
-        5 => NSGestureRecognizerStateFailed,
-        _ => throw ArgumentError(
-            "Unknown value for NSGestureRecognizerState: $value"),
-      };
+    0 => NSGestureRecognizerStatePossible,
+    1 => NSGestureRecognizerStateBegan,
+    2 => NSGestureRecognizerStateChanged,
+    3 => NSGestureRecognizerStateEnded,
+    4 => NSGestureRecognizerStateCancelled,
+    5 => NSGestureRecognizerStateFailed,
+    _ =>
+      throw ArgumentError('Unknown value for NSGestureRecognizerState: $value'),
+  };
 
   @override
   String toString() {
@@ -31784,11 +43558,13 @@ enum NSLayoutConstraintOrientation {
   const NSLayoutConstraintOrientation(this.value);
 
   static NSLayoutConstraintOrientation fromValue(int value) => switch (value) {
-        0 => NSLayoutConstraintOrientationHorizontal,
-        1 => NSLayoutConstraintOrientationVertical,
-        _ => throw ArgumentError(
-            "Unknown value for NSLayoutConstraintOrientation: $value"),
-      };
+    0 => NSLayoutConstraintOrientationHorizontal,
+    1 => NSLayoutConstraintOrientationVertical,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSLayoutConstraintOrientation: $value',
+      ),
+  };
 }
 
 enum NSLayoutRelation {
@@ -31800,11 +43576,11 @@ enum NSLayoutRelation {
   const NSLayoutRelation(this.value);
 
   static NSLayoutRelation fromValue(int value) => switch (value) {
-        -1 => NSLayoutRelationLessThanOrEqual,
-        0 => NSLayoutRelationEqual,
-        1 => NSLayoutRelationGreaterThanOrEqual,
-        _ => throw ArgumentError("Unknown value for NSLayoutRelation: $value"),
-      };
+    -1 => NSLayoutRelationLessThanOrEqual,
+    0 => NSLayoutRelationEqual,
+    1 => NSLayoutRelationGreaterThanOrEqual,
+    _ => throw ArgumentError('Unknown value for NSLayoutRelation: $value'),
+  };
 }
 
 enum NSLayoutAttribute {
@@ -31828,21 +43604,21 @@ enum NSLayoutAttribute {
   const NSLayoutAttribute(this.value);
 
   static NSLayoutAttribute fromValue(int value) => switch (value) {
-        1 => NSLayoutAttributeLeft,
-        2 => NSLayoutAttributeRight,
-        3 => NSLayoutAttributeTop,
-        4 => NSLayoutAttributeBottom,
-        5 => NSLayoutAttributeLeading,
-        6 => NSLayoutAttributeTrailing,
-        7 => NSLayoutAttributeWidth,
-        8 => NSLayoutAttributeHeight,
-        9 => NSLayoutAttributeCenterX,
-        10 => NSLayoutAttributeCenterY,
-        11 => NSLayoutAttributeLastBaseline,
-        12 => NSLayoutAttributeFirstBaseline,
-        0 => NSLayoutAttributeNotAnAttribute,
-        _ => throw ArgumentError("Unknown value for NSLayoutAttribute: $value"),
-      };
+    1 => NSLayoutAttributeLeft,
+    2 => NSLayoutAttributeRight,
+    3 => NSLayoutAttributeTop,
+    4 => NSLayoutAttributeBottom,
+    5 => NSLayoutAttributeLeading,
+    6 => NSLayoutAttributeTrailing,
+    7 => NSLayoutAttributeWidth,
+    8 => NSLayoutAttributeHeight,
+    9 => NSLayoutAttributeCenterX,
+    10 => NSLayoutAttributeCenterY,
+    11 => NSLayoutAttributeLastBaseline,
+    12 => NSLayoutAttributeFirstBaseline,
+    0 => NSLayoutAttributeNotAnAttribute,
+    _ => throw ArgumentError('Unknown value for NSLayoutAttribute: $value'),
+  };
 
   @override
   String toString() {
@@ -31876,24 +43652,23 @@ enum NSLayoutFormatOptions {
   const NSLayoutFormatOptions(this.value);
 
   static NSLayoutFormatOptions fromValue(int value) => switch (value) {
-        2 => NSLayoutFormatAlignAllLeft,
-        4 => NSLayoutFormatAlignAllRight,
-        8 => NSLayoutFormatAlignAllTop,
-        16 => NSLayoutFormatAlignAllBottom,
-        32 => NSLayoutFormatAlignAllLeading,
-        64 => NSLayoutFormatAlignAllTrailing,
-        512 => NSLayoutFormatAlignAllCenterX,
-        1024 => NSLayoutFormatAlignAllCenterY,
-        2048 => NSLayoutFormatAlignAllLastBaseline,
-        4096 => NSLayoutFormatAlignAllFirstBaseline,
-        65535 => NSLayoutFormatAlignmentMask,
-        0 => NSLayoutFormatDirectionLeadingToTrailing,
-        65536 => NSLayoutFormatDirectionLeftToRight,
-        131072 => NSLayoutFormatDirectionRightToLeft,
-        196608 => NSLayoutFormatDirectionMask,
-        _ => throw ArgumentError(
-            "Unknown value for NSLayoutFormatOptions: $value"),
-      };
+    2 => NSLayoutFormatAlignAllLeft,
+    4 => NSLayoutFormatAlignAllRight,
+    8 => NSLayoutFormatAlignAllTop,
+    16 => NSLayoutFormatAlignAllBottom,
+    32 => NSLayoutFormatAlignAllLeading,
+    64 => NSLayoutFormatAlignAllTrailing,
+    512 => NSLayoutFormatAlignAllCenterX,
+    1024 => NSLayoutFormatAlignAllCenterY,
+    2048 => NSLayoutFormatAlignAllLastBaseline,
+    4096 => NSLayoutFormatAlignAllFirstBaseline,
+    65535 => NSLayoutFormatAlignmentMask,
+    0 => NSLayoutFormatDirectionLeadingToTrailing,
+    65536 => NSLayoutFormatDirectionLeftToRight,
+    131072 => NSLayoutFormatDirectionRightToLeft,
+    196608 => NSLayoutFormatDirectionMask,
+    _ => throw ArgumentError('Unknown value for NSLayoutFormatOptions: $value'),
+  };
 
   @override
   String toString() {
@@ -31901,6 +43676,26 @@ enum NSLayoutFormatOptions {
       return "NSLayoutFormatOptions.NSLayoutFormatAlignAllLastBaseline, NSLayoutFormatOptions.NSLayoutFormatAlignAllBaseline";
     return super.toString();
   }
+}
+
+enum NSImageLoadStatus {
+  NSImageLoadStatusCompleted(0),
+  NSImageLoadStatusCancelled(1),
+  NSImageLoadStatusInvalidData(2),
+  NSImageLoadStatusUnexpectedEOF(3),
+  NSImageLoadStatusReadError(4);
+
+  final int value;
+  const NSImageLoadStatus(this.value);
+
+  static NSImageLoadStatus fromValue(int value) => switch (value) {
+    0 => NSImageLoadStatusCompleted,
+    1 => NSImageLoadStatusCancelled,
+    2 => NSImageLoadStatusInvalidData,
+    3 => NSImageLoadStatusUnexpectedEOF,
+    4 => NSImageLoadStatusReadError,
+    _ => throw ArgumentError('Unknown value for NSImageLoadStatus: $value'),
+  };
 }
 
 enum NSImageSymbolScale {
@@ -31912,12 +43707,27 @@ enum NSImageSymbolScale {
   const NSImageSymbolScale(this.value);
 
   static NSImageSymbolScale fromValue(int value) => switch (value) {
-        1 => NSImageSymbolScaleSmall,
-        2 => NSImageSymbolScaleMedium,
-        3 => NSImageSymbolScaleLarge,
-        _ =>
-          throw ArgumentError("Unknown value for NSImageSymbolScale: $value"),
-      };
+    1 => NSImageSymbolScaleSmall,
+    2 => NSImageSymbolScaleMedium,
+    3 => NSImageSymbolScaleLarge,
+    _ => throw ArgumentError('Unknown value for NSImageSymbolScale: $value'),
+  };
+}
+
+enum NSSharingContentScope {
+  NSSharingContentScopeItem(0),
+  NSSharingContentScopePartial(1),
+  NSSharingContentScopeFull(2);
+
+  final int value;
+  const NSSharingContentScope(this.value);
+
+  static NSSharingContentScope fromValue(int value) => switch (value) {
+    0 => NSSharingContentScopeItem,
+    1 => NSSharingContentScopePartial,
+    2 => NSSharingContentScopeFull,
+    _ => throw ArgumentError('Unknown value for NSSharingContentScope: $value'),
+  };
 }
 
 enum NSUsableScrollerParts {
@@ -31929,12 +43739,11 @@ enum NSUsableScrollerParts {
   const NSUsableScrollerParts(this.value);
 
   static NSUsableScrollerParts fromValue(int value) => switch (value) {
-        0 => NSNoScrollerParts,
-        1 => NSOnlyScrollerArrows,
-        2 => NSAllScrollerParts,
-        _ => throw ArgumentError(
-            "Unknown value for NSUsableScrollerParts: $value"),
-      };
+    0 => NSNoScrollerParts,
+    1 => NSOnlyScrollerArrows,
+    2 => NSAllScrollerParts,
+    _ => throw ArgumentError('Unknown value for NSUsableScrollerParts: $value'),
+  };
 }
 
 enum NSScrollerPart {
@@ -31950,15 +43759,15 @@ enum NSScrollerPart {
   const NSScrollerPart(this.value);
 
   static NSScrollerPart fromValue(int value) => switch (value) {
-        0 => NSScrollerNoPart,
-        1 => NSScrollerDecrementPage,
-        2 => NSScrollerKnob,
-        3 => NSScrollerIncrementPage,
-        4 => NSScrollerDecrementLine,
-        5 => NSScrollerIncrementLine,
-        6 => NSScrollerKnobSlot,
-        _ => throw ArgumentError("Unknown value for NSScrollerPart: $value"),
-      };
+    0 => NSScrollerNoPart,
+    1 => NSScrollerDecrementPage,
+    2 => NSScrollerKnob,
+    3 => NSScrollerIncrementPage,
+    4 => NSScrollerDecrementLine,
+    5 => NSScrollerIncrementLine,
+    6 => NSScrollerKnobSlot,
+    _ => throw ArgumentError('Unknown value for NSScrollerPart: $value'),
+  };
 }
 
 enum NSScrollerStyle {
@@ -31969,10 +43778,10 @@ enum NSScrollerStyle {
   const NSScrollerStyle(this.value);
 
   static NSScrollerStyle fromValue(int value) => switch (value) {
-        0 => NSScrollerStyleLegacy,
-        1 => NSScrollerStyleOverlay,
-        _ => throw ArgumentError("Unknown value for NSScrollerStyle: $value"),
-      };
+    0 => NSScrollerStyleLegacy,
+    1 => NSScrollerStyleOverlay,
+    _ => throw ArgumentError('Unknown value for NSScrollerStyle: $value'),
+  };
 }
 
 enum NSScrollerKnobStyle {
@@ -31984,12 +43793,11 @@ enum NSScrollerKnobStyle {
   const NSScrollerKnobStyle(this.value);
 
   static NSScrollerKnobStyle fromValue(int value) => switch (value) {
-        0 => NSScrollerKnobStyleDefault,
-        1 => NSScrollerKnobStyleDark,
-        2 => NSScrollerKnobStyleLight,
-        _ =>
-          throw ArgumentError("Unknown value for NSScrollerKnobStyle: $value"),
-      };
+    0 => NSScrollerKnobStyleDefault,
+    1 => NSScrollerKnobStyleDark,
+    2 => NSScrollerKnobStyleLight,
+    _ => throw ArgumentError('Unknown value for NSScrollerKnobStyle: $value'),
+  };
 }
 
 enum NSScrollArrowPosition {
@@ -32003,12 +43811,11 @@ enum NSScrollArrowPosition {
   const NSScrollArrowPosition(this.value);
 
   static NSScrollArrowPosition fromValue(int value) => switch (value) {
-        0 => NSScrollerArrowsMaxEnd,
-        1 => NSScrollerArrowsMinEnd,
-        2 => NSScrollerArrowsNone,
-        _ => throw ArgumentError(
-            "Unknown value for NSScrollArrowPosition: $value"),
-      };
+    0 => NSScrollerArrowsMaxEnd,
+    1 => NSScrollerArrowsMinEnd,
+    2 => NSScrollerArrowsNone,
+    _ => throw ArgumentError('Unknown value for NSScrollArrowPosition: $value'),
+  };
 
   @override
   String toString() {
@@ -32026,10 +43833,10 @@ enum NSScrollerArrow {
   const NSScrollerArrow(this.value);
 
   static NSScrollerArrow fromValue(int value) => switch (value) {
-        0 => NSScrollerIncrementArrow,
-        1 => NSScrollerDecrementArrow,
-        _ => throw ArgumentError("Unknown value for NSScrollerArrow: $value"),
-      };
+    0 => NSScrollerIncrementArrow,
+    1 => NSScrollerDecrementArrow,
+    _ => throw ArgumentError('Unknown value for NSScrollerArrow: $value'),
+  };
 }
 
 enum NSScrollElasticity {
@@ -32041,12 +43848,11 @@ enum NSScrollElasticity {
   const NSScrollElasticity(this.value);
 
   static NSScrollElasticity fromValue(int value) => switch (value) {
-        0 => NSScrollElasticityAutomatic,
-        1 => NSScrollElasticityNone,
-        2 => NSScrollElasticityAllowed,
-        _ =>
-          throw ArgumentError("Unknown value for NSScrollElasticity: $value"),
-      };
+    0 => NSScrollElasticityAutomatic,
+    1 => NSScrollElasticityNone,
+    2 => NSScrollElasticityAllowed,
+    _ => throw ArgumentError('Unknown value for NSScrollElasticity: $value'),
+  };
 }
 
 enum NSScrollViewFindBarPosition {
@@ -32058,12 +43864,14 @@ enum NSScrollViewFindBarPosition {
   const NSScrollViewFindBarPosition(this.value);
 
   static NSScrollViewFindBarPosition fromValue(int value) => switch (value) {
-        0 => NSScrollViewFindBarPositionAboveHorizontalRuler,
-        1 => NSScrollViewFindBarPositionAboveContent,
-        2 => NSScrollViewFindBarPositionBelowContent,
-        _ => throw ArgumentError(
-            "Unknown value for NSScrollViewFindBarPosition: $value"),
-      };
+    0 => NSScrollViewFindBarPositionAboveHorizontalRuler,
+    1 => NSScrollViewFindBarPositionAboveContent,
+    2 => NSScrollViewFindBarPositionBelowContent,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSScrollViewFindBarPosition: $value',
+      ),
+  };
 }
 
 enum NSTextCursorAccessoryPlacement {
@@ -32081,18 +43889,20 @@ enum NSTextCursorAccessoryPlacement {
   const NSTextCursorAccessoryPlacement(this.value);
 
   static NSTextCursorAccessoryPlacement fromValue(int value) => switch (value) {
-        0 => NSTextCursorAccessoryPlacementUnspecified,
-        1 => NSTextCursorAccessoryPlacementBackward,
-        2 => NSTextCursorAccessoryPlacementForward,
-        3 => NSTextCursorAccessoryPlacementInvisible,
-        4 => NSTextCursorAccessoryPlacementCenter,
-        5 => NSTextCursorAccessoryPlacementOffscreenLeft,
-        6 => NSTextCursorAccessoryPlacementOffscreenTop,
-        7 => NSTextCursorAccessoryPlacementOffscreenRight,
-        8 => NSTextCursorAccessoryPlacementOffscreenBottom,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextCursorAccessoryPlacement: $value"),
-      };
+    0 => NSTextCursorAccessoryPlacementUnspecified,
+    1 => NSTextCursorAccessoryPlacementBackward,
+    2 => NSTextCursorAccessoryPlacementForward,
+    3 => NSTextCursorAccessoryPlacementInvisible,
+    4 => NSTextCursorAccessoryPlacementCenter,
+    5 => NSTextCursorAccessoryPlacementOffscreenLeft,
+    6 => NSTextCursorAccessoryPlacementOffscreenTop,
+    7 => NSTextCursorAccessoryPlacementOffscreenRight,
+    8 => NSTextCursorAccessoryPlacementOffscreenBottom,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSTextCursorAccessoryPlacement: $value',
+      ),
+  };
 }
 
 enum NSTextInputTraitType {
@@ -32104,12 +43914,11 @@ enum NSTextInputTraitType {
   const NSTextInputTraitType(this.value);
 
   static NSTextInputTraitType fromValue(int value) => switch (value) {
-        0 => NSTextInputTraitTypeDefault,
-        1 => NSTextInputTraitTypeNo,
-        2 => NSTextInputTraitTypeYes,
-        _ =>
-          throw ArgumentError("Unknown value for NSTextInputTraitType: $value"),
-      };
+    0 => NSTextInputTraitTypeDefault,
+    1 => NSTextInputTraitTypeNo,
+    2 => NSTextInputTraitTypeYes,
+    _ => throw ArgumentError('Unknown value for NSTextInputTraitType: $value'),
+  };
 }
 
 enum NSWritingToolsBehavior {
@@ -32122,13 +43931,13 @@ enum NSWritingToolsBehavior {
   const NSWritingToolsBehavior(this.value);
 
   static NSWritingToolsBehavior fromValue(int value) => switch (value) {
-        -1 => NSWritingToolsBehaviorNone,
-        0 => NSWritingToolsBehaviorDefault,
-        1 => NSWritingToolsBehaviorComplete,
-        2 => NSWritingToolsBehaviorLimited,
-        _ => throw ArgumentError(
-            "Unknown value for NSWritingToolsBehavior: $value"),
-      };
+    -1 => NSWritingToolsBehaviorNone,
+    0 => NSWritingToolsBehaviorDefault,
+    1 => NSWritingToolsBehaviorComplete,
+    2 => NSWritingToolsBehaviorLimited,
+    _ =>
+      throw ArgumentError('Unknown value for NSWritingToolsBehavior: $value'),
+  };
 }
 
 enum NSWritingToolsResultOptions {
@@ -32142,14 +43951,16 @@ enum NSWritingToolsResultOptions {
   const NSWritingToolsResultOptions(this.value);
 
   static NSWritingToolsResultOptions fromValue(int value) => switch (value) {
-        0 => NSWritingToolsResultDefault,
-        1 => NSWritingToolsResultPlainText,
-        2 => NSWritingToolsResultRichText,
-        4 => NSWritingToolsResultList,
-        8 => NSWritingToolsResultTable,
-        _ => throw ArgumentError(
-            "Unknown value for NSWritingToolsResultOptions: $value"),
-      };
+    0 => NSWritingToolsResultDefault,
+    1 => NSWritingToolsResultPlainText,
+    2 => NSWritingToolsResultRichText,
+    4 => NSWritingToolsResultList,
+    8 => NSWritingToolsResultTable,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSWritingToolsResultOptions: $value',
+      ),
+  };
 }
 
 enum NSUnderlineStyle {
@@ -32169,17 +43980,17 @@ enum NSUnderlineStyle {
   const NSUnderlineStyle(this.value);
 
   static NSUnderlineStyle fromValue(int value) => switch (value) {
-        0 => NSUnderlineStyleNone,
-        1 => NSUnderlineStyleSingle,
-        2 => NSUnderlineStyleThick,
-        9 => NSUnderlineStyleDouble,
-        256 => NSUnderlineStylePatternDot,
-        512 => NSUnderlineStylePatternDash,
-        768 => NSUnderlineStylePatternDashDot,
-        1024 => NSUnderlineStylePatternDashDotDot,
-        32768 => NSUnderlineStyleByWord,
-        _ => throw ArgumentError("Unknown value for NSUnderlineStyle: $value"),
-      };
+    0 => NSUnderlineStyleNone,
+    1 => NSUnderlineStyleSingle,
+    2 => NSUnderlineStyleThick,
+    9 => NSUnderlineStyleDouble,
+    256 => NSUnderlineStylePatternDot,
+    512 => NSUnderlineStylePatternDash,
+    768 => NSUnderlineStylePatternDashDot,
+    1024 => NSUnderlineStylePatternDashDotDot,
+    32768 => NSUnderlineStyleByWord,
+    _ => throw ArgumentError('Unknown value for NSUnderlineStyle: $value'),
+  };
 
   @override
   String toString() {
@@ -32197,11 +44008,11 @@ enum NSTextStorageEditActions {
   const NSTextStorageEditActions(this.value);
 
   static NSTextStorageEditActions fromValue(int value) => switch (value) {
-        1 => NSTextStorageEditedAttributes,
-        2 => NSTextStorageEditedCharacters,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextStorageEditActions: $value"),
-      };
+    1 => NSTextStorageEditedAttributes,
+    2 => NSTextStorageEditedCharacters,
+    _ =>
+      throw ArgumentError('Unknown value for NSTextStorageEditActions: $value'),
+  };
 }
 
 enum NSTextLayoutOrientation {
@@ -32212,11 +44023,11 @@ enum NSTextLayoutOrientation {
   const NSTextLayoutOrientation(this.value);
 
   static NSTextLayoutOrientation fromValue(int value) => switch (value) {
-        0 => NSTextLayoutOrientationHorizontal,
-        1 => NSTextLayoutOrientationVertical,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextLayoutOrientation: $value"),
-      };
+    0 => NSTextLayoutOrientationHorizontal,
+    1 => NSTextLayoutOrientationVertical,
+    _ =>
+      throw ArgumentError('Unknown value for NSTextLayoutOrientation: $value'),
+  };
 }
 
 enum NSGlyphProperty {
@@ -32229,12 +44040,35 @@ enum NSGlyphProperty {
   const NSGlyphProperty(this.value);
 
   static NSGlyphProperty fromValue(int value) => switch (value) {
-        1 => NSGlyphPropertyNull,
-        2 => NSGlyphPropertyControlCharacter,
-        4 => NSGlyphPropertyElastic,
-        8 => NSGlyphPropertyNonBaseCharacter,
-        _ => throw ArgumentError("Unknown value for NSGlyphProperty: $value"),
-      };
+    1 => NSGlyphPropertyNull,
+    2 => NSGlyphPropertyControlCharacter,
+    4 => NSGlyphPropertyElastic,
+    8 => NSGlyphPropertyNonBaseCharacter,
+    _ => throw ArgumentError('Unknown value for NSGlyphProperty: $value'),
+  };
+}
+
+enum NSControlCharacterAction {
+  NSControlCharacterActionZeroAdvancement(1),
+  NSControlCharacterActionWhitespace(2),
+  NSControlCharacterActionHorizontalTab(4),
+  NSControlCharacterActionLineBreak(8),
+  NSControlCharacterActionParagraphBreak(16),
+  NSControlCharacterActionContainerBreak(32);
+
+  final int value;
+  const NSControlCharacterAction(this.value);
+
+  static NSControlCharacterAction fromValue(int value) => switch (value) {
+    1 => NSControlCharacterActionZeroAdvancement,
+    2 => NSControlCharacterActionWhitespace,
+    4 => NSControlCharacterActionHorizontalTab,
+    8 => NSControlCharacterActionLineBreak,
+    16 => NSControlCharacterActionParagraphBreak,
+    32 => NSControlCharacterActionContainerBreak,
+    _ =>
+      throw ArgumentError('Unknown value for NSControlCharacterAction: $value'),
+  };
 }
 
 enum NSTypesetterBehavior {
@@ -32249,15 +44083,14 @@ enum NSTypesetterBehavior {
   const NSTypesetterBehavior(this.value);
 
   static NSTypesetterBehavior fromValue(int value) => switch (value) {
-        -1 => NSTypesetterLatestBehavior,
-        0 => NSTypesetterOriginalBehavior,
-        1 => NSTypesetterBehavior_10_2_WithCompatibility,
-        2 => NSTypesetterBehavior_10_2,
-        3 => NSTypesetterBehavior_10_3,
-        4 => NSTypesetterBehavior_10_4,
-        _ =>
-          throw ArgumentError("Unknown value for NSTypesetterBehavior: $value"),
-      };
+    -1 => NSTypesetterLatestBehavior,
+    0 => NSTypesetterOriginalBehavior,
+    1 => NSTypesetterBehavior_10_2_WithCompatibility,
+    2 => NSTypesetterBehavior_10_2,
+    3 => NSTypesetterBehavior_10_3,
+    4 => NSTypesetterBehavior_10_4,
+    _ => throw ArgumentError('Unknown value for NSTypesetterBehavior: $value'),
+  };
 }
 
 enum NSGlyphInscription {
@@ -32271,14 +44104,13 @@ enum NSGlyphInscription {
   const NSGlyphInscription(this.value);
 
   static NSGlyphInscription fromValue(int value) => switch (value) {
-        0 => NSGlyphInscribeBase,
-        1 => NSGlyphInscribeBelow,
-        2 => NSGlyphInscribeAbove,
-        3 => NSGlyphInscribeOverstrike,
-        4 => NSGlyphInscribeOverBelow,
-        _ =>
-          throw ArgumentError("Unknown value for NSGlyphInscription: $value"),
-      };
+    0 => NSGlyphInscribeBase,
+    1 => NSGlyphInscribeBelow,
+    2 => NSGlyphInscribeAbove,
+    3 => NSGlyphInscribeOverstrike,
+    4 => NSGlyphInscribeOverBelow,
+    _ => throw ArgumentError('Unknown value for NSGlyphInscription: $value'),
+  };
 }
 
 enum NSLineSweepDirection {
@@ -32291,13 +44123,12 @@ enum NSLineSweepDirection {
   const NSLineSweepDirection(this.value);
 
   static NSLineSweepDirection fromValue(int value) => switch (value) {
-        0 => NSLineSweepLeft,
-        1 => NSLineSweepRight,
-        2 => NSLineSweepDown,
-        3 => NSLineSweepUp,
-        _ =>
-          throw ArgumentError("Unknown value for NSLineSweepDirection: $value"),
-      };
+    0 => NSLineSweepLeft,
+    1 => NSLineSweepRight,
+    2 => NSLineSweepDown,
+    3 => NSLineSweepUp,
+    _ => throw ArgumentError('Unknown value for NSLineSweepDirection: $value'),
+  };
 }
 
 enum NSLineMovementDirection {
@@ -32311,14 +44142,14 @@ enum NSLineMovementDirection {
   const NSLineMovementDirection(this.value);
 
   static NSLineMovementDirection fromValue(int value) => switch (value) {
-        0 => NSLineDoesntMove,
-        1 => NSLineMovesLeft,
-        2 => NSLineMovesRight,
-        3 => NSLineMovesDown,
-        4 => NSLineMovesUp,
-        _ => throw ArgumentError(
-            "Unknown value for NSLineMovementDirection: $value"),
-      };
+    0 => NSLineDoesntMove,
+    1 => NSLineMovesLeft,
+    2 => NSLineMovesRight,
+    3 => NSLineMovesDown,
+    4 => NSLineMovesUp,
+    _ =>
+      throw ArgumentError('Unknown value for NSLineMovementDirection: $value'),
+  };
 }
 
 enum NSTrackingAreaOptions {
@@ -32337,19 +44168,18 @@ enum NSTrackingAreaOptions {
   const NSTrackingAreaOptions(this.value);
 
   static NSTrackingAreaOptions fromValue(int value) => switch (value) {
-        1 => NSTrackingMouseEnteredAndExited,
-        2 => NSTrackingMouseMoved,
-        4 => NSTrackingCursorUpdate,
-        16 => NSTrackingActiveWhenFirstResponder,
-        32 => NSTrackingActiveInKeyWindow,
-        64 => NSTrackingActiveInActiveApp,
-        128 => NSTrackingActiveAlways,
-        256 => NSTrackingAssumeInside,
-        512 => NSTrackingInVisibleRect,
-        1024 => NSTrackingEnabledDuringMouseDrag,
-        _ => throw ArgumentError(
-            "Unknown value for NSTrackingAreaOptions: $value"),
-      };
+    1 => NSTrackingMouseEnteredAndExited,
+    2 => NSTrackingMouseMoved,
+    4 => NSTrackingCursorUpdate,
+    16 => NSTrackingActiveWhenFirstResponder,
+    32 => NSTrackingActiveInKeyWindow,
+    64 => NSTrackingActiveInActiveApp,
+    128 => NSTrackingActiveAlways,
+    256 => NSTrackingAssumeInside,
+    512 => NSTrackingInVisibleRect,
+    1024 => NSTrackingEnabledDuringMouseDrag,
+    _ => throw ArgumentError('Unknown value for NSTrackingAreaOptions: $value'),
+  };
 }
 
 enum NSToolbarDisplayMode {
@@ -32362,13 +44192,12 @@ enum NSToolbarDisplayMode {
   const NSToolbarDisplayMode(this.value);
 
   static NSToolbarDisplayMode fromValue(int value) => switch (value) {
-        0 => NSToolbarDisplayModeDefault,
-        1 => NSToolbarDisplayModeIconAndLabel,
-        2 => NSToolbarDisplayModeIconOnly,
-        3 => NSToolbarDisplayModeLabelOnly,
-        _ =>
-          throw ArgumentError("Unknown value for NSToolbarDisplayMode: $value"),
-      };
+    0 => NSToolbarDisplayModeDefault,
+    1 => NSToolbarDisplayModeIconAndLabel,
+    2 => NSToolbarDisplayModeIconOnly,
+    3 => NSToolbarDisplayModeLabelOnly,
+    _ => throw ArgumentError('Unknown value for NSToolbarDisplayMode: $value'),
+  };
 }
 
 enum NSToolbarSizeMode {
@@ -32380,11 +44209,35 @@ enum NSToolbarSizeMode {
   const NSToolbarSizeMode(this.value);
 
   static NSToolbarSizeMode fromValue(int value) => switch (value) {
-        0 => NSToolbarSizeModeDefault,
-        1 => NSToolbarSizeModeRegular,
-        2 => NSToolbarSizeModeSmall,
-        _ => throw ArgumentError("Unknown value for NSToolbarSizeMode: $value"),
-      };
+    0 => NSToolbarSizeModeDefault,
+    1 => NSToolbarSizeModeRegular,
+    2 => NSToolbarSizeModeSmall,
+    _ => throw ArgumentError('Unknown value for NSToolbarSizeMode: $value'),
+  };
+}
+
+/// WARNING: NSTextAttachmentLayout is a stub. To generate bindings for this class, include
+/// NSTextAttachmentLayout in your config's objc-protocols list.
+///
+/// NSTextAttachmentLayout
+interface class NSTextAttachmentLayout extends objc.ObjCProtocolBase
+    implements objc.NSObjectProtocol {
+  NSTextAttachmentLayout._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [NSTextAttachmentLayout] that points to the same underlying object as [other].
+  NSTextAttachmentLayout.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [NSTextAttachmentLayout] that wraps the given raw object pointer.
+  NSTextAttachmentLayout.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
 }
 
 enum NSSelectionGranularity {
@@ -32396,12 +44249,12 @@ enum NSSelectionGranularity {
   const NSSelectionGranularity(this.value);
 
   static NSSelectionGranularity fromValue(int value) => switch (value) {
-        0 => NSSelectByCharacter,
-        1 => NSSelectByWord,
-        2 => NSSelectByParagraph,
-        _ => throw ArgumentError(
-            "Unknown value for NSSelectionGranularity: $value"),
-      };
+    0 => NSSelectByCharacter,
+    1 => NSSelectByWord,
+    2 => NSSelectByParagraph,
+    _ =>
+      throw ArgumentError('Unknown value for NSSelectionGranularity: $value'),
+  };
 }
 
 enum NSSelectionAffinity {
@@ -32412,11 +44265,354 @@ enum NSSelectionAffinity {
   const NSSelectionAffinity(this.value);
 
   static NSSelectionAffinity fromValue(int value) => switch (value) {
-        0 => NSSelectionAffinityUpstream,
-        1 => NSSelectionAffinityDownstream,
-        _ =>
-          throw ArgumentError("Unknown value for NSSelectionAffinity: $value"),
-      };
+    0 => NSSelectionAffinityUpstream,
+    1 => NSSelectionAffinityDownstream,
+    _ => throw ArgumentError('Unknown value for NSSelectionAffinity: $value'),
+  };
+}
+
+late final _sel_sizeWithAttributes_ = objc.registerName("sizeWithAttributes:");
+final _objc_msgSend_18r320v =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            CGSize Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          CGSize Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+final _objc_msgSend_18r320vStret =
+    objc.msgSendStretPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<CGSize>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<CGSize>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+late final _sel_drawAtPoint_withAttributes_ = objc.registerName(
+  "drawAtPoint:withAttributes:",
+);
+final _objc_msgSend_bkebbk =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGPoint,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGPoint,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+late final _sel_drawInRect_withAttributes_ = objc.registerName(
+  "drawInRect:withAttributes:",
+);
+final _objc_msgSend_f227js =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGRect,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGRect,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+
+/// NSStringDrawing
+extension NSStringDrawing$1 on objc.NSString {
+  /// sizeWithAttributes:
+  CGSize sizeWithAttributes_(objc.NSDictionary? attrs) {
+    objc.checkOsVersionInternal(
+      'NSString.sizeWithAttributes:',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ptr = pkg_ffi.calloc<CGSize>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_18r320vStret(
+          _ptr,
+          this.ref.pointer,
+          _sel_sizeWithAttributes_,
+          attrs?.ref.pointer ?? ffi.nullptr,
+        )
+        : _ptr.ref = _objc_msgSend_18r320v(
+          this.ref.pointer,
+          _sel_sizeWithAttributes_,
+          attrs?.ref.pointer ?? ffi.nullptr,
+        );
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<CGSize>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<CGSize>(_finalizable);
+  }
+
+  /// drawAtPoint:withAttributes:
+  void drawAtPoint_withAttributes_(CGPoint point, objc.NSDictionary? attrs) {
+    objc.checkOsVersionInternal(
+      'NSString.drawAtPoint:withAttributes:',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_bkebbk(
+      this.ref.pointer,
+      _sel_drawAtPoint_withAttributes_,
+      point,
+      attrs?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// drawInRect:withAttributes:
+  void drawInRect_withAttributes_(CGRect rect, objc.NSDictionary? attrs) {
+    objc.checkOsVersionInternal(
+      'NSString.drawInRect:withAttributes:',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    _objc_msgSend_f227js(
+      this.ref.pointer,
+      _sel_drawInRect_withAttributes_,
+      rect,
+      attrs?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+}
+
+late final _sel_drawWithRect_options_attributes_context_ = objc.registerName(
+  "drawWithRect:options:attributes:context:",
+);
+final _objc_msgSend_1dr66uk =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGRect,
+              ffi.Long,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGRect,
+            int,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+late final _sel_boundingRectWithSize_options_attributes_context_ = objc
+    .registerName("boundingRectWithSize:options:attributes:context:");
+final _objc_msgSend_k8g3u =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            CGRect Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGSize,
+              ffi.Long,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          CGRect Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGSize,
+            int,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+final _objc_msgSend_k8g3uStret =
+    objc.msgSendStretPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<CGRect>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              CGSize,
+              ffi.Long,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<CGRect>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            CGSize,
+            int,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+          )
+        >();
+
+/// NSExtendedStringDrawing
+extension NSExtendedStringDrawing$1 on objc.NSString {
+  /// drawWithRect:options:attributes:context:
+  void drawWithRect_options_attributes_context_(
+    CGRect rect,
+    NSStringDrawingOptions options,
+    objc.NSDictionary? attributes,
+    NSStringDrawingContext? context,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.drawWithRect:options:attributes:context:',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 11, 0)),
+    );
+    _objc_msgSend_1dr66uk(
+      this.ref.pointer,
+      _sel_drawWithRect_options_attributes_context_,
+      rect,
+      options.value,
+      attributes?.ref.pointer ?? ffi.nullptr,
+      context?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// boundingRectWithSize:options:attributes:context:
+  CGRect boundingRectWithSize_options_attributes_context_(
+    CGSize size,
+    NSStringDrawingOptions options,
+    objc.NSDictionary? attributes,
+    NSStringDrawingContext? context,
+  ) {
+    objc.checkOsVersionInternal(
+      'NSString.boundingRectWithSize:options:attributes:context:',
+      iOS: (false, (7, 0, 0)),
+      macOS: (false, (10, 11, 0)),
+    );
+    final _ptr = pkg_ffi.calloc<CGRect>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_k8g3uStret(
+          _ptr,
+          this.ref.pointer,
+          _sel_boundingRectWithSize_options_attributes_context_,
+          size,
+          options.value,
+          attributes?.ref.pointer ?? ffi.nullptr,
+          context?.ref.pointer ?? ffi.nullptr,
+        )
+        : _ptr.ref = _objc_msgSend_k8g3u(
+          this.ref.pointer,
+          _sel_boundingRectWithSize_options_attributes_context_,
+          size,
+          options.value,
+          attributes?.ref.pointer ?? ffi.nullptr,
+          context?.ref.pointer ?? ffi.nullptr,
+        );
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<CGRect>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<CGRect>(_finalizable);
+  }
+}
+
+late final _sel_drawWithRect_options_attributes_ = objc.registerName(
+  "drawWithRect:options:attributes:",
+);
+late final _sel_boundingRectWithSize_options_attributes_ = objc.registerName(
+  "boundingRectWithSize:options:attributes:",
+);
+
+/// NSStringDrawingDeprecated
+extension NSStringDrawingDeprecated$1 on objc.NSString {
+  /// drawWithRect:options:attributes:
+  void drawWithRect_options_attributes_(
+    CGRect rect,
+    NSStringDrawingOptions options,
+    objc.NSDictionary? attributes,
+  ) {
+    _objc_msgSend_g5bnri(
+      this.ref.pointer,
+      _sel_drawWithRect_options_attributes_,
+      rect,
+      options.value,
+      attributes?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// boundingRectWithSize:options:attributes:
+  CGRect boundingRectWithSize_options_attributes_(
+    CGSize size,
+    NSStringDrawingOptions options,
+    objc.NSDictionary? attributes,
+  ) {
+    final _ptr = pkg_ffi.calloc<CGRect>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_1y1y0icStret(
+          _ptr,
+          this.ref.pointer,
+          _sel_boundingRectWithSize_options_attributes_,
+          size,
+          options.value,
+          attributes?.ref.pointer ?? ffi.nullptr,
+        )
+        : _ptr.ref = _objc_msgSend_1y1y0ic(
+          this.ref.pointer,
+          _sel_boundingRectWithSize_options_attributes_,
+          size,
+          options.value,
+          attributes?.ref.pointer ?? ffi.nullptr,
+        );
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<CGRect>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<CGRect>(_finalizable);
+  }
 }
 
 enum NSRulerOrientation {
@@ -32427,11 +44623,10 @@ enum NSRulerOrientation {
   const NSRulerOrientation(this.value);
 
   static NSRulerOrientation fromValue(int value) => switch (value) {
-        0 => NSHorizontalRuler,
-        1 => NSVerticalRuler,
-        _ =>
-          throw ArgumentError("Unknown value for NSRulerOrientation: $value"),
-      };
+    0 => NSHorizontalRuler,
+    1 => NSVerticalRuler,
+    _ => throw ArgumentError('Unknown value for NSRulerOrientation: $value'),
+  };
 }
 
 enum NSLineCapStyle {
@@ -32443,11 +44638,11 @@ enum NSLineCapStyle {
   const NSLineCapStyle(this.value);
 
   static NSLineCapStyle fromValue(int value) => switch (value) {
-        0 => NSLineCapStyleButt,
-        1 => NSLineCapStyleRound,
-        2 => NSLineCapStyleSquare,
-        _ => throw ArgumentError("Unknown value for NSLineCapStyle: $value"),
-      };
+    0 => NSLineCapStyleButt,
+    1 => NSLineCapStyleRound,
+    2 => NSLineCapStyleSquare,
+    _ => throw ArgumentError('Unknown value for NSLineCapStyle: $value'),
+  };
 }
 
 enum NSLineJoinStyle {
@@ -32459,11 +44654,11 @@ enum NSLineJoinStyle {
   const NSLineJoinStyle(this.value);
 
   static NSLineJoinStyle fromValue(int value) => switch (value) {
-        0 => NSLineJoinStyleMiter,
-        1 => NSLineJoinStyleRound,
-        2 => NSLineJoinStyleBevel,
-        _ => throw ArgumentError("Unknown value for NSLineJoinStyle: $value"),
-      };
+    0 => NSLineJoinStyleMiter,
+    1 => NSLineJoinStyleRound,
+    2 => NSLineJoinStyleBevel,
+    _ => throw ArgumentError('Unknown value for NSLineJoinStyle: $value'),
+  };
 }
 
 enum NSWindingRule {
@@ -32474,10 +44669,10 @@ enum NSWindingRule {
   const NSWindingRule(this.value);
 
   static NSWindingRule fromValue(int value) => switch (value) {
-        0 => NSWindingRuleNonZero,
-        1 => NSWindingRuleEvenOdd,
-        _ => throw ArgumentError("Unknown value for NSWindingRule: $value"),
-      };
+    0 => NSWindingRuleNonZero,
+    1 => NSWindingRuleEvenOdd,
+    _ => throw ArgumentError('Unknown value for NSWindingRule: $value'),
+  };
 }
 
 enum NSBezierPathElement {
@@ -32493,14 +44688,13 @@ enum NSBezierPathElement {
   const NSBezierPathElement(this.value);
 
   static NSBezierPathElement fromValue(int value) => switch (value) {
-        0 => NSBezierPathElementMoveTo,
-        1 => NSBezierPathElementLineTo,
-        2 => NSBezierPathElementCubicCurveTo,
-        3 => NSBezierPathElementClosePath,
-        4 => NSBezierPathElementQuadraticCurveTo,
-        _ =>
-          throw ArgumentError("Unknown value for NSBezierPathElement: $value"),
-      };
+    0 => NSBezierPathElementMoveTo,
+    1 => NSBezierPathElementLineTo,
+    2 => NSBezierPathElementCubicCurveTo,
+    3 => NSBezierPathElementClosePath,
+    4 => NSBezierPathElementQuadraticCurveTo,
+    _ => throw ArgumentError('Unknown value for NSBezierPathElement: $value'),
+  };
 
   @override
   String toString() {
@@ -32508,6 +44702,117 @@ enum NSBezierPathElement {
       return "NSBezierPathElement.NSBezierPathElementCubicCurveTo, NSBezierPathElement.NSBezierPathElementCurveTo";
     return super.toString();
   }
+}
+
+final class CATransform3D extends ffi.Struct {
+  @ffi.Double()
+  external double m11;
+
+  @ffi.Double()
+  external double m12;
+
+  @ffi.Double()
+  external double m13;
+
+  @ffi.Double()
+  external double m14;
+
+  @ffi.Double()
+  external double m21;
+
+  @ffi.Double()
+  external double m22;
+
+  @ffi.Double()
+  external double m23;
+
+  @ffi.Double()
+  external double m24;
+
+  @ffi.Double()
+  external double m31;
+
+  @ffi.Double()
+  external double m32;
+
+  @ffi.Double()
+  external double m33;
+
+  @ffi.Double()
+  external double m34;
+
+  @ffi.Double()
+  external double m41;
+
+  @ffi.Double()
+  external double m42;
+
+  @ffi.Double()
+  external double m43;
+
+  @ffi.Double()
+  external double m44;
+}
+
+enum CAAutoresizingMask {
+  kCALayerNotSizable(0),
+  kCALayerMinXMargin(1),
+  kCALayerWidthSizable(2),
+  kCALayerMaxXMargin(4),
+  kCALayerMinYMargin(8),
+  kCALayerHeightSizable(16),
+  kCALayerMaxYMargin(32);
+
+  final int value;
+  const CAAutoresizingMask(this.value);
+
+  static CAAutoresizingMask fromValue(int value) => switch (value) {
+    0 => kCALayerNotSizable,
+    1 => kCALayerMinXMargin,
+    2 => kCALayerWidthSizable,
+    4 => kCALayerMaxXMargin,
+    8 => kCALayerMinYMargin,
+    16 => kCALayerHeightSizable,
+    32 => kCALayerMaxYMargin,
+    _ => throw ArgumentError('Unknown value for CAAutoresizingMask: $value'),
+  };
+}
+
+enum CAEdgeAntialiasingMask {
+  kCALayerLeftEdge(1),
+  kCALayerRightEdge(2),
+  kCALayerBottomEdge(4),
+  kCALayerTopEdge(8);
+
+  final int value;
+  const CAEdgeAntialiasingMask(this.value);
+
+  static CAEdgeAntialiasingMask fromValue(int value) => switch (value) {
+    1 => kCALayerLeftEdge,
+    2 => kCALayerRightEdge,
+    4 => kCALayerBottomEdge,
+    8 => kCALayerTopEdge,
+    _ =>
+      throw ArgumentError('Unknown value for CAEdgeAntialiasingMask: $value'),
+  };
+}
+
+enum CACornerMask {
+  kCALayerMinXMinYCorner(1),
+  kCALayerMaxXMinYCorner(2),
+  kCALayerMinXMaxYCorner(4),
+  kCALayerMaxXMaxYCorner(8);
+
+  final int value;
+  const CACornerMask(this.value);
+
+  static CACornerMask fromValue(int value) => switch (value) {
+    1 => kCALayerMinXMinYCorner,
+    2 => kCALayerMaxXMinYCorner,
+    4 => kCALayerMinXMaxYCorner,
+    8 => kCALayerMaxXMaxYCorner,
+    _ => throw ArgumentError('Unknown value for CACornerMask: $value'),
+  };
 }
 
 enum NSTypesetterControlCharacterAction {
@@ -32529,8 +44834,10 @@ enum NSTypesetterControlCharacterAction {
         8 => NSTypesetterLineBreakAction,
         16 => NSTypesetterParagraphBreakAction,
         32 => NSTypesetterContainerBreakAction,
-        _ => throw ArgumentError(
-            "Unknown value for NSTypesetterControlCharacterAction: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSTypesetterControlCharacterAction: $value',
+          ),
       };
 }
 
@@ -32541,9 +44848,9 @@ enum NSTextListOptions {
   const NSTextListOptions(this.value);
 
   static NSTextListOptions fromValue(int value) => switch (value) {
-        1 => NSTextListPrependEnclosingMarker,
-        _ => throw ArgumentError("Unknown value for NSTextListOptions: $value"),
-      };
+    1 => NSTextListPrependEnclosingMarker,
+    _ => throw ArgumentError('Unknown value for NSTextListOptions: $value'),
+  };
 }
 
 enum NSTextBlockValueType {
@@ -32554,11 +44861,10 @@ enum NSTextBlockValueType {
   const NSTextBlockValueType(this.value);
 
   static NSTextBlockValueType fromValue(int value) => switch (value) {
-        0 => NSTextBlockAbsoluteValueType,
-        1 => NSTextBlockPercentageValueType,
-        _ =>
-          throw ArgumentError("Unknown value for NSTextBlockValueType: $value"),
-      };
+    0 => NSTextBlockAbsoluteValueType,
+    1 => NSTextBlockPercentageValueType,
+    _ => throw ArgumentError('Unknown value for NSTextBlockValueType: $value'),
+  };
 }
 
 enum NSTextBlockDimension {
@@ -32573,15 +44879,14 @@ enum NSTextBlockDimension {
   const NSTextBlockDimension(this.value);
 
   static NSTextBlockDimension fromValue(int value) => switch (value) {
-        0 => NSTextBlockWidth,
-        1 => NSTextBlockMinimumWidth,
-        2 => NSTextBlockMaximumWidth,
-        4 => NSTextBlockHeight,
-        5 => NSTextBlockMinimumHeight,
-        6 => NSTextBlockMaximumHeight,
-        _ =>
-          throw ArgumentError("Unknown value for NSTextBlockDimension: $value"),
-      };
+    0 => NSTextBlockWidth,
+    1 => NSTextBlockMinimumWidth,
+    2 => NSTextBlockMaximumWidth,
+    4 => NSTextBlockHeight,
+    5 => NSTextBlockMinimumHeight,
+    6 => NSTextBlockMaximumHeight,
+    _ => throw ArgumentError('Unknown value for NSTextBlockDimension: $value'),
+  };
 }
 
 enum NSTextBlockLayer {
@@ -32593,11 +44898,11 @@ enum NSTextBlockLayer {
   const NSTextBlockLayer(this.value);
 
   static NSTextBlockLayer fromValue(int value) => switch (value) {
-        -1 => NSTextBlockPadding,
-        0 => NSTextBlockBorder,
-        1 => NSTextBlockMargin,
-        _ => throw ArgumentError("Unknown value for NSTextBlockLayer: $value"),
-      };
+    -1 => NSTextBlockPadding,
+    0 => NSTextBlockBorder,
+    1 => NSTextBlockMargin,
+    _ => throw ArgumentError('Unknown value for NSTextBlockLayer: $value'),
+  };
 }
 
 enum NSTextBlockVerticalAlignment {
@@ -32610,13 +44915,15 @@ enum NSTextBlockVerticalAlignment {
   const NSTextBlockVerticalAlignment(this.value);
 
   static NSTextBlockVerticalAlignment fromValue(int value) => switch (value) {
-        0 => NSTextBlockTopAlignment,
-        1 => NSTextBlockMiddleAlignment,
-        2 => NSTextBlockBottomAlignment,
-        3 => NSTextBlockBaselineAlignment,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextBlockVerticalAlignment: $value"),
-      };
+    0 => NSTextBlockTopAlignment,
+    1 => NSTextBlockMiddleAlignment,
+    2 => NSTextBlockBottomAlignment,
+    3 => NSTextBlockBaselineAlignment,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSTextBlockVerticalAlignment: $value',
+      ),
+  };
 }
 
 enum NSTextTableLayoutAlgorithm {
@@ -32627,11 +44934,13 @@ enum NSTextTableLayoutAlgorithm {
   const NSTextTableLayoutAlgorithm(this.value);
 
   static NSTextTableLayoutAlgorithm fromValue(int value) => switch (value) {
-        0 => NSTextTableAutomaticLayoutAlgorithm,
-        1 => NSTextTableFixedLayoutAlgorithm,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextTableLayoutAlgorithm: $value"),
-      };
+    0 => NSTextTableAutomaticLayoutAlgorithm,
+    1 => NSTextTableFixedLayoutAlgorithm,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSTextTableLayoutAlgorithm: $value',
+      ),
+  };
 }
 
 enum NSTextSelectionGranularity {
@@ -32645,14 +44954,16 @@ enum NSTextSelectionGranularity {
   const NSTextSelectionGranularity(this.value);
 
   static NSTextSelectionGranularity fromValue(int value) => switch (value) {
-        0 => NSTextSelectionGranularityCharacter,
-        1 => NSTextSelectionGranularityWord,
-        2 => NSTextSelectionGranularityParagraph,
-        3 => NSTextSelectionGranularityLine,
-        4 => NSTextSelectionGranularitySentence,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextSelectionGranularity: $value"),
-      };
+    0 => NSTextSelectionGranularityCharacter,
+    1 => NSTextSelectionGranularityWord,
+    2 => NSTextSelectionGranularityParagraph,
+    3 => NSTextSelectionGranularityLine,
+    4 => NSTextSelectionGranularitySentence,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSTextSelectionGranularity: $value',
+      ),
+  };
 }
 
 enum NSTextSelectionAffinity {
@@ -32663,11 +44974,11 @@ enum NSTextSelectionAffinity {
   const NSTextSelectionAffinity(this.value);
 
   static NSTextSelectionAffinity fromValue(int value) => switch (value) {
-        0 => NSTextSelectionAffinityUpstream,
-        1 => NSTextSelectionAffinityDownstream,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextSelectionAffinity: $value"),
-      };
+    0 => NSTextSelectionAffinityUpstream,
+    1 => NSTextSelectionAffinityDownstream,
+    _ =>
+      throw ArgumentError('Unknown value for NSTextSelectionAffinity: $value'),
+  };
 }
 
 enum NSTextSelectionNavigationDirection {
@@ -32689,8 +45000,10 @@ enum NSTextSelectionNavigationDirection {
         3 => NSTextSelectionNavigationDirectionLeft,
         4 => NSTextSelectionNavigationDirectionUp,
         5 => NSTextSelectionNavigationDirectionDown,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextSelectionNavigationDirection: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSTextSelectionNavigationDirection: $value',
+          ),
       };
 }
 
@@ -32715,8 +45028,10 @@ enum NSTextSelectionNavigationDestination {
         4 => NSTextSelectionNavigationDestinationParagraph,
         5 => NSTextSelectionNavigationDestinationContainer,
         6 => NSTextSelectionNavigationDestinationDocument,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextSelectionNavigationDestination: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSTextSelectionNavigationDestination: $value',
+          ),
       };
 }
 
@@ -32733,8 +45048,10 @@ enum NSTextSelectionNavigationModifier {
         1 => NSTextSelectionNavigationModifierExtend,
         2 => NSTextSelectionNavigationModifierVisual,
         4 => NSTextSelectionNavigationModifierMultiple,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextSelectionNavigationModifier: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSTextSelectionNavigationModifier: $value',
+          ),
       };
 }
 
@@ -32745,13 +45062,16 @@ enum NSTextSelectionNavigationWritingDirection {
   final int value;
   const NSTextSelectionNavigationWritingDirection(this.value);
 
-  static NSTextSelectionNavigationWritingDirection fromValue(int value) =>
-      switch (value) {
-        0 => NSTextSelectionNavigationWritingDirectionLeftToRight,
-        1 => NSTextSelectionNavigationWritingDirectionRightToLeft,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextSelectionNavigationWritingDirection: $value"),
-      };
+  static NSTextSelectionNavigationWritingDirection fromValue(
+    int value,
+  ) => switch (value) {
+    0 => NSTextSelectionNavigationWritingDirectionLeftToRight,
+    1 => NSTextSelectionNavigationWritingDirectionRightToLeft,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSTextSelectionNavigationWritingDirection: $value',
+      ),
+  };
 }
 
 enum NSTextSelectionNavigationLayoutOrientation {
@@ -32761,13 +45081,16 @@ enum NSTextSelectionNavigationLayoutOrientation {
   final int value;
   const NSTextSelectionNavigationLayoutOrientation(this.value);
 
-  static NSTextSelectionNavigationLayoutOrientation fromValue(int value) =>
-      switch (value) {
-        0 => NSTextSelectionNavigationLayoutOrientationHorizontal,
-        1 => NSTextSelectionNavigationLayoutOrientationVertical,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextSelectionNavigationLayoutOrientation: $value"),
-      };
+  static NSTextSelectionNavigationLayoutOrientation fromValue(
+    int value,
+  ) => switch (value) {
+    0 => NSTextSelectionNavigationLayoutOrientationHorizontal,
+    1 => NSTextSelectionNavigationLayoutOrientationVertical,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSTextSelectionNavigationLayoutOrientation: $value',
+      ),
+  };
 }
 
 enum NSTextContentManagerEnumerationOptions {
@@ -32781,8 +45104,10 @@ enum NSTextContentManagerEnumerationOptions {
       switch (value) {
         0 => NSTextContentManagerEnumerationOptionsNone,
         1 => NSTextContentManagerEnumerationOptionsReverse,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextContentManagerEnumerationOptions: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSTextContentManagerEnumerationOptions: $value',
+          ),
       };
 }
 
@@ -32803,8 +45128,10 @@ enum NSTextLayoutFragmentEnumerationOptions {
         2 => NSTextLayoutFragmentEnumerationOptionsEstimatesSize,
         4 => NSTextLayoutFragmentEnumerationOptionsEnsuresLayout,
         8 => NSTextLayoutFragmentEnumerationOptionsEnsuresExtraLineFragment,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextLayoutFragmentEnumerationOptions: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSTextLayoutFragmentEnumerationOptions: $value',
+          ),
       };
 }
 
@@ -32818,13 +45145,15 @@ enum NSTextLayoutFragmentState {
   const NSTextLayoutFragmentState(this.value);
 
   static NSTextLayoutFragmentState fromValue(int value) => switch (value) {
-        0 => NSTextLayoutFragmentStateNone,
-        1 => NSTextLayoutFragmentStateEstimatedUsageBounds,
-        2 => NSTextLayoutFragmentStateCalculatedUsageBounds,
-        3 => NSTextLayoutFragmentStateLayoutAvailable,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextLayoutFragmentState: $value"),
-      };
+    0 => NSTextLayoutFragmentStateNone,
+    1 => NSTextLayoutFragmentStateEstimatedUsageBounds,
+    2 => NSTextLayoutFragmentStateCalculatedUsageBounds,
+    3 => NSTextLayoutFragmentStateLayoutAvailable,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSTextLayoutFragmentState: $value',
+      ),
+  };
 }
 
 enum NSTextLayoutManagerSegmentType {
@@ -32836,12 +45165,14 @@ enum NSTextLayoutManagerSegmentType {
   const NSTextLayoutManagerSegmentType(this.value);
 
   static NSTextLayoutManagerSegmentType fromValue(int value) => switch (value) {
-        0 => NSTextLayoutManagerSegmentTypeStandard,
-        1 => NSTextLayoutManagerSegmentTypeSelection,
-        2 => NSTextLayoutManagerSegmentTypeHighlight,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextLayoutManagerSegmentType: $value"),
-      };
+    0 => NSTextLayoutManagerSegmentTypeStandard,
+    1 => NSTextLayoutManagerSegmentTypeSelection,
+    2 => NSTextLayoutManagerSegmentTypeHighlight,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSTextLayoutManagerSegmentType: $value',
+      ),
+  };
 }
 
 enum NSTextLayoutManagerSegmentOptions {
@@ -32863,8 +45194,10 @@ enum NSTextLayoutManagerSegmentOptions {
         4 => NSTextLayoutManagerSegmentOptionsHeadSegmentExtended,
         8 => NSTextLayoutManagerSegmentOptionsTailSegmentExtended,
         16 => NSTextLayoutManagerSegmentOptionsUpstreamAffinity,
-        _ => throw ArgumentError(
-            "Unknown value for NSTextLayoutManagerSegmentOptions: $value"),
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSTextLayoutManagerSegmentOptions: $value',
+          ),
       };
 }
 
@@ -32875,13 +45208,16 @@ enum NSWritingToolsCoordinatorTextUpdateReason {
   final int value;
   const NSWritingToolsCoordinatorTextUpdateReason(this.value);
 
-  static NSWritingToolsCoordinatorTextUpdateReason fromValue(int value) =>
-      switch (value) {
-        0 => NSWritingToolsCoordinatorTextUpdateReasonTyping,
-        1 => NSWritingToolsCoordinatorTextUpdateReasonUndoRedo,
-        _ => throw ArgumentError(
-            "Unknown value for NSWritingToolsCoordinatorTextUpdateReason: $value"),
-      };
+  static NSWritingToolsCoordinatorTextUpdateReason fromValue(
+    int value,
+  ) => switch (value) {
+    0 => NSWritingToolsCoordinatorTextUpdateReasonTyping,
+    1 => NSWritingToolsCoordinatorTextUpdateReasonUndoRedo,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSWritingToolsCoordinatorTextUpdateReason: $value',
+      ),
+  };
 }
 
 enum NSWritingToolsCoordinatorState {
@@ -32894,11 +45230,2880 @@ enum NSWritingToolsCoordinatorState {
   const NSWritingToolsCoordinatorState(this.value);
 
   static NSWritingToolsCoordinatorState fromValue(int value) => switch (value) {
-        0 => NSWritingToolsCoordinatorStateInactive,
-        1 => NSWritingToolsCoordinatorStateNoninteractive,
-        2 => NSWritingToolsCoordinatorStateInteractiveResting,
-        3 => NSWritingToolsCoordinatorStateInteractiveStreaming,
-        _ => throw ArgumentError(
-            "Unknown value for NSWritingToolsCoordinatorState: $value"),
+    0 => NSWritingToolsCoordinatorStateInactive,
+    1 => NSWritingToolsCoordinatorStateNoninteractive,
+    2 => NSWritingToolsCoordinatorStateInteractiveResting,
+    3 => NSWritingToolsCoordinatorStateInteractiveStreaming,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSWritingToolsCoordinatorState: $value',
+      ),
+  };
+}
+
+enum NSWritingToolsCoordinatorTextReplacementReason {
+  NSWritingToolsCoordinatorTextReplacementReasonInteractive(0),
+  NSWritingToolsCoordinatorTextReplacementReasonNoninteractive(1);
+
+  final int value;
+  const NSWritingToolsCoordinatorTextReplacementReason(this.value);
+
+  static NSWritingToolsCoordinatorTextReplacementReason fromValue(
+    int value,
+  ) => switch (value) {
+    0 => NSWritingToolsCoordinatorTextReplacementReasonInteractive,
+    1 => NSWritingToolsCoordinatorTextReplacementReasonNoninteractive,
+    _ =>
+      throw ArgumentError(
+        'Unknown value for NSWritingToolsCoordinatorTextReplacementReason: $value',
+      ),
+  };
+}
+
+enum NSWritingToolsCoordinatorContextScope {
+  NSWritingToolsCoordinatorContextScopeUserSelection(0),
+  NSWritingToolsCoordinatorContextScopeFullDocument(1),
+  NSWritingToolsCoordinatorContextScopeVisibleArea(2);
+
+  final int value;
+  const NSWritingToolsCoordinatorContextScope(this.value);
+
+  static NSWritingToolsCoordinatorContextScope fromValue(int value) =>
+      switch (value) {
+        0 => NSWritingToolsCoordinatorContextScopeUserSelection,
+        1 => NSWritingToolsCoordinatorContextScopeFullDocument,
+        2 => NSWritingToolsCoordinatorContextScopeVisibleArea,
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSWritingToolsCoordinatorContextScope: $value',
+          ),
       };
+}
+
+enum NSWritingToolsCoordinatorTextAnimation {
+  NSWritingToolsCoordinatorTextAnimationAnticipate(0),
+  NSWritingToolsCoordinatorTextAnimationRemove(1),
+  NSWritingToolsCoordinatorTextAnimationInsert(2),
+  NSWritingToolsCoordinatorTextAnimationAnticipateInactive(8),
+  NSWritingToolsCoordinatorTextAnimationTranslate(9);
+
+  final int value;
+  const NSWritingToolsCoordinatorTextAnimation(this.value);
+
+  static NSWritingToolsCoordinatorTextAnimation fromValue(int value) =>
+      switch (value) {
+        0 => NSWritingToolsCoordinatorTextAnimationAnticipate,
+        1 => NSWritingToolsCoordinatorTextAnimationRemove,
+        2 => NSWritingToolsCoordinatorTextAnimationInsert,
+        8 => NSWritingToolsCoordinatorTextAnimationAnticipateInactive,
+        9 => NSWritingToolsCoordinatorTextAnimationTranslate,
+        _ =>
+          throw ArgumentError(
+            'Unknown value for NSWritingToolsCoordinatorTextAnimation: $value',
+          ),
+      };
+}
+
+/// WARNING: CKRecordValue is a stub. To generate bindings for this class, include
+/// CKRecordValue in your config's objc-protocols list.
+///
+/// CKRecordValue
+interface class CKRecordValue extends objc.ObjCProtocolBase
+    implements objc.NSObjectProtocol {
+  CKRecordValue._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [CKRecordValue] that points to the same underlying object as [other].
+  CKRecordValue.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [CKRecordValue] that wraps the given raw object pointer.
+  CKRecordValue.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+/// CKRecordValue
+extension CKRecordValue$1 on objc.NSString {}
+
+late final _class_MLNOfflinePack = objc.getClass("MapLibre.MLNOfflinePack");
+
+/// WARNING: MLNOfflineRegion is a stub. To generate bindings for this class, include
+/// MLNOfflineRegion in your config's objc-protocols list.
+///
+/// MLNOfflineRegion
+interface class MLNOfflineRegion extends objc.ObjCProtocolBase {
+  MLNOfflineRegion._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNOfflineRegion] that points to the same underlying object as [other].
+  MLNOfflineRegion.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNOfflineRegion] that wraps the given raw object pointer.
+  MLNOfflineRegion.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_region = objc.registerName("region");
+void _ObjCBlock_ffiVoid_NSError_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0)>
+    >()
+    .asFunction<void Function(ffi.Pointer<objc.ObjCObject>)>()(arg0);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(_ObjCBlock_ffiVoid_NSError_fnPtrTrampoline).cast();
+void _ObjCBlock_ffiVoid_NSError_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+) => (objc.getBlockClosure(block)
+    as void Function(ffi.Pointer<objc.ObjCObject>))(arg0);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSError_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(_ObjCBlock_ffiVoid_NSError_closureTrampoline).cast();
+void _ObjCBlock_ffiVoid_NSError_listenerTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+) {
+  (objc.getBlockClosure(block) as void Function(ffi.Pointer<objc.ObjCObject>))(
+    arg0,
+  );
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSError_listenerCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.listener(_ObjCBlock_ffiVoid_NSError_listenerTrampoline)
+  ..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_NSError_blockingTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> waiter,
+  ffi.Pointer<objc.ObjCObject> arg0,
+) {
+  try {
+    (objc.getBlockClosure(block)
+        as void Function(ffi.Pointer<objc.ObjCObject>))(arg0);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSError_blockingCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.isolateLocal(_ObjCBlock_ffiVoid_NSError_blockingTrampoline)
+  ..keepIsolateAlive = false;
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSError_blockingListenerCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.listener(_ObjCBlock_ffiVoid_NSError_blockingTrampoline)
+  ..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSError?)>`.
+abstract final class ObjCBlock_ffiVoid_NSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(
+    pointer,
+    retain: retain,
+    release: release,
+  );
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<objc.ObjCObject> arg0)>
+    >
+    ptr,
+  ) => objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(
+    objc.newPointerBlock(_ObjCBlock_ffiVoid_NSError_fnPtrCallable, ptr.cast()),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> fromFunction(
+    void Function(objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(
+    objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSError_closureCallable,
+      (ffi.Pointer<objc.ObjCObject> arg0) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg0, retain: true, release: true),
+      ),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> listener(
+    void Function(objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSError_listenerCallable.nativeFunction.cast(),
+      (ffi.Pointer<objc.ObjCObject> arg0) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg0, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapListenerBlock_xtuoz7(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(
+      wrapper,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC. If the owner isolate
+  /// has shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSError?)> blocking(
+    void Function(objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSError_blockingCallable.nativeFunction.cast(),
+      (ffi.Pointer<objc.ObjCObject> arg0) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg0, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
+    final rawListener = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSError_blockingListenerCallable.nativeFunction.cast(),
+      (ffi.Pointer<objc.ObjCObject> arg0) => fn(
+        arg0.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg0, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapBlockingBlock_xtuoz7(
+      raw,
+      rawListener,
+      objc.objCContext,
+    );
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<ffi.Void Function(objc.NSError?)>(
+      wrapper,
+      retain: false,
+      release: true,
+    );
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSError?)>`.
+extension ObjCBlock_ffiVoid_NSError_CallExtension
+    on objc.ObjCBlock<ffi.Void Function(objc.NSError?)> {
+  void call(objc.NSError? arg0) => ref.pointer.ref.invoke
+      .cast<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl> block,
+            ffi.Pointer<objc.ObjCObject> arg0,
+          )
+        >
+      >()
+      .asFunction<
+        void Function(
+          ffi.Pointer<objc.ObjCBlockImpl>,
+          ffi.Pointer<objc.ObjCObject>,
+        )
+      >()(ref.pointer, arg0?.ref.pointer ?? ffi.nullptr);
+}
+
+late final _sel_setContext_completionHandler_ = objc.registerName(
+  "setContext:completionHandler:",
+);
+
+/// The state an offline pack is currently in.
+enum MLNOfflinePackState {
+  /// It is unknown whether the pack is inactive, active, or complete.
+  ///
+  /// This is the initial state of a pack. The state of a pack becomes known by
+  /// the time the shared ``MLNOfflineStorage`` object sends the first
+  /// ``MLNOfflinePackProgressChangedNotification`` about the pack. For inactive
+  /// packs, you must explicitly request a progress update using the
+  /// ``MLNOfflinePack/requestProgress`` method.
+  ///
+  /// An invalid pack always has a state of ``MLNOfflinePackStateInvalid``, never
+  /// ``MLNOfflinePackState/MLNOfflinePackStateUnknown``.
+  MLNOfflinePackStateUnknown(0),
+
+  /// The pack is incomplete and is not currently downloading.
+  ///
+  /// This is the initial state of a pack that is created using the
+  /// ``MLNOfflineStorage/addPackForRegion:withContext:completionHandler:``
+  /// method, as well as after the ``MLNOfflinePack/suspend`` method is
+  /// called.
+  MLNOfflinePackStateInactive(1),
+
+  /// The pack is incomplete and is currently downloading.
+  ///
+  /// This is the state of a pack after the ``MLNOfflinePack/resume`` method is
+  /// called.
+  MLNOfflinePackStateActive(2),
+
+  /// The pack has downloaded to completion.
+  MLNOfflinePackStateComplete(3),
+
+  /// The pack has been removed using the
+  /// ``MLNOfflineStorage/removePack:withCompletionHandler:`` method. Sending
+  /// any message to the pack will raise an exception.
+  MLNOfflinePackStateInvalid(4);
+
+  final int value;
+  const MLNOfflinePackState(this.value);
+
+  static MLNOfflinePackState fromValue(int value) => switch (value) {
+    0 => MLNOfflinePackStateUnknown,
+    1 => MLNOfflinePackStateInactive,
+    2 => MLNOfflinePackStateActive,
+    3 => MLNOfflinePackStateComplete,
+    4 => MLNOfflinePackStateInvalid,
+    _ => throw ArgumentError('Unknown value for MLNOfflinePackState: $value'),
+  };
+}
+
+late final _sel_state = objc.registerName("state");
+final _objc_msgSend_6gfr3p =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Long Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+
+/// A structure containing information about an offline pack’s current download
+/// progress.
+final class MLNOfflinePackProgress extends ffi.Struct {
+  /// The number of resources, including tiles, that have been completely
+  /// downloaded and are ready to use offline.
+  @ffi.Uint64()
+  external int countOfResourcesCompleted;
+
+  /// The cumulative size of the downloaded resources on disk, including tiles,
+  /// measured in bytes.
+  @ffi.Uint64()
+  external int countOfBytesCompleted;
+
+  /// The number of tiles that have been completely downloaded and are ready
+  /// to use offline.
+  @ffi.Uint64()
+  external int countOfTilesCompleted;
+
+  /// The cumulative size of the downloaded tiles on disk, measured in bytes.
+  @ffi.Uint64()
+  external int countOfTileBytesCompleted;
+
+  /// The minimum number of resources that must be downloaded in order to view
+  /// the pack’s full region without any omissions.
+  ///
+  /// At the beginning of a download, this count is a lower bound; the number of
+  /// expected resources may increase as the download progresses.
+  @ffi.Uint64()
+  external int countOfResourcesExpected;
+
+  /// The maximum number of resources that must be downloaded in order to view
+  /// the pack’s full region without any omissions.
+  ///
+  /// At the beginning of a download, when the exact number of required resources
+  /// is unknown, this field is set to `UINT64_MAX`. Thus this count is always an
+  /// upper bound.
+  @ffi.Uint64()
+  external int maximumResourcesExpected;
+}
+
+late final _sel_progress = objc.registerName("progress");
+final _objc_msgSend_oftva =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            MLNOfflinePackProgress Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          MLNOfflinePackProgress Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+final _objc_msgSend_oftvaStret =
+    objc.msgSendStretPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<MLNOfflinePackProgress>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<MLNOfflinePackProgress>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_resume = objc.registerName("resume");
+late final _sel_suspend = objc.registerName("suspend");
+late final _sel_requestProgress = objc.registerName("requestProgress");
+
+/// MLNOfflinePack
+class MLNOfflinePack extends objc.NSObject {
+  MLNOfflinePack._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNOfflinePack] that points to the same underlying object as [other].
+  MLNOfflinePack.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNOfflinePack] that wraps the given raw object pointer.
+  MLNOfflinePack.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNOfflinePack].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MLNOfflinePack,
+    );
+  }
+
+  /// The region for which the pack manages resources.
+  MLNOfflineRegion get region {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_region);
+    return MLNOfflineRegion.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Arbitrary data stored alongside the downloaded resources.
+  ///
+  /// The context typically holds application-specific information for identifying
+  /// the pack, such as a user-selected name.
+  ///
+  /// To change the value of this property, use the `-setContext:completionHandler:`
+  /// method. If you access this property after calling that method but before its
+  /// completion handler is called, this property’s value may not reflect the new
+  /// value that you specify.
+  objc.NSData get context {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_context);
+    return objc.NSData.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Associates arbitrary contextual data with the offline pack, replacing any
+  /// context that was previously associated with the offline pack.
+  ///
+  /// Setting the context is asynchronous. The `context` property may not be updated
+  /// until the completion handler is called.
+  ///
+  /// @param context The new context to associate with the offline pack.
+  /// @param completion The completion handler to call when the context has been
+  /// updated. If there is an error setting the context, the error is passed into
+  /// the completion handler.
+  void setContext_completionHandler_(
+    objc.NSData context,
+    objc.ObjCBlock<ffi.Void Function(objc.NSError?)>? completion,
+  ) {
+    _objc_msgSend_o762yo(
+      this.ref.pointer,
+      _sel_setContext_completionHandler_,
+      context.ref.pointer,
+      completion?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// The pack’s current state.
+  ///
+  /// The state of an inactive or completed pack is computed lazily and is set to
+  /// ``MLNOfflinePackState/MLNOfflinePackStateUnknown`` by default. To request the pack’s status, use
+  /// the
+  /// `-requestProgress` method. To get notified when the state becomes known and
+  /// when it changes, observe KVO change notifications on this pack’s `state` key
+  /// path. Alternatively, you can add an observer for
+  /// ``MLNOfflinePackProgressChangedNotification``s about this pack that come from the
+  /// default notification center.
+  MLNOfflinePackState get state {
+    final _ret = _objc_msgSend_6gfr3p(this.ref.pointer, _sel_state);
+    return MLNOfflinePackState.fromValue(_ret);
+  }
+
+  /// The pack’s current progress.
+  ///
+  /// The progress of an inactive or completed pack is computed lazily, and all its
+  /// fields are set to 0 by default. To request the pack’s progress, use the
+  /// `-requestProgress` method. To get notified when the progress becomes
+  /// known and when it changes, observe KVO change notifications on this pack’s
+  /// `state` key path. Alternatively, you can add an observer for
+  /// ``MLNOfflinePackProgressChangedNotification``s about this pack that come from the
+  /// default notification center.
+  MLNOfflinePackProgress get progress {
+    final _ptr = pkg_ffi.calloc<MLNOfflinePackProgress>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_oftvaStret(_ptr, this.ref.pointer, _sel_progress)
+        : _ptr.ref = _objc_msgSend_oftva(this.ref.pointer, _sel_progress);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<MLNOfflinePackProgress>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<MLNOfflinePackProgress>(_finalizable);
+  }
+
+  /// Resumes downloading if the pack is inactive.
+  ///
+  /// When a pack resumes after being suspended, it may begin by iterating over the
+  /// already downloaded resources. As a result, the `progress` structure’s
+  /// `countOfResourcesCompleted` field may revert to 0 before rapidly returning to
+  /// the level of progress at the time the pack was suspended.
+  ///
+  /// To temporarily suspend downloading, call the `-suspend` method.
+  void resume() {
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_resume);
+  }
+
+  /// Temporarily stops downloading if the pack is active.
+  ///
+  /// A pack suspends asynchronously, so some network requests may be sent after this
+  /// method is called. Regardless, the `progress` property will not be updated until
+  /// `-resume` is called.
+  ///
+  /// If the pack previously reached a higher level of progress before being
+  /// suspended, it may wait to suspend until it returns to that level.
+  ///
+  /// To resume downloading, call the `-resume` method.
+  void suspend() {
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_suspend);
+  }
+
+  /// Request an asynchronous update to the pack’s `state` and `progress` properties.
+  ///
+  /// The state and progress of an inactive or completed pack are computed lazily. If
+  /// you need the state or progress of a pack whose `state` property is currently
+  /// set to ``MLNOfflinePackState/MLNOfflinePackStateUnknown``, observe KVO change notifications on this
+  /// pack’s `state` key path, then call this method. Alternatively, you can add an
+  /// observer for ``MLNOfflinePackProgressChangedNotification`` about this pack that
+  /// come from the default notification center.
+  void requestProgress() {
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_requestProgress);
+  }
+
+  /// init
+  MLNOfflinePack init() {
+    objc.checkOsVersionInternal(
+      'MLNOfflinePack.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// new
+  static MLNOfflinePack new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNOfflinePack, _sel_new);
+    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// allocWithZone:
+  static MLNOfflinePack allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNOfflinePack,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// alloc
+  static MLNOfflinePack alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNOfflinePack, _sel_alloc);
+    return MLNOfflinePack.castFromPointer(_ret, retain: false, release: true);
+  }
+
+  /// self
+  MLNOfflinePack self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNOfflinePack.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNOfflinePack retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNOfflinePack.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNOfflinePack autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNOfflinePack.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a new instance of MLNOfflinePack constructed with the default `new` method.
+  factory MLNOfflinePack() => new$();
+}
+
+void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObject> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+        )
+      >
+    >()
+    .asFunction<
+      void Function(ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>)
+    >()(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrTrampoline).cast();
+void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) => (objc.getBlockClosure(block)
+    as void Function(
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    ))(arg0, arg1);
+ffi.Pointer<ffi.Void>
+_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureTrampoline).cast();
+void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) {
+  (objc.getBlockClosure(block)
+      as void Function(
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      ))(arg0, arg1);
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.listener(_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerTrampoline)
+  ..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> waiter,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) {
+  try {
+    (objc.getBlockClosure(block)
+        as void Function(
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+        ))(arg0, arg1);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.isolateLocal(_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingTrampoline)
+  ..keepIsolateAlive = false;
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingListenerCallable =
+    ffi.NativeCallable<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCBlockImpl>,
+          ffi.Pointer<ffi.Void>,
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+        )
+      >.listener(_ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingTrampoline)
+      ..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>`.
+abstract final class ObjCBlock_ffiVoid_MLNOfflinePack_NSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
+  castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
+    pointer,
+    retain: retain,
+    release: release,
+  );
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
+  fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObject> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+        )
+      >
+    >
+    ptr,
+  ) => objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
+    objc.newPointerBlock(
+      _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_fnPtrCallable,
+      ptr.cast(),
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
+  fromFunction(
+    void Function(MLNOfflinePack?, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
+    objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_closureCallable,
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+      ) => fn(
+        arg0.address == 0
+            ? null
+            : MLNOfflinePack.castFromPointer(arg0, retain: true, release: true),
+        arg1.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg1, retain: true, release: true),
+      ),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
+  listener(
+    void Function(MLNOfflinePack?, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_listenerCallable.nativeFunction
+          .cast(),
+      (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            arg0.address == 0
+                ? null
+                : MLNOfflinePack.castFromPointer(
+                  arg0,
+                  retain: false,
+                  release: true,
+                ),
+            arg1.address == 0
+                ? null
+                : objc.NSError.castFromPointer(
+                  arg1,
+                  retain: false,
+                  release: true,
+                ),
+          ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapListenerBlock_pfv6jd(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
+      wrapper,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC. If the owner isolate
+  /// has shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>
+  blocking(
+    void Function(MLNOfflinePack?, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingCallable.nativeFunction
+          .cast(),
+      (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            arg0.address == 0
+                ? null
+                : MLNOfflinePack.castFromPointer(
+                  arg0,
+                  retain: false,
+                  release: true,
+                ),
+            arg1.address == 0
+                ? null
+                : objc.NSError.castFromPointer(
+                  arg1,
+                  retain: false,
+                  release: true,
+                ),
+          ),
+      keepIsolateAlive,
+    );
+    final rawListener = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_MLNOfflinePack_NSError_blockingListenerCallable
+          .nativeFunction
+          .cast(),
+      (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            arg0.address == 0
+                ? null
+                : MLNOfflinePack.castFromPointer(
+                  arg0,
+                  retain: false,
+                  release: true,
+                ),
+            arg1.address == 0
+                ? null
+                : objc.NSError.castFromPointer(
+                  arg1,
+                  retain: false,
+                  release: true,
+                ),
+          ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapBlockingBlock_pfv6jd(
+      raw,
+      rawListener,
+      objc.objCContext,
+    );
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>(
+      wrapper,
+      retain: false,
+      release: true,
+    );
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>`.
+extension ObjCBlock_ffiVoid_MLNOfflinePack_NSError_CallExtension
+    on objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)> {
+  void call(MLNOfflinePack? arg0, objc.NSError? arg1) => ref.pointer.ref.invoke
+      .cast<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl> block,
+            ffi.Pointer<objc.ObjCObject> arg0,
+            ffi.Pointer<objc.ObjCObject> arg1,
+          )
+        >
+      >()
+      .asFunction<
+        void Function(
+          ffi.Pointer<objc.ObjCBlockImpl>,
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+        )
+      >()(
+    ref.pointer,
+    arg0?.ref.pointer ?? ffi.nullptr,
+    arg1?.ref.pointer ?? ffi.nullptr,
+  );
+}
+
+void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCObject> arg2,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObject> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+          ffi.Pointer<objc.ObjCObject> arg2,
+        )
+      >
+    >()
+    .asFunction<
+      void Function(
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >()(arg0, arg1, arg2);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(_ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrTrampoline).cast();
+void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCObject> arg2,
+) => (objc.getBlockClosure(block)
+    as void Function(
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    ))(arg0, arg1, arg2);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(_ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureTrampoline).cast();
+void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCObject> arg2,
+) {
+  (objc.getBlockClosure(block)
+      as void Function(
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      ))(arg0, arg1, arg2);
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.listener(_ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerTrampoline)
+  ..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> waiter,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+  ffi.Pointer<objc.ObjCObject> arg2,
+) {
+  try {
+    (objc.getBlockClosure(block)
+        as void Function(
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+        ))(arg0, arg1, arg2);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.isolateLocal(_ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingTrampoline)
+  ..keepIsolateAlive = false;
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingListenerCallable =
+    ffi.NativeCallable<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCBlockImpl>,
+          ffi.Pointer<ffi.Void>,
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+        )
+      >.listener(_ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingTrampoline)
+      ..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>`.
+abstract final class ObjCBlock_ffiVoid_NSURL_NSArray_NSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<
+    ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+  >
+  castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<
+    ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+  >(pointer, retain: retain, release: release);
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<
+    ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+  >
+  fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObject> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+          ffi.Pointer<objc.ObjCObject> arg2,
+        )
+      >
+    >
+    ptr,
+  ) => objc.ObjCBlock<
+    ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+  >(
+    objc.newPointerBlock(
+      _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_fnPtrCallable,
+      ptr.cast(),
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+  >
+  fromFunction(
+    void Function(objc.NSURL, objc.NSArray?, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<
+    ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+  >(
+    objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_closureCallable,
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2,
+      ) => fn(
+        objc.NSURL.castFromPointer(arg0, retain: true, release: true),
+        arg1.address == 0
+            ? null
+            : objc.NSArray.castFromPointer(arg1, retain: true, release: true),
+        arg2.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg2, retain: true, release: true),
+      ),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<
+    ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+  >
+  listener(
+    void Function(objc.NSURL, objc.NSArray?, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_listenerCallable.nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2,
+      ) => fn(
+        objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+        arg1.address == 0
+            ? null
+            : objc.NSArray.castFromPointer(arg1, retain: false, release: true),
+        arg2.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg2, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapListenerBlock_r8gdi7(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<
+      ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+    >(wrapper, retain: false, release: true);
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC. If the owner isolate
+  /// has shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc.ObjCBlock<
+    ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+  >
+  blocking(
+    void Function(objc.NSURL, objc.NSArray?, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingCallable.nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2,
+      ) => fn(
+        objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+        arg1.address == 0
+            ? null
+            : objc.NSArray.castFromPointer(arg1, retain: false, release: true),
+        arg2.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg2, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
+    final rawListener = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSURL_NSArray_NSError_blockingListenerCallable
+          .nativeFunction
+          .cast(),
+      (
+        ffi.Pointer<objc.ObjCObject> arg0,
+        ffi.Pointer<objc.ObjCObject> arg1,
+        ffi.Pointer<objc.ObjCObject> arg2,
+      ) => fn(
+        objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+        arg1.address == 0
+            ? null
+            : objc.NSArray.castFromPointer(arg1, retain: false, release: true),
+        arg2.address == 0
+            ? null
+            : objc.NSError.castFromPointer(arg2, retain: false, release: true),
+      ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapBlockingBlock_r8gdi7(
+      raw,
+      rawListener,
+      objc.objCContext,
+    );
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<
+      ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+    >(wrapper, retain: false, release: true);
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>`.
+extension ObjCBlock_ffiVoid_NSURL_NSArray_NSError_CallExtension
+    on
+        objc.ObjCBlock<
+          ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)
+        > {
+  void call(objc.NSURL arg0, objc.NSArray? arg1, objc.NSError? arg2) => ref
+      .pointer
+      .ref
+      .invoke
+      .cast<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl> block,
+            ffi.Pointer<objc.ObjCObject> arg0,
+            ffi.Pointer<objc.ObjCObject> arg1,
+            ffi.Pointer<objc.ObjCObject> arg2,
+          )
+        >
+      >()
+      .asFunction<
+        void Function(
+          ffi.Pointer<objc.ObjCBlockImpl>,
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+        )
+      >()(
+    ref.pointer,
+    arg0.ref.pointer,
+    arg1?.ref.pointer ?? ffi.nullptr,
+    arg2?.ref.pointer ?? ffi.nullptr,
+  );
+}
+
+void _ObjCBlock_ffiVoid_NSURL_NSError_fnPtrTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) => block.ref.target
+    .cast<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObject> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+        )
+      >
+    >()
+    .asFunction<
+      void Function(ffi.Pointer<objc.ObjCObject>, ffi.Pointer<objc.ObjCObject>)
+    >()(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSError_fnPtrCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(_ObjCBlock_ffiVoid_NSURL_NSError_fnPtrTrampoline).cast();
+void _ObjCBlock_ffiVoid_NSURL_NSError_closureTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) => (objc.getBlockClosure(block)
+    as void Function(
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    ))(arg0, arg1);
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_NSURL_NSError_closureCallable =
+    ffi.Pointer.fromFunction<
+      ffi.Void Function(
+        ffi.Pointer<objc.ObjCBlockImpl>,
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      )
+    >(_ObjCBlock_ffiVoid_NSURL_NSError_closureTrampoline).cast();
+void _ObjCBlock_ffiVoid_NSURL_NSError_listenerTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) {
+  (objc.getBlockClosure(block)
+      as void Function(
+        ffi.Pointer<objc.ObjCObject>,
+        ffi.Pointer<objc.ObjCObject>,
+      ))(arg0, arg1);
+  objc.objectRelease(block.cast());
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSURL_NSError_listenerCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.listener(_ObjCBlock_ffiVoid_NSURL_NSError_listenerTrampoline)
+  ..keepIsolateAlive = false;
+void _ObjCBlock_ffiVoid_NSURL_NSError_blockingTrampoline(
+  ffi.Pointer<objc.ObjCBlockImpl> block,
+  ffi.Pointer<ffi.Void> waiter,
+  ffi.Pointer<objc.ObjCObject> arg0,
+  ffi.Pointer<objc.ObjCObject> arg1,
+) {
+  try {
+    (objc.getBlockClosure(block)
+        as void Function(
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+        ))(arg0, arg1);
+  } catch (e) {
+  } finally {
+    objc.signalWaiter(waiter);
+    objc.objectRelease(block.cast());
+  }
+}
+
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSURL_NSError_blockingCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.isolateLocal(_ObjCBlock_ffiVoid_NSURL_NSError_blockingTrampoline)
+  ..keepIsolateAlive = false;
+ffi.NativeCallable<
+  ffi.Void Function(
+    ffi.Pointer<objc.ObjCBlockImpl>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<objc.ObjCObject>,
+    ffi.Pointer<objc.ObjCObject>,
+  )
+>
+_ObjCBlock_ffiVoid_NSURL_NSError_blockingListenerCallable = ffi.NativeCallable<
+    ffi.Void Function(
+      ffi.Pointer<objc.ObjCBlockImpl>,
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<objc.ObjCObject>,
+      ffi.Pointer<objc.ObjCObject>,
+    )
+  >.listener(_ObjCBlock_ffiVoid_NSURL_NSError_blockingTrampoline)
+  ..keepIsolateAlive = false;
+
+/// Construction methods for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>`.
+abstract final class ObjCBlock_ffiVoid_NSURL_NSError {
+  /// Returns a block that wraps the given raw block pointer.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>
+  castFromPointer(
+    ffi.Pointer<objc.ObjCBlockImpl> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) => objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(
+    pointer,
+    retain: retain,
+    release: release,
+  );
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>
+  fromFunctionPointer(
+    ffi.Pointer<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObject> arg0,
+          ffi.Pointer<objc.ObjCObject> arg1,
+        )
+      >
+    >
+    ptr,
+  ) => objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(
+    objc.newPointerBlock(
+      _ObjCBlock_ffiVoid_NSURL_NSError_fnPtrCallable,
+      ptr.cast(),
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>
+  fromFunction(
+    void Function(objc.NSURL, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) => objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(
+    objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSURL_NSError_closureCallable,
+      (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            objc.NSURL.castFromPointer(arg0, retain: true, release: true),
+            arg1.address == 0
+                ? null
+                : objc.NSError.castFromPointer(
+                  arg1,
+                  retain: true,
+                  release: true,
+                ),
+          ),
+      keepIsolateAlive,
+    ),
+    retain: false,
+    release: true,
+  );
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> listener(
+    void Function(objc.NSURL, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSURL_NSError_listenerCallable.nativeFunction.cast(),
+      (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+            arg1.address == 0
+                ? null
+                : objc.NSError.castFromPointer(
+                  arg1,
+                  retain: false,
+                  release: true,
+                ),
+          ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapListenerBlock_pfv6jd(raw);
+    objc.objectRelease(raw.cast());
+    return objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(
+      wrapper,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Creates a blocking block from a Dart function.
+  ///
+  /// This callback can be invoked from any native thread, and will block the
+  /// caller until the callback is handled by the Dart isolate that created
+  /// the block. Async functions are not supported.
+  ///
+  /// If `keepIsolateAlive` is true, this block will keep this isolate alive
+  /// until it is garbage collected by both Dart and ObjC. If the owner isolate
+  /// has shut down, and the block is invoked by native code, it may block
+  /// indefinitely, or have other undefined behavior.
+  static objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> blocking(
+    void Function(objc.NSURL, objc.NSError?) fn, {
+    bool keepIsolateAlive = true,
+  }) {
+    final raw = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSURL_NSError_blockingCallable.nativeFunction.cast(),
+      (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+            arg1.address == 0
+                ? null
+                : objc.NSError.castFromPointer(
+                  arg1,
+                  retain: false,
+                  release: true,
+                ),
+          ),
+      keepIsolateAlive,
+    );
+    final rawListener = objc.newClosureBlock(
+      _ObjCBlock_ffiVoid_NSURL_NSError_blockingListenerCallable.nativeFunction
+          .cast(),
+      (ffi.Pointer<objc.ObjCObject> arg0, ffi.Pointer<objc.ObjCObject> arg1) =>
+          fn(
+            objc.NSURL.castFromPointer(arg0, retain: false, release: true),
+            arg1.address == 0
+                ? null
+                : objc.NSError.castFromPointer(
+                  arg1,
+                  retain: false,
+                  release: true,
+                ),
+          ),
+      keepIsolateAlive,
+    );
+    final wrapper = _MapLibreFFi_wrapBlockingBlock_pfv6jd(
+      raw,
+      rawListener,
+      objc.objCContext,
+    );
+    objc.objectRelease(raw.cast());
+    objc.objectRelease(rawListener.cast());
+    return objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>(
+      wrapper,
+      retain: false,
+      release: true,
+    );
+  }
+}
+
+/// Call operator for `objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>`.
+extension ObjCBlock_ffiVoid_NSURL_NSError_CallExtension
+    on objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)> {
+  void call(objc.NSURL arg0, objc.NSError? arg1) => ref.pointer.ref.invoke
+      .cast<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Pointer<objc.ObjCBlockImpl> block,
+            ffi.Pointer<objc.ObjCObject> arg0,
+            ffi.Pointer<objc.ObjCObject> arg1,
+          )
+        >
+      >()
+      .asFunction<
+        void Function(
+          ffi.Pointer<objc.ObjCBlockImpl>,
+          ffi.Pointer<objc.ObjCObject>,
+          ffi.Pointer<objc.ObjCObject>,
+        )
+      >()(ref.pointer, arg0.ref.pointer, arg1?.ref.pointer ?? ffi.nullptr);
+}
+
+/// The type of resource that is requested.
+enum MLNResourceKind {
+  /// Unknown type
+  MLNResourceKindUnknown(0),
+
+  /// Style sheet JSON file
+  MLNResourceKindStyle(1),
+
+  /// TileJSON file as specified in https://maplibre.org/maplibre-style-spec/root/#sources
+  MLNResourceKindSource(2),
+
+  /// A vector or raster tile as described in the style sheet at
+  /// https://maplibre.org/maplibre-style-spec/sources/
+  MLNResourceKindTile(3),
+
+  /// Signed distance field glyphs for text rendering. These are the URLs specified in the style
+  /// in https://maplibre.org/maplibre-style-spec/root/#glyphs
+  MLNResourceKindGlyphs(4),
+
+  /// Image part of a sprite sheet. It is constructed of the prefix in
+  /// https://maplibre.org/maplibre-style-spec/root/#sprite and a PNG file extension.
+  MLNResourceKindSpriteImage(5),
+
+  /// JSON part of a sprite sheet. It is constructed of the prefix in
+  /// https://maplibre.org/maplibre-style-spec/root/#sprite and a JSON file extension.
+  MLNResourceKindSpriteJSON(6),
+
+  /// Image data for a georeferenced image source.
+  MLNResourceKindImage(7);
+
+  final int value;
+  const MLNResourceKind(this.value);
+
+  static MLNResourceKind fromValue(int value) => switch (value) {
+    0 => MLNResourceKindUnknown,
+    1 => MLNResourceKindStyle,
+    2 => MLNResourceKindSource,
+    3 => MLNResourceKindTile,
+    4 => MLNResourceKindGlyphs,
+    5 => MLNResourceKindSpriteImage,
+    6 => MLNResourceKindSpriteJSON,
+    7 => MLNResourceKindImage,
+    _ => throw ArgumentError('Unknown value for MLNResourceKind: $value'),
+  };
+}
+
+late final _class_MLNOfflineStorage = objc.getClass("MLNOfflineStorage");
+late final _sel_sharedOfflineStorage = objc.registerName(
+  "sharedOfflineStorage",
+);
+
+/// WARNING: MLNOfflineStorageDelegate is a stub. To generate bindings for this class, include
+/// MLNOfflineStorageDelegate in your config's objc-protocols list.
+///
+/// The ``MLNOfflineStorageDelegate`` protocol defines methods that a delegate of an
+/// ``MLNOfflineStorage`` object can optionally implement to transform various types
+/// of URLs before downloading them via the internet.
+interface class MLNOfflineStorageDelegate extends objc.ObjCProtocolBase
+    implements objc.NSObjectProtocol {
+  MLNOfflineStorageDelegate._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNOfflineStorageDelegate] that points to the same underlying object as [other].
+  MLNOfflineStorageDelegate.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNOfflineStorageDelegate] that wraps the given raw object pointer.
+  MLNOfflineStorageDelegate.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+}
+
+late final _sel_databasePath = objc.registerName("databasePath");
+late final _sel_databaseURL = objc.registerName("databaseURL");
+late final _sel_addContentsOfFile_withCompletionHandler_ = objc.registerName(
+  "addContentsOfFile:withCompletionHandler:",
+);
+late final _sel_addContentsOfURL_withCompletionHandler_ = objc.registerName(
+  "addContentsOfURL:withCompletionHandler:",
+);
+late final _sel_packs = objc.registerName("packs");
+late final _sel_addPackForRegion_withContext_completionHandler_ = objc
+    .registerName("addPackForRegion:withContext:completionHandler:");
+final _objc_msgSend_18qun1e =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+late final _sel_removePack_withCompletionHandler_ = objc.registerName(
+  "removePack:withCompletionHandler:",
+);
+late final _sel_invalidatePack_withCompletionHandler_ = objc.registerName(
+  "invalidatePack:withCompletionHandler:",
+);
+late final _sel_reloadPacks = objc.registerName("reloadPacks");
+late final _sel_setMaximumAllowedMapboxTiles_ = objc.registerName(
+  "setMaximumAllowedMapboxTiles:",
+);
+final _objc_msgSend_1xsl7ae =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Uint64,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+          )
+        >();
+late final _sel_countOfBytesCompleted = objc.registerName(
+  "countOfBytesCompleted",
+);
+final _objc_msgSend_1p4gbjy =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.UnsignedLongLong Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+            )
+          >
+        >()
+        .asFunction<
+          int Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+          )
+        >();
+late final _sel_setMaximumAmbientCacheSize_withCompletionHandler_ = objc
+    .registerName("setMaximumAmbientCacheSize:withCompletionHandler:");
+final _objc_msgSend_1sq2aut =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.UnsignedLong,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            int,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+late final _sel_invalidateAmbientCacheWithCompletionHandler_ = objc
+    .registerName("invalidateAmbientCacheWithCompletionHandler:");
+final _objc_msgSend_f167m6 =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+late final _sel_clearAmbientCacheWithCompletionHandler_ = objc.registerName(
+  "clearAmbientCacheWithCompletionHandler:",
+);
+late final _sel_resetDatabaseWithCompletionHandler_ = objc.registerName(
+  "resetDatabaseWithCompletionHandler:",
+);
+late final _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_ =
+    objc.registerName(
+      "preloadData:forURL:modificationDate:expirationDate:eTag:mustRevalidate:",
+    );
+final _objc_msgSend_1xt2lpz =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Bool,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+          )
+        >();
+late final _sel_putResourceWithUrl_data_modified_expires_etag_mustRevalidate_ =
+    objc.registerName(
+      "putResourceWithUrl:data:modified:expires:etag:mustRevalidate:",
+    );
+late final _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_completionHandler_ =
+    objc.registerName(
+      "preloadData:forURL:modificationDate:expirationDate:eTag:mustRevalidate:completionHandler:",
+    );
+final _objc_msgSend_899qho =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Bool,
+              ffi.Pointer<objc.ObjCBlockImpl>,
+            )
+          >
+        >()
+        .asFunction<
+          void Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCObject>,
+            bool,
+            ffi.Pointer<objc.ObjCBlockImpl>,
+          )
+        >();
+
+/// MLNOfflineStorage implements a singleton (shared object) that manages offline
+/// packs and ambient caching. All of this class’s instance methods are asynchronous,
+/// reflecting the fact that offline resources are stored in a database. The shared
+/// object maintains a canonical collection of offline packs in its `packs` property.
+///
+/// Mapbox resources downloaded via this API are subject to separate Vector Tile and
+/// Raster Tile API pricing and are not included in the Maps SDK’s “unlimited” requests.
+/// See <a href="https://www.mapbox.com/pricing/">our pricing page</a> for more
+/// information.
+///
+/// #### Related examples
+/// - <doc:OfflinePackExample>
+/// - <doc:ManageOfflineRegionsExample>
+class MLNOfflineStorage extends objc.NSObject {
+  MLNOfflineStorage._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNOfflineStorage] that points to the same underlying object as [other].
+  MLNOfflineStorage.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNOfflineStorage] that wraps the given raw object pointer.
+  MLNOfflineStorage.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNOfflineStorage].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MLNOfflineStorage,
+    );
+  }
+
+  /// Returns the shared offline storage object.
+  static MLNOfflineStorage getSharedOfflineStorage() {
+    final _ret = _objc_msgSend_151sglz(
+      _class_MLNOfflineStorage,
+      _sel_sharedOfflineStorage,
+    );
+    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The receiver’s delegate.
+  ///
+  /// An offline storage object sends messages to its delegate to allow it to
+  /// transform URLs before they are requested from the internet. This can be used
+  /// add or remove custom parameters, or reroute certain requests to other servers
+  /// or endpoints.
+  MLNOfflineStorageDelegate? get delegate {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_delegate);
+    return _ret.address == 0
+        ? null
+        : MLNOfflineStorageDelegate.castFromPointer(
+          _ret,
+          retain: true,
+          release: true,
+        );
+  }
+
+  /// The receiver’s delegate.
+  ///
+  /// An offline storage object sends messages to its delegate to allow it to
+  /// transform URLs before they are requested from the internet. This can be used
+  /// add or remove custom parameters, or reroute certain requests to other servers
+  /// or endpoints.
+  set delegate(MLNOfflineStorageDelegate? value) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_setDelegate_,
+      value?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// The file path at which offline packs and the ambient cache are stored.
+  ///
+  /// To customize this path, specify the
+  /// `MLNOfflineStorageDatabasePath`
+  /// key in Info.plist, see <doc:Info.plist_Keys>.
+  objc.NSString get databasePath {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_databasePath);
+    return objc.NSString.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// The file URL at which offline packs and the ambient cache are stored.
+  ///
+  /// To customize this path, specify the
+  /// `MLNOfflineStorageDatabasePath` key in Info.plist, see <doc:Info.plist_Keys>.
+  objc.NSURL get databaseURL {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_databaseURL);
+    return objc.NSURL.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Adds the offline packs located at the given file path to offline storage.
+  ///
+  /// The file must be a valid offline pack database bundled with the application or
+  /// downloaded separately.
+  ///
+  /// The resulting packs are added or updated to the shared offline storage object’s
+  /// `packs` property, then the `completion` block is executed.
+  ///
+  /// @param filePath A string representation of the file path. The file path must be
+  /// writable as schema updates may be perfomed.
+  /// @param completion The completion handler to call once the contents of the given
+  /// file has been added to offline storage. This handler is executed
+  /// asynchronously on the main queue.
+  void addContentsOfFile_withCompletionHandler_(
+    objc.NSString filePath,
+    objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>?
+    completion,
+  ) {
+    _objc_msgSend_o762yo(
+      this.ref.pointer,
+      _sel_addContentsOfFile_withCompletionHandler_,
+      filePath.ref.pointer,
+      completion?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// Adds the offline packs located at the given URL to offline storage.
+  ///
+  /// The file must be a valid offline pack database bundled with the application or
+  /// downloaded separately.
+  ///
+  /// The resulting packs are added or updated to the shared offline storage object’s
+  /// `packs` property, then the `completion` block is executed.
+  ///
+  /// @param fileURL A file URL specifying the file to add. The URL should be a valid
+  /// system path. The URL must be writable as schema updates may be performed.
+  /// @param completion The completion handler to call once the contents of the given
+  /// file has been added to offline storage. This handler is executed
+  /// asynchronously on the main queue.
+  void addContentsOfURL_withCompletionHandler_(
+    objc.NSURL fileURL,
+    objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSArray?, objc.NSError?)>?
+    completion,
+  ) {
+    _objc_msgSend_o762yo(
+      this.ref.pointer,
+      _sel_addContentsOfURL_withCompletionHandler_,
+      fileURL.ref.pointer,
+      completion?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// An array of all known offline packs, in the order in which they were created.
+  ///
+  /// This property is set to `nil`, indicating that the receiver does not yet know
+  /// the existing packs, for an undefined amount of time starting from the moment
+  /// the shared offline storage object is initialized until the packs are fetched
+  /// from the database. After that point, this property is always non-nil, but it
+  /// may be empty to indicate that no packs are present.
+  ///
+  /// To detect when the shared offline storage object has finished loading its
+  /// `packs` property, observe KVO change notifications on the `packs` key path.
+  /// The initial load results in an `NSKeyValueChangeSetting` change.
+  objc.NSArray? get packs {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_packs);
+    return _ret.address == 0
+        ? null
+        : objc.NSArray.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Creates and registers an offline pack that downloads the resources needed to
+  /// use the given region offline.
+  ///
+  /// The resulting pack is added to the shared offline storage object’s `packs`
+  /// property, then the `completion` block is executed with that pack passed in.
+  ///
+  /// The pack has an initial state of ``MLNOfflinePackState/MLNOfflinePackStateInactive``. To begin
+  /// downloading resources, call ``MLNOfflinePack/resume`` on the pack from within
+  /// the completion handler. To monitor download progress, add an observer for
+  /// ``MLNOfflinePackProgressChangedNotification``s about that pack.
+  ///
+  /// To detect when any call to this method results in a new pack, observe KVO
+  /// change notifications on the shared offline storage object’s `packs` key path.
+  /// Additions to that array result in an `NSKeyValueChangeInsertion` change.
+  ///
+  /// @param region A region to download.
+  /// @param context Arbitrary data to store alongside the downloaded resources.
+  /// @param completion The completion handler to call once the pack has been added.
+  /// This handler is executed asynchronously on the main queue.
+  void addPackForRegion_withContext_completionHandler_(
+    MLNOfflineRegion region,
+    objc.NSData context,
+    objc.ObjCBlock<ffi.Void Function(MLNOfflinePack?, objc.NSError?)>?
+    completion,
+  ) {
+    _objc_msgSend_18qun1e(
+      this.ref.pointer,
+      _sel_addPackForRegion_withContext_completionHandler_,
+      region.ref.pointer,
+      context.ref.pointer,
+      completion?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// Unregisters the given offline pack and allows resources that are no longer
+  /// required by any remaining packs to be potentially freed.
+  ///
+  /// As soon as this method is called on a pack, the pack becomes invalid; any
+  /// attempt to send it a message will result in an exception being thrown. If an
+  /// error occurs and the pack cannot be removed, do not attempt to reuse the pack
+  /// object. Instead, if you need continued access to the pack, suspend all packs
+  /// and use the ``MLNOfflineStorage/reloadPacks`` method to obtain valid pointers to all the packs.
+  ///
+  /// To detect when any call to this method results in a pack being removed, observe
+  /// KVO change notifications on the shared offline storage object’s `packs` key
+  /// path. Removals from that array result in an `NSKeyValueChangeRemoval` change.
+  ///
+  /// When you remove an offline pack, any resources that are required by that pack,
+  /// but not other packs, become eligible for deletion from offline storage. Because
+  /// the backing store used for offline storage is also used as a general purpose
+  /// cache for map resources, such resources may not be immediately removed if the
+  /// implementation determines that they remain useful for general performance of
+  /// the map.
+  ///
+  /// @param pack The offline pack to remove.
+  /// @param completion The completion handler to call once the pack has been
+  /// removed. This handler is executed asynchronously on the main queue.
+  void removePack_withCompletionHandler_(
+    MLNOfflinePack pack,
+    objc.ObjCBlock<ffi.Void Function(objc.NSError?)>? completion,
+  ) {
+    _objc_msgSend_o762yo(
+      this.ref.pointer,
+      _sel_removePack_withCompletionHandler_,
+      pack.ref.pointer,
+      completion?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// Invalidates the specified offline pack. This method checks that the tiles
+  /// in the specified offline pack match those from the server. Local tiles that
+  /// do not match the latest version on the server are updated.
+  ///
+  /// This is more efficient than deleting the offline pack and downloading it
+  /// again. If the data stored locally matches that on the server, new data will
+  /// not be downloaded.
+  ///
+  /// @param pack The offline pack to be invalidated.
+  /// @param completion The completion handler to call once the pack has been
+  /// removed. This handler is executed asynchronously on the main queue.
+  void invalidatePack_withCompletionHandler_(
+    MLNOfflinePack pack,
+    objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion,
+  ) {
+    _objc_msgSend_o762yo(
+      this.ref.pointer,
+      _sel_invalidatePack_withCompletionHandler_,
+      pack.ref.pointer,
+      completion.ref.pointer,
+    );
+  }
+
+  /// Forcibly, asynchronously reloads the `packs` property. At some point after this
+  /// method is called, the pointer values of the ``MLNOfflinePack`` objects in the
+  /// `packs` property change, even if the underlying data for these packs has not
+  /// changed. If this method is called while a pack is actively downloading, the
+  /// behavior is undefined.
+  ///
+  /// You typically do not need to call this method.
+  ///
+  /// To detect when the shared offline storage object has finished reloading its
+  /// `packs` property, observe KVO change notifications on the `packs` key path.
+  /// A reload results in an `NSKeyValueChangeSetting` change.
+  void reloadPacks() {
+    _objc_msgSend_1pl9qdv(this.ref.pointer, _sel_reloadPacks);
+  }
+
+  /// Sets the maximum number of tiles that may be downloaded and
+  /// stored on the current device.
+  ///
+  /// Once this limit is reached, an
+  /// ``MLNOfflinePackMaximumMapboxTilesReachedNotification`` is posted for every
+  /// attempt to download additional tiles until already downloaded tiles are removed
+  /// by calling the ``MLNOfflineStorage/removePack:withCompletionHandler:`` method.
+  ///
+  /// @param maximumCount The maximum number of tiles allowed to be downloaded.
+  void setMaximumAllowedMapboxTiles_(int maximumCount) {
+    _objc_msgSend_1xsl7ae(
+      this.ref.pointer,
+      _sel_setMaximumAllowedMapboxTiles_,
+      maximumCount,
+    );
+  }
+
+  /// The cumulative size, measured in bytes, of all downloaded resources on disk.
+  ///
+  /// The returned value includes all resources, including tiles, whether downloaded
+  /// as part of an offline pack or due to caching during normal use of ``MLNMapView``.
+  int get countOfBytesCompleted {
+    return _objc_msgSend_1p4gbjy(this.ref.pointer, _sel_countOfBytesCompleted);
+  }
+
+  /// Sets the maximum ambient cache size in bytes. The default maximum cache
+  /// size is 50 MB. To disable ambient caching, set the maximum ambient cache size
+  /// to `0`. Setting the maximum ambient cache size does not impact the maximum size
+  /// of offline packs.
+  ///
+  /// This method does not limit the space available to offline packs, and data in
+  /// offline packs does not count towards this limit. If you set the maximum ambient
+  /// cache size to 30 MB then download 20 MB of offline packs, 30 MB will remain
+  /// available for the ambient cache.
+  ///
+  /// This method should be called before the map and map style have been loaded.
+  ///
+  /// This method is potentially expensive, as the database will trim cached data
+  /// in order to prevent the ambient cache from being larger than the
+  /// specified amount.
+  ///
+  /// @param cacheSize The maximum size in bytes for the ambient cache.
+  /// @param completion The completion handler to call once the maximum ambient cache
+  /// size has been set. This handler is executed synchronously on the main queue.
+  void setMaximumAmbientCacheSize_withCompletionHandler_(
+    int cacheSize,
+    objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion,
+  ) {
+    _objc_msgSend_1sq2aut(
+      this.ref.pointer,
+      _sel_setMaximumAmbientCacheSize_withCompletionHandler_,
+      cacheSize,
+      completion.ref.pointer,
+    );
+  }
+
+  /// Invalidates the ambient cache. This method checks that the tiles in the
+  /// ambient cache match those from the server. If the local tiles do not match
+  /// those on the server, they are re-downloaded.
+  ///
+  /// This is recommended over clearing the cache or resetting the database
+  /// because valid local tiles will not be downloaded again.
+  ///
+  /// Resources shared with offline packs will not be affected by this method.
+  ///
+  /// @param completion The completion handler to call once the ambient cache has
+  /// been revalidated. This handler is executed asynchronously on the main queue.
+  void invalidateAmbientCacheWithCompletionHandler_(
+    objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion,
+  ) {
+    _objc_msgSend_f167m6(
+      this.ref.pointer,
+      _sel_invalidateAmbientCacheWithCompletionHandler_,
+      completion.ref.pointer,
+    );
+  }
+
+  /// Clears the ambient cache by deleting resources. This method does not affect
+  /// resources shared with offline regions.
+  ///
+  /// @param completion The completion handler to call once resources from the
+  /// ambient cache have been cleared. This handler is executed asynchronously on
+  /// the main queue.
+  void clearAmbientCacheWithCompletionHandler_(
+    objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion,
+  ) {
+    _objc_msgSend_f167m6(
+      this.ref.pointer,
+      _sel_clearAmbientCacheWithCompletionHandler_,
+      completion.ref.pointer,
+    );
+  }
+
+  /// Deletes the existing database, which includes both the ambient cache and
+  /// offline packs, then reinitializes it.
+  ///
+  /// You typically do not need to call this method.
+  ///
+  /// @param completion The completion handler to call once the pack has database has
+  /// been reset. This handler is executed asynchronously on the main queue.
+  void resetDatabaseWithCompletionHandler_(
+    objc.ObjCBlock<ffi.Void Function(objc.NSError?)> completion,
+  ) {
+    _objc_msgSend_f167m6(
+      this.ref.pointer,
+      _sel_resetDatabaseWithCompletionHandler_,
+      completion.ref.pointer,
+    );
+  }
+
+  /// Inserts the provided resource into the ambient cache.
+  ///
+  /// This method mimics the caching that would take place if the equivalent resource
+  /// were requested in the process of map rendering. Use this method to pre-warm the
+  /// cache with resources you know will be requested.
+  ///
+  /// This method is asynchronous; the data may not be immediately available for
+  /// in-progress requests, though subsequent requests should have access to the
+  /// cached data.
+  ///
+  /// To find out when the resource is ready to retrieve from the cache, use the
+  /// ``MLNOfflineStorage/preloadData:forURL:modificationDate:expirationDate:eTag:mustRevalidate:completionHandler:``
+  /// method.
+  ///
+  /// @param data Response data to store for this resource. The data is expected to
+  /// be uncompressed; internally, the cache will compress data as necessary.
+  /// @param url The URL at which the data can normally be found.
+  /// @param modified The date the resource was last modified.
+  /// @param expires The date after which the resource is no longer valid.
+  /// @param eTag An HTTP entity tag.
+  /// @param mustRevalidate A Boolean value indicating whether the data is still
+  /// usable past the expiration date.
+  void preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_(
+    objc.NSData data,
+    objc.NSURL url,
+    objc.NSDate? modified,
+    objc.NSDate? expires,
+    objc.NSString? eTag,
+    bool mustRevalidate,
+  ) {
+    _objc_msgSend_1xt2lpz(
+      this.ref.pointer,
+      _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_,
+      data.ref.pointer,
+      url.ref.pointer,
+      modified?.ref.pointer ?? ffi.nullptr,
+      expires?.ref.pointer ?? ffi.nullptr,
+      eTag?.ref.pointer ?? ffi.nullptr,
+      mustRevalidate,
+    );
+  }
+
+  /// putResourceWithUrl:data:modified:expires:etag:mustRevalidate:
+  void putResourceWithUrl_data_modified_expires_etag_mustRevalidate_(
+    objc.NSURL url,
+    objc.NSData data,
+    objc.NSDate? modified,
+    objc.NSDate? expires,
+    objc.NSString? etag,
+    bool mustRevalidate,
+  ) {
+    _objc_msgSend_1xt2lpz(
+      this.ref.pointer,
+      _sel_putResourceWithUrl_data_modified_expires_etag_mustRevalidate_,
+      url.ref.pointer,
+      data.ref.pointer,
+      modified?.ref.pointer ?? ffi.nullptr,
+      expires?.ref.pointer ?? ffi.nullptr,
+      etag?.ref.pointer ?? ffi.nullptr,
+      mustRevalidate,
+    );
+  }
+
+  /// Inserts the provided resource into the ambient cache, calling a completion
+  /// handler when finished.
+  ///
+  /// This method is asynchronous. The data is available for in-progress requests as
+  /// soon as the completion handler is called.
+  ///
+  /// This method is asynchronous; the data may not be immediately available for
+  /// in-progress requests, though subsequent requests should have access to the
+  /// cached data.
+  ///
+  /// @param data Response data to store for this resource. The data is expected to
+  /// be uncompressed; internally, the cache will compress data as necessary.
+  /// @param url The URL at which the data can normally be found.
+  /// @param modified The date the resource was last modified.
+  /// @param expires The date after which the resource is no longer valid.
+  /// @param eTag An HTTP entity tag.
+  /// @param mustRevalidate A Boolean value indicating whether the data is still
+  /// usable past the expiration date.
+  /// @param completion The completion handler to call once the data has been
+  /// preloaded. This handler is executed asynchronously on the main queue.
+  void
+  preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_completionHandler_(
+    objc.NSData data,
+    objc.NSURL url,
+    objc.NSDate? modified,
+    objc.NSDate? expires,
+    objc.NSString? eTag,
+    bool mustRevalidate,
+    objc.ObjCBlock<ffi.Void Function(objc.NSURL, objc.NSError?)>? completion,
+  ) {
+    _objc_msgSend_899qho(
+      this.ref.pointer,
+      _sel_preloadData_forURL_modificationDate_expirationDate_eTag_mustRevalidate_completionHandler_,
+      data.ref.pointer,
+      url.ref.pointer,
+      modified?.ref.pointer ?? ffi.nullptr,
+      expires?.ref.pointer ?? ffi.nullptr,
+      eTag?.ref.pointer ?? ffi.nullptr,
+      mustRevalidate,
+      completion?.ref.pointer ?? ffi.nullptr,
+    );
+  }
+
+  /// init
+  MLNOfflineStorage init() {
+    objc.checkOsVersionInternal(
+      'MLNOfflineStorage.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNOfflineStorage.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// new
+  static MLNOfflineStorage new$() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNOfflineStorage, _sel_new);
+    return MLNOfflineStorage.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// allocWithZone:
+  static MLNOfflineStorage allocWithZone_(ffi.Pointer<objc.NSZone> zone) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNOfflineStorage,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNOfflineStorage.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// alloc
+  static MLNOfflineStorage alloc() {
+    final _ret = _objc_msgSend_151sglz(_class_MLNOfflineStorage, _sel_alloc);
+    return MLNOfflineStorage.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// self
+  MLNOfflineStorage self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// retain
+  MLNOfflineStorage retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// autorelease
+  MLNOfflineStorage autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNOfflineStorage.castFromPointer(_ret, retain: true, release: true);
+  }
+
+  /// Returns a new instance of MLNOfflineStorage constructed with the default `new` method.
+  factory MLNOfflineStorage() => new$();
+}
+
+late final _class_MLNTilePyramidOfflineRegion = objc.getClass(
+  "MLNTilePyramidOfflineRegion",
+);
+late final _sel_bounds = objc.registerName("bounds");
+late final _sel_initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_ = objc
+    .registerName("initWithStyleURL:bounds:fromZoomLevel:toZoomLevel:");
+final _objc_msgSend_s3spq =
+    objc.msgSendPointer
+        .cast<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObject> Function(
+              ffi.Pointer<objc.ObjCObject>,
+              ffi.Pointer<objc.ObjCSelector>,
+              ffi.Pointer<objc.ObjCObject>,
+              MLNCoordinateBounds,
+              ffi.Double,
+              ffi.Double,
+            )
+          >
+        >()
+        .asFunction<
+          ffi.Pointer<objc.ObjCObject> Function(
+            ffi.Pointer<objc.ObjCObject>,
+            ffi.Pointer<objc.ObjCSelector>,
+            ffi.Pointer<objc.ObjCObject>,
+            MLNCoordinateBounds,
+            double,
+            double,
+          )
+        >();
+
+/// An offline region defined by a style URL, geographic coordinate bounds, and
+/// range of zoom levels.
+///
+/// To minimize the resources required by an irregularly shaped offline region,
+/// use the MLNShapeOfflineRegion class instead.
+///
+/// ### Example
+/// ```swift
+/// let northeast = CLLocationCoordinate2D(latitude: 40.989329, longitude: -102.062592)
+/// let southwest = CLLocationCoordinate2D(latitude: 36.986207, longitude: -109.049896)
+/// let bbox = MLNCoordinateBounds(sw: southwest, ne: northeast)
+///
+/// let region = MLNTilePyramidOfflineRegion(styleURL: MLNStyle.lightStyleURL, bounds: bbox,
+/// fromZoomLevel: 11, toZoomLevel: 14) let context = "Tile Pyramid Region".data(using: .utf8)
+/// MLNOfflineStorage.shared.addPack(for: region, withContext: context!)
+/// ```
+///
+/// #### Related examples
+/// TODO: Download an offline map, learn how to define an offline region
+/// to be downloaded to a user's device.
+class MLNTilePyramidOfflineRegion extends objc.NSObject
+    implements MLNOfflineRegion, objc.NSSecureCoding, objc.NSCopying {
+  MLNTilePyramidOfflineRegion._(
+    ffi.Pointer<objc.ObjCObject> pointer, {
+    bool retain = false,
+    bool release = false,
+  }) : super.castFromPointer(pointer, retain: retain, release: release);
+
+  /// Constructs a [MLNTilePyramidOfflineRegion] that points to the same underlying object as [other].
+  MLNTilePyramidOfflineRegion.castFrom(objc.ObjCObjectBase other)
+    : this._(other.ref.pointer, retain: true, release: true);
+
+  /// Constructs a [MLNTilePyramidOfflineRegion] that wraps the given raw object pointer.
+  MLNTilePyramidOfflineRegion.castFromPointer(
+    ffi.Pointer<objc.ObjCObject> other, {
+    bool retain = false,
+    bool release = false,
+  }) : this._(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MLNTilePyramidOfflineRegion].
+  static bool isInstance(objc.ObjCObjectBase obj) {
+    return _objc_msgSend_19nvye5(
+      obj.ref.pointer,
+      _sel_isKindOfClass_,
+      _class_MLNTilePyramidOfflineRegion,
+    );
+  }
+
+  /// The coordinate bounds for the geographic region covered by the downloaded
+  /// tiles.
+  MLNCoordinateBounds get bounds {
+    final _ptr = pkg_ffi.calloc<MLNCoordinateBounds>();
+    objc.useMsgSendVariants
+        ? _objc_msgSend_ygoa6aStret(_ptr, this.ref.pointer, _sel_bounds)
+        : _ptr.ref = _objc_msgSend_ygoa6a(this.ref.pointer, _sel_bounds);
+    final _finalizable = _ptr.cast<ffi.Uint8>().asTypedList(
+      ffi.sizeOf<MLNCoordinateBounds>(),
+      finalizer: pkg_ffi.calloc.nativeFree,
+    );
+    return ffi.Struct.create<MLNCoordinateBounds>(_finalizable);
+  }
+
+  /// The minimum zoom level for which to download tiles and other resources.
+  ///
+  /// For more information about zoom levels, ``MLNMapView/zoomLevel``.
+  double get minimumZoomLevel {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_minimumZoomLevel)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_minimumZoomLevel);
+  }
+
+  /// The maximum zoom level for which to download tiles and other resources.
+  ///
+  /// For more information about zoom levels, ``MLNMapView/zoomLevel``.
+  double get maximumZoomLevel {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_1ukqyt8Fpret(this.ref.pointer, _sel_maximumZoomLevel)
+        : _objc_msgSend_1ukqyt8(this.ref.pointer, _sel_maximumZoomLevel);
+  }
+
+  /// init
+  MLNTilePyramidOfflineRegion init() {
+    objc.checkOsVersionInternal(
+      'MLNTilePyramidOfflineRegion.init',
+      iOS: (false, (2, 0, 0)),
+      macOS: (false, (10, 0, 0)),
+    );
+    final _ret = _objc_msgSend_151sglz(
+      this.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return MLNTilePyramidOfflineRegion.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// Initializes a newly created offline region with the given style URL, geographic
+  /// coordinate bounds, and range of zoom levels.
+  ///
+  /// This is the designated initializer for ``MLNTilePyramidOfflineRegion``.
+  ///
+  /// @param styleURL URL of the map style for which to download resources. The URL
+  /// may be a full HTTP or HTTPS URL or a canonical style URL.
+  /// Specify `nil` for the default style.
+  /// Relative file URLs cannot be used as offline style URLs. To download the
+  /// online resources required by a local style, specify a URL to an online copy
+  /// of the style.
+  /// @param bounds The coordinate bounds for the geographic region to be covered by
+  /// the downloaded tiles.
+  /// @param minimumZoomLevel The minimum zoom level to be covered by the downloaded
+  /// tiles. This parameter should be set to at least 0 but no greater than the
+  /// value of the `maximumZoomLevel` parameter. For each required tile source, if
+  /// this parameter is set to a value less than the tile source’s minimum zoom
+  /// level, the download covers zoom levels down to the tile source’s minimum
+  /// zoom level.
+  /// @param maximumZoomLevel The maximum zoom level to be covered by the downloaded
+  /// tiles. This parameter should be set to at least the value of the
+  /// `minimumZoomLevel` parameter. For each required tile source, if this
+  /// parameter is set to a value greater than the tile source’s minimum zoom
+  /// level, the download covers zoom levels up to the tile source’s maximum zoom
+  /// level.
+  MLNTilePyramidOfflineRegion
+  initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_(
+    objc.NSURL? styleURL,
+    MLNCoordinateBounds bounds,
+    double minimumZoomLevel,
+    double maximumZoomLevel,
+  ) {
+    final _ret = _objc_msgSend_s3spq(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithStyleURL_bounds_fromZoomLevel_toZoomLevel_,
+      styleURL?.ref.pointer ?? ffi.nullptr,
+      bounds,
+      minimumZoomLevel,
+      maximumZoomLevel,
+    );
+    return MLNTilePyramidOfflineRegion.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// new
+  static MLNTilePyramidOfflineRegion new$() {
+    final _ret = _objc_msgSend_151sglz(
+      _class_MLNTilePyramidOfflineRegion,
+      _sel_new,
+    );
+    return MLNTilePyramidOfflineRegion.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// allocWithZone:
+  static MLNTilePyramidOfflineRegion allocWithZone_(
+    ffi.Pointer<objc.NSZone> zone,
+  ) {
+    final _ret = _objc_msgSend_1cwp428(
+      _class_MLNTilePyramidOfflineRegion,
+      _sel_allocWithZone_,
+      zone,
+    );
+    return MLNTilePyramidOfflineRegion.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// alloc
+  static MLNTilePyramidOfflineRegion alloc() {
+    final _ret = _objc_msgSend_151sglz(
+      _class_MLNTilePyramidOfflineRegion,
+      _sel_alloc,
+    );
+    return MLNTilePyramidOfflineRegion.castFromPointer(
+      _ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// self
+  MLNTilePyramidOfflineRegion self$1() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_self);
+    return MLNTilePyramidOfflineRegion.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// retain
+  MLNTilePyramidOfflineRegion retain() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_retain);
+    return MLNTilePyramidOfflineRegion.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// autorelease
+  MLNTilePyramidOfflineRegion autorelease() {
+    final _ret = _objc_msgSend_151sglz(this.ref.pointer, _sel_autorelease);
+    return MLNTilePyramidOfflineRegion.castFromPointer(
+      _ret,
+      retain: true,
+      release: true,
+    );
+  }
+
+  /// supportsSecureCoding
+  static bool getSupportsSecureCoding() {
+    return _objc_msgSend_91o635(
+      _class_MLNTilePyramidOfflineRegion,
+      _sel_supportsSecureCoding,
+    );
+  }
+
+  /// encodeWithCoder:
+  void encodeWithCoder_(objc.NSCoder coder) {
+    _objc_msgSend_xtuoz7(
+      this.ref.pointer,
+      _sel_encodeWithCoder_,
+      coder.ref.pointer,
+    );
+  }
+
+  /// initWithCoder:
+  MLNTilePyramidOfflineRegion? initWithCoder_(objc.NSCoder coder) {
+    final _ret = _objc_msgSend_1sotr3r(
+      this.ref.retainAndReturnPointer(),
+      _sel_initWithCoder_,
+      coder.ref.pointer,
+    );
+    return _ret.address == 0
+        ? null
+        : MLNTilePyramidOfflineRegion.castFromPointer(
+          _ret,
+          retain: false,
+          release: true,
+        );
+  }
+
+  /// Returns a new instance of MLNTilePyramidOfflineRegion constructed with the default `new` method.
+  factory MLNTilePyramidOfflineRegion() => new$();
 }

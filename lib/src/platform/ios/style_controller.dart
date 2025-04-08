@@ -33,7 +33,7 @@ class StyleControllerIos implements StyleController {
     switch (layer) {
       case BackgroundStyleLayer():
         ffiStyleLayer =
-            MLNBackgroundStyleLayer.new1()
+            MLNBackgroundStyleLayer.new$()
               ..initWithIdentifier_(layer.id.toNSString())
               ..backgroundColor = NSExpression.expressionWithFormat_(
                 layer.color.toHexString(alpha: false).toNSString(),
@@ -48,27 +48,31 @@ class StyleControllerIos implements StyleController {
         switch (layer) {
           case FillStyleLayer():
             ffiStyleLayer =
-                MLNFillStyleLayer.new1()
-                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
-                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
+                MLNFillStyleLayer.new$()..initWithIdentifier_source_(
+                  layer.id.toNSString(),
+                  ffiSource,
+                );
           case CircleStyleLayer():
             ffiStyleLayer =
-                MLNCircleStyleLayer.new1()
-                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
-                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
+                MLNCircleStyleLayer.new$()..initWithIdentifier_source_(
+                  layer.id.toNSString(),
+                  ffiSource,
+                );
           case FillExtrusionStyleLayer():
             ffiStyleLayer =
-                MLNFillExtrusionStyleLayer.new1()
-                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
-                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
+                MLNFillExtrusionStyleLayer.new$()..initWithIdentifier_source_(
+                  layer.id.toNSString(),
+                  ffiSource,
+                );
           case HeatmapStyleLayer():
             ffiStyleLayer =
-                MLNHeatmapStyleLayer.new1()
-                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
-                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
+                MLNHeatmapStyleLayer.new$()..initWithIdentifier_source_(
+                  layer.id.toNSString(),
+                  ffiSource,
+                );
           case HillshadeStyleLayer():
             ffiStyleLayer =
-                MLNHillshadeStyleLayer.new1()..initWithIdentifier_source_(
+                MLNHillshadeStyleLayer.new$()..initWithIdentifier_source_(
                   layer.id.toNSString(),
                   ffiSource,
                 );
@@ -77,12 +81,13 @@ class StyleControllerIos implements StyleController {
             }
           case LineStyleLayer():
             ffiStyleLayer =
-                MLNLineStyleLayer.new1()
-                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
-                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
+                MLNLineStyleLayer.new$()..initWithIdentifier_source_(
+                  layer.id.toNSString(),
+                  ffiSource,
+                );
           case RasterStyleLayer():
             ffiStyleLayer =
-                MLNRasterStyleLayer.new1()..initWithIdentifier_source_(
+                MLNRasterStyleLayer.new$()..initWithIdentifier_source_(
                   layer.id.toNSString(),
                   ffiSource,
                 );
@@ -91,9 +96,10 @@ class StyleControllerIos implements StyleController {
             }
           case SymbolStyleLayer():
             ffiStyleLayer =
-                MLNSymbolStyleLayer.new1()
-                  ..initWithIdentifier_source_(layer.id.toNSString(), ffiSource)
-                  ..sourceLayerIdentifier = sourceLayer?.toNSString();
+                MLNSymbolStyleLayer.new$()..initWithIdentifier_source_(
+                  layer.id.toNSString(),
+                  ffiSource,
+                );
         }
     }
 
@@ -156,7 +162,7 @@ class StyleControllerIos implements StyleController {
     final MLNSource ffiSource;
     switch (source) {
       case GeoJsonSource():
-        final shapeSource = MLNShapeSource.new1();
+        final shapeSource = MLNShapeSource.new$();
         if (source.data.startsWith('{')) {
           shapeSource.initWithIdentifier_shape_options_(
             source.id.toNSString(),
@@ -165,18 +171,18 @@ class StyleControllerIos implements StyleController {
               nsUTF8StringEncoding,
               nullptr,
             ),
-            NSDictionary.new1(),
+            NSDictionary.new$(),
           );
         } else {
           shapeSource.initWithIdentifier_URL_options_(
             source.id.toNSString(),
             source.data.toNSURL()!,
-            NSDictionary.new1(),
+            NSDictionary.new$(),
           );
         }
         ffiSource = shapeSource;
       case RasterDemSource():
-        final demSource = ffiSource = MLNRasterDEMSource.new1();
+        final demSource = ffiSource = MLNRasterDEMSource.new$();
         if (source.url case final String url) {
           demSource.initWithIdentifier_configurationURL_tileSize_(
             source.id.toNSString(),
@@ -184,18 +190,18 @@ class StyleControllerIos implements StyleController {
             source.tileSize.toDouble(),
           );
         } else {
-          final ffiUrls = NSMutableArray.new1();
+          final ffiUrls = NSMutableArray.new$();
           for (final url in source.tiles ?? <String>[]) {
             ffiUrls.addObject_(url.toNSString());
           }
           demSource.initWithIdentifier_tileURLTemplates_options_(
             source.id.toNSString(),
             ffiUrls,
-            NSDictionary.new1(),
+            NSDictionary.new$(),
           );
         }
       case RasterSource():
-        final rasterSource = ffiSource = MLNRasterTileSource.new1();
+        final rasterSource = ffiSource = MLNRasterTileSource.new$();
         if (source.url case final String url) {
           rasterSource.initWithIdentifier_configurationURL_tileSize_(
             source.id.toNSString(),
@@ -203,32 +209,32 @@ class StyleControllerIos implements StyleController {
             source.tileSize.toDouble(),
           );
         } else {
-          final ffiUrls = NSMutableArray.new1()..init();
+          final ffiUrls = NSMutableArray.new$()..init();
           for (final url in source.tiles ?? <String>[]) {
             ffiUrls.addObject_(url.toNSString());
           }
           rasterSource.initWithIdentifier_tileURLTemplates_options_(
             source.id.toNSString(),
             ffiUrls,
-            NSDictionary.new1(),
+            NSDictionary.new$(),
           );
         }
       case VectorSource():
-        final vectorSource = ffiSource = MLNVectorTileSource.new1();
+        final vectorSource = ffiSource = MLNVectorTileSource.new$();
         if (source.url case final String url) {
           vectorSource.initWithIdentifier_configurationURLString_(
             source.id.toNSString(),
             url.toNSString(),
           );
         } else {
-          final ffiUrls = NSMutableArray.new1()..init();
+          final ffiUrls = NSMutableArray.new$()..init();
           for (final url in source.tiles ?? <String>[]) {
             ffiUrls.addObject_(url.toNSString());
           }
           vectorSource.initWithIdentifier_tileURLTemplates_options_(
             source.id.toNSString(),
             ffiUrls,
-            NSDictionary.new1(),
+            NSDictionary.new$(),
           );
         }
       case ImageSource():
@@ -241,7 +247,7 @@ class StyleControllerIos implements StyleController {
               ..topLeft = source.coordinates.topLeft.toCLLocationCoordinate2D()
               ..topRight =
                   source.coordinates.topRight.toCLLocationCoordinate2D();
-        final imageSource = ffiSource = MLNImageSource.new1();
+        final imageSource = ffiSource = MLNImageSource.new$();
         imageSource.initWithIdentifier_coordinateQuad_URL_(
           source.id.toNSString(),
           coordinates,
