@@ -171,13 +171,13 @@ class StyleControllerIos implements StyleController {
               nsUTF8StringEncoding,
               nullptr,
             ),
-            NSDictionary.new$(),
+            NSDictionary.new1(),
           );
         } else {
           shapeSource.initWithIdentifier_URL_options_(
             source.id.toNSString(),
             source.data.toNSURL()!,
-            NSDictionary.new$(),
+            NSDictionary.new1(),
           );
         }
         ffiSource = shapeSource;
@@ -190,14 +190,14 @@ class StyleControllerIos implements StyleController {
             source.tileSize.toDouble(),
           );
         } else {
-          final ffiUrls = NSMutableArray.new$();
+          final ffiUrls = NSMutableArray.new1();
           for (final url in source.tiles ?? <String>[]) {
             ffiUrls.addObject_(url.toNSString());
           }
           demSource.initWithIdentifier_tileURLTemplates_options_(
             source.id.toNSString(),
             ffiUrls,
-            NSDictionary.new$(),
+            NSDictionary.new1(),
           );
         }
       case RasterSource():
@@ -209,14 +209,14 @@ class StyleControllerIos implements StyleController {
             source.tileSize.toDouble(),
           );
         } else {
-          final ffiUrls = NSMutableArray.new$()..init();
+          final ffiUrls = NSMutableArray.new1()..init();
           for (final url in source.tiles ?? <String>[]) {
             ffiUrls.addObject_(url.toNSString());
           }
           rasterSource.initWithIdentifier_tileURLTemplates_options_(
             source.id.toNSString(),
             ffiUrls,
-            NSDictionary.new$(),
+            NSDictionary.new1(),
           );
         }
       case VectorSource():
@@ -227,14 +227,14 @@ class StyleControllerIos implements StyleController {
             url.toNSString(),
           );
         } else {
-          final ffiUrls = NSMutableArray.new$()..init();
+          final ffiUrls = NSMutableArray.new1()..init();
           for (final url in source.tiles ?? <String>[]) {
             ffiUrls.addObject_(url.toNSString());
           }
           vectorSource.initWithIdentifier_tileURLTemplates_options_(
             source.id.toNSString(),
             ffiUrls,
-            NSDictionary.new$(),
+            NSDictionary.new1(),
           );
         }
       case ImageSource():
