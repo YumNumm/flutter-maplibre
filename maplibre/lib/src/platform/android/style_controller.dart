@@ -262,4 +262,44 @@ class StyleControllerAndroid extends StyleController {
   void setProjection(MapProjection projection) {
     // globe is not supported on android.
   }
+
+  @override
+  Future<void> updateLayer({required StyleLayer layer}) async => using((arena) {
+    final jId = layer.id.toJString()..releasedBy(arena);
+    final existingLayer = _jStyle.getLayer(jId);
+    if (existingLayer == null) {
+      throw Exception(
+        'A Layer with the id "${layer.id}" does not exist in the map style.',
+      );
+    }
+
+    existingLayer.releasedBy(arena);
+    existingLayer.setMinZoom(layer.minZoom);
+    existingLayer.setMaxZoom(layer.maxZoom);
+
+    // paint and layout properties
+    final layoutEntries = layer.layout.entries.toList(growable: false);
+    final paintEntries = layer.paint.entries.toList(growable: false);
+    final props = JArray(
+      jni.PropertyValue.nullableType(JObject.nullableType),
+      layoutEntries.length + paintEntries.length,
+    )..releasedBy(arena);
+    for (var i = 0; i < paintEntries.length; i++) {
+      final entry = paintEntries[i];
+      props[i] = jni.PaintPropertyValue(
+        entry.key.toJString(),
+        entry.value.toJObject(arena),
+        T: JObject.type,
+      )..releasedBy(arena);
+    }
+    for (var i = 0; i < layoutEntries.length; i++) {
+      final entry = layoutEntries[i];
+      props[paintEntries.length + i] = jni.LayoutPropertyValue(
+        entry.key.toJString(),
+        entry.value.toJObject(arena),
+        T: JObject.type,
+      )..releasedBy(arena);
+    }
+    existingLayer.setProperties(props);
+  });
 }

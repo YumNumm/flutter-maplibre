@@ -28,6 +28,25 @@ extension type JsMap._(Camera _) implements Camera {
   /// https://github.com/maplibre/maplibre-gl-js/blob/41e5b32f5bd6264cbc4a8b38210ec6a410152259/src/ui/map.ts#L2467
   external JSObject? getLayer(String id);
 
+  /// Sets the value of a paint property in the specified style layer.
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setpaintproperty
+  external void setPaintProperty(String layerId, String name, JSAny? value);
+
+  /// Sets the value of a layout property in the specified style layer.
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setlayoutproperty
+  external void setLayoutProperty(String layerId, String name, JSAny? value);
+
+  /// Sets the zoom extent for the specified style layer.
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setlayerzoomrange
+  external void setLayerZoomRange(
+    String layerId,
+    double minzoom,
+    double maxzoom,
+  );
+
   /// Convert a coordinate to a screen location.
   ///
   /// https://github.com/maplibre/maplibre-gl-js/blob/41e5b32f5bd6264cbc4a8b38210ec6a410152259/src/ui/map.ts#L1160

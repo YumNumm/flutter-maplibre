@@ -43,6 +43,12 @@ abstract class StyleController {
     int? atIndex,
   });
 
+  /// Update an existing layer in the map style.
+  ///
+  /// The layer must already exist in the map style. If it does not exist,
+  /// an exception will be thrown.
+  Future<void> updateLayer({required StyleLayer layer});
+
   /// Update the data of a GeoJSON source.
   Future<void> updateGeoJsonSource({required String id, required String data});
 

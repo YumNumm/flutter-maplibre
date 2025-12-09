@@ -295,4 +295,26 @@ class StyleControllerWeb extends StyleController {
   void setProjection(MapProjection projection) => _map.setProjection(
     interop.ProjectionSpecification(type: projection.name),
   );
+
+  @override
+  Future<void> updateLayer({required StyleLayer layer}) async {
+    if (_map.getLayer(layer.id) == null) {
+      throw Exception(
+        'A Layer with the id "${layer.id}" does not exist in the map style.',
+      );
+    }
+
+    // Update zoom range
+    _map.setLayerZoomRange(layer.id, layer.minZoom, layer.maxZoom);
+
+    // Update paint properties
+    for (final entry in layer.paint.entries) {
+      _map.setPaintProperty(layer.id, entry.key, entry.value.jsify());
+    }
+
+    // Update layout properties
+    for (final entry in layer.layout.entries) {
+      _map.setLayoutProperty(layer.id, entry.key, entry.value.jsify());
+    }
+  }
 }

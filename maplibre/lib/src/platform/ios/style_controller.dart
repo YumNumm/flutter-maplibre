@@ -285,4 +285,20 @@ class StyleControllerIos extends StyleController {
     }
     return attributions;
   }
+
+  @override
+  Future<void> updateLayer({required StyleLayer layer}) async {
+    final ffiId = layer.id.toNSString();
+    final existingLayer = _ffiStyle.layerWithIdentifier(ffiId);
+    if (existingLayer == null) {
+      throw Exception(
+        'A Layer with the id "${layer.id}" does not exist in the map style.',
+      );
+    }
+
+    existingLayer.minimumZoomLevel = layer.minZoom;
+    existingLayer.maximumZoomLevel = layer.maxZoom;
+    existingLayer.setProperties(layer.paint);
+    existingLayer.setProperties(layer.layout);
+  }
 }
