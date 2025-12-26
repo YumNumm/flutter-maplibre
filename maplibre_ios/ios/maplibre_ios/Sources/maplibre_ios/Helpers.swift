@@ -73,4 +73,29 @@ public class Helpers: NSObject {
     }
     return nil
   }
+
+  /// Parse a MapLibre filter JSON string into an NSPredicate.
+  /// Returns nil if the filter string is empty or parsing fails.
+  @objc public static func parsePredicate(filter: String) -> NSPredicate? {
+    if filter.isEmpty {
+      return nil
+    }
+    do {
+      let json = try JSONSerialization.jsonObject(
+        with: filter.data(using: .utf8)!,
+        options: .fragmentsAllowed
+      )
+      return NSPredicate(mglJSONObject: json)
+    } catch {
+      print("Couldn't parse Predicate: " + filter)
+      return nil
+    }
+  }
+
+  /// Set the predicate (filter) on a style layer.
+  @objc public static func setLayerPredicate(
+    layer: NSObject, predicate: NSPredicate?
+  ) {
+    layer.setValue(predicate, forKey: "predicate")
+  }
 }

@@ -317,4 +317,18 @@ class StyleControllerWeb extends StyleController {
       _map.setLayoutProperty(layer.id, entry.key, entry.value.jsify());
     }
   }
+
+  @override
+  Future<void> setFilter({
+    required String layerId,
+    required Object? filter,
+  }) async {
+    if (_map.getLayer(layerId) == null) {
+      throw Exception(
+        'A Layer with the id "$layerId" does not exist in the map style.',
+      );
+    }
+
+    _map.setFilter(layerId, filter?.jsify());
+  }
 }

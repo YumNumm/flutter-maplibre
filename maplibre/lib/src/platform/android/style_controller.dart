@@ -302,4 +302,17 @@ class StyleControllerAndroid extends StyleController {
     }
     existingLayer.setProperties(props);
   });
+
+  @override
+  Future<void> setFilter({
+    required String layerId,
+    required Object? filter,
+  }) async {
+    // TODO: Implement setFilter for Android
+    // This requires adding setFilter to jnigen bindings
+    throw UnimplementedError(
+      'setFilter is not yet implemented for Android. '
+      'Please add setFilter to the jnigen bindings.',
+    );
+  }
 }
