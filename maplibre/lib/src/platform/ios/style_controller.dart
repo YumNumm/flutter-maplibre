@@ -307,31 +307,4 @@ class StyleControllerIos extends StyleController {
     existingLayer.setProperties(layer.paint);
     existingLayer.setProperties(layer.layout);
   }
-
-  @override
-  Future<void> setFilter({required String layerId, required Object? filter}) async {
-    final ffiId = layerId.toNSString();
-    final existingLayer = _ffiStyle.layerWithIdentifier(ffiId);
-    if (existingLayer == null) {
-      throw Exception(
-        'A Layer with the id "$layerId" does not exist in the map style.',
-      );
-    }
-
-    if (!MLNVectorStyleLayer.isA(existingLayer)) {
-      throw Exception(
-        'Layer "$layerId" is not a vector style layer and does not support filters.',
-      );
-    }
-
-    final vectorLayer = MLNVectorStyleLayer.as(existingLayer);
-    if (filter == null) {
-      // Clear the filter by setting predicate to nil
-      Helpers.setLayerPredicateWithLayer(vectorLayer, predicate: null);
-    } else {
-      final filterJson = jsonEncode(filter);
-      final predicate = Helpers.parsePredicateWithFilter(filterJson.toNSString());
-      Helpers.setLayerPredicateWithLayer(vectorLayer, predicate: predicate);
-    }
-  }
 }

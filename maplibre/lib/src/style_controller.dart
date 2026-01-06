@@ -220,19 +220,6 @@ abstract class StyleController {
   /// Removes an image from the map
   Future<void> removeImage(String id);
 
-  /// Set the filter for a layer.
-  ///
-  /// The [layerId] is the unique identifier of the layer to set the filter on.
-  /// The [filter] is a MapLibre filter expression. Pass `null` to clear the
-  /// filter.
-  ///
-  /// Filter expressions are used to select a subset of features from a source.
-  /// See the [MapLibre Style Spec](https://maplibre.org/maplibre-style-spec/layers/#filter)
-  /// for more information.
-  ///
-  /// Throws an [Exception] if the layer does not exist.
-  Future<void> setFilter({required String layerId, required Object? filter});
-
   /// Set the map projection.
   ///
   /// [MapProjection.globe] is currently on supported on web.

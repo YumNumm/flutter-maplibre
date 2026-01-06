@@ -47,11 +47,6 @@ extension type JsMap._(Camera _) implements Camera {
     double maxzoom,
   );
 
-  /// Sets the filter for the specified style layer.
-  ///
-  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setfilter
-  external void setFilter(String layerId, JSAny? filter);
-
   /// Convert a coordinate to a screen location.
   ///
   /// https://github.com/maplibre/maplibre-gl-js/blob/41e5b32f5bd6264cbc4a8b38210ec6a410152259/src/ui/map.ts#L1160
