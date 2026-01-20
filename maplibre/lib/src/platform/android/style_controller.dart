@@ -271,6 +271,47 @@ class StyleControllerAndroid extends StyleController {
   }
 
   @override
+  Future<void> updateFilter({
+    required String id,
+    required List<Object>? filter,
+  }) async => using((arena) {
+    final jId = id.toJString()..releasedBy(arena);
+    final jLayer = _jStyle.getLayer(jId);
+    if (jLayer == null) {
+      throw Exception('Layer with id "$id" does not exist.');
+    }
+
+    jni.Expression? jFilter;
+    if (filter != null) {
+      final jFilterString = jsonEncode(filter).toJString()..releasedBy(arena);
+      jFilter = jni.Expression$Converter.convert$2(jFilterString)
+        ?..releasedBy(arena);
+    }
+
+    // Default filter to show all features (literal true)
+    final effectiveFilter = jFilter ?? jni.Expression.literal$2(true)!;
+
+    // Apply filter based on layer type
+    if (jLayer.isA(jni.FillLayer.type)) {
+      jLayer.as(jni.FillLayer.type).setFilter(effectiveFilter);
+    } else if (jLayer.isA(jni.CircleLayer.type)) {
+      jLayer.as(jni.CircleLayer.type).setFilter(effectiveFilter);
+    } else if (jLayer.isA(jni.FillExtrusionLayer.type)) {
+      jLayer.as(jni.FillExtrusionLayer.type).setFilter(effectiveFilter);
+    } else if (jLayer.isA(jni.HeatmapLayer.type)) {
+      jLayer.as(jni.HeatmapLayer.type).setFilter(effectiveFilter);
+    } else if (jLayer.isA(jni.LineLayer.type)) {
+      jLayer.as(jni.LineLayer.type).setFilter(effectiveFilter);
+    } else if (jLayer.isA(jni.SymbolLayer.type)) {
+      jLayer.as(jni.SymbolLayer.type).setFilter(effectiveFilter);
+    } else {
+      throw UnsupportedError(
+        'updateFilter is not supported for layer type: ${jLayer.runtimeType}',
+      );
+    }
+  });
+
+  @override
   Future<List<String>> getAttributions() async => getAttributionsSync();
 
   @override

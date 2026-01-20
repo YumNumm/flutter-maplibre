@@ -272,6 +272,31 @@ class StyleControllerIos extends StyleController {
     );
   }
 
+  @override
+  Future<void> updateFilter({
+    required String id,
+    required List<Object>? filter,
+  }) async {
+    final ffiId = id.toNSString();
+    final ffiLayer = _ffiStyle.layerWithIdentifier(ffiId);
+    if (ffiLayer == null) {
+      throw Exception('Layer with id "$id" does not exist.');
+    }
+    if (!MLNVectorStyleLayer.isA(ffiLayer)) {
+      throw UnsupportedError(
+        'updateFilter is not supported for layer type: ${ffiLayer.runtimeType}',
+      );
+    }
+    final vectorLayer = MLNVectorStyleLayer.as(ffiLayer);
+    if (filter case final filterValue?) {
+      final expression = jsonEncode(filterValue).toNSString();
+      final ffiPredicate = Helpers.parsePredicateWithRaw(expression);
+      vectorLayer.predicate = ffiPredicate;
+    } else {
+      vectorLayer.predicate = null;
+    }
+  }
+
   List<MLNStyleLayer> _getLayers() => List<MLNStyleLayer>.from(
     _ffiStyle.layers.toDartList(convertOther: MLNStyleLayer.as),
   );

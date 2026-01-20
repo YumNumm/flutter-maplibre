@@ -79,6 +79,11 @@ extension type JsMap._(Camera _) implements Camera {
   /// Removes the source with the given ID from the map's style.
   external void removeSource(String id);
 
+  /// Sets the filter for the specified layer.
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setfilter
+  external void setFilter(String layerId, JSAny? filter);
+
   /// Add an image to the map.
   external void addImage(String id, ImageSpecification data);
 

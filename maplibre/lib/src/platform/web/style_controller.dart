@@ -41,6 +41,17 @@ class StyleControllerWeb extends StyleController {
   }
 
   @override
+  Future<void> updateFilter({
+    required String id,
+    required List<Object>? filter,
+  }) async {
+    if (_map.getLayer(id) == null) {
+      throw Exception('Layer with id "$id" does not exist.');
+    }
+    _map.setFilter(id, filter?.jsify());
+  }
+
+  @override
   Future<List<String>> getAttributions() async => getAttributions();
 
   @override

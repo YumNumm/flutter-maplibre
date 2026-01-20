@@ -47,6 +47,20 @@ abstract class StyleController {
   /// Update the data of a GeoJSON source.
   Future<void> updateGeoJsonSource({required String id, required String data});
 
+  /// Update the filter of a layer.
+  ///
+  /// The [id] is the layer id and the [filter] is the new filter expression.
+  /// Set [filter] to `null` to remove the filter.
+  ///
+  /// This method is only supported for layers that can render vector features
+  /// from a source: [CircleStyleLayer], [FillStyleLayer],
+  /// [FillExtrusionStyleLayer], [HeatmapStyleLayer], [LineStyleLayer]
+  /// and [SymbolStyleLayer].
+  Future<void> updateFilter({
+    required String id,
+    required List<Object>? filter,
+  });
+
   /// Removes the layer with the given [id] from the map's style.
   Future<void> removeLayer(String id);
 
