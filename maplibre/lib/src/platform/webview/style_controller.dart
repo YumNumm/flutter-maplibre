@@ -248,4 +248,21 @@ class StyleControllerWebView extends StyleController {
 ''',
     );
   }
+
+  @override
+  Future<void> updateFilter({
+    required String id,
+    required List<Object>? filter,
+  }) async {
+    await webViewController.callAsyncJavaScript(
+      functionBody:
+          '''
+      const layer = window.map.getLayer("${id.replaceAll('"', r'\"')}");
+      if (!layer) {
+        throw new Error('Layer with id "${id.replaceAll('"', r'\"')}" does not exist.');
+      }
+      window.map.setFilter("${id.replaceAll('"', r'\"')}", ${filter != null ? jsonEncode(filter) : 'null'});
+''',
+    );
+  }
 }
