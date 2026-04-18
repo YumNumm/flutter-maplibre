@@ -40,4 +40,10 @@ public class MapLibreRegistry: NSObject {
     @objc public static func removeFlutterApi(viewId: Int64) {
         flutterApis.removeValue(forKey: viewId)
     }
+
+    /// Clears all registered maps and Flutter API bindings (e.g. when the engine detaches).
+    @objc public static func clearAll() {
+        mapViews.removeAll()
+        flutterApis.removeAll()
+    }
 }

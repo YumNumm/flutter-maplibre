@@ -90,6 +90,14 @@ class MapLibreView: NSObject, FlutterPlatformView, UIGestureRecognizerDelegate, 
         _mapView.addGestureRecognizer(longPress)
     }
 
+    deinit {
+        // Stop delegate callbacks before clearing registry so MapLibre cannot invoke
+        // Dart FFI after the isolate (or FlutterApi) is torn down (e.g. hot restart).
+        _mapView.delegate = nil
+        MapLibreRegistry.removeFlutterApi(viewId: _viewId)
+        MapLibreRegistry.removeMap(viewId: _viewId)
+    }
+
     var api: FlutterApi? {
         MapLibreRegistry.getFlutterApi(viewId: _viewId)
     }

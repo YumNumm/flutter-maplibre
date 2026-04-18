@@ -21395,6 +21395,13 @@ _objc_msgSend_17gvxvj(_class_MapLibreRegistry, _sel_removeFlutterApiWithViewId_,
 _objc_msgSend_17gvxvj(_class_MapLibreRegistry, _sel_removeMapWithViewId_, viewId);
 
   }
+
+
+  /// Clears all registered maps and Flutter API bindings (e.g. when the engine detaches).
+  static void clearAll() {
+_objc_msgSend_1pl9qdv(_class_MapLibreRegistry, _sel_clearAll);
+
+  }
   /// Returns a new instance of MapLibreRegistry constructed with the default `new` method.
   MapLibreRegistry() : this.as(new$().object$);
 
@@ -31419,6 +31426,7 @@ late final _sel_circleTranslation = objc.registerName("circleTranslation");
 late final _sel_circleTranslationAnchor = objc.registerName("circleTranslationAnchor");
 late final _sel_circleTranslationTransition = objc.registerName("circleTranslationTransition");
 late final _sel_clearActionJournalLog = objc.registerName("clearActionJournalLog");
+late final _sel_clearAll = objc.registerName("clearAll");
 late final _sel_clearAmbientCacheWithCompletionHandler_ = objc.registerName("clearAmbientCacheWithCompletionHandler:");
 late final _sel_collection = objc.registerName("collection");
 late final _sel_collisionBoundingPath = objc.registerName("collisionBoundingPath");

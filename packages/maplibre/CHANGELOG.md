@@ -1,3 +1,11 @@
+## Unreleased
+
+### Bug Fixes
+
+- iOS: fix crash on hot restart when native map callbacks invoked FFI after the Dart isolate was torn down (`DLRT_GetFfiCallbackMetadata` assert). Clear `MLNMapView.delegate` and unregister entries in `MapLibreView.deinit`; add `MapLibreRegistry.clearAll()` and invoke it from `detachFromEngineForRegistrar`. See [issue #498](https://github.com/josxha/flutter-maplibre/issues/498).
+
+**Manual verification (iOS Simulator):** run `flutter run` from `packages/maplibre_ios/example` (or the main example app), open a map page, then hot restart (`R`). The app must not crash and the map should still load.
+
 ## 0.3.5
 
 This release contains a couple of bug fixes and improvements.

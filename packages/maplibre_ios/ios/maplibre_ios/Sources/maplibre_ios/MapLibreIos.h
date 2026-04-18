@@ -350,6 +350,8 @@ SWIFT_CLASS_NAMED("MapLibreRegistry")
 + (void)addFlutterApiWithViewId:(int64_t)viewId api:(id <FlutterApi> _Nonnull)api;
 /// Method to remove a flutter api to the registry
 + (void)removeFlutterApiWithViewId:(int64_t)viewId;
+/// Clears all registered maps and Flutter API bindings (e.g. when the engine detaches).
++ (void)clearAll;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
