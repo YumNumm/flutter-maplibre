@@ -32,8 +32,8 @@ build/
 **/coverage/
 
 # jnigen
-/mvn_jar/
-/mvn_java/
+**/mvn_jar/
+**/mvn_java/
 
 # Swift Package Manager
 Package.resolved
@@ -41,4 +41,8 @@ Package.resolved
 
 .vscode
 ios/maplibre/.build
-maplibre_ios/ios/maplibre_ios/Sources/maplibre_ios/libmaplibreios.dylib
+
+# Zensical website
+site/
+.venv/
+.cache/

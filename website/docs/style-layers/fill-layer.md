@@ -1,7 +1,7 @@
 ---
-sidebar_position: 1
 title: 'Fill'
 description: 'Add Polygons to the map.'
+icon: lucide/square
 ---
 
 # Fill StyleLayer
@@ -9,11 +9,11 @@ description: 'Add Polygons to the map.'
 The `FillStyleLayer` is either used by the map style or can be added to the map
 programmatically to symbolize data on the map.
 
-[![Fill Style Layer](/img/layers/fill_layer.jpg)](/demo/#/style-layers/fill)
+[![Fill Style Layer](../../assets/images/layers/fill_layer.jpg)](/demo/#/style-layers/fill)
 
 ## Basic Usage
 
-```dart
+```dart linenums="1" hl_lines="11-20"
 late final MapController _controller;
 
 @override
@@ -22,7 +22,6 @@ Widget build(BuildContext context) {
       options: MapOptions(center: Geographic(lon: 9.17, lat: 47.68)),
       onMapCreated: (controller) => _controller = controller,
       onStyleLoaded: (style) async {
-        // highlight-start
         final geojsonPolygon =
         await rootBundle.loadString('assets/geojson/lake-constance.json');
         await style.addSource(
@@ -35,14 +34,13 @@ Widget build(BuildContext context) {
             paint: {'fill-color': '#429ef5'},
           ),
         );
-        // highlight-end
       }
   );
 }
 ```
 
 Check out
-the [example app](https://github.com/josxha/flutter-maplibre/blob/main/example/lib/layers_fill_page.dart)
+the [example app](https://github.com/josxha/flutter-maplibre/blob/v0.3.4/examples/lib/layers_fill_page.dart)
 to learn more.
 
 ## Style & Layout

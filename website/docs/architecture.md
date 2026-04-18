@@ -1,13 +1,19 @@
 ---
-sidebar_position: 90
+hide: [ toc ]
+icon: lucide/compass
 ---
 
-# Architecture
+# Architecture Overview
 
 This page gives a small introduction in the architecture that is used
 for `maplibre`.
 
 ## Abstraction Layers
+
+### Android, iOS and Web
+
+Android, iOS and Web use native interop to connect the Flutter/Dart code with
+the native MapLibre code.
 
 ```mermaid
 flowchart TB
@@ -23,33 +29,67 @@ flowchart TB
         MapLibreMapState
     end
 
-    subgraph Pigeon["Platform Channels (Pigeon)"]
-        MapLibreMapStateNative
-    end
-
-    subgraph Interop["Native Interop (FFI / JNI)"]
+    subgraph Interop["Platform Bindings"]
         MapLibreMapStateAndroid
         MapLibreMapStateIos
         MapLibreMapStateWeb
     end
 
     subgraph Native["Native Code"]
-       Android["Android (Kotlin, Java)"]
-       iOS["iOS (Swift, Objective C)"]
-       Web["Web (TypeScript)"]
+       Android["MapLibre Native Android"]
+       iOS["MapLibre Native iOS"]
+       Web["MapLibre GL JS"]
     end
 
-    User --> MapLibreMap
-    MapLibreMap --> MapLibreMapState
-    MapController --> MapLibreMapState
-    StyleController --> MapLibreMapState
-    MapLibreMapState --> MapLibreMapStateNative
-    MapLibreMapStateNative --> MapLibreMapStateAndroid
-    MapLibreMapStateNative --> MapLibreMapStateIos
-    MapLibreMapState --> MapLibreMapStateWeb
-    MapLibreMapStateAndroid --> Android
-    MapLibreMapStateIos --> iOS
-    MapLibreMapStateWeb --> Web
+    User --[invoke method]--> MapLibreMap
+    MapLibreMap --[uses]--> MapLibreMapState
+    MapController --[implemented by]--> MapLibreMapState
+    StyleController --[implemented by]--> MapLibreMapState
+    MapLibreMapState --[extends]--> MapLibreMapStateAndroid
+    MapLibreMapState --[extends]--> MapLibreMapStateIos
+    MapLibreMapState --[extends]--> MapLibreMapStateWeb
+    MapLibreMapStateAndroid --[jni]--> Android
+    MapLibreMapStateIos --[ffi]--> iOS
+    MapLibreMapStateWeb --[interop]--> Web
+```
+
+### Windows and MacOS (using a WebView)
+
+The experimental Windows and MacOS implementations use a WebView to render the
+map. The architecture is a bit different, because the WebView is used as a
+platform view and the communication with the WebView is done using the
+`flutter_inappwebview` package.
+
+```mermaid
+flowchart TB
+    subgraph User["User Implementation"]
+    end
+    subgraph Public["Public API"]
+        MapLibreMap
+        MapController
+        StyleController
+    end
+
+    subgraph Widget["StatefulWidget"]
+        MapLibreMapState
+    end
+
+    subgraph Interop["Platform Bindings"]
+        MapLibreMapStateWebView
+        flutter_inappwebview
+    end
+
+    subgraph Native["Native Code"]
+       Web["MapLibre GL JS"]
+    end
+
+    User --[invoke method]--> MapLibreMap
+    MapLibreMap --[uses]--> MapLibreMapState
+    MapController --[implemented by]--> MapLibreMapState
+    StyleController --[implemented by]--> MapLibreMapState
+    MapLibreMapState --[extends]--> MapLibreMapStateWebView
+    MapLibreMapStateWebView --[uses]--> flutter_inappwebview
+    flutter_inappwebview --[method channel, ws]--> Web
 ```
 
 ### 1. Public API
@@ -62,13 +102,7 @@ package that users are in contact with.
 `MapLibreMapState` is an abstract base class for the `State<MapLibreMap`> and
 contains implementations that are completely platform invariant.
 
-### 3. MapLibreMapStateNative
-
-This class is a unified parent class for all non-web platforms that use the
-Pigeon method channel. Because pigoen dart code is the same on all non-web
-platforms, all those implementations are located in `MapLibreMapStateNative`.
-
-### 4. MapLibreMapStateAndroid, -Ios, -Web
+### 3. MapLibreMapStateAndroid, -Ios, -Web
 
 This is the last Flutter/Dart layer. These classes contain missing
 implementations that haven't previously been implemented on an higher level.
@@ -81,7 +115,7 @@ This layer has the connection with the Native Code Layer using
 - The WASM compatible interop with JavaScript using js_interop and package:web
   on Web.
 
-### 5. Native Layer
+### 4. Native Layer
 
 The last and most low level layer that package uses. This layer handles Platform
 View registration and the native implementation of Pigeon.

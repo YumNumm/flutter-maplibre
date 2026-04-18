@@ -1,7 +1,7 @@
 ---
-sidebar_position: 1
 title: 'Line'
 description: 'Add Lines to the map.'
+icon: lucide/line-squiggle
 ---
 
 # Line Style Layer
@@ -9,11 +9,11 @@ description: 'Add Lines to the map.'
 The `LineStyleLayer` is either used by the map style or can be added to the map
 programmatically to symbolize data on the map.
 
-[![Line Style Layer](/img/layers/line_layer.jpg)](/demo/#/style-layers/line)
+[![Line Style Layer](../../assets/images/layers/line_layer.jpg)](/demo/#/style-layers/line)
 
 ## Basic Usage
 
-```dart
+```dart linenums="1" hl_lines="9-19"
 late final MapController _controller;
 
 @override
@@ -22,7 +22,6 @@ Widget build(BuildContext context) {
       options: MapOptions(center: Geographic(lon: 9.17, lat: 47.68)),
       onMapCreated: (controller) => _controller = controller,
       onStyleLoaded: (style) async {
-        // highlight-start
         final geojsonLine = await rootBundle.loadString('assets/geojson/path.json');
         await style.addSource(
           GeoJsonSource(id: 'Path', data: geojsonLine),
@@ -34,14 +33,13 @@ Widget build(BuildContext context) {
             paint: {'line-color': '#F00', 'line-width': 3},
           ),
         );
-        // highlight-end
       }
   );
 }
 ```
 
 Check out
-the [example app](https://github.com/josxha/flutter-maplibre/blob/main/example/lib/style-layers_line_page.dart)
+the [example app](https://github.com/josxha/flutter-maplibre/blob/v0.3.4/examples/lib/style_layers_line_page.dart)
 to learn more.
 
 ## Style & Layout
