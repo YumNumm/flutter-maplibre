@@ -17,7 +17,7 @@ public class MapLibrePlugin: NSObject, FlutterPlugin {
 
     /// Clears native registry when the plugin is removed from the engine (e.g. engine
     /// deallocation). Hot restart is primarily handled by `MapLibreView.deinit`.
-    public func detachFromEngineForRegistrar(_ registrar: FlutterPluginRegistrar) {
+    public func detachFromEngine(for registrar: FlutterPluginRegistrar) {
         MapLibreRegistry.clearAll()
     }
 
