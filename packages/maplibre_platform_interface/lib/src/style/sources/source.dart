@@ -1,5 +1,9 @@
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
 import 'package:maplibre_platform_interface/maplibre_platform_interface.dart';
 
+part 'computed_geo_json_source.dart';
 part 'geo_json_source.dart';
 part 'raster_dem_source.dart';
 part 'raster_source.dart';
