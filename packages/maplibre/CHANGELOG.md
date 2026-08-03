@@ -1,5 +1,14 @@
 ## Unreleased
 
+### New Features
+
+- Add the synchronous `ComputedGeoJsonSource` public contract for upcoming
+  Android and iOS backends. Providers must return a GeoJSON
+  `FeatureCollection`; invalid values and provider failures report a typed
+  error and resolve to an empty tile. Region and tile invalidation are exposed
+  through `StyleController`. Web and desktop WebView implementations are
+  explicitly unsupported.
+
 ### Bug Fixes
 
 - iOS: fix crash on hot restart when native map callbacks invoked FFI after the Dart isolate was torn down (`DLRT_GetFfiCallbackMetadata` assert). Clear `MLNMapView.delegate` and unregister entries in `MapLibreView.deinit`; add `MapLibreRegistry.clearAll()` and invoke it from `detachFromEngineForRegistrar`. See [issue #498](https://github.com/josxha/flutter-maplibre/issues/498).
