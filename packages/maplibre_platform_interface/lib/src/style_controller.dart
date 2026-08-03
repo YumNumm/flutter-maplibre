@@ -47,6 +47,28 @@ abstract class StyleController {
   /// Update the data of a GeoJSON source.
   Future<void> updateGeoJsonSource({required String id, required String data});
 
+  /// Invalidates computed tiles intersecting [bounds].
+  ///
+  /// Computed GeoJSON sources are supported only on Android and iOS.
+  Future<void> invalidateComputedGeoJsonSourceRegion({
+    required String id,
+    required LngLatBounds bounds,
+  }) async => throw UnsupportedError(
+    'ComputedGeoJsonSource is not supported on this platform.',
+  );
+
+  /// Invalidates one computed tile.
+  ///
+  /// Computed GeoJSON sources are supported only on Android and iOS.
+  Future<void> invalidateComputedGeoJsonSourceTile({
+    required String id,
+    required int x,
+    required int y,
+    required int zoomLevel,
+  }) async => throw UnsupportedError(
+    'ComputedGeoJsonSource is not supported on this platform.',
+  );
+
   /// Update the filter of a layer.
   ///
   /// The [id] is the layer id and the [filter] is the new filter expression.

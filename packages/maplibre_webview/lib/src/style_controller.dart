@@ -90,6 +90,13 @@ class StyleControllerWebView extends StyleController {
 
   @override
   Future<void> addSource(Source source) async {
+    switch (source) {
+      case ComputedGeoJsonSource():
+        throw UnsupportedError(
+          'ComputedGeoJsonSource is not supported on this platform.',
+        );
+      default:
+    }
     await webViewController.callAsyncJavaScript(
       functionBody:
           '''
@@ -263,7 +270,8 @@ class StyleControllerWebView extends StyleController {
     required List<Object>? filter,
   }) async {
     await webViewController.callAsyncJavaScript(
-      functionBody: '''
+      functionBody:
+          '''
       const layerId = ${jsonEncode(id)};
       if (!window.map.getLayer(layerId)) {
         throw new Error('Layer with id "' + layerId + '" does not exist.');

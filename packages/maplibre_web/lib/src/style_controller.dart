@@ -211,6 +211,10 @@ class StyleControllerWeb extends StyleController {
       );
     }
     switch (source) {
+      case ComputedGeoJsonSource():
+        throw UnsupportedError(
+          'ComputedGeoJsonSource is not supported on this platform.',
+        );
       case GeoJsonSource():
         JSAny data;
         if (source.data[0] == '{') {
