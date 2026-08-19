@@ -36,6 +36,17 @@ class MapLibreView: NSObject, FlutterPlatformView, UIGestureRecognizerDelegate, 
         _view.addSubview(_mapView)
         _mapView.delegate = self
 
+        // MapLibre installs its own gesture recognizers inside the MLNMapView
+        // initializer, so its quick zoom recognizer already exists here. Resolve it
+        // before adding any recognizers of our own so the scan below can never pick
+        // up one of ours.
+        let quickZoomRecognizers = Self.quickZoomGestureRecognizers(of: _mapView)
+        assert(
+            !quickZoomRecognizers.isEmpty,
+            "MapLibre's quick zoom recognizer was not found on MLNMapView. Its private "
+                + "gesture setup changed; single taps will misfire during quick zoom."
+        )
+
         // Long press
         let longPress = UILongPressGestureRecognizer(
             target: self,
@@ -67,6 +78,14 @@ class MapLibreView: NSObject, FlutterPlatformView, UIGestureRecognizerDelegate, 
         primaryTap.cancelsTouchesInView = false
         primaryTap.require(toFail: doubleTap)
         primaryTap.require(toFail: longPress)
+        // Required, do not remove: during a quick zoom (double tap, then press and
+        // drag vertically) doubleTap fails as soon as the finger moves past its
+        // allowable movement, which would otherwise promote primaryTap and report a
+        // tap in the middle of the zoom. MapLibre's own single tap recognizer
+        // requires quick zoom to fail for exactly this reason.
+        for quickZoom in quickZoomRecognizers {
+            primaryTap.require(toFail: quickZoom)
+        }
         primaryTap.delegate = self
         if #available(iOS 13.4, *) {
             primaryTap.buttonMaskRequired = .primary
@@ -82,6 +101,9 @@ class MapLibreView: NSObject, FlutterPlatformView, UIGestureRecognizerDelegate, 
             secondaryTap.cancelsTouchesInView = false
             secondaryTap.require(toFail: doubleTap)
             secondaryTap.require(toFail: longPress)
+            // No quick zoom dependency here: quick zoom is touch only and this
+            // recognizer requires a secondary (right) button, so the two can never
+            // compete.
             secondaryTap.delegate = self
             secondaryTap.buttonMaskRequired = .secondary
             _mapView.addGestureRecognizer(secondaryTap)
@@ -94,6 +116,28 @@ class MapLibreView: NSObject, FlutterPlatformView, UIGestureRecognizerDelegate, 
         _mapView.delegate = nil
         MapLibreRegistry.removeFlutterApi(viewId: _viewId)
         MapLibreRegistry.removeMap(viewId: _viewId)
+    }
+
+    /// MapLibre's quick zoom recognizer, which is declared in a private class
+    /// extension of `MLNMapView` and is exposed in neither the public headers nor
+    /// `MLNMapView_Private.h`. It can therefore only be found by scanning the
+    /// recognizers attached to the map view.
+    ///
+    /// MapLibre creates it as a `UILongPressGestureRecognizer` with
+    /// `numberOfTapsRequired = 1` and `minimumPressDuration = 0`; it is the only
+    /// long press recognizer MapLibre adds to the map view itself. Both values are
+    /// matched because the recognizer this plugin adds is also a long press, but
+    /// with `numberOfTapsRequired = 0` and `minimumPressDuration = 0.5`.
+    private static func quickZoomGestureRecognizers(
+        of mapView: MLNMapView
+    ) -> [UILongPressGestureRecognizer] {
+        (mapView.gestureRecognizers ?? []).compactMap { recognizer in
+            guard let longPress = recognizer as? UILongPressGestureRecognizer,
+                  longPress.numberOfTapsRequired == 1,
+                  longPress.minimumPressDuration == 0
+            else { return nil }
+            return longPress
+        }
     }
 
     var api: FlutterApi? {

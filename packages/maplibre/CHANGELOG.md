@@ -11,6 +11,7 @@
 
 ### Bug Fixes
 
+- iOS: fix a spurious `MapEventClick` emitted while the quick zoom gesture (double tap, then press and drag vertically) is active. The single tap recognizers now require MapLibre's quick zoom recognizer to fail, matching the behavior of MapLibre's own single tap recognizer.
 - iOS: fix crash on hot restart when native map callbacks invoked FFI after the Dart isolate was torn down (`DLRT_GetFfiCallbackMetadata` assert). Clear `MLNMapView.delegate` and unregister entries in `MapLibreView.deinit`; add `MapLibreRegistry.clearAll()` and invoke it from `detachFromEngineForRegistrar`. See [issue #498](https://github.com/josxha/flutter-maplibre/issues/498).
 
 **Manual verification (iOS Simulator):** run `flutter run` from `packages/maplibre_ios/example` (or the main example app), open a map page, then hot restart (`R`). The app must not crash and the map should still load.
