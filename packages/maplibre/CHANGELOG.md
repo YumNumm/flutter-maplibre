@@ -1,5 +1,11 @@
 ## Unreleased
 
+### Maintenance
+
+- Android: update MapLibre Native to [13.5.1](https://github.com/maplibre/maplibre-native/releases/tag/android-v13.5.1) (`android-sdk-opengl`).
+- iOS: update MapLibre Native to [6.28.0](https://github.com/maplibre/maplibre-native/releases/tag/ios-v6.28.0).
+- These versions include converting PMTiles metadata gzip failures into error responses instead of aborting ([maplibre-native#4399](https://github.com/maplibre/maplibre-native/pull/4399)).
+
 ### New Features
 
 - Add the synchronous `ComputedGeoJsonSource` public contract for upcoming
