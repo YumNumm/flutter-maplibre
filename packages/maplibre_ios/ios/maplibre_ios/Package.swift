@@ -16,7 +16,7 @@ let package = Package(
         .binaryTarget(
             name: "MapLibre",
             url: "https://github.com/YumNumm/maplibre-native/releases/download/ios-v6.29.0-yumnumm.1/MapLibre.dynamic.xcframework.zip",
-            checksum: "70064c0b773492b21af9d3cfff57ab1438fdd704c515a28841e354f4c1757eb4"
+            checksum: "473ce393b16a54ba787d2d626968ec92614573f1ab00b5af9c65660cc5d18ebc"
         ),
         .target(
             name: "MapLibreExpression",
