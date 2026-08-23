@@ -1,6 +1,9 @@
 import Foundation
 import MapLibre
 import UIKit
+#if SWIFT_PACKAGE
+    import MapLibreExpression
+#endif
 
 // Update the header file for this class like this:
 // cd maplibre_ios/ios/maplibre_ios/Sources/maplibre_ios/
@@ -47,6 +50,11 @@ public class Helpers: NSObject {
                 )
                 // print("json: \(json)")
                 if let offset = json as? [Any] {
+                    if propertyName.contains("color"),
+                       let match = ColorMatchExpressionParser.parse(offset)
+                    {
+                        return match
+                    }
                     if offset.count == 2, offset.first as? String == "literal" {
                         if let vector = offset.last as? [Any] {
                             if vector.count == 2 {

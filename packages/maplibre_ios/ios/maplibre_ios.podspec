@@ -13,7 +13,7 @@ Helper package for maplibre that provides iOS FFI bindings
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Joscha Eckert' => 'info@joscha-eckert.de' }
   s.source           = { :path => '.' }
-  s.source_files = 'maplibre_ios/Sources/maplibre_ios/**/*'
+  s.source_files = 'maplibre_ios/Sources/**/*'
   s.dependency 'Flutter'
 
   # Needs to be the same version as in maplibre_ios/Package.swift
