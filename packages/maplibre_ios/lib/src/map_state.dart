@@ -4,6 +4,7 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:maplibre_ios/src/camera_change_reason_resolver.dart';
 import 'package:maplibre_ios/src/extensions.dart';
 import 'package:maplibre_ios/src/maplibre_ffi.g.dart';
 import 'package:maplibre_platform_interface/maplibre_platform_interface.dart';
@@ -480,25 +481,9 @@ final class MapLibreMapStateIos extends MapLibreMapState {
     int mlnChangeReason,
     bool animated,
   ) {
-    const apiReasons = {
-      MLNCameraChangeReason.MLNCameraChangeReasonGestureOneFingerZoom,
-      MLNCameraChangeReason.MLNCameraChangeReasonGesturePan,
-      MLNCameraChangeReason.MLNCameraChangeReasonGesturePinch,
-      MLNCameraChangeReason.MLNCameraChangeReasonGestureRotate,
-      MLNCameraChangeReason.MLNCameraChangeReasonGestureTilt,
-      MLNCameraChangeReason.MLNCameraChangeReasonGestureZoomIn,
-      MLNCameraChangeReason.MLNCameraChangeReasonGestureZoomOut,
-      MLNCameraChangeReason.MLNCameraChangeReasonTransitionCancelled,
-    };
-    final CameraChangeReason reason;
-    if (apiReasons.contains(mlnChangeReason)) {
-      reason = CameraChangeReason.apiGesture;
-    } else if (mlnChangeReason ==
-        MLNCameraChangeReason.MLNCameraChangeReasonProgrammatic) {
-      reason = CameraChangeReason.apiAnimation;
-    } else {
-      reason = CameraChangeReason.developerAnimation;
-    }
+    final reason = const CameraChangeReasonResolver().resolve(
+      mlnChangeReason: mlnChangeReason,
+    );
     widget.onEvent?.call(MapEventStartMoveCamera(reason: reason));
   }
 
