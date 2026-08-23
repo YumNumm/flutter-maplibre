@@ -77,6 +77,15 @@ Future<Uri> _getMapLibreFrameworkPath({
   required Uri packageRoot,
   required bool useSimulator,
 }) async {
+  final binaryTarget = _getMapLibreBinaryTarget(packageRoot);
+  if (binaryTarget != null) {
+    return _getBinaryTargetFrameworkPath(
+      packageRoot: packageRoot,
+      useSimulator: useSimulator,
+      target: binaryTarget,
+    );
+  }
+
   // Detect the MapLibre version. Preferred source: the app's `Package.resolved`
   // (it pins the exact version Swift Package Manager resolved). Fallbacks
   // ensure the hook still works in transient states where Flutter's iOS
@@ -152,17 +161,64 @@ Future<Uri> _getMapLibreFrameworkPath({
     await _downloadMapLibreXcframeworkZip(version: version, dest: zipPath);
   }
 
-  // extract resolved MapLibre ZIP from SPM artifacts if needed
+  return _extractFramework(
+    packageRoot: packageRoot,
+    zipPath: zipPath,
+    cacheIdentity: version,
+    useSimulator: useSimulator,
+  );
+}
+
+({Uri url, String checksum})? _getMapLibreBinaryTarget(Uri packageRoot) {
+  final packageSwift = File.fromUri(
+    packageRoot.resolve('ios/maplibre_ios/Package.swift'),
+  );
+  if (!packageSwift.existsSync()) return null;
+
+  final match = RegExp(
+    r'\.binaryTarget\(\s*name:\s*"MapLibre",\s*url:\s*"([^"]+)",\s*checksum:\s*"([0-9a-fA-F]+)"\s*\)',
+  ).firstMatch(packageSwift.readAsStringSync());
+  final url = Uri.tryParse(match?.group(1) ?? '');
+  final checksum = match?.group(2)?.toLowerCase();
+  if (url == null || checksum == null || checksum.isEmpty) return null;
+  return (url: url, checksum: checksum);
+}
+
+Future<Uri> _getBinaryTargetFrameworkPath({
+  required Uri packageRoot,
+  required bool useSimulator,
+  required ({Uri url, String checksum}) target,
+}) async {
+  final downloadRoot = packageRoot.resolve('.dart_tool/maplibre_downloads/');
+  final zipPath = downloadRoot.resolve('${target.checksum}.zip');
+  final zipFile = File.fromUri(zipPath);
+  if (!zipFile.existsSync()) {
+    await _downloadXcframeworkZip(url: target.url, dest: zipPath);
+  }
+  await _verifyChecksum(file: zipFile, expected: target.checksum);
+
+  return _extractFramework(
+    packageRoot: packageRoot,
+    zipPath: zipPath,
+    cacheIdentity: target.checksum,
+    useSimulator: useSimulator,
+  );
+}
+
+Future<Uri> _extractFramework({
+  required Uri packageRoot,
+  required Uri zipPath,
+  required String cacheIdentity,
+  required bool useSimulator,
+}) async {
   final extractionRoot = packageRoot.resolve(
     '.dart_tool/maplibre_xcframework/',
   );
   final versionPath = extractionRoot.resolve('version.txt');
   final versionFile = File.fromUri(versionPath);
-  if (versionFile.existsSync()) {
-    final existingVersion = versionFile.readAsStringSync();
-    if (existingVersion != version) {
-      await Directory.fromUri(extractionRoot).delete(recursive: true);
-    }
+  if (versionFile.existsSync() &&
+      versionFile.readAsStringSync() != cacheIdentity) {
+    await Directory.fromUri(extractionRoot).delete(recursive: true);
   }
   if (!Directory.fromUri(extractionRoot).existsSync()) {
     await Directory.fromUri(extractionRoot).create(recursive: true);
@@ -175,10 +231,9 @@ Future<Uri> _getMapLibreFrameworkPath({
     if (unzipResult.exitCode != 0) {
       throw Exception('Failed to extract MapLibre zip: ${unzipResult.stderr}');
     }
-    await File.fromUri(versionPath).writeAsString(version);
+    await File.fromUri(versionPath).writeAsString(cacheIdentity);
   }
 
-  // Return paths to headers and framework for the desired architecture.
   final archSegment = useSimulator ? 'ios-arm64_x86_64-simulator' : 'ios-arm64';
   final frameworkDir = extractionRoot.resolve(
     'MapLibre.xcframework/$archSegment/',
@@ -190,6 +245,49 @@ Future<Uri> _getMapLibreFrameworkPath({
     );
   }
   return frameworkDir;
+}
+
+Future<void> _verifyChecksum({
+  required File file,
+  required String expected,
+}) async {
+  final result = await Process.run('shasum', ['-a', '256', file.path]);
+  if (result.exitCode != 0) {
+    throw Exception('Failed to checksum MapLibre zip: ${result.stderr}');
+  }
+  final actual = '${result.stdout}'.trim().split(RegExp(r'\s+')).first;
+  if (actual != expected) {
+    await file.delete();
+    throw Exception(
+      'MapLibre zip checksum mismatch: expected $expected, got $actual.',
+    );
+  }
+}
+
+Future<void> _downloadXcframeworkZip({
+  required Uri url,
+  required Uri dest,
+}) async {
+  await Directory.fromUri(dest.resolve('./')).create(recursive: true);
+  final partFile = File('${dest.toFilePath()}.part');
+  // ignore: avoid_print
+  print('[maplibre_ios] downloading MapLibre xcframework from $url');
+  final client = HttpClient();
+  try {
+    final request = await client.getUrl(url);
+    final response = await request.close();
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Failed to download MapLibre xcframework: '
+        'HTTP ${response.statusCode} from $url',
+      );
+    }
+    final sink = partFile.openWrite();
+    await response.pipe(sink);
+  } finally {
+    client.close(force: true);
+  }
+  await partFile.rename(dest.toFilePath());
 }
 
 Future<void> _downloadMapLibreXcframeworkZip({
