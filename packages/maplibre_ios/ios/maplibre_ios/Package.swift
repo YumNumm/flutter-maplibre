@@ -11,21 +11,23 @@ let package = Package(
     products: [
         .library(name: "maplibre-ios", targets: ["maplibre_ios"]),
     ],
-    dependencies: [
-        // Needs to be the same version as in ../maplibre_ios.podspec
-        .package(url: "https://github.com/maplibre/maplibre-gl-native-distribution", .upToNextMinor(from: "6.28.0")),
-    ],
+    dependencies: [],
     targets: [
+        .binaryTarget(
+            name: "MapLibre",
+            url: "https://github.com/YumNumm/maplibre-native/releases/download/ios-v6.29.0-yumnumm.1/MapLibre.dynamic.xcframework.zip",
+            checksum: "70064c0b773492b21af9d3cfff57ab1438fdd704c515a28841e354f4c1757eb4"
+        ),
         .target(
             name: "MapLibreExpression",
             dependencies: [
-                .product(name: "MapLibre", package: "maplibre-gl-native-distribution"),
+                "MapLibre",
             ]
         ),
         .target(
             name: "maplibre_ios",
             dependencies: [
-                .product(name: "MapLibre", package: "maplibre-gl-native-distribution"),
+                "MapLibre",
                 "MapLibreExpression",
             ],
             cSettings: [
