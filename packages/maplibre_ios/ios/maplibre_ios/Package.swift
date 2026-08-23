@@ -17,13 +17,24 @@ let package = Package(
     ],
     targets: [
         .target(
+            name: "MapLibreExpression",
+            dependencies: [
+                .product(name: "MapLibre", package: "maplibre-gl-native-distribution"),
+            ]
+        ),
+        .target(
             name: "maplibre_ios",
             dependencies: [
                 .product(name: "MapLibre", package: "maplibre-gl-native-distribution"),
+                "MapLibreExpression",
             ],
             cSettings: [
                 .headerSearchPath("include/maplibre_ios"),
             ]
+        ),
+        .testTarget(
+            name: "MapLibreExpressionTests",
+            dependencies: ["MapLibreExpression"]
         ),
     ]
 )
