@@ -282,9 +282,8 @@ void test() {
       await ctrl.style?.addSource(source);
       await ctrl.style?.updateGeoJsonSource(
         id: source.id,
-        data: GeometryCollection(const [
-          Point(Geographic(lon: 0, lat: 0)),
-        ]).toText(),
+        data: GeometryCollection(const [Point(Geographic(lon: 0, lat: 0))])
+            .toText(),
       );
     });
 
@@ -737,8 +736,7 @@ void test() {
     final ctrl = await ctrlCompleter.future;
     const source = ImageSource(
       id: '1',
-      url:
-          'https://raw.githubusercontent.com/josxha/flutter-maplibre/57396548693857a80083303f56aa83b4901dad48/docs/static/img/favicon-32x32.png',
+      url: 'https://raw.githubusercontent.com/josxha/flutter-maplibre/57396548693857a80083303f56aa83b4901dad48/docs/static/img/favicon-32x32.png',
       coordinates: LngLatQuad(
         bottomLeft: Geographic(lon: 0, lat: 0),
         bottomRight: Geographic(lon: 1, lat: 0),
@@ -757,9 +755,8 @@ void test() {
     final ctrl = await ctrlCompleter.future;
     final source = GeoJsonSource(
       id: '1',
-      data: GeometryCollection(const [
-        Point(Geographic(lon: 12, lat: 2)),
-      ]).toText(),
+      data: GeometryCollection(const [Point(Geographic(lon: 12, lat: 2))])
+          .toText(),
     );
     await ctrl.style?.addSource(source);
     await tester.pumpAndSettle();
@@ -797,20 +794,24 @@ void test() {
   });
 
   testWidgets('add RasterSource', (tester) async {
-    final ctrlCompleter = Completer<MapController>();
-    final app = App(onMapCreated: ctrlCompleter.complete);
+    final styleCompleter = Completer<StyleController>();
+    final app = App(onStyleLoaded: styleCompleter.complete);
     await tester.pumpWidget(app);
-    final ctrl = await ctrlCompleter.future;
+    final style = await styleCompleter.future;
     const source = RasterSource(
       id: '1',
       tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-      maxZoom: 20,
+      minZoom: 4,
+      maxZoom: 4,
       tileSize: 256,
       attribution:
           '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     );
-    await ctrl.style?.addSource(source);
+    await style.addSource(source);
     await tester.pumpAndSettle();
+    if (!kIsWeb && defaultTargetPlatform == TargetPlatform.iOS) {
+      expect(await style.getAttributions(), contains(source.attribution));
+    }
   });
 
   testWidgets('add VectorSource', (tester) async {

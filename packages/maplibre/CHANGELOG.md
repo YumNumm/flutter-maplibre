@@ -22,6 +22,83 @@
 
 **Manual verification (iOS Simulator):** run `flutter run` from `packages/maplibre_ios/example` (or the main example app), open a map page, then hot restart (`R`). The app must not crash and the map should still load.
 
+## 0.3.7+1
+
+This bug fix release is the last planned release for the v0.3 series. The focus now will be on replacing the MapLibre Android and iOS SDK as well as the WebView desktop integration with [unified C bindings](https://github.com/maplibre/maplibre-native-ffi). Stay tuned!
+
+### Bug Fixes
+
+- Android: dispatch style-loaded callbacks asynchronously so the Android UI
+  thread does not wait for the Dart listener to return.
+- iOS: remove verbose per-expression style parsing logs from `parseExpression`.
+
+Full Changelog: [v0.3.7...v0.3.7+1](https://github.com/josxha/flutter-maplibre/compare/v0.3.7...v0.3.7+1)
+
+## 0.3.7
+
+Thanks for everyone who contributed in this release!
+@glandais, @miakh, @teamacco, @Mazen-Embaby, @fmt-Println-MKO, @BartoszStasiurka
+
+### Features
+
+- Requires Dart 3.13 and Flutter 3.47 or newer.
+- iOS: ffigen v22, code_assets v2, objective_c 9.5
+
+### Bug Fixes
+
+- Android: `OfflineManager.downloadRegion` no longer leaks a JNI global
+  reference per status event, which aborted the process with a global
+  reference table overflow partway through a large region download.
+- Android: calls on a `StyleController` whose native style was already released
+  are ignored instead of aborting the process with a JNI error.
+- Android: remove the ktlint Gradle plugin, which broke builds of apps that
+  depend on `maplibre_android`.
+- Android: add a missing proguard rule for obfuscated release builds.
+- iOS: fix a crash when setting hillshade `colorArray` and `numberArray` paint
+  properties.
+- iOS: fix `animateCamera()` crash when called before the native view has a
+  layout size.
+- iOS: tear down `MLNMapView` and its gesture recognizers when the map is
+  disposed.
+- iOS: preserve zoom levels, attribution, raster tile size, and supported DEM
+  encoding when adding tile-template sources at runtime.
+- Web: `fitBounds()` no longer reuses padding from a previous camera move.
+
+## 0.3.6
+
+Thanks for everyone who contributed in this release!
+@emanuelesenis, @BartoszStasiurka, @D3CK3R, @Mazen-Embaby, @teamacco, @lukeboyden
+
+### Features
+
+- Android: MapLibre Native Android 13.5
+- iOS: MapLibre Native iOS 6.29
+- Android: jnigen 0.17
+- iOS: hooks v2, native_toolchain_c 0.19
+- Android: Migrate Plugin to Built-in Kotlin
+- Support for the tolerance parameter in GeoJsonSource
+- Add geometry field to RenderedFeature
+
+### Bug Fixes
+
+- Android: fix platform views are never removed from the internal registry,
+  leaking a `FrameLayout` and its native map state per map create/dispose
+  cycle.
+- Android: `StyleController` now releases its native style reference when
+  the owning `MapLibreMap` is disposed, instead of staying technically
+  usable on a torn-down map.
+- Android: fix `StyleController` and several map query methods
+  (`updateGeoJsonSource`, `removeLayer`/`removeSource`/`removeImage`,
+  `getLayerIds`, `getAttributionsSync`, `featuresAtPoint`/`featuresInRect`)
+  leak JNI global references on every call.
+- Android: camera listeners no longer block the calling Java thread on
+  camera events.
+- iOS: fix long tab took a long time to be registered
+- iOS: fix SPM package resolved bootstrap
+- iOS: fix GeoJSON rendering failure in obfuscated releases
+- Android: fix proguard rules for obfuscated release builds
+- skip re-serializing a GeoJSON source whose layer is unchanged.
+
 ## 0.3.5
 
 This release contains a couple of bug fixes and improvements.
