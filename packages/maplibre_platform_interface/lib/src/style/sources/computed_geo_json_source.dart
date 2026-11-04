@@ -1,12 +1,15 @@
 part of 'source.dart';
 
 /// Produces GeoJSON for one native-computed tile request.
-typedef ComputedGeoJsonProvider =
-    String Function({required LngLatBounds bounds, required int zoomLevel});
+typedef ComputedGeoJsonProvider = String Function({
+  required LngLatBounds bounds,
+  required int zoomLevel,
+});
 
 /// Receives a typed failure raised while computing a source tile.
-typedef ComputedGeoJsonErrorCallback =
-    void Function(ComputedGeoJsonSourceError error);
+typedef ComputedGeoJsonErrorCallback = void Function(
+  ComputedGeoJsonSourceError error,
+);
 
 /// Identifies the stage that failed while computing a source tile.
 enum ComputedGeoJsonSourceErrorKind {

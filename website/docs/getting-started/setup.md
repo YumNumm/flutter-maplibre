@@ -20,7 +20,7 @@ icon: lucide/sparkles
     
     ```yaml title="pubspec.yaml" hl_lines="2"
     dependencies:
-      maplibre: ^0.3.0
+      maplibre: ^0.3.7+1
     ```
     and then run `flutter pub get` to install the package.
     
@@ -173,8 +173,8 @@ your dependency list.
 
     ```yaml title="pubspec.yaml" hl_lines="3"
     dependencies:
-      maplibre: ^0.3.4
-      maplibre_webview: ^0.3.4
+      maplibre: ^0.3.7+1
+      maplibre_webview: ^0.3.7+1
     ```
 
 ### flutter_inappwebview Setup

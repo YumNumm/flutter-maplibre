@@ -35,7 +35,6 @@ public class Helpers: NSObject {
     @objc public static func parseExpression(
         propertyName: String, expression: String
     ) -> NSExpression? {
-        print("\(propertyName): \(expression)")
         do {
             // can't create an Expression using the default method if the data is a hex string
             if propertyName.contains("color"), expression.first == "#" {
@@ -56,18 +55,15 @@ public class Helpers: NSObject {
                         return match
                     }
                     if offset.count == 2, offset.first as? String == "literal" {
-                        if let vector = offset.last as? [Any] {
-                            if vector.count == 2 {
-                                if let x = vector.first as? Double,
-                                   let y = vector.last as? Double
-                                {
-                                    return NSExpression(
-                                        forConstantValue: NSValue(
-                                            cgVector: CGVector(dx: x, dy: y)
-                                        )
-                                    )
-                                }
-                            }
+                        if let vector = offset.last as? [Any], vector.count == 2,
+                           let x = vector.first as? Double,
+                           let y = vector.last as? Double
+                        {
+                            return NSExpression(
+                                forConstantValue: NSValue(
+                                    cgVector: CGVector(dx: x, dy: y)
+                                )
+                            )
                         }
                     } else if let first = offset.first, !(first is String) {
                         return NSExpression(forConstantValue: offset)

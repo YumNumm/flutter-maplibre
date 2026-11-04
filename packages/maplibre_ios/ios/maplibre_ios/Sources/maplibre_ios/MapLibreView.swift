@@ -7,6 +7,13 @@ class MapLibreView: NSObject, FlutterPlatformView, UIGestureRecognizerDelegate, 
     private var _mapView: MLNMapView!
     private var _registrar: FlutterPluginRegistrar
 
+    // References to the self-added gesture recognizers, so they can be
+    // removed again in deinit() (see comment there).
+    private var _longPress: UILongPressGestureRecognizer?
+    private var _doubleTap: UITapGestureRecognizer?
+    private var _primaryTap: UITapGestureRecognizer?
+    private var _secondaryTap: UITapGestureRecognizer?
+
     init(registrar: FlutterPluginRegistrar, frame: CGRect, viewId: Int64, initStyle: String) {
         _registrar = registrar
         _viewId = viewId
@@ -58,6 +65,7 @@ class MapLibreView: NSObject, FlutterPlatformView, UIGestureRecognizerDelegate, 
         longPress.cancelsTouchesInView = false
         longPress.delegate = self
         _mapView.addGestureRecognizer(longPress)
+        _longPress = longPress
 
         // Double tap
         let doubleTap = UITapGestureRecognizer(
@@ -69,6 +77,7 @@ class MapLibreView: NSObject, FlutterPlatformView, UIGestureRecognizerDelegate, 
         doubleTap.require(toFail: longPress)
         doubleTap.delegate = self
         _mapView.addGestureRecognizer(doubleTap)
+        _doubleTap = doubleTap
 
         let primaryTap = UITapGestureRecognizer(
             target: self,
@@ -91,6 +100,7 @@ class MapLibreView: NSObject, FlutterPlatformView, UIGestureRecognizerDelegate, 
             primaryTap.buttonMaskRequired = .primary
         }
         _mapView.addGestureRecognizer(primaryTap)
+        _primaryTap = primaryTap
 
         if #available(iOS 13.4, *) {
             let secondaryTap = UITapGestureRecognizer(
@@ -107,15 +117,36 @@ class MapLibreView: NSObject, FlutterPlatformView, UIGestureRecognizerDelegate, 
             secondaryTap.delegate = self
             secondaryTap.buttonMaskRequired = .secondary
             _mapView.addGestureRecognizer(secondaryTap)
+            _secondaryTap = secondaryTap
         }
     }
 
+    /// FlutterPlatformView has no guaranteed, synchronous native dispose
+    /// callback on iOS - teardown currently depends entirely on ARC. Without
+    /// this deinit, an old MLNMapView can remain partially alive (delegate
+    /// callbacks, background tile loading/rendering threads) while a new one
+    /// is created for a different screen/route, which can crash the app
+    /// natively (std::domain_error) when both touch shared native background
+    /// threads at the same time. Mirrors the equivalent fix in
+    /// maplibre/flutter-maplibre-gl (PR #837).
     deinit {
-        // Stop delegate callbacks before clearing registry so MapLibre cannot invoke
-        // Dart FFI after the isolate (or FlutterApi) is torn down (e.g. hot restart).
-        _mapView.delegate = nil
+        _mapView?.delegate = nil
         MapLibreRegistry.removeFlutterApi(viewId: _viewId)
         MapLibreRegistry.removeMap(viewId: _viewId)
+        guard let mapView = _mapView else { return }
+        if let recognizer = _longPress {
+            mapView.removeGestureRecognizer(recognizer)
+        }
+        if let recognizer = _doubleTap {
+            mapView.removeGestureRecognizer(recognizer)
+        }
+        if let recognizer = _primaryTap {
+            mapView.removeGestureRecognizer(recognizer)
+        }
+        if let recognizer = _secondaryTap {
+            mapView.removeGestureRecognizer(recognizer)
+        }
+        mapView.removeFromSuperview()
     }
 
     /// MapLibre's quick zoom recognizer, which is declared in a private class
