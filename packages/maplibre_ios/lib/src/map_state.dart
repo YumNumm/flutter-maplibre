@@ -16,7 +16,11 @@ part 'style_controller.dart';
 /// android using JNI and Pigeon as a fallback.
 final class MapLibreMapStateIos extends MapLibreMapState {
   late final int _viewId;
+  bool _viewCreated = false;
   MLNMapView? _mapView;
+
+  @override
+  int? get platformViewId => _viewCreated ? _viewId : null;
   bool _pendingStyleLoaded = true;
 
   @override
@@ -39,6 +43,7 @@ final class MapLibreMapStateIos extends MapLibreMapState {
   /// guaranteed that the map is ready.
   void _onPlatformViewCreated(int viewId) {
     _viewId = viewId;
+    _viewCreated = true;
     final mapView = MapLibreRegistry.getMapWithViewId(viewId)!;
     _mapView = mapView;
     final flutterApi = FlutterApi$Builder.implementAsListener(

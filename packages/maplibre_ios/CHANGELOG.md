@@ -1,3 +1,10 @@
+## Unreleased
+
+- Implement `MapController.platformViewId` with the `MapLibreRegistry` view id.
+- Expose the `MapLibre` binary target as a Swift package product so other
+  plugins can `import MapLibre` (for example to subclass
+  `MLNCustomStyleLayer`).
+
 ## 0.3.5
 
 [Check the maplibre changelog](https://pub.dev/packages/maplibre/changelog#035)

@@ -1,1 +1,5 @@
+analyzer:
+  exclude:
+    - build/**
+    - ios/**
 include: ../maplibre/analysis_options.yaml

@@ -10,6 +10,7 @@ let package = Package(
     ],
     products: [
         .library(name: "maplibre-ios", targets: ["maplibre_ios"]),
+        .library(name: "MapLibre", targets: ["MapLibre"]),
     ],
     dependencies: [],
     targets: [

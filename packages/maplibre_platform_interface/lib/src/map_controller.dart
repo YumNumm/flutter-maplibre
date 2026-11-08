@@ -29,6 +29,14 @@ abstract interface class MapController {
   /// accessed before [MapLibreMap.onStyleLoaded] has been called.
   StyleController? get style;
 
+  /// The identifier of the native platform view that renders this map.
+  ///
+  /// On iOS this is the `viewId` registered in `MapLibreRegistry`, which lets
+  /// native plugins look up the `MLNMapView` (for example to add an
+  /// `MLNCustomStyleLayer`). Returns null on platforms without a native map
+  /// view or before the platform view is created.
+  int? get platformViewId;
+
   /// Convert a latitude/longitude coordinate to a screen location in logical
   /// pixels.
   Offset toScreenLocation(Geographic lngLat);

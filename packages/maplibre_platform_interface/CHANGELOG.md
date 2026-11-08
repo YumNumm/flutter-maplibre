@@ -1,5 +1,7 @@
 ## Unreleased
 
+- Add `MapController.platformViewId`, the native platform view identifier
+  (iOS only; null elsewhere), so native plugins can look up the map view.
 - Add the synchronous `ComputedGeoJsonSource` contract with strict
   `FeatureCollection` validation, typed error recovery, nullable native
   options, and region/tile invalidation methods. Mobile platform backends are

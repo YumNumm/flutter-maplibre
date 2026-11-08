@@ -22,6 +22,10 @@ abstract class MapLibreMapState extends State<MapLibreMap>
   @override
   MapCamera? camera;
 
+  /// Platforms with a native map view override this.
+  @override
+  int? get platformViewId => null;
+
   /// Set to true once the map is initialized and a [MapController.camera]
   /// is set.
   bool isInitialized = false;
