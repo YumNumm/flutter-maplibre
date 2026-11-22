@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:maplibre_platform_interface/maplibre_platform_interface.dart';
+import 'package:maplibre_platform_interface/src/style/expressions/expression_json.dart';
 import 'package:maplibre_platform_interface/src/widget/inherited_model.dart';
 
-part 'android_platform_view_mode.dart';
 part 'map_gestures.dart';
+part 'map_movements.dart';
 
 /// The [MapOptions] class is used to set default values for the [MapLibreMap]
 /// widget.
@@ -13,24 +14,19 @@ part 'map_gestures.dart';
 class MapOptions {
   /// Creates a new [MapOptions] instance. See fields for more information.
   const MapOptions({
-    this.initStyle = 'https://demotiles.maplibre.org/style.json',
-    this.initZoom = 0,
-    this.initCenter,
-    @Deprecated('Renamed to initPitch') double? pitch,
-    double initPitch = 0,
-    this.initBearing = 0,
+    this.style = MapStyle.demo,
+    this.initCamera,
     this.minZoom = 0,
     this.maxZoom = 22,
     this.minPitch = 0,
     this.maxPitch = 60,
     this.maxBounds,
-    this.gestures = const MapGestures.all(),
-    this.androidTextureMode = true,
-    this.androidMode = AndroidPlatformViewMode.tlhc_vd,
-    this.androidTranslucentTextureSurface = false,
-    this.androidForegroundLoadColor = Colors.transparent,
-    this.webviewDebugMode = false,
-  }) : initPitch = pitch ?? initPitch;
+    this.movements = const MapMovements(),
+    this.gestures = const MapGestures(),
+    this.fastPforEnabled = false,
+    this.localIdeographFontFamily = 'sans-serif',
+    this.globalState = const {},
+  });
 
   /// Find the [MapOptions] of the closest [MapLibreMap] in the widget tree.
   /// Returns null if called outside of the [MapLibreMap.children].
@@ -43,29 +39,22 @@ class MapOptions {
       maybeOf(context) ??
       (throw StateError('Unable to find an instance of MapOptions'));
 
-  /// A JSON string representing a valid MapLibre style document, or a URL
-  /// pointing to such a document.
+  /// The style of the map. Defaults to the MapLibre demo style
+  /// ([MapStyle.demo]).
   ///
-  /// If not set, the default MapLibre style is used
-  /// (https://demotiles.maplibre.org/style.json).
+  /// The map loads a new style when this changes, which removes the layers
+  /// added with [StyleLayers.add]. [MapLibreMap.onStyleLoaded] reports each
+  /// loaded style.
+  final MapStyle style;
+
+  /// The camera that the map starts with, at a position
+  /// ([CameraUpdate.position]) or fitted to a target, such as bounds
+  /// ([CameraUpdate.bounds]).
   ///
-  /// If you need to change to a different map style later on,
-  /// use [MapController.setStyle].
-  final String initStyle;
-
-  /// The initial zoom level.
-  final double initZoom;
-
-  /// The initial pitch level. Minimum is 0 and maximum is 85 on web and 60 on
-  /// other platforms.
-  final double initPitch;
-
-  /// The initial bearing of the map. Defaults to 0 (north on top).
-  /// 360 is exactly one loop.
-  final double initBearing;
-
-  /// The initial center on the map.
-  final Geographic? initCenter;
+  /// If null, the map starts at the camera of its style (the style's
+  /// `center`, `zoom`, `bearing` and `pitch`). Changes after the map was
+  /// created have no effect; move the camera with [MapController] instead.
+  final CameraUpdate? initCamera;
 
   /// The minimum zoom level. Allowed values are 0-24. Defaults to 0.
   final double minZoom;
@@ -85,34 +74,96 @@ class MapOptions {
 
   /// The maximum bounding box of the map camera. No constraints are in place
   /// if set to `null`.
-  final LngLatBounds? maxBounds;
+  final GeoBox? maxBounds;
 
-  /// Enable and disable some or all map gestures.
+  /// How the user may move the camera, whatever the gesture.
+  final MapMovements movements;
+
+  /// The gestures that move the camera.
   final MapGestures gestures;
 
-  /// The platform view type used on android.
+  /// Whether the map decodes MapLibre Tile (MLT) vector tiles that use
+  /// FastPFOR integer encodings. Defaults to false.
   ///
-  /// https://docs.flutter.dev/platform-integration/android/platform-views
-  final AndroidPlatformViewMode androidMode;
-
-  /// Toggle the texture mode on Android.
+  /// Without it, the map drops each such tile with the warning
+  /// `MLT parse failed: FastPFOR decoding is not enabled`. Servers such as
+  /// Martin use FastPFOR when they encode MLT, so enable it for their tiles.
   ///
-  /// textureMode comes at a significant performance penalty.
-  /// https://maplibre.org/maplibre-native/android/api/-map-libre%20-native%20-android/org.maplibre.android.maps/-map-libre-map-options/texture-mode.html
-  final bool androidTextureMode;
-
-  /// Toggle the translucent texture surface mode on Android.
-  /// This enables textureMode and comes at a significant performance penalty.
+  /// Read once, when the map is created: changing it later has no effect.
   ///
-  /// **NOTE**! This may cause **buffer management issues** on some Android devices, so [AndroidPlatformViewMode.hc] use is recommended.
-  final bool androidTranslucentTextureSurface;
+  /// Not needed on web, where FastPFOR decoding is always enabled.
+  final bool fastPforEnabled;
 
-  /// The MapView foreground color that is used when the map surface is being created.
-  final Color androidForegroundLoadColor;
+  /// The fonts that draw CJK ideographs, kana and Hangul on the device
+  /// instead of the style's glyphs, as a CSS font-family list such as
+  /// `"'Hiragino Sans', sans-serif"`. The map then downloads only the glyph
+  /// ranges of other scripts, and shows CJK labels without waiting for them.
+  ///
+  /// Defaults to `'sans-serif'`. Null, or a list without names such as an
+  /// empty string, draws the style's glyphs.
+  ///
+  /// On iOS and macOS, `sans-serif`, `system-ui`, `ui-sans-serif` and
+  /// `-apple-system` name the system font, whose fallbacks pick the CJK face
+  /// of the device's language, and a font of the layer's `text-font` that
+  /// the device has comes first. Other names reach Core Text as they are, so
+  /// a generic family such as `serif` or `monospace` matches no font and the
+  /// next name, or Core Text's own fallback, draws.
+  ///
+  /// Only on iOS, macOS and web; the other platforms draw the style's glyphs.
+  /// Read once, when the map is created. On iOS and macOS the fonts are the
+  /// app's, set by each map as it is created and read at its first frame, so
+  /// a map created with different fonts before another map's first frame may
+  /// give that map its fonts.
+  final String? localIdeographFontFamily;
 
-  /// Enable webview debug mode. This enables additional logging if the map is
-  /// rendered using a webview. Also, it allows to show the webview devtools
-  /// by pressing F12 while the map has focus.
-  /// Defaults to false.
-  final bool webviewDebugMode;
+  /// Values of the style's global state by name, which layers read with
+  /// [Expression.globalState]. They override the defaults of the style's
+  /// `state`, also in every style that loads later.
+  ///
+  /// The map sets the values that changed when this changes. A name that is
+  /// removed, or whose value is null, goes back to the style's default.
+  /// [StyleController.globalState] reads the result.
+  ///
+  /// The values must be JSON values: bool, num, String, and lists and maps
+  /// of them.
+  ///
+  /// ```dart
+  /// MapOptions(globalState: {'units': imperial ? 'imperial' : 'metric'})
+  /// ```
+  ///
+  /// Defaults to no values.
+  final Map<String, Object?> globalState;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MapOptions &&
+          style == other.style &&
+          initCamera == other.initCamera &&
+          minZoom == other.minZoom &&
+          maxZoom == other.maxZoom &&
+          minPitch == other.minPitch &&
+          maxPitch == other.maxPitch &&
+          maxBounds == other.maxBounds &&
+          movements == other.movements &&
+          gestures == other.gestures &&
+          fastPforEnabled == other.fastPforEnabled &&
+          localIdeographFontFamily == other.localIdeographFontFamily &&
+          jsonEquals(globalState, other.globalState);
+
+  @override
+  int get hashCode => Object.hash(
+    style,
+    initCamera,
+    minZoom,
+    maxZoom,
+    minPitch,
+    maxPitch,
+    maxBounds,
+    movements,
+    gestures,
+    fastPforEnabled,
+    localIdeographFontFamily,
+    jsonHash(globalState),
+  );
 }

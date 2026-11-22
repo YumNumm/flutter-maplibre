@@ -1,56 +1,64 @@
 site_name: "MapLibre Flutter"
 site_description: "Permissive and performant mapping library that supports Mapbox Vector Tiles (MVT) powered by MapLibre SDKs."
 site_author: "josxha"
-site_url: "https://flutter-maplibre.pages.dev/"
+site_url: "https://maplibre.org/flutter-maplibre/"
 use_directory_urls: true
-repo_url: https://github.com/josxha/flutter-maplibre
+repo_url: https://github.com/maplibre/flutter-maplibre
 edit_uri: edit/main/website/
 docs_dir: website
 
 nav:
   - Home: index.md
   - Docs:
-      - Index: docs/index.md
+      - Overview: docs/index.md
       - Getting Started:
-          - How to setup: docs/getting-started/setup.md
-          - How to use: docs/getting-started/usage.md
-      - Styles: docs/styles.md
-      - User Interface: docs/ui.md
-      - Events: docs/events.md
-      - Offline & Cache: docs/offline.md
+          - Installation: docs/getting-started/setup.md
+          - Platform setup: docs/getting-started/platforms.md
+          - First map: docs/getting-started/usage.md
+          - AI tools: docs/getting-started/ai-tools.md
+      - Guides:
+          - Map & Camera: docs/map.md
+          - Styles: docs/styles.md
+          - Events: docs/events.md
+          - User Interface: docs/ui.md
+          - Plugins: docs/plugins.md
+          - User Location: docs/user-location.md
+          - Offline & Cache: docs/offline.md
+          - Network: docs/network.md
       - Annotations:
-          - Index: docs/annotations/index.md
-          - Circles: docs/annotations/circles.md
-          - Markers: docs/annotations/markers.md
-          - Polygons: docs/annotations/polygons.md
-          - Polylines: docs/annotations/polylines.md
+          - Annotation Layers: docs/annotations/index.md
           - Widgets: docs/annotations/widgets.md
+          - Drag: docs/annotations/drag.md
+          - Click and Hover: docs/annotations/click-and-hover.md
       - Sources:
-          - Sources: docs/sources.md
+          - Overview: docs/sources/index.md
+          - GeoJSON: docs/sources/geojson.md
+          - Tiles: docs/sources/tiles.md
+          - Images & Video: docs/sources/media.md
       - Style Layers:
-          - Index: docs/style-layers/index.md
-          - Circle Layer: docs/style-layers/circle-layer.md
-          - Fill Layer: docs/style-layers/fill-layer.md
-          - Heatmap Layer: docs/style-layers/heatmap-layer.md
-          - Hillshade Layer: docs/style-layers/hillshade-layer.md
-          - Line Layer: docs/style-layers/line-layer.md
-          - Raster Layer: docs/style-layers/raster-layer.md
-          - Symbol Layer: docs/style-layers/symbol-layer.md
+          - Layer Types: docs/style-layers/index.md
           - Paint & Layout: docs/style-layers/paint-and-layout.md
-      - Architecture:
-          - Architecture: docs/architecture.md
+          - Expressions: docs/style-layers/expressions.md
+          - Click and Hover: docs/style-layers/click-and-hover.md
+          - Feature State: docs/style-layers/feature-state.md
       - Migrate:
-          - maplibre_gl: docs/migrate/maplibre_gl.md
-          - flutter_map: docs/migrate/flutter_map.md
-          - Upgrade from 0.0.x: docs/migrate/upgrade-from-v0.0.x.md
-          - Upgrade from 0.1.x: docs/migrate/upgrade-from-v0.1.x.md
-          - Upgrade from 0.2.x: docs/migrate/upgrade-from-v0.2.x.md
+          - Upgrade to 0.4: docs/migrate/upgrade-from-v0.3.x.md
+          - From maplibre_gl: docs/migrate/maplibre_gl.md
+          - From flutter_map: docs/migrate/flutter_map.md
+          - From google_maps_flutter: docs/migrate/google_maps_flutter.md
+          - From mapbox_maps_flutter: docs/migrate/mapbox_maps_flutter.md
+          - Older versions:
+              - Upgrade from 0.2.x: docs/migrate/upgrade-from-v0.2.x.md
+              - Upgrade from 0.1.x: docs/migrate/upgrade-from-v0.1.x.md
+              - Upgrade from 0.0.x: docs/migrate/upgrade-from-v0.0.x.md
+      - Contributing:
+          - Architecture: docs/contributing/architecture.md
+          - Local development: docs/contributing/development.md
+          - API guidelines: docs/contributing/api-guidelines.md
   - Features: features/index.md
-  - Compare:
-      - Features: compare/features.md
-      - Similar Packages: compare/similar-packages.md
+  - Compare: compare/index.md
   - API: https://pub.dev/documentation/maplibre/latest/maplibre/
-  - Demo: /demo/
+  - Demo: demo/
   - pub.dev: https://pub.dev/packages/maplibre
 
 theme:
@@ -101,13 +109,19 @@ extra:
   generator: false
   social:
     - icon: "fontawesome/brands/github"
-      link: "https://github.com/josxha/flutter-maplibre"
+      link: "https://github.com/maplibre/flutter-maplibre"
     - icon: "fontawesome/brands/slack"
       link: "https://slack.openstreetmap.us/"
     - icon: "fontawesome/brands/stack-overflow"
       link: "https://stackoverflow.com/questions/tagged/maplibre-gl"
 
+extra_css:
+  - assets/stylesheets/extra.css
+
 markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:zensical.extensions.emoji.twemoji
+      emoji_generator: !!python/name:zensical.extensions.emoji.to_svg
   - pymdownx.tabbed:
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify

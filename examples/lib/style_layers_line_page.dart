@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class StyleLayersLinePage extends StatefulWidget {
@@ -32,8 +32,10 @@ class _StyleLayersLinePageState extends State<StyleLayersLinePage> {
                 OutlinedButton(
                   onPressed: () {
                     _controller?.moveCamera(
-                      center: const Geographic(lon: 9.17, lat: 47.68),
-                      zoom: 7,
+                      const CameraUpdate.position(
+                        center: Geographic(lon: 9.17, lat: 47.68),
+                        zoom: 7,
+                      ),
                     );
                   },
                   child: const Text('Line'),
@@ -41,8 +43,10 @@ class _StyleLayersLinePageState extends State<StyleLayersLinePage> {
                 OutlinedButton(
                   onPressed: () {
                     _controller?.moveCamera(
-                      center: const Geographic(lon: 19.6, lat: 49.5),
-                      zoom: 7,
+                      const CameraUpdate.position(
+                        center: Geographic(lon: 19.6, lat: 49.5),
+                        zoom: 7,
+                      ),
                     );
                   },
                   child: const Text('MultiLine'),
@@ -53,8 +57,10 @@ class _StyleLayersLinePageState extends State<StyleLayersLinePage> {
           Expanded(
             child: MapLibreMap(
               options: const MapOptions(
-                initZoom: 7,
-                initCenter: Geographic(lon: 9.17, lat: 47.68),
+                initCamera: CameraUpdate.position(
+                  zoom: 7,
+                  center: Geographic(lon: 9.17, lat: 47.68),
+                ),
               ),
               onStyleLoaded: _onStyleLoaded,
               onMapCreated: (controller) => _controller = controller,
@@ -72,23 +78,27 @@ class _StyleLayersLinePageState extends State<StyleLayersLinePage> {
     final geojsonLine2 = await rootBundle.loadString(
       'assets/geojson/multiline-path.json',
     );
-    await style.addSource(GeoJsonSource(id: 'Path1', data: geojsonLine1));
-    await style.addSource(
-      GeoJsonSource(id: 'Path2', data: geojsonLine2, tolerance: 0),
+    await style.sources.add(
+      GeoJsonSource.data(id: 'Path1', data: .text(geojsonLine1)),
+    );
+    await style.sources.add(
+      GeoJsonSource.data(id: 'Path2', data: .text(geojsonLine2), tolerance: 0),
     );
 
-    await style.addLayer(
-      const LineStyleLayer(
+    await style.layers.add(
+      LineStyleLayer(
         id: 'geojson-line-1',
         sourceId: 'Path1',
-        paint: {'line-color': '#F00', 'line-width': 3},
+        color: const .literal(Color(0xFFFF0000)),
+        width: const .literal(3),
       ),
     );
-    await style.addLayer(
-      const LineStyleLayer(
+    await style.layers.add(
+      LineStyleLayer(
         id: 'geojson-line-2',
         sourceId: 'Path2',
-        paint: {'line-color': '#F00', 'line-width': 3},
+        color: const .literal(Color(0xFFFF0000)),
+        width: const .literal(3),
       ),
     );
   }

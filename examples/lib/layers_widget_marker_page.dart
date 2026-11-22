@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class LayersWidgetMarkerPage extends StatefulWidget {
@@ -31,57 +31,52 @@ class _LayersWidgetMarkerPageState extends State<LayersWidgetMarkerPage> {
     ),
   ];
 
-  bool _imageLoaded = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Marker Layers')),
       body: MapLibreMap(
         options: const MapOptions(
-          initZoom: 7,
-          initCenter: Geographic(lon: 9.17, lat: 47.68),
+          initCamera: CameraUpdate.position(
+            zoom: 7,
+            center: Geographic(lon: 9.17, lat: 47.68),
+          ),
         ),
-        onEvent: (event) async {
-          switch (event) {
-            case MapEventStyleLoaded():
-              // add marker image to map
-              await event.style.addImageFromWidget(
-                id: 'marker',
-                widget: Card(
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: Icon(
-                      Icons.location_on,
-                      color: Colors.red.shade700,
-                      size: 48,
-                    ),
-                  ),
+        onStyleLoaded: (style) async {
+          // The image has the card's logical size at icon size 1. Every style
+          // that loads needs it again.
+          await style.addImageFromWidget(
+            id: 'marker',
+            widget: Card(
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(4),
+                child: Icon(
+                  Icons.location_on,
+                  color: Colors.red.shade700,
+                  size: 48,
                 ),
-              );
-              setState(() {
-                _imageLoaded = true;
-              });
-            case MapEventClick():
-              // add a new marker on click
-              setState(() {
-                _points.add(Feature(geometry: Point(event.point)));
-              });
-            default:
-              // ignore all other events
-              break;
-          }
+              ),
+            ),
+          );
+        },
+        onClick: (event) {
+          // add a new marker on click
+          setState(() {
+            _points.add(Feature(geometry: Point(event.point)));
+          });
         },
         layers: [
           MarkerLayer(
             points: _points,
-            textField: '{name}',
-            textAllowOverlap: true,
-            iconImage: _imageLoaded ? 'marker' : null,
-            iconSize: 0.15,
-            iconAnchor: IconAnchor.bottom,
-            textOffset: const [0, 1],
+            textField: const .literal('{name}'),
+            textAllowOverlap: const .literal(true),
+            iconAllowOverlap: const .literal(true),
+            // The image that onStyleLoaded adds. The markers show it once it
+            // is there.
+            icon: const .named('marker'),
+            iconAnchor: const .literal(IconAnchor.bottom),
+            textOffset: const .literal(Offset(0, 1)),
           ),
         ],
       ),

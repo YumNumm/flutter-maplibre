@@ -1,5 +1,9 @@
 name: Publish to pub.dev
 
+# Runs when a GitHub release (drafted by draft-release.yml) is published with
+# its new tag. pub.dev only trusts tag pushes that match the tag pattern set in
+# each package's admin settings (`v{{version}}`). Plugin packages have tags of
+# their own, see publish-plugin.yml.
 on:
   push: { tags: [ 'v[0-9]+.[0-9]+.[0-9]+*' ] }
 
@@ -9,38 +13,26 @@ jobs:
     permissions: { id-token: write }
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
     with: { working-directory: packages/maplibre_platform_interface }
-  maplibre-android:
-    name: "Publish `maplibre_android`"
-    needs: maplibre-platform-interface
-    permissions: { id-token: write }
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    with: { working-directory: packages/maplibre_android }
-  maplibre-ios:
-    name: "Publish `maplibre_ios`"
-    needs: maplibre-platform-interface
-    permissions: { id-token: write }
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    with: { working-directory: packages/maplibre_ios }
   maplibre-web:
     name: "Publish `maplibre_web`"
     needs: maplibre-platform-interface
     permissions: { id-token: write }
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
     with: { working-directory: packages/maplibre_web }
-  maplibre-webview:
-    name: "Publish `maplibre_webview`"
-    needs: maplibre-platform-interface
+  maplibre-native:
+    name: "Publish `maplibre_native`"
+    # After maplibre_web: the reusable workflow names every archive artifact
+    # `package-archive`, so two parallel calls could publish each other's.
+    needs: [ maplibre-platform-interface, maplibre-web ]
     permissions: { id-token: write }
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    with: { working-directory: packages/maplibre_webview }
+    with: { working-directory: packages/maplibre_native }
   maplibre:
     name: "Publish `maplibre`"
     needs:
       - maplibre-platform-interface
-      - maplibre-android
-      - maplibre-ios
       - maplibre-web
-      - maplibre-webview
+      - maplibre-native
     permissions: { id-token: write }
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
     with: { working-directory: packages/maplibre }

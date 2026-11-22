@@ -1,49 +1,1261 @@
-import 'dart:async';
+import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:maplibre/maplibre.dart';
-import 'package:maplibre_example/utils/map_styles.dart';
+import 'package:material_ui/material_ui.dart';
 
-import 'app.dart';
+import 'shared/frame_pixels.dart';
+import 'shared/test_map.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-  group('style', () {
-    testWidgets('Load JSON', (tester) async {
-      final controller = Completer<MapController>();
-      final style = Completer<StyleController>();
-      final app = App(
-        onMapCreated: controller.complete,
-        onStyleLoaded: style.complete,
-        options: MapOptions(
-          initCenter: const Geographic(lon: 0, lat: 0),
-          initStyle: MapStyles.countries.uri,
-        ),
-      );
-      await tester.pumpWidget(app);
-      await tester.pumpAndSettle();
+  runTests();
+}
 
-      final styleC = await style.future;
-      expect(styleC.getLayerIds().contains('water_red'), isTrue);
+const _point = Geographic(lon: 0, lat: 0);
+
+GeoJsonData _pointData([Geographic point = _point]) => featureCollection([
+  Feature(geometry: Point(point), id: 1, properties: const {'name': 'p'}),
+]);
+
+void runTests() {
+  group('style', () {
+    testWidgets('loads a style from JSON', (tester) async {
+      final map = await pumpMap(tester);
+      expect(map.style.layers.map((layer) => layer.id).toList(), [
+        'background',
+      ]);
     });
 
-    testWidgets('Load URL', (tester) async {
-      final controller = Completer<MapController>();
-      final style = Completer<StyleController>();
-      final app = App(
-        onMapCreated: controller.complete,
-        onStyleLoaded: style.complete,
-        options: MapOptions(
-          initCenter: const Geographic(lon: 0, lat: 0),
-          initStyle: MapStyles.openMapTilesStreets.uri,
+    testWidgets('loads a style from an asset', (tester) async {
+      final map = await pumpMap(
+        tester,
+        options: const MapOptions(
+          style: MapStyle.asset('assets/styles/test_style.json'),
+          initCamera: CameraUpdate.position(zoom: 4),
         ),
       );
-      await tester.pumpWidget(app);
-      await tester.pumpAndSettle();
+      expect(map.style.layers.map((layer) => layer.id).toList(), [
+        'background',
+        'points',
+      ]);
+      await map.waitForFeatures(
+        map.center,
+        (features) => features.any((f) => f.sourceId == 'points'),
+      );
+    });
 
-      final styleC = await style.future;
-      expect(styleC.getLayerIds().contains('Wood'), isTrue);
+    testWidgets('loads a style from a URL (network)', (tester) async {
+      final map = await pumpMap(
+        tester,
+        options: const MapOptions(initCamera: CameraUpdate.position()),
+      );
+      expect(
+        map.style.layers.map((layer) => layer.id).toList(),
+        contains('countries-fill'),
+      );
+    });
+
+    testWidgets('reports clicks and hovers on the features of a style layer', (
+      tester,
+    ) async {
+      final options = offlineOptions(zoom: 10);
+      final events = <String>[];
+      final map = await pumpMap(tester, options: options);
+      await map.style.sources.add(
+        GeoJsonSource.data(
+          id: 'points',
+          data: featureCollection([
+            const Feature(geometry: Point(_point), id: 7),
+          ]),
+        ),
+      );
+      await map.style.layers.add(
+        CircleStyleLayer(
+          id: 'points',
+          sourceId: 'points',
+          radius: const .literal(20),
+          onClick: (event) => events.add('click ${event.feature.id}'),
+          onEnter: (event) => events.add('enter ${event.feature.id}'),
+          onLeave: (event) => events.add('leave ${event.feature.id}'),
+        ),
+      );
+      await map.waitForFeatures(
+        map.center,
+        (features) => features.isNotEmpty,
+        layerIds: ['points'],
+      );
+
+      await tester.tapAt(map.toGlobal(map.center + const Offset(5, 0)));
+      await map.pumpUntil(
+        () => events.isNotEmpty,
+        reason: () => 'the style layer click was never reported',
+      );
+      expect(events, ['click 7']);
+      events.clear();
+
+      final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      addTearDown(mouse.removePointer);
+      await mouse.addPointer(
+        location: map.toGlobal(map.center + const Offset(100, 0)),
+      );
+      await tester.pump();
+      await mouse.moveTo(map.toGlobal(map.center));
+      await map.pumpUntil(
+        () => events.isNotEmpty,
+        reason: () => 'entering the feature was never reported',
+      );
+      await mouse.moveTo(map.toGlobal(map.center + const Offset(100, 0)));
+      await map.pumpUntil(
+        () => events.length > 1,
+        reason: () => 'leaving the feature was never reported',
+      );
+      expect(events, ['enter 7', 'leave 7']);
+    });
+
+    testWidgets('adds layers at the requested position', (tester) async {
+      final map = await pumpMap(tester);
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'src', data: _pointData()),
+      );
+      await map.style.layers.add(CircleStyleLayer(id: 'top', sourceId: 'src'));
+      await map.style.layers.add(
+        CircleStyleLayer(id: 'below-top', sourceId: 'src'),
+        belowLayerId: 'top',
+      );
+      expect(map.style.layers.map((layer) => layer.id).toList(), [
+        'background',
+        'below-top',
+        'top',
+      ]);
+    });
+
+    testWidgets('adds and removes every kind of layer', (tester) async {
+      final map = await pumpMap(tester);
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'src', data: _pointData()),
+      );
+      await map.style.sources.add(
+        const RasterDemSource.tiles(
+          id: 'dem',
+          tiles: ['https://example.invalid/{z}/{x}/{y}.png'],
+          tileSize: 256,
+        ),
+      );
+      await map.style.sources.add(
+        const RasterSource.tiles(
+          id: 'raster',
+          tiles: ['https://example.invalid/{z}/{x}/{y}.png'],
+          tileSize: 256,
+        ),
+      );
+      final layers = <StyleLayer>[
+        BackgroundStyleLayer(
+          id: 'l-background',
+          color: const .literal(Colors.black),
+        ),
+        CircleStyleLayer(id: 'l-circle', sourceId: 'src'),
+        ColorReliefStyleLayer(id: 'l-color-relief', sourceId: 'dem'),
+        FillStyleLayer(id: 'l-fill', sourceId: 'src'),
+        FillExtrusionStyleLayer(id: 'l-fill-extrusion', sourceId: 'src'),
+        HeatmapStyleLayer(id: 'l-heatmap', sourceId: 'src'),
+        HillshadeStyleLayer(id: 'l-hillshade', sourceId: 'dem'),
+        LineStyleLayer(id: 'l-line', sourceId: 'src'),
+        RasterStyleLayer(id: 'l-raster', sourceId: 'raster'),
+        SymbolStyleLayer(id: 'l-symbol', sourceId: 'src'),
+      ];
+      for (final layer in layers) {
+        await map.style.layers.add(layer);
+      }
+      expect(map.style.layers.map((layer) => layer.id).toList(), [
+        'background',
+        ...layers.map((layer) => layer.id),
+      ]);
+      for (final layer in layers) {
+        await map.style.layers.remove(layer.id);
+      }
+      expect(map.style.layers.map((layer) => layer.id).toList(), [
+        'background',
+      ]);
+      // Removing what is not there is not an error.
+      await map.style.layers.remove('missing');
+      await map.style.sources.remove('missing');
+    });
+
+    testWidgets('adds and removes every kind of source', (tester) async {
+      final map = await pumpMap(tester);
+      final markerBytes = (await rootBundle.load(_markerAsset)).buffer
+          .asUint8List();
+      final sources = <Source>[
+        GeoJsonSource.data(id: 'geojson', data: _pointData()),
+        const GeoJsonSource.url(
+          id: 'geojson-url',
+          url: 'https://example.invalid/data.geojson',
+        ),
+        const ImageSource.url(
+          id: 'image',
+          url: 'https://example.invalid/image.png',
+          coordinates: LngLatQuad(
+            bottomLeft: Geographic(lon: 0, lat: 0),
+            bottomRight: Geographic(lon: 1, lat: 0),
+            topLeft: Geographic(lon: 0, lat: 1),
+            topRight: Geographic(lon: 1, lat: 1),
+          ),
+        ),
+        ImageSource.bytes(
+          id: 'image-bytes',
+          bytes: markerBytes,
+          coordinates: _quad,
+        ),
+        const ImageSource.provider(
+          id: 'image-provider',
+          image: AssetImage(_markerAsset),
+          coordinates: _quad,
+        ),
+        const RasterSource.tiles(
+          id: 'raster',
+          tiles: ['https://example.invalid/{z}/{x}/{y}.png'],
+        ),
+        const RasterDemSource.tiles(
+          id: 'raster-dem',
+          tiles: ['https://example.invalid/{z}/{x}/{y}.png'],
+        ),
+        const VectorSource.tiles(
+          id: 'vector',
+          tiles: ['https://example.invalid/{z}/{x}/{y}.pbf'],
+        ),
+        const RasterSource.url(
+          id: 'raster-url',
+          url: 'https://example.invalid/tiles.json',
+        ),
+        const RasterDemSource.url(
+          id: 'raster-dem-url',
+          url: 'https://example.invalid/tiles.json',
+        ),
+        const VectorSource.url(
+          id: 'vector-url',
+          url: 'https://example.invalid/tiles.json',
+        ),
+        // MapLibre Native has no video sources.
+        if (kIsWeb) ...[
+          const VideoSource.urls(
+            id: 'video',
+            urls: ['https://example.invalid/video.mp4'],
+            coordinates: _quad,
+          ),
+          VideoSource.bytes(
+            id: 'video-bytes',
+            bytes: markerBytes,
+            coordinates: _quad,
+          ),
+          const VideoSource.asset(
+            id: 'video-asset',
+            asset: _markerAsset,
+            coordinates: _quad,
+          ),
+        ],
+      ];
+      for (final source in sources) {
+        await map.style.sources.add(source);
+        // A layer can only be added on a source that exists.
+        await map.style.layers.add(switch (source) {
+          GeoJsonSource() => CircleStyleLayer(id: 'on', sourceId: source.id),
+          RasterDemSource() => HillshadeStyleLayer(
+            id: 'on',
+            sourceId: source.id,
+          ),
+          VectorSource() => FillStyleLayer(
+            id: 'on',
+            sourceId: source.id,
+            sourceLayerId: 'water',
+          ),
+          _ => RasterStyleLayer(id: 'on', sourceId: source.id),
+        });
+        expect(map.style.layers.map((layer) => layer.id).toList(), [
+          'background',
+          'on',
+        ]);
+        await map.style.layers.remove('on');
+      }
+      for (final source in sources) {
+        await map.style.sources.remove(source.id);
+      }
+      // Every ID is free again.
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'geojson', data: _pointData()),
+      );
+    });
+
+    testWidgets('fails to add an image source of a missing asset', (
+      tester,
+    ) async {
+      final map = await pumpMap(tester);
+      await expectLater(
+        map.style.sources.add(
+          const ImageSource.provider(
+            id: 'image',
+            image: AssetImage('assets/images/missing.png'),
+            coordinates: _quad,
+          ),
+        ),
+        throwsA(anything),
+      );
+    });
+
+    testWidgets('uses image sources right after adding them', (tester) async {
+      final map = await pumpMap(tester);
+      final bytes = Uint8List.sublistView(await rootBundle.load(_markerAsset));
+      final sources = [
+        ImageSource.bytes(id: 'bytes', bytes: bytes, coordinates: _quad),
+        const ImageSource.provider(
+          id: 'provider',
+          image: AssetImage(_markerAsset),
+          coordinates: _quad,
+        ),
+      ];
+      for (final source in sources) {
+        // The image is still being decoded when the layer is added.
+        final added = map.style.sources.add(source);
+        await map.style.layers.add(
+          RasterStyleLayer(id: source.id, sourceId: source.id),
+        );
+        await added;
+        await map.style.layers.remove(source.id);
+        await map.style.sources.remove(source.id);
+
+        // Removed before its image is decoded, it leaves the map too: the id
+        // can be added again.
+        final addedAgain = map.style.sources.add(source);
+        await map.style.sources.remove(source.id);
+        await addedAgain;
+        expect(map.style.sources[source.id], isNull);
+        await map.style.sources.add(source);
+      }
+    });
+
+    testWidgets('rejects a layer that fails validation', (tester) async {
+      final map = await pumpMap(tester);
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'geo', data: _pointData()),
+      );
+      await expectLater(
+        map.style.layers.add(
+          CircleStyleLayer(
+            id: 'c',
+            sourceId: 'geo',
+            radius: const Expression<num>.raw(['no-such-operator']),
+          ),
+        ),
+        throwsA(anything),
+      );
+      expect(map.style.layers['c'], isNull);
+      // The id is free.
+      await map.style.layers.add(CircleStyleLayer(id: 'c', sourceId: 'geo'));
+    });
+
+    testWidgets('updates the data of a GeoJSON source', (tester) async {
+      final map = await pumpMap(tester, options: offlineOptions(zoom: 8));
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'src', data: _pointData()),
+      );
+      await map.style.layers.add(
+        CircleStyleLayer(
+          id: 'circles',
+          sourceId: 'src',
+          radius: const .literal(10),
+        ),
+      );
+      await map.waitForFeatures(map.center, (features) => features.length == 1);
+
+      const moved = Geographic(lon: 0.5, lat: 0.5);
+      await map.style.sources.updateGeoJsonData('src', _pointData(moved));
+      await map.waitForFeatures(map.center, (features) => features.isEmpty);
+      await map.waitForFeatures(
+        map.controller.toScreenLocation(moved),
+        (features) => features.length == 1,
+      );
+    });
+
+    testWidgets('moves the end of a line gradient', (tester) async {
+      final map = await pumpMap(tester, options: offlineOptions(zoom: 8));
+      GeoJsonData line(double lon) => featureCollection([
+        Feature(
+          geometry: LineString.from(
+            const [
+              Geographic(lon: -1, lat: 0),
+              Geographic(lon: 1, lat: 0),
+            ].map((p) => Geographic(lon: p.lon + lon, lat: p.lat)),
+          ),
+        ),
+      ]);
+      Expression<Color> gradient(double progress) => .step(
+        .lineProgress(),
+        const .literal(Color(0xFFFF0000)),
+        {progress: const .literal(Color(0x00000000))},
+      );
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'src', data: line(0), lineMetrics: true),
+      );
+      final layer = LineStyleLayer(
+        id: 'line',
+        sourceId: 'src',
+        width: const .literal(10),
+        gradient: gradient(0.25),
+      );
+      await map.style.layers.add(layer);
+      // Tiles clip a line with line metrics into one feature each.
+      await map.waitForFeatures(map.center, (features) => features.isNotEmpty);
+
+      expect(layer.gradient, gradient(0.25));
+      layer.gradient = gradient(0.75);
+      expect(layer.gradient, gradient(0.75));
+
+      // Data for a source with line metrics is prepared with them.
+      await map.style.sources.updateGeoJsonData('src', line(0.5));
+      await map.waitForFeatures(
+        map.controller.toScreenLocation(const Geographic(lon: -0.75, lat: 0)),
+        (features) => features.isEmpty,
+      );
+    });
+
+    testWidgets('reads the layers and sources of a style back', (tester) async {
+      final map = await pumpMap(
+        tester,
+        options: MapOptions(
+          style: MapStyle.json(
+            jsonEncode({
+              'version': 8,
+              'sources': {
+                'points': {
+                  'type': 'geojson',
+                  'data': _pointData().toJson(),
+                  'attribution': 'A',
+                  'lineMetrics': true,
+                },
+                'tiles': {
+                  'type': 'vector',
+                  'tiles': ['https://example.invalid/{z}/{x}/{y}.pbf'],
+                  'maxzoom': 10,
+                },
+              },
+              'layers': [
+                {
+                  'id': 'background',
+                  'type': 'background',
+                  'paint': {'background-color': '#00ff00'},
+                },
+                {
+                  'id': 'circles',
+                  'type': 'circle',
+                  'source': 'points',
+                  'minzoom': 1,
+                  'maxzoom': 20,
+                  'filter': ['has', 'name'],
+                  'layout': {'visibility': 'none'},
+                  'paint': {
+                    'circle-radius': 7,
+                    'circle-color': 'rgba(255, 0, 0, 0.5)',
+                    'circle-blur': ['get', 'blur'],
+                  },
+                },
+                {
+                  'id': 'vectors',
+                  'type': 'line',
+                  'source': 'tiles',
+                  'source-layer': 'roads',
+                  'layout': {'line-cap': 'round'},
+                  'paint': {
+                    'line-translate': [1, 2],
+                  },
+                },
+              ],
+            }),
+          ),
+          initCamera: const CameraUpdate.position(),
+        ),
+      );
+      expect(map.style.layers.map((layer) => layer.id), [
+        'background',
+        'circles',
+        'vectors',
+      ]);
+      final background =
+          map.style.layers['background']! as BackgroundStyleLayer;
+      expect(background.color, const Literal(Color(0xFF00FF00)));
+
+      final circles = map.style.layers['circles']! as CircleStyleLayer;
+      expect(circles.sourceId, 'points');
+      expect(circles.minZoom, 1);
+      expect(circles.maxZoom, 20);
+      expect(circles.visible, isFalse);
+      expect(circles.filter, const Expression<bool>.raw(['has', 'name']));
+      expect(circles.radius, const Literal<num>(7));
+      expect((circles.color as Literal<Color>).value.a, 0.5);
+      expect(circles.blur, const Expression<num>.raw(['get', 'blur']));
+
+      final vectors = map.style.layers['vectors']! as LineStyleLayer;
+      expect(vectors.sourceLayerId, 'roads');
+      expect(vectors.cap, const Literal(LineCap.round));
+      expect(vectors.translate, const Literal(Offset(1, 2)));
+      expect(vectors.width, const Literal<num>(1));
+
+      expect(map.style.sources.length, 2);
+      final points = map.style.sources['points']! as GeoJsonSourceData;
+      expect(points.attribution, 'A');
+      expect(points.lineMetrics, isTrue);
+      expect(points.data.toJson(), _pointData().toJson());
+      final tiles = map.style.sources['tiles']! as VectorSourceTiles;
+      expect(tiles.tiles, ['https://example.invalid/{z}/{x}/{y}.pbf']);
+      expect(tiles.maxZoom, 10);
+    });
+
+    testWidgets('setters of a layer on the map reach the map', (tester) async {
+      final map = await pumpMap(tester, options: offlineOptions(zoom: 8));
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'src', data: _pointData()),
+      );
+      final layer = CircleStyleLayer(
+        id: 'circles',
+        sourceId: 'src',
+        radius: const .literal(40),
+      );
+      await map.style.layers.add(layer);
+      Future<void> expectShown({required bool shown}) => map.waitForFeatures(
+        map.center,
+        (features) => features.isNotEmpty == shown,
+      );
+      await expectShown(shown: true);
+
+      // Inside the circle at its radius of 40 pixels, off it at 10. It starts
+      // at 40 because gl-js only searches as far as the radius was when the
+      // tile loaded.
+      final beside = map.center + const Offset(25, 0);
+      await map.waitForFeatures(beside, (features) => features.isNotEmpty);
+      layer.radius = const .literal(10);
+      await map.waitForFeatures(beside, (features) => features.isEmpty);
+      layer.radius = const .literal(40);
+      await map.waitForFeatures(beside, (features) => features.isNotEmpty);
+      layer.radius = null;
+      await map.waitForFeatures(beside, (features) => features.isEmpty);
+      layer.radius = const .literal(40);
+      await map.waitForFeatures(beside, (features) => features.isNotEmpty);
+
+      layer.visible = false;
+      await expectShown(shown: false);
+      layer.visible = true;
+      await expectShown(shown: true);
+
+      layer.filter = Expression.equal(.get('name'), const .literal('other'));
+      await expectShown(shown: false);
+      layer.filter = Expression.equal(.get('name'), const .literal('p'));
+      await expectShown(shown: true);
+      layer.filter = null;
+      await expectShown(shown: true);
+
+      layer.minZoom = 10;
+      await expectShown(shown: false);
+      layer.minZoom = 0;
+      await expectShown(shown: true);
+      layer.maxZoom = 5;
+      await expectShown(shown: false);
+      layer.maxZoom = 24;
+      await expectShown(shown: true);
+
+      // A transition that is far from done keeps the circle large. Waiting past
+      // the default transition of 300 ms is the point of the delay: without the
+      // long one, the circle would have shrunk by then, and no event marks that.
+      layer.radiusTransition = const StyleTransition(
+        duration: Duration(minutes: 1),
+      );
+      layer.radius = const .literal(10);
+      await Future<void>.delayed(const Duration(seconds: 1));
+      await map.waitForFeatures(beside, (features) => features.isNotEmpty);
+      expect(
+        layer.radiusTransition,
+        const StyleTransition(duration: Duration(minutes: 1)),
+      );
+      layer.radiusTransition = const StyleTransition(duration: Duration.zero);
+      layer.radius = const .literal(10.5);
+      await map.waitForFeatures(beside, (features) => features.isEmpty);
+    });
+
+    testWidgets('moves layers', (tester) async {
+      final map = await pumpMap(tester, options: offlineOptions(zoom: 8));
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'src', data: _pointData()),
+      );
+      final bytes = Uint8List.sublistView(await rootBundle.load(_markerAsset));
+      await map.style.addImage('marker', bytes);
+      final a = _icon('a', 'src');
+      await map.style.layers.add(a);
+      await map.style.layers.add(_icon('b', 'src'));
+      await _waitForIconOf(map, 'b');
+
+      map.style.layers.move('b', belowLayerId: 'a');
+      expect(map.style.layers.map((layer) => layer.id), [
+        'background',
+        'b',
+        'a',
+      ]);
+      await _waitForIconOf(map, 'a');
+
+      a.moveBelow('b');
+      await _waitForIconOf(map, 'b');
+
+      a.moveBelow(null);
+      expect(map.style.layers.last, a);
+      await _waitForIconOf(map, 'a');
+    });
+
+    testWidgets('an SDF image takes the color of its icon', (tester) async {
+      final map = await pumpMap(tester, options: offlineOptions());
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'src', data: _pointData()),
+      );
+      // Opaque white, which an SDF image reads as inside the shape.
+      await map.style.addImageFromCanvas(
+        id: 'square',
+        width: 32,
+        height: 32,
+        painter: (canvas) => canvas.drawRect(
+          const Rect.fromLTWH(0, 0, 32, 32),
+          Paint()..color = const Color(0xFFFFFFFF),
+        ),
+        options: const StyleImageOptions(sdf: true),
+      );
+      await map.style.layers.add(
+        SymbolStyleLayer(
+          id: 'sdf',
+          sourceId: 'src',
+          iconImage: const .literal('square'),
+          iconColor: const .literal(Color(0xFF00FF00)),
+        ),
+      );
+      await map.waitForColorAtCenter('green', 1);
+    }, skip: kIsWeb);
+
+    // The offline style has no glyphs, so no text fits the image here: the
+    // map only has to take the options.
+    testWidgets('images take their options', (tester) async {
+      final map = await pumpMap(tester, options: offlineOptions());
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'src', data: _pointData()),
+      );
+      final bytes = Uint8List.sublistView(await rootBundle.load(_markerAsset));
+      await map.style.addImage(
+        'stretchable',
+        bytes,
+        options: const StyleImageOptions(
+          stretchX: [(4, 8)],
+          stretchY: [(4, 8)],
+          content: Rect.fromLTRB(2, 2, 10, 10),
+          textFitWidth: .stretchOnly,
+          textFitHeight: .proportional,
+        ),
+      );
+      await map.style.layers.add(
+        SymbolStyleLayer(
+          id: 'fitted',
+          sourceId: 'src',
+          iconImage: const .literal('stretchable'),
+        ),
+      );
+      await map.waitForFeatures(
+        map.center,
+        (features) => features.any((f) => f.layerId == 'fitted'),
+      );
+    });
+
+    testWidgets('a batch applies its changes', (tester) async {
+      final map = await pumpMap(tester, options: offlineOptions(zoom: 8));
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'src', data: _pointData()),
+      );
+      final layer = CircleStyleLayer(
+        id: 'first',
+        sourceId: 'src',
+        radius: const .literal(10),
+      );
+      await map.style.layers.add(layer);
+      await map.waitForFeatures(map.center, (features) => features.isNotEmpty);
+
+      map.style.batch(() {
+        layer.visible = false;
+        map.style.layers.add(
+          CircleStyleLayer(
+            id: 'second',
+            sourceId: 'src',
+            radius: const .literal(10),
+          ),
+          belowLayerId: 'first',
+        );
+      });
+      await map.waitForFeatures(
+        map.center,
+        (features) =>
+            features.length == 1 && features.single.layerId == 'second',
+      );
+      expect(
+        () => map.style.batch(() => throw StateError('x')),
+        throwsStateError,
+      );
+      // The group ended although the callback threw.
+      layer.visible = true;
+      await map.waitForFeatures(map.center, (features) => features.length == 2);
+    });
+
+    testWidgets('detaches layer objects from a replaced style', (tester) async {
+      final options = offlineOptions(zoom: 8);
+      final map = await pumpMap(tester, options: options);
+      final background = map.style.layers['background']!;
+      final oldStyle = map.style;
+      await tester.pumpWidget(
+        MapApp(
+          options: MapOptions(
+            style: MapStyle.json(
+              jsonEncode({
+                'version': 8,
+                'sources': <String, Object?>{},
+                'layers': [
+                  {'id': 'other', 'type': 'background'},
+                ],
+              }),
+            ),
+            initCamera: options.initCamera,
+          ),
+        ),
+      );
+      await map.pumpUntil(
+        () => map.controller.style != oldStyle,
+        reason: () => 'the new style did not load',
+      );
+      background.visible = false;
+      expect(background.visible, isFalse);
+      expect(oldStyle.layers, isEmpty);
+      expect(map.controller.style!.layers.single.id, 'other');
+    });
+
+    testWidgets('updates the image coordinates and the GeoJSON URL', (
+      tester,
+    ) async {
+      final map = await pumpMap(tester, options: offlineOptions(zoom: 8));
+      const quad = LngLatQuad(
+        bottomLeft: Geographic(lon: -1, lat: -1),
+        bottomRight: Geographic(lon: 1, lat: -1),
+        topLeft: Geographic(lon: -1, lat: 1),
+        topRight: Geographic(lon: 1, lat: 1),
+      );
+      final bytes = Uint8List.sublistView(await rootBundle.load(_markerAsset));
+      await map.style.sources.add(
+        ImageSource.bytes(id: 'image', bytes: bytes, coordinates: quad),
+      );
+      await map.style.layers.add(RasterStyleLayer(id: 'r', sourceId: 'image'));
+      const moved = LngLatQuad(
+        bottomLeft: Geographic(lon: 1, lat: 1),
+        bottomRight: Geographic(lon: 2, lat: 1),
+        topLeft: Geographic(lon: 1, lat: 2),
+        topRight: Geographic(lon: 2, lat: 2),
+      );
+      await map.style.sources.updateImageCoordinates('image', moved);
+      expect((map.style.sources['image']! as ImageSource).coordinates, moved);
+
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'geo', data: _pointData()),
+      );
+      await map.style.sources.updateGeoJsonUrl(
+        'geo',
+        'https://example.invalid/a',
+      );
+      expect(
+        (map.style.sources['geo']! as GeoJsonSourceUrl).url,
+        'https://example.invalid/a',
+      );
+    });
+
+    testWidgets('updates tiles and keeps the layers of the source in place', (
+      tester,
+    ) async {
+      final map = await pumpMap(tester, options: offlineOptions(zoom: 8));
+      await map.style.sources.add(
+        const VectorSource.tiles(
+          id: 'tiles',
+          tiles: ['https://example.invalid/a/{z}/{x}/{y}.pbf'],
+        ),
+      );
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'geo', data: _pointData()),
+      );
+      final bytes = Uint8List.sublistView(await rootBundle.load(_markerAsset));
+      await map.style.addImage('marker', bytes);
+      await map.style.layers.add(
+        FillStyleLayer(id: 'low', sourceId: 'tiles', sourceLayerId: 'x'),
+      );
+      await map.style.layers.add(_icon('geo', 'geo'));
+      final high = LineStyleLayer(
+        id: 'high',
+        sourceId: 'tiles',
+        sourceLayerId: 'x',
+      );
+      await map.style.layers.add(high);
+      await _waitForIconOf(map, 'geo');
+
+      await map.style.sources.updateTiles('tiles', [
+        'https://example.invalid/b/{z}/{x}/{y}.pbf',
+      ]);
+      expect((map.style.sources['tiles']! as VectorSourceTiles).tiles, [
+        'https://example.invalid/b/{z}/{x}/{y}.pbf',
+      ]);
+      await map.style.sources.updateTileJsonUrl(
+        'tiles',
+        'https://example.invalid/tiles.json',
+      );
+      expect(
+        (map.style.sources['tiles']! as VectorSourceUrl).url,
+        'https://example.invalid/tiles.json',
+      );
+      await map.style.sources.updateTiles('tiles', [
+        'https://example.invalid/c/{z}/{x}/{y}.pbf',
+      ]);
+
+      // The layer objects still reach the map, and the map still has the
+      // layers at their positions: a position below them works, and removing
+      // them frees the source.
+      expect(map.style.layers.map((layer) => layer.id), [
+        'background',
+        'low',
+        'geo',
+        'high',
+      ]);
+      high.width = const .literal(4);
+      // Below the icon of geo, if low is still below it.
+      await map.style.layers.add(
+        _icon('below-low', 'geo'),
+        belowLayerId: 'low',
+      );
+      await _waitForIconOf(map, 'geo');
+      // Above the icon of geo, if high is still above it.
+      await map.style.layers.add(
+        _icon('below-high', 'geo'),
+        belowLayerId: 'high',
+      );
+      await _waitForIconOf(map, 'below-high');
+      await map.style.layers.remove('low');
+      await map.style.layers.remove('high');
+      await map.style.sources.remove('tiles');
+      expect(map.style.sources['tiles'], isNull);
+    });
+
+    testWidgets('adds images that symbol layers draw', (tester) async {
+      final map = await pumpMap(tester, options: offlineOptions(zoom: 8));
+      final bytes = (await rootBundle.load('assets/images/marker.png')).buffer
+          .asUint8List();
+      await map.style.addImages({'marker': bytes, 'marker-2': bytes});
+      await map.style.addImageFromIconData(
+        id: 'icon',
+        iconData: Icons.location_on,
+        color: Colors.red,
+      );
+      await map.style.addImageFromWidget(
+        id: 'widget',
+        widget: const SizedBox.square(
+          dimension: 24,
+          child: ColoredBox(color: Colors.red),
+        ),
+      );
+      await map.style.sources.add(
+        GeoJsonSource.data(id: 'src', data: _pointData()),
+      );
+      for (final image in ['marker', 'marker-2', 'icon', 'widget']) {
+        await map.style.layers.add(
+          SymbolStyleLayer(
+            id: 'symbols',
+            sourceId: 'src',
+            iconImage: .literal(image),
+            iconAllowOverlap: const .literal(true),
+          ),
+        );
+        // A symbol whose image is missing is not drawn, so the query proves
+        // that the image arrived.
+        await map.waitForFeatures(
+          map.center,
+          (features) => features.length == 1,
+          layerIds: ['symbols'],
+        );
+        await map.style.layers.remove('symbols');
+      }
+      await map.style.removeImage('marker');
+      await map.style.removeImage('marker');
+    });
+
+    testWidgets('reports the attributions of its sources', (tester) async {
+      final map = await pumpMap(tester);
+      expect(map.style.attributions, isEmpty);
+      await map.style.sources.add(
+        const RasterSource.tiles(
+          id: 'src',
+          tiles: ['https://example.invalid/{z}/{x}/{y}.png'],
+          attribution: '© Test Data',
+        ),
+      );
+      await map.style.layers.add(RasterStyleLayer(id: 'r', sourceId: 'src'));
+      await map.pumpUntil(
+        () => map.style.attributions.contains('© Test Data'),
+        reason: () => 'attributions: ${map.style.attributions}',
+      );
+      expect(map.style.attributions, ['© Test Data']);
+
+      await map.style.layers.remove('r');
+      await map.style.sources.remove('src');
+      await map.pumpUntil(
+        () => map.style.attributions.isEmpty,
+        reason: () => 'attributions: ${map.style.attributions}',
+      );
+    });
+
+    testWidgets('updates SourceAttribution when attributions change', (
+      tester,
+    ) async {
+      final map = await pumpMap(
+        tester,
+        children: const [
+          SourceAttribution(showMapLibre: false, keepExpanded: true),
+        ],
+      );
+      bool shown(String text) => find
+          .byWidgetPredicate(
+            (widget) =>
+                widget is RichText && widget.text.toPlainText().contains(text),
+          )
+          .evaluate()
+          .isNotEmpty;
+
+      // The camera stays put, so only the attribution change rebuilds the
+      // widget.
+      await map.style.sources.add(
+        const RasterSource.tiles(
+          id: 'src',
+          tiles: ['https://example.invalid/{z}/{x}/{y}.png'],
+          attribution: '© Widget Data',
+        ),
+      );
+      await map.style.layers.add(RasterStyleLayer(id: 'r', sourceId: 'src'));
+      await map.pumpUntil(
+        () => shown('© Widget Data'),
+        reason: () => 'attributions: ${map.style.attributions}',
+      );
+
+      await map.style.layers.remove('r');
+      await map.style.sources.remove('src');
+      await map.pumpUntil(
+        () => !shown('© Widget Data'),
+        reason: () => 'attributions: ${map.style.attributions}',
+      );
+    });
+
+    testWidgets('reports the attributions of GeoJSON sources', (tester) async {
+      final map = await pumpMap(
+        tester,
+        options: MapOptions(
+          style: MapStyle.json(
+            jsonEncode({
+              'version': 8,
+              'sources': {
+                'style-points': {
+                  'type': 'geojson',
+                  'data': {'type': 'FeatureCollection', 'features': <Object>[]},
+                  'attribution': '© Style Points',
+                },
+              },
+              'layers': [
+                {
+                  'id': 'style-circles',
+                  'type': 'circle',
+                  'source': 'style-points',
+                },
+              ],
+            }),
+          ),
+          initCamera: const CameraUpdate.position(),
+        ),
+      );
+      await map.pumpUntil(
+        () => map.style.attributions.contains('© Style Points'),
+        reason: () => 'attributions: ${map.style.attributions}',
+      );
+
+      await map.style.sources.add(
+        const GeoJsonSource.data(
+          id: 'points',
+          data: .text('{"type":"FeatureCollection","features":[]}'),
+          attribution: '© Points',
+        ),
+      );
+      await map.pumpUntil(
+        () => map.style.attributions.contains('© Points'),
+        reason: () => 'attributions: ${map.style.attributions}',
+      );
+      expect(
+        map.style.attributions,
+        unorderedEquals(['© Style Points', '© Points']),
+      );
+
+      await map.style.sources.remove('points');
+      await map.pumpUntil(
+        () => !map.style.attributions.contains('© Points'),
+        reason: () => 'attributions: ${map.style.attributions}',
+      );
+    });
+
+    testWidgets('rejects a layer whose source is missing', (tester) async {
+      final map = await pumpMap(tester);
+      await expectLater(
+        map.style.layers.add(CircleStyleLayer(id: 'c', sourceId: 'none')),
+        throwsA(anything),
+      );
+      expect(map.style.layers.map((layer) => layer.id).toList(), [
+        'background',
+      ]);
+    }, skip: kIsWeb);
+
+    /// A style of one label, 東京, whose glyph server refuses every request,
+    /// so that only the device's fonts can draw it.
+    MapOptions cjkLabel({String? localIdeographFontFamily = 'sans-serif'}) =>
+        MapOptions(
+          style: MapStyle.json(
+            jsonEncode({
+              'version': 8,
+              'glyphs': 'http://127.0.0.1:9/{fontstack}/{range}.pbf',
+              'sources': {
+                'point': {
+                  'type': 'geojson',
+                  'data': {
+                    'type': 'Point',
+                    'coordinates': [0, 0],
+                  },
+                },
+              },
+              'layers': [
+                {
+                  'id': 'label',
+                  'type': 'symbol',
+                  'source': 'point',
+                  'layout': {
+                    'text-field': '東京',
+                    'text-font': ['Noto Sans Regular'],
+                  },
+                },
+              ],
+            }),
+          ),
+          initCamera: const CameraUpdate.position(
+            center: Geographic(lon: 0, lat: 0),
+            zoom: 4,
+          ),
+          localIdeographFontFamily: localIdeographFontFamily,
+        );
+
+    final darwin =
+        !kIsWeb &&
+        (defaultTargetPlatform == TargetPlatform.iOS ||
+            defaultTargetPlatform == TargetPlatform.macOS);
+
+    testWidgets('draws CJK labels with the device fonts by default', (
+      tester,
+    ) async {
+      final map = await pumpMap(tester, options: cjkLabel());
+      await map.waitForFeatures(
+        map.center,
+        (features) => features.isNotEmpty,
+        layerIds: ['label'],
+      );
+    }, skip: !(kIsWeb || darwin));
+
+    testWidgets('draws no CJK label without glyphs or local fonts', (
+      tester,
+    ) async {
+      // A map with the device fonts first: on iOS and macOS the fonts are the
+      // process's, and the map without them must not inherit them.
+      final local = await pumpMap(tester, options: cjkLabel());
+      await local.waitForFeatures(
+        local.center,
+        (features) => features.isNotEmpty,
+        layerIds: ['label'],
+      );
+      await tester.pumpWidget(const SizedBox());
+
+      final map = await pumpMap(
+        tester,
+        options: cjkLabel(localIdeographFontFamily: null),
+      );
+      // A map whose glyphs fail to load never goes idle; the failure is the
+      // last thing the label waits for.
+      await map.waitForEvent<MapEventError>(
+        where: (event) => event.kind == MapErrorKind.glyphs,
+      );
+      await map.waitForLatestFrame();
+      final features = await map.pumpFuture(
+        map.controller.queryRenderedFeatures(
+          QueryGeometry.point(map.center),
+          layerIds: ['label'],
+        ),
+        reason: 'querying the label',
+      );
+      expect(features, isEmpty);
+    }, skip: !darwin);
+
+    testWidgets('turns label placement transitions off and on', (tester) async {
+      // Native fades labels over the style's transition duration, long
+      // enough here for software renderers to show frames of the fade. Web
+      // fades them over the map's fade duration, 300 ms, and the test reads
+      // every frame there.
+      MapOptions options(String backgroundId) => MapOptions(
+        style: MapStyle.json(
+          jsonEncode({
+            'version': 8,
+            'transition': {'duration': 2000, 'delay': 0},
+            'sources': <String, Object>{},
+            'layers': [
+              {
+                'id': backgroundId,
+                'type': 'background',
+                'paint': {'background-color': '#dddddd'},
+              },
+            ],
+          }),
+        ),
+        initCamera: const CameraUpdate.position(
+          center: Geographic(lon: 0, lat: 0),
+          zoom: 4,
+        ),
+      );
+
+      final map = await pumpMap(tester, options: options('background'));
+      // maplibre-gl-js fades labels only after the map's first idle.
+      await map.waitForEvent<MapEventIdle>();
+      if (kIsWeb) addTearDown(startFramePixels());
+      final bytes = Uint8List.sublistView(await rootBundle.load(_markerAsset));
+
+      // The center's colors in the frames until it shows the color that
+      // [done] accepts: every frame on web, as often as Flutter can read
+      // them elsewhere. The icon is red, with green 57, over the grey
+      // background, with green 221. A map that already shows that color may
+      // render no further frame.
+      List<int>? shown;
+      Future<List<List<int>>> framesUntil(bool Function(int green) done) async {
+        final frames = <List<int>>[];
+        final deadline = DateTime.now().add(defaultTimeout);
+        while (shown == null || !done(shown![1])) {
+          if (DateTime.now().isAfter(deadline)) {
+            fail('The center never changed, frames: $frames');
+          }
+          await tester.pump(const Duration(milliseconds: 16));
+          final read = kIsWeb ? takeFramePixels() : [await map.pixelAtCenter()];
+          frames.addAll(read);
+          shown = read.lastOrNull ?? shown;
+        }
+        return frames;
+      }
+
+      // Two icons about 51 pixels wide, 40 pixels apart at zoom 4, where the
+      // top one hides the one at the center. At zoom 4.9, 75 pixels apart,
+      // both show. A symbol whose tile was reloaded, as adding a layer does,
+      // shows at once, so the icon is placed by a camera change that loads
+      // no tile.
+      Future<void> addIcons(String imageId) async {
+        await map.style.addImage(imageId, bytes);
+        for (final (id, lon) in [('below', 0.0), ('above', 1.76)]) {
+          await map.style.sources.add(
+            GeoJsonSource.data(
+              id: id,
+              data: _pointData(Geographic(lon: lon, lat: 0)),
+            ),
+          );
+          await map.style.layers.add(
+            SymbolStyleLayer(
+              id: id,
+              sourceId: id,
+              iconImage: .literal(imageId),
+              iconSize: const .literal(0.1),
+            ),
+          );
+        }
+        await map.waitForFeatures(
+          map.center + const Offset(40, 0),
+          (features) => features.isNotEmpty,
+          layerIds: ['above'],
+        );
+        shown = null;
+        await framesUntil((green) => green >= 215);
+      }
+
+      // The frames from zooming in until the icon at the center is drawn in
+      // full, and back out until it is hidden.
+      Future<List<List<int>>> showIcon() async {
+        if (kIsWeb) takeFramePixels();
+        await map.controller.moveCamera(const CameraUpdate.position(zoom: 4.9));
+        final frames = await framesUntil((green) => green <= 70);
+        await map.controller.moveCamera(const CameraUpdate.position(zoom: 4));
+        await framesUntil((green) => green >= 215);
+        return frames;
+      }
+
+      // Frames that show the icon partly faded in.
+      int fading(List<List<int>> frames) =>
+          frames.where((pixel) => pixel[1] > 70 && pixel[1] < 215).length;
+
+      await addIcons('marker');
+      final on = await showIcon();
+      expect(fading(on), greaterThan(0), reason: '$on');
+
+      await map.style.setPlacementTransitions(enabled: false);
+      final off = await showIcon();
+      expect(fading(off), 0, reason: '$off');
+
+      await map.style.setPlacementTransitions(enabled: true);
+      final onAgain = await showIcon();
+      expect(fading(onAgain), greaterThan(0), reason: '$onAgain');
+
+      // A newly loaded style fades labels again.
+      await map.style.setPlacementTransitions(enabled: false);
+      final loads = map.styleLoads;
+      await map.setOptions(options('grey'));
+      await map.waitForStyleLoad(since: loads);
+      // Web keeps the images of the old style, native doesn't.
+      await addIcons('marker-2');
+      final newStyle = await showIcon();
+      expect(fading(newStyle), greaterThan(0), reason: '$newStyle');
     });
   });
 }
+
+const _markerAsset = 'assets/images/marker.png';
+
+/// A layer of an icon that hides the icons of the layers below it: symbols
+/// are placed from the top layer down, and those that collide are not shown.
+/// Which one the map shows tells the order of the layers, as feature queries
+/// don't return layers in their order. Layers with the same layout share a
+/// symbol placement on native, so each gets a slightly different size.
+SymbolStyleLayer _icon(String id, String sourceId) => SymbolStyleLayer(
+  id: id,
+  sourceId: sourceId,
+  iconImage: const .literal('marker'),
+  iconSize: .literal(1 + (_iconLayers++) / 100),
+);
+
+var _iconLayers = 0;
+
+Future<void> _waitForIconOf(TestMap map, String layerId) => map.waitForFeatures(
+  map.center,
+  (features) => features.length == 1 && features.single.layerId == layerId,
+);
+
+const _quad = LngLatQuad(
+  bottomLeft: Geographic(lon: 0, lat: 0),
+  bottomRight: Geographic(lon: 1, lat: 0),
+  topLeft: Geographic(lon: 0, lat: 1),
+  topRight: Geographic(lon: 1, lat: 1),
+);

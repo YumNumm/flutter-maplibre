@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class KioskPage extends StatefulWidget {
@@ -37,8 +37,8 @@ class _KioskPageState extends State<KioskPage> {
     return Scaffold(
       body: MapLibreMap(
         options: const MapOptions(
-          initStyle: _styleUrl,
-          initCenter: Geographic(lon: 0, lat: 0),
+          style: MapStyle.url(_styleUrl),
+          initCamera: CameraUpdate.position(),
         ),
         onMapCreated: (controller) => _controller = controller,
         onStyleLoaded: (_) {
@@ -51,10 +51,13 @@ class _KioskPageState extends State<KioskPage> {
   void _onTimer(Timer timer) {
     final location = _locations[index];
     _controller.animateCamera(
-      center: location.center,
-      zoom: location.zoom,
-      bearing: location.bearing,
-      pitch: location.pitch,
+      CameraUpdate.position(
+        center: location.center,
+        zoom: location.zoom,
+        bearing: location.bearing,
+        pitch: location.pitch,
+      ),
+      animation: const CameraAnimation.fly(),
     );
     index++;
     if (index >= _locations.length) index = 0;

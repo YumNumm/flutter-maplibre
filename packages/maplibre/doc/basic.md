@@ -1,3 +1,3 @@
 Visit
-the [documentation](https://flutter-maplibre.pages.dev/docs/)
+the [documentation](https://maplibre.org/flutter-maplibre/docs/)
 to learn more.

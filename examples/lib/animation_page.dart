@@ -1,8 +1,6 @@
-import 'dart:async';
-
-import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class AnimationPage extends StatefulWidget {
@@ -15,9 +13,21 @@ class AnimationPage extends StatefulWidget {
 }
 
 const _sourceId = 'AnimatedPath';
+const _layerId = 'geojson-line';
 
-class _AnimationPageState extends State<AnimationPage> {
-  Timer? _timer;
+/// Draws a hiking path as a growing line.
+///
+/// The path is added once. The animation only moves the end of the line's
+/// gradient along `line-progress`, a paint property, so the map neither
+/// parses nor tiles the data again. An [AnimationController] updates it once
+/// per frame.
+class _AnimationPageState extends State<AnimationPage>
+    with SingleTickerProviderStateMixin {
+  late final _animation = AnimationController(
+    vsync: this,
+    duration: const Duration(seconds: 10),
+  )..addListener(_onAnimate);
+  LineStyleLayer? _line;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +35,10 @@ class _AnimationPageState extends State<AnimationPage> {
       appBar: AppBar(title: const Text('Animation')),
       body: MapLibreMap(
         options: const MapOptions(
-          initZoom: 14,
-          initCenter: Geographic(lon: -122.01971, lat: 45.632472),
+          initCamera: CameraUpdate.position(
+            zoom: 14,
+            center: Geographic(lon: -122.01971, lat: 45.632472),
+          ),
         ),
         onStyleLoaded: _onStyleLoaded,
       ),
@@ -34,54 +46,44 @@ class _AnimationPageState extends State<AnimationPage> {
   }
 
   Future<void> _onStyleLoaded(StyleController style) async {
+    _animation.stop();
+    _line = null;
     final response = await get(
       Uri.parse('https://maplibre.org/maplibre-gl-js/docs/assets/hike.geojson'),
     );
-    final origCollection = FeatureCollection.parse(response.body);
-    final lineString = origCollection.features.first.geometry! as LineString;
-    final allCoords = lineString.chain.positions.toList(growable: false);
-
-    // A LineString on MapLibre Native must have at least 2 Points. Initialize
-    // the animation with 2 coordinates.
-    final chain = allCoords.sublist(0, 2);
-    final collection = FeatureCollection([
-      Feature(geometry: LineString.from(chain)),
-    ]);
-    await style.addSource(
-      GeoJsonSource(id: _sourceId, data: collection.toText()),
-    );
-    await style.addLayer(
-      const LineStyleLayer(
-        id: 'geojson-line',
-        sourceId: _sourceId,
-        paint: {'line-color': '#F00', 'line-width': 3},
+    await style.sources.add(
+      // line-progress needs the line metrics of the source.
+      GeoJsonSource.data(
+        id: _sourceId,
+        data: .text(response.body),
+        lineMetrics: true,
       ),
     );
-
-    var index = 1;
-    _timer = Timer.periodic(const Duration(milliseconds: 1), (timer) {
-      index++;
-      if (index > allCoords.length - 1) {
-        debugPrint('line animation completed');
-        timer.cancel();
-        return;
-      }
-      // Add more and more points to the LineString.
-      final chain = allCoords.sublist(0, index);
-      final collection = FeatureCollection([
-        Feature(geometry: LineString.from(chain)),
-      ]);
-      style.updateGeoJsonSource(id: _sourceId, data: collection.toText());
-      debugPrint(
-        '[$index] update line: '
-        '${allCoords[index].x}, ${allCoords[index].y}',
-      );
-    });
+    final line = LineStyleLayer(
+      id: _layerId,
+      sourceId: _sourceId,
+      width: const .literal(3),
+      gradient: _gradient(0),
+    );
+    await style.layers.add(line);
+    if (!mounted) return;
+    _line = line;
+    _animation.forward(from: 0);
   }
+
+  void _onAnimate() => _line?.gradient = _gradient(_animation.value);
+
+  /// Colors the line up to [progress], from 0 at its start to 1 at its end,
+  /// and hides the rest.
+  static Expression<Color> _gradient(double progress) => .step(
+    .lineProgress(),
+    const .literal(Color(0xFFFF0000)),
+    {progress: const .literal(Color(0x00000000))},
+  );
 
   @override
   void dispose() {
-    _timer?.cancel();
+    _animation.dispose();
     super.dispose();
   }
 }

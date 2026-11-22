@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
@@ -15,14 +17,112 @@ class MapLibreMap extends StatefulWidget {
     this.gestureRecognizers,
     this.onMapCreated,
     this.onStyleLoaded,
-    this.onEvent,
+    this.onClick,
+    this.onDoubleClick,
+    this.onSecondaryClick,
+    this.onLongClick,
+    this.onDragStart,
+    this.onDrag,
+    this.onDragEnd,
+    this.onPointerMove,
+    this.onPointerLeave,
+    this.onCameraMoveStart,
+    this.onCameraMove,
+    this.onCameraMoveEnd,
+    this.onIdle,
+    this.onError,
+    this.onStyleImageMissing,
+    this.onLoadingStarted,
+    this.onLoadingFinished,
+    this.onSourceChanged,
+    this.onTile,
+    this.onRenderFrame,
+    this.onRenderMap,
+    this.onGlyphs,
+    this.onSprite,
+    this.onRenderingChanged,
+    this.onResize,
+    this.onContextLost,
+    this.onContextRestored,
+    this.onProjectionChanged,
     this.layers = const [],
     this.children = const [],
+    this.paused = false,
+    super.key,
+  }) : camera = null;
+
+  /// Creates a map whose camera the app drives through [camera], for
+  /// example to follow another map or a gesture layer of its own. Rebuild
+  /// it with a new [camera] to move the map. The map gestures don't move
+  /// the camera.
+  const MapLibreMap.withCamera({
+    required CameraPosition this.camera,
+    this.options = const MapOptions(),
+    this.gestureRecognizers,
+    this.onMapCreated,
+    this.onStyleLoaded,
+    this.onClick,
+    this.onDoubleClick,
+    this.onSecondaryClick,
+    this.onLongClick,
+    this.onDragStart,
+    this.onDrag,
+    this.onDragEnd,
+    this.onPointerMove,
+    this.onPointerLeave,
+    this.onCameraMoveStart,
+    this.onCameraMove,
+    this.onCameraMoveEnd,
+    this.onIdle,
+    this.onError,
+    this.onStyleImageMissing,
+    this.onLoadingStarted,
+    this.onLoadingFinished,
+    this.onSourceChanged,
+    this.onTile,
+    this.onRenderFrame,
+    this.onRenderMap,
+    this.onGlyphs,
+    this.onSprite,
+    this.onRenderingChanged,
+    this.onResize,
+    this.onContextLost,
+    this.onContextRestored,
+    this.onProjectionChanged,
+    this.layers = const [],
+    this.children = const [],
+    this.paused = false,
     super.key,
   });
 
   /// Use the [options] field to customize the map and set default values.
   final MapOptions options;
+
+  /// The camera that the map shows, set by [MapLibreMap.withCamera] for an
+  /// app that drives the camera itself, such as another map whose camera
+  /// this one follows, or a custom gesture layer. Null for every other map.
+  ///
+  /// It is the camera the app asks for. [MapController.camera] and
+  /// [CameraPosition.of] are the camera of the frame on screen, which
+  /// reaches it a frame or two later on every platform but web.
+  ///
+  /// While it is set, the map shows this camera from its first frame on and
+  /// the map gestures don't move the camera, as if [MapOptions.movements]
+  /// were [MapMovements.none]. Each new camera is applied while the widget
+  /// builds, so the map reaches it as soon as the platform allows:
+  ///
+  /// - On web, the map draws it in the same browser frame as the widgets
+  ///   that this build positions.
+  /// - On every other platform, the map renders it right away and shows it
+  ///   a frame or two later. [CameraPosition.of] in [children] follows the
+  ///   frame on screen, so widgets that position themselves with it stay on
+  ///   the map image.
+  ///
+  /// [MapController.moveCamera] and [MapController.animateCamera] still move
+  /// the camera until the next build with a different [camera]. Rebuild
+  /// with the default constructor to hand the camera back to the gestures
+  /// and the controller.
+  final CameraPosition? camera;
 
   /// Flutter widgets that get displayed on top on the map and are within the
   /// [MapLibreMap] context.
@@ -59,11 +159,189 @@ class MapLibreMap extends StatefulWidget {
   /// after this callback has been called.
   final StyleLoadedCallback? onStyleLoaded;
 
-  /// Use this callback to handle emitted map events.
-  final MapEventCallback? onEvent;
+  /// Called when the user taps or clicks the map.
+  ///
+  /// A tap waits for a second one only while [onDoubleClick] is set or the
+  /// zoom gesture of [MapOptions.gestures] is on, as a double tap zooms then.
+  final MapEventCallback<MapEventClick>? onClick;
+
+  /// Called when the user taps or clicks the map twice in quick succession.
+  ///
+  /// A double tap zooms in while the zoom gesture of [MapOptions.gestures] is
+  /// on. Call [MapEventDoubleClick.preventDefault] to handle the double tap
+  /// yourself instead. The callback can be async, for example to query the
+  /// features at [MapEventUserInput.screenPoint] first: the map waits for
+  /// the returned [Future] before it zooms.
+  ///
+  /// ```dart
+  /// onDoubleClick: (event) async {
+  ///   final features = await controller.queryRenderedFeatures(
+  ///     .point(event.screenPoint),
+  ///   );
+  ///   if (features.isNotEmpty) event.preventDefault();
+  /// },
+  /// ```
+  ///
+  /// While neither this nor the zoom gesture is set, the map doesn't
+  /// recognize double taps, so [onClick] fires right away.
+  final FutureOr<void> Function(MapEventDoubleClick event)? onDoubleClick;
+
+  /// Called when the user clicks the map with the secondary mouse button,
+  /// usually the right one.
+  final MapEventCallback<MapEventSecondaryClick>? onSecondaryClick;
+
+  /// Called when the user presses the map at one location for a while.
+  final MapEventCallback<MapEventLongClick>? onLongClick;
+
+  /// Called when the user starts to drag the map with one finger or the
+  /// primary mouse button.
+  ///
+  /// The drag pans the map while the pan movement and the drag gesture are
+  /// on. Call [MapEventDragStart.preventDefault] to keep it from panning, for
+  /// example to move a feature with [onDrag] instead. The callback can be
+  /// async to query the features at [MapEventUserInput.screenPoint] first:
+  /// the map holds the pan until the returned [Future] completes.
+  ///
+  /// ```dart
+  /// onDragStart: (event) async {
+  ///   final features = await controller.queryRenderedFeatures(
+  ///     .point(event.screenPoint),
+  ///     layerIds: ['points'],
+  ///   );
+  ///   if (features.isNotEmpty) event.preventDefault();
+  /// },
+  /// ```
+  ///
+  /// The draggable [layers] handle their features themselves, see
+  /// [Layer.onDrag].
+  final FutureOr<void> Function(MapEventDragStart event)? onDragStart;
+
+  /// Called whenever the pointer of a drag moves, whether it pans the map
+  /// or not. A second finger ends the drag and starts a pinch.
+  final MapEventCallback<MapEventDrag>? onDrag;
+
+  /// Called when a drag ends.
+  final MapEventCallback<MapEventDragEnd>? onDragEnd;
+
+  /// Called whenever a mouse or stylus moves over the map without a pressed
+  /// button. Touches don't hover, and drags are reported to [onDrag].
+  ///
+  /// The [layers] report the features under the pointer themselves, see
+  /// [Layer.onEnter].
+  final MapEventCallback<MapEventPointerMove>? onPointerMove;
+
+  /// Called when a mouse or stylus leaves the map.
+  final MapEventCallback<MapEventPointerLeave>? onPointerLeave;
+
+  /// Called when the camera starts to move, with the reason.
+  final MapEventCallback<MapEventCameraMoveStart>? onCameraMoveStart;
+
+  /// Called whenever the camera changed while it moves.
+  final MapEventCallback<MapEventCameraMove>? onCameraMove;
+
+  /// Called when the camera stops moving, with the camera it ended at.
+  final MapEventCallback<MapEventCameraMoveEnd>? onCameraMoveEnd;
+
+  /// Called when the map is idle: no camera moves, all requested tiles have
+  /// loaded and all fade and transition animations have ended.
+  final MapEventCallback<MapEventIdle>? onIdle;
+
+  /// Called when the style, a source, glyphs or a sprite fail to load, or
+  /// the map fails to render.
+  ///
+  /// Not on web, errors are printed to the log while this is not set.
+  final MapEventCallback<MapEventError>? onError;
+
+  /// Called when a layer uses an image that the style doesn't have. Add it
+  /// with [StyleController.addImage] to show it.
+  final MapEventCallback<MapEventStyleImageMissing>? onStyleImageMissing;
+
+  /// Called when the map starts to load a style.
+  final MapEventCallback<MapEventLoadingStarted>? onLoadingStarted;
+
+  /// Called when the map has loaded its style and everything the view needs,
+  /// once per style. On the web it is the first [onIdle] after the style
+  /// changed.
+  final MapEventCallback<MapEventLoadingFinished>? onLoadingFinished;
+
+  /// Called when a source of the style changes, such as when its TileJSON
+  /// arrives or its GeoJSON data is replaced. On the web only when a
+  /// source's metadata, such as its TileJSON, arrives.
+  final MapEventCallback<MapEventSourceChanged>? onSourceChanged;
+
+  /// Called when a tile moves to another step of loading.
+  ///
+  /// Not on web.
+  final MapEventCallback<MapEventTile>? onTile;
+
+  /// Called whenever the map rendered a frame. Not on web, it holds the
+  /// frame's statistics.
+  final MapEventCallback<MapEventRenderFrame>? onRenderFrame;
+
+  /// Called when the map finished rendering a view, partially while tiles
+  /// still load, or fully.
+  ///
+  /// Not on web.
+  final MapEventCallback<MapEventRenderMap>? onRenderMap;
+
+  /// Called when the map requests or loads glyphs of a font. Failures go to
+  /// [onError].
+  ///
+  /// Not on web.
+  final MapEventCallback<MapEventGlyphs>? onGlyphs;
+
+  /// Called when the map requests or loads a sprite. Failures go to
+  /// [onError].
+  ///
+  /// Not on web.
+  final MapEventCallback<MapEventSprite>? onSprite;
+
+  /// Called when the map stops or resumes rendering, see [paused].
+  final MapEventCallback<MapEventRenderingChanged>? onRenderingChanged;
+
+  /// Called when the map changed its size after its first layout.
+  final MapEventCallback<MapEventResize>? onResize;
+
+  /// Called when the browser takes the map's WebGL context away, for
+  /// example after a GPU reset. The map is blank until [onContextRestored].
+  ///
+  /// Only on web.
+  final MapEventCallback<MapEventContextLost>? onContextLost;
+
+  /// Called when the browser gives the map's WebGL context back.
+  ///
+  /// Only on web.
+  final MapEventCallback<MapEventContextRestored>? onContextRestored;
+
+  /// Called when the map switched its projection, see
+  /// [StyleController.setProjection].
+  ///
+  /// Only on web. On every other platform, the map always uses Mercator.
+  final MapEventCallback<MapEventProjectionChanged>? onProjectionChanged;
 
   /// Declarative layers that get displayed.
   final List<Layer> layers;
+
+  /// Whether the map stops rendering while it stays mounted, for example
+  /// while it is in a tab that is not shown.
+  ///
+  /// A paused map keeps its style, camera, sources and cached tiles. Changes
+  /// made while it is paused, such as camera moves or new layers, show once
+  /// it resumes. Tiles load and camera animations advance only while the map
+  /// renders, so a camera animation that runs when the map pauses ends at
+  /// its target right away.
+  ///
+  /// The map also pauses on its own while it is hidden by an [IndexedStack]
+  /// or a [Visibility] that keeps its state, or while [TickerMode] is
+  /// disabled, as for a route that another route covers. Set [paused] for
+  /// the cases Flutter does not report, such as a kept-alive page of a
+  /// [PageView] or `TabBarView` while another page shows.
+  /// [MapController.isRenderingPaused] and [onRenderingChanged] tell
+  /// whether the map renders.
+  ///
+  /// On the web the browser already skips hidden maps, and the map only
+  /// renders when it changes, so the flag has no effect there.
+  final bool paused;
 
   @override
   State<MapLibreMap> createState() =>
@@ -83,9 +361,3 @@ typedef MapCreatedCallback = void Function(MapController controller);
 /// {@category Basic}
 /// {@category Style}
 typedef StyleLoadedCallback = void Function(StyleController style);
-
-/// Callback that fires every time a [MapEvent] gets emitted by the map.
-///
-/// {@category Basic}
-/// {@category Events}
-typedef MapEventCallback = void Function(MapEvent event);

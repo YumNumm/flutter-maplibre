@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class LayersCirclePage extends StatefulWidget {
@@ -25,23 +25,23 @@ class _LayersCirclePageState extends State<LayersCirclePage> {
       appBar: AppBar(title: const Text('Circle Layers')),
       body: MapLibreMap(
         options: const MapOptions(
-          initZoom: 7,
-          initCenter: Geographic(lon: 9.17, lat: 47.68),
+          initCamera: CameraUpdate.position(
+            zoom: 7,
+            center: Geographic(lon: 9.17, lat: 47.68),
+          ),
         ),
-        onEvent: (event) {
-          if (event case MapEventClick()) {
-            setState(() {
-              _points.add(Feature(geometry: Point(event.point)));
-            });
-          }
+        onClick: (event) {
+          setState(() {
+            _points.add(Feature(geometry: Point(event.point)));
+          });
         },
         layers: [
           CircleLayer(
             points: _points,
-            color: Colors.orange.withValues(alpha: 0.5),
-            radius: 20,
-            strokeColor: Colors.red,
-            strokeWidth: 2,
+            color: .literal(Colors.orange.withValues(alpha: 0.5)),
+            radius: const .literal(20),
+            strokeColor: const .literal(Colors.red),
+            strokeWidth: const .literal(2),
           ),
         ],
       ),

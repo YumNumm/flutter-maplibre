@@ -16,6 +16,11 @@ extension type JsMap._(Camera _) implements Camera {
   /// https://github.com/maplibre/maplibre-gl-js/blob/02103f820a524ed359d94a81015e2d8e966f2c2a/src/ui/map.ts#L1593
   external void once(String type, JSExportedDartFunction listener);
 
+  /// Remove a callback that [on] registered.
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#off
+  external void off(String type, JSExportedDartFunction listener);
+
   /// https://github.com/maplibre/maplibre-gl-js/blob/76410880f81de2582be073bc2d730b3f4b8f254d/src/ui/map.ts#L1685
   external void setStyle(JSAny style, [StyleSwapOptions? options]);
 
@@ -23,10 +28,7 @@ extension type JsMap._(Camera _) implements Camera {
   external void addSource(String id, SourceSpecification source);
 
   /// https://github.com/maplibre/maplibre-gl-js/blob/41e5b32f5bd6264cbc4a8b38210ec6a410152259/src/ui/map.ts#L2412
-  external void addLayer(LayerSpecification layer, [String? beforeId]);
-
-  /// https://github.com/maplibre/maplibre-gl-js/blob/41e5b32f5bd6264cbc4a8b38210ec6a410152259/src/ui/map.ts#L2467
-  external JSObject? getLayer(String id);
+  external void addLayer(JSAny layer, [String? beforeId]);
 
   /// Convert a coordinate to a screen location.
   ///
@@ -51,6 +53,9 @@ extension type JsMap._(Camera _) implements Camera {
   /// Manually trigger a resize of the map to fit the size of the screen.
   external void resize();
 
+  /// Renders the map right away, instead of in the next animation frame.
+  external void redraw();
+
   /// Clean up and release all internal JS resources associated with this map.
   external void remove();
 
@@ -68,6 +73,12 @@ extension type JsMap._(Camera _) implements Camera {
   /// Returns the map's current pitch / tilt.
   external num getPitch();
 
+  /// Returns the map's current roll in degrees.
+  external num getRoll();
+
+  /// Returns the map's current padding.
+  external PaddingOptions getPadding();
+
   /// Returns the map's geographical bounds. When the bearing or pitch is
   /// non-zero, the visible region is not an axis-aligned rectangle, and the
   /// result is the smallest bounds that encompasses the visible region.
@@ -79,17 +90,12 @@ extension type JsMap._(Camera _) implements Camera {
   /// Removes the source with the given ID from the map's style.
   external void removeSource(String id);
 
-  /// Sets the filter for the specified layer.
-  ///
-  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setfilter
-  external void setFilter(String layerId, JSAny? filter);
-
   /// Add an image to the map.
   ///
   /// https://github.com/maplibre/maplibre-gl-js/blob/42ecfef53c25150227256bb0b5daa29af6efd9e7/src/ui/map.ts#L2530-L2531
   external void addImage(
     String id,
-    ImageSpecification image, [
+    JSObject image, [
     StyleImageMetadata? options,
   ]);
 
@@ -108,8 +114,45 @@ extension type JsMap._(Camera _) implements Camera {
   /// Update the max camera pitch / tilt.
   external void setMaxPitch(double? maxPitch);
 
+  /// The milliseconds that symbol placement changes fade over, 300 by
+  /// default. gl-js only takes it as the `fadeDuration` option and keeps it
+  /// in a private field, which it reads on every frame it renders. Null if a
+  /// gl-js version has no such field.
+  @JS('_fadeDuration')
+  external num? get fadeDuration;
+  @JS('_fadeDuration')
+  external set fadeDuration(num value);
+
   /// Update the maximum bounding box of the map camera.
   external void setMaxBounds(LngLatBounds? maxBounds);
+
+  /// Merges [state] into the feature state of the feature [feature], an
+  /// object of `source`, `sourceLayer` and `id`.
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setfeaturestate
+  external void setFeatureState(JSObject feature, JSAny state);
+
+  /// Removes the feature state that [target] selects, or only its [key].
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#removefeaturestate
+  external void removeFeatureState(JSObject target, [String? key]);
+
+  /// Sets the global state property [name]; null resets it to the style's
+  /// default.
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setglobalstateproperty
+  external void setGlobalStateProperty(String name, JSAny? value);
+
+  /// Replaces the light of the style.
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setlight
+  external void setLight(JSAny light);
+
+  /// The internal style object of gl-js, which the style controller needs for
+  /// the style's transition: gl-js reads `style.stylesheet.transition` on
+  /// every frame and has no setter for it.
+  @JS('style')
+  external JSObject? get styleObject;
 
   /// Update the used projection.
   ///
@@ -119,22 +162,37 @@ extension type JsMap._(Camera _) implements Camera {
   /// Get a Source by its id.
   external SourceSpecification? getSource(String id);
 
+  /// Sets the value of a paint property of the layer [layerId].
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setpaintproperty
+  external void setPaintProperty(String layerId, String name, JSAny? value);
+
+  /// Sets the value of a layout property of the layer [layerId].
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setlayoutproperty
+  external void setLayoutProperty(String layerId, String name, JSAny? value);
+
+  /// Sets the filter of the layer [layerId].
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setfilter
+  external void setFilter(String layerId, JSAny? filter);
+
+  /// Sets the zoom range of the layer [layerId].
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setlayerzoomrange
+  external void setLayerZoomRange(
+    String layerId,
+    double minZoom,
+    double maxZoom,
+  );
+
+  /// Moves the layer [id] below the layer [beforeId], or to the top.
+  ///
+  /// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#movelayer
+  external void moveLayer(String id, [String? beforeId]);
+
   /// Get the loaded style.
   external StyleSpecification? getStyle();
-
-  external DoubleClickZoomHandler doubleClickZoom;
-  external DragPanHandler dragPan;
-  external DragRotateHandler dragRotate;
-  external KeyboardHandler keyboard;
-  external ScrollZoomHandler scrollZoom;
-
-  /// Shift and drag to draw a box to zoom in
-  external BoxZoomHandler boxZoom;
-
-  /// Pitch with rotate
-  external bool pitchWithRotate;
-  external TwoFingersTouchPitchHandler touchPitch;
-  external TwoFingersTouchZoomRotateHandler touchZoomRotate;
 
   /// Returns an array of MapGeoJSONFeature objects representing visible
   /// features that satisfy the query parameters.
@@ -150,6 +208,16 @@ extension type JsMap._(Camera _) implements Camera {
     JSArray<Point> rect,
     JSAny? options,
   );
+
+  /// Returns the features of the source [sourceId] that satisfy [options].
+  external JSArray<MapGeoJSONFeature> querySourceFeatures(
+    String sourceId,
+    JSAny? options,
+  );
+
+  /// Returns the features anywhere in the map that satisfy [options].
+  @JS('queryRenderedFeatures')
+  external JSArray<MapGeoJSONFeature> queryRenderedFeaturesAll(JSAny? options);
 }
 
 /// Anonymous MapOptions for the MapLibre JavaScript [JsMap].
@@ -160,12 +228,24 @@ extension type MapOptions._(JSObject _) implements JSObject {
   external factory MapOptions({
     required JSAny style,
     required JSObject container,
-    required double zoom,
-    required LngLat? center,
-    required double bearing,
-    required double pitch,
     required bool attributionControl,
+    bool? interactive,
+    JSFunction? transformRequest,
   });
+
+  /// The CSS font-family list that draws CJK ideographs, kana and Hangul
+  /// locally, or `false` or an empty string for the style's glyphs; gl-js
+  /// defaults to `sans-serif`.
+  external JSAny? get localIdeographFontFamily;
+  external set localIdeographFontFamily(JSAny? value);
+}
+
+/// The request that a `transformRequest` callback returns.
+@anonymous
+@JS()
+extension type RequestParameters._(JSObject _) implements JSObject {
+  /// Create a new JS [RequestParameters] object.
+  external factory RequestParameters({required String url, JSAny? headers});
 }
 
 /// The specifications of map sources.
@@ -174,92 +254,6 @@ extension type MapOptions._(JSObject _) implements JSObject {
 extension type SourceSpecification._(JSObject _) implements JSObject {
   /// The default constructor for a [SourceSpecification].
   external SourceSpecification({required String type});
-
-  /// Create a new GeoJSON source.
-  external factory SourceSpecification.geoJson({
-    required String type,
-    required JSAny data,
-    num? maxzoom,
-    String? attribution,
-    num? buffer,
-    num? tolerance,
-  });
-
-  /// Create a new raster DEM source.
-  factory SourceSpecification.rasterDem({
-    required String type,
-    required int tileSize,
-    required String? attribution,
-    String? url,
-    JSAny? tiles,
-  }) => url != null
-      ? SourceSpecification._rasterDemUrl(
-          type: type,
-          tileSize: tileSize,
-          attribution: attribution,
-          url: url,
-        )
-      : SourceSpecification._rasterDemTiles(
-          type: type,
-          tileSize: tileSize,
-          attribution: attribution,
-          tiles: tiles!,
-        );
-
-  external factory SourceSpecification._rasterDemUrl({
-    required String type,
-    required int tileSize,
-    required String? attribution,
-    required String url,
-  });
-
-  external factory SourceSpecification._rasterDemTiles({
-    required String type,
-    required int tileSize,
-    required String? attribution,
-    required JSAny tiles,
-  });
-
-  /// Create a new raster source.
-  factory SourceSpecification.raster({
-    required String type,
-    required int tileSize,
-    required String? attribution,
-    JSAny? tiles,
-    String? url,
-  }) => url != null
-      ? SourceSpecification._rasterUrl(
-          type: type,
-          tileSize: tileSize,
-          attribution: attribution,
-          url: url,
-        )
-      : SourceSpecification._rasterTiles(
-          type: type,
-          tileSize: tileSize,
-          attribution: attribution,
-          tiles: tiles!,
-        );
-
-  external factory SourceSpecification._rasterUrl({
-    required String type,
-    required int tileSize,
-    required String? attribution,
-    required String url,
-  });
-
-  external factory SourceSpecification._rasterTiles({
-    required String type,
-    required int tileSize,
-    required String? attribution,
-    required JSAny tiles,
-  });
-
-  /// Create a new vector source.
-  external factory SourceSpecification.vector({
-    required String type,
-    required String? url,
-  });
 
   /// Create a new image source.
   external factory SourceSpecification.image({
@@ -275,34 +269,56 @@ extension type SourceSpecification._(JSObject _) implements JSObject {
     required JSAny coordinates,
   });
 
+  /// The type of the source, such as `geojson`.
+  external String get type;
+
   /// Used to update the data of a GeoJSON source.
   external void setData(JSAny data);
+
+  /// The zoom level at which a cluster of a GeoJSON source expands.
+  external JSPromise<JSNumber> getClusterExpansionZoom(int clusterId);
+
+  /// The children of a cluster of a GeoJSON source.
+  external JSPromise<JSArray<GeoJSONFeature>> getClusterChildren(int clusterId);
+
+  /// The points of a cluster of a GeoJSON source.
+  external JSPromise<JSArray<GeoJSONFeature>> getClusterLeaves(
+    int clusterId,
+    int limit,
+    int offset,
+  );
+
+  /// Used to update the corners of an image source.
+  external void setCoordinates(JSAny coordinates);
+
+  /// Used to update the tile URLs of a raster or vector source.
+  external void setTiles(JSAny tiles);
+
+  /// Used to update the TileJSON URL of a raster or vector source.
+  external void setUrl(String url);
+
+  /// Used to load a new image into an image source.
+  external void updateImage(UpdateImageOptions options);
+}
+
+/// The options of [SourceSpecification.updateImage].
+@anonymous
+@JS()
+extension type UpdateImageOptions._(JSObject _) implements JSObject {
+  /// Options that load the image from [url] and keep the coordinates.
+  external factory UpdateImageOptions({required String url});
 }
 
 /// The specifications of map layers.
 @anonymous
 @JS()
 extension type LayerSpecification._(JSObject _) implements JSObject {
-  /// The default constructor for a [LayerSpecification].
-  external LayerSpecification({
-    required String id,
-    required String type,
-    required JSAny layout,
-    required JSAny paint,
-    required double? minzoom,
-    required double? maxzoom,
-    String? source,
-  });
-
   /// Get the layer id.
   external String id;
-
-  external JSAny filter;
-  @JS('source-layer')
-  external String? sourceLayer;
 }
 
-/// Image data used by [JsMap.addImage].
+/// Raw image data used by [JsMap.addImage], RGBA8 without premultiplied
+/// alpha.
 ///
 /// https://github.com/maplibre/maplibre-gl-js/blob/42ecfef53c25150227256bb0b5daa29af6efd9e7/src/style/style_image.ts#L92-L93
 @anonymous
@@ -342,7 +358,7 @@ extension type ProjectionSpecification._(JSObject _) implements JSObject {
   external ProjectionSpecification({
     /// The projection definition type. Can be specified as a string, a
     /// transition state, or an expression.
-    required String type,
+    required JSAny type,
   });
 }
 
@@ -358,14 +374,4 @@ extension type StyleSwapOptions._(JSObject _) implements JSObject {
     /// and building the given one instead of attempting a diff-based update.
     bool? diff,
   });
-}
-
-/// QueryRenderedFeaturesOptions
-///
-/// https://maplibre.org/maplibre-gl-js/docs/API/type-aliases/QueryRenderedFeaturesOptions/
-@anonymous
-@JS()
-extension type QueryRenderedFeaturesOptions._(JSObject _) implements JSObject {
-  /// Create a new JS [MapOptions] object.
-  external factory QueryRenderedFeaturesOptions({JSArray<JSString>? layers});
 }

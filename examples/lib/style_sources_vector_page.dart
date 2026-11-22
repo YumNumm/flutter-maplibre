@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:maplibre/maplibre.dart';
 import 'package:maplibre_example/style_layers_symbol_page.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class StyleSourcesVectorPage extends StatefulWidget {
@@ -20,8 +20,10 @@ class _StyleSourcesVectorPageState extends State<StyleSourcesVectorPage> {
       appBar: AppBar(title: const Text('Vector Source')),
       body: MapLibreMap(
         options: const MapOptions(
-          initZoom: 2,
-          initCenter: Geographic(lon: 9.17, lat: 47.68),
+          initCamera: CameraUpdate.position(
+            zoom: 2,
+            center: Geographic(lon: 9.17, lat: 47.68),
+          ),
         ),
         onStyleLoaded: (style) async {
           try {
@@ -35,56 +37,54 @@ class _StyleSourcesVectorPageState extends State<StyleSourcesVectorPage> {
             // add the image to the map
             await style.addImage('marker', bytes);
 
-            const vectorSource = VectorSource(
+            const vectorSource = VectorSource.url(
               id: sourceId,
               url: 'https://demotiles.maplibre.org/tiles/tiles.json',
             );
-            await style.addSource(vectorSource);
+            await style.sources.add(vectorSource);
 
-            const fillLayer = FillStyleLayer(
+            final fillLayer = FillStyleLayer(
               id: 'fill_layer',
               sourceId: sourceId,
               sourceLayerId: 'countries',
-              paint: {'fill-color': '#429ef5', 'fill-opacity': 0.6},
+              color: const .literal(Color(0xFF429EF5)),
+              opacity: const .literal(0.6),
             );
 
-            await style.addLayer(fillLayer);
+            await style.layers.add(fillLayer);
 
-            const lineLayer = LineStyleLayer(
+            final lineLayer = LineStyleLayer(
               id: 'line_layer',
               sourceId: sourceId,
               sourceLayerId: 'countries',
-              paint: {'line-color': '#00F', 'line-width': 3},
+              color: const .literal(Color(0xFF0000FF)),
+              width: const .literal(3),
             );
 
-            await style.addLayer(lineLayer);
+            await style.layers.add(lineLayer);
 
-            const circleLayer = CircleStyleLayer(
+            final circleLayer = CircleStyleLayer(
               id: 'circle_layer',
               sourceId: sourceId,
               sourceLayerId: 'centroids',
-              paint: {
-                'circle-radius': 18,
-                'circle-color': '#000000',
-                'circle-opacity': 0.5,
-                'circle-stroke-color': '#FFF',
-                'circle-stroke-width': 2,
-              },
+              radius: const .literal(18),
+              color: const .literal(Color(0xFF000000)),
+              opacity: const .literal(0.5),
+              strokeColor: const .literal(Color(0xFFFFFFFF)),
+              strokeWidth: const .literal(2),
             );
-            await style.addLayer(circleLayer);
+            await style.layers.add(circleLayer);
 
-            const symbolLayer = SymbolStyleLayer(
+            final symbolLayer = SymbolStyleLayer(
               id: 'images_layer',
               sourceId: sourceId,
               sourceLayerId: 'centroids',
-              layout: {
-                'icon-image': 'marker',
-                'icon-size': 0.18,
-                'icon-allow-overlap': true,
-                'icon-anchor': 'bottom',
-              },
+              iconImage: const .literal('marker'),
+              iconSize: const .literal(0.08),
+              iconAllowOverlap: const .literal(true),
+              iconAnchor: const .literal(IconAnchor.bottom),
             );
-            await style.addLayer(symbolLayer);
+            await style.layers.add(symbolLayer);
           } on Exception catch (error, stacktrace) {
             debugPrint(error.toString());
             debugPrintStack(stackTrace: stacktrace);

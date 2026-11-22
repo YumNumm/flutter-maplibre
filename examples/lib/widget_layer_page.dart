@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class WidgetLayerPage extends StatefulWidget {
@@ -18,8 +18,10 @@ class _WidgetLayerPageState extends State<WidgetLayerPage> {
       appBar: AppBar(title: const Text('Widget Layer')),
       body: const MapLibreMap(
         options: MapOptions(
-          initZoom: 3,
-          initCenter: Geographic(lon: 0, lat: -10),
+          initCamera: CameraUpdate.position(
+            zoom: 3,
+            center: Geographic(lon: 0, lat: -10),
+          ),
         ),
         children: [
           WidgetLayer(

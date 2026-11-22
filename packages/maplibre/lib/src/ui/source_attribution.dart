@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' as html_parser;
 import 'package:maplibre/maplibre.dart';
-import 'package:pointer_interceptor/pointer_interceptor.dart';
+import 'package:maplibre/src/ui/map_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Display a zoom-in and zoom-out button to the [MapLibreMap] by using it in
@@ -20,6 +20,9 @@ class SourceAttribution extends StatefulWidget {
     this.alignment = Alignment.bottomRight,
     this.showMapLibre = true,
     this.keepExpanded = false,
+    this.backgroundColor = MapButton.defaultBackgroundColor,
+    this.iconColor = MapButton.defaultIconColor,
+    this.textStyle = defaultTextStyle,
   });
 
   /// The padding.
@@ -33,10 +36,25 @@ class SourceAttribution extends StatefulWidget {
   /// Defaults to true.
   final bool showMapLibre;
 
-  /// Keeps the attribution expanded when the MapCamera changes.
+  /// Keeps the attribution expanded when the CameraPosition changes.
   ///
   /// Defaults to false.
   final bool keepExpanded;
+
+  /// The background color. Defaults to white.
+  final Color backgroundColor;
+
+  /// The color of the info icon. Defaults to dark grey.
+  final Color iconColor;
+
+  /// The style of the attribution text. Links are underlined on hover.
+  final TextStyle textStyle;
+
+  /// The default [textStyle]: 12 px dark grey.
+  static const defaultTextStyle = TextStyle(
+    fontSize: 12,
+    color: Color(0xFF333333),
+  );
 
   @override
   State<SourceAttribution> createState() => _SourceAttributionState();
@@ -44,74 +62,75 @@ class SourceAttribution extends StatefulWidget {
 
 class _SourceAttributionState extends State<SourceAttribution> {
   bool _expanded = true;
-  MapCamera? _initMapCamera;
+  CameraPosition? _initCameraPosition;
 
   @override
   Widget build(BuildContext context) {
-    final style = MapController.maybeOf(context)?.style;
-    final camera = MapCamera.maybeOf(context);
+    final style = StyleController.maybeOf(context);
+    final camera = CameraPosition.maybeOf(context);
     if (style == null || camera == null) return const SizedBox.shrink();
 
-    _initMapCamera ??= camera;
-    if (_expanded && !widget.keepExpanded && _initMapCamera != camera) {
-      _initMapCamera = null;
+    _initCameraPosition ??= camera;
+    if (_expanded && !widget.keepExpanded && _initCameraPosition != camera) {
+      _initCameraPosition = null;
       _expanded = false;
     }
 
-    final theme = Theme.of(context);
     final size = MediaQuery.sizeOf(context);
 
     final attributions = [
       if (widget.showMapLibre)
         '<a href="https://pub.dev/packages/maplibre">MapLibre</a>',
-      ...style.getAttributionsSync(),
+      ...style.attributions,
     ];
 
-    // Use a SafeArea to ensure the widget is completely visible on devices
-    // with rounded edges like iOS.
-    return SafeArea(
+    return MapAlignItem(
+      alignment: widget.alignment,
+      padding: widget.padding,
       child: Container(
-        alignment: widget.alignment,
-        padding: widget.padding,
-        child: PointerInterceptor(
-          child: Container(
-            decoration: BoxDecoration(
-              color: theme.scaffoldBackgroundColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (_expanded)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 5, top: 5, left: 10),
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: size.width / 2),
-                      child: Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        spacing: 2,
-                        runSpacing: 2,
-                        children: attributions
-                            .map(_HtmlWidget.new)
-                            .toList(growable: false),
-                      ),
-                    ),
-                  ),
-                SizedBox.square(
-                  dimension: 30,
-                  child: IconButton(
-                    onPressed: () => setState(() {
-                      _initMapCamera = null;
-                      _expanded = !_expanded;
-                    }),
-                    icon: const Icon(Icons.info, size: 18),
-                    padding: const EdgeInsets.all(4),
-                    constraints: const BoxConstraints(),
+        decoration: BoxDecoration(
+          color: widget.backgroundColor,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (_expanded)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 5, top: 5, left: 10),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: size.width / 2),
+                  child: Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: 2,
+                    runSpacing: 2,
+                    children: attributions
+                        .map((html) => _HtmlWidget(html, widget.textStyle))
+                        .toList(growable: false),
                   ),
                 ),
-              ],
+              ),
+            SizedBox.square(
+              dimension: 30,
+              child: MapTapTarget(
+                label: 'Attribution',
+                onPressed: () => setState(() {
+                  _initCameraPosition = null;
+                  _expanded = !_expanded;
+                }),
+                child: Center(
+                  child: CustomPaint(
+                    size: const Size.square(18),
+                    painter: MapButtonIconPainter(
+                      MapButtonIcon.info,
+                      color: widget.iconColor,
+                      backgroundColor: widget.backgroundColor,
+                    ),
+                  ),
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -119,9 +138,10 @@ class _SourceAttributionState extends State<SourceAttribution> {
 }
 
 class _HtmlWidget extends StatefulWidget {
-  const _HtmlWidget(this.html);
+  const _HtmlWidget(this.html, this.textStyle);
 
   final String html;
+  final TextStyle textStyle;
 
   @override
   State<StatefulWidget> createState() => _HtmlWidgetState();
@@ -132,9 +152,9 @@ class _HtmlWidgetState extends State<_HtmlWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var textStyle = Theme.of(context).textTheme.bodySmall;
+    var textStyle = widget.textStyle;
     if (_hovering) {
-      textStyle = textStyle?.copyWith(decoration: TextDecoration.underline);
+      textStyle = textStyle.copyWith(decoration: TextDecoration.underline);
     }
     final textSpans = <TextSpan>[];
     final document = html_parser.parse(widget.html);

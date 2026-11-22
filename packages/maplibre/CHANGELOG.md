@@ -1,26 +1,169 @@
 ## Unreleased
 
-### Maintenance
+### Features
 
-- Android: update MapLibre Native to [13.5.1](https://github.com/maplibre/maplibre-native/releases/tag/android-v13.5.1) (`android-sdk-opengl`).
-- iOS: update MapLibre Native to [6.28.0](https://github.com/maplibre/maplibre-native/releases/tag/ios-v6.28.0).
-- These versions include converting PMTiles metadata gzip failures into error responses instead of aborting ([maplibre-native#4399](https://github.com/maplibre/maplibre-native/pull/4399)).
+- `MapLibreNetwork.offline` keeps maps and the `OfflineManager` off the
+  network, so they use only the cache and offline regions. Not on web.
+- Feature state: `style.sources.setFeatureState` and friends with a
+  `FeatureRef`, for hover and selection styling without data updates.
+- `MapOptions.globalState` sets the style's global state, which
+  `StyleController.globalState` reads.
+- `StyleController.light` reads and changes the style's light, and
+  `StyleController.transition` its default transition.
 
-### New Features
+## 0.4.0
 
-- Add the synchronous `ComputedGeoJsonSource` public contract for upcoming
-  Android and iOS backends. Providers must return a GeoJSON
-  `FeatureCollection`; invalid values and provider failures report a typed
-  error and resolve to an empty tile. Region and tile invalidation are exposed
-  through `StyleController`. Web and desktop WebView implementations are
-  explicitly unsupported.
+`maplibre` is now a MapLibre
+[hosted project](https://github.com/maplibre/maplibre/blob/main/PROJECT_TIERS.md#hosted-project):
+the repository moved to
+[maplibre/flutter-maplibre](https://github.com/maplibre/flutter-maplibre) and
+the website to <https://maplibre.org/flutter-maplibre>.
+
+0.4 replaces the MapLibre Android and iOS SDKs and the WebView desktop
+integration with one native implementation for Android, iOS, macOS, Windows
+and Linux, built on the
+[MapLibre Native C API](https://github.com/maplibre/maplibre-native-ffi), and
+uses maplibre-gl-js v6 on web. Every map renders into a Flutter `Texture` and
+uses the same gestures on every platform. The
+[migration guide](https://maplibre.org/flutter-maplibre/docs/migrate/upgrade-from-v0.3.x/)
+covers every API change.
+
+### Breaking Changes
+
+- Packages: `maplibre_android`, `maplibre_ios` and `maplibre_webview` are
+  removed. `maplibre` uses `maplibre_web` on web and `maplibre_native` on
+  every other platform.
+- Platforms: requires Android 7.0 (API level 24) with OpenGL ES 3.0, iOS 15
+  and macOS 14.3; iOS and macOS support only Swift Package Manager.
+- Web: requires maplibre-gl-js v6, which loads on its own, so remove its
+  `<script>` and `<link>` tags from `web/index.html`. Gestures are recognized
+  in Flutter; keyboard navigation and box zoom are gone.
+- Styles: style layers take typed properties and expressions, `style.layers`
+  and `style.sources` replace the layer and source methods, sources have
+  named constructors, and `MapOptions.style` takes a `MapStyle`.
+- Map API: one callback per map event replaces `onEvent`; camera methods take
+  a `CameraUpdate`; `queryRenderedFeatures` replaces the feature queries;
+  `MapOptions.movements` and `MapOptions.gestures` replace the gesture flags;
+  geobase types such as `GeoBox` replace `LngLatBounds`.
+- Annotations and widgets: `UserLocationLayer` replaces the location methods
+  and `PermissionManager`, `MarkerLayer.icon` replaces `iconImage`, and UI
+  widgets such as `MapCompass` no longer follow the app's Material `Theme`.
+- Removed the deprecated APIs and the options of the removed packages. Not on
+  web: no globe projection and no `VideoSource`.
+
+### Features
+
+- Windows, macOS and Linux work out of the box, and maps compose with Flutter
+  widgets without platform views.
+- Typed style expressions and style layers that can be read, changed, moved
+  and removed at runtime, with click and hover events.
+- Annotation layers keep their place across style changes, can be dragged,
+  and report clicks and hovers.
+- `UserLocationLayer` shows and follows the user location on every platform;
+  the new `maplibre_geolocator` package connects it to `geolocator`.
+- `MapPlugin` and `MapAlign` let widgets in `children` add layers, callbacks
+  and movement limits to the map.
+- Camera: `cameraFor` fits the camera to bounds or points, `stopCamera`
+  stops an animation, the camera can roll and take padding, pinches and pans
+  keep their momentum after release, a pinch rotates only after a twist
+  threshold, and `MapLibreMap.withCamera` sets the camera from `build`.
+- Sources: clustered GeoJSON, `querySourceFeatures`, image sources from any
+  `ImageProvider`, MapLibre Tiles (MLT) and SDF style images.
+- Offline regions of a geometry, such as a route, and `MapLibreNetwork` for
+  request headers and URL rewrites.
+- `MapLibreMap.paused` stops rendering, and hidden maps pause on their own.
+- CJK text with the device's fonts on iOS, macOS and web, and label fade
+  transitions that can be turned off.
 
 ### Bug Fixes
 
-- iOS: fix a spurious `MapEventClick` emitted while the quick zoom gesture (double tap, then press and drag vertically) is active. The single tap recognizers now require MapLibre's quick zoom recognizer to fail, matching the behavior of MapLibre's own single tap recognizer.
-- iOS: fix crash on hot restart when native map callbacks invoked FFI after the Dart isolate was torn down (`DLRT_GetFfiCallbackMetadata` assert). Clear `MLNMapView.delegate` and unregister entries in `MapLibreView.deinit`; add `MapLibreRegistry.clearAll()` and invoke it from `detachFromEngineForRegistrar`. See [issue #498](https://github.com/josxha/flutter-maplibre/issues/498).
+- A `StyleController` of a replaced style no longer changes the new style.
+- `SourceAttribution` updates when sources change.
+- Changing a layer in `MapLibreMap.layers` no longer moves it to the top.
+- `MarkerLayer` applies `textOpacity` and `iconTranslate`, and
+  `PolylineLayer` applies `blur`.
+- Web: widgets over the map no longer pass taps through to the map, style
+  images keep their size with `--wasm`, zoom on the globe zooms toward the
+  pointer, and `animateCamera` no longer hangs when it ends at once.
 
-**Manual verification (iOS Simulator):** run `flutter run` from `packages/maplibre_ios/example` (or the main example app), open a map page, then hot restart (`R`). The app must not crash and the map should still load.
+Full Changelog: [v0.3.7+1...v0.4.0](https://github.com/maplibre/flutter-maplibre/compare/v0.3.7+1...v0.4.0)
+
+## 0.3.7+1
+
+This bug fix release is the last planned release for the v0.3 series. The focus now will be on replacing the MapLibre Android and iOS SDK as well as the WebView desktop integration with [unified C bindings](https://github.com/maplibre/maplibre-native-ffi). Stay tuned!
+
+### Bug Fixes
+
+- Android: dispatch style-loaded callbacks asynchronously so the Android UI
+  thread does not wait for the Dart listener to return.
+- iOS: remove verbose per-expression style parsing logs from `parseExpression`.
+
+Full Changelog: [v0.3.7...v0.3.7+1](https://github.com/maplibre/flutter-maplibre/compare/v0.3.7...v0.3.7+1)
+
+## 0.3.7
+
+Thanks for everyone who contributed in this release!
+@glandais, @miakh, @teamacco, @Mazen-Embaby, @fmt-Println-MKO, @BartoszStasiurka
+
+### Features
+
+- Requires Dart 3.13 and Flutter 3.47 or newer.
+- iOS: ffigen v22, code_assets v2, objective_c 9.5
+
+### Bug Fixes
+
+- Android: `OfflineManager.downloadRegion` no longer leaks a JNI global
+  reference per status event, which aborted the process with a global
+  reference table overflow partway through a large region download.
+- Android: calls on a `StyleController` whose native style was already released
+  are ignored instead of aborting the process with a JNI error.
+- Android: remove the ktlint Gradle plugin, which broke builds of apps that
+  depend on `maplibre_android`.
+- Android: add a missing proguard rule for obfuscated release builds.
+- iOS: fix a crash when setting hillshade `colorArray` and `numberArray` paint
+  properties.
+- iOS: fix `animateCamera()` crash when called before the native view has a
+  layout size.
+- iOS: tear down `MLNMapView` and its gesture recognizers when the map is
+  disposed.
+- iOS: preserve zoom levels, attribution, raster tile size, and supported DEM
+  encoding when adding tile-template sources at runtime.
+- Web: `fitBounds()` no longer reuses padding from a previous camera move.
+
+## 0.3.6
+
+Thanks for everyone who contributed in this release!
+@emanuelesenis, @BartoszStasiurka, @D3CK3R, @Mazen-Embaby, @teamacco, @lukeboyden
+
+### Features
+
+- Android: MapLibre Native Android 13.5
+- iOS: MapLibre Native iOS 6.29
+- Android: jnigen 0.17
+- iOS: hooks v2, native_toolchain_c 0.19
+- Android: Migrate Plugin to Built-in Kotlin
+- Support for the tolerance parameter in GeoJsonSource
+- Add geometry field to RenderedFeature
+
+### Bug Fixes
+
+- Android: fix platform views are never removed from the internal registry,
+  leaking a `FrameLayout` and its native map state per map create/dispose
+  cycle.
+- Android: `StyleController` now releases its native style reference when
+  the owning `MapLibreMap` is disposed, instead of staying technically
+  usable on a torn-down map.
+- Android: fix `StyleController` and several map query methods
+  (`updateGeoJsonSource`, `removeLayer`/`removeSource`/`removeImage`,
+  `getLayerIds`, `getAttributionsSync`, `featuresAtPoint`/`featuresInRect`)
+  leak JNI global references on every call.
+- Android: camera listeners no longer block the calling Java thread on
+  camera events.
+- iOS: fix long tab took a long time to be registered
+- iOS: fix SPM package resolved bootstrap
+- iOS: fix GeoJSON rendering failure in obfuscated releases
+- Android: fix proguard rules for obfuscated release builds
+- skip re-serializing a GeoJSON source whose layer is unchanged.
 
 ## 0.3.5
 
@@ -37,7 +180,7 @@ Thanks to @BartoszStasiurka for his contributions in this release!
 - Android: fix symbol icons appear smaller than on other platforms.
 - iOS: update MapLibre Native to 6.25
 
-Full Changelog: [v0.3.4+1...v0.3.5](https://github.com/josxha/flutter-maplibre/compare/v0.3.4+1...v0.3.5)
+Full Changelog: [v0.3.4+1...v0.3.5](https://github.com/maplibre/flutter-maplibre/compare/v0.3.4+1...v0.3.5)
 
 ## 0.3.4+1
 
@@ -53,7 +196,7 @@ Full Changelog: [v0.3.4+1...v0.3.5](https://github.com/josxha/flutter-maplibre/c
 - Migrate website to zensical and update documentation.
 - Improve pub.dev scores of packages.
 
-Full Changelog: [v0.3.4...v0.3.4+1](https://github.com/josxha/flutter-maplibre/compare/v0.3.4...v0.3.4+1)
+Full Changelog: [v0.3.4...v0.3.4+1](https://github.com/maplibre/flutter-maplibre/compare/v0.3.4...v0.3.4+1)
 
 ## 0.3.4
 
@@ -76,7 +219,7 @@ The package has also been restructured into a federated plugin with separate pac
 - Android: fix map disposal causes sometimes a crash.
 - Web: fix missing device pixel ratio adjustment on `addImage()`
 
-Full Changelog: [v0.3.3+2...v0.3.4](https://github.com/josxha/flutter-maplibre/compare/v0.3.3+2...v0.3.4)
+Full Changelog: [v0.3.3+2...v0.3.4](https://github.com/maplibre/flutter-maplibre/compare/v0.3.3+2...v0.3.4)
 
 ## 0.3.3+2
 
@@ -85,7 +228,7 @@ Full Changelog: [v0.3.3+2...v0.3.4](https://github.com/josxha/flutter-maplibre/c
 - Android: fix can't parse numeric array in layer properties
 - Android: add missing `metadata` parameter to `OfflineRegion`
 
-Full Changelog: [v0.3.3+1...v0.3.3+2](https://github.com/josxha/flutter-maplibre/compare/v0.3.3+1...v0.3.3+2)
+Full Changelog: [v0.3.3+1...v0.3.3+2](https://github.com/maplibre/flutter-maplibre/compare/v0.3.3+1...v0.3.3+2)
 
 ## 0.3.3+1
 
@@ -95,7 +238,7 @@ Full Changelog: [v0.3.3+1...v0.3.3+2](https://github.com/josxha/flutter-maplibre
 - Fix `filter` cannot be parsed on Android
 - Tighten version constraint for `maplibre_ios` to fix pub.dev score
 
-Full Changelog: [v0.3.3...v0.3.3+1](https://github.com/josxha/flutter-maplibre/compare/v0.3.3...v0.3.3+1)
+Full Changelog: [v0.3.3...v0.3.3+1](https://github.com/maplibre/flutter-maplibre/compare/v0.3.3...v0.3.3+1)
 
 ## 0.3.3
 
@@ -122,7 +265,7 @@ I would also like to extend my sincere gratitude to Thilko M., @oboukili, @ton-A
 - Fix invisible map on android when coming back from background.
 - Fix double tap zoom interaction on iOS.
 
-Full Changelog: [v0.3.2...v0.3.3](https://github.com/josxha/flutter-maplibre/compare/v0.3.2...v0.3.3)
+Full Changelog: [v0.3.2...v0.3.3](https://github.com/maplibre/flutter-maplibre/compare/v0.3.2...v0.3.3)
 
 ## 0.3.2
 
@@ -138,7 +281,7 @@ Maintenance release that optimizes the package on `pub.dev` and fixes a bug in r
 
 - Fix missing proguard rules for jni/jnigen causing issues in release builds on Android.
 
-Full Changelog: [v0.3.1...v0.3.2](https://github.com/josxha/flutter-maplibre/compare/v0.3.1...v0.3.2)
+Full Changelog: [v0.3.1...v0.3.2](https://github.com/maplibre/flutter-maplibre/compare/v0.3.1...v0.3.2)
 
 ## 0.3.1
 
@@ -162,17 +305,17 @@ This release brings a couple of new features and bug fixes. The android platform
 - Fix `maxBounds` parameter
 - Fix `linePattern` int array causing crash on iOS.
 
-Full Changelog: [v0.3.0...v0.3.1](https://github.com/josxha/flutter-maplibre/compare/v0.3.0...v0.3.1)
+Full Changelog: [v0.3.0...v0.3.1](https://github.com/maplibre/flutter-maplibre/compare/v0.3.0...v0.3.1)
 
 ## 0.3.0
 
 In this release, I'm blazed to finally announce support for iOS. Similar to our other platforms, iOS uses FFI to natively interop between Dart and Swift/ObjC. Checkout
-the [iOS documentation](https://flutter-maplibre.pages.dev/docs/getting-started/setup)
+the [iOS documentation](https://maplibre.org/flutter-maplibre/docs/getting-started/setup)
 to get started.
 A big thanks to @mhernz, @gabbopalma and @jt274 that helped with their awesome
 contributions in this release!
 
-This release introduces breaking changes. Head over to the [migration guide](https://flutter-maplibre.pages.dev/docs/migrate/upgrade-from-v0.2.x/) to learn more on how to update your implementation.
+This release introduces breaking changes. Head over to the [migration guide](https://maplibre.org/flutter-maplibre/docs/migrate/upgrade-from-v0.2.x/) to learn more on how to update your implementation.
 
 ### New Features
 
@@ -198,7 +341,7 @@ This release introduces breaking changes. Head over to the [migration guide](htt
 - Fix missing export of `BearingRenderMode`
 - Remove `dart:io` import to fix pub.dev WASM compatibility detection
 
-Full Changelog: [v0.2.2...v0.3.0](https://github.com/josxha/flutter-maplibre/compare/v0.2.2...v0.3.0)
+Full Changelog: [v0.2.2...v0.3.0](https://github.com/maplibre/flutter-maplibre/compare/v0.2.2...v0.3.0)
 
 ## 0.2.2
 
@@ -214,7 +357,7 @@ Maintenance release and some new functionality. Thanks for your contribution in 
 
 ...and numerous other dependencies updated in this release.
 
-Full Changelog: [v0.2.1...v0.2.2](https://github.com/josxha/flutter-maplibre/compare/v0.2.1...v0.2.2)
+Full Changelog: [v0.2.1...v0.2.2](https://github.com/maplibre/flutter-maplibre/compare/v0.2.1...v0.2.2)
 
 ## 0.2.1
 
@@ -246,12 +389,12 @@ Thanks for your contributions for this release, @felix-larsen and @pamtbaau!
 - Use the new code formatting.
 - Upgrade pigeon to 24.
 
-Full Changelog: [v0.2.0...v0.2.1](https://github.com/josxha/flutter-maplibre/compare/v0.2.0...v0.2.1)
+Full Changelog: [v0.2.0...v0.2.1](https://github.com/maplibre/flutter-maplibre/compare/v0.2.0...v0.2.1)
 
 ## 0.2.0
 
 This release is a collection of user affecting changes along a couple of new features and bug fixes.
-Head over to the [migration guide](https://flutter-maplibre.pages.dev/docs/migrate/upgrade-from-v0.2.x/) to learn more on how to update your implementation.
+Head over to the [migration guide](https://maplibre.org/flutter-maplibre/docs/migrate/upgrade-from-v0.2.x/) to learn more on how to update your implementation.
 
 A big thanks to @gabbopalma for his contributions in this release.
 
@@ -290,7 +433,7 @@ A big thanks to @gabbopalma for his contributions in this release.
 - Enhance documentation.
 - Build example app with java 21
 
-Full Changelog: [v0.1.2...v0.2.0](https://github.com/josxha/flutter-maplibre/compare/v0.1.2...v0.2.0)
+Full Changelog: [v0.1.2...v0.2.0](https://github.com/maplibre/flutter-maplibre/compare/v0.1.2...v0.2.0)
 
 ## 0.1.2
 
@@ -315,10 +458,10 @@ This release adds the last missing features for Android and Web, that are were p
 ### Misc
 
 - Add unit tests, add Android integration tests.
-- Use [codecov](https://app.codecov.io/gh/josxha/flutter-maplibre) to monitor test coverage.
+- Use [codecov](https://app.codecov.io/gh/maplibre/flutter-maplibre) to monitor test coverage.
 - Improve file structure by using a `/platform` directory.
 
-Full Changelog: [v0.1.1...v0.1.2](https://github.com/josxha/flutter-maplibre/compare/v0.1.1...v0.1.2)
+Full Changelog: [v0.1.1...v0.1.2](https://github.com/maplibre/flutter-maplibre/compare/v0.1.1...v0.1.2)
 
 ## 0.1.1
 
@@ -333,7 +476,7 @@ Full Changelog: [v0.1.1...v0.1.2](https://github.com/josxha/flutter-maplibre/com
 
 - Fix `controller.getVisibleRegion()` throws exception on Android.
 
-Full Changelog: [v0.1.0...v0.1.1](https://github.com/josxha/flutter-maplibre/compare/v0.1.0...v0.1.1)
+Full Changelog: [v0.1.0...v0.1.1](https://github.com/maplibre/flutter-maplibre/compare/v0.1.0...v0.1.1)
 
 ## 0.1.0
 
@@ -347,7 +490,7 @@ Full Changelog: [v0.1.0...v0.1.1](https://github.com/josxha/flutter-maplibre/com
 - Bump minimum Flutter version to [3.24.0](https://medium.com/flutter/whats-new-in-flutter-3-24-6c040f87d1e4) (Minimum Dart version of [3.5.0](https://medium.com/dartlang/dart-3-5-6ca36259fa2f)).
 - Can't await the end of `animateCamera()` in this version.
 
-Read the [Upgrade Guide](https://flutter-maplibre.pages.dev/docs/migrate/upgrade-from-v0.2.x/) for
+Read the [Upgrade Guide](https://maplibre.org/flutter-maplibre/docs/migrate/upgrade-from-v0.2.x/) for
 instructions on how to upgrade.
 
 ### New Features
@@ -358,7 +501,7 @@ instructions on how to upgrade.
 - Add user location to the map.
 - Check Style for Kotlin
 
-Full Changelog: [v0.0.2...v0.1.0](https://github.com/josxha/flutter-maplibre/compare/v0.0.2...v0.1.0)
+Full Changelog: [v0.0.2...v0.1.0](https://github.com/maplibre/flutter-maplibre/compare/v0.0.2...v0.1.0)
 
 ## 0.0.2
 
@@ -380,14 +523,14 @@ Full Changelog: [v0.0.2...v0.1.0](https://github.com/josxha/flutter-maplibre/com
 
 - Fix `jumpTo()` never returns on Android.
 
-Full Changelog: [v0.0.1+1...v0.0.2](https://github.com/josxha/flutter-maplibre/compare/v0.0.1+1...v0.0.2)
+Full Changelog: [v0.0.1+1...v0.0.2](https://github.com/maplibre/flutter-maplibre/compare/v0.0.1+1...v0.0.2)
 
 ## 0.0.1+1
 
 - Fix urls to website and embedded screenshots
 - Remove unused `plugin_platform_interface` dependency
 
-Full Changelog: [v0.0.1...v0.0.1+1](https://github.com/josxha/flutter-maplibre/compare/v0.0.1...v0.0.1+1)
+Full Changelog: [v0.0.1...v0.0.1+1](https://github.com/maplibre/flutter-maplibre/compare/v0.0.1...v0.0.1+1)
 
 ## 0.0.1
 

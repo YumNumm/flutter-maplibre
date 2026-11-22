@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:maplibre/maplibre.dart';
 import 'package:maplibre_example/utils/map_styles.dart';
 import 'package:maplibre_example/utils/style_dropdown.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class StyledMapPage extends StatefulWidget {
@@ -15,7 +15,6 @@ class StyledMapPage extends StatefulWidget {
 
 class _StyledMapPageState extends State<StyledMapPage> {
   MapStyles _style = StyleDropdown.initStyle;
-  late MapController _controller;
 
   @override
   Widget build(BuildContext context) {
@@ -25,30 +24,22 @@ class _StyledMapPageState extends State<StyledMapPage> {
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(50),
           child: StyleDropdown(
-            onChanged: (style) {
-              // update the segmented button
-              setState(() => _style = style);
-              // apply the new style on the map
-              _controller.setStyle(style.uri);
-            },
+            // The map loads the new style of its options.
+            onChanged: (style) => setState(() => _style = style),
           ),
         ),
       ),
       body: MapLibreMap(
         options: MapOptions(
-          initCenter: const Geographic(lon: 9.17, lat: 47.68),
-          initZoom: 2,
-          initStyle: _style.uri,
+          style: _style.style,
+          initCamera: const CameraUpdate.position(
+            center: Geographic(lon: 9.17, lat: 47.68),
+            zoom: 2,
+          ),
         ),
-        children: const [
-          MapScalebar(),
-          SourceAttribution(),
-          MapControlButtons(showTrackLocation: true),
-          MapCompass(),
-        ],
-        onMapCreated: (controller) => _controller = controller,
+        children: const [MapScalebar(), SourceAttribution(), MapCompass()],
         onStyleLoaded: (style) {
-          style.setProjection(MapProjection.globe);
+          style.setProjection(const .literal(.globe));
         },
       ),
     );

@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:maplibre/maplibre.dart';
-import 'package:pointer_interceptor/pointer_interceptor.dart';
+import 'package:maplibre/src/ui/map_button.dart';
 
 /// A compass for flutter_map that shows the map rotation and allows to reset
 /// the rotation back to 0.
@@ -15,8 +15,9 @@ class MapCompass extends StatelessWidget {
     this.child,
     super.key,
     this.rotationOffset = 0,
-    this.nativeRotationDuration = const Duration(milliseconds: 200),
-    this.webRotationSpeed = 1.2,
+    this.animation = const CameraAnimation.ease(
+      duration: Duration(milliseconds: 200),
+    ),
     this.removePinchOnPressed = false,
     this.rotateNorthOnPressed = true,
     this.onPressed,
@@ -24,6 +25,9 @@ class MapCompass extends StatelessWidget {
     this.alignment = Alignment.topRight,
     this.padding = const EdgeInsets.all(10),
     this.radius = 22,
+    this.backgroundColor = const Color(0x99FFFFFF),
+    this.borderColor = const Color(0xFF000000),
+    this.needleColor = const Color(0xFFF44336),
   });
 
   /// Override the compass widget.
@@ -62,42 +66,51 @@ class MapCompass extends StatelessWidget {
   /// Defaults to 10px on all sides.
   final EdgeInsets padding;
 
-  /// The duration of the rotation animation.
-  ///
-  /// Default to 200 ms. Only supported on android and iOS.
-  final Duration nativeRotationDuration;
-
-  /// The speed of the rotation animation on web.
-  final double webRotationSpeed;
+  /// The animation that rotates the map north. Defaults to a 200 ms ease.
+  final CameraAnimation animation;
 
   /// The compass radius.
   final double radius;
 
+  /// The background color of the default compass. Defaults to translucent
+  /// white.
+  final Color backgroundColor;
+
+  /// The outline color of the default compass. Defaults to black.
+  final Color borderColor;
+
+  /// The needle color of the default compass. Defaults to red.
+  final Color needleColor;
+
   @override
   Widget build(BuildContext context) {
     final controller = MapController.maybeOf(context);
-    if (controller == null) return const SizedBox.shrink();
+    final camera = CameraPosition.maybeOf(context);
+    if (controller == null || camera == null) return const SizedBox.shrink();
 
-    final camera = controller.getCamera();
     if (hideIfRotatedNorth && camera.bearing == 0) {
       return const SizedBox.shrink();
     }
 
-    return Container(
+    return MapAlignItem(
       alignment: alignment,
       padding: padding,
       child: Transform.rotate(
         angle: (-camera.bearing + rotationOffset) * degree2Radian,
-        child: PointerInterceptor(
-          child: InkWell(
-            onTap: () => _onTap(controller),
-            child:
-                child ??
-                CustomPaint(
-                  painter: _CompassPainter(radius: radius),
-                  child: SizedBox.square(dimension: radius * 2),
+        child: MapTapTarget(
+          label: 'Compass',
+          onPressed: () => _onTap(controller),
+          child:
+              child ??
+              CustomPaint(
+                painter: _CompassPainter(
+                  radius: radius,
+                  backgroundColor: backgroundColor,
+                  borderColor: borderColor,
+                  needleColor: needleColor,
                 ),
-          ),
+                child: SizedBox.square(dimension: radius * 2),
+              ),
         ),
       ),
     );
@@ -106,10 +119,11 @@ class MapCompass extends StatelessWidget {
   void _onTap(MapController controller) {
     if (rotateNorthOnPressed || removePinchOnPressed) {
       controller.animateCamera(
-        bearing: rotateNorthOnPressed ? 0 : null,
-        pitch: removePinchOnPressed ? 0 : null,
-        nativeDuration: nativeRotationDuration,
-        webSpeed: webRotationSpeed,
+        CameraUpdate.position(
+          bearing: rotateNorthOnPressed ? 0 : null,
+          pitch: removePinchOnPressed ? 0 : null,
+        ),
+        animation: animation,
       );
     }
     onPressed?.call();
@@ -117,9 +131,17 @@ class MapCompass extends StatelessWidget {
 }
 
 class _CompassPainter extends CustomPainter {
-  _CompassPainter({required this.radius});
+  _CompassPainter({
+    required this.radius,
+    required this.backgroundColor,
+    required this.borderColor,
+    required this.needleColor,
+  });
 
   final double radius;
+  final Color backgroundColor;
+  final Color borderColor;
+  final Color needleColor;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -132,14 +154,14 @@ class _CompassPainter extends CustomPainter {
     canvas.drawCircle(
       Offset(radius, radius),
       radius,
-      Paint()..color = Colors.white60,
+      Paint()..color = backgroundColor,
     );
     // circle outline
     canvas.drawCircle(
       Offset(radius, radius),
       radius - (borderWidth / 2),
       Paint()
-        ..color = Colors.black
+        ..color = borderColor
         ..strokeWidth = borderWidth
         ..style = PaintingStyle.stroke,
     );
@@ -151,7 +173,7 @@ class _CompassPainter extends CustomPainter {
         ..lineTo(radius + needleWidth, radius),
       Paint()
         ..style = PaintingStyle.stroke
-        ..color = Colors.red
+        ..color = needleColor
         ..strokeCap = StrokeCap.butt
         ..strokeJoin = StrokeJoin.bevel
         ..strokeWidth = needsStrokeWidth,
@@ -164,11 +186,14 @@ class _CompassPainter extends CustomPainter {
         Offset(radius + needleWidth + halfStrokeWidth, radius),
       ]),
       BlendMode.color,
-      Paint()..color = Colors.red,
+      Paint()..color = needleColor,
     );
   }
 
   @override
   bool shouldRepaint(covariant _CompassPainter oldDelegate) =>
-      radius != oldDelegate.radius;
+      radius != oldDelegate.radius ||
+      backgroundColor != oldDelegate.backgroundColor ||
+      borderColor != oldDelegate.borderColor ||
+      needleColor != oldDelegate.needleColor;
 }

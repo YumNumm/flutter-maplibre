@@ -1,22 +1,57 @@
 ---
 title: 'Docs'
+description: 'What the maplibre package does and where to find each part of its documentation.'
 ---
 
 # Overview
 
-This is the documentation for the MapLibre on Flutter.
-The [maplibre](https://pub.dev/packages/maplibre) package provides bindings to
-MapLibre Native and MapLibre-GL-JS.
+This is the documentation of [maplibre](https://pub.dev/packages/maplibre),
+MapLibre Flutter. It renders maps with
+[MapLibre Native](https://github.com/maplibre/maplibre-native) on Android,
+iOS, macOS, Windows and Linux, and with
+[MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js) on web.
 
-Here is an overview what you can find in this documentation:
+!!! info "Version 0.4"
 
-- [Getting started](getting-started/setup) helps you to integrate
-  the
-  package into your project.
-- [Styles](styles) can be used to customize the design of the map.
-- [User Interface](ui) provides easy to use controls and indicators.
-- [Annotations](annotations) are an easy way to add annotations such as
-  Markers, Circles, Polylines or Polygons to the map.
-- [Style Layers](style-layers) are a powerful way to add or remove
-  new layers to the map.
-- [Events](events) are a way to listen to something like a click on the map.
+    These docs describe the 0.4 series. If you upgrade from 0.3.x, read the
+    [migration guide](migrate/upgrade-from-v0.3.x.md).
+
+## Getting started
+
+- [Installation](getting-started/setup.md): add the package and check the
+  supported platforms.
+- [Platform setup](getting-started/platforms.md): the setup each platform
+  needs.
+- [First map](getting-started/usage.md): show a map and control it.
+- [AI tools](getting-started/ai-tools.md): give AI coding assistants the
+  current docs.
+
+## Guides
+
+- [Map & Camera](map.md): map options, camera, gestures, feature queries and
+  paused rendering.
+- [Styles](styles.md): load a map style.
+- [Events](events.md): react to taps, camera changes and more.
+- [User Interface](ui.md): compass, scale bar, attribution and zoom buttons.
+- [User Location](user-location.md): show and follow the location of the
+  user.
+- [Offline & Cache](offline.md): download regions for offline use.
+
+## Data on the map
+
+- [Annotations](annotations/index.md): circles, markers, polygons, polylines
+  and widgets, updated with `setState()`.
+- [Sources](sources/index.md): GeoJSON, vector and raster tiles, images and
+  video.
+- [Style Layers](style-layers/index.md): every layer type of the MapLibre
+  style spec, with typed [expressions](style-layers/expressions.md).
+
+## More
+
+- [Migration guides](migrate/upgrade-from-v0.3.x.md) from earlier versions
+  and from maplibre_gl, flutter_map, google_maps_flutter and
+  mapbox_maps_flutter.
+- [Compare](../compare/index.md) `maplibre` with other map packages.
+- [Architecture](contributing/architecture.md),
+  [Local development](contributing/development.md) and
+  [API guidelines](contributing/api-guidelines.md) for contributors.

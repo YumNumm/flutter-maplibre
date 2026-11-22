@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:maplibre/maplibre.dart';
 import 'package:maplibre_platform_interface/src/widget/inherited_model.dart';
+import 'package:material_ui/material_ui.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -12,7 +12,7 @@ class App extends StatelessWidget {
 
   final List<Widget> children;
   final MapController controller;
-  final MapCamera? camera;
+  final CameraPosition? camera;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,9 @@ class App extends StatelessWidget {
       title: 'MapLibre Demo',
       home: Scaffold(
         body: MapLibreInheritedModel(
-          mapCamera: camera,
+          cameraPosition: camera,
           mapController: controller,
+          style: controller.style,
           child: Stack(children: children),
         ),
       ),

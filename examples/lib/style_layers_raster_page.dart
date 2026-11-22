@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class StyleLayersRasterPage extends StatefulWidget {
@@ -26,8 +26,10 @@ class _StyleLayersRasterPageState extends State<StyleLayersRasterPage> {
       appBar: AppBar(title: const Text('Raster Style Layer')),
       body: MapLibreMap(
         options: const MapOptions(
-          initCenter: Geographic(lon: 9, lat: 48),
-          initZoom: 7,
+          initCamera: CameraUpdate.position(
+            center: Geographic(lon: 9, lat: 48),
+            zoom: 7,
+          ),
         ),
         onStyleLoaded: _onStyleLoaded,
       ),
@@ -35,7 +37,7 @@ class _StyleLayersRasterPageState extends State<StyleLayersRasterPage> {
   }
 
   Future<void> _onStyleLoaded(StyleController style) async {
-    const openStreetMap = RasterSource(
+    const openStreetMap = RasterSource.tiles(
       id: _sourceId,
       tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
       maxZoom: 20,
@@ -43,9 +45,9 @@ class _StyleLayersRasterPageState extends State<StyleLayersRasterPage> {
       attribution:
           '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     );
-    await style.addSource(openStreetMap);
-    await style.addLayer(_rasterStyleLayer);
+    await style.sources.add(openStreetMap);
+    await style.layers.add(_rasterStyleLayer);
   }
 }
 
-const _rasterStyleLayer = RasterStyleLayer(id: _layerId, sourceId: _sourceId);
+final _rasterStyleLayer = RasterStyleLayer(id: _layerId, sourceId: _sourceId);

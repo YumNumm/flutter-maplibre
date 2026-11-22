@@ -19,12 +19,24 @@ class PackageInfo {
   File get changelogFile => File('${directory.path}/CHANGELOG.md');
 }
 
+/// Packages that build on `maplibre` and have versions of their own. The
+/// release checks skip them; `--package` checks one of them on its own.
+const _pluginPackages = {'maplibre_geolocator'};
+
 void main(List<String> arguments) {
   final parser = ArgParser()
     ..addOption(
       'version',
       abbr: 'v',
       help: 'Release version, e.g. 0.3.4 or 0.3.4+1',
+    )
+    ..addOption(
+      'package',
+      abbr: 'p',
+      help:
+          'Check only this plugin package, e.g. maplibre_geolocator, '
+          'released from the tag {package}-v{version}',
+      allowed: _pluginPackages,
     );
 
   late ArgResults results;
@@ -40,9 +52,18 @@ void main(List<String> arguments) {
   }
 
   final version = _parseVersion(versionString);
+
+  final pluginName = results['package'] as String?;
+  if (pluginName != null) {
+    _checkPlugin(pluginName, versionString);
+    return;
+  }
+
   final expectedConstraint = '^$versionString';
 
-  final packages = _collectPackages(Directory('packages'));
+  final packages = _collectPackages(
+    Directory('packages'),
+  ).where((package) => !_pluginPackages.contains(package.name)).toList();
   final packageNames = packages.map((package) => package.name).toSet();
 
   for (final package in packages) {
@@ -89,6 +110,23 @@ void main(List<String> arguments) {
   _writeReleaseNotes(notesPath, releaseNotes);
   _writeGithubOutput('release_notes_path', notesPath);
   _writeGithubMultilineOutput('release_body', releaseNotes);
+}
+
+/// Checks the version and changelog of a plugin package, which is released
+/// on its own and writes the package directory to the GitHub output.
+void _checkPlugin(String name, String version) {
+  final package = _collectPackages(
+    Directory('packages'),
+  ).where((package) => package.name == name).firstOrNull;
+  if (package == null) {
+    _fail('Missing package $name under packages');
+  }
+  _ensure(
+    package.pubspec['version'] == version,
+    '${package.pubspecFile.path} version must be $version',
+  );
+  _ensureChangelogEntry(package.changelogFile, version);
+  _writeGithubOutput('directory', package.directory.path);
 }
 
 Version _parseVersion(String value) {
@@ -157,13 +195,44 @@ String _buildReleaseNotes(File changelog, Version version) {
   final section = nextHeaderIndex == -1
       ? remaining
       : remaining.substring(0, nextHeaderIndex);
-  final trimmed = section.trim();
+  final trimmed = _unwrapListItems(section.trim());
   final buffer = StringBuffer(trimmed);
   if (trimmed.isNotEmpty) {
     buffer.write('\n');
   }
   buffer.writeln('Contributors: @josxha');
   return buffer.toString();
+}
+
+/// Joins wrapped list items onto a single line, because GitHub releases keep
+/// the line breaks of the changelog.
+String _unwrapListItems(String content) {
+  final listItemPattern = RegExp(r'^\s*([-*+]|\d+\.)\s');
+  final continuationPattern = RegExp(r'^\s+\S');
+  final lines = <String>[];
+  var inCodeBlock = false;
+  var inListItem = false;
+  for (final line in content.split('\n')) {
+    if (line.trimLeft().startsWith('```')) {
+      inCodeBlock = !inCodeBlock;
+      inListItem = false;
+      lines.add(line);
+      continue;
+    }
+    if (inCodeBlock) {
+      lines.add(line);
+      continue;
+    }
+    if (inListItem &&
+        continuationPattern.hasMatch(line) &&
+        !listItemPattern.hasMatch(line)) {
+      lines[lines.length - 1] = '${lines.last.trimRight()} ${line.trim()}';
+      continue;
+    }
+    inListItem = listItemPattern.hasMatch(line);
+    lines.add(line);
+  }
+  return lines.join('\n');
 }
 
 void _writeGithubMultilineOutput(String key, String value) {

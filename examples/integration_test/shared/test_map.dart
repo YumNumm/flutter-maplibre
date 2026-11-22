@@ -1,0 +1,458 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:flutter/rendering.dart' show OffsetLayer;
+import 'package:flutter_test/flutter_test.dart';
+import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
+
+/// A style without any network resources, so a map renders offline.
+final String offlineStyle = jsonEncode({
+  'version': 8,
+  'sources': <String, Object>{},
+  'layers': [
+    {
+      'id': 'background',
+      'type': 'background',
+      'paint': {'background-color': '#dddddd'},
+    },
+  ],
+});
+
+/// Options of a map at [center] that renders without the network.
+MapOptions offlineOptions({
+  Geographic center = const Geographic(lon: 0, lat: 0),
+  double zoom = 4,
+  double bearing = 0,
+  double pitch = 0,
+  double minZoom = 0,
+  double maxZoom = 22,
+  MapGestures gestures = const MapGestures(),
+  MapMovements movements = const MapMovements(),
+}) => MapOptions(
+  style: MapStyle.json(offlineStyle),
+  minZoom: minZoom,
+  maxZoom: maxZoom,
+  gestures: gestures,
+  movements: movements,
+  initCamera: CameraUpdate.position(
+    center: center,
+    zoom: zoom,
+    bearing: bearing,
+    pitch: pitch,
+  ),
+);
+
+/// A lifecycle callback of [MapLibreMap] that a [TestMap] recorded.
+enum MapLifecycle {
+  /// [MapLibreMap.onMapCreated].
+  created,
+
+  /// [MapLibreMap.onStyleLoaded].
+  styleLoaded,
+}
+
+/// The default timeout of the `waitFor…` helpers.
+const Duration defaultTimeout = Duration(seconds: 15);
+
+/// A map shown by [pumpMap], with its controller, style and every event it
+/// reported.
+class TestMap {
+  TestMap._(
+    this.tester,
+    this.controller,
+    this.events,
+    this.lifecycle,
+    this._app,
+    this._options,
+    this._camera,
+  );
+
+  final WidgetTester tester;
+  final MapController controller;
+
+  /// The events of the callbacks that [MapApp] sets.
+  final List<MapEvent> events;
+
+  /// The [MapLibreMap.onMapCreated] and [MapLibreMap.onStyleLoaded] calls, in
+  /// order.
+  final List<MapLifecycle> lifecycle;
+  final MapApp Function(MapOptions options, CameraPosition? camera) _app;
+  MapOptions _options;
+  CameraPosition? _camera;
+
+  /// Shows the map with new [options], keeping its callbacks and layers.
+  Future<void> setOptions(MapOptions options) async {
+    _options = options;
+    await tester.pumpWidget(_app(options, _camera));
+  }
+
+  /// Shows the map with a new [MapLibreMap.camera], keeping the rest.
+  Future<void> setCamera(CameraPosition? camera) async {
+    _camera = camera;
+    await tester.pumpWidget(_app(_options, camera));
+  }
+
+  /// The style of the map, replaced whenever a style loads.
+  StyleController get style => controller.style!;
+
+  Finder get finder => find.byType(MapLibreMap);
+
+  /// The size of the map in logical pixels.
+  Size get size => tester.getSize(finder);
+
+  /// The center of the map in map coordinates.
+  Offset get center => size.center(Offset.zero);
+
+  /// Converts a point of the map to a global position, for gestures.
+  Offset toGlobal(Offset local) => tester.getTopLeft(finder) + local;
+
+  /// Pumps frames until [condition] holds, and fails after [timeout] with
+  /// the message that [reason] returns then.
+  Future<void> pumpUntil(
+    bool Function() condition, {
+    required String Function() reason,
+    Duration timeout = defaultTimeout,
+  }) async {
+    final deadline = DateTime.now().add(timeout);
+    while (!condition()) {
+      if (DateTime.now().isAfter(deadline)) fail('Timed out: ${reason()}');
+      await tester.pump(const Duration(milliseconds: 50));
+    }
+  }
+
+  /// Pumps frames until [future] completes, and fails after [timeout].
+  Future<T> pumpFuture<T>(
+    Future<T> future, {
+    required String reason,
+    Duration timeout = defaultTimeout,
+  }) async {
+    var done = false;
+    late T result;
+    Object? error;
+    StackTrace? stackTrace;
+    unawaited(
+      future
+          .then(
+            (value) => result = value,
+            onError: (Object e, StackTrace s) {
+              error = e;
+              stackTrace = s;
+            },
+          )
+          .whenComplete(() => done = true),
+    );
+    await pumpUntil(() => done, reason: () => reason, timeout: timeout);
+    if (error case final Object error) {
+      Error.throwWithStackTrace(error, stackTrace!);
+    }
+    return result;
+  }
+
+  /// Waits for an event of type [T] that arrives after [since] events, and
+  /// that matches [where].
+  Future<T> waitForEvent<T extends MapEvent>({
+    int since = 0,
+    bool Function(T event)? where,
+    Duration timeout = defaultTimeout,
+  }) async {
+    T? match() => events
+        .skip(since)
+        .whereType<T>()
+        .where((event) => where?.call(event) ?? true)
+        .firstOrNull;
+    await pumpUntil(
+      () => match() != null,
+      reason: () => 'waiting for $T, got ${events.skip(since).toList()}',
+      timeout: timeout,
+    );
+    return match()!;
+  }
+
+  /// The number of styles that loaded.
+  int get styleLoads =>
+      lifecycle.where((entry) => entry == MapLifecycle.styleLoaded).length;
+
+  /// Waits until a style loads after [since] style loads.
+  Future<void> waitForStyleLoad({
+    required int since,
+    Duration timeout = defaultTimeout,
+  }) => pumpUntil(
+    () => styleLoads > since,
+    reason: () => 'waiting for a style load, got $lifecycle',
+    timeout: timeout,
+  );
+
+  /// Waits until the camera matches [matches], and returns it.
+  Future<CameraPosition> waitForCamera(
+    bool Function(CameraPosition camera) matches, {
+    Duration timeout = defaultTimeout,
+  }) async {
+    await pumpUntil(
+      () => matches(controller.getCamera()),
+      reason: () => 'camera never matched, last: ${controller.getCamera()}',
+      timeout: timeout,
+    );
+    return controller.getCamera();
+  }
+
+  /// Waits until the frame on screen shows a camera that [matches]. Screen
+  /// locations and [MapController.camera] follow that frame.
+  Future<void> waitForFrame(
+    bool Function(CameraPosition camera) matches, {
+    Duration timeout = defaultTimeout,
+  }) async {
+    await pumpUntil(
+      () => controller.camera != null && matches(controller.camera!),
+      reason: () => 'frame never matched, last: ${controller.camera}',
+      timeout: timeout,
+    );
+    await tester.pump();
+  }
+
+  /// Waits until the frame on screen shows the latest camera, which screen
+  /// locations then follow.
+  Future<void> waitForLatestFrame({Duration timeout = defaultTimeout}) =>
+      waitForFrame((shown) {
+        final latest = controller.getCamera();
+        return (shown.center.lon - latest.center.lon).abs() < 1e-9 &&
+            (shown.center.lat - latest.center.lat).abs() < 1e-9 &&
+            (shown.zoom - latest.zoom).abs() < 1e-9 &&
+            (shown.bearing - latest.bearing).abs() < 1e-9 &&
+            (shown.pitch - latest.pitch).abs() < 1e-9;
+      }, timeout: timeout);
+
+  /// The RGBA color of the pixel at the center of the map, as Flutter paints
+  /// it on screen. Not on web, where the map is not in the layer tree.
+  Future<List<int>> pixelAtCenter() async {
+    final view = tester.binding.renderViews.first;
+    final layer = view.debugLayer! as OffsetLayer;
+    // The root layer scales by the device pixel ratio, so the image is in
+    // physical pixels.
+    final center = tester.getCenter(finder) * tester.view.devicePixelRatio;
+    final bytes = await tester.runAsync(() async {
+      final image = await layer.toImage(center & const Size(1, 1));
+      final data = await image.toByteData();
+      image.dispose();
+      return data!;
+    });
+    return Uint8List.sublistView(bytes!).toList();
+  }
+
+  /// Waits until the center of the map shows the color [name], whose RGB
+  /// [channel] is bright and whose other channels are dark.
+  Future<void> waitForColorAtCenter(
+    String name,
+    int channel, {
+    Duration timeout = defaultTimeout,
+  }) async {
+    bool shown(List<int> pixel) => Iterable.generate(
+      3,
+      (i) => i == channel ? pixel[i] >= 200 : pixel[i] <= 50,
+    ).every((ok) => ok);
+    final deadline = DateTime.now().add(timeout);
+    var pixel = await pixelAtCenter();
+    while (!shown(pixel)) {
+      if (DateTime.now().isAfter(deadline)) {
+        fail('The map never showed $name at its center, last: $pixel');
+      }
+      await tester.pump(const Duration(milliseconds: 100));
+      pixel = await pixelAtCenter();
+    }
+  }
+
+  /// Waits until a feature query at [point] finds what [matches] accepts.
+  /// Rendering is asynchronous, so a feature appears a few frames after its
+  /// source or layer was added.
+  Future<List<RenderedFeature>> waitForFeatures(
+    Offset point,
+    bool Function(List<RenderedFeature> features) matches, {
+    List<String>? layerIds,
+    Duration timeout = defaultTimeout,
+  }) async {
+    final deadline = DateTime.now().add(timeout);
+    while (true) {
+      final features = await controller.queryRenderedFeatures(
+        .point(point),
+        layerIds: layerIds,
+      );
+      if (matches(features)) return features;
+      if (DateTime.now().isAfter(deadline)) {
+        fail('Features at $point never matched, last: $features');
+      }
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+  }
+}
+
+/// Shows a [MapLibreMap] with [options] and waits until its style has loaded.
+Future<TestMap> pumpMap(
+  WidgetTester tester, {
+  MapOptions? options,
+  List<Layer> layers = const [],
+  List<Widget> children = const [],
+  bool paused = false,
+  CameraPosition? camera,
+}) async {
+  final events = <MapEvent>[];
+  final lifecycle = <MapLifecycle>[];
+  final controller = Completer<MapController>();
+  final style = Completer<StyleController>();
+  MapApp app(MapOptions options, CameraPosition? camera) => MapApp(
+    options: options,
+    camera: camera,
+    layers: layers,
+    onMapCreated: (controller_) {
+      lifecycle.add(MapLifecycle.created);
+      controller.complete(controller_);
+    },
+    onStyleLoaded: (style_) {
+      lifecycle.add(MapLifecycle.styleLoaded);
+      if (!style.isCompleted) style.complete(style_);
+    },
+    onEvent: events.add,
+    paused: paused,
+    children: children,
+  );
+  final initialOptions = options ?? offlineOptions();
+  await tester.pumpWidget(app(initialOptions, camera));
+  // On web, the first map waits for maplibre-gl-js to load, and is created
+  // in a later frame.
+  final deadline = DateTime.now().add(defaultTimeout);
+  while (!controller.isCompleted) {
+    if (DateTime.now().isAfter(deadline)) {
+      fail('Timed out: waiting for the map to be created');
+    }
+    await tester.pump(const Duration(milliseconds: 50));
+  }
+  final map = TestMap._(
+    tester,
+    await controller.future,
+    events,
+    lifecycle,
+    app,
+    initialOptions,
+    camera,
+  );
+  await style.future.timeout(defaultTimeout);
+  // Let the first frame reach Flutter, so projections follow the camera.
+  await map.pumpUntil(
+    () => map.controller.camera != null,
+    reason: () => 'waiting for the first frame',
+  );
+  // Rebuild the widgets over the map with that camera.
+  await tester.pump();
+  return map;
+}
+
+/// The app that [pumpMap] shows: a full-screen map.
+///
+/// [onEvent] receives the events of every callback except the ones of each
+/// frame, tile, glyph and sprite.
+class MapApp extends StatelessWidget {
+  const MapApp({
+    required this.options,
+    this.camera,
+    this.layers = const [],
+    this.onMapCreated,
+    this.onStyleLoaded,
+    this.onEvent,
+    this.onRenderFrame,
+    this.children = const [],
+    this.paused = false,
+    super.key,
+  });
+
+  final MapOptions options;
+  final CameraPosition? camera;
+  final List<Layer> layers;
+  final MapCreatedCallback? onMapCreated;
+  final StyleLoadedCallback? onStyleLoaded;
+  final void Function(MapEvent event)? onEvent;
+  final MapEventCallback<MapEventRenderFrame>? onRenderFrame;
+  final List<Widget> children;
+  final bool paused;
+
+  @override
+  Widget build(BuildContext context) => MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Scaffold(
+      body: switch (camera) {
+        null => MapLibreMap(
+          options: options,
+          layers: layers,
+          onMapCreated: onMapCreated,
+          onStyleLoaded: onStyleLoaded,
+          onClick: onEvent,
+          onDoubleClick: onEvent,
+          onSecondaryClick: onEvent,
+          onLongClick: onEvent,
+          onDragStart: onEvent,
+          onDrag: onEvent,
+          onDragEnd: onEvent,
+          onPointerMove: onEvent,
+          onPointerLeave: onEvent,
+          onCameraMoveStart: onEvent,
+          onCameraMove: onEvent,
+          onCameraMoveEnd: onEvent,
+          onIdle: onEvent,
+          onError: onEvent,
+          onStyleImageMissing: onEvent,
+          onLoadingStarted: onEvent,
+          onLoadingFinished: onEvent,
+          onSourceChanged: onEvent,
+          onRenderingChanged: onEvent,
+          onResize: onEvent,
+          onContextLost: onEvent,
+          onContextRestored: onEvent,
+          onProjectionChanged: onEvent,
+          onRenderFrame: onRenderFrame,
+          paused: paused,
+          children: children,
+        ),
+        final camera => MapLibreMap.withCamera(
+          camera: camera,
+          options: options,
+          layers: layers,
+          onMapCreated: onMapCreated,
+          onStyleLoaded: onStyleLoaded,
+          onClick: onEvent,
+          onDoubleClick: onEvent,
+          onSecondaryClick: onEvent,
+          onLongClick: onEvent,
+          onDragStart: onEvent,
+          onDrag: onEvent,
+          onDragEnd: onEvent,
+          onPointerMove: onEvent,
+          onPointerLeave: onEvent,
+          onCameraMoveStart: onEvent,
+          onCameraMove: onEvent,
+          onCameraMoveEnd: onEvent,
+          onIdle: onEvent,
+          onError: onEvent,
+          onStyleImageMissing: onEvent,
+          onLoadingStarted: onEvent,
+          onLoadingFinished: onEvent,
+          onSourceChanged: onEvent,
+          onRenderingChanged: onEvent,
+          onResize: onEvent,
+          onContextLost: onEvent,
+          onContextRestored: onEvent,
+          onProjectionChanged: onEvent,
+          onRenderFrame: onRenderFrame,
+          paused: paused,
+          children: children,
+        ),
+      },
+    ),
+  );
+}
+
+/// GeoJSON data of a feature collection of [features].
+GeoJsonData featureCollection(List<Feature> features) =>
+    .featureCollection(FeatureCollection(features));
+
+/// The ID of [feature] as text. Web and native report numeric IDs as numbers
+/// or as text.
+String? idOf(RenderedFeature feature) => feature.id?.toString();

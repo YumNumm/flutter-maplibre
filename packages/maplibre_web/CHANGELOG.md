@@ -1,11 +1,3 @@
-## 0.3.5
+## 0.4.0
 
-[Check the maplibre changelog](https://pub.dev/packages/maplibre/changelog#035)
-
-## 0.3.4+1
-
-[Check the maplibre changelog](https://pub.dev/packages/maplibre/changelog#034+1)
-
-## 0.3.4
-
-[Check the maplibre changelog](https://pub.dev/packages/maplibre/changelog#034)
+[Check the maplibre changelog](https://pub.dev/packages/maplibre/versions/0.4.0/changelog#040)

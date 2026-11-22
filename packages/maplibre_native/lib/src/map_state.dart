@@ -1,0 +1,1017 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:math';
+
+import 'package:flutter/widgets.dart';
+import 'package:maplibre_native/src/extensions.dart';
+import 'package:maplibre_native/src/map_renderer.dart';
+import 'package:maplibre_native/src/style_controller.dart';
+import 'package:maplibre_native_ffi/maplibre_native_ffi.dart' as mln;
+import 'package:maplibre_platform_interface/maplibre_platform_interface.dart';
+
+/// MapLibre Native, rendered through its C API into a Flutter texture.
+class MapLibreMapStateNative extends MapLibreMapState {
+  MapRenderer? _renderer;
+
+  /// The events that the map queues, see `MapLibreMapExt.eventMask`.
+  mln.RuntimeEventFlag? _eventMask;
+
+  /// The map, from its creation on, before [_renderer] exists.
+  mln.MapHandle? _map;
+  Future<void>? _creating;
+  var _disposed = false;
+
+  @override
+  StyleControllerNative? style;
+
+  /// Whether the camera constraints of [MapOptions] wait for the first
+  /// style, see [_setUp].
+  var _constraintsAfterStyle = false;
+
+  /// A projection of the latest published camera. Closed whenever the camera
+  /// or extent changes, because a projection never sees later map changes.
+  mln.MapProjectionHandle? _projection;
+
+  /// The projection of the map frame on screen. The map image trails the
+  /// latest camera by a frame or two, so [camera] and screen locations follow
+  /// this one, and widgets over the map stay on what they mark.
+  mln.MapProjectionHandle? _shownProjection;
+
+  /// The session extent generation of the frame on screen. Screen locations
+  /// move with the extent even while the camera stays.
+  int? _shownExtentGeneration;
+
+  /// The camera of the last camera event, to report each change once.
+  CameraPosition? _eventCamera;
+
+  var _gestureActive = false;
+  var _cameraMoving = false;
+
+  /// The running camera animation, to jump to its target when the map
+  /// pauses and to report whether it was cancelled.
+  _CameraAnimationRun? _animation;
+
+  /// Why the camera moves, from the start of the move on.
+  CameraChangeReason _moveReason = CameraChangeReason.map;
+
+  /// Why the camera changes next. Runtime events arrive after the change was
+  /// submitted, possibly after a short gesture already ended, so the reason
+  /// is taken when the change is made.
+  CameraChangeReason? _nextChangeReason;
+
+  @override
+  late final GestureCameraSink gestureCamera = _NativeGestureCamera(this);
+
+  @override
+  Widget buildPlatformWidget(BuildContext context) {
+    final pixelRatio = MediaQuery.devicePixelRatioOf(context);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final extent = mln.LogicalExtent(
+          width: constraints.maxWidth.isFinite
+              ? constraints.maxWidth.floor().clamp(1, 16384)
+              : 256,
+          height: constraints.maxHeight.isFinite
+              ? constraints.maxHeight.floor().clamp(1, 16384)
+              : 256,
+          scaleFactor: pixelRatio,
+        );
+        final renderer = _renderer;
+        if (renderer == null) {
+          _creating ??= _create(extent, pixelRatio);
+          return const SizedBox.expand();
+        }
+        if (renderer.extent != extent) {
+          renderer.resize(extent);
+          _invalidateProjection();
+        }
+        return Listener(
+          behavior: HitTestBehavior.opaque,
+          onPointerDown: (_) => _map?.discarding.cancelCameraTransitions(),
+          child: Texture(textureId: renderer.textureId),
+        );
+      },
+    );
+  }
+
+  Future<void> _create(mln.LogicalExtent extent, double pixelRatio) async {
+    try {
+      // The map takes its options, camera, and style before the session
+      // renders, so its first frame shows them.
+      final renderer = await MapRenderer.create(
+        extent: extent,
+        eventMask: _eventMask = effectiveWidget.eventMask,
+        fastPforEnabled: options.fastPforEnabled,
+        localIdeographFontFamily: options.localIdeographFontFamily,
+        setUp: _setUp,
+        onEvent: _onRuntimeEvent,
+        onFrameShown: _onFrameShown,
+      );
+      if (_disposed) {
+        await renderer.dispose();
+        return;
+      }
+      _renderer = renderer..paused = isRenderingPaused;
+      setState(() {
+        camera = _readCamera();
+        isInitialized = true;
+      });
+      effectiveWidget.onMapCreated?.call(this);
+      // Events that arrived meanwhile, such as the style load, follow
+      // onMapCreated.
+      renderer.start();
+    } on Object catch (error, stackTrace) {
+      FlutterError.reportError(
+        FlutterErrorDetails(
+          exception: error,
+          stack: stackTrace,
+          library: 'maplibre_native',
+          context: ErrorDescription('while creating the map'),
+        ),
+      );
+    }
+  }
+
+  /// Submits the options, initial camera, and style of a new [map].
+  Future<void> _setUp(mln.MapHandle map) async {
+    _map = map;
+    // The callbacks may have changed while the map was being created.
+    final eventMask = effectiveWidget.eventMask;
+    if (eventMask != _eventMask) {
+      _eventMask = eventMask;
+      map.discarding.setEventMask(eventMask);
+    }
+    final initCamera = initialCamera;
+    // Without an initial camera, MapLibre Native moves to the camera of the
+    // style once it loads, but only while no camera change happened. Setting
+    // camera constraints is one, so they follow the first style.
+    _constraintsAfterStyle = initCamera == null;
+    await Future.wait([
+      if (initCamera != null) ...[
+        _applyOptions(),
+        _applyInitialCamera(map, initCamera),
+      ],
+      _setStyle(options.style),
+    ]);
+  }
+
+  Future<void> _applyInitialCamera(
+    mln.MapHandle map,
+    CameraUpdate initCamera,
+  ) async {
+    final camera = await _cameraOptions(map, initCamera);
+    await map.updateCamera(mln.CameraUpdate(camera: camera));
+  }
+
+  /// Applies the camera constraints of [MapOptions].
+  Future<void> _applyOptions() async {
+    final map = _map;
+    if (map == null || _constraintsAfterStyle) return;
+    final options = this.options;
+    await map.setBounds(
+      mln.BoundOptions(
+        bounds: switch (options.maxBounds) {
+          final bounds? => bounds.toMln(),
+          null => null,
+        },
+        unbounded: options.maxBounds == null,
+        minZoom: options.minZoom,
+        maxZoom: options.maxZoom,
+        minPitch: options.minPitch,
+        maxPitch: options.maxPitch,
+      ),
+    );
+  }
+
+  @override
+  void setRenderingPaused({required bool paused}) {
+    _renderer?.paused = paused;
+    // Camera animations advance only while the map renders. One that runs
+    // now ends at its target, so its caller does not wait for the resume.
+    final animation = _animation;
+    final map = _map;
+    if (!paused || animation == null || map == null) return;
+    _animation = null;
+    unawaited(map.updateCamera(mln.CameraUpdate(camera: animation.target)));
+  }
+
+  @override
+  void didUpdateWidget(covariant MapLibreMap oldWidget) {
+    final options = widget.options;
+    if (oldWidget.options != options) unawaited(_applyOptions());
+    if (oldWidget.options.style != options.style) {
+      unawaited(_setStyle(options.style));
+    } else if (oldWidget.options.globalState != options.globalState) {
+      style?.applyGlobalState(options.globalState);
+      _loadingStyle?.applyGlobalState(options.globalState);
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  /// Submits [camera] without waiting, so the map renders it next, in
+  /// order with every later command.
+  @override
+  void applyCamera(CameraPosition camera) {
+    final map = _map;
+    if (map == null) return;
+    _cancelAnimation();
+    _nextChangeReason = CameraChangeReason.programmatic;
+    map.discarding.updateCamera(
+      mln.CameraUpdate(camera: camera.toCameraUpdate().toMln()),
+    );
+  }
+
+  @override
+  void didUpdateCallbacks() {
+    final eventMask = effectiveWidget.eventMask;
+    final handle = _map;
+    if (eventMask != _eventMask && handle != null) {
+      _eventMask = eventMask;
+      handle.discarding.setEventMask(eventMask);
+    }
+  }
+
+  @override
+  void dispose() {
+    _disposed = true;
+    _animation?.end(CameraAnimationResult.cancelled);
+    _animation = null;
+    // Pending annotation work must not reach the map once it is gone.
+    detachAnnotations();
+    style?.dispose();
+    _loadingStyle?.dispose();
+    _invalidateProjection();
+    _shownProjection?.release();
+    _shownProjection = null;
+    _map = null;
+    unawaited(_renderer?.dispose());
+    super.dispose();
+  }
+
+  // Events
+
+  void _onRuntimeEvent(mln.RuntimeEvent event) {
+    if (_disposed) return;
+    switch (event.type) {
+      case mln.RuntimeEventType.mapCameraWillChange:
+        if (_cameraMoving) return;
+        _cameraMoving = true;
+        final reason =
+            _nextChangeReason ??
+            (_gestureActive
+                ? CameraChangeReason.gesture
+                : CameraChangeReason.map);
+        _nextChangeReason = null;
+        _moveReason = reason;
+        effectiveWidget.onCameraMoveStart?.call(
+          MapEventCameraMoveStart(reason: reason),
+        );
+      case mln.RuntimeEventType.mapCameraIsChanging:
+        _onCameraChanged();
+      case mln.RuntimeEventType.mapCameraDidChange:
+        _onCameraChanged();
+        // A gesture publishes one change per pointer update and ends with
+        // the gesture instead, and an animation changes the camera once per
+        // transition until its last one ended.
+        final snapshot = _map?.getSnapshot();
+        if (!_gestureActive &&
+            snapshot != null &&
+            !snapshot.transitionInProgress) {
+          _onCameraIdle();
+        }
+      case mln.RuntimeEventType.mapStyleLoaded:
+        unawaited(_onStyleLoaded());
+      case mln.RuntimeEventType.mapIdle:
+        effectiveWidget.onIdle?.call(const MapEventIdle());
+      case mln.RuntimeEventType.mapSourceChanged:
+        // A source learns its attribution once its tile set loads.
+        unawaited(style?.refreshAttributions());
+        final onSourceChanged = effectiveWidget.onSourceChanged;
+        if (onSourceChanged == null) return;
+        if (event.payload case mln.RuntimeEventPayloadSourceChanged(
+          :final value,
+        )) {
+          onSourceChanged(MapEventSourceChanged(sourceId: value.sourceId));
+        }
+      case mln.RuntimeEventType.mapLoadingFailed:
+        _onError(MapErrorKind.style, event.message);
+      case mln.RuntimeEventType.mapRenderError:
+        _onError(MapErrorKind.render, event.message);
+      case mln.RuntimeEventType.mapGlyphsError:
+        _onError(MapErrorKind.glyphs, event.message);
+      case mln.RuntimeEventType.mapSpriteError:
+        _onError(MapErrorKind.sprite, event.message);
+      case mln.RuntimeEventType.mapLoadingStarted:
+        effectiveWidget.onLoadingStarted?.call(const MapEventLoadingStarted());
+      case mln.RuntimeEventType.mapLoadingFinished:
+        effectiveWidget.onLoadingFinished?.call(
+          const MapEventLoadingFinished(),
+        );
+      case mln.RuntimeEventType.mapStyleImageMissing:
+        final onStyleImageMissing = effectiveWidget.onStyleImageMissing;
+        if (onStyleImageMissing == null) return;
+        if (event.payload case mln.RuntimeEventPayloadStyleImage(
+          :final value,
+        )) {
+          onStyleImageMissing(MapEventStyleImageMissing(id: value.imageId));
+        }
+      case mln.RuntimeEventType.mapTileAction:
+        final onTile = effectiveWidget.onTile;
+        final action = switch (event.payload) {
+          mln.RuntimeEventPayloadTileAction(:final value) => value,
+          _ => null,
+        };
+        final operation = action?.operation.toMapTileOperation();
+        if (onTile == null || action == null || operation == null) return;
+        final tile = action.tileId;
+        onTile(
+          MapEventTile(
+            operation: operation,
+            sourceId: action.sourceId,
+            z: tile.canonicalZ,
+            x: tile.canonicalX,
+            y: tile.canonicalY,
+            overscaledZ: tile.overscaledZ,
+            wrap: tile.wrap,
+          ),
+        );
+      case mln.RuntimeEventType.mapRenderFrameFinished:
+        final onRenderFrame = effectiveWidget.onRenderFrame;
+        final frame = switch (event.payload) {
+          mln.RuntimeEventPayloadRenderFrame(:final value) => value,
+          _ => null,
+        };
+        if (onRenderFrame == null || frame == null) return;
+        final stats = frame.stats;
+        onRenderFrame(
+          MapEventRenderFrame(
+            fullyRendered: frame.mode == mln.RenderMode.full,
+            stats: MapRenderingStats(
+              encodingTime: _milliseconds(stats.encodingTimeMs),
+              renderingTime: _milliseconds(stats.renderingTimeMs),
+              drawCalls: stats.drawCallCount,
+            ),
+          ),
+        );
+      case mln.RuntimeEventType.mapRenderMapFinished:
+        // The C API reports only fully rendered maps here.
+        effectiveWidget.onRenderMap?.call(
+          const MapEventRenderMap(fullyRendered: true),
+        );
+      case mln.RuntimeEventType.mapGlyphsRequested ||
+          mln.RuntimeEventType.mapGlyphsLoaded:
+        final onGlyphs = effectiveWidget.onGlyphs;
+        final glyphs = switch (event.payload) {
+          mln.RuntimeEventPayloadGlyphs(:final value) => value,
+          _ => null,
+        };
+        if (onGlyphs == null || glyphs == null) return;
+        onGlyphs(
+          MapEventGlyphs(
+            state: event.type == mln.RuntimeEventType.mapGlyphsLoaded
+                ? MapResourceState.loaded
+                : MapResourceState.requested,
+            fontStack: glyphs.fontStack,
+            first: glyphs.first,
+            last: glyphs.last,
+          ),
+        );
+      case mln.RuntimeEventType.mapSpriteRequested ||
+          mln.RuntimeEventType.mapSpriteLoaded:
+        final onSprite = effectiveWidget.onSprite;
+        final sprite = switch (event.payload) {
+          mln.RuntimeEventPayloadSprite(:final value) => value,
+          _ => null,
+        };
+        if (onSprite == null || sprite == null) return;
+        onSprite(
+          MapEventSprite(
+            state: event.type == mln.RuntimeEventType.mapSpriteLoaded
+                ? MapResourceState.loaded
+                : MapResourceState.requested,
+            id: sprite.id,
+            url: sprite.url,
+          ),
+        );
+      default:
+        break;
+    }
+  }
+
+  /// Reports an error to [MapLibreMap.onError], or prints it while no
+  /// callback is set, so it is never lost.
+  void _onError(MapErrorKind kind, String message) {
+    final onError = effectiveWidget.onError;
+    if (onError == null) {
+      debugPrint('maplibre_native: $message');
+      return;
+    }
+    onError(MapEventError(kind: kind, message: message));
+  }
+
+  static Duration _milliseconds(double milliseconds) => Duration(
+    microseconds: (milliseconds * Duration.microsecondsPerMillisecond).round(),
+  );
+
+  /// Reports the map's latest camera. [camera] instead follows the frame on
+  /// screen, see [_onFrameShown].
+  void _onCameraChanged() {
+    _invalidateProjection();
+    final newCamera = _readCamera();
+    if (newCamera == null || newCamera == _eventCamera) return;
+    _eventCamera = newCamera;
+    effectiveWidget.onCameraMove?.call(
+      MapEventCameraMove(camera: newCamera, reason: _moveReason),
+    );
+  }
+
+  /// Moves [camera] and screen locations to the frame that Flutter shows
+  /// next, so widgets over the map rebuild in the same frame as the map.
+  void _onFrameShown(
+    mln.MapProjectionHandle projection,
+    mln.RenderFrameResult frame,
+  ) {
+    if (_disposed) {
+      projection.release();
+      return;
+    }
+    _shownProjection?.release();
+    _shownProjection = projection;
+    final shown = frame.view.camera.toCameraPosition();
+    final resized = frame.generation != _shownExtentGeneration;
+    _shownExtentGeneration = frame.generation;
+    if (shown == camera && !resized) return;
+    setState(() => camera = shown);
+  }
+
+  void _onCameraIdle() {
+    if (!_cameraMoving) return;
+    _cameraMoving = false;
+    final onCameraMoveEnd = effectiveWidget.onCameraMoveEnd;
+    final camera = _readCamera();
+    if (onCameraMoveEnd == null || camera == null) return;
+    onCameraMoveEnd(MapEventCameraMoveEnd(camera: camera, reason: _moveReason));
+  }
+
+  /// Submits [update] and waits until its transitions end: they complete,
+  /// another change replaces or cancels them, or the map closes.
+  Future<CameraAnimationResult> _submitCamera(
+    mln.MapHandle map,
+    mln.CameraUpdate update,
+  ) async {
+    _nextChangeReason = CameraChangeReason.programmatic;
+    final animates =
+        update.mode != mln.CameraUpdateMode.jump && !isRenderingPaused;
+    // A later camera write replaces the animation, whether or not it animates.
+    final run = _CameraAnimationRun(update.camera);
+    _animation = animates ? run : null;
+    await map.updateCamera(
+      update.copyWith(
+        // A paused map does not advance animations, so it jumps.
+        mode: isRenderingPaused ? mln.CameraUpdateMode.jump : null,
+        animation: update.animation.copyWith(
+          endHandler: mln.CameraTransitionHandler(
+            callback: (end) {
+              if (identical(_animation, run)) _animation = null;
+              run.end(
+                end.outcome == mln.CameraTransitionOutcome.completed
+                    ? CameraAnimationResult.completed
+                    : CameraAnimationResult.cancelled,
+              );
+            },
+          ),
+        ),
+      ),
+    );
+    return run.result;
+  }
+
+  /// Cancels the running camera animation, for a gesture or [stopCamera].
+  void _cancelAnimation() {
+    final animation = _animation;
+    if (animation == null) return;
+    _animation = null;
+    animation.cancelled = true;
+    _map?.discarding.cancelCameraTransitions();
+  }
+
+  /// The style controller that [_onStyleLoaded] is filling, until it becomes
+  /// [style].
+  StyleControllerNative? _loadingStyle;
+
+  Future<void> _onStyleLoaded() async {
+    final map = _map;
+    if (map == null) return;
+    if (_constraintsAfterStyle) {
+      _constraintsAfterStyle = false;
+      await _applyOptions();
+    }
+    // The layers of MapLibreMap.layers go with the old style.
+    detachAnnotations();
+    // The style whose global state the map may still hold.
+    final previous = _loadingStyle ?? style;
+    style?.dispose();
+    style = null;
+    final styleController = StyleControllerNative(map);
+    _loadingStyle = styleController;
+    // Before the style JSON is read, so that the first frames of the style
+    // already show the values.
+    styleController.applyGlobalState(options.globalState, previous: previous);
+    // The style is only handed out once its layers and sources are known.
+    await styleController.load();
+    // A style set while this one loaded leaves it empty and detached.
+    if (_disposed ||
+        _loadingStyle != styleController ||
+        styleController.replaced) {
+      styleController.dispose();
+      return;
+    }
+    _loadingStyle = null;
+    style = styleController;
+    effectiveWidget.onStyleLoaded?.call(styleController);
+    attachAnnotations(styleController);
+    // Refresh the widgets in MapLibreMap.children.
+    setState(() {});
+  }
+
+  CameraPosition? _readCamera() {
+    final map = _map;
+    if (map == null || _disposed) return null;
+    return map.getSnapshot().view.camera.toCameraPosition();
+  }
+
+  // Gestures
+
+  /// Applies [delta] without waiting for it, in order with later commands.
+  void _applyDelta(mln.CameraDelta delta) =>
+      _map?.discarding.applyCameraDelta(delta);
+
+  @override
+  Future<List<SourceFeature>> querySourceFeatures(
+    String sourceId, {
+    String? sourceLayer,
+    Expression<bool>? filter,
+  }) async {
+    final renderer = _renderer;
+    if (renderer == null || _disposed) return const [];
+    final features = await renderer.querySourceFeatures(
+      sourceId,
+      sourceLayerIds: sourceLayer == null ? null : [sourceLayer],
+      filter: filter?.toJson(),
+    );
+    return [
+      for (final queried in features)
+        if (queried.feature case final Map<String, Object?> feature)
+          SourceFeature(
+            id: feature['id'],
+            properties: _properties(feature),
+            geometry: RenderedFeature.geometryFromJson(feature['geometry']),
+            sourceLayer: _nonEmpty(queried.sourceLayerId),
+          ),
+    ];
+  }
+
+  @override
+  Future<double> getClusterExpansionZoom(String sourceId, int clusterId) async {
+    final session = _session;
+    if (session == null) {
+      throw StateError('No cluster $clusterId in the source "$sourceId".');
+    }
+    return (await session.getClusterExpansionZoom(
+      sourceId,
+      clusterId,
+    )).toDouble();
+  }
+
+  @override
+  Future<List<SourceFeature>> getClusterChildren(
+    String sourceId,
+    int clusterId,
+  ) async =>
+      _clusterFeatures(await _session?.getClusterChildren(sourceId, clusterId));
+
+  @override
+  Future<List<SourceFeature>> getClusterLeaves(
+    String sourceId,
+    int clusterId, {
+    int limit = 10,
+    int offset = 0,
+  }) async => _clusterFeatures(
+    await _session?.getClusterLeaves(sourceId, clusterId, limit, offset),
+  );
+
+  /// The render session that answers cluster queries, or null once the map
+  /// is disposed.
+  mln.RenderSessionHandle? get _session =>
+      _disposed ? null : _renderer?.session;
+
+  static List<SourceFeature> _clusterFeatures(Object? result) => [
+    for (final feature in switch (result) {
+      {'features': final List<Object?> features} => features,
+      final List<Object?> features => features,
+      _ => const <Object?>[],
+    })
+      if (feature case final Map<String, Object?> feature)
+        SourceFeature(
+          id: feature['id'],
+          properties: _properties(feature),
+          geometry: RenderedFeature.geometryFromJson(feature['geometry']),
+        ),
+  ];
+
+  // MapController
+
+  /// The projection of the frame on screen, so that screen locations match
+  /// the map image, or of the latest camera before the first frame.
+  mln.MapProjectionHandle _currentProjection() {
+    final map = _map;
+    if (map == null) {
+      throw StateError('The map has not been created yet.');
+    }
+    return _shownProjection ??
+        (_projection ??= mln.MapProjectionHandle.create(
+          map.getSnapshot().view,
+        ));
+  }
+
+  void _invalidateProjection() {
+    _projection?.release();
+    _projection = null;
+  }
+
+  // The map's latest camera, so it reflects a completed moveCamera. [camera]
+  // instead follows the frame on screen, for widgets over the map.
+  @override
+  CameraPosition getCamera() =>
+      _readCamera() ??
+      camera ??
+      (throw StateError('The map has not been created yet.'));
+
+  @override
+  Offset toScreenLocation(Geographic lngLat) =>
+      toScreenLocations([lngLat]).single;
+
+  @override
+  Geographic toLngLat(Offset screenLocation) =>
+      toLngLats([screenLocation]).single;
+
+  @override
+  List<Offset> toScreenLocations(List<Geographic> lngLats) {
+    final projection = _currentProjection();
+    return [
+      for (final lngLat in lngLats)
+        projection.pixelForLatLng(lngLat.toMln()).toOffset(),
+    ];
+  }
+
+  @override
+  List<Geographic> toLngLats(List<Offset> screenLocations) {
+    final projection = _currentProjection();
+    return [
+      for (final screenLocation in screenLocations)
+        projection.latLngForPixel(screenLocation.toMln()).toGeographic(),
+    ];
+  }
+
+  @override
+  double getMetersPerPixelAtLatitude(double latitude) =>
+      _currentProjection().metersPerPixelAtLatitude(latitude);
+
+  @override
+  GeoBox getVisibleBounds() {
+    final size = context.size ?? Size.zero;
+    final corners = toLngLats([
+      Offset.zero,
+      Offset(size.width, 0),
+      Offset(0, size.height),
+      Offset(size.width, size.height),
+    ]);
+    return GeoBox(
+      west: corners.map((c) => c.lon).reduce(min),
+      east: corners.map((c) => c.lon).reduce(max),
+      south: corners.map((c) => c.lat).reduce(min),
+      north: corners.map((c) => c.lat).reduce(max),
+    );
+  }
+
+  @override
+  Future<void> moveCamera(CameraUpdate update) async {
+    final map = _map;
+    if (map == null) return;
+    final camera = await _cameraOptions(map, update);
+    if (_map != map) return;
+    // A jump would replace a running animation, which then counts as
+    // completed, so it is cancelled first.
+    _cancelAnimation();
+    await _submitCamera(map, mln.CameraUpdate(camera: camera));
+  }
+
+  @override
+  Future<CameraAnimationResult> animateCamera(
+    CameraUpdate update, {
+    CameraAnimation animation = const CameraAnimation.ease(),
+  }) async {
+    final map = _map;
+    if (map == null) return CameraAnimationResult.cancelled;
+    final camera = await _cameraOptions(map, update);
+    if (_map != map) return CameraAnimationResult.cancelled;
+    return _submitCamera(
+      map,
+      mln.CameraUpdate(
+        mode: switch (animation) {
+          CameraAnimationEase() => mln.CameraUpdateMode.ease,
+          CameraAnimationFly() => mln.CameraUpdateMode.fly,
+        },
+        camera: camera,
+        animation: animation.toMln(),
+      ),
+    );
+  }
+
+  @override
+  Future<void> stopCamera() async => _cancelAnimation();
+
+  @override
+  Future<CameraPosition> cameraFor(CameraUpdate update) async {
+    final map = _map;
+    if (map == null) {
+      throw StateError('The map has not been created yet.');
+    }
+    final current = getCamera();
+    final camera = await _cameraOptions(map, update);
+    final center = camera.center;
+    final padding = camera.padding;
+    return CameraPosition(
+      center: center?.toGeographic() ?? current.center,
+      zoom: camera.zoom ?? current.zoom,
+      bearing: camera.bearing ?? current.bearing,
+      pitch: camera.pitch ?? current.pitch,
+      roll: camera.roll ?? current.roll,
+      padding: padding?.toEdgeInsets() ?? current.padding,
+    );
+  }
+
+  /// The native camera that [update] moves [map] to.
+  static Future<mln.CameraOptions> _cameraOptions(
+    mln.MapHandle map,
+    CameraUpdate update,
+  ) async {
+    switch (update) {
+      case CameraUpdatePosition():
+        return update.toMln();
+      case CameraUpdateFit():
+        final fitOptions = mln.CameraFitOptions(
+          padding: update.padding.toMln(),
+          bearing: update.bearing,
+          pitch: update.pitch,
+        );
+        final camera = await switch (update) {
+          CameraUpdateBounds(:final bounds) => map.cameraForLatLngBounds(
+            bounds.toMln(),
+            fitOptions: fitOptions,
+          ),
+          CameraUpdatePoints(:final points) =>
+            points.isEmpty
+                ? throw ArgumentError.value(
+                    points,
+                    'points',
+                    'must not be empty',
+                  )
+                : map.cameraForLatLngs([
+                    for (final point in points) point.toMln(),
+                  ], fitOptions: fitOptions),
+          CameraUpdateGeometry(:final geometry) => map.cameraForGeometry(
+            jsonDecode(geometry.toText()),
+            fitOptions: fitOptions,
+          ),
+        };
+        final maxZoom = update.maxZoom;
+        final zoom = camera.zoom;
+        if (maxZoom != null && zoom != null && zoom > maxZoom) {
+          return camera.copyWith(zoom: maxZoom);
+        }
+        return camera;
+    }
+  }
+
+  /// Counts [_setStyle] calls, so a style that loads after a newer one was
+  /// set is dropped.
+  var _styleRequest = 0;
+
+  /// Starts to load [style], see [MapOptions.style]. Completes once the map
+  /// has the style load, without waiting for the style document, as later
+  /// commands run after it anyway.
+  Future<void> _setStyle(MapStyle style) async {
+    final map = _map;
+    if (map == null) return;
+    final request = ++_styleRequest;
+    bool stale() => _map != map || request != _styleRequest;
+    this.style?.markReplaced();
+    _loadingStyle?.markReplaced();
+    detachAnnotations();
+    final Future<mln.CommandCompletion> load;
+    switch (style) {
+      case MapStyleJson(:final json):
+        load = map.setStyleJson(jsonDecode(json));
+      case MapStyleUrl(:final url):
+        load = map.setStyleUrl(url);
+      case MapStyleFile(:final path):
+        load = map.setStyleUrl(Uri.file(path).toString());
+      case MapStyleAsset(:final asset):
+        final json = await DefaultAssetBundle.of(context).loadString(asset);
+        if (stale()) return;
+        load = map.setStyleJson(jsonDecode(json));
+    }
+    // A style that fails to load is reported by the map's loading failed
+    // event, and a newer style cancels this one.
+    load.ignore();
+  }
+
+  @override
+  Future<List<RenderedFeature>> queryRenderedFeatures(
+    QueryGeometry geometry, {
+    List<String>? layerIds,
+    Expression<bool>? filter,
+  }) async {
+    final renderer = _renderer;
+    // No layers to query matches nothing, as on web.
+    if (renderer == null ||
+        _disposed ||
+        (layerIds != null && layerIds.isEmpty)) {
+      return const [];
+    }
+    final features = await renderer.queryRenderedFeatures(
+      switch (geometry) {
+        QueryGeometryPoint(:final point) => mln.RenderedQueryGeometry.point(
+          point.toMln(),
+        ),
+        QueryGeometryRect(:final rect) => mln.RenderedQueryGeometry.box(
+          rect.toMln(),
+        ),
+        QueryGeometryViewport() => mln.RenderedQueryGeometry.box(
+          (Offset.zero &
+                  Size(
+                    renderer.extent.width.toDouble(),
+                    renderer.extent.height.toDouble(),
+                  ))
+              .toMln(),
+        ),
+      },
+      layerIds: layerIds,
+      filter: filter?.toJson(),
+    );
+    return [
+      for (final queried in features)
+        if (queried.feature case final Map<String, Object?> feature)
+          RenderedFeature(
+            id: feature['id'],
+            properties: _properties(feature),
+            geometry: RenderedFeature.geometryFromJson(feature['geometry']),
+            sourceId: _nonEmpty(queried.sourceId),
+            sourceLayer: _nonEmpty(queried.sourceLayerId),
+            layerId: _nonEmpty(queried.layerId),
+          ),
+    ];
+  }
+}
+
+/// The properties of a GeoJSON [feature], or none.
+Map<String, Object?> _properties(Map<String, Object?> feature) =>
+    switch (feature['properties']) {
+      final Map<String, Object?> properties => properties,
+      _ => const {},
+    };
+
+/// [value], or null for the empty string that the C API reports as absent.
+String? _nonEmpty(String value) => value.isEmpty ? null : value;
+
+/// Applies gestures with the map's projection-aware camera deltas, which
+/// move, scale, rotate and tilt around a screen point.
+class _NativeGestureCamera implements GestureCameraSink {
+  _NativeGestureCamera(this._state);
+
+  final MapLibreMapStateNative _state;
+
+  @override
+  void gestureStart() {
+    // Ends a running camera animation or fling as its own move, so that the
+    // gesture starts a move of its own with the reason gesture. The runtime
+    // reports the end of the cancelled transition only later, once the
+    // gesture is active, which would otherwise keep the old move going.
+    _state
+      .._cancelAnimation()
+      .._onCameraIdle()
+      .._gestureActive = true
+      .._nextChangeReason = CameraChangeReason.gesture;
+    _state._applyDelta(
+      const mln.CameraDelta(gesturePhase: mln.GesturePhase.begin),
+    );
+  }
+
+  @override
+  void gestureUpdate(GestureCameraUpdate update) {
+    final scales = update.zoomBy != 0;
+    final rotates = update.rotateBy != 0;
+    final tilts = update.pitchBy != 0;
+    final around = update.around;
+    _state._applyDelta(
+      mln.CameraDelta(
+        offset: update.pans ? (update.panTo! - update.panFrom!).toMln() : null,
+        scale: scales ? pow(2, update.zoomBy).toDouble() : null,
+        bearing: rotates ? update.rotateBy : null,
+        pitch: tilts ? update.pitchBy : null,
+        // The C API rejects an anchor without a scale, bearing or pitch.
+        anchor: around != null && (scales || rotates || tilts)
+            ? around.toMln()
+            : null,
+        gesturePhase: mln.GesturePhase.update,
+      ),
+    );
+  }
+
+  /// Continues a flick as the map's own gesture momentum, which slows each
+  /// of its pan, zoom and rotation on its own, and which the next gesture
+  /// stops. The map ignores a release too slow to fling.
+  @override
+  void gestureEnd({GestureVelocity velocity = GestureVelocity.zero}) {
+    if (!_state._gestureActive) return;
+    _state._gestureActive = false;
+    if (velocity.isZero) {
+      _state
+        .._applyDelta(const mln.CameraDelta(gesturePhase: mln.GesturePhase.end))
+        .._onCameraIdle();
+      return;
+    }
+    final anchor = velocity.around?.toMln();
+    _state._applyDelta(
+      mln.CameraDelta(
+        gesturePhase: mln.GesturePhase.end,
+        momentum: mln.GestureMomentum(
+          pan: mln.PanMomentum(
+            velocity: velocity.pan == Offset.zero ? null : velocity.pan.toMln(),
+          ),
+          zoom: mln.AnchoredMomentum(
+            velocity: velocity.zoom == 0 ? null : velocity.zoom,
+            anchor: anchor,
+          ),
+          bearing: mln.AnchoredMomentum(
+            velocity: velocity.rotate == 0 ? null : velocity.rotate,
+            anchor: anchor,
+          ),
+        ),
+        // Ends the move once the momentum stops, at once when it doesn't
+        // move, unless another gesture took over.
+        animation: mln.AnimationOptions(
+          endHandler: mln.CameraTransitionHandler(
+            callback: (_) {
+              if (!_state._gestureActive) _state._onCameraIdle();
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void zoomBy(
+    double levels,
+    Offset around, {
+    Duration duration = Duration.zero,
+  }) {
+    _state
+      .._cancelAnimation()
+      .._nextChangeReason = CameraChangeReason.gesture;
+    _state._applyDelta(
+      mln.CameraDelta(
+        scale: pow(2, levels).toDouble(),
+        anchor: around.toMln(),
+        animation: duration == Duration.zero
+            ? const mln.AnimationOptions()
+            : mln.AnimationOptions(
+                durationMs: duration.inMilliseconds.toDouble(),
+              ),
+      ),
+    );
+  }
+}
+
+/// A camera animation of [MapLibreMapStateNative.animateCamera].
+class _CameraAnimationRun {
+  _CameraAnimationRun(this.target);
+
+  /// The camera that the animation ends at.
+  final mln.CameraOptions target;
+
+  /// Whether a gesture or [MapController.stopCamera] cancelled it, which the
+  /// map may report as completed.
+  bool cancelled = false;
+
+  final _result = Completer<CameraAnimationResult>();
+
+  Future<CameraAnimationResult> get result => _result.future;
+
+  void end(CameraAnimationResult result) {
+    if (_result.isCompleted) return;
+    _result.complete(cancelled ? CameraAnimationResult.cancelled : result);
+  }
+}

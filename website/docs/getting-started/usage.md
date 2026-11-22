@@ -1,9 +1,10 @@
 ---
-title: 'How to use'
+title: 'First map'
 icon: lucide/gamepad-2
+description: 'Show a first map with MapLibreMap and control it with the MapController.'
 ---
 
-# Basic Usage
+# First map
 
 ## Display your first Map
 
@@ -19,7 +20,7 @@ class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
 
   @override
-  State createState() => FullMapState();
+  State<MapScreen> createState() => MapScreenState();
 }
 
 class MapScreenState extends State<MapScreen> {
@@ -51,7 +52,7 @@ The result should look something like this:
 
 If the map style isn't specified,
 the [default MapLibre style](https://github.com/maplibre/demotiles?tab=readme-ov-file#maplibre-world-demo-map)
-is used. Read the [Styles](../styles) chapter to learn how to use other styles.
+is used. Read the [Styles](../styles.md) chapter to learn how to use other styles.
 
 ## Programmatic Control
 
@@ -64,7 +65,7 @@ initial values. Parameters that don't begin with `init*` can be updated in a
 declarative way just like any other Flutter Widget. The most simple way is to
 use the `MapLibreMap` widget in a `StatefulWidget` and calling `setState()`.
 
-```dart linenums="1" hl_lines="11 22-24 29-31"
+```dart linenums="1" hl_lines="11 26-28 32-34"
 @immutable
 class MyMapWidget extends StatefulWidget {
   const MyMapWidget({super.key});
@@ -73,31 +74,33 @@ class MyMapWidget extends StatefulWidget {
   State<MyMapWidget> createState() => _MyMapWidget();
 }
 
-class _MyMapWidget extends State<GesturesPage> {
+class _MyMapWidget extends State<MyMapWidget> {
   // Using this field to store the widget state
-  bool _gesturesEnabed = true;
+  bool _gesturesEnabled = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: MapLibreMap(
           options: MapOptions(
-            // parameters that start with init* can't be updated
-            initCenter: Geographic(lon: 9.17, lat: 47.68),
-            initZoom: 3,
-            // other parameters can be updated
+            // initCamera can't be updated, move the camera with the
+            // MapController instead
+            initCamera: CameraUpdate.position(
+              center: Geographic(lon: 9.17, lat: 47.68),
+              zoom: 3,
+            ),
+            // other parameters can be updated, a new style loads
+            style: MapStyle.url('https://demotiles.maplibre.org/style.json'),
             gestures: _gesturesEnabled
-                ? MapGestures.all()
+                ? MapGestures()
                 : MapGestures.none(),
           ),
-          onEvent: (event) {
-            if (event case MapEventClick()) {
-              // update the map widget using Flutters' state management
-              setState() {
-                _gesturesEnabed = !_gesturesEnabed;
-              }
-            }
-          }
+          onClick: (event) {
+            // update the map widget using Flutters' state management
+            setState(() {
+              _gesturesEnabled = !_gesturesEnabled;
+            });
+          },
       ),
     );
   }
@@ -110,27 +113,26 @@ the [StyleController](#the-stylecontroller).
 
 ### The `MapController`
 
-The `MapController` can be used by either using the `onMapCreated` callback or
-by listening in the `onEvent` callback for the `MapEventMapCreated` event type.
+The `onMapCreated` callback hands you the `MapController`.
 
 You can store the `MapController` in a field variable for later use.
 
-```dart linenums="1" hl_lines="2 13"
-class _MyMapWidget extends State<GesturesPage> {
+```dart linenums="1" hl_lines="2 15"
+class _MyMapWidget extends State<MyMapWidget> {
   MapController? _mapController;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: MapLibreMap(
-          options: MapOptions(initCenter: Geographic(lon: 9.17, lat: 47.68), initZoom: 3),
-          onEvent: (event) {
-            // check if the MapEvent type is a MapEventMapCreated
-            if (event case MapEventMapCreated()) {
-              // store the MapController for later use
-              _mapController = event.mapController;
-            }
-          }
+          options: MapOptions(
+            initCamera: CameraUpdate.position(
+              center: Geographic(lon: 9.17, lat: 47.68),
+              zoom: 3,
+            ),
+          ),
+          // store the MapController for later use
+          onMapCreated: (controller) => _mapController = controller,
       ),
     );
   }
@@ -140,27 +142,28 @@ class _MyMapWidget extends State<GesturesPage> {
 ### The `StyleController`
 
 The `StyleController` is a construct to make style related operations on the
-map. It can be used either by listening to the `MapEventStyleLoaded` event or
-the `onStyleLoaded` callback.
+map. The `onStyleLoaded` callback hands it to you.
 
 After it has loaded you can access the `StyleController` at any time
 from the `style` getter of `MapController`.
 
-```dart linenums="1" hl_lines="11-12"
-class _MyMapWidget extends State<GesturesPage> {
+```dart linenums="1" hl_lines="13-15"
+class _MyMapWidget extends State<MyMapWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: MapLibreMap(
-          options: MapOptions(initCenter: Geographic(lon: 9.17, lat: 47.68), initZoom: 3),
-          onEvent: (event) {
-            // check if the MapEvent type is a MapEventStyleLoaded
-            if (event case MapEventStyleLoaded()) {
-              // This event gets emitted every time a style finishes loading.
-              event.style.addSource(...);
-              event.style.addLayer(...);
-            }
-          }
+          options: MapOptions(
+            initCamera: CameraUpdate.position(
+              center: Geographic(lon: 9.17, lat: 47.68),
+              zoom: 3,
+            ),
+          ),
+          // called every time a style finishes loading
+          onStyleLoaded: (style) {
+            style.sources.add(...);
+            style.layers.add(...);
+          },
       ),
     );
   }
@@ -176,6 +179,15 @@ MapController? _mapController;
 
 void doSomething() {
   // only adds the source if the style has finished loading and a source can be added.
-  _mapController?.style?.addSource(...);
+  _mapController?.style?.sources.add(...);
 }
 ```
+
+## Next steps
+
+- [Map & Camera](../map.md) covers the map options, moving the camera and
+  gestures.
+- [Annotations](../annotations/index.md) add circles, markers, polygons and
+  polylines to the map.
+- [Sources](../sources/index.md) and [Style Layers](../style-layers/index.md) show
+  your own data with the full MapLibre style spec.

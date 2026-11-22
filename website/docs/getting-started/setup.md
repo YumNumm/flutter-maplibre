@@ -1,187 +1,94 @@
 ---
+title: 'Installation'
 icon: lucide/sparkles
+description: 'Add maplibre to a Flutter app and check the supported platforms and versions.'
 ---
 
-# How to setup
+# Installation
 
 ## Add the dependency
+
+!!! info "Upgrading from 0.3.x"
+
+    Version 0.4 changes much of the API. Read the
+    [migration guide](../migrate/upgrade-from-v0.3.x.md) when you upgrade.
 
 === "Run command"
 
     Add `maplibre` to your project by running this command:
-    
+
     ```bash
-    flutter pub add maplibre
+    flutter pub add maplibre:^0.4.0
     ```
 
 === "Edit `pubspec.yaml`"
 
     Alternatively, add it directly as a dependency to your `pubspec.yaml` file:
-    
+
     ```yaml title="pubspec.yaml" hl_lines="2"
     dependencies:
-      maplibre: ^0.3.0
+      maplibre: ^0.4.0
     ```
+
     and then run `flutter pub get` to install the package.
-    
+
     ```bash
     flutter pub get
     ```
 
-??? info "Using the development version"
+The packages need Dart 3.13 and Flutter 3.47 or newer. Some platforms need
+setup steps, see [Platform setup](platforms.md).
 
-    If you want to have access to the latest features and changes, you
-    can use the package directly from GitHub.
+## Plugins
 
-    !!! warning
+| Package               | Used for                                                                                                    |
+|-----------------------|-------------------------------------------------------------------------------------------------------------|
+| `maplibre_geolocator` | Shows the positions of [geolocator](https://pub.dev/packages/geolocator) as [user location](../user-location.md) |
 
-        Note, that the development version is not considered stable and shouldn't be
-        used in production systems.
+## Platform support
 
-    This is how you include the package directly from GitHub. Either use it in your
-    `dependecies:` or temporarily override it inside the `dependency_overrides:`
-    list.
-    
-    ```yaml title="pubspec.yaml" hl_lines="2-5"
-    dependencies:
-      maplibre:
-        git:
-          url: https://github.com/josxha/flutter-maplibre
-          ref: main # or a specific commit hash 
-    ```
+| Platform | Implementation    | Renderer        | Rendering backend                      | Minimum version         |
+|----------|-------------------|-----------------|----------------------------------------|-------------------------|
+| Web      | `maplibre_web`    | MapLibre GL JS  | WebGL 2                                | Browsers with WebGL 2   |
+| Android  | `maplibre_native` | MapLibre Native | OpenGL ES 3.0 (default) or Vulkan      | Android 7.0 (API 24)    |
+| iOS      | `maplibre_native` | MapLibre Native | Metal                                  | iOS 15                  |
+| macOS    | `maplibre_native` | MapLibre Native | Metal                                  | macOS 14.3              |
+| Windows  | `maplibre_native` | MapLibre Native | Vulkan, shared with Flutter via D3D11  | Vulkan 1.1 driver       |
+| Linux    | `maplibre_native` | MapLibre Native | Vulkan, shared with Flutter via OpenGL | Vulkan 1.1 driver       |
 
-## Setup Android
+!!! warning "Only on web"
 
-### Use a compatible Kotlin version
+    Projections other than Mercator and `VideoSource` are only supported on
+    web. On every other platform, `setProjection` keeps Mercator.
 
-Ensure that you are using Kotlin version
-**1.9.0 or newer**. You can check the most recent Kotlin version on
-[kotlinlang.org](https://kotlinlang.org/docs/releases.html#release-details).
-
-Open `android/settings.gradle` and ensure that the Kotlin plugin is applied
-with a compatible version.
-
-```gradle title="android/settings.gradle" hl_lines="3"
-plugins {
-    // ...
-    id "org.jetbrains.kotlin.android" version "1.9.0" apply false
-}
-```
-
-??? info "In case you can't find the `plugins {}` block your app still uses the old apply script method. Click here to view the instructions."
-
-    Open `android/app/build.gradle` and set the Kotlin version like this:
-    
-    ```gradle title="android/app/build.gradle" hl_lines="2"
-    buildscript {
-        ext.kotlin_version = '1.9.0'
-        // ...
-    }
-    ```
-
-### Set the permissions
-
-If you want to show the user's location on the map you need to add
-the permissions in the application
-manifest`android/app/src/main/AndroidManifest.xml`.
-
-```xml title="android/app/src/main/AndroidManifest.xml" hl_lines="3 5"
-
-<manifest>
-    ...
-    <!-- Always include this permission -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <!-- Include only if your app benefits from precise location access. -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-</manifest>
-```
-
-## Setup iOS
-
-### Activate the Swift Package Manager
-
-`maplibre` requires the Swift Package Manager to be enabled for your project.
-Enable it by running the following command:
-
-```bash
-flutter config --enable-swift-package-manager
-```
-
-You can also add it just for this project by adding the following line to the
-pubspec.yaml file of your app:
-
-```yaml title="pubspec.yaml"
-flutter:
-  config:
-    enable-swift-package-manager: true
-```
-
-## Setup Web
-
-Include the following JavaScript and CSS files in the `<head>` tag of
-your `web/index.html` file:
-
-```html title="web/index.html" hl_lines="5-7 9"
-<!DOCTYPE html>
-<html>
-<head>
-    <!-- other html -->
-    <script src='https://unpkg.com/maplibre-gl@^5.0/dist/maplibre-gl.js'></script>
-    <link href='https://unpkg.com/maplibre-gl@^5.0/dist/maplibre-gl.css'
-          rel='stylesheet'/>
-    <!-- Next line only required if you want to use PMTiles as source. -->
-    <script src='https://unpkg.com/pmtiles@^4.0/dist/pmtiles.js'></script>
-</head>
-</html>
-```
-
-`^5.0` ensures that your app will always use the latest version of
-[maplibre-gl-js](https://github.com/maplibre/maplibre-gl-js) version 5 but not
-suddenly
-use an incompatible version.
-
-If you want to always use the latest version use `latest` or use the full
-version number like `5.0.0` if you want to use a specific version.
-
-You can read about changes in maplibre-gl-js in
-the [changelog file](https://github.com/maplibre/maplibre-gl-js/blob/main/CHANGELOG.md).
-
-## Setup Windows and macOS
+## Development version
 
 !!! warning
 
-    Windows and macOS support is experimental and powered by displaying the map 
-    though a web view.
-    It requires at least version 0.3.4 of the `maplibre` package.
+    The development version is not considered stable and shouldn't be
+    used in production systems.
 
-### Add the dependency
+Depend on the packages from the Git repository. `maplibre` depends on
+the other packages by version, so override them, too:
 
-To enable Windows support, make sure to add the `maplibre_webview` dependency to
-your dependency list.
+```yaml title="pubspec.yaml"
+dependencies:
+  maplibre:
+    git:
+      url: https://github.com/maplibre/flutter-maplibre
+      path: packages/maplibre
 
-=== "Run command"
-
-     Run the following command in your terminal:
-    
-    ```bash
-    flutter pub add maplibre_webview
-    ```
-
-=== "Edit `pubspec.yaml`"
-
-    Add `maplibre_webview` to your `pubspec.yaml` file:
-
-    ```yaml title="pubspec.yaml" hl_lines="3"
-    dependencies:
-      maplibre: ^0.3.4
-      maplibre_webview: ^0.3.4
-    ```
-
-### flutter_inappwebview Setup
-
-InAppWebView that is used to display the map in a WebView requires some
-additional platform specific setup steps. Please follow the instructions in the
-flutter_inappwebview documentation.
-
-- [Setup flutter_inappwebview for Windows](https://inappwebview.dev/docs/intro#setup-windows)
-- [Setup flutter_inappwebview for macOS](https://inappwebview.dev/docs/intro#setup-macos)
+dependency_overrides:
+  maplibre_native:
+    git:
+      url: https://github.com/maplibre/flutter-maplibre
+      path: packages/maplibre_native
+  maplibre_platform_interface:
+    git:
+      url: https://github.com/maplibre/flutter-maplibre
+      path: packages/maplibre_platform_interface
+  maplibre_web:
+    git:
+      url: https://github.com/maplibre/flutter-maplibre
+      path: packages/maplibre_web
+```

@@ -1,61 +1,133 @@
 ---
 icon: lucide/send
+description: 'React to taps, drags, camera changes and style loads with the on… callbacks of MapLibreMap.'
 ---
 
 # Events
 
-The event system is the used if you want to listen to any user interactions or
-state changes on the map.
+`MapLibreMap` reports user input and state changes through one `on…`
+callback per event. Set only the callbacks you need: the map doesn't track
+events that nothing listens to.
 
 ## Basic Usage
 
-To listen to map events, implement a callback function for the `onEvent`
-parameter.
-
-```dart hl_lines="5 13-15 18-25"
+```dart hl_lines="5-9"
 @override
 Widget build(BuildContext context) {
   return MapLibreMap(
-    options: MapOptions(center: Geographic(lon: 9.17, lat: 47.68)),
-    onEvent: _onEvent,
+    options: MapOptions(initCamera: .position(center: Geographic(lon: 9.17, lat: 47.68), zoom: 7)),
+    onMapCreated: (controller) => print('map created'),
+    onStyleLoaded: (style) => print('style loaded'),
+    onClick: (event) => print('clicked at ${event.point.lon}, ${event.point.lat}'),
+    onCameraMoveEnd: (event) => print('camera stopped at ${event.camera.zoom}'),
+    onError: (event) => print('${event.kind}: ${event.message}'),
   );
-}
-
-void _onEvent(event) {
-  print(event.runtimeType);
-
-  // check for the event type
-  if (event is MapEventClicked) {
-    print('The map has been clicked at ${event.point.lng}, ${event.point.lat}');
-  }
-
-  // or use a switch statement to listen to all the events you are interested in
-  switch (event) {
-    case MapEventMapCreated():
-      print('map created');
-    case MapEventStyleLoaded():
-      print('style loaded');
-    default:
-    // ignore all other events
-  }
 }
 ```
 
+Each callback gets an event object of its own type, such as `MapEventClick`
+for `onClick`. All of them extend `MapEvent`.
+
 ## Available Events
 
-- [MapLibre GL JS MapEventType](https://maplibre.org/maplibre-gl-js/docs/API/type-aliases/MapEventType/)
-- [MapLibre Native Android Listeners](https://maplibre.org/maplibre-native/android/api/-map-libre%20-native%20-android/org.maplibre.android.maps/-map-view/index.html)
+Map gestures are recognized in Flutter, so the user input events behave the
+same on every platform.
 
-| Flutter                  | Web         | Android                           | iOS | Windows | MacOS | Linux |
-|--------------------------|-------------|-----------------------------------|-----|---------|-------|-------|
-| MapEventMapCreated       |             |                                   |     |         |       |       |
-| MapEventStyleLoaded      | load        | (OnDidFinishLoadingStyleListener) |     |         |       |       |
-| MapEventClicked          | click       | OnMapClickListener                |     |         |       |       |
-| MapEventDoubleClicked    | dblclick    |                                   |     |         |       |       |
-| MapEventSecondaryClicked | contextmenu |                                   |     |         |       |       |
-| MapEventLongClicked      |             | OnMapLongClickListener            |     |         |       |       |
-| MapEventIdle             | idle        | OnDidBecomeIdleListener           |     |         |       |       |
-|                          | mousedown   |                                   |     |         |       |       |
-| MapEventStartMoveCamera  |             | OnCameraMoveStartedListener       |     |         |       |       |
-| MapEventMoveCamera       | move        | OnCameraMoveListener              |     |         |       |       |
-| MapEventCameraIdle       | moveend     | OnCameraMoveCanceledListener      |     |         |       |       |
+| Callback              | Called when                                                                                       |
+|-----------------------|---------------------------------------------------------------------------------------------------|
+| `onMapCreated`        | The map was created. Gets the `MapController`.                                                    |
+| `onStyleLoaded`       | A style finished loading, also after `MapOptions.style` changed. Gets the `StyleController`.      |
+| `onClick`             | The user tapped or clicked the map.                                                               |
+| `onDoubleClick`       | The user double tapped or double clicked the map.                                                 |
+| `onSecondaryClick`    | The user clicked the map with the secondary (right) mouse button.                                 |
+| `onLongClick`         | The user pressed the map for a longer time.                                                       |
+| `onDragStart`         | The user starts to drag the map with one finger or the primary mouse button, see [drags](#drags). |
+| `onDrag`              | The pointer of a drag moved.                                                                      |
+| `onDragEnd`           | A drag ended.                                                                                     |
+| `onPointerMove`       | A mouse or stylus moved over the map without a pressed button. Touches don't hover.               |
+| `onPointerLeave`      | A mouse or stylus left the map.                                                                   |
+| `onCameraMoveStart`   | The camera starts to move. `reason` says whether a gesture, the app or the map moved it.          |
+| `onCameraMove`        | The camera moved. Holds the new `CameraPosition` and the `reason`.                                     |
+| `onCameraMoveEnd`     | The camera stopped moving. Holds the `CameraPosition` it ended at and the `reason`.                    |
+| `onIdle`              | The map finished rendering and no animation runs.                                                 |
+| `onError`             | The style, a source, glyphs or a sprite failed to load, or rendering failed.                      |
+| `onStyleImageMissing` | A layer uses an image that the style doesn't have. Add it with `StyleController.addImage`.        |
+| `onLoadingStarted`    | The map starts to load a style.                                                                   |
+| `onLoadingFinished`   | The map loaded its style and what the view needs.                                                 |
+| `onSourceChanged`     | A source of the style changed, such as when its TileJSON arrives.                                 |
+| `onRenderFrame`       | The map rendered a frame. Not on web, it holds the frame's statistics.                              |
+| `onRenderingChanged`  | The map stopped or resumed rendering, see [paused rendering](map.md#paused-rendering).            |
+| `onResize`            | The map changed its size.                                                                         |
+
+Some events are not on every platform:
+
+| Callback                              | Platform | Called when                                                        |
+|---------------------------------------|----------|--------------------------------------------------------------------|
+| `onTile`                              | not web  | A tile moved to another step of loading.                           |
+| `onRenderMap`                         | not web  | The map finished rendering a view, partially or fully.             |
+| `onGlyphs`                            | not web  | The map requested or loaded glyphs of a font.                      |
+| `onSprite`                            | not web  | The map requested or loaded a sprite.                              |
+| `onContextLost`, `onContextRestored`  | web      | The browser took the map's WebGL context away or gave it back.     |
+| `onProjectionChanged`                 | web      | The map switched its projection.                                   |
+
+The click and drag events extend `MapEventUserInput`, which holds the
+`point` on the map and the `screenPoint` in logical pixels.
+
+## Double taps
+
+A double tap zooms in while the zoom gesture of `MapOptions.gestures` is on.
+To handle it yourself, call `preventDefault()` on the event. `onDoubleClick`
+can be async, for example to check for features under the tap first. The map
+waits for it before it zooms:
+
+```dart
+onDoubleClick: (event) async {
+  final features = await _controller.queryRenderedFeatures(
+    .point(event.screenPoint),
+  );
+  if (features.isNotEmpty) {
+    event.preventDefault();
+    // handle the double tap on the feature
+  }
+},
+```
+
+`preventDefault()` also keeps the double tap and drag gesture from zooming.
+
+A tap only waits for a possible second tap while double taps mean something:
+while `onDoubleClick` is set or the zoom gesture is on. Turn both off and
+`onClick` fires right away.
+
+## Drags
+
+A drag with one finger or the primary mouse button reports `onDragStart` where
+it went down, `onDrag` while it moves and `onDragEnd` where it stopped. They
+are reported whether the drag pans the map or not, also while panning is off.
+A second finger ends the drag and starts a pinch.
+
+To move something else instead of the map, call `preventDefault()` on the
+start event. `onDragStart` can be async to check for features first, and
+the map holds the pan until it is done:
+
+```dart
+onDragStart: (event) async {
+  final features = await _controller.queryRenderedFeatures(
+    .point(event.screenPoint),
+    layerIds: ['points'],
+  );
+  if (features.isNotEmpty) event.preventDefault();
+},
+onDrag: (event) {
+  // move the feature to event.point
+},
+```
+
+Annotation layers can do this for their own features, see
+[Drag annotations](annotations/drag.md).
+
+## Layer events
+
+Annotation layers and style layers report taps and the mouse on their own
+features with `onClick`, `onEnter` and `onLeave`, see click and hover for
+[annotations](annotations/click-and-hover.md) and for
+[style layers](style-layers/click-and-hover.md).

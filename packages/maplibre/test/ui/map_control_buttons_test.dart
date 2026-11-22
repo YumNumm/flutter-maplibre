@@ -1,36 +1,137 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:maplibre/maplibre.dart';
+import 'package:maplibre/src/ui/map_button.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../shared/mocks.dart';
 import '../shared/ui_app.dart';
 
+Finder icon(MapButtonIcon icon) => find.byWidgetPredicate(
+  (widget) =>
+      widget is CustomPaint &&
+      widget.painter is MapButtonIconPainter &&
+      (widget.painter! as MapButtonIconPainter).icon == icon,
+);
+
 void main() {
+  setUpAll(() {
+    registerFallbackValue(const CameraUpdate.position());
+    registerFallbackValue(const CameraAnimation.ease());
+  });
+
   group('MapControlButtons', () {
-    testWidgets('render', (tester) async {
-      const camera = MapCamera(
-        center: Geographic(lon: 0, lat: 0),
-        zoom: 5,
-        bearing: 12,
-        pitch: 0,
-      );
-      final controller = MockMapController();
+    const camera = CameraPosition(
+      center: Geographic(lon: 0, lat: 0),
+      zoom: 5,
+      bearing: 12,
+      pitch: 0,
+    );
+
+    late MockMapController controller;
+    setUp(() {
+      controller = MockMapController();
       when(controller.getCamera).thenReturn(camera);
-      const padding = EdgeInsets.all(2);
-      const alignment = Alignment.center;
-      final app = App(
+      when(
+        () =>
+            controller.animateCamera(any(), animation: any(named: 'animation')),
+      ).thenAnswer((_) async => CameraAnimationResult.completed);
+    });
+
+    Future<void> pump(WidgetTester tester) => tester.pumpWidget(
+      App(
         camera: camera,
         controller: controller,
         children: const [
-          MapControlButtons(alignment: alignment, padding: padding),
+          MapControlButtons(
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.all(2),
+          ),
         ],
-      );
-      await tester.pumpWidget(app);
-      // give some time for getAttributions
-      await tester.pumpAndSettle();
+      ),
+    );
 
-      expect(find.byType(MapControlButtons), findsOneWidget);
+    testWidgets('shows zoom buttons without a location button', (tester) async {
+      await pump(tester);
+      expect(find.bySemanticsLabel('Zoom in'), findsOneWidget);
+      expect(find.bySemanticsLabel('Zoom out'), findsOneWidget);
+      // The location button shows only with onTrackingPressed.
+      expect(find.bySemanticsLabel('Track location'), findsNothing);
+      expect(
+        tester.getTopLeft(find.bySemanticsLabel('Zoom in')),
+        const Offset(2, 2),
+      );
+    });
+
+    testWidgets('zooms in by one level', (tester) async {
+      await pump(tester);
+      await tester.tap(find.bySemanticsLabel('Zoom in'));
+      verify(
+        () => controller.animateCamera(
+          const CameraUpdate.position(zoom: 6),
+          animation: const CameraAnimation.ease(
+            duration: Duration(milliseconds: 200),
+          ),
+        ),
+      ).called(1);
+    });
+
+    testWidgets('zooms out by one level', (tester) async {
+      await pump(tester);
+      await tester.tap(find.bySemanticsLabel('Zoom out'));
+      verify(
+        () => controller.animateCamera(
+          const CameraUpdate.position(zoom: 4),
+          animation: const CameraAnimation.ease(
+            duration: Duration(milliseconds: 200),
+          ),
+        ),
+      ).called(1);
+    });
+
+    testWidgets('shows the tracking and reports a press', (tester) async {
+      var presses = 0;
+      Future<void> pumpTracking(UserLocationTracking tracking) =>
+          tester.pumpWidget(
+            App(
+              camera: camera,
+              controller: controller,
+              children: [
+                MapControlButtons(
+                  tracking: tracking,
+                  onTrackingPressed: () => presses++,
+                ),
+              ],
+            ),
+          );
+      await pumpTracking(UserLocationTracking.none);
+      await tester.tap(find.bySemanticsLabel('Track location'));
+      expect(presses, 1);
+      await pumpTracking(UserLocationTracking.position);
+      expect(icon(MapButtonIcon.location), findsOneWidget);
+      await pumpTracking(UserLocationTracking.positionAndHeading);
+      expect(icon(MapButtonIcon.locationAndHeading), findsOneWidget);
+    });
+
+    testWidgets('takes custom colors', (tester) async {
+      await tester.pumpWidget(
+        App(
+          camera: camera,
+          controller: controller,
+          children: const [
+            MapControlButtons(
+              backgroundColor: Color(0xFF000000),
+              iconColor: Color(0xFFFFFFFF),
+            ),
+          ],
+        ),
+      );
+      final buttons = tester.widgetList<MapButton>(find.byType(MapButton));
+      expect(buttons, hasLength(2));
+      for (final button in buttons) {
+        expect(button.backgroundColor, const Color(0xFF000000));
+        expect(button.iconColor, const Color(0xFFFFFFFF));
+      }
     });
   });
 }

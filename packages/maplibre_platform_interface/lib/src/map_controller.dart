@@ -18,10 +18,6 @@ abstract interface class MapController {
       maybeOf(context) ??
       (throw StateError('Unable to find an instance of MapController'));
 
-  /// Check if the user location is supported on the current platform.
-  static bool get userLocationIsSupported =>
-      MapLibrePlatform.instance.userLocationIsSupported;
-
   /// Get the [MapOptions] from [MapLibreMap.options].
   MapOptions get options;
 
@@ -45,46 +41,48 @@ abstract interface class MapController {
   /// pixels.
   List<Geographic> toLngLats(List<Offset> screenLocations);
 
-  /// Instantly move the map camera to a new location.
-  Future<void> moveCamera({
-    Geographic? center,
-    double? zoom,
-    double? bearing,
-    double? pitch,
-    EdgeInsets padding = EdgeInsets.zero,
+  /// Moves the camera to [update] without an animation.
+  ///
+  /// It stops a running [animateCamera].
+  Future<void> moveCamera(CameraUpdate update);
+
+  /// Animates the camera to [update], see [CameraAnimation] for the kinds of
+  /// animation.
+  ///
+  /// The returned future completes when the animation ends, with
+  /// [CameraAnimationResult.cancelled] if a gesture, [stopCamera] or
+  /// [moveCamera] stopped it.
+  ///
+  /// ```dart
+  /// final result = await controller.animateCamera(
+  ///   const CameraUpdate.position(center: munich, zoom: 12),
+  ///   animation: const CameraAnimation.fly(),
+  /// );
+  /// ```
+  Future<CameraAnimationResult> animateCamera(
+    CameraUpdate update, {
+    CameraAnimation animation = const CameraAnimation.ease(),
   });
 
-  /// Animate the map camera to a new location.
-  Future<void> animateCamera({
-    Geographic? center,
-    double? zoom,
-    double? bearing,
-    double? pitch,
-    Duration nativeDuration = const Duration(seconds: 2),
-    double webSpeed = 1.2,
-    Duration? webMaxDuration,
-    EdgeInsets padding = EdgeInsets.zero,
-  });
+  /// Stops a running [animateCamera], whose future then completes with
+  /// [CameraAnimationResult.cancelled].
+  Future<void> stopCamera();
 
-  /// Animate the map camera to a new location.
-  Future<void> fitBounds({
-    required LngLatBounds bounds,
-    double? bearing,
-    double? pitch,
-    Duration nativeDuration = const Duration(seconds: 2),
-    double webSpeed = 1.2,
-    Duration? webMaxDuration,
-    Offset offset = Offset.zero,
-    double webMaxZoom = double.maxFinite,
-    bool webLinear = false,
-    EdgeInsets padding = EdgeInsets.zero,
-  });
+  /// The camera that [update] would move the map to, without moving it.
+  ///
+  /// [CameraUpdatePosition.anchor] is not taken into account: the camera
+  /// keeps the center of [update], or the current one.
+  Future<CameraPosition> cameraFor(CameraUpdate update);
 
   /// Get the current camera position on the map.
-  MapCamera getCamera();
+  CameraPosition getCamera();
 
   /// Get the current camera position on the map.
-  MapCamera? get camera;
+  CameraPosition? get camera;
+
+  /// Whether the map stopped rendering, because [MapLibreMap.paused] is set
+  /// or the map is hidden. See [MapLibreMap.paused].
+  bool get isRenderingPaused;
 
   /// Returns the distance spanned by one logical pixel at the specified
   /// latitude and current zoom level.
@@ -94,110 +92,70 @@ abstract interface class MapController {
   /// coordinates at different latitudes.
   double getMetersPerPixelAtLatitude(double latitude);
 
-  /// The smallest bounding box that includes the visible region.
-  LngLatBounds getVisibleRegion();
+  /// The smallest bounding box that includes the visible part of the map.
+  ///
+  /// With a bearing or pitch, the visible part is not an axis-aligned
+  /// rectangle, and the box is larger than it.
+  GeoBox getVisibleBounds();
 
-  /// Queries the map for layers containing rendered features which intersect
-  /// with a given [screenLocation] measured in logical pixels.
-  List<QueriedLayer> queryLayers(Offset screenLocation);
-
-  /// Returns an array of rendered map features that intersect with a given
-  /// screen location measured in logical pixels.
+  /// The features that the map draws in [geometry], topmost first.
   ///
-  /// If [layerIds] is non-null, only features from those layers will be
-  /// returned.
+  /// If [layerIds] is non-null, only features from those layers are
+  /// returned; an empty list returns none. If [filter] is non-null, only
+  /// features for which it is true are returned.
   ///
-  /// NOTE: features may appear multiple times in query results, for example if
-  /// they cross tile boundaries.
+  /// A feature can appear more than once, for example if it crosses tile
+  /// boundaries or more than one layer draws it.
   ///
-  /// Returns an empty list if either the map or underlying render surface has
-  /// been destroyed.
-  // TODO(mhernz): add filter parameter
-  //
-  // [filter] is an array of filter expressions. If provided, only features
-  // that match all of the filters will be returned.
-  List<RenderedFeature> featuresAtPoint(Offset point, {List<String>? layerIds});
-
-  /// Returns an array of rendered map features that intersect with a given
-  /// on-screen rectangle measured in logical pixels.
-  ///
-  /// If [layerIds] is non-null, only features from those layers will be
-  /// returned.
-  ///
-  /// NOTE: features may appear multiple times in query results, for example if
-  /// they cross tile boundaries.
-  ///
-  /// Returns an empty list if either the map or underlying render surface has
-  /// been destroyed.
-  // TODO(mhernz): add filter parameter
-  //
-  // [filter] is an array of filter expressions. If provided, only features
-  // that match all of the filters will be returned.
-  List<RenderedFeature> featuresInRect(Rect rect, {List<String>? layerIds});
-
-  /// Show the user location on the map
-  Future<void> enableLocation({
-    Duration fastestInterval = const Duration(milliseconds: 750),
-    Duration maxWaitTime = const Duration(seconds: 1),
-    bool pulseFade = true,
-    bool accuracyAnimation = true,
-    bool compassAnimation = true,
-    bool pulse = true,
-    BearingRenderMode bearingRenderMode = BearingRenderMode.gps,
+  /// Returns an empty list if the map has been disposed.
+  Future<List<RenderedFeature>> queryRenderedFeatures(
+    QueryGeometry geometry, {
+    List<String>? layerIds,
+    Expression<bool>? filter,
   });
 
-  /// Track the user location on the map
+  /// The features of the source [sourceId] in the tiles that it loaded,
+  /// including features that are hidden or outside the visible part of the
+  /// map, but only while a visible layer uses the source.
   ///
-  /// Set [trackLocation] to false if only the bearing should get tracked
-  /// (defaults to true).
+  /// For a vector tile source, [sourceLayer] names the source layer to
+  /// query, and is required. If [filter] is non-null, only features for which
+  /// it is true are returned.
   ///
-  /// Use [trackBearing] to set if the bearing should get tracked according to
-  /// the GPS location, compass direction or ignored.
-  Future<void> trackLocation({
-    bool trackLocation = true,
-    BearingTrackMode trackBearing = BearingTrackMode.gps,
+  /// A feature can appear more than once, for example if it crosses tile
+  /// boundaries.
+  ///
+  /// Returns an empty list if the map has been disposed.
+  Future<List<SourceFeature>> querySourceFeatures(
+    String sourceId, {
+    String? sourceLayer,
+    Expression<bool>? filter,
   });
 
-  /// Asynchronously change the style of the map. [style] can be a JSON string
-  /// representing a valid MapLibre style document, or a URL pointing to such a
-  /// document.
+  /// The zoom level at which the cluster [clusterId] of the GeoJSON source
+  /// [sourceId] breaks up into its children.
   ///
-  /// To know when the style has been loaded, you can listen to the
-  /// [MapLibreMap.onStyleLoaded] callback or wait for a [MapEventStyleLoaded]
-  /// event.
+  /// [clusterId] is the `cluster_id` property of a cluster feature, see
+  /// [GeoJsonCluster].
+  Future<double> getClusterExpansionZoom(String sourceId, int clusterId);
+
+  /// The clusters and points one zoom level below the cluster [clusterId] of
+  /// the GeoJSON source [sourceId].
   ///
-  /// All layers added with [StyleController.addLayer] will be removed.
-  /// You can apply them again after the style has been loaded.
-  // TODO(mhernz): what kind of URLs?
-  void setStyle(String style);
-}
+  /// Returns an empty list if the map has been disposed.
+  Future<List<SourceFeature>> getClusterChildren(
+    String sourceId,
+    int clusterId,
+  );
 
-/// The mode how the bearing should get tracked on the map.
-/// Used in [MapController.trackLocation].
-///
-/// {@category Basic}
-enum BearingTrackMode {
-  /// No bearing tracking.
-  none,
-
-  /// Use the bearing provided by the compass sensor.
-  compass,
-
-  /// Use the bearing provided by the GPS location (normalized).
-  gps,
-}
-
-/// The mode how render the location on the map.
-/// Used in [MapController.enableLocation].
-///
-/// {@category Basic}
-enum BearingRenderMode {
-  /// Do not display the current bearing.
-  none,
-
-  /// Use the device compass to render the bearing.
-  compass,
-
-  /// Use the GPS location data to render the bearing.
-  gps,
+  /// The points of the cluster [clusterId] of the GeoJSON source [sourceId],
+  /// [limit] of them after skipping [offset].
+  ///
+  /// Returns an empty list if the map has been disposed.
+  Future<List<SourceFeature>> getClusterLeaves(
+    String sourceId,
+    int clusterId, {
+    int limit = 10,
+    int offset = 0,
+  });
 }

@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class StyleLayersSymbolPage extends StatefulWidget {
@@ -15,16 +15,40 @@ class StyleLayersSymbolPage extends StatefulWidget {
 }
 
 class _StyleLayersSymbolPageState extends State<StyleLayersSymbolPage> {
+  StyleController? _style;
+
+  /// Whether labels fade in and out as their collisions change.
+  var _placementTransitions = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Symbol Style Layer')),
+      appBar: AppBar(
+        title: const Text('Symbol Style Layer'),
+        actions: [
+          const Text('Fade labels'),
+          Switch(
+            value: _placementTransitions,
+            onChanged: (enabled) {
+              setState(() => _placementTransitions = enabled);
+              _style?.setPlacementTransitions(enabled: enabled);
+            },
+          ),
+        ],
+      ),
       body: MapLibreMap(
         options: const MapOptions(
-          initZoom: 3,
-          initCenter: Geographic(lon: 9.17, lat: 47.68),
+          initCamera: CameraUpdate.position(
+            zoom: 3,
+            center: Geographic(lon: 9.17, lat: 47.68),
+          ),
         ),
         onStyleLoaded: (style) async {
+          _style = style;
+          // A newly loaded style fades its labels again.
+          if (!_placementTransitions) {
+            await style.setPlacementTransitions(enabled: false);
+          }
           try {
             // load the image data
             final response = await http.get(
@@ -36,22 +60,23 @@ class _StyleLayersSymbolPageState extends State<StyleLayersSymbolPage> {
             await style.addImage('marker', bytes);
 
             // add some points as GeoJSON source to the map
-            await style.addSource(
-              const GeoJsonSource(id: 'points', data: _geoJsonString),
+            await style.sources.add(
+              const GeoJsonSource.data(
+                id: 'points',
+                data: .text(_geoJsonString),
+              ),
             );
 
             // display the image on the map
-            await style.addLayer(
-              const SymbolStyleLayer(
+            await style.layers.add(
+              SymbolStyleLayer(
                 id: 'images',
                 sourceId: 'points',
-                layout: {
-                  // see https://maplibre.org/maplibre-style-spec/layers/#symbol
-                  'icon-image': 'marker',
-                  'icon-size': 0.08,
-                  'icon-allow-overlap': true,
-                  'icon-anchor': 'bottom',
-                },
+                // see https://maplibre.org/maplibre-style-spec/layers/#symbol
+                iconImage: const .literal('marker'),
+                iconSize: const .literal(0.08),
+                iconAllowOverlap: const .literal(true),
+                iconAnchor: const .literal(IconAnchor.bottom),
               ),
             );
           } on Exception catch (error, stacktrace) {

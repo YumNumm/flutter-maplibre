@@ -12,7 +12,7 @@ void main() {
       registerFallbackValue(Offset.zero);
     });
     testWidgets('render', (tester) async {
-      const camera = MapCamera(
+      const camera = CameraPosition(
         center: Geographic(lon: 0, lat: 0),
         zoom: 5,
         bearing: 12,
@@ -20,9 +20,8 @@ void main() {
       );
       final controller = MockMapController();
       when(controller.getCamera).thenReturn(camera);
-      when(
-        () => controller.toLngLat(any()),
-      ).thenReturn(const Geographic(lon: 0, lat: 0));
+      when(() => controller.toLngLat(any()))
+          .thenReturn(const Geographic(lon: 0, lat: 0));
       when(() => controller.getMetersPerPixelAtLatitude(any())).thenReturn(100);
       const padding = EdgeInsets.all(2);
       const alignment = Alignment.center;
@@ -58,7 +57,7 @@ void main() {
       expect(size.height, equals(22));
     });
     testWidgets('render imperial', (tester) async {
-      const camera = MapCamera(
+      const camera = CameraPosition(
         center: Geographic(lon: 0, lat: 0),
         zoom: 5,
         bearing: 12,
@@ -66,9 +65,8 @@ void main() {
       );
       final controller = MockMapController();
       when(controller.getCamera).thenReturn(camera);
-      when(
-        () => controller.toLngLat(any()),
-      ).thenReturn(const Geographic(lon: 0, lat: 0));
+      when(() => controller.toLngLat(any()))
+          .thenReturn(const Geographic(lon: 0, lat: 0));
       when(() => controller.getMetersPerPixelAtLatitude(any())).thenReturn(100);
       const padding = EdgeInsets.all(2);
       const alignment = Alignment.center;
@@ -110,7 +108,7 @@ void main() {
       expect(size.height, equals(22));
     });
     testWidgets('render 2', (tester) async {
-      const camera = MapCamera(
+      const camera = CameraPosition(
         center: Geographic(lon: 0, lat: 0),
         zoom: 5,
         bearing: 12,
@@ -118,12 +116,10 @@ void main() {
       );
       final controller = MockMapController();
       when(controller.getCamera).thenReturn(camera);
-      when(
-        () => controller.toLngLat(any()),
-      ).thenReturn(const Geographic(lon: 0, lat: 0));
-      when(
-        () => controller.getMetersPerPixelAtLatitude(any()),
-      ).thenReturn(0.001);
+      when(() => controller.toLngLat(any()))
+          .thenReturn(const Geographic(lon: 0, lat: 0));
+      when(() => controller.getMetersPerPixelAtLatitude(any()))
+          .thenReturn(0.001);
       final app = App(
         camera: camera,
         controller: controller,
@@ -153,7 +149,7 @@ void main() {
       expect(size.height, equals(22));
     });
     testWidgets('render 2 imperial', (tester) async {
-      const camera = MapCamera(
+      const camera = CameraPosition(
         center: Geographic(lon: 0, lat: 0),
         zoom: 5,
         bearing: 12,
@@ -161,12 +157,10 @@ void main() {
       );
       final controller = MockMapController();
       when(controller.getCamera).thenReturn(camera);
-      when(
-        () => controller.toLngLat(any()),
-      ).thenReturn(const Geographic(lon: 0, lat: 0));
-      when(
-        () => controller.getMetersPerPixelAtLatitude(any()),
-      ).thenReturn(0.001);
+      when(() => controller.toLngLat(any()))
+          .thenReturn(const Geographic(lon: 0, lat: 0));
+      when(() => controller.getMetersPerPixelAtLatitude(any()))
+          .thenReturn(0.001);
       final app = App(
         camera: camera,
         controller: controller,
@@ -234,7 +228,7 @@ void main() {
         testWidgets('is correct for $metersPerPixel metersPerPixel', (
           tester,
         ) async {
-          const camera = MapCamera(
+          const camera = CameraPosition(
             center: Geographic(lon: 0, lat: 0),
             zoom: 5,
             bearing: 12,
@@ -242,12 +236,10 @@ void main() {
           );
           final controller = MockMapController();
           when(controller.getCamera).thenReturn(camera);
-          when(
-            () => controller.toLngLat(any()),
-          ).thenReturn(const Geographic(lon: 0, lat: 0));
-          when(
-            () => controller.getMetersPerPixelAtLatitude(any()),
-          ).thenReturn(metersPerPixel);
+          when(() => controller.toLngLat(any()))
+              .thenReturn(const Geographic(lon: 0, lat: 0));
+          when(() => controller.getMetersPerPixelAtLatitude(any()))
+              .thenReturn(metersPerPixel);
           final app = App(
             camera: camera,
             controller: controller,

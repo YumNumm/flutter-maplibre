@@ -1,6 +1,7 @@
 ---
 title: 'Upgrade from 0.2.x'
 icon: lucide/arrow-up-right
+description: 'The breaking changes of 0.3 and how to update code written for 0.2.'
 ---
 
 # Upgrade from version 0.2.x
@@ -25,7 +26,7 @@ rules apply:
 ### 1. iOS Support
 
 Version `0.3.0` finally added iOS as a supported platform. Head over to
-[Setup iOS](getting-started/setup-ios) to read how to use.
+[Platform setup](../getting-started/platforms.md#ios) to read how to use.
 
 ### 2. Migration to the `geobase` package
 

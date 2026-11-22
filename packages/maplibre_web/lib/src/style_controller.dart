@@ -1,70 +1,304 @@
 part of 'map_state.dart';
 
 /// Web specific implementation of the [StyleController].
-class StyleControllerWeb extends StyleController {
-  /// Create a new [StyleControllerWeb] instance.
-  const StyleControllerWeb(this._map);
+class StyleControllerWeb extends StyleController
+    with StyleStateMixin
+    implements StyleBackend {
+  /// Create a new [StyleControllerWeb] instance for the style that [_map]
+  /// loaded, whose label placement transitions are on and fade over
+  /// [_placementFadeDuration] milliseconds.
+  StyleControllerWeb(this._map, this._placementFadeDuration) {
+    _map.fadeDuration = _placementFadeDuration;
+  }
 
   final interop.JsMap _map;
+  final num _placementFadeDuration;
+
+  var _disposed = false;
+
+  /// A newer style was set on the map, so the map's style commands no
+  /// longer reach this one.
+  bool get _replaced => _disposed || _replacedByNewer;
+  var _replacedByNewer = false;
+
+  /// The attributions of the style this controller belongs to, read once the
+  /// map holds the style that replaced it.
+  List<String>? _frozenAttributions;
+
+  /// Called when a newer style is set on the map, before its load is queued.
+  void markReplaced() {
+    if (_replacedByNewer) return;
+    // The map is about to hold the other style, so these can no longer be
+    // read from it, while the style of this controller is still on screen.
+    _frozenAttributions = attributions;
+    _replacedByNewer = true;
+    layers.markReplaced();
+    // gl-js's diffed setStyle keeps the sources that didn't change, with
+    // their feature state, which goes with the style on every platform.
+    sources.markReplaced(clearFeatureState: !_disposed);
+    markStyleStateReplaced();
+  }
+
+  /// Sets gl-js's fade duration, which the map reads on every frame: 0 shows
+  /// and hides symbols at once and places them on every frame.
+  @override
+  Future<void> setPlacementTransitions({required bool enabled}) async {
+    if (_replaced) return;
+    _map.fadeDuration = enabled ? _placementFadeDuration : 0;
+  }
 
   @override
-  Future<void> addImage(String id, Uint8List bytes) async {
-    final image = await decodeImageFromList(bytes);
-    final byteData = await image.toByteData();
-    final pixelRatio = PlatformDispatcher.instance.views.first.devicePixelRatio;
+  late final StyleSources sources = StyleSources(this, layers: () => layers);
+
+  @override
+  late final StyleLayers layers = StyleLayers(this, sources: sources);
+
+  /// Fills [layers] and [sources] from the style that the map loaded.
+  void load() {
+    final style = _map.getStyle();
+    if (style == null) return;
+    final json = jsonDecode(stringify(style)) as Map<String, Object?>;
+    if (json case {'sources': final Map<String, Object?> styleSources}) {
+      sources.load(styleSources);
+    }
+    if (json case {'layers': final List<Object?> styleLayers}) {
+      layers.load(styleLayers.whereType<Map<String, Object?>>());
+    }
+    loadStyleState(json);
+    _attributions = attributions;
+  }
+
+  /// Reads what the tile sources of the map learned from their TileJSON into
+  /// [sources].
+  void refreshTileJson() {
+    for (final source in sources.toList()) {
+      final js = _map.getSource(source.id);
+      if (js == null) continue;
+      sources.applyTileJson(
+        source.id,
+        attribution: js['attribution'].dartify()?.toString(),
+        minZoom: (js['minzoom'].dartify() as num?)?.toDouble(),
+        maxZoom: (js['maxzoom'].dartify() as num?)?.toDouble(),
+        bounds: switch (js['bounds'].dartify()) {
+          final List<Object?> bounds when bounds.length == 4 => [
+            for (final value in bounds) (value! as num).toDouble(),
+          ],
+          _ => null,
+        },
+      );
+    }
+  }
+
+  @override
+  void batch(void Function() updates) => updates();
+
+  /// The blob URLs of image and video sources from bytes or an
+  /// [ImageProvider], by source id. They are revoked when their source is
+  /// removed.
+  final _blobUrls = <String, String>{};
+
+  @override
+  Future<void> addImage(
+    String id,
+    Uint8List bytes, {
+    double pixelRatio = 1,
+    StyleImageOptions options = const StyleImageOptions(),
+  }) async {
+    if (_replaced) return;
+    // The browser decodes the image: Flutter's skwasm renderer gives decoded
+    // images the size of the view.
+    final blob = Blob([bytes.toJS].toJS);
+    final bitmap = await window.createImageBitmap(blob).toDart;
+    // A new style can be set on the map while the browser decodes the image.
+    // The bitmap holds decoded pixels, so it is released rather than dropped.
+    if (_replaced) {
+      bitmap.close();
+      return;
+    }
+    _map.addImage(id, bitmap, options.toJs(pixelRatio));
+  }
+
+  @override
+  Future<void> addImageFromUiImage({
+    required String id,
+    required ui.Image image,
+    double pixelRatio = 1,
+    StyleImageOptions options = const StyleImageOptions(),
+  }) async {
+    if (_replaced) return;
+    // Raw pixels, as Flutter's skwasm renderer encodes some images to PNG at
+    // the size of the view.
+    final data = await image.toByteData(
+      format: ImageByteFormat.rawStraightRgba,
+    );
+    if (data == null) {
+      throw StateError('Failed to read the pixels of the image "$id".');
+    }
+    // A new style can be set on the map while the pixels are read.
+    if (_replaced) return;
     _map.addImage(
       id,
       interop.ImageSpecification(
         width: image.width,
         height: image.height,
-        data: byteData!.buffer.asUint8List().toJS,
+        data: Uint8List.sublistView(data).toJS,
       ),
-      interop.StyleImageMetadata(pixelRatio: pixelRatio),
+      options.toJs(pixelRatio),
     );
   }
 
   @override
-  Future<void> removeImage(String id) async => _map.removeImage(id);
+  Future<void> removeImage(String id) async {
+    // The image of a style that went away: the id may be taken on the style
+    // that replaced it.
+    if (_replaced) return;
+    _map.removeImage(id);
+  }
+
+  @override
+  Future<void> addLayer(
+    Map<String, Object?> json, {
+    String? belowLayerId,
+  }) async =>
+      _throwErrorEvents(() => _map.addLayer(json.jsify()!, belowLayerId));
 
   @override
   Future<void> removeLayer(String id) async => _map.removeLayer(id);
 
   @override
-  Future<void> removeSource(String id) async => _map.removeSource(id);
+  void moveLayer(String id, {String? belowLayerId}) =>
+      _map.moveLayer(id, belowLayerId);
 
   @override
-  Future<void> updateGeoJsonSource({
-    required String id,
-    required String data,
-  }) async {
-    final source = _map.getSource(id);
-    if (source == null) throw Exception('Source with id "$id" does not exist.');
-    source.setData(parse(data));
-  }
+  void setLayerProperty(
+    String layerId,
+    String name,
+    Object? value, {
+    required bool layout,
+  }) => layout
+      ? _map.setLayoutProperty(layerId, name, value.jsify())
+      : _map.setPaintProperty(layerId, name, value.jsify());
 
   @override
-  Future<void> updateFilter({
-    required String id,
-    required List<Object>? filter,
-  }) async {
-    if (_map.getLayer(id) == null) {
-      throw Exception('Layer with id "$id" does not exist.');
+  void setFilter(String layerId, Object? filter) =>
+      _map.setFilter(layerId, filter.jsify());
+
+  @override
+  void setZoomRange(String layerId, double minZoom, double maxZoom) =>
+      _map.setLayerZoomRange(layerId, minZoom, maxZoom);
+
+  @override
+  Future<void> removeSource(String id) async {
+    // Removing a source the style lacks is not an error on other platforms.
+    if (_map.getSource(id) != null) _map.removeSource(id);
+    if (_blobUrls.remove(id) case final String url) {
+      URL.revokeObjectURL(url);
     }
-    _map.setFilter(id, filter.jsify());
   }
 
   @override
-  Future<List<String>> getAttributions() async => getAttributionsSync();
+  Future<void> setGeoJsonData(String id, GeoJsonData data) async =>
+      _map.getSource(id)!.setData(data.toJs());
 
   @override
-  List<String> getAttributionsSync() {
-    final jsStyle = _map.getStyle();
-    final sources = jsStyle?.sources.dartify() as Map<Object?, Object?>?;
-    if (sources == null) return const [];
+  Future<void> setGeoJsonUrl(String id, String url) async =>
+      _map.getSource(id)!.setData(url.toJS);
+
+  @override
+  Future<void> setImageCoordinates(String id, LngLatQuad coordinates) async =>
+      _map.getSource(id)!.setCoordinates(coordinates.toJson().jsify()!);
+
+  @override
+  Future<void> setTiles(
+    String id,
+    List<String> tiles,
+    Map<String, Object?> specification,
+  ) async => _map.getSource(id)!.setTiles(tiles.jsify()!);
+
+  @override
+  Future<void> setTileJsonUrl(
+    String id,
+    String url,
+    Map<String, Object?> specification,
+  ) async => _map.getSource(id)!.setUrl(url);
+
+  @override
+  void setFeatureState(FeatureRef feature, Map<String, Object?> state) =>
+      _map.setFeatureState(
+        _featureTarget(feature.sourceId, feature.sourceLayer, feature.id),
+        state.jsify()!,
+      );
+
+  @override
+  void removeFeatureState(
+    String sourceId, {
+    String? sourceLayer,
+    Object? id,
+    String? key,
+  }) {
+    final target = _featureTarget(sourceId, sourceLayer, id);
+    // gl-js counts an undefined key as given.
+    key == null
+        ? _map.removeFeatureState(target)
+        : _map.removeFeatureState(target, key);
+  }
+
+  /// The feature identifier of gl-js, without the members that are null.
+  static JSObject _featureTarget(
+    String sourceId,
+    String? sourceLayer,
+    Object? id,
+  ) =>
+      {'source': sourceId, 'sourceLayer': ?sourceLayer, 'id': ?id}.jsify()!
+          as JSObject;
+
+  @override
+  void setGlobalStateProperty(String name, Object? value) =>
+      _map.setGlobalStateProperty(name, value.jsify());
+
+  @override
+  void setLight(Map<String, Object?> json) => _map.setLight(json.jsify()!);
+
+  /// Writes the transition into the stylesheet of gl-js's style, which it
+  /// reads on every frame: gl-js has no setter, and a style diff ignores
+  /// changes to it.
+  @override
+  void setTransition(StyleTransition transition) {
+    final stylesheet = _map.styleObject?.getProperty<JSObject?>(
+      'stylesheet'.toJS,
+    );
+    stylesheet?.setProperty('transition'.toJS, transition.toJson().jsify());
+  }
+
+  List<String> _attributions = const [];
+
+  /// Notifies the listeners if [attributions] changed since the last check,
+  /// on the events on which the gl-js attribution control updates.
+  void checkAttributions() {
+    final attributions = this.attributions;
+    if (listEquals(attributions, _attributions)) return;
+    _attributions = attributions;
+    notifyAttributionsChanged();
+  }
+
+  @override
+  List<String> get attributions {
+    if (_disposed) return const [];
+    // The map holds the style that replaced this one.
+    if (_frozenAttributions case final frozen?) return frozen;
+    // Convert only what is needed: the style sources can hold large data.
+    final styleSources = _map.getStyle()?.sources;
+    if (styleSources == null) return const [];
+    final ids = (globalContext['Object']! as JSObject)
+        .callMethod<JSArray<JSString>>('keys'.toJS, styleSources)
+        .toDart;
     final attributions = <String>[];
-    for (final value in sources.values) {
-      final source = value! as Map<Object?, Object?>;
-      final attribution = source['attribution'];
+    for (final id in ids) {
+      // The source object has the attribution of a loaded TileJSON, the
+      // style only the one of the source options.
+      final attribution =
+          _map.getSource(id.toDart)?['attribution'].dartify() ??
+          (styleSources[id.toDart] as JSObject?)?['attribution'].dartify();
       if (attribution == null) continue;
       if (attribution is String && attribution.isEmpty) continue;
       attributions.add(attribution.toString());
@@ -73,236 +307,216 @@ class StyleControllerWeb extends StyleController {
   }
 
   @override
-  List<String> getLayerIds() {
-    final layers = _map.getStyle()?.layers.dartify() as List<Object?>?;
-    if (layers == null) return const [];
-    return layers
-        .map((l) => (l as Map<Object?, Object?>?)?['id'])
-        .whereType<String>()
-        .toList();
-  }
-
-  @override
-  Future<void> addLayer(
-    StyleLayer layer, {
-    String? belowLayerId,
-    String? aboveLayerId,
-    int? atIndex,
-  }) async {
-    if (_map.getLayer(layer.id) != null) {
-      throw Exception(
-        'A Layer with the id "${layer.id}" already exists in the map style.',
-      );
-    }
-
-    final interop.LayerSpecification jsLayer;
-    switch (layer) {
-      case FillStyleLayer():
-        jsLayer = interop.LayerSpecification(
-          id: layer.id,
-          type: 'fill',
-          source: layer.sourceId,
-          layout: layer.layout.jsify()!,
-          paint: layer.paint.jsify()!,
-          minzoom: layer.minZoom,
-          maxzoom: layer.maxZoom,
-        );
-      case CircleStyleLayer():
-        jsLayer = interop.LayerSpecification(
-          id: layer.id,
-          type: 'circle',
-          source: layer.sourceId,
-          layout: layer.layout.jsify()!,
-          paint: layer.paint.jsify()!,
-          minzoom: layer.minZoom,
-          maxzoom: layer.maxZoom,
-        );
-      case BackgroundStyleLayer():
-        jsLayer = interop.LayerSpecification(
-          id: layer.id,
-          type: 'background',
-          layout: layer.layout.jsify()!,
-          paint: layer.paint.jsify()!,
-          minzoom: layer.minZoom,
-          maxzoom: layer.maxZoom,
-        );
-      case FillExtrusionStyleLayer():
-        jsLayer = interop.LayerSpecification(
-          id: layer.id,
-          type: 'fill-extrusion',
-          source: layer.sourceId,
-          layout: layer.layout.jsify()!,
-          paint: layer.paint.jsify()!,
-          minzoom: layer.minZoom,
-          maxzoom: layer.maxZoom,
-        );
-      case HeatmapStyleLayer():
-        jsLayer = interop.LayerSpecification(
-          id: layer.id,
-          type: 'heatmap',
-          source: layer.sourceId,
-          layout: layer.layout.jsify()!,
-          paint: layer.paint.jsify()!,
-          minzoom: layer.minZoom,
-          maxzoom: layer.maxZoom,
-        );
-      case HillshadeStyleLayer():
-        jsLayer = interop.LayerSpecification(
-          id: layer.id,
-          type: 'hillshade',
-          source: layer.sourceId,
-          layout: layer.layout.jsify()!,
-          paint: layer.paint.jsify()!,
-          minzoom: layer.minZoom,
-          maxzoom: layer.maxZoom,
-        );
-      case LineStyleLayer():
-        jsLayer = interop.LayerSpecification(
-          id: layer.id,
-          type: 'line',
-          source: layer.sourceId,
-          layout: layer.layout.jsify()!,
-          paint: layer.paint.jsify()!,
-          minzoom: layer.minZoom,
-          maxzoom: layer.maxZoom,
-        );
-      case RasterStyleLayer():
-        jsLayer = interop.LayerSpecification(
-          id: layer.id,
-          type: 'raster',
-          source: layer.sourceId,
-          layout: layer.layout.jsify()!,
-          paint: layer.paint.jsify()!,
-          minzoom: layer.minZoom,
-          maxzoom: layer.maxZoom,
-        );
-      case SymbolStyleLayer():
-        jsLayer = interop.LayerSpecification(
-          id: layer.id,
-          type: 'symbol',
-          source: layer.sourceId,
-          layout: layer.layout.jsify()!,
-          paint: layer.paint.jsify()!,
-          minzoom: layer.minZoom,
-          maxzoom: layer.maxZoom,
-        );
-      default:
-        throw UnimplementedError(
-          'Layer type "${layer.runtimeType}" is not implemented for Web.',
-        );
-    }
-    if (layer.filter case final filter?) {
-      final jsFilter = filter.jsify();
-      if (jsFilter != null) {
-        jsLayer.filter = jsFilter;
-      }
-    }
-    if (layer is StyleLayerWithSource && layer.sourceLayerId != null) {
-      jsLayer.sourceLayer = layer.sourceLayerId;
-    }
-    _map.addLayer(jsLayer, belowLayerId);
-  }
-
-  @override
   Future<void> addSource(Source source) async {
-    if (_map.getSource(source.id) != null) {
-      throw Exception(
-        'A Source with the id "${source.id}" already exists in the map style.',
-      );
-    }
     switch (source) {
-      case ComputedGeoJsonSource():
-        throw UnsupportedError(
-          'ComputedGeoJsonSource is not supported on this platform.',
-        );
       case GeoJsonSource():
-        JSAny data;
-        if (source.data[0] == '{') {
-          data = parse(source.data);
-        } else {
-          data = source.data.jsify()!;
-        }
-        _map.addSource(
+        // The browser parses the data, which is faster than Dart.
+        final data = switch (source) {
+          GeoJsonSourceUrl(:final url) => url.toJS,
+          GeoJsonSourceData(:final data) => data.toJs(),
+        };
+        _addSource(
           source.id,
-          interop.SourceSpecification.geoJson(
-            type: 'geojson',
-            data: data,
-            tolerance: source.tolerance,
-          ),
+          _sourceSpecification({
+            'type': 'geojson',
+            ...geoJsonOptionsOf(source),
+          }, data: data),
         );
-      case RasterDemSource():
-        _map.addSource(
+      case RasterDemSource() || RasterSource() || VectorSource():
+        // gl-js has no volatile sources.
+        _addSource(
           source.id,
-          interop.SourceSpecification.rasterDem(
-            type: 'raster-dem',
-            tileSize: source.tileSize,
-            attribution: source.attribution,
-            url: source.url,
-            tiles: source.tiles.jsify(),
-          ),
-        );
-      case RasterSource():
-        _map.addSource(
-          source.id,
-          interop.SourceSpecification.raster(
-            type: 'raster',
-            attribution: source.attribution,
-            tileSize: source.tileSize,
-            tiles: source.tiles.jsify(),
-            url: source.url,
-          ),
-        );
-      case VectorSource():
-        _map.addSource(
-          source.id,
-          interop.SourceSpecification.vector(type: 'vector', url: source.url),
+          _sourceSpecification(source.toJson()!..remove('volatile')),
         );
       case ImageSource():
-        _map.addSource(
+        // MapLibre GL JS loads image sources only from a URL. The image of a
+        // provider must be resolved first, so the source starts with an empty
+        // image: calls after this one must find it on the map.
+        final url = switch (source) {
+          ImageSourceUrl(:final url) => url,
+          ImageSourceBytes(:final bytes) => URL.createObjectURL(
+            Blob([bytes.toJS].toJS),
+          ),
+          ImageSourceProvider() => _emptyImageUrl,
+        };
+        _addBlobSource(
           source.id,
+          source is ImageSourceBytes ? url : null,
           interop.SourceSpecification.image(
             type: 'image',
-            url: source.url,
+            url: url,
             // The coordinates start at the top left corner of the image and
             // proceed in clockwise order.
             // https://github.com/maplibre/maplibre-gl-js/blob/87486a5ef2085e600e8fa4e31252629dd8488dcd/src/source/image_source.ts#L24
-            coordinates: [
-              [source.coordinates.topLeft.lon, source.coordinates.topLeft.lat],
-              [
-                source.coordinates.topRight.lon,
-                source.coordinates.topRight.lat,
-              ],
-              [
-                source.coordinates.bottomRight.lon,
-                source.coordinates.bottomRight.lat,
-              ],
-              [
-                source.coordinates.bottomLeft.lon,
-                source.coordinates.bottomLeft.lat,
-              ],
-            ].jsify()!,
+            coordinates: source.coordinates.toJson().jsify()!,
           ),
         );
+        if (source is ImageSourceProvider) {
+          await _loadProviderImage(source);
+        }
       case VideoSource():
-        _map.addSource(
+        final blobUrl = switch (source) {
+          VideoSourceBytes(:final bytes) => URL.createObjectURL(
+            Blob([bytes.toJS].toJS),
+          ),
+          _ => null,
+        };
+        final urls = switch (source) {
+          VideoSourceUrls(:final urls) => urls,
+          VideoSourceBytes() => [blobUrl!],
+          VideoSourceAsset(:final asset) => [AssetManager().getAssetUrl(asset)],
+        };
+        _addBlobSource(
           source.id,
+          blobUrl,
           interop.SourceSpecification.video(
             type: 'video',
-            urls: source.urls.jsify()!,
-            coordinates: source.coordinates
-                .map((e) => [e.lon, e.lat])
-                .toList(growable: false)
-                .jsify()!,
+            urls: urls.jsify()!,
+            coordinates: source.coordinates.toJson().jsify()!,
           ),
         );
     }
   }
 
-  @override
-  void dispose() {}
+  /// Adds the source [specification], whose content comes from [blobUrl]
+  /// if it isn't null. The blob URL is kept for [removeSource] once the map
+  /// accepts the source, and revoked if it rejects it.
+  void _addBlobSource(
+    String id,
+    String? blobUrl,
+    interop.SourceSpecification specification,
+  ) {
+    try {
+      _addSource(id, specification);
+    } catch (_) {
+      if (blobUrl != null) URL.revokeObjectURL(blobUrl);
+      rethrow;
+    }
+    if (blobUrl != null) _blobUrls[id] = blobUrl;
+  }
+
+  /// Gives the image source [source], which was added with an empty image,
+  /// the image of its provider.
+  Future<void> _loadProviderImage(ImageSourceProvider source) async {
+    // Whether the source is still on the map: it may have been removed or
+    // replaced meanwhile, and a new style on the map takes the image of
+    // this one nowhere. Moving its corners keeps the image.
+    bool current() =>
+        !_replaced &&
+        switch (sources[source.id]) {
+          ImageSourceProvider(:final image) => identical(image, source.image),
+          _ => false,
+        };
+    final String blobUrl;
+    try {
+      blobUrl = await _blobUrlOfProvider(source.image);
+    } catch (_) {
+      // The collection takes the source out again.
+      if (current()) _map.removeSource(source.id);
+      rethrow;
+    }
+    if (!current()) {
+      URL.revokeObjectURL(blobUrl);
+      return;
+    }
+    _blobUrls[source.id] = blobUrl;
+    _map
+        .getSource(source.id)!
+        .updateImage(interop.UpdateImageOptions(url: blobUrl));
+  }
+
+  /// Adds the source [specification] and throws if the map rejects it.
+  void _addSource(String id, interop.SourceSpecification specification) =>
+      _throwErrorEvents(() => _map.addSource(id, specification));
+
+  /// Runs [change] and throws the first error that the map reports meanwhile.
+  /// MapLibre GL JS fires an error event instead of throwing for some changes
+  /// it rejects, such as a layer or source that fails validation.
+  void _throwErrorEvents(void Function() change) {
+    String? error;
+    final listener = (JSObject event) {
+      error ??=
+          event
+              .getProperty<JSObject?>('error'.toJS)
+              ?.getProperty<JSString?>('message'.toJS)
+              ?.toDart ??
+          'The map rejected the change.';
+    }.toJS;
+    _map.on(interop.MapEventType.error, listener);
+    try {
+      change();
+    } finally {
+      _map.off(interop.MapEventType.error, listener);
+    }
+    if (error case final error?) throw StateError(error);
+  }
 
   @override
-  void setProjection(MapProjection projection) => _map.setProjection(
-    interop.ProjectionSpecification(type: projection.name),
-  );
+  void dispose() {
+    _disposed = true;
+    // The collections take no further change, and forget the style.
+    markReplaced();
+    layers.dispose();
+    sources.dispose();
+    // Interop members can't be torn off for forEach.
+    // ignore: prefer_foreach
+    for (final url in _blobUrls.values) {
+      URL.revokeObjectURL(url);
+    }
+    _blobUrls.clear();
+    super.dispose();
+  }
+
+  /// A blob URL of a PNG of the image of [provider].
+  static Future<String> _blobUrlOfProvider(ImageProvider provider) async {
+    final image = await resolveImageProvider(provider);
+    try {
+      // Raw pixels, as Flutter's skwasm renderer encodes some images to PNG at
+      // the size of the view.
+      final data = await image.toByteData(
+        format: ImageByteFormat.rawStraightRgba,
+      );
+      if (data == null) {
+        throw StateError('Failed to read the pixels of the image source.');
+      }
+      final canvas = OffscreenCanvas(image.width, image.height);
+      final context =
+          canvas.getContext('2d')! as OffscreenCanvasRenderingContext2D;
+      context.putImageData(
+        ImageData(Uint8ClampedList.sublistView(data).toJS, image.width),
+        0,
+        0,
+      );
+      final blob = await canvas.convertToBlob().toDart;
+      return URL.createObjectURL(blob);
+    } finally {
+      image.dispose();
+    }
+  }
+
+  @override
+  void setProjection(Expression<MapProjection> projection) {
+    if (_replaced) return;
+    _map.setProjection(
+      interop.ProjectionSpecification(type: projection.toJson().jsify()!),
+    );
+  }
+}
+
+/// A transparent PNG of one pixel, the image of an image source until its
+/// image is ready.
+const _emptyImageUrl =
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+
+/// A source specification of the [properties] that are set. MapLibre GL JS
+/// rejects a property that is present but null.
+interop.SourceSpecification _sourceSpecification(
+  Map<String, Object?> properties, {
+  JSAny? data,
+}) {
+  final spec =
+      ({...properties}..removeWhere((key, value) => value == null)).jsify()!
+          as JSObject;
+  if (data != null) spec.setProperty('data'.toJS, data);
+  return spec as interop.SourceSpecification;
 }

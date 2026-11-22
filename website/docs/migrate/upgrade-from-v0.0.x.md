@@ -1,6 +1,7 @@
 ---
 title: 'Upgrade from 0.0.x'
 icon: lucide/arrow-up-right
+description: 'The breaking changes of 0.1 and how to update code written for 0.0.'
 ---
 
 # Upgrade from version 0.0.x
@@ -57,7 +58,7 @@ names.
 ### 3. Use the event system
 
 Callbacks have been replaced by Events that get emitted by the Map.
-Check out the [Map Events](./events) documentation to see how you can use them.
+Check out the [Map Events](../events.md) documentation to see how you can use them.
 
 | Old Callback Name | New Event Class        |
 |-------------------|------------------------|

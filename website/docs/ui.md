@@ -1,5 +1,6 @@
 ---
 icon: lucide/gamepad-directional
+description: 'The compass, scale bar, attribution and zoom buttons, and how to place them on the map.'
 ---
 
 # User Interface
@@ -25,7 +26,7 @@ Widget build(BuildContext context) {
 ```
 
 See the
-user [interface page in the example app](https://github.com/josxha/flutter-maplibre/blob/v0.3.4/examples/lib/user_interface_page.dart)
+[styled map page of the example app](https://github.com/maplibre/flutter-maplibre/blob/main/examples/lib/styled_map_page.dart)
 for a full implementation.
 
 All widgets inside the `children` List are within the `MapLibreMap` context and
@@ -33,8 +34,48 @@ have access to the following helpful functions.
 
 - `MapController.maybeOf()`
 - `MapController.of()`
-- `MapCamera.maybeOf()`
-- `MapCamera.of()`
+- `CameraPosition.maybeOf()`
+- `CameraPosition.of()`
+
+See [Plugins](plugins.md) for what else a widget in `children` can do.
+
+## Placing Widgets
+
+Each widget of this page places itself with its `alignment` and `padding`.
+To put several of them at the same place without overlapping, wrap them in a
+`MapAlign`. It stacks them from top to bottom, or side by side with
+`direction: Axis.horizontal`, and the widgets inside leave out their own
+`alignment` and `padding`.
+
+```dart
+MapLibreMap(
+  children: const [
+    MapAlign(
+      alignment: Alignment.topRight,
+      children: [MapCompass(), MapControlButtons()],
+    ),
+    MapAlign(
+      alignment: Alignment.bottomLeft,
+      children: [MapScalebar()],
+    ),
+    SourceAttribution(),
+  ],
+)
+```
+
+`MapAlign` is the group, and the widgets of this page are its items: alone,
+an item places itself, inside a `MapAlign` the group places it. Make your
+own widgets items with `MapAlignItem`:
+
+```dart
+MapAlignItem(
+  alignment: Alignment.bottomRight,
+  child: MyButton(),
+)
+```
+
+Inside a `MapAlign`, `MapAlignItem` shows `MyButton` where the group puts
+it. Alone, it puts it at the bottom right.
 
 ## Source Attribution
 
@@ -64,9 +105,8 @@ Zoom buttons are great for accessibility reasons and great for non-tech-savvy
 users to navigate the map. You can use the `MapControlButtons` widget to render
 the default zoom buttons on the map.
 
-You are able to toggle an optional `showTrackLocation` flag to display an
-additional button to let the user display and track its own position.
-The `showTrackLocation` flag will be ignored on web as web has currently not the
-same location functionality as other platforms provide.
+Set `onTrackingPressed` to show an additional location button, and `tracking`
+to the tracking of your [UserLocationLayer](user-location.md), which the button
+shows. See [User Location](user-location.md#tracking) for an example.
 
 ![Zoom Control Buttons](../assets/images/ui/zoom-buttons.jpg)

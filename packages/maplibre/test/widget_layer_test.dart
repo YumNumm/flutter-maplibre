@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'shared/annotation_app.dart';
 import 'shared/mocks.dart';
+import 'shared/ui_app.dart';
 
 void main() {
   group('WidgetLayer', () {
     testWidgets('one marker', (tester) async {
-      const camera = MapCamera(
+      const camera = CameraPosition(
         center: Geographic(lon: 0, lat: 0),
         zoom: 0,
         bearing: 180,
@@ -51,7 +51,7 @@ void main() {
     });
 
     testWidgets('multiple markers', (tester) async {
-      const camera = MapCamera(
+      const camera = CameraPosition(
         center: Geographic(lon: 0, lat: 0),
         zoom: 0,
         bearing: 180,

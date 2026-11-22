@@ -3,12 +3,10 @@ library;
 
 import 'dart:js_interop';
 
-import 'package:maplibre_platform_interface/maplibre_platform_interface.dart';
 import 'package:web/web.dart';
 
 part 'camera.dart';
 part 'events.dart';
-part 'gesture_handlers.dart';
 part 'map.dart';
 part 'map_geojson_feature.dart';
 part 'marker.dart';
@@ -32,15 +30,8 @@ extension type LngLat._(JSObject _) implements JSObject {
   /// Create a new [LngLat] coordinates object.
   external factory LngLat({required num lng, required num lat});
 
-  /// Create a new JS [LngLat] object from a [Geographic].
-  factory LngLat.fromGeographic(Geographic p) => LngLat(lng: p.lon, lat: p.lat);
-
   external num lng;
   external num lat;
-
-  /// Convert the JS [LngLat] object to a dart [Geographic] object.
-  Geographic toGeographic() =>
-      Geographic(lon: lng.toDouble(), lat: lat.toDouble());
 }
 
 /// A [LngLatBounds] object represents a geographical bounding box,
@@ -66,3 +57,7 @@ extension type LngLatBounds._(JSObject _) implements JSObject {
 /// https://github.com/maplibre/maplibre-gl-js/blob/1a8ef7ff9848105e49a29e3f5e59a52c14b9fbe2/src/source/protocol_crud.ts#L33
 @JS()
 external void addProtocol(String customProtocol, JSAny loadFn);
+
+/// The version of maplibre-gl-js, for example `6.16.0`.
+@JS()
+external String getVersion();

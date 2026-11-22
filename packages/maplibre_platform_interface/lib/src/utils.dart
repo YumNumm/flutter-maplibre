@@ -1,13 +1,11 @@
+import 'dart:async';
 import 'dart:math';
+import 'dart:ui' as ui;
 
-import 'package:geobase/geobase.dart';
+import 'package:flutter/painting.dart';
 
 /// pre compiled factor to convert a coordinate in radian to degrees.
 const double degree2Radian = pi / 180;
-
-/// circumference of the Earth
-@Deprecated('Use earthCircumferenceWgs84 from geobase instead')
-const double circumferenceOfEarth = earthCircumferenceWgs84;
 
 /// A list of all color names that are listed by the World Wide Web Consortium
 /// (W3C) as valid color names for HTML and CSS.
@@ -29,3 +27,36 @@ const htmlColorNames = <String, String>{
   'teal': '#008080',
   'aqua': '#00FFFF',
 };
+
+/// Loads the image of [provider], resolved for the device pixel ratio of the
+/// first view. The caller owns the returned image and must dispose it.
+Future<ui.Image> resolveImageProvider(ImageProvider provider) async =>
+    (await resolveImageInfo(provider)).image;
+
+/// Loads the image of [provider] with its scale, resolved for the device
+/// pixel ratio of the first view. The caller owns the returned image and must
+/// dispose it.
+Future<ImageInfo> resolveImageInfo(ImageProvider provider) {
+  final view = ui.PlatformDispatcher.instance.implicitView;
+  final stream = provider.resolve(
+    ImageConfiguration(devicePixelRatio: view?.devicePixelRatio ?? 1),
+  );
+  final completer = Completer<ImageInfo>();
+  late final ImageStreamListener listener;
+  listener = ImageStreamListener(
+    (info, _) {
+      stream.removeListener(listener);
+      if (completer.isCompleted) {
+        info.dispose();
+      } else {
+        completer.complete(info);
+      }
+    },
+    onError: (error, stackTrace) {
+      stream.removeListener(listener);
+      if (!completer.isCompleted) completer.completeError(error, stackTrace);
+    },
+  );
+  stream.addListener(listener);
+  return completer.future;
+}

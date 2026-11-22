@@ -1,10 +1,9 @@
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:maplibre/maplibre.dart';
 import 'package:maplibre_example/utils/map_styles.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class FeaturesQueryPage extends StatefulWidget {
@@ -25,26 +24,25 @@ class _FeaturesQueryPageState extends State<FeaturesQueryPage> {
       appBar: AppBar(title: const Text('Query Features')),
       body: MapLibreMap(
         options: MapOptions(
-          initZoom: 7,
-          initCenter: const Geographic(lon: 0.1, lat: 0.1),
-          initStyle: MapStyles.openMapTilesLiberty.uri,
+          style: MapStyles.openMapTilesLiberty.style,
+          initCamera: const CameraUpdate.position(
+            zoom: 7,
+            center: Geographic(lon: 0.1, lat: 0.1),
+          ),
         ),
         onMapCreated: (controller) => _controller = controller,
         onStyleLoaded: _onStyleLoaded,
-        onEvent: (event) async {
-          if (event is MapEventClick) {
-            final screenPoint = _controller.toScreenLocation(event.point);
-            final features = _controller.featuresAtPoint(screenPoint);
-            if (context.mounted) {
-              _showFeatures(features);
-            }
-          } else if (event is MapEventLongClick) {
-            final screenPoint = _controller.toScreenLocation(event.point);
-            final features = _controller.featuresInRect(
-              Rect.fromCircle(center: screenPoint, radius: 20),
-            );
-            _showFeatures(features);
-          }
+        onClick: (event) async {
+          final features = await _controller.queryRenderedFeatures(
+            .point(event.screenPoint),
+          );
+          if (context.mounted) _showFeatures(features);
+        },
+        onLongClick: (event) async {
+          final features = await _controller.queryRenderedFeatures(
+            .rect(Rect.fromCircle(center: event.screenPoint, radius: 20)),
+          );
+          if (context.mounted) _showFeatures(features);
         },
       ),
     );
@@ -76,8 +74,8 @@ class _FeaturesQueryPageState extends State<FeaturesQueryPage> {
 
     final geojson = {'type': 'FeatureCollection', 'features': features};
 
-    await style.addSource(
-      GeoJsonSource(id: 'points', data: jsonEncode(geojson)),
+    await style.sources.add(
+      GeoJsonSource.data(id: 'points', data: .json(geojson)),
     );
 
     // Add random polygons
@@ -109,23 +107,25 @@ class _FeaturesQueryPageState extends State<FeaturesQueryPage> {
 
     final geojson2 = {'type': 'FeatureCollection', 'features': features};
 
-    await style.addSource(
-      GeoJsonSource(id: 'polygons', data: jsonEncode(geojson2)),
+    await style.sources.add(
+      GeoJsonSource.data(id: 'polygons', data: .json(geojson2)),
     );
 
-    await style.addLayer(
-      const FillStyleLayer(
+    await style.layers.add(
+      FillStyleLayer(
         id: 'polygons',
         sourceId: 'polygons',
-        paint: {'fill-color': '#429ef5', 'fill-opacity': 0.6},
+        color: const .literal(Color(0xFF429EF5)),
+        opacity: const .literal(0.6),
       ),
     );
 
-    await style.addLayer(
-      const CircleStyleLayer(
+    await style.layers.add(
+      CircleStyleLayer(
         id: 'points',
         sourceId: 'points',
-        paint: {'circle-color': '#f54242', 'circle-radius': 8},
+        color: const .literal(Color(0xFFF54242)),
+        radius: const .literal(8),
       ),
     );
   }

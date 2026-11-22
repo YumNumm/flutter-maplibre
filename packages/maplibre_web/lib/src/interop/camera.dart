@@ -1,19 +1,51 @@
 part of 'interop.dart';
 
+/// The camera API of the map.
+///
+/// Since maplibre-gl-js v6, `Map` composes a camera instead of extending it
+/// and forwards the camera methods. `Camera` itself is no longer exported.
+///
 /// https://github.com/maplibre/maplibre-gl-js/blob/main/src/ui/camera.ts
 @JS()
 extension type Camera._(JSObject _) implements JSObject {
-  /// Create a new JS [Camera].
-  external Camera(CameraOptions options);
-
   /// Move the viewport of the map to a new location without animation.
   external void jumpTo(JumpToOptions options, [JSAny? eventData]);
 
   /// Animate the viewport of the map to a new location.
   external void flyTo(FlyToOptions options, [JSAny? eventData]);
 
+  /// Change the viewport of the map, animated over a duration that may be
+  /// zero.
+  external void easeTo(EaseToOptions options, [JSAny? eventData]);
+
+  /// Stop any running camera animation.
+  external void stop();
+
   /// Animate the viewport of the map to fit [LngLatBounds].
   external void fitBounds(LngLatBounds bounds, [FitBoundsOptions? options]);
+
+  /// The camera that fits [bounds], or undefined if they don't fit.
+  external CameraForBoundsResult? cameraForBounds(
+    LngLatBounds bounds, [
+    FitBoundsOptions? options,
+  ]);
+}
+
+/// The result of [Camera.cameraForBounds].
+@anonymous
+@JS()
+extension type CameraForBoundsResult._(JSObject _) implements JSObject {
+  /// The center that fits the bounds.
+  external LngLat get center;
+
+  /// The zoom that fits the bounds.
+  external num get zoom;
+
+  /// The bearing of the camera.
+  external num get bearing;
+
+  /// The pitch of the camera, if the options set one.
+  external num? get pitch;
 }
 
 /// Options used for [Camera.jumpTo].
@@ -24,10 +56,34 @@ extension type JumpToOptions._(CameraOptions _) implements CameraOptions {
   external factory JumpToOptions({
     PaddingOptions? padding,
     num? pitch,
+    num? roll,
     LngLat? around,
     LngLat? center,
     num? zoom,
     num? bearing,
+  });
+}
+
+/// Options used for [Camera.easeTo].
+@anonymous
+@JS()
+extension type EaseToOptions._(CameraOptions _) implements CameraOptions {
+  /// Create a new JS [EaseToOptions].
+  ///
+  /// `offset` puts `center` that far from the middle of the map, and
+  /// `around` keeps its location in place while zooming and rotating.
+  external factory EaseToOptions({
+    LngLat? center,
+    num? zoom,
+    num? bearing,
+    num? pitch,
+    num? roll,
+    PaddingOptions? padding,
+    LngLat? around,
+    Point? offset,
+    num? duration,
+    JSFunction? easing,
+    bool? essential,
   });
 }
 
@@ -42,8 +98,12 @@ extension type FlyToOptions._(CameraOptions _) implements CameraOptions {
     num? speed,
     num? screenSpeed,
     num? maxDuration,
+    num? duration,
+    JSFunction? easing,
+    bool? essential,
     PaddingOptions? padding,
     num? pitch,
+    num? roll,
     LngLat? around,
     LngLat? center,
     num? zoom,
@@ -57,6 +117,7 @@ extension type FlyToOptions._(CameraOptions _) implements CameraOptions {
 extension type FitBoundsOptions._(FlyToOptions _) implements FlyToOptions {
   /// Create a new JS [FitBoundsOptions] object.
   external FitBoundsOptions({
+    bool? animate,
     bool? linear,
     Point? offset,
     num? maxZoom,
@@ -74,6 +135,18 @@ extension type FitBoundsOptions._(FlyToOptions _) implements FlyToOptions {
 extension type PaddingOptions._(JSObject _) implements JSObject {
   /// Create a new JS [PaddingOptions].
   external factory PaddingOptions({num top, num bottom, num right, num left});
+
+  /// Top padding in CSS pixels.
+  external num get top;
+
+  /// Bottom padding in CSS pixels.
+  external num get bottom;
+
+  /// Right padding in CSS pixels.
+  external num get right;
+
+  /// Left padding in CSS pixels.
+  external num get left;
 }
 
 /// https://github.com/maplibre/maplibre-gl-js/blob/41e5b32f5bd6264cbc4a8b38210ec6a410152259/src/ui/camera.ts#L57

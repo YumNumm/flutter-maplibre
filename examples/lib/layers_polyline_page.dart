@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:maplibre/maplibre.dart';
+import 'package:material_ui/material_ui.dart';
 
 @immutable
 class LayersPolylinePage extends StatefulWidget {
@@ -28,29 +28,29 @@ class _LayersPolylinePageState extends State<LayersPolylinePage> {
       appBar: AppBar(title: const Text('Polyline Layers')),
       body: MapLibreMap(
         options: const MapOptions(
-          initZoom: 7,
-          initCenter: Geographic(lon: 9.17, lat: 47.68),
+          initCamera: CameraUpdate.position(
+            zoom: 7,
+            center: Geographic(lon: 9.17, lat: 47.68),
+          ),
         ),
-        onEvent: (event) {
-          if (event case MapEventClick()) {
-            // add the clicked point to the line
-            final newChain = _polylines.first.geometry!.chain.inserted(0, [
-              event.point,
-            ]);
-            setState(() {
-              _polylines[0] = Feature(
-                geometry: LineString.from(newChain.positions),
-              );
-            });
-          }
+        onClick: (event) {
+          // add the clicked point to the line
+          final newChain = _polylines.first.geometry!.chain.inserted(0, [
+            event.point,
+          ]);
+          setState(() {
+            _polylines[0] = Feature(
+              geometry: LineString.from(newChain.positions),
+            );
+          });
         },
         layers: [
           PolylineLayer(
             polylines: _polylines,
-            color: Colors.red,
-            width: 4,
-            blur: 3,
-            dashArray: const [5, 5],
+            color: const .literal(Colors.red),
+            width: const .literal(4),
+            blur: const .literal(3),
+            dashArray: const .literal([5, 5]),
           ),
         ],
       ),

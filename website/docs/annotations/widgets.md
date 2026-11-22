@@ -1,6 +1,6 @@
 ---
 title: 'Widget'
-description: 'Add Flutter Widget to the map.'
+description: 'Show Flutter widgets on the map at geographic positions.'
 icon: lucide/layout-grid
 ---
 
@@ -21,15 +21,17 @@ annotation layers.
 
 ## Basic Usage
 
-```dart linenums="1" hl_lines="11-29"
+```dart linenums="1" hl_lines="14-32"
 @override
 Widget build(BuildContext context) {
   return Scaffold(
     appBar: AppBar(title: const Text('Widget Layer')),
     body: MapLibreMap(
       options: MapOptions(
-        initZoom: 3,
-        initCenter: Geographic(lon: 0, lat: 0),
+        initCamera: CameraUpdate.position(
+          center: Geographic(lon: 0, lat: 0),
+          zoom: 3,
+        ),
       ),
       children: [
         WidgetLayer(
@@ -69,5 +71,5 @@ To add, remove or alter annotation layers, just use `setState()` like you'd do
 with Flutter widgets.
 
 Check out
-the [example app](https://github.com/josxha/flutter-maplibre/blob/v0.3.4/examples/lib/widget_layer_page.dart)
+the [example app](https://github.com/maplibre/flutter-maplibre/blob/main/examples/lib/widget_layer_page.dart)
 if you want to see how things come together.

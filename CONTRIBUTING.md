@@ -1,141 +1,113 @@
 # Contributing
 
-We welcome contributions to this repository. Please follow these steps if
-you're interested in making contributions:
+Thanks for your interest in Flutter MapLibre! Bug reports, ideas,
+documentation and code are all welcome.
 
-## Preceding steps
+## Before you start
 
-1. Ensure that
-   existing [pull requests](https://github.com/josxha/flutter-maplibre/pulls)
-   and [issues](https://github.com/josxha/flutter-maplibre/issues) don’t
-   already cover your contribution or question.
-2. If your pull request will add a major or breaking change, please open a
-   [feature request](https://github.com/josxha/flutter-maplibre/issues/new/choose)
-   first to start a discussion.
-3. The example app under [/example](/example) is used as a reference point.
-   If you have a bug and can't tell if it's related to the package, please try
-   to reproduce it with the example app or create some other way to reproduce
-   your issue.
-4. Ensure that what you have planned is possible by verifying this functionality
-   is supported
-   by [maplibre-native](https://github.com/maplibre/maplibre-native)
-   and [maplibre-gl-js](https://github.com/maplibre/maplibre-gl-js).
+- Search the [issues](https://github.com/maplibre/flutter-maplibre/issues) and
+  [pull requests](https://github.com/maplibre/flutter-maplibre/pulls) to check
+  that your bug or idea isn't covered yet. Planned work is tracked in issues.
+- For a larger feature or a breaking change, open an issue first so we can
+  agree on the design before you spend time on it.
+- Make sure the feature can be built on both
+  [MapLibre Native](https://github.com/maplibre/maplibre-native) (through
+  [maplibre-native-ffi](https://github.com/maplibre/maplibre-native-ffi)) and
+  [MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js).
+- If you're unsure whether a bug comes from this package, try to reproduce it
+  with the [example app](examples).
 
-## Start contributing
+## Repository layout
 
-1. [Fork the repository](https://github.com/josxha/flutter-maplibre/fork) and
-   push your changes to a new branch to avoid conflicts in your forked
-   repository.
-1. (Optional) Install [pre-commit](https://pre-commit.com/) and run `pre-commit install` in the repo directory to add pre-commit hooks for some formatting CI checks.
-1. Along with your contribution please also adapt the example app to showcase
-   any new features or APIs you have developed. This allows quick testing and
-   gives evaluating users a better idea about the functionality of the package.
-1. Consider updating
-   the [documentation](https://github.com/josxha/flutter-maplibre/tree/main/docs/docs)
-   to explain users how to implement.
-1. If there are any changes that developers should be aware of, please update
-   the [CHANGELOG.md](https://github.com/josxha/flutter-maplibre/blob/main/CHANGELOG.md)
-   file together with your pull request.
-1. If you change the [./pigeons/pigeon.dart](./pigeons/pigeon.dart) file, you'll
-   have to run the [pigeon](https://pub.dev/packages/pigeon) code generation.
-   You can use [./pigeons/run_code_gen.sh](./pigeons/run_code_gen.sh)
-   or [./pigeons/run_code_gen.ps1](./pigeons/run_code_gen.ps1).
-1. If you have a pull request that isn't complete yet and want to get
-   feedback, consider
-   to [open a draft pull request](https://github.com/josxha/flutter-maplibre/pulls).
-   This helps others to get
-   involved into the changes more early and allows to link the pull request to
-   open issues. Give a quick summary about your changes listing any related
-   issues that exist. Screenshots and videos are or course welcome, too.
-   Use a [conventional](https://www.conventionalcommits.org/) title if you like.
-1. When your contribution is ready to review, disable the draft state of your
-   pull request and update the summary by editing your initial pull request
-   message. This summary will go into the commit details of the squashed commit.
+The repository is a [pub workspace](https://dart.dev/tools/pub/workspaces):
 
-Thanks for every contribution you make to the project.
+| Path                                   | Content                                                     |
+|----------------------------------------|-------------------------------------------------------------|
+| `packages/maplibre`                    | The app-facing package                                      |
+| `packages/maplibre_platform_interface` | Shared API, style classes and gesture recognizer            |
+| `packages/maplibre_native`             | Every platform except web, on the MapLibre Native C API     |
+| `packages/maplibre_web`                | Web, on MapLibre GL JS                                      |
+| `packages/maplibre_geolocator`         | Adapter from `geolocator` to `UserLocationLayer`            |
+| `examples`                             | Example app and integration tests (`examples/integration_test`) |
+| `website`                              | Documentation website                                       |
 
-# Building
+[Architecture](https://maplibre.org/flutter-maplibre/docs/contributing/architecture/)
+explains how the packages fit together, the
+[API guidelines](https://maplibre.org/flutter-maplibre/docs/contributing/api-guidelines/)
+the rules of the public API, and [AGENTS.md](AGENTS.md) lists the code
+generation commands and the other rules of the code base.
 
-## jnigen
+## Development
 
-Ensure you have JDK 17 installed and set as the system JDK version:
+You need Flutter 3.47 or newer. One `flutter pub get` in the repository root
+resolves every package:
 
 ```bash
-apt install openjdk-17-jdk-headless
-sudo update-alternatives --config java
-```  
-or
-```bash
-brew install openjdk@17
-echo 'export JAVA_HOME="$(/usr/libexec/java_home -v 17)"' >> ~/.zshrc
-source ~/.zshrc
-```  
-
-Build the example project to fetch Gradle dependencies:
-
-```bash
-(cd example/ && flutter build apk)
+flutter pub get
+cd examples
+flutter run -d windows   # or macos, linux, chrome, an iOS simulator or an Android device
 ```
 
-Run jnigen:
+Before you open a pull request:
 
 ```bash
-./run_jnigen.sh
+dart format .
+dart analyze --fatal-warnings --fatal-infos
+flutter test                                                # inside the package you changed
+cd examples && flutter test integration_test/all_test.dart -d <device>
 ```
 
-This script runs `dart run jnigen --config jnigen.yaml` and applies some manual
-fixes to the generated code.
+Optionally, install [pre-commit](https://pre-commit.com/) and run
+`pre-commit install` to run the formatting and analysis checks on every commit.
 
-## ffigen (macOS only)
+## Pull requests
 
-Build the example project:
+1. [Fork the repository](https://github.com/maplibre/flutter-maplibre/fork) and
+   work on a new branch.
+2. Add tests. Prefer unit tests (shared logic belongs in
+   `packages/maplibre_platform_interface/test`); add an integration test in
+   `examples/integration_test` when the behavior depends on a platform.
+3. Showcase new features in the example app and document them on the
+   [website](website/docs).
+4. Add user-facing changes to
+   [packages/maplibre/CHANGELOG.md](packages/maplibre/CHANGELOG.md), with one
+   short bullet per feature or breaking change.
+5. Give your pull request a [conventional](https://www.conventionalcommits.org/)
+   title and list the important changes and any linked issues. Open it as a
+   draft if you'd like early feedback. Pull requests are squash merged, so the
+   title and description become the commit message.
 
-```bash
-(cd example/ && flutter build ios --release --no-codesign)
+## Use of AI
+
+If you use AI tools to write code, tests, documentation, issues or pull
+request descriptions, disclose it in your contribution. You are responsible
+for every change you submit and must understand it. Follow the
+[MapLibre AI policy](https://github.com/maplibre/maplibre/blob/main/AI_POLICY.md).
+
+## Building the MapLibre Native C library locally
+
+`maplibre_native` uses the MapLibre Native C API through
+[maplibre_native_ffi](https://pub.dev/packages/maplibre_native_ffi), whose
+build hook downloads a prebuilt library for each target. You only need a local
+build to work on the C library itself.
+
+Clone [maplibre-native-ffi](https://github.com/maplibre/maplibre-native-ffi)
+at the release tag the pubspec resolves to, build the presets you need as its
+development docs describe, and name the build root in the root
+`pubspec.yaml`. The hook then takes `<preset>/install` under it for each
+target:
+
+```yaml
+hooks:
+  user_defines:
+    maplibre_native_ffi:
+      local_build: ../maplibre-native-ffi/build
 ```
 
-### \<optional> build MapLibre Native with debugging symbols
+Remove the setting to go back to the prebuilt library.
 
-Clone maplibre-native as a sibling to flutter-maplibre:
+## Community
 
-```bash
-git clone https://github.com/maplibre/maplibre-native \
-    --filter=blob:none \
-    --no-checkout \
-    ../maplibre-native
-cd ../maplibre-native
-git checkout ios-v6.19.2
-git submodule update --init --recursive --depth 1
-```
-
-Then build MapLibre (this will take a while):
-
-```bash
-cd maplibre_ios/ios
-./build_maplibre.sh
-```
-
-This will output a copy of MapLibre.xcframework in `maplibre_ios/.build`.
-
-Finally, modify `maplibre_ios/ios/maplibre_ios.podspec` and 
-`maplibre_ios/ios/maplibre_ios/Package.swift` to use your local copy of 
-MapLibre. Comment out lines marked `// FOR PREBUILT LIBRARY` and
-uncomment lines marked `// FOR LOCAL LIBRARY`.
-
-### \</optional>
-
-Generate Obj-C headers for the library's native Swift layer:
-
-```bash
-(cd maplibre_ios/ios/maplibre_ios/Sources/maplibre_ios && ./gen_swift_headers.sh)
-```
-
-Finally, run ffigen from the `maplibre_ios` directory:
-
-```bash
-cd maplibre_ios
-dart run tool/ffigen.dart
-```
-
-The script runs ffigen on the relevant version of MapLibre.framework in the 
-Swift build cache.
+Chat with us in the `#flutter-maplibre` channel of the
+[OSM-US Slack](https://slack.openstreetmap.us). Everyone taking part is
+expected to follow the [code of conduct](CODE_OF_CONDUCT.md).
