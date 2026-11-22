@@ -462,6 +462,7 @@ final class MapLibreMapStateIos extends MapLibreMapState {
 
   /// MLNMapViewDelegate method called when map has finished loading
   void _didFinishLoadingStyle(MLNMapView mapView, MLNStyle mlnStyle) {
+    if (!mounted) return;
     if (!_pendingStyleLoaded) return;
     _pendingStyleLoaded = false;
 
@@ -481,6 +482,7 @@ final class MapLibreMapStateIos extends MapLibreMapState {
     int mlnChangeReason,
     bool animated,
   ) {
+    if (!mounted) return;
     final reason = const CameraChangeReasonResolver().resolve(
       mlnChangeReason: mlnChangeReason,
     );
@@ -493,6 +495,7 @@ final class MapLibreMapStateIos extends MapLibreMapState {
     int reason,
     bool animated,
   ) {
+    if (!mounted) return;
     _onCameraMoved(mapView);
     widget.onEvent?.call(const MapEventCameraIdle());
   }
@@ -512,6 +515,7 @@ final class MapLibreMapStateIos extends MapLibreMapState {
 
   /// MLNMapViewDelegate method called when map becomes idle
   void _didBecomeIdle(MLNMapView mapView) {
+    if (!mounted) return;
     widget.onEvent?.call(const MapEventIdle());
   }
 
