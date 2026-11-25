@@ -76,6 +76,16 @@
   Web `addImage` decodes bytes with the browser's `createImageBitmap`, and
   the helpers hand their `ui.Image` to `addImageFromUiImage`, which passes
   its raw pixels (straight RGBA on web, premultiplied on native).
+- **Encoded images are decoded on the CPU on Android.** `addImage` decodes the
+  bytes with `package:image` and premultiplies them in Dart instead of
+  `ui.instantiateImageCodec` and `Image.toByteData`. On Impeller Vulkan,
+  `toByteData` builds a throwaway `AiksContext` on the IO thread, and its
+  `HostBuffer` calls `vkDeviceWaitIdle` without the queue lock while the
+  raster thread submits. On PowerVR GPUs (Pixel 10 and 11) that wait never
+  returns: image registration hangs, and so does the surface teardown when
+  the app goes to the background (ANR). flutter/flutter#186573 and #197315
+  track the engine side. The canvas, icon and widget helpers still read
+  their `ui.Image` back.
 - **Animations change paint, not data.** The animation page adds its path
   once and moves a `step` on `line-progress` in `LineStyleLayer.gradient`. A GeoJSON
   update per frame re-encodes the data in Dart, parses and indexes it on the

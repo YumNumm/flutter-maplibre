@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
 import 'package:maplibre_native/src/extensions.dart';
+import 'package:maplibre_native/src/image_decoder.dart';
 import 'package:maplibre_native_ffi/maplibre_native_ffi.dart' as mln;
 import 'package:maplibre_platform_interface/maplibre_platform_interface.dart';
 
@@ -332,6 +333,15 @@ class StyleControllerNative extends StyleController
     StyleImageOptions options = const StyleImageOptions(),
   }) async {
     if (_replaced) return;
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      // Image.toByteData on Impeller Vulkan waits for the whole device to go
+      // idle on the IO thread while the raster thread keeps submitting, which
+      // never returns on PowerVR GPUs. Decoding on the CPU avoids the readback.
+      final pixels = decodePremultipliedRgba8(bytes, id);
+      if (_replaced) return;
+      await _map.setStyleImage(id, pixels, options: options.toMln(pixelRatio));
+      return;
+    }
     final image = await _decodeImage(bytes);
     try {
       await addImageFromUiImage(
